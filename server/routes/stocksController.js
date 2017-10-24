@@ -4,6 +4,8 @@ const Stock = require("../models/stock");
 const User = require("../models/user");
 const Babble = require("../models/babble");
 const WatchItem = require("../models/watchitem");
+const passport = require("passport");
+const config = require("../config");
 const moment = require("moment");
 
 // **********************************************************
@@ -48,41 +50,130 @@ stocksController.get("/babbles", function(req, res, next) {
 // ***************************************************
 // Add stock to  watchlist ===========================
 // ***************************************************
-stocksController.post("/:name/watchlist/add", (req, res, next) => {
-  const user = req.user;
-  const stockName = req.params.name.toUpperCase();
+stocksController.post(
+  "/:name/watchlist/add",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const stockName = req.params.name.toUpperCase();
 
-  console.log("**************USER*****", user);
-
-  Stock.findOne({ longName: stockName })
-    .then(stock => {
-      if (!stock) {
-        res.json({
-          error: req.app.get("env") === "development" ? err : {}
+    Stock.findOne({ longName: stockName })
+      .then(stock => {
+        if (!stock) {
+          res.json({
+            error: req.app.get("env") === "development" ? err : {}
+          });
+        }
+        const newWatchItem = new WatchItem({
+          userId: user._id,
+          username: user.username,
+          stockId: stock._id,
+          position: "none"
         });
-      }
-      const newWatchItem = new WatchItem({
-        userId: user._id,
-        username: user.local.username,
-        stockId: stock._id,
-        position: "none"
-      });
 
-      newWatchItem.save().then(newItem => {
-        User.findByIdAndUpdate(
-          user._id,
-          {
-            $addToSet: { watchList: newItem._id }
-          },
-          { new: true }
-        ).then(user => {
-          req.user = user;
-          res.locals.user = user;
-          res.json({ success: true });
+        newWatchItem.save().then(newItem => {
+          User.findByIdAndUpdate(
+            user._id,
+            {
+              $addToSet: { watchList: newItem._id }
+            },
+            { new: true }
+          ).then(user => {
+            req.user = user;
+            res.locals.user = user;
+            res.json({ success: true });
+          });
         });
-      });
-    })
-    .catch(err => console.error(err));
-});
+      })
+      .catch(err => console.error(err));
+  }
+);
+
+// ***************************************************
+// Take position BULL ===========================
+// ***************************************************
+stocksController.post(
+  "/:name/watchlist/bull",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const stockName = req.params.name.toUpperCase();
+
+    Stock.findOne({ longName: stockName })
+      .then(stock => {
+        if (!stock) {
+          res.json({
+            error: req.app.get("env") === "development" ? err : {}
+          });
+        }
+        const newWatchItem = new WatchItem({
+          userId: user._id,
+          username: user.username,
+          stockId: stock._id,
+          initialPrice: stock.price,
+          position: "bull"
+        });
+
+        newWatchItem.save().then(newItem => {
+          User.findByIdAndUpdate(
+            user._id,
+            {
+              $addToSet: { watchList: newItem._id }
+            },
+            { new: true }
+          ).then(user => {
+            req.user = user;
+            res.locals.user = user;
+            res.json({ success: true });
+          });
+        });
+      })
+      .catch(err => console.error(err));
+  }
+);
+
+// ***************************************************
+// Take position BEAR ===========================
+// ***************************************************
+stocksController.post(
+  "/:name/watchlist/bear",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const stockName = req.params.name.toUpperCase();
+
+    Stock.findOne({ longName: stockName })
+      .then(stock => {
+        if (!stock) {
+          res.json({
+            error: req.app.get("env") === "development" ? err : {}
+          });
+        }
+        const newWatchItem = new WatchItem({
+          userId: user._id,
+          username: user.username,
+          stockId: stock._id,
+          initialPrice: stock.price,
+          position: "bear"
+        });
+        console.log("newWatchItem********", newWatchItem);
+
+        newWatchItem.save().then(newItem => {
+          User.findByIdAndUpdate(
+            user._id,
+            {
+              $addToSet: { watchList: newItem._id }
+            },
+            { new: true }
+          ).then(user => {
+            req.user = user;
+            res.locals.user = user;
+            res.json({ success: true });
+          });
+        });
+      })
+      .catch(err => console.error(err));
+  }
+);
 
 module.exports = stocksController;
