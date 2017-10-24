@@ -45,4 +45,41 @@ stocksController.get("/babbles", function(req, res, next) {
   });
 });
 
+// ***************************************************
+// Add stock to  watchlist ===========================
+// ***************************************************
+stocksController.post("/:name/watchlist/add", (req, res, next) => {
+  const user = req.user;
+  const stockId = req.params.name.toUpperCase();
+  Stock.findOne({ longName: stockId })
+    .then(stock => {
+      if (!stock) {
+        res.json({
+          error: req.app.get("env") === "development" ? err : {}
+        });
+      }
+      const newWatchItem = new WatchItem({
+        userId: user._id,
+        username: user.local.username,
+        stockId: stock._id,
+        position: "none"
+      });
+
+      newWatchItem.save().then(newItem => {
+        User.findByIdAndUpdate(
+          user._id,
+          {
+            $addToSet: { watchList: newItem._id }
+          },
+          { new: true }
+        ).then(user => {
+          req.user = user;
+          res.locals.user = user;
+          res.json({ success: true });
+        });
+      });
+    })
+    .catch(err => console.error(err));
+});
+
 module.exports = stocksController;
