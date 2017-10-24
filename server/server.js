@@ -16,8 +16,9 @@ const { Strategy, ExtractJwt } = require("passport-jwt");
 
 const authRoutes = require("./routes/auth");
 // const profileController = require("./routes/profileController.js");
-// const streamController = require("./routes/streamController.js");
-const stockController = require("./routes/stockController.js");
+const babblesController = require("./routes/babblesController.js");
+const stocksController = require("./routes/stocksController.js");
+const watchItemsController = require("./routes/watchItemsController.js");
 // const adminController = require("./routes/adminController.js");
 // const trendingController = require("./routes/trendingController.js");
 // const dashboardController = require("./routes/leaderboardController.js");
@@ -76,7 +77,15 @@ const strategy = new Strategy(
 // tell pasport to use it
 passport.use(strategy);
 
+// routes ======================================================================
+app.use("/api/stocks", stocksController);
+app.use("/api/babbles", babblesController);
+app.use("/api/watchitems", watchItemsController);
 app.use("/api", authRoutes);
+// app.use("/api/profile", profileController);
+// app.use("/api/trending", trendingController);
+// app.use("/api/dashboard", dashboardController);
+// app.use("/api/admin", adminController);
 
 // This is an example of protected route
 app.get(
@@ -105,15 +114,6 @@ app.use((err, req, res, next) => {
     error: req.app.get("env") === "development" ? err : {}
   });
 });
-
-// routes ======================================================================
-
-// app.use("/profile", profileController);
-app.use("/stock", stockController);
-// app.use("/stream", streamController);
-// app.use("/trending", trendingController);
-// app.use("/dashboard", dashboardController);
-// app.use("/admin", adminController);
 
 // launch ======================================================================
 

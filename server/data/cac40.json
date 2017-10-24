@@ -1,6 +1,6 @@
 [
   {
-    "longName": "Solvay",
+    "longName": "SOLVAY",
     "isin": "BE0003470755g",
     "shortName": "SOLB",
     "description": "Description",
@@ -12,7 +12,7 @@
     "volume": 1000
   },
   {
-    "longName": "LafargeHolcim",
+    "longName": "LAFARGEHOLCIM",
     "isin": "CH0012214059p",
     "shortName": "LHN",
     "description": "Description",
@@ -24,7 +24,7 @@
     "volume": 1000
   },
   {
-    "longName": "Credit Agricole",
+    "longName": "CREDIT AGRICOLE",
     "isin": "FR0000045072p",
     "shortName": "ACA",
     "description": "Description",
@@ -36,7 +36,7 @@
     "volume": 1000
   },
   {
-    "longName": "Atos",
+    "longName": "ATOS",
     "isin": "FR0000051732p",
     "shortName": "ATO",
     "description": "Description",
@@ -48,7 +48,7 @@
     "volume": 1000
   },
   {
-    "longName": "Safran",
+    "longName": "SAFRAN",
     "isin": "FR0000073272p",
     "shortName": "SAF",
     "description": "Description",
@@ -60,7 +60,7 @@
     "volume": 1000
   },
   {
-    "longName": "Air Liquide",
+    "longName": "AIR LIQUIDE",
     "isin": "FR0000120073p",
     "shortName": "AI",
     "description": "Description",
@@ -72,7 +72,7 @@
     "volume": 1000
   },
   {
-    "longName": "Carrefour",
+    "longName": "CARREFOUR",
     "isin": "FR0000120172p",
     "shortName": "CA",
     "description": "Description",
@@ -84,7 +84,7 @@
     "volume": 1000
   },
   {
-    "longName": "Total",
+    "longName": "TOTAL",
     "isin": "FR0000120271p",
     "shortName": "FP",
     "description": "Description",
@@ -96,7 +96,7 @@
     "volume": 1000
   },
   {
-    "longName": "L'oreal",
+    "longName": "L'OREAL",
     "isin": "FR0000120321p",
     "shortName": "OR",
     "description": "Description",
@@ -108,7 +108,7 @@
     "volume": 1000
   },
   {
-    "longName": "Accor Hotels",
+    "longName": "ACCOR HOTELS",
     "isin": "FR0000120404p",
     "shortName": "AC",
     "description": "Description",
@@ -120,7 +120,7 @@
     "volume": 1000
   },
   {
-    "longName": "Bouygues",
+    "longName": "BOUYGUES",
     "isin": "FR0000120503p",
     "shortName": "EN",
     "description": "Description",
@@ -132,7 +132,7 @@
     "volume": 1000
   },
   {
-    "longName": "Sanofi",
+    "longName": "SANOFI",
     "isin": "FR0000120578p",
     "shortName": "SAN",
     "description": "Description",
@@ -144,7 +144,7 @@
     "volume": 1000
   },
   {
-    "longName": "Axa",
+    "longName": "AXA",
     "isin": "FR0000120628p",
     "shortName": "CS",
     "description": "Description",
@@ -156,7 +156,7 @@
     "volume": 1000
   },
   {
-    "longName": "Danone",
+    "longName": "DANONE",
     "isin": "FR0000120644p",
     "shortName": "BN",
     "description": "Description",
@@ -168,7 +168,7 @@
     "volume": 1000
   },
   {
-    "longName": "Pernod Ricard",
+    "longName": "PERNOD RICARD",
     "isin": "FR0000120693p",
     "shortName": "RI",
     "description": "Description",
@@ -180,7 +180,7 @@
     "volume": 1000
   },
   {
-    "longName": "Lvmh",
+    "longName": "LVMH",
     "isin": "FR0000121014p",
     "shortName": "MC",
     "description": "Description",
@@ -192,7 +192,7 @@
     "volume": 1000
   },
   {
-    "longName": "Sodexo",
+    "longName": "SODEXO",
     "isin": "FR0000121220p",
     "shortName": "SW",
     "description": "Description",
@@ -204,7 +204,7 @@
     "volume": 1000
   },
   {
-    "longName": "Michelin",
+    "longName": "MICHELIN",
     "isin": "FR0000121261p",
     "shortName": "ML",
     "description": "Description",
@@ -216,7 +216,7 @@
     "volume": 1000
   },
   {
-    "longName": "Kering",
+    "longName": "KERING",
     "isin": "FR0000121485p",
     "shortName": "KER",
     "description": "Description",
@@ -228,7 +228,7 @@
     "volume": 1000
   },
   {
-    "longName": "Peugeot",
+    "longName": "PEUGEOT",
     "isin": "FR0000121501p",
     "shortName": "UG",
     "description": "Description",
@@ -240,7 +240,7 @@
     "volume": 1000
   },
   {
-    "longName": "Essilor Intl",
+    "longName": "ESSILOR INTL",
     "isin": "FR0000121667p",
     "shortName": "EI",
     "description": "Description",
@@ -252,7 +252,7 @@
     "volume": 1000
   },
   {
-    "longName": "Schneider Electric",
+    "longName": "SCHNEIDER ELECTRIC",
     "isin": "FR0000121972p",
     "shortName": "SU",
     "description": "Description",
@@ -264,7 +264,7 @@
     "volume": 1000
   },
   {
-    "longName": "Veolia Environ.",
+    "longName": "VEOLIA ENVIRON",
     "isin": "FR0000124141p",
     "shortName": "VIE",
     "description": "Description",
@@ -276,7 +276,7 @@
     "volume": 1000
   },
   {
-    "longName": "Unibail-Rodamco",
+    "longName": "UNIBAIL-RODAMCO",
     "isin": "FR0000124711p",
     "shortName": "UL",
     "description": "Description",
@@ -288,7 +288,7 @@
     "volume": 1000
   },
   {
-    "longName": "Saint Gobain",
+    "longName": "SAINT GOBAIN",
     "isin": "FR0000125007p",
     "shortName": "SGO",
     "description": "Description",
@@ -300,7 +300,7 @@
     "volume": 1000
   },
   {
-    "longName": "Cap Gemini",
+    "longName": "CAP GEMINI",
     "isin": "FR0000125338p",
     "shortName": "CAP",
     "description": "Description",
@@ -312,7 +312,7 @@
     "volume": 1000
   },
   {
-    "longName": "Vinci",
+    "longName": "VINCI",
     "isin": "FR0000125486p",
     "shortName": "DG",
     "description": "Description",
@@ -324,7 +324,7 @@
     "volume": 1000
   },
   {
-    "longName": "Vivendi",
+    "longName": "VIVENDI",
     "isin": "FR0000127771p",
     "shortName": "VIV",
     "description": "Description",
@@ -336,7 +336,7 @@
     "volume": 1000
   },
   {
-    "longName": "Publicis Groupe",
+    "longName": "PUBLICIS GROUPE",
     "isin": "FR0000130577p",
     "shortName": "PUB",
     "description": "Description",
@@ -348,7 +348,7 @@
     "volume": 1000
   },
   {
-    "longName": "Societe Generale",
+    "longName": "SOCIETE GENERALE",
     "isin": "FR0000130809p",
     "shortName": "GLE",
     "description": "Description",
@@ -360,7 +360,7 @@
     "volume": 1000
   },
   {
-    "longName": "Bnp Paribas",
+    "longName": "BNP PARIBAS",
     "isin": "FR0000131104p",
     "shortName": "BNP",
     "description": "Description",
@@ -372,7 +372,7 @@
     "volume": 1000
   },
   {
-    "longName": "Renault",
+    "longName": "RENAULT",
     "isin": "FR0000131906p",
     "shortName": "RNO",
     "description": "Description",
@@ -384,7 +384,7 @@
     "volume": 1000
   },
   {
-    "longName": "Orange",
+    "longName": "ORANGE",
     "isin": "FR0000133308p",
     "shortName": "ORA",
     "description": "Description",
@@ -396,7 +396,7 @@
     "volume": 1000
   },
   {
-    "longName": "Engie",
+    "longName": "ENGIE",
     "isin": "FR0010208488p",
     "shortName": "ENGI",
     "description": "Description",
@@ -408,7 +408,7 @@
     "volume": 1000
   },
   {
-    "longName": "Legrand SA",
+    "longName": "LEGRAND SA",
     "isin": "FR0010307819p",
     "shortName": "LR",
     "description": "Description",
@@ -420,7 +420,7 @@
     "volume": 1000
   },
   {
-    "longName": "Valeo",
+    "longName": "VALEO",
     "isin": "FR0013176526p",
     "shortName": "FR",
     "description": "Description",
@@ -432,7 +432,7 @@
     "volume": 1000
   },
   {
-    "longName": "TechnipFMC",
+    "longName": "TECHNIP",
     "isin": "GB00BDSFG982p",
     "shortName": "FTI",
     "description": "Description",
@@ -444,7 +444,7 @@
     "volume": 1000
   },
   {
-    "longName": "Arcelor Mittal",
+    "longName": "ARCELOR MITTAL",
     "isin": "LU1598757687p",
     "shortName": "MT",
     "description": "Description",
@@ -456,7 +456,7 @@
     "volume": 1000
   },
   {
-    "longName": "Stmicroelectronics",
+    "longName": "STMICROELECTRONICS",
     "isin": "NL0000226223p",
     "shortName": "STM",
     "description": "Description",
@@ -468,7 +468,7 @@
     "volume": 1000
   },
   {
-    "longName": "Airbus",
+    "longName": "AIRBUS",
     "isin": "NL0000235190p",
     "shortName": "AIR",
     "description": "Description",
