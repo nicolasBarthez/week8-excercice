@@ -1,4 +1,7 @@
+// set up ======================================================================
+// get all the tools we need
 const express = require("express");
+const port = process.env.PORT || 3000;
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
@@ -11,9 +14,24 @@ const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-mongoose.connect("mongodb://localhost/insidersDB-dev", {
-  useMongoClient: true
-});
+const authRoutes = require("./routes/auth");
+// const profileController = require("./routes/profileController.js");
+const babblesController = require("./routes/babblesController.js");
+const stocksController = require("./routes/stocksController.js");
+const watchItemsController = require("./routes/watchItemsController.js");
+// const adminController = require("./routes/adminController.js");
+// const trendingController = require("./routes/trendingController.js");
+// const dashboardController = require("./routes/leaderboardController.js");
+
+// configuration ===============================================================
+// mongodb://localhost/insidersDB-dev
+mongoose
+  .connect("mongodb://localhost/insidersDB-dev", {
+    useMongoClient: true
+  })
+  .then(() => {
+    console.info("The magic happens on port " + port);
+  });
 
 const app = express();
 
@@ -59,8 +77,15 @@ const strategy = new Strategy(
 // tell pasport to use it
 passport.use(strategy);
 
-const authRoutes = require("./routes/auth");
+// routes ======================================================================
+app.use("/api/stocks", stocksController);
+app.use("/api/babbles", babblesController);
+app.use("/api/watchitems", watchItemsController);
 app.use("/api", authRoutes);
+// app.use("/api/profile", profileController);
+// app.use("/api/trending", trendingController);
+// app.use("/api/dashboard", dashboardController);
+// app.use("/api/admin", adminController);
 
 // This is an example of protected route
 app.get(
@@ -89,5 +114,7 @@ app.use((err, req, res, next) => {
     error: req.app.get("env") === "development" ? err : {}
   });
 });
+
+// launch ======================================================================
 
 module.exports = app;
