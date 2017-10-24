@@ -5,7 +5,6 @@ const User = require("../models/user");
 const Babble = require("../models/babble");
 const WatchItem = require("../models/watchitem");
 const moment = require("moment");
-const getStockPrice = require("../api/getStockPrice");
 
 // STOCK SECTION ======================================
 stockController.get("/:name", function(req, res, next) {
@@ -42,8 +41,9 @@ stockController.get("/:name", function(req, res, next) {
       });
   });
 });
-
+// *****************************************************************
 // Follow an insiders
+// *****************************************************************
 stockController.post("/follow/:id", (req, res, next) => {
   const user = req.user;
   const insiderId = req.params.name;
@@ -63,8 +63,9 @@ stockController.post("/follow/:id", (req, res, next) => {
     }
   );
 });
-
+// ***************************************************************
 // Post a babble
+// ***************************************************************
 stockController.post("/:name", (req, res, next) => {
   const user = req.user;
   const stockId = req.params.name;
@@ -96,8 +97,9 @@ stockController.post("/:name", (req, res, next) => {
     });
   });
 });
-
+// **************************************************************
 //reply
+// **************************************************************
 stockController.post("/:name/reply", (req, res, next) => {
   const user = req.user;
   const user_id = user._id;
@@ -130,8 +132,9 @@ stockController.post("/:name/reply", (req, res, next) => {
     );
   });
 });
-
+// **************************************************************
 // New like
+// **************************************************************
 stockController.post("/:name/like", (req, res, next) => {
   const babble = req.body.likeInput;
   const stockId = req.params.name;
@@ -146,8 +149,9 @@ stockController.post("/:name/like", (req, res, next) => {
       res.redirect(`/stock/${stockId}`);
     });
 });
-
+// *****************************************************************
 // Add to watchList
+// ******************************************************************
 stockController.post("/:name/watchlist", (req, res, next) => {
   const user = req.user;
   const stockId = req.params.name.toUpperCase();
@@ -179,8 +183,9 @@ stockController.post("/:name/watchlist", (req, res, next) => {
     })
     .catch(err => console.error(err));
 });
-
+// ***********************************************************
 // Post a bull
+// ***********************************************************
 stockController.post("/:name/bull", (req, res, next) => {
   const user = req.user;
   const stockId = req.params.name.toUpperCase();
@@ -221,8 +226,9 @@ stockController.post("/:name/bull", (req, res, next) => {
     })
     .catch(err => console.error(err));
 });
-
+// **************************************************************
 // Post a bear
+// **************************************************************
 stockController.post("/:name/bear", (req, res, next) => {
   const user = req.user;
   const stockId = req.params.name.toUpperCase();
