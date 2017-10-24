@@ -1,3 +1,5 @@
+// set up ======================================================================
+// get all the tools we need
 const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
@@ -11,6 +13,8 @@ const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
+// configuration ===============================================================
+// mongodb://localhost/insidersDB-dev
 mongoose.connect("mongodb://localhost/insidersDB-dev", {
   useMongoClient: true
 });
