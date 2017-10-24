@@ -67,6 +67,7 @@ const strategy = new Strategy(
     User.findById(payload.id).then(user => {
       if (user) {
         // make the user accessible in req.user
+        console.log("USER", user);
         done(null, user);
       } else {
         done(new Error("User not found"));
@@ -78,10 +79,10 @@ const strategy = new Strategy(
 passport.use(strategy);
 
 // routes ======================================================================
+app.use("/api", authRoutes);
 app.use("/api/stocks", stocksController);
 app.use("/api/babbles", babblesController);
 app.use("/api/watchitems", watchItemsController);
-app.use("/api", authRoutes);
 // app.use("/api/profile", profileController);
 // app.use("/api/trending", trendingController);
 // app.use("/api/dashboard", dashboardController);

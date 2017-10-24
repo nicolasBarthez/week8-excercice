@@ -50,8 +50,11 @@ stocksController.get("/babbles", function(req, res, next) {
 // ***************************************************
 stocksController.post("/:name/watchlist/add", (req, res, next) => {
   const user = req.user;
-  const stockId = req.params.name.toUpperCase();
-  Stock.findOne({ longName: stockId })
+  const stockName = req.params.name.toUpperCase();
+
+  console.log("**************USER*****", user);
+
+  Stock.findOne({ longName: stockName })
     .then(stock => {
       if (!stock) {
         res.json({
