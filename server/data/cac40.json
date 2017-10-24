@@ -6,7 +6,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SOLB.BR",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -18,7 +18,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "LHN.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -30,7 +30,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "ACA.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -42,7 +42,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "ATO.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -54,7 +54,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SAF.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -66,7 +66,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "AI.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -78,7 +78,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "CA.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -90,7 +90,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "FP.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -102,7 +102,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "OR.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -114,7 +114,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "AC.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -126,7 +126,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "EN.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -138,7 +138,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SAN.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -150,7 +150,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "CS.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -162,7 +162,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "BN.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -174,7 +174,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "RI.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -186,7 +186,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "MC.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -198,7 +198,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SW.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -210,7 +210,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "ML.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -222,7 +222,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "KER.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -234,7 +234,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "UG.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -246,7 +246,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "EI.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -258,7 +258,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SU.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -270,7 +270,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "VIE.PA",
-    "Index": "CAC 40",
+    "Index": "CAC40",
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -281,8 +281,8 @@
     "shortName": "UL",
     "description": "Description",
     "stockImg": "image/placeholder.png",
-    "symbolPrice": "UL.PA",
-    "Index": "CAC 40",
+    "symbolPrice": "UL.AS",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -294,7 +294,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "SGO.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -306,7 +306,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "CAP.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -318,7 +318,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "DG.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -330,7 +330,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "VIV.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -342,7 +342,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "PUB.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -354,7 +354,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "GLE.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -366,7 +366,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "BNP.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -378,7 +378,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "RNO.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -390,7 +390,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "ORA.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -402,7 +402,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "ENGI.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -414,7 +414,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "LR.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -426,7 +426,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "FR.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -438,7 +438,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "FTI.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -450,7 +450,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "MT.AS",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -462,7 +462,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "STM.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
@@ -474,7 +474,7 @@
     "description": "Description",
     "stockImg": "image/placeholder.png",
     "symbolPrice": "AIR.PA",
-    "Index": "CAC 40",
+    "index": ["CAC40"],
     "price": 1,
     "variation": 1,
     "volume": 1000
