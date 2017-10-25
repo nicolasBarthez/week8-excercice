@@ -24,8 +24,8 @@
                                         </P>
                                     </p>
                                         <p class="stock-see-desc is-6 has-text-grey-light">
-                                    <router-link :to= class="">
-                                        See description</router-link>
+                                    <a>
+                                        See description</a>
                                         </p>
                                 </div>
 
@@ -34,7 +34,7 @@
                                     <button v-else-if="watchItem.position==='none'" id="adWL" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
                                     <p  v-else>
                                     <button id="adWL" class="button is-small is-outlined is-primary">Close Position</button>
-                                    <span> You're {{Watchlist.position}} from {{WatchList.initialPrice}}</span>                           
+                                    <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>                           
                                     </p>
                                 </form>
 
