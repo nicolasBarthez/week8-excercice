@@ -9,7 +9,7 @@ const config = require("../config");
 const moment = require("moment");
 
 // **********************************************************
-// Send stock info  ======================================
+// Send stock info  =========================================
 // **********************************************************
 
 stocksController.get("/:stockName", function(req, res, next) {
@@ -24,8 +24,34 @@ stocksController.get("/:stockName", function(req, res, next) {
   });
 });
 
+// **********************************************************
+// Send wactlist info  =========================================
+// **********************************************************
+
+stocksController.get(
+  "/:stockName/watchitem",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const stock = req.params.stockName.toUpperCase();
+    const user = req.user;
+
+    Stock.findOne({ longName: stock }, (err, stock) => {
+      WatchItem.findOne({
+        userId: user._id,
+        stockId: stock._id,
+        status: "active"
+      }).then(watchitem => {
+        if (!watchitem) {
+          res.json({ response: false });
+        } else {
+          res.json({ watchitem });
+        }
+      });
+    });
+  }
+);
 // ***************************************************
-// Send babbles info linked to a stock =================
+// Send babbles info linked to a stock ===============
 // ***************************************************
 
 stocksController.get("/babbles", function(req, res, next) {
@@ -51,7 +77,7 @@ stocksController.get("/babbles", function(req, res, next) {
 // Add stock to  watchlist ===========================
 // ***************************************************
 stocksController.post(
-  "/:name/watchlist/add",
+  "/:name/watchitem/add",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
@@ -93,7 +119,7 @@ stocksController.post(
 // Take position BULL ===========================
 // ***************************************************
 stocksController.post(
-  "/:name/watchlist/bull",
+  "/:name/watchitem/bull",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
@@ -133,10 +159,10 @@ stocksController.post(
 );
 
 // ***************************************************
-// Take position BEAR ===========================
+// Take position BEAR ================================
 // ***************************************************
 stocksController.post(
-  "/:name/watchlist/bear",
+  "/:name/watchitem/bear",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
@@ -156,7 +182,6 @@ stocksController.post(
           initialPrice: stock.price,
           position: "bear"
         });
-        console.log("newWatchItem********", newWatchItem);
 
         newWatchItem.save().then(newItem => {
           User.findByIdAndUpdate(
