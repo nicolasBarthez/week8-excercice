@@ -7,13 +7,12 @@ const babbleSchema = new Schema(
       type: String,
       required: [true, "babble can't be empty"]
     },
-    user_id: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: "User"
     },
-    user_name: String,
     stockLink: {
-      type: Array,
+      type: [String],
       default: ["news"]
     },
     like: {

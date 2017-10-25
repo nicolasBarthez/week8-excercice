@@ -1,9 +1,14 @@
 const Stock = require("../models/stock");
 const mongoose = require("mongoose");
+const getstockUpdate = require("./getstocksPrice");
 mongoose.connect("mongodb://localhost/insidersDB-dev");
 
 const StockData = require("../data/cac40");
 
+// Remove all Stock data
+Stock.collection.drop();
+
+// Create stock data
 Stock.create(StockData, (err, stock) => {
   if (err) {
     console.error(err);
@@ -11,3 +16,6 @@ Stock.create(StockData, (err, stock) => {
   stock.forEach(stock => console.log(stock.longName));
   mongoose.disconnect();
 });
+
+// Update CAC40
+getstockUpdate("CAC40");

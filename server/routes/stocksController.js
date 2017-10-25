@@ -23,7 +23,7 @@ stocksController.get("/:stockName", function(req, res, next) {
 });
 
 // **********************************************************
-// Send wachtlist info  =========================================
+// Send wachtlist info  =====================================
 // **********************************************************
 
 stocksController.get(
@@ -63,7 +63,7 @@ stocksController.get("/babbles", function(req, res, next) {
 
     Babble.find({ stockLink: stock._id })
       .sort({ updated_at: -1 })
-      .populate("user_id")
+      .populate("user")
       .exec((err, timeline) => {
         res.json({
           timeline,

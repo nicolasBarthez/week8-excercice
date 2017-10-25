@@ -8,13 +8,14 @@ const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+require("dotenv").config();
 
 const passport = require("passport");
 const User = require("./models/user");
 const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
-const authRoutes = require("./routes/auth");
+const authController = require("./routes/authController.js");
 // const profileController = require("./routes/profileController.js");
 const babblesController = require("./routes/babblesController.js");
 const stocksController = require("./routes/stocksController.js");
@@ -26,7 +27,7 @@ const watchItemsController = require("./routes/watchItemsController.js");
 // configuration ===============================================================
 // mongodb://localhost/insidersDB-dev
 mongoose
-  .connect("mongodb://localhost/insidersDB-dev", {
+  .connect(process.env.MONGODB_URI, {
     useMongoClient: true
   })
   .then(() => {
@@ -79,8 +80,8 @@ const strategy = new Strategy(
 passport.use(strategy);
 
 // routes ======================================================================
-app.use("/api", authRoutes);
-app.use("/api/stocks", stocksController);
+app.use("/api", authController);
+app.use("/api/stock", stocksController);
 app.use("/api/babbles", babblesController);
 app.use("/api/watchitems", watchItemsController);
 // app.use("/api/profile", profileController);

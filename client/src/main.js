@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App";
 import router from "./router";
-import { checkUser, testEndpoint } from "@/api/auth";
+import { checkUser } from "@/api/auth";
 import Buefy from "buefy";
 import "buefy/lib/buefy.css";
 
@@ -28,6 +28,5 @@ new Vue({
 
   created() {
     checkUser(this.$root);
-    testEndpoint();
   }
 });

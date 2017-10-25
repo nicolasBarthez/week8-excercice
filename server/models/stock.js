@@ -12,12 +12,12 @@ const stockSchema = new Schema(
     description: String,
     stockImg: String,
     symbolPrice: String,
-    index: Array,
+    index: [String],
     price: Number,
     variation: Number,
     volume: Number,
     trend: {
-      type: Array,
+      type: [Number],
       default: [50, 50]
     }
   },

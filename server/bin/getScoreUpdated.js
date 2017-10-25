@@ -1,5 +1,6 @@
 // update all score users according to there position
 // To be run everyday at midnight
+require("dotenv").config();
 const Stock = require("../models/stock");
 const axios = require("axios");
 const mongoose = require("mongoose");
@@ -7,7 +8,7 @@ const User = require("../models/user");
 const Babble = require("../models/babble");
 const WatchItem = require("../models/watchitem");
 
-mongoose.connect("mongodb://localhost/insidersDB-dev", {
+mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true
 });
 

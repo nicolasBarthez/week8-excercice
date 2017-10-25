@@ -1,4 +1,5 @@
 // update all stocks with current price
+require("dotenv").config();
 const Stock = require("../models/stock");
 const axios = require("axios");
 const mongoose = require("mongoose");
@@ -7,7 +8,7 @@ const urlStart =
 const urlEnd =
   "%26f%3Dsl1d1t1c1ohgv%26e%3D.csv'%20and%20columns%3D'symbol%2Cprice%2Cdate%2Ctime%2Cchange%2Ccol1%2Chigh%2Clow%2Ccol2'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
-mongoose.connect("mongodb://localhost/insidersDB-dev", {
+mongoose.connect(process.env.MONGODB_URI, {
   useMongoClient: true
 });
 
@@ -29,3 +30,5 @@ function getstockUpdate(index) {
 
 // Update CAC40
 getstockUpdate("CAC40");
+
+model.exports = getstockUpdate;
