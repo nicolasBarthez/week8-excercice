@@ -6,27 +6,25 @@ const insiders = axios.create({
 })
 
 export function getStock(stockName) {
-    console.log("********************************************")
     let url = "/stocks/" + stockName;
     return insiders.get(url).then(response => {
-        console.log("********************************************", response.data.stock)
         return response.data.stock;
     });
 }
 
-export function getWatchItem(id) {
-    let url = "/WatchItems/" + id;
+export function getWatchItem(stockName) {
+    let url = "/stocks/" + stockName + "/watchitem/";
     return insiders.get(url).then(response => {
-        return response.data.WatchItem;
-    });
+            console.log("********************************************", response.data.watchitem)
+            return response.data.watchitem;
+        })
+        .catch(err => {
+            return null;
+        });
 }
 
-export function postWatchItem(id) {
-    let url = "/WatchItems/" + id;
-    return insiders.post(url).then(response => {
-        return response.data.WatchItem;
-    });
-}
+
+
 
 export function getUsers(id) {
     let url = "/users/" + id;
