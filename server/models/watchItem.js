@@ -13,7 +13,7 @@ const watchItemSchema = new Schema(
     },
     stockId: {
       type: Schema.Types.ObjectId,
-      ref: "WatchItem"
+      ref: "Stock"
     },
     position: {
       type: String,
