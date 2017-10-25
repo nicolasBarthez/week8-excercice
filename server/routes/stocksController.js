@@ -127,11 +127,8 @@ stocksController.delete(
     const watchItemId = req.body.watchItemId;
     const stockName = req.params.name.toUpperCase();
 
-    console.log("********watchItemId*********", watchItemId);
-
-    WatchItem.findByIdAndUpdate(watchItemId, { position: "removed" })
+    WatchItem.findByIdAndUpdate(watchItemId, { status: "removed" })
       .then(resp => {
-        console.log("********resp*********", resp);
         User.findByIdAndUpdate(user._id, {
           $pull: { watchList: watchItemId }
         }).then(resp => {
@@ -139,7 +136,7 @@ stocksController.delete(
         });
       })
       .catch(err => {
-        console.log("ERROR (WatchItem.findByIdAndUpdate): ", err);
+        console.log(err);
       });
   }
 );
@@ -179,11 +176,53 @@ stocksController.post(
           ).then(user => {
             req.user = user;
             res.locals.user = user;
-            res.json({ success: true });
+            res.json({ success: true, watchItemId: newItem._id });
           });
         });
       })
-      .catch(err => console.error(err));
+      .catch(err => res.status(404));
+  }
+);
+
+// ***************************************************
+// Close position Bull =======================
+// ***************************************************
+
+stocksController.delete(
+  "/:name/watchitem/bull-rem",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const watchItemId = req.body.watchItemId;
+    const stockName = req.params.name.toUpperCase();
+
+    WatchItem.findById(watchItemId)
+      .populate("stockId")
+      .exec((err, watchItem) => {
+        console.log("************WATCHITEM*****", watchItem);
+        let newStatus =
+          watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
+
+        // Update score of the user
+        let updateScore = Mathfloor(
+          (watchItem.stockId.price - watchItem.initialPrice) * 10
+        );
+        User.findByIdAndUpdate(user._id, {
+          $inc: { score: updateScore }
+        }).exec();
+
+        WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
+          .then(resp => {
+            User.findByIdAndUpdate(user._id, {
+              $pull: { watchList: watchItemId }
+            }).then(resp => {
+              res.json({ success: true });
+            });
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
   }
 );
 
@@ -222,11 +261,52 @@ stocksController.post(
           ).then(user => {
             req.user = user;
             res.locals.user = user;
-            res.json({ success: true });
+            res.json({ success: true, watchItemId: newItem._id });
           });
         });
       })
-      .catch(err => console.error(err));
+      .catch(err => res.status(404));
+  }
+);
+
+// ***************************************************
+// Close position Bear =======================
+// ***************************************************
+
+stocksController.delete(
+  "/:name/watchitem/bear-rem",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const watchItemId = req.body.watchItemId;
+    const stockName = req.params.name.toUpperCase();
+
+    WatchItem.findById(watchItemId)
+      .populate("stockId")
+      .then(watchItem => {
+        let newStatus =
+          watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
+
+        // Update score of the user
+        let updateScore = Mathfloor(
+          (watchItem.stockId.price - watchItem.initialPrice) * -1000
+        );
+        User.findByIdAndUpdate(user._id, {
+          $inc: { score: updateScore }
+        }).exec();
+
+        WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
+          .then(resp => {
+            User.findByIdAndUpdate(user._id, {
+              $pull: { watchList: watchItemId }
+            }).then(resp => {
+              res.json({ success: true });
+            });
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      });
   }
 );
 
