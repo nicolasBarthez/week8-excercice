@@ -57,7 +57,6 @@
 
 <script>
 import { logout } from '@/api/auth'
-import { toggleNav } from '@/router/api'
 
 export default {
   name: 'NavBar',

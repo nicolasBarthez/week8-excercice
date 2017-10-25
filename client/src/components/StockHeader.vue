@@ -1,51 +1,38 @@
 <template>
-       <section class="section main">     
-       <div class="column is-6" id="ActionCard">
-            <div id="cardAction" class="card profile-card">
-                <div class="card-content">
-                    <div class="media" id="stockInfo">
-                        <div class="media-left">
-                            <figure class="image is-64x64 is-circle">
-                                <img :src="stock.stockImg" alt="">
-                            </figure>
-                        </div>
-                        <div class="media-content">
-                            <div class="stock-banner">
-                                <div class="sock-info">
-                                    <p class="title is-5">
-                                        {{stock.longName}}
-                                    </p>
-                                    <p class="subtitle is-6">
-                                        <P class="">
-                                            {{stock.isin}}
-                                        </P>
-                                        <P class="">
-                                            {{stock.shortName}}
-                                        </P>
-                                    </p>
-                                        <p class="stock-see-desc is-6 has-text-grey-light">
-                                    <a>
-                                        See description</a>
-                                        </p>
-                                </div>
-
-                                <form  @submit.prevent="submit" class="add-to-watchlist" >
-                                    <button v-if="!watchItem" id="adWL" class="button is-small is-outlined is-primary">Add to Watchlist</button>
-                                    <button v-else-if="watchItem.position==='none'" id="adWL" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
-                                    <p  v-else>
-                                    <button id="adWL" class="button is-small is-outlined is-primary">Close Position</button>
-                                    <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>                           
-                                    </p>
-                                </form>
-
-                                <div class="stock-price title is-5">
-                                    <strong class="">{{stock.price}} &nbsp;€</strong>
-                                    <small class="">&nbsp;{{stock.variation}} &nbsp;%</small>
-                                </div>
-
+    <div class="column is-6" id="ActionCard">
+        <div id="cardAction" class="card profile-card">
+            <div class="card-content">
+                <div class="media" id="stockInfo">
+                   <div class="media-left">
+                       <figure class="image is-64x64 is-circle">
+                         <img :src="stock.stockImg" alt="">
+                       </figure>
+                   </div>
+                   <div class="media-content">
+                        <div class="stock-banner">
+                           <div class="sock-info">
+                              <p class="title is-5">{{stock.longName}}</p>
+                              <p class="subtitle is-6">
+                                <P class="">{{stock.isin}}</P>
+                                <P class="">{{stock.shortName}}</P>
+                              </p>
+                              <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
-                            <nav id="bandB" class="level media">
-                                <div id="bullsAndBears">
+                            <div class="add-to-watchlist" >
+                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
+                               <button v-else-if="watchItem.position==='none'" id="adWL" @click="RemoveWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
+                               <p  v-else>
+                                <button id="adWL" class="button is-small is-outlined is-primary">Close Position</button>
+                                 <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>                           
+                              </p>
+                            </div>
+                            <div class="stock-price title is-5">
+                               <strong class="">{{stock.price}} &nbsp;€</strong>
+                               <small class="">&nbsp;{{stock.variation}} &nbsp;%</small>
+                           </div>
+                        </div>
+                           <nav id="bandB" class="level media">
+                               <div id="bullsAndBears">
                                     <form v-if="!watchItem || watchItem.position==='none'" id="BBull">
                                         <button id="Bbull"  class="button is-small is-outlined is-primary">Be Bull</button>
                                     </form>
@@ -70,38 +57,49 @@
                                     <p class="is-6 has-text-grey-light"><small>Last Week</small></p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
        </div>
-       </section>
 </template>
 
 <script>
+import { addWatchItem } from "@/router/api";
+import { RemoveWatchItem } from "@/router/api";
 
 export default {
     name: 'StockHeader',
+    data(){
+        return{
+            isWatched:false,
+        }
+    },
     props: {
         stock: Object,
         watchItem: Object,
     },
-    
+
+    methods:{
+        addWatchList() {
+            addWatchItem(this.stock.longName).then(() =>
+            this.isWatched = true,    
+        )},
+
+        RemoveWatchList() {
+            RemoveWatchItem(this.stock.longName).then(() =>
+            this.isWatched = false,    
+        )}
+    },
+    created(){
+        if (this.watchItem){
+            this.isWatched=true
+        }
+    }
 }
 </script>
 
 <style>
-.section.main {
-    background-color: #f9f9f9;
-    padding-top: 100px;
-}
-
-
-.section {
-    padding: 3rem 1.5rem;
-}
-
 .stock-banner {
     display: flex;
     flex-direction: row;

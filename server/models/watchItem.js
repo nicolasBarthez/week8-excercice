@@ -4,8 +4,9 @@ const Schema = mongoose.Schema;
 const watchItemSchema = new Schema(
   {
     userId: {
-      type: String,
-      required: true
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "User"
     },
     username: {
       type: String,
