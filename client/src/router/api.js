@@ -1,14 +1,13 @@
-import axios from 'axios'
+import axios from "axios";
 
 const insiders = axios.create({
-    baseURL: 'http://localhost:3000/api',
-
-})
+    baseURL: "http://localhost:3000/api"
+});
 
 export function getStock(stockName) {
     let url = "/stocks/" + stockName;
     return insiders.get(url).then(response => {
-        return response.data.stock;
+        return response.data;
     });
 }
 
