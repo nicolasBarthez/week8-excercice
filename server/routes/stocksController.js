@@ -42,9 +42,11 @@ stocksController.get(
         status: "active"
       }).then(watchitem => {
         if (!watchitem) {
-          res.json({ response: false });
+          const err = new Error("Not Found");
+          err.status = 404;
+          res.json(err.status);
         } else {
-          res.json({ watchitem });
+          res.json(watchitem);
         }
       });
     });
@@ -114,6 +116,10 @@ stocksController.post(
       .catch(err => console.error(err));
   }
 );
+
+// ***************************************************
+// Remove stock from watchlist ===========================
+// ***************************************************
 
 // ***************************************************
 // Take position BULL ===========================
