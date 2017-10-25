@@ -1,21 +1,27 @@
 <template>
-  <stock-header :stock="stock" :watchItem ="watchItem"></stock-header>
+  <section class="section main">
+    <stock-header :stock="stock" :watchItem ="watchItem"></stock-header>
+    <side-current-insight :user="user"></side-current-insight>
+  </section>
 </template>
 
 <script>
 import { getStock } from "@/router/api";
 import { getWatchItem } from "@/router/api";
-import StockHeader from '../components/StockHeader'
+import StockHeader from '../components/StockHeader';
+import SideCurrentInsight from '../components/SideCurrentInsight';
 
 export default {
     data() {
     return {
       stock:{},
       watchItem:{},
+      user:{},
       }
     },
      components:{
     StockHeader,
+    SideCurrentInsight,
   },
     created() {
         const stockName = this.$route.params.stockName
@@ -27,5 +33,12 @@ export default {
 </script>
 
 <style>
+.section.main {
+    background-color: #f9f9f9;
+    padding-top: 100px;
+}
 
+.section {
+    padding: 3rem 1.5rem;
+}
 </style>
