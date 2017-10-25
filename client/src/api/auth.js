@@ -8,18 +8,6 @@ const auth = axios.create({
   baseURL: "http://localhost:3000/api"
 });
 
-// export function testEndpoint() {
-//   console.log("test");
-//   return auth
-//     .post("/stocks/axa/watchlist/add")
-//     .then(resp => {
-//       console.log(resp);
-//     })
-//     .catch(err => {
-//       console.error(err);
-//     });
-// }
-
 function saveUserInfo({ token, user }) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   localStorage.setItem("token", token);

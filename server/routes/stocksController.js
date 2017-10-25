@@ -18,9 +18,7 @@ stocksController.get("/:stockName", function(req, res, next) {
   Stock.findOne({ longName: stock }, (err, stock) => {
     if (err) return next(err);
     if (!stock) return next(err);
-    res.json({
-      stock
-    });
+    res.json(stock);
   });
 });
 
@@ -109,7 +107,7 @@ stocksController.post(
           ).then(user => {
             req.user = user;
             res.locals.user = user;
-            res.json({ success: true });
+            res.json({ success: true, watchItemId: newItem._id });
           });
         });
       })
@@ -118,8 +116,33 @@ stocksController.post(
 );
 
 // ***************************************************
-// Remove stock from watchlist ===========================
+// Remove stock from watchlist =======================
 // ***************************************************
+
+stocksController.delete(
+  "/:name/watchitem",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const watchItemId = req.body.watchItemId;
+    const stockName = req.params.name.toUpperCase();
+
+    console.log("********watchItemId*********", watchItemId);
+
+    WatchItem.findByIdAndUpdate(watchItemId, { position: "removed" })
+      .then(resp => {
+        console.log("********resp*********", resp);
+        User.findByIdAndUpdate(user._id, {
+          $pull: { watchList: watchItemId }
+        }).then(resp => {
+          res.json({ success: true });
+        });
+      })
+      .catch(err => {
+        console.log("ERROR (WatchItem.findByIdAndUpdate): ", err);
+      });
+  }
+);
 
 // ***************************************************
 // Take position BULL ===========================
