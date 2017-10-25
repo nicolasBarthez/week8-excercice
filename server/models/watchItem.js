@@ -25,15 +25,9 @@ const watchItemSchema = new Schema({
         default: 0
     },
     status: {
-<<<<<<< HEAD
         type: String,
-        enum: ["won", "lost", "active"],
+        enum: ["won", "lost", "active", "removed"],
         default: "active"
-=======
-      type: String,
-      enum: ["won", "lost", "active", "removed"],
-      default: "active"
->>>>>>> 3beb0d2863d5a5ec72013f3c3c7ec40e95f4a29e
     }
 }, {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

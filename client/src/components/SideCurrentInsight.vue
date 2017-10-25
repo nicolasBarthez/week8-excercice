@@ -5,25 +5,25 @@
     <div class="is-sticky">
         <div class="card-image">
             <nav class="navbar is-dark">
-               <a id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</a>
+               <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
             </nav>
         </div>
-        <div v-for="(watchItem, index) in $root.user.watchList" :key="index"class="card profile-card">
+        <div v-for="(watchItem, index) in watchList" :key="index"class="card profile-card">
             <div id="watchList" class="card-content">
                 <div class="Symbol">
-                   <h1 class="stockName" data-replace="Symbol">{{$root.user.watchList.watchItem.stockId.longName}}</h1>
-                   <b class="price is-6">{{$root.user.watchList.watchItem.stockId.price}}</b>
-                   <b :id="variation" :class="{'is-6':true, 'has-text-green':$root.user.watchList.watchItem.stockId.variation>0, 'has-text-red':$root.user.watchList.watchItem.stockId.variation<0}">
-                       <span class= "indice">{{$root.user.watchList.watchItem.stockId.variation}}</span>
+                   <h1 class="stockName" data-replace="Symbol">{{watchList.watchItem.stockId.longName}}</h1>
+                   <b class="price is-6">{{watchList.watchItem.stockId.price}}</b>
+                   <b :id="variation" :class="{'is-6':true, 'has-text-green':watchList.watchItem.stockId.variation>0, 'has-text-red':watchList.watchItem.stockId.variation<0}">
+                       <span class= "indice">{{watchList.watchItem.stockId.variation}}</span>
                    </b>  
                 </div>
                 <div id="bullAndBear"><img src="/images/bulls.png" alt="bulls-and-bears"></div>
                 <div id="position">
                    <span class="stockName">Performance</span>
                    <h1 id="WinOrLoss">{{performanceWatchlist}}&nbsp;%</h1>
-                   <form id="close" action="/" method="post">
+                   <div id="close" action="/" method="post">
                       <button id="Bclose" type="submit" class="button is-small is-outlined is-primary">Close</button>
-                   </form>
+                   </div>
                 </div>
             </div>
         </div>
@@ -40,13 +40,13 @@ export default {
      name: 'SideCurrentInsight',
     data(){
         return {
-        performanceWatchlist: $root.user.watchList.watchItem.initialPrice-($root.user.watchList.watchItem.stockId.price*100/$root.user.watchList.watchItem.initialPrice)
+        performanceWatchlist: watchList.watchItem.initialPrice-(watchList.watchItem.stockId.price*100/watchList.watchItem.initialPrice)
         }
     },
      props: {
         user: Object,
     },
-    
+
     methods:{
     }
 }

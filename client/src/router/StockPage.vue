@@ -1,7 +1,7 @@
 <template>
   <section class="section main">
     <stock-header :stock="stock" :watchItem ="watchItem"></stock-header>
-    <side-current-insight :user="user"></side-current-insight>
+   
   </section>
 </template>
 
