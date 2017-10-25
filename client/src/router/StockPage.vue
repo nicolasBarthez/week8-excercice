@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import { getStock } from "@/router/api";
-import { getWatchItem } from "@/router/api";
+import { getStock } from "@/api/api";
+import { getWatchItem } from "@/api/api";
 import StockHeader from '../components/StockHeader';
 import SideCurrentInsight from '../components/SideCurrentInsight';
 

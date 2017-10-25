@@ -65,10 +65,10 @@
 </template>
 
 <script>
-import { addWatchItem } from "@/router/api";
-import { RemoveWatchItem } from "@/router/api";
-import { BeBear } from "@/router/api";
-import { BeBull } from "@/router/api";
+import { addWatchItem } from "@/api/api";
+import { RemoveWatchItem } from "@/api/api";
+import { BeBear } from "@/api/api";
+import { BeBull } from "@/api/api";
 
 export default {
     name: 'StockHeader',
