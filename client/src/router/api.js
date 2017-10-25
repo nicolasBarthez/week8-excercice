@@ -1,27 +1,36 @@
 import axios from 'axios'
 
 const insiders = axios.create({
-    baseURL: 'https://api.com',
+    baseURL: 'http://localhost:3000/api',
 
 })
 
-export function getStock(string) {
-    let url = "/database/search?q=" + string + "&type=artist";
+export function getStock(stockName) {
+    console.log("********************************************")
+    let url = "/stocks/" + stockName;
     return insiders.get(url).then(response => {
-        return response.data.results;
+        console.log("********************************************", response.data.stock)
+        return response.data.stock;
+    });
+}
+
+export function getWatchItem(id) {
+    let url = "/WatchItems/" + id;
+    return insiders.get(url).then(response => {
+        return response.data.WatchItem;
+    });
+}
+
+export function postWatchItem(id) {
+    let url = "/WatchItems/" + id;
+    return insiders.post(url).then(response => {
+        return response.data.WatchItem;
     });
 }
 
 export function getUsers(id) {
     let url = "/users/" + id;
     return insiders.get(url).then(response => {
-        return response.data;
-    });
-}
-
-export function getWatchList(id) {
-    let url = "/WatchItems/" + id;
-    return insiders.get(url).then(response => {
-        return response.data.releases;
+        return response.data.user;
     });
 }

@@ -3,7 +3,7 @@
         <div class="container" id="top2">
             <div class="nav">
                 <a class="nav-item" href="/">
-                    <img id="logo" src="static/images/logo.png" alt="Description">
+                    <img id="logo" src="/static/images/logo.png" alt="Description">
                 </a>
             </div>
             <div class="nav" id="formNav">

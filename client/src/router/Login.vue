@@ -12,7 +12,7 @@
             <section class="hero is-fullheight">
                 <div class="hero-heading">
                     <div class="section has-text-centered">
-                        <img src="static/images/logo.png" alt="Insiders logo" width="150px">
+                        <img src="/static/images/logo.png" alt="Insiders logo" width="150px">
                     </div>
                 </div>
                 <div class="hero-body">

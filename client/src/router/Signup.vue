@@ -16,7 +16,7 @@
                              <b-input v-model="username" ></b-input>
                             </b-field>
                             <b-field label="Email">
-                             <b-input v-model="email" ></b-input>
+                             <b-input v-model="email" type="email"></b-input>
                             </b-field>
                             <hr>
                         
