@@ -37,7 +37,8 @@ export function addWatchItem(stockName) {
             return response.data;
         })
         .catch(err => {
-            return err;
+            console.error(err)
+            throw err;
         });
 }
 
@@ -95,6 +96,19 @@ export function beBear(stockName) {
         })
         .catch(err => {
             return err;
+        });
+}
+
+export function getTrend(stockName) {
+    let url = "/stocks/" + stockName + "/bull-bear-trend";
+    return insiders
+        .get(url)
+        .then(response => {
+            //console.log("DEBUG response.data", response);
+            return response.data;
+        })
+        .catch(err => {
+            throw err;
         });
 }
 
