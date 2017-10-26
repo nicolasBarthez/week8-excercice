@@ -6,11 +6,14 @@ const insiders = axios.create({
 
 export function getStock(stockName) {
     let url = "/stocks/" + stockName;
-    return insiders.get(url).then(response => {
-        return response.data;
-    }).catch(err => {
-        throw err;
-    })
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            throw err;
+        });
 }
 
 export function getWatchItem(stockName) {
@@ -18,7 +21,7 @@ export function getWatchItem(stockName) {
     return insiders
         .get(url)
         .then(response => {
-            console.log("DEBUG response.data", response.data);
+            //console.log("DEBUG response.data", response);
             return response.data;
         })
         .catch(err => {
@@ -40,9 +43,30 @@ export function addWatchItem(stockName) {
 
 export function removeWatchItem(stockName, watchitem_id) {
     let url = `/stocks/${stockName}/watchitem/${watchitem_id}`;
+    console.log("********************************************", watchitem_id);
     return insiders
         .delete(url)
         .then(response => {
+            console.log(
+                "********************************************",
+                response.data
+            );
+            return response.data;
+        })
+        .catch(err => {
+            return err;
+        });
+}
+export function removePosition(stockName, watchitem_id) {
+    let url = `/stocks/${stockName}/watchitem/${watchitem_id}`;
+    console.log("********************************************", watchitem_id);
+    return insiders
+        .patch(url)
+        .then(response => {
+            console.log(
+                "********************************************",
+                response.data
+            );
             return response.data;
         })
         .catch(err => {

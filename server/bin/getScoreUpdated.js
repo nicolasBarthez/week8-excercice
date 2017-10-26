@@ -18,9 +18,9 @@ function calculateScore(position, initialPrice, currentPrice) {
   switch (position) {
     case "bull":
       break;
-      score = Mathfloor((initialPrice - currentPrice) / initialPrice * 1000);
+      score = Math.floor((initialPrice - currentPrice) / initialPrice * 1000);
     case "bear":
-      score = Mathfloor((initialPrice - currentPrice) / initialPrice * -1000);
+      score = Math.floor((initialPrice - currentPrice) / initialPrice * -1000);
       break;
     default:
       score = 0;
@@ -49,7 +49,7 @@ WatchItem.find({
             watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
 
           // Update score of the user
-          let updateScore = Mathfloor(
+          let updateScore = Math.floor(
             (watchItem.stockId.price - watchItem.initialPrice) * 10
           );
         } else if(watchItem.position ==="bear"){
@@ -57,7 +57,7 @@ WatchItem.find({
             watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
 
           // Update score of the user
-          let updateScore = Mathfloor(
+          let updateScore = Math.floor(
             (watchItem.stockId.price - watchItem.initialPrice) * -10
           );
         }

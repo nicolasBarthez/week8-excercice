@@ -69,6 +69,7 @@ import { addWatchItem } from "@/api/api";
 import { removeWatchItem } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
+import { removePosition } from "@/api/api";
 
 // FIXME: emit un event attrapé par le parent pour changer le watchitem
 // FIXME: Faire de isWatched une computed property
@@ -118,18 +119,16 @@ export default {
         checkWatchItem() {
             if (this.watchItem===null){
             this.isWatched=false
-        } else {
+            } else {
             this.isWatched=true
-        }
-
+            }
         }
     },
-    created(){
-        this.checkWatchItem()
-        console.log("µµµµµµµµµµµµµµ", this.watchItem);
-        
-    }
-}
+    
+  created() {
+    this.checkWatchItem();
+  }
+};
 </script>
 
 <style>
