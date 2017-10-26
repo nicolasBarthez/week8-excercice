@@ -2,7 +2,7 @@
   <section class="section main">
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
-    
+
 
   </section>
 
@@ -12,40 +12,41 @@
 import { getStock } from "@/api/api";
 import { getWatchItem } from "@/api/api";
 import { getStockBabbles } from "@/api/api";
-import StockHeader from '../components/StockHeader';
-import SideCurrentInsight from '../components/SideCurrentInsight';
+import StockHeader from "../components/StockHeader";
+import SideCurrentInsight from "../components/SideCurrentInsight";
 
 export default {
-    data() {
+  data() {
     return {
-      stock:null,
-      watchItem: null,
-      }
-    },
-    components:{
-      StockHeader,
-      SideCurrentInsight,
-    },
-    methods : {
-      updateWatchList(item) {
-        this.watchItem=item
-        console.log(item)
-      }
-    },
-    created() {
-        const stockName = this.$route.params.stockName
-        getStock(stockName).then(stock => this.stock = stock);
-
-        getWatchItem(stockName).then(watchItem => {
-          this.watchItem = watchItem 
-          console.log('******************watchItem',watchItem)
-          }).catch(err => {throw err})
-
-        //getStockBabbles(stockName).then(babbles => this.babbles = babbles);
-
-        
+      stock: null,
+      watchItem: null
+    };
+  },
+  components: {
+    StockHeader,
+    SideCurrentInsight
+  },
+  methods: {
+    updateWatchList(item) {
+      this.watchItem = item;
+      console.log(item);
     }
-}
+  },
+  created() {
+    const stockName = this.$route.params.stockName;
+    getStock(stockName).then(stock => (this.stock = stock));
+
+    getWatchItem(stockName)
+      .then(watchItem => {
+        this.watchItem = watchItem;
+      })
+      .catch(err => {
+        throw err;
+      });
+
+    //getStockBabbles(stockName).then(babbles => this.babbles = babbles);
+  }
+};
 </script>
 
 <style>
