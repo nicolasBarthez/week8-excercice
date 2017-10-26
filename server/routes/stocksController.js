@@ -1,42 +1,34 @@
 const express = require("express");
 const stocksController = express.Router();
-const Stock = require("../models/stock");
-const User = require("../models/user");
-const Babble = require("../models/babble");
-const WatchItem = require("../models/watchitem");
+const Stock = require(".. / models / stock");
+const User = require(".. / models / user");
+const Babble = require(".. / models / babble");
+const WatchItem = require(".. / models / watchitem");
 const passport = require("passport");
-const config = require("../config");
+const config = require(".. / config");
 const moment = require("moment");
-
 // **********************************************************
 // Send stock info  =========================================
 // **********************************************************
-
 stocksController.get("/:stockName", function(req, res, next) {
     const stock = req.params.stockName.toUpperCase();
-
     Stock.findOne({ longName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
         res.json(stock);
     });
 });
-
 // **********************************************************
 // Send BULL & BEAR trending percentage according nb of days
 // **********************************************************
-
-stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
+stocksController.get("/:stockName/bull - bear - trend", function(req, res, next) {
     let attribute = req.query.history;
     const stock = req.params.stockName.toUpperCase();
-
     Stock.findOne({ longName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
-
         const today = moment().startOf("day");
         const thirtyDaysAgo = moment(today).subtract(attribute, "days");
-
         WatchItem.find({
             stockId: stock._id,
             status: "active",
@@ -56,7 +48,6 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
             var nbBull = countPositions(activeWatchItems, "bull");
             var nbBear = countPositions(activeWatchItems, "bear");
             var percentage = [nbBull / (nbBull + nbBear), nbBear / (nbBull + nbBear)];
-
             res.json(percentage);
         });
     });
@@ -64,14 +55,11 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
 // **********************************************************
 // Send wachtlist info  =====================================
 // **********************************************************
-
-stocksController.get(
-    "/:stockName/watchitem",
+stocksController.get("/:stockName/watchitem",
     passport.authenticate("jwt", config.jwtSession),
     function(req, res, next) {
         const stock = req.params.stockName.toUpperCase();
         const user = req.user;
-
         Stock.findOne({ longName: stock }, (err, stock) => {
             WatchItem.findOne({
                 userId: user._id,
@@ -92,14 +80,11 @@ stocksController.get(
 // ***************************************************
 // Send babbles info linked to a stock ===============
 // ***************************************************
-
 stocksController.get("/babbles", function(req, res, next) {
     const stock = req.params.name.toUpperCase();
-
     Stock.findOne({ longName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
-
         Babble.find({ stockLink: stock._id })
             .sort({ updated_at: -1 })
             .populate("user")
@@ -111,17 +96,14 @@ stocksController.get("/babbles", function(req, res, next) {
             });
     });
 });
-
 // ***************************************************
 // Add stock to  watchlist ===========================
 // ***************************************************
-stocksController.post(
-    "/:name/watchitem/add",
+stocksController.post("/:name/watchitem / add",
     passport.authenticate("jwt", config.jwtSession),
     (req, res, next) => {
         const user = req.user;
         const stockName = req.params.name.toUpperCase();
-
         Stock.findOne({ longName: stockName })
             .then(stock => {
                 if (!stock) {
@@ -135,7 +117,6 @@ stocksController.post(
                     stockId: stock._id,
                     position: "none"
                 });
-
                 newWatchItem.save().then(newItem => {
                     User.findByIdAndUpdate(
                         user._id, {
@@ -151,19 +132,15 @@ stocksController.post(
             .catch(err => console.error(err));
     }
 );
-
 // ***************************************************
 // Remove stock from watchlist =======================
 // ***************************************************
-
-stocksController.delete(
-    "/:name/watchitem/:watchitemId",
+stocksController.delete("/:name/watchitem /: watchitemId",
     passport.authenticate("jwt", config.jwtSession),
     (req, res, next) => {
         const user = req.user;
         const watchItemId = req.params.watchitemId;
         const stockName = req.params.name.toUpperCase();
-
         WatchItem.findByIdAndUpdate(watchItemId, { status: "removed" })
             .then(resp => {
                 User.findByIdAndUpdate(user._id, {
@@ -177,17 +154,14 @@ stocksController.delete(
             });
     }
 );
-
 // ***************************************************
 // Take position BULL ===========================
 // ***************************************************
-stocksController.post(
-    "/:name/watchitem/bull",
+stocksController.post("/:name/watchitem / bull",
     passport.authenticate("jwt", config.jwtSession),
     (req, res, next) => {
         const user = req.user;
         const stockName = req.params.name.toUpperCase();
-
         Stock.findOne({ longName: stockName })
             .then(stock => {
                 if (!stock) {
@@ -202,7 +176,6 @@ stocksController.post(
                     initialPrice: stock.price,
                     position: "bull"
                 });
-
                 newWatchItem.save().then(newItem => {
                     User.findByIdAndUpdate(
                         user._id, {
@@ -218,80 +191,65 @@ stocksController.post(
             .catch(err => res.status(404));
     }
 );
-
 // ***************************************************
 // Close position Bull & Bear =======================
 // ***************************************************
-
-stocksController.patch(
-        "/:name/watchitem/:watchitemId",
-        passport.authenticate("jwt", config.jwtSession),
-        (req, res, next) => {
-            const user = req.user;
-            const watchItemId = req.params.watchitemId;
-            const stockName = req.params.name.toUpperCase();
-
-            WatchItem.findById(watchItemId)
-                .populate("stockId")
-                .exec((err, watchItem) => {
-                    console.log("************WATCHITEM*****", watchItem);
-                    var position = watchItem.position;
-                    if (position === "bull") {
-                        // Define new status
-                        var newStatus =
-                            watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
-
-                        // Update score of the user
-                        var updateScore = Math.floor(
-                            (watchItem.stockId.price - watchItem.initialPrice) * 10
-                        );
-                        User.findByIdAndUpdate(user._id, {
-                            $inc: { score: updateScore }
-                        }).exec();
-                    } else {
-                        var newStatus =
-                            watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
-
-                        // Update score of the user
-                        var updateScore = Math.floor(
-                            (watchItem.stockId.price - watchItem.initialPrice) * -10
-                        );
-                    }
-                    // Update status of watchList
+stocksController.patch("/:name/watchitem /: watchitemId",
+    passport.authenticate("jwt", config.jwtSession),
+    (req, res, next) => {
+        const user = req.user;
+        const watchItemId = req.params.watchitemId;
+        const stockName = req.params.name.toUpperCase();
+        WatchItem.findById(watchItemId)
+            .populate("stockId")
+            .exec((err, watchItem) => {
+                console.log(" ** ** ** ** ** ** WATCHITEM ** ** * ", watchItem);
+                let position = watchItem.position;
+                if (position === "bull") {
+                    // Define new status
+                    let newStatus =
+                        watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
+                    // Update score of the user
+                    const updateScore = Math.floor(
+                        (watchItem.stockId.price - watchItem.initialPrice) * 10
+                    );
                     User.findByIdAndUpdate(user._id, {
                         $inc: { score: updateScore }
                     }).exec();
-
-                    WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
-                        .then(resp => {
-                            User.findByIdAndUpdate(user._id, {
-                                $pull: { watchList: watchItemId }
-                            }).then(resp => {
-                                res.json({ success: true });
-                            });
-                        })
-                        .catch(err => {
-                            console.log(err);
+                } else {
+                    let newStatus =
+                        watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
+                    // Update score of the user
+                    const updateScore = Math.floor(
+                        (watchItem.stockId.price - watchItem.initialPrice) * -10
+                    );
+                }
+                // Update status of watchList
+                User.findByIdAndUpdate(user._id, {
+                    $inc: { score: updateScore }
+                }).exec();
+                WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
+                    .then(resp => {
+                        User.findByIdAndUpdate(user._id, {
+                            $pull: { watchList: watchItemId }
+                        }).then(resp => {
+                            res.json({ success: true });
                         });
-                });
-        })
-    .catch(err => {
-        console.log(err);
-    });
-});
-}
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    });
+            });
+    }
 );
-
 // ***************************************************
 // Take position BEAR ================================
 // ***************************************************
-stocksController.post(
-    "/:name/watchitem/bear",
+stocksController.post("/:name/watchitem / bear",
     passport.authenticate("jwt", config.jwtSession),
     (req, res, next) => {
         const user = req.user;
         const stockName = req.params.name.toUpperCase();
-
         Stock.findOne({ longName: stockName })
             .then(stock => {
                 if (!stock) {
@@ -306,7 +264,6 @@ stocksController.post(
                     initialPrice: stock.price,
                     position: "bear"
                 });
-
                 newWatchItem.save().then(newItem => {
                     User.findByIdAndUpdate(
                         user._id, {
@@ -322,5 +279,4 @@ stocksController.post(
             .catch(err => res.status(404));
     }
 );
-
 module.exports = stocksController;
