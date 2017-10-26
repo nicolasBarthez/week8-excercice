@@ -1,4 +1,5 @@
 const Stock = require("../models/stock");
+const WatchItem = require("../models/watchitem");
 const mongoose = require("mongoose");
 const getstockUpdate = require("./getstocksPrice");
 mongoose.connect("mongodb://localhost/insidersDB-dev");

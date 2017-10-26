@@ -32,11 +32,14 @@ WatchItem.find({ status: "active" })
   .populate("stockId")
   .exec((err, watchList) => {
     // calculate score
-    watchItem.forEach(watchItem => {
-      let score = calculateScore(
+    watchList.forEach(watchItem => {
+      let updateScore = calculateScore(
         watchItem.position,
         watchItem.initialPrice,
         watchItem.stockId.price
       );
+      User.findByIdAndUpdate(userId._id, {
+        $inc: { score: updateScore }
+      }).exec();
     });
   });

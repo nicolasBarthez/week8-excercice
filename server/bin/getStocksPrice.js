@@ -31,4 +31,4 @@ function getstockUpdate(index) {
 // Update CAC40
 getstockUpdate("CAC40");
 
-model.exports = getstockUpdate;
+module.exports = getstockUpdate;

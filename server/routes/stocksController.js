@@ -23,6 +23,33 @@ stocksController.get("/:stockName", function(req, res, next) {
 });
 
 // **********************************************************
+// Send BULL & BEAR trending percentage =====================
+// **********************************************************
+
+stocksController.get("/:stockName/bullbeartrend", function(req, res, next) {
+  const stock = req.params.stockName.toUpperCase();
+
+  Stock.findOne({ longName: stock }, (err, stock) => {
+    if (err) return next(err);
+    if (!stock) return next(err);
+
+    WatchItem.find({
+      stockId: stock._id,
+      status: "active"
+    }).then(activeWatchItems => {
+      function countPositions(array, property, bullOrBear) {
+        return array.filter(object => {
+          property === position;
+        }).length;
+      }
+      var nbBullFull = countPositions(activeWatchItems, position, "bull");
+      var nbBearFull = countPositions(activeWatchItems, position, "bull");
+      res.json([nbBullFull, nbBearFull]);
+    });
+  });
+});
+
+// **********************************************************
 // Send wachtlist info  =====================================
 // **********************************************************
 
