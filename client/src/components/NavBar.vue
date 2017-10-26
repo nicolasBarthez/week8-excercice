@@ -8,51 +8,50 @@
             </div>
             <div class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
-                    <form method="post" action="/search-stock" class="control has-icons-left" id="formNav2">
+                    <div class="control has-icons-left" id="formNav2">
                         <input id="search-query" name="search" class="input is-hovered" type="text" placeholder="Stock or Username">
                         <span id="loupe" class="icon is-small is-left">
-                  <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
-                </span>
-                    </form>
+                            <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
+                        </span>
+                    </div>
                 </div>
             </div>
             <label class="nav-toggle" for="nav-toggle-state">
-    <span></span>           <!-- ^^^^^^^^^^^^^^^^ -->
-    <span></span>
-    <span></span>
-  </label>
+                <span></span>           
+                <span></span>
+                <span></span>
+            </label>
 
-  <!-- This checkbox is hidden -->
-  <input type="checkbox" id="nav-toggle-state" />
+             <!-- This checkbox is hidden -->
+             <input type="checkbox" id="nav-toggle-state" />
             
             <div class="nav-right nav-menu">
                 <div id="menu">
                  <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
                     :class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
                 </router-link>
-            </div>
-            <span class="nav-item">
+                </div>
+                <span class="nav-item">
                  <router-link v-if="!$root.user" to="/login" class="button ">Login</router-link>
                  <router-link v-if="!$root.user" to="/signup" class="button">Signup</router-link>
-            </span>
-            <div class="nav-profile" v-if="$root.user">
-                <a id="profile-pic" href="/profile">
-                <div class="nav-photo-profil">
-                   <img :src="$root.user.picProfile" alt="">
-            </div>
-                </a>
-            <div class="nav-user-profile">
-                <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
-                    <div class="nav-status">
-                      <div class="nav-status-light"></div>
-                       <a class="navbar-item" @click.prevent="logout" v-if="$root.user" href="#">Logout</a>
-                      </div>
+                </span>
+                <div class="nav-profile" v-if="$root.user">
+                    <router-link to="/" id="profile-pic">
+                        <div class="nav-photo-profil">
+                        <img :src="$root.user.picProfile" alt="">
+                        </div>
+                    </router-link>
+                    <div class="nav-user-profile">
+                        <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
+                        <div class="nav-status">
+                            <div class="nav-status-light"></div>
+                           <a class="navbar-item" @click.prevent="logout" v-if="$root.user" href="#">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
-
 </template>
 
 <script>

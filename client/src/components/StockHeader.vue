@@ -19,11 +19,13 @@
                               <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
                             <div class="add-to-watchlist" >
+                                                                {{wItem}}
+                                                              
                                <button v-if="!isWatched" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
-                               <button v-else-if="isWatched && watchItem.position ==='none'" id="adWL" @click="RemoveWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
+                               <button v-else-if="wItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
                                <p class="position" v-else>
-                                <button id="adWL" class="button is-small is-outlined is-primary">Close Position</button>
-                                 <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>                           
+                                <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
+                                 <span> You're {{wItem.position}} from {{wItem.initialPrice}}</span>                           
                               </p>
                             </div>
                             <div class="stock-price title is-5">
@@ -33,16 +35,16 @@
                         </div>
                            <nav id="bandB" class="level media">
                                <div id="bullsAndBears">
-                                    <div v-if="!watchItem || watchItem.position==='none'" id="BBull">
-                                        <button id="Bbull" @click="BeBull()" class="button is-small is-outlined is-primary">Be Bull</button>
+                                    <div v-if="!isWatched || wItem.position==='none'" id="BBull">
+                                        <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                                     </div>
                                     <span id="bandbdigit1">  %</span>
                                     <div id="bullsAndBearsPic">
                                         <img src="/static/images/bulls-and-bears.png" alt="bull and bear">
                                     </div>
                                     <span id="bandbdigit2">  %</span>
-                                    <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
-                                        <button id="Bbear" @click="BeBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
+                                    <div v-if="!isWatched ||wItem.position==='none'" id="BBear">
+                                        <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
                                     </div>
                                 </div>
                             </nav>
@@ -66,50 +68,65 @@
 
 <script>
 import { addWatchItem } from "@/api/api";
-import { RemoveWatchItem } from "@/api/api";
-import { BeBear } from "@/api/api";
-import { BeBull } from "@/api/api";
+import { removeWatchItem } from "@/api/api";
+import { beBear } from "@/api/api";
+import { beBull } from "@/api/api";
 
 export default {
     name: 'StockHeader',
     data(){
         return{
             isWatched:Boolean,
+            wItem: null
         }
     },
     props: {
-        stock: Object,
-        watchItem: Object,
+        stock: null,
+        watchItem: null
     },
 
     methods:{
         addWatchList() {
-            addWatchItem(this.stock.longName).then(() =>
-            this.isWatched = true 
-        )},
+            addWatchItem(this.stock.longName).then((item) =>{
+                console.log("added item")
+                this.wItem = item
+                this.isWatched = true 
+                console.log("isWatched is now ", this.isWatched)
+            }).catch(err => {console.log("something is wrong")})
+            },
 
-        RemoveWatchList() {
-            RemoveWatchItem(this.stock.longName,this.watchItem._id).then(() => {
-            this.isWatched = false  
+        removeWatchList() {
+                            console.log("removing item")
+            removeWatchItem(this.stock.longName,this.wItem._id).then(() => {
+                this.isWatched = false  
             }
         )},
 
         imBull() {
-            BeBull(this.stock.longName).then(() => {
-            this.isWatched = true  
+            beBull(this.stock.longName).then(() => {
+                this.wItem = item
+                this.isWatched = true  
             }
         )},
 
         imBear() {
-            BeBear(this.stock.longName).then(() => {
-            this.isWatched = true  
+            beBear(this.stock.longName).then(() => {
+                this.wItem = item
+                this.isWatched = true   
             }
-        )}
+        )},
+        checkWatchItem() {
+            if (this.watchItem===null){
+            this.isWatched=false
+        } else {
+            this.isWatched=false
+            this.wItem = this.watchItem
+        }
+
+        }
     },
     created(){
-        if (this.watchItem===null){
-            this.isWatched=false
-        }
+        this.checkWatchItem()
     }
 }
 </script>

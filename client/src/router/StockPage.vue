@@ -1,33 +1,44 @@
 <template>
   <section class="section main">
+
     <stock-header :stock="stock" :watchItem ="watchItem"></stock-header>
-   
+
   </section>
+
 </template>
 
 <script>
 import { getStock } from "@/api/api";
 import { getWatchItem } from "@/api/api";
+import { getStockBabbles } from "@/api/api";
 import StockHeader from '../components/StockHeader';
 import SideCurrentInsight from '../components/SideCurrentInsight';
 
 export default {
     data() {
     return {
-      stock:{},
-      watchItem:{},
-      user:{},
+      stock:Object,
+      watchItem: null,
+      user:Object,
+      babbles:Object,
       }
     },
-     components:{
-    StockHeader,
-    SideCurrentInsight,
-  },
+    components:{
+      StockHeader,
+      SideCurrentInsight,
+    },
     created() {
         const stockName = this.$route.params.stockName
         getStock(stockName).then(stock => this.stock = stock);
 
-        getWatchItem(stockName).then(watchItem => this.watchItem = watchItem);
+        getWatchItem(stockName).then(watchItem => {
+          this.watchItem = watchItem 
+          console.log(watchItem)
+          }).catch(err => {throw err})
+
+        //getStockBabbles(stockName).then(babbles => this.babbles = babbles);
+
+        
     }
 }
 </script>

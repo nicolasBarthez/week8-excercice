@@ -8,19 +8,21 @@ export function getStock(stockName) {
     let url = "/stocks/" + stockName;
     return insiders.get(url).then(response => {
         return response.data;
-    });
+    }).catch(err => {
+        throw err;
+    })
 }
 
 export function getWatchItem(stockName) {
-    let url = "/stocks/" + stockName + "/watchitem/";
+    let url = "/stocks/" + stockName + "/watchitem";
     return insiders
         .get(url)
         .then(response => {
-            console.log("DEBUG response.data", watchitem.position);
+            //console.log("DEBUG response.data", response);
             return response.data;
         })
         .catch(err => {
-            return null;
+            throw err;
         });
 }
 
@@ -32,15 +34,15 @@ export function addWatchItem(stockName) {
             return response.data;
         })
         .catch(err => {
-            return null;
+            return err;
         });
 }
 
-export function RemoveWatchItem(stockName, watchitem_id) {
-    let url = `/stocks/${stockName}/watchitem`;
+export function removeWatchItem(stockName, watchitem_id) {
+    let url = `/stocks/${stockName}/watchitem/${watchitem_id}`;
     console.log("********************************************", watchitem_id);
     return insiders
-        .delete(url, watchitem_id)
+        .delete(url)
         .then(response => {
             console.log(
                 "********************************************",
@@ -49,11 +51,11 @@ export function RemoveWatchItem(stockName, watchitem_id) {
             return response.data;
         })
         .catch(err => {
-            return null;
+            return err;
         });
 }
 
-export function BeBull(stockName) {
+export function beBull(stockName) {
     let url = `/stocks/${stockName}/watchitem/bull`;
     return insiders
         .post(url)
@@ -61,11 +63,11 @@ export function BeBull(stockName) {
             return response.data;
         })
         .catch(err => {
-            return null;
+            return err;
         });
 }
 
-export function BeBear(stockName) {
+export function beBear(stockName) {
     let url = `/stocks/${stockName}/watchitem/bear`;
     return insiders
         .post(url)
@@ -73,7 +75,7 @@ export function BeBear(stockName) {
             return response.data;
         })
         .catch(err => {
-            return null;
+            return err;
         });
 }
 

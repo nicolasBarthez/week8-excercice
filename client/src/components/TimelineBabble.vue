@@ -1,83 +1,79 @@
 <template>
-  <div class="column is-6">
-    <div class="card">
-        <div class="card-content bg-light">
-            <div class="media">
-                <div class="media-left">
-                   <figure class="image is-32x32 is-circle"><img src="<%= user.picProfile %>" alt="Image"></figure>
-                </div>
-                <div class="media-content">
-                    <form action="/stream">
-                        <div class="field">
-                            <div class="control"><textarea id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea"></textarea></div>
-                                            <!---->
-                        </div>
-                            <div class="level">
-                                <div class="level-left"><a class="has-text-grey-light"><span class="icon"><i class="fa fa-image"></i></span></a></div>
-                                <div class="level-right">
-                                    <div class="level-item has-text-grey">200</div>
-                                    <div class="level-item"><button id="babble-submit" class="button is-outlined is-primary" @click="isCardModalActive = true">
-                                    Babble</button>
-                                    </div>
-                                </div>
-                            </div>
-                    </form>
-                </div>
+    <div>
+     <nav class="navbar is-dark">
+        <div>
+            <div class="babblesMenu">
+                <router-link to="/" class="babMenu navbar-item is-tab is-active">All</router-link>
+                <router-link to="/" class="babMenu navbar-item">Insiders Mates</router-link>
+                <router-link to="/" class="babMenu navbar-item">Watch List</router-link>
+                <router-link to="/" class="babMenu navbar-item">My Posts</router-link>
+                <p id="vide"></p>
+                <router-link id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
             </div>
         </div>
-     </div>
-  
-<b-modal :active.sync="isCardModalActive" :width="640">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="image is-4by3">
-                        <img src="static/img/placeholder-1280x960.png" alt="Image">
+    </nav>
+    <div class="card">
+        <div class="babbles-box" id="babble-container">
+           <div class="tweets card-content p-x-1">    
+                <article class="media tweet">
+                    <figure class="media-left">
+                        <p class="image is-64x64 is-circle">
+                          <router-link to="/" class=""><img src="<%= babble.user_id.picProfile%>"></router-link>
+                        </p>
                     </figure>
-                </div>
-                <div class="card-content">
-                    <div class="media">
-                        <div class="media-left">
-                            <figure class="image is-48x48">
-                                <img src="static/img/placeholder-1280x960.png" alt="Image">
-                            </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="tweet-meta">
+                                <router-link to="/" class="has-text-dark">
+                                   <strong>{{babble.user_id.local.username}}</strong></router-link>
+                                   <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
+                            </p>
+                            <p class="tweet-body has-text-grey babble-body">
+                                {{babble.babble}}
+                           </p>
                         </div>
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
-                        </div>
+                        <nav class="media-right">
+                            <div class="level-right">
+                                <router-link to="/" class="level-item has-text-grey-light">
+                                    <span class="icon is-small"><i id=<%=i%> class="fa fa-reply modal-button" data-target="#modal"></i></span>
+                                    <small class="favicon"> {{babble.reply.length}}</small>
+                                </router-link>
+                                <router-link to="/" class="level-item has-text-grey-light">
+                                    <div id="like-form"> <span class="icon is-small"><i id=<%=i%> class="fa fa-thumbs-o-up like-btn"></i></span>
+                                        <small>{{babble.like}}</small>
+                                        <input class="like-input" name="likeInput" val="">
+                                    </div>
+                                </router-link>
+                            </div>
+                        </nav>
                     </div>
-
-                    <div class="content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                        <a>#css</a> <a>#responsive</a>
-                        <br>
-                        <small>11:09 PM - 1 Jan 2016</small>
-                    </div>
-                </div>
+                </article>
             </div>
-        </b-modal>
-
-</div>
-</template>
-
-
-
-
-
+            <div class="babble-container no-babble">
+                <p>The timeline is empty</p>
+            </div>
+        </div>
+      </div>
+      <button class="button m-t-1 m-b-1 is-fullwidth">Load more...</button>
+    </div>
+ </template>
 
 <script>
-export default {
-name: 'Babble',
-data() {
+    import { getStockBabbles } from "@/api/api";
+   
+    export default {
+        data() {
             return {
-                isImageModalActive: false,
-                isCardModalActive: false
             }
-        }
-}
+        },
+        props: {
+            babbles: Object,
+        },
+        
+    }
+    
 </script>
 
 <style>
-
+    
 </style>
