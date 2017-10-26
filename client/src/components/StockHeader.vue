@@ -19,13 +19,11 @@
                               <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
                             <div class="add-to-watchlist" >
-                                                                {{wItem}}
-
                                <button v-if="!isWatched" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
-                               <button v-else-if="wItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>
+                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
-                                 <span> You're {{wItem.position}} from {{wItem.initialPrice}}</span>
+                                 <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>                           
                               </p>
                             </div>
                             <div class="stock-price title is-5">
@@ -35,7 +33,7 @@
                         </div>
                            <nav id="bandB" class="level media">
                                <div id="bullsAndBears">
-                                    <div v-if="!isWatched || wItem.position==='none'" id="BBull">
+                                    <div v-if="!isWatched || watchItem.position==='none'" id="BBull">
                                         <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                                     </div>
                                     <span id="bandbdigit1">  %</span>
@@ -43,7 +41,7 @@
                                         <img src="/static/images/bulls-and-bears.png" alt="bull and bear">
                                     </div>
                                     <span id="bandbdigit2">  %</span>
-                                    <div v-if="!isWatched ||wItem.position==='none'" id="BBear">
+                                    <div v-if="!isWatched ||watchItem.position==='none'" id="BBear">
                                         <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
                                     </div>
                                 </div>
@@ -73,69 +71,60 @@ import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
 
+// FIXME: emit un event attrapé par le parent pour changer le watchitem
+// FIXME: Faire de isWatched une computed property
+
 export default {
-  name: "StockHeader",
-  data() {
-    return {
-      isWatched: Boolean,
-      wItem: null
-    };
-  },
-  props: {
-    stock: null,
-    watchItem: null
-  },
-
-  methods: {
-    addWatchList() {
-      addWatchItem(this.stock.longName)
-        .then(item => {
-          console.log("added item");
-          this.wItem = item;
-          this.isWatched = true;
-          console.log("isWatched is now ", this.isWatched);
-        })
-        .catch(err => {
-          console.log("something is wrong");
-        });
+    name: 'StockHeader',
+    data(){
+        return{
+            isWatched:Boolean,    
+        }
+    },
+    props: {
+        stock: null,
+        watchItem: null
     },
 
-    removeWatchList() {
-      console.log("removing item");
-      removeWatchItem(this.stock.longName, this.wItem._id).then(() => {
-        this.isWatched = false;
-      });
-    },
+    methods:{
+        addWatchList() {
+            addWatchItem(this.stock.longName).then((item) =>{
+                console.log("added item")
+                this.isWatched = true 
+                this.$emit('changeWatchlist', item )
+                console.log("isWatched is now ", this.isWatched)
+            }).catch(err => {console.log("something is wrong")})
+            },
 
-    closePosition() {
-      console.log("closing position");
-      removePosition(this.stock.longName, this.wItem._id).then(() => {
-        this.isWatched = false;
-      });
-    },
+        removeWatchList() {
+            removeWatchItem(this.stock.longName,this.watchItem._id).then((item) => {
+                this.isWatched = false  
+                this.$emit('changeWatchlist', item )
+            }
+        )},
 
-    imBull() {
-      beBull(this.stock.longName).then(item => {
-        this.wItem = item;
-        this.isWatched = true;
-      });
-    },
+        imBull() {
+            beBull(this.stock.longName).then((item) => {
+                this.isWatched = true
+                this.$emit('changeWatchlist', item )  
+            }
+        )},
 
-    imBear() {
-      beBear(this.stock.longName).then(item => {
-        this.wItem = item;
-        this.isWatched = true;
-      });
+        imBear() {
+            beBear(this.stock.longName).then((item) => {
+                this.isWatched = true 
+                this.$emit('changeWatchlist', item )  
+            }
+        )},
+        checkWatchItem() {
+            if (this.watchItem===null){
+            this.isWatched=false
+            } else {
+            this.isWatched=true
+            }
+        }
     },
-    checkWatchItem() {
-      if (this.watchItem === null) {
-        this.isWatched = false;
-      } else {
-        this.isWatched = true;
-        this.wItem = this.watchItem;
-      }
-    }
-  },
+    
   created() {
     this.checkWatchItem();
   }
