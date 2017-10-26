@@ -38,57 +38,63 @@ WatchItem.find({
   created_at: {
     $lte: thirtyDaysAgo.toDate()
   }
-}).populate("stockId").exec((err,watchitems)=>{
-  watchitems.forEach(item=>{
-    // Update score and close position
-    WatchItem.findById(item._id)
-      .populate("stockId")
-      .exec((err, watchItem) => {
-        if(watchItem.position ==="bull"){
-          let newStatus =
-            watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
+})
+  .populate("stockId")
+  .exec((err, watchitems) => {
+    console.log("watchitems =>", watchitems);
+    watchitems.forEach(item => {
+      // Update score and close position
+      WatchItem.findById(item._id)
+        .populate("stockId")
+        .exec((err, watchItem) => {
+          console.log("watchItem =>", watchItem);
+          let updateScore = 0;
+          let newStatus = watchItem.status;
+          if (watchItem.position === "bull") {
+            newStatus =
+              watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
 
-          // Update score of the user
-          let updateScore = Math.floor(
-            (watchItem.stockId.price - watchItem.initialPrice) * 10
-          );
-        } else if(watchItem.position ==="bear"){
-          let newStatus =
-            watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
+            // Update score of the user
+            updateScore = Math.floor(
+              (watchItem.stockId.price - watchItem.initialPrice) * 10
+            );
+          } else if (watchItem.position === "bear") {
+            newStatus =
+              watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
 
-          // Update score of the user
-          let updateScore = Math.floor(
-            (watchItem.stockId.price - watchItem.initialPrice) * -10
-          );
-        }
+            // Update score of the user
+            updateScore = Math.floor(
+              (watchItem.stockId.price - watchItem.initialPrice) * -10
+            );
+          }
 
-        User.findByIdAndUpdate(user._id, {
-          $inc: { score: updateScore }
-        }).exec();
+          User.findByIdAndUpdate(watchItem.userId, {
+            $inc: { score: updateScore }
+          }).exec();
 
-        // close position
-        WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
-          .then(resp => {
-            // Update watchList
-            User.findByIdAndUpdate(user._id, {
-              $pull: { watchList: watchItemId }
-            }).then(resp => {
-              console.log("Update with:"+newStatus);
+          // close position
+          WatchItem.findByIdAndUpdate(watchItem._id, { status: newStatus })
+            .then(resp => {
+              // Update watchList
+              User.findByIdAndUpdate(item.userId._id, {
+                $pull: { watchList: watchItemId }
+              }).then(resp => {
+                console.log("Update with:" + newStatus);
+              });
+            })
+            .catch(err => {
+              console.log(err);
             });
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      });
-  })
-}));
-
+        });
+    });
+  });
 
 // Update score
-WatchItem.find({ status: "active" })
+WatchItem.find({ status: "active", bull et bear uniquement})
   .populate("userId")
   .populate("stockId")
   .exec((err, watchList) => {
+    console.log("watchIList************* =>", watchList);
     // calculate score
     watchList.forEach(watchItem => {
       let updateScore = calculateScore(
@@ -96,8 +102,10 @@ WatchItem.find({ status: "active" })
         watchItem.initialPrice,
         watchItem.stockId.price
       );
+      console.log("watchItem =>", watchItem);
       User.findByIdAndUpdate(userId._id, {
         $inc: { score: updateScore }
       }).exec();
     });
+    mongoose.connection.close();
   });

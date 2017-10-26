@@ -143,6 +143,7 @@ stocksController.post(
                         }, { new: true }
                     ).then(user => {
                         req.user = user;
+                        res.locals.user = user;
                         res.json(newItem);
                     });
                 });
@@ -223,57 +224,62 @@ stocksController.post(
 // ***************************************************
 
 stocksController.patch(
-    "/:name/watchitem/:watchitemId",
-    passport.authenticate("jwt", config.jwtSession),
-    (req, res, next) => {
-        const user = req.user;
-        const watchItemId = req.params.watchitemId;
-        const stockName = req.params.name.toUpperCase();
+        "/:name/watchitem/:watchitemId",
+        passport.authenticate("jwt", config.jwtSession),
+        (req, res, next) => {
+            const user = req.user;
+            const watchItemId = req.params.watchitemId;
+            const stockName = req.params.name.toUpperCase();
 
-        WatchItem.findById(watchItemId)
-            .populate("stockId")
-            .exec((err, watchItem) => {
-                console.log("************WATCHITEM*****", watchItem);
-                var position = watchItem.position;
-                if (position === "bull") {
-                    // Define new status
-                    var newStatus =
-                        watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
+            WatchItem.findById(watchItemId)
+                .populate("stockId")
+                .exec((err, watchItem) => {
+                    console.log("************WATCHITEM*****", watchItem);
+                    var position = watchItem.position;
+                    if (position === "bull") {
+                        // Define new status
+                        var newStatus =
+                            watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
 
-                    // Update score of the user
-                    var updateScore = Math.floor(
-                        (watchItem.stockId.price - watchItem.initialPrice) * 10
-                    );
+                        // Update score of the user
+                        var updateScore = Math.floor(
+                            (watchItem.stockId.price - watchItem.initialPrice) * 10
+                        );
+                        User.findByIdAndUpdate(user._id, {
+                            $inc: { score: updateScore }
+                        }).exec();
+                    } else {
+                        var newStatus =
+                            watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
+
+                        // Update score of the user
+                        var updateScore = Math.floor(
+                            (watchItem.stockId.price - watchItem.initialPrice) * -10
+                        );
+                    }
+                    // Update status of watchList
                     User.findByIdAndUpdate(user._id, {
                         $inc: { score: updateScore }
                     }).exec();
-                } else {
-                    var newStatus =
-                        watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
 
-                    // Update score of the user
-                    var updateScore = Math.floor(
-                        (watchItem.stockId.price - watchItem.initialPrice) * -10
-                    );
-                }
-                // Update status of watchList
-                User.findByIdAndUpdate(user._id, {
-                    $inc: { score: updateScore }
-                }).exec();
-
-                WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
-                    .then(resp => {
-                        User.findByIdAndUpdate(user._id, {
-                            $pull: { watchList: watchItemId }
-                        }).then(resp => {
-                            res.json({ success: true });
+                    WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
+                        .then(resp => {
+                            User.findByIdAndUpdate(user._id, {
+                                $pull: { watchList: watchItemId }
+                            }).then(resp => {
+                                res.json({ success: true });
+                            });
+                        })
+                        .catch(err => {
+                            console.log(err);
                         });
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    });
-            });
-    }
+                });
+        })
+    .catch(err => {
+        console.log(err);
+    });
+});
+}
 );
 
 // ***************************************************
@@ -309,10 +315,7 @@ stocksController.post(
                     ).then(user => {
                         req.user = user;
                         res.locals.user = user;
-                        res.json({
-                            success: true,
-                            watchItemId: newItem._id
-                        });
+                        res.json(newItem);
                     });
                 });
             })
