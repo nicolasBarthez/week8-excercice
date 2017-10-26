@@ -81,7 +81,7 @@ passport.use(strategy);
 
 // routes ======================================================================
 app.use("/api", authController);
-app.use("/api/stock", stocksController);
+app.use("/api/stocks", stocksController);
 app.use("/api/babbles", babblesController);
 app.use("/api/watchitems", watchItemsController);
 // app.use("/api/profile", profileController);

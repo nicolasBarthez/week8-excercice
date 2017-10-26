@@ -1,8 +1,9 @@
+require("dotenv").config();
 const Stock = require("../models/stock");
 const WatchItem = require("../models/watchitem");
 const mongoose = require("mongoose");
 const getstockUpdate = require("./getstocksPrice");
-mongoose.connect("mongodb://localhost/insidersDB-dev", { useMongoClient: true });
+mongoose.connect(process.env.MONGODB_URI);
 
 const StockData = require("../data/cac40");
 
