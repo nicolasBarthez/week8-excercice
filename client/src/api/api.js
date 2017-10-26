@@ -18,7 +18,7 @@ export function getWatchItem(stockName) {
     return insiders
         .get(url)
         .then(response => {
-            //console.log("DEBUG response.data", response);
+            console.log("DEBUG response.data", response.data);
             return response.data;
         })
         .catch(err => {
@@ -40,14 +40,9 @@ export function addWatchItem(stockName) {
 
 export function removeWatchItem(stockName, watchitem_id) {
     let url = `/stocks/${stockName}/watchitem/${watchitem_id}`;
-    console.log("********************************************", watchitem_id);
     return insiders
         .delete(url)
         .then(response => {
-            console.log(
-                "********************************************",
-                response.data
-            );
             return response.data;
         })
         .catch(err => {

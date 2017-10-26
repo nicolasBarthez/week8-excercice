@@ -1,7 +1,8 @@
 <template>
   <section class="section main">
 
-    <stock-header :stock="stock" :watchItem ="watchItem"></stock-header>
+    <stock-header :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)" v-if="watchItem"></stock-header>
+    <div v-else>Loading...</div>
 
   </section>
 
@@ -27,13 +28,19 @@ export default {
       StockHeader,
       SideCurrentInsight,
     },
+    methods : {
+      updateWatchList(item) {
+        this.watchItem=item
+        console.log(item)
+      }
+    },
     created() {
         const stockName = this.$route.params.stockName
         getStock(stockName).then(stock => this.stock = stock);
 
         getWatchItem(stockName).then(watchItem => {
           this.watchItem = watchItem 
-          console.log(watchItem)
+          console.log('******************watchItem',watchItem)
           }).catch(err => {throw err})
 
         //getStockBabbles(stockName).then(babbles => this.babbles = babbles);
