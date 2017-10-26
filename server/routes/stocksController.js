@@ -143,7 +143,6 @@ stocksController.post(
                         }, { new: true }
                     ).then(user => {
                         req.user = user;
-                        res.locals.user = user;
                         res.json(newItem);
                     });
                 });
@@ -235,25 +234,25 @@ stocksController.patch(
             .populate("stockId")
             .exec((err, watchItem) => {
                 console.log("************WATCHITEM*****", watchItem);
-                let position = watchItem.position;
+                var position = watchItem.position;
                 if (position === "bull") {
                     // Define new status
-                    let newStatus =
+                    var newStatus =
                         watchItem.stockId.price < watchItem.initialPrice ? "lost" : "won";
 
                     // Update score of the user
-                    const updateScore = Math.floor(
+                    var updateScore = Math.floor(
                         (watchItem.stockId.price - watchItem.initialPrice) * 10
                     );
                     User.findByIdAndUpdate(user._id, {
                         $inc: { score: updateScore }
                     }).exec();
                 } else {
-                    let newStatus =
+                    var newStatus =
                         watchItem.stockId.price > watchItem.initialPrice ? "lost" : "won";
 
                     // Update score of the user
-                    const updateScore = Math.floor(
+                    var updateScore = Math.floor(
                         (watchItem.stockId.price - watchItem.initialPrice) * -10
                     );
                 }

@@ -1,5 +1,6 @@
 <template>
     <div class="column is-6" id="ActionCard">
+      
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
                 <div class="media" id="stockInfo">
@@ -13,13 +14,13 @@
                            <div class="sock-info">
                               <p class="title is-5">{{stock.longName}}</p>
                               <p class="subtitle is-6">
-                                <P class="">{{stock.isin}}</P>
-                                <P class="">{{stock.shortName}}</P>
+                                <a class="">{{stock.isin}}</a>
+                                <a class="">{{stock.shortName}}</a>
                               </p>
                               <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
                             <div class="add-to-watchlist" >
-                               <button v-if="!isWatched" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
+                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
                                <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>   
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
@@ -27,34 +28,34 @@
                               </p>
                             </div>
                             <div class="stock-price title is-5">
-                               <strong class="">{{stock.price}} &nbsp;€</strong>
-                               <small class="">&nbsp;{{stock.variation}} &nbsp;%</small>
+                               <strong class="">{{stock.price}} €</strong>
+                               <small class="">&nbsp;{{stock.variation}} %</small>
                            </div>
                         </div>
                            <nav id="bandB" class="level media">
                                <div id="bullsAndBears">
-                                    <div v-if="!isWatched || watchItem.position==='none'" id="BBull">
+                                    <div v-if="!watchItem || watchItem.position==='none'" id="BBull">
                                         <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                                     </div>
-                                    <span id="bandbdigit1">  %</span>
+                                    <span id="bandbdigit1">{{stock.trend[0]}}  %</span>
                                     <div id="bullsAndBearsPic">
                                         <img src="/static/images/bulls-and-bears.png" alt="bull and bear">
                                     </div>
-                                    <span id="bandbdigit2">  %</span>
-                                    <div v-if="!isWatched ||watchItem.position==='none'" id="BBear">
+                                    <span id="bandbdigit2">{{stock.trend[1]}}  %</span>
+                                    <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
                                         <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
                                     </div>
                                 </div>
                             </nav>
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
-                                    <p class="is-6 has-text-grey-light"><small>Last 6 hours</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</p>
+                                    <a class="is-6 has-text-grey-light"><small @click="trend">Last 6 hours</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</a>
                                 </div>
                                 <div class="level-item has-text-centered">
-                                    <p class="is-6 has-text-grey-light"><small>Last 24 hours</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</p>
+                                    <a class="is-6 has-text-grey-light"><small @click="trend">Last 24 hours</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</a>
                                 </div>
                                 <div class="level-item has-text-centered">
-                                    <p class="is-6 has-text-grey-light"><small>Last Week</small></p>
+                                    <a class="is-6 has-text-grey-light"><small @click="trend">Last Week</small></a>
                                 </div>
                             </div>
                         </div>
@@ -70,64 +71,56 @@ import { removeWatchItem } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
+import { getTrend } from "@/api/api";
 
 // FIXME: emit un event attrapé par le parent pour changer le watchitem
 // FIXME: Faire de isWatched une computed property
 
 export default {
     name: 'StockHeader',
-    data(){
-        return{
-            isWatched:Boolean,    
-        }
-    },
     props: {
-        stock: null,
-        watchItem: null
+        stock: Object,
+        watchItem: Object
     },
-
     methods:{
         addWatchList() {
             addWatchItem(this.stock.longName).then((item) =>{
-                console.log("added item")
-                this.isWatched = true 
+                console.log("added item") 
                 this.$emit('changeWatchlist', item )
-                console.log("isWatched is now ", this.isWatched)
             }).catch(err => {console.log("something is wrong")})
-            },
+        },
 
         removeWatchList() {
-            removeWatchItem(this.stock.longName,this.watchItem._id).then((item) => {
-                this.isWatched = false  
-                this.$emit('changeWatchlist', item )
+            removeWatchItem(this.stock.longName,this.watchItem._id).then(() => {
+                this.$emit('changeWatchlist', null)
+            }
+        )},
+
+        closePosition() {
+            removePosition(this.stock.longName,this.watchItem._id).then(() => {
+                this.$emit('changeWatchlist', null )
             }
         )},
 
         imBull() {
             beBull(this.stock.longName).then((item) => {
-                this.isWatched = true
                 this.$emit('changeWatchlist', item )  
             }
         )},
 
         imBear() {
             beBear(this.stock.longName).then((item) => {
-                this.isWatched = true 
                 this.$emit('changeWatchlist', item )  
             }
         )},
-        checkWatchItem() {
-            if (this.watchItem===null){
-            this.isWatched=false
-            } else {
-            this.isWatched=true
+
+        trend() {
+            getTrend(this.stock.longName).then((item) => {
+                 
             }
-        }
+        )}
     },
     
-  created() {
-    this.checkWatchItem();
-  }
 };
 </script>
 
@@ -138,14 +131,16 @@ export default {
     justify-content: space-between;
 }
 
-.add-to-watchlist{
-    padding-left:5%;
-}
-
 @media (max-width: 768px) {
     .stock-banner {
         flex-direction: column;
     }
+}
+
+a {
+    color: #192b41;
+    cursor: inherit;
+    text-decoration: none;
 }
 
 #cardAction {
@@ -163,7 +158,7 @@ export default {
 }
 
 #bullsAndBearsPic {
-    width: 45%;
+    width: 40%;
 }
 
 #bullsAndBears {
@@ -182,12 +177,12 @@ export default {
 }
 
 #bandbdigit1 {
-    font-size: 2vw;
+    font-size: 2.5vw;
     color: #21ce99;
 }
 
 #bandbdigit2 {
-    font-size: 2vw;
+    font-size: 2.5vw;
     color: #ff6026;
 }
 

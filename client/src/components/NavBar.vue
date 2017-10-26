@@ -45,7 +45,7 @@
                         <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
                         <div class="nav-status">
                             <div class="nav-status-light"></div>
-                           <a class="navbar-item" @click.prevent="logout" v-if="$root.user" href="#">Logout</a>
+                           <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
                         </div>
                     </div>
                 </div>

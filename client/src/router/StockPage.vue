@@ -1,8 +1,8 @@
 <template>
   <section class="section main">
 
-    <stock-header :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)" v-if="watchItem"></stock-header>
-    <div v-else>Loading...</div>
+    <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
+    
 
   </section>
 
@@ -18,10 +18,8 @@ import SideCurrentInsight from '../components/SideCurrentInsight';
 export default {
     data() {
     return {
-      stock:Object,
+      stock:null,
       watchItem: null,
-      user:Object,
-      babbles:Object,
       }
     },
     components:{
