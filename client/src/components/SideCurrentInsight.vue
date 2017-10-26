@@ -8,13 +8,13 @@
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
             </nav>
         </div>
-        <div v-for="(watchItem, index) in watchList" :key="index"class="card profile-card">
+        <div v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
             <div id="watchList" class="card-content">
                 <div class="Symbol">
-                   <h1 class="stockName" data-replace="Symbol">{{watchList.watchItem.stockId.longName}}</h1>
-                   <b class="price is-6">{{watchList.watchItem.stockId.price}}</b>
-                   <b :id="variation" :class="{'is-6':true, 'has-text-green':watchList.watchItem.stockId.variation>0, 'has-text-red':watchList.watchItem.stockId.variation<0}">
-                       <span class= "indice">{{watchList.watchItem.stockId.variation}}</span>
+                   <h1 class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</h1>
+                   <b class="price is-6">{{watchItem.stockId.price}}</b>
+                   <b :id="variation" :class="{'is-6':true, 'has-text-green':watchItem.stockId.variation>0, 'has-text-red':watchItem.stockId.variation<0}">
+                       <span class= "indice">{{watchItem.stockId.variation}}</span>
                    </b>  
                 </div>
                 <div id="bullAndBear"><img src="/images/bulls.png" alt="bulls-and-bears"></div>
@@ -35,20 +35,29 @@
 
 <script>
 
+import { getWatchInsight } from "@/api/api";
 
 export default {
      name: 'SideCurrentInsight',
     data(){
         return {
-        performanceWatchlist: watchList.watchItem.initialPrice-(watchList.watchItem.stockId.price*100/watchList.watchItem.initialPrice)
+         watchInsight: null,
         }
     },
-     props: {
-        user: Object,
+    
+    computed(){
+        performanceWatchlist: watchList.watchItem.initialPrice-(watchList.watchItem.stockId.price*100/watchList.watchItem.initialPrice)
+    },
+
+    props: {
     },
 
     methods:{
-    }
+    },
+
+    created() {
+    getWatchInsight().then(watchInsight => (this.watchInsight = watchInsight));
+  }
 }
 </script>
 
