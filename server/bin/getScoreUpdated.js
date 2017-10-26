@@ -43,5 +43,3 @@ WatchItem.find({ status: "active" })
       }).exec();
     });
   });
-
-mongoose.disconnect();

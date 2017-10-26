@@ -23,28 +23,41 @@ stocksController.get("/:stockName", function(req, res, next) {
 });
 
 // **********************************************************
-// Send BULL & BEAR trending percentage =====================
+// Send BULL & BEAR trending percentage according nb of days
 // **********************************************************
 
-stocksController.get("/:stockName/bullbeartrend", function(req, res, next) {
+stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
+  let attribute = req.query.history;
   const stock = req.params.stockName.toUpperCase();
 
   Stock.findOne({ longName: stock }, (err, stock) => {
     if (err) return next(err);
     if (!stock) return next(err);
 
+    var today = moment().startOf("day");
+    var thirtyDaysAgo = moment(today).subtract(attribute, "days");
+
     WatchItem.find({
       stockId: stock._id,
-      status: "active"
-    }).then(activeWatchItems => {
-      function countPositions(array, property, bullOrBear) {
-        return array.filter(object => {
-          property === position;
-        }).length;
+      status: "active",
+      created_at: {
+        $gte: thirtyDaysAgo.toDate()
       }
-      var nbBullFull = countPositions(activeWatchItems, position, "bull");
-      var nbBearFull = countPositions(activeWatchItems, position, "bull");
-      res.json([nbBullFull, nbBearFull]);
+    }).then(activeWatchItems => {
+      function countPositions(array, position) {
+        return array
+          .map(item => {
+            return item.position == position;
+          })
+          .filter(val => {
+            return val === true;
+          }).length;
+      }
+      var nbBull = countPositions(activeWatchItems, "bull");
+      var nbBear = countPositions(activeWatchItems, "bear");
+      var percentage = [nbBull / (nbBull + nbBear), nbBear / (nbBull + nbBear)];
+
+      res.json(percentage);
     });
   });
 });

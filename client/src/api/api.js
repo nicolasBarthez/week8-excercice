@@ -5,14 +5,14 @@ const insiders = axios.create({
 });
 
 export function getStock(stockName) {
-  let url = "/stock/" + stockName;
+  let url = "/stocks/" + stockName;
   return insiders.get(url).then(response => {
     return response.data;
   });
 }
 
 export function getWatchItem(stockName) {
-  let url = "/stock/" + stockName + "/watchitem/";
+  let url = "/stocks/" + stockName + "/watchitem/";
   return insiders
     .get(url)
     .then(response => {
@@ -26,7 +26,7 @@ export function getWatchItem(stockName) {
 }
 
 export function addWatchItem(stockName) {
-  let url = `/stock/${stockName}/watchitem/add`;
+  let url = `/stocks/${stockName}/watchitem/add`;
   return insiders
     .post(url)
     .then(response => {
@@ -38,7 +38,7 @@ export function addWatchItem(stockName) {
 }
 
 export function RemoveWatchItem(stockName, watchitem_id) {
-  let url = `/stock/${stockName}/watchitem`;
+  let url = `/stocks/${stockName}/watchitem`;
   console.log("********************************************", watchitem_id);
   return insiders
     .delete(url, watchitem_id)
