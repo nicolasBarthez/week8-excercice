@@ -90,7 +90,7 @@ WatchItem.find({
   });
 
 // Update score
-WatchItem.find({ status: "active", bull et bear uniquement})
+WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
   .populate("userId")
   .populate("stockId")
   .exec((err, watchList) => {
@@ -103,7 +103,7 @@ WatchItem.find({ status: "active", bull et bear uniquement})
         watchItem.stockId.price
       );
       console.log("watchItem =>", watchItem);
-      User.findByIdAndUpdate(userId._id, {
+      User.findByIdAndUpdate(watchItem.userId, {
         $inc: { score: updateScore }
       }).exec();
     });
