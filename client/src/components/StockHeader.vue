@@ -90,7 +90,6 @@ export default {
 
         RemoveWatchList() {
             RemoveWatchItem(this.stock.longName,this.watchItem._id).then(() => {
-            console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
             this.isWatched = false  
             }
         )},
