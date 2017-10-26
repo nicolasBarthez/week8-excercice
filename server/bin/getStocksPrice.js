@@ -31,4 +31,5 @@ function getstockUpdate(index) {
 // Update CAC40
 getstockUpdate("CAC40");
 
+mongoose.disconnect();
 module.exports = getstockUpdate;
