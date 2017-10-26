@@ -34,8 +34,8 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
     if (err) return next(err);
     if (!stock) return next(err);
 
-    var today = moment().startOf("day");
-    var thirtyDaysAgo = moment(today).subtract(attribute, "days");
+    const today = moment().startOf("day");
+    const thirtyDaysAgo = moment(today).subtract(attribute, "days");
 
     WatchItem.find({
       stockId: stock._id,
