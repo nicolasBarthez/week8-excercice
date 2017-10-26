@@ -316,10 +316,7 @@ stocksController.post(
           ).then(user => {
             req.user = user;
             res.locals.user = user;
-            res.json({
-              success: true,
-              watchItemId: newItem._id
-            });
+            res.json(newItem);
           });
         });
       })
