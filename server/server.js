@@ -8,6 +8,7 @@ const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const history = require("express-history-api-fallback");
 require("dotenv").config();
 
 const passport = require("passport");
@@ -102,6 +103,10 @@ app.get(
     res.json(req.user);
   }
 );
+
+const clientRoot = path.join(__dirname, "../client/dist");
+app.use("/", express.static(clientRoot));
+app.use(history("index.html", { root: clientRoot }));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

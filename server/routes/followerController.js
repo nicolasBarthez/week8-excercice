@@ -22,7 +22,9 @@ followerController.post(
     const insiderId = req.body.insiderId;
 
     // GAMIFICATION => Add 20 points per people that follow you
-    User.findByIdAndUpdate(insiderId, { $inc: { score: 20 } }).exec();
+    User.findByIdAndUpdate(insiderId, {
+      $inc: { score: 20, nbFollower: 1 }
+    }).exec();
 
     User.findByIdAndUpdate(
       user._id,
@@ -50,7 +52,9 @@ followerController.delete(
     const insiderId = req.body.insiderId;
 
     // GAMIFICATION => Add 20 points per people that follow you
-    User.findByIdAndUpdate(insiderId, { $inc: { score: -20 } }).exec();
+    User.findByIdAndUpdate(insiderId, {
+      $inc: { score: -20, nbFollower: -1 }
+    }).exec();
 
     User.findByIdAndUpdate(
       user._id,
@@ -67,7 +71,7 @@ followerController.delete(
 );
 
 // **********************************************************
-// See Followers of an insider   ============================
+// See Followers of an insider or me   ======================
 // **********************************************************
 
 followerController.get(
@@ -75,11 +79,14 @@ followerController.get(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const insiderId = req.body.insiderId;
+    const insiderId = req.body.insider ? req.body.insider : user._id;
 
-    User.findById(user._id).then(resp => {
-      return res.json(user);
-    });
+    User.findById(insiderId)
+      .populate("following")
+      .exec((err, resp) => {
+        if (err) res.json(null);
+        return res.json(resp);
+      });
   }
 );
 

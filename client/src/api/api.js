@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const insiders = axios.create({
-    baseURL: "http://localhost:3000/api"
+    baseURL: process.env.NODE_ENV === "production" ? "/api" : "http://localhost:3000/api"
 });
 
 export function getStock(stockName) {
@@ -94,7 +94,6 @@ export function getTrend(stockName, nbDays) {
     return insiders
         .get(url)
         .then(response => {
-
             return response.data;
         })
         .catch(err => {

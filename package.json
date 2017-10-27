@@ -1,0 +1,21 @@
+{
+  "name": "insidersMvp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd server && npm install",
+    "start": "cd server && npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasBarthez/week8-excercice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasBarthez/week8-excercice/issues"
+  },
+  "homepage": "https://github.com/nicolasBarthez/week8-excercice#readme"
+}
