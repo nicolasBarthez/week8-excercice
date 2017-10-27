@@ -3,8 +3,8 @@
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+<publish-babble></publish-babble>
 <timeline-babble :babbles="babbles"></timeline-babble>
-{{babbles}}
   </section>
 
 </template>
@@ -17,6 +17,7 @@ import { getStockBabbles } from "@/api/api";
 import StockHeader from "../components/StockHeader";
 import SideCurrentInsight from "../components/SideCurrentInsight";
 import TimelineBabble from "../components/TimelineBabble";
+import PublishBabble from "../components/PublishBabble";
 
 
 export default {
@@ -31,7 +32,8 @@ export default {
   components: {
     StockHeader,
     SideCurrentInsight,
-    TimelineBabble
+    TimelineBabble,
+    PublishBabble
   },
   methods: {
     updateWatchList() {
