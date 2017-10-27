@@ -7,11 +7,9 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
-
 // **********************************************************
 // Send stock info  =========================================
 // **********************************************************
-
 stocksController.get("/:stockName", function(req, res, next) {
   const stock = req.params.stockName.toUpperCase();
 
@@ -21,7 +19,6 @@ stocksController.get("/:stockName", function(req, res, next) {
     res.json(stock);
   });
 });
-
 // **********************************************************
 // Send BULL & BEAR trending percentage according nb of days
 // **********************************************************
@@ -60,7 +57,39 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
         (nbBear / (nbBull + nbBear) * 100).toFixed(2)
       ];
 
-      res.json(percentage);
+      Stock.findOne({ longName: stock }, (err, stock) => {
+        if (err) return next(err);
+        if (!stock) return next(err);
+
+        const today = moment().startOf("day");
+        const thirtyDaysAgo = moment(today).subtract(attribute, "days");
+
+        WatchItem.find({
+          stockId: stock._id,
+          status: "active",
+          created_at: {
+            $gte: thirtyDaysAgo.toDate()
+          }
+        }).then(activeWatchItems => {
+          function countPositions(array, position) {
+            return array
+              .map(item => {
+                return item.position == position;
+              })
+              .filter(val => {
+                return val === true;
+              }).length;
+          }
+          var nbBull = countPositions(activeWatchItems, "bull");
+          var nbBear = countPositions(activeWatchItems, "bear");
+          var percentage = [
+            nbBull / (nbBull + nbBear),
+            nbBear / (nbBull + nbBear)
+          ];
+
+          res.json(percentage);
+        });
+      });
     });
   });
 });
@@ -200,7 +229,6 @@ stocksController.post(
       .catch(err => console.error(err));
   }
 );
-
 // ***************************************************
 // Remove stock from watchlist =======================
 // ***************************************************
@@ -226,7 +254,6 @@ stocksController.delete(
       });
   }
 );
-
 // ***************************************************
 // Take position BULL ===========================
 // ***************************************************
@@ -269,7 +296,6 @@ stocksController.post(
       .catch(err => res.status(404));
   }
 );
-
 // ***************************************************
 // Close position Bull & Bear =======================
 // ***************************************************
@@ -327,7 +353,6 @@ stocksController.patch(
       });
   }
 );
-
 // ***************************************************
 // Take position BEAR ================================
 // ***************************************************
