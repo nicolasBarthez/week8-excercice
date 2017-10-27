@@ -21,7 +21,6 @@ export function getWatchItem(stockName) {
     return insiders
         .get(url)
         .then(response => {
-            //console.log("DEBUG response.data", response);
             return response.data;
         })
         .catch(err => {
@@ -102,10 +101,11 @@ export function getTrend(stockName, nbDays) {
 }
 
 export function getStockBabbles(stockName) {
-    let url = `/babbles/${stockname}/?page=1`;
+    let url = `/babbles/${stockName}/?page=1`;
     return insiders
         .get(url)
         .then(response => {
+            console.log("*****************************DEBUG babble", response.data);
             return response.data;
         })
         .catch(err => {
@@ -118,7 +118,6 @@ export function getWatchInsight() {
     return insiders
         .get(url)
         .then(response => {
-            console.log("*****************************DEBUG watchInsight", response.data);
             return response.data;
         })
         .catch(err => {
@@ -130,7 +129,7 @@ export function sendBabble(babble, stockId) {
     let url = `/babbles?stock=${stockId}`;
     return insiders
         .post(url, {
-            babble
+            babble: babble
         })
         .then(response => {
             console.log("*****************************DEBUG babble", response.data);

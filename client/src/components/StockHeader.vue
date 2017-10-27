@@ -73,9 +73,6 @@ import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
 import { getTrend } from "@/api/api";
 
-// FIXME: emit un event attrapé par le parent pour changer le watchitem
-// FIXME: Faire de isWatched une computed property
-
 export default {
   name: "StockHeader",
   props: {
@@ -111,7 +108,6 @@ export default {
 
     imBull() {
       beBull(this.stock.longName).then(item => {
-          console.log("DEBUG item", item)
         this.$emit("changeWatchlist", item);
       });
     },
@@ -123,26 +119,22 @@ export default {
     },
     trend30() {
       getTrend(this.stock.longName, 30).then(trendBullBear => {
-        console.log("trendBullBear", trendBullBear);
         this.item = trendBullBear;
       });
     },
     trend7() {
       getTrend(this.stock.longName, 7).then(trendBullBear => {
-        console.log("trendBullBear", trendBullBear);
         this.item = trendBullBear;
       });
     },
     trend1() {
       getTrend(this.stock.longName, 1).then(trendBullBear => {
-        console.log("trendBullBear", trendBullBear);
         this.item = trendBullBear;
       });
     }
   },
   created() {
     getTrend(this.stock.longName, 30).then(trendBullBear => {
-      console.log("trendBullBear", trendBullBear);
       this.trendBullBear = trendBullBear;
     });
   }

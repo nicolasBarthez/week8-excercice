@@ -1,5 +1,7 @@
 <template>
     <div>
+    <div v-if="!stock">.....loading</div>
+     <div>
      <nav class="navbar is-dark">
         <div>
             <div class="babblesMenu">
@@ -14,7 +16,7 @@
     </nav>
     <div class="card">
         <div class="babbles-box" id="babble-container">
-           <div v-if="babbles" class="tweets card-content p-x-1">    
+           <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">    
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -25,7 +27,7 @@
                         <div class="content">
                             <p class="tweet-meta">
                                 <router-link to="/" class="has-text-dark">
-                                   <strong>{{babble.user_id.local.username}}</strong></router-link>
+                                   <strong>{{babble.user_id.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
@@ -40,7 +42,7 @@
                                 </router-link>
                                 <router-link to="/" class="level-item has-text-grey-light">
                                     <div id="like-form"> <span class="icon is-small"><i class="fa fa-thumbs-o-up like-btn"></i></span>
-                                        <small>{{babble.like}}</small>
+                                        <small>{{babble.like.length}}</small>
                                         <input class="like-input" name="likeInput" val="">
                                     </div>
                                 </router-link>
@@ -55,30 +57,24 @@
             </div>
         </div>
       </div>
-      
+    </div>
     </div>
  </template>
 
 <script>
-    import { getStockBabbles } from "@/api/api";
+import { getStockBabbles } from "@/api/api";
    
-    export default {
-        data() {
-            return {
-            }
-        },
-        props: {
-            babbles: Object,
-        },
-        created() {
-    getStockBabbles(this.stock.longName, 30).then(trendBullBear => {
-      console.log("trendBullBear", trendBullBear);
-      this.trendBullBear = trendBullBear;
-    });
-  }
-        
-    }
-    
+export default {
+    data() {
+        return {
+        }
+    },
+    props: {
+        babbles: Object,
+        stock: Object,
+        },        
+}
+            
 </script>
 
 <style>

@@ -7,10 +7,10 @@
                     <figure class="image is-32x32 is-circle"><img src="" alt="Image"></figure>
                 </div>
                 <div class="media-content">
-                    <form @submit.prevent="sendBabble">
+                    <form @submit.prevent="postBabble">
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" @focus="setActive" @blur="clearActive" id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea">
+                                <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -23,7 +23,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">200</div>
-                                <div class="level-item"><button id="babble-submit"  @click.prevent="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
                         </div>      
                     </form>
@@ -44,23 +44,19 @@ export default {
       babble:'',
     };
   },
+    props: {
+        stock: Object
+    },
+
   components: { 
   },
   methods: {
-      setActive(e) {
-        e.target.classList.add('active');
-      },
-      clearActive() {
-        if (this.blurAllowed) {
-        this.$refs.ta.classList.remove('active');
-        }
-      },  
-      postBabble(){
-        sendBabble(this.babble)
-      }
-  },
     
-  created() {
+      postBabble(){
+        sendBabble(this.babble,this.stock._id).then(() => {
+        this.$emit("changeBabbles", null);
+        });
+      },
   }
 };
 </script>

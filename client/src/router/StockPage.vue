@@ -3,8 +3,10 @@
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
-<publish-babble></publish-babble>
-<timeline-babble :babbles="babbles"></timeline-babble>
+  <div class="column is-6">
+<publish-babble :stock="stock"></publish-babble>
+<timeline-babble :stock="stock" :babbles="babbles" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
+  </div>
   </section>
 
 </template>
@@ -37,7 +39,6 @@ export default {
   },
   methods: {
     updateWatchList() {
-      console.log("DEBUG")
       getWatchItem(this.stock.longName)
         .then(watchItem => {
           this.watchItem = watchItem;
@@ -50,11 +51,20 @@ export default {
         this.watchInsight = watchInsight
         console.log(watchInsight,'AAAAAA')
       });
+    },
+
+    updateTimelineBabble(){
+      getStockBabbles(this.stock.longName)
+      .then(babbles => (this.babbles = babbles));
     }
   },
   created() {
     const stockName = this.$route.params.stockName;
-    getStock(stockName).then(stock => (this.stock = stock));
+    
+    getStock(stockName)
+    .then(stock => {
+      this.stock = stock;
+    });
 
     getWatchItem(stockName)
       .then(watchItem => {
@@ -64,12 +74,16 @@ export default {
         throw err;
       });
     
-    getWatchInsight().then(watchInsight =>{
-      this.watchInsight = watchInsight
-      console.log(watchInsight,'AAAAAA')
+    getWatchInsight()
+      .then(watchInsight =>{
+        this.watchInsight = watchInsight
     });
 
-    getStockBabbles(stockName).then(babbles => this.babbles = babbles);
+    getStockBabbles(stockName)
+      .then(babbles => {
+        console.log("debug********************************",babbles)
+        this.babbles = babbles;
+    });
   }
 };
 </script>
