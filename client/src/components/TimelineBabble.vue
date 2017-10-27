@@ -69,6 +69,12 @@
         props: {
             babbles: Object,
         },
+        created() {
+    getStockBabbles(this.stock.longName, 30).then(trendBullBear => {
+      console.log("trendBullBear", trendBullBear);
+      this.trendBullBear = trendBullBear;
+    });
+  }
         
     }
     

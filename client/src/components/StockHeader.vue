@@ -218,7 +218,6 @@ a {
 
 #ActionCard {
     width: 100%;
-    margin-bottom: 25px;
    }
 
 .title.is-5 {
