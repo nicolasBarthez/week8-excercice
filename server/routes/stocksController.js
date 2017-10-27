@@ -213,7 +213,6 @@ stocksController.patch(
     WatchItem.findById(watchItemId)
       .populate("stockId")
       .exec((err, watchItem) => {
-        console.log("************WATCHITEM*****", watchItem);
         var position = watchItem.position;
         if (position === "bull") {
           // Define new status
@@ -237,11 +236,10 @@ stocksController.patch(
           );
         }
         // Update status of watchList
-        User.findByIdAndUpdate(user._id, {
-          $inc: { score: updateScore }
-        }).exec();
-
-        WatchItem.findByIdAndUpdate(watchItemId, { status: newStatus })
+        WatchItem.findByIdAndUpdate(watchItemId, {
+          status: newStatus,
+          $inc: { performancePoints: updateScore }
+        })
           .then(resp => {
             User.findByIdAndUpdate(user._id, {
               $pull: { watchList: watchItemId }
@@ -299,30 +297,24 @@ stocksController.post(
 );
 
 // **********************************************************
-// Prefered stock of a user   ===============================
+// Prefered stock of a user (won watchitems)  ===============
 // **********************************************************
 
 stocksController.get(
-  "/:stockName/watchitem",
+  "/:stockName/prefered",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const stock = req.params.stockName.toUpperCase();
     const user = req.user;
+    const insiderId = req.query.id;
 
-    Stock.findOne({ longName: stock }, (err, stock) => {
-      WatchItem.findOne({
-        userId: user._id,
-        stockId: stock._id,
-        status: "active"
-      }).then(watchitem => {
-        if (!watchitem) {
-          //const err = new Error("Not Found");
-          //err.status = 404;
-          res.json(null);
-        } else {
-          res.json(watchitem);
-        }
-      });
+    User.findById(insiderId).then(insider => {
+      WatchItem.find({ status: "won" })
+        .populate("stockId")
+        .exec((err, wis) => {
+          if (err) res.json(null);
+          res.json(wis);
+        });
     });
   }
 );

@@ -9,11 +9,39 @@ const config = require("../config");
 const moment = require("moment");
 
 // **********************************************************
-// Send 5 last positions of All users info  =================
+// Send all positions of a user   ==========================
 // **********************************************************
 
 watchItemsController.get(
-  "/",
+  "/positions/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const user = req.user;
+
+    WatchItem.find({
+      _id: user._id,
+      status: "active",
+      position: { $in: ["bull", "bear"] }
+    })
+      .sort({ created_at: -1 })
+      .populate("stockId")
+      .populate("userId")
+      .exec((err, watchitem) => {
+        if (!watchitem) {
+          res.json(null);
+        } else {
+          res.json(watchitem);
+        }
+      });
+  }
+);
+
+// **********************************************************
+// Send the last 5 positions of All users   =================
+// **********************************************************
+
+watchItemsController.get(
+  "/positions",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
@@ -38,25 +66,25 @@ watchItemsController.get(
 );
 
 // **********************************************************
-// Send 5 positions of the user info  =======================
+// Send all watchitems of a user   ==========================
 // **********************************************************
 
 watchItemsController.get(
-  "/user",
+  "/:id",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
+    const insiderId = req.params.id;
 
     WatchItem.find({
-      userId: user._id,
+      _id: insiderId,
       status: "active",
-      position: { $in: ["bull", "bear"] }
+      position: "none"
     })
       .sort({ created_at: -1 })
-      .limit(5)
       .populate("stockId")
+      .populate("userId")
       .exec((err, watchitem) => {
-        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {

@@ -68,12 +68,11 @@ WatchItem.find({
             );
           }
 
-          User.findByIdAndUpdate(watchItem.userId, {
-            $inc: { score: updateScore }
-          }).exec();
-
           // close position
-          WatchItem.findByIdAndUpdate(watchItem._id, { status: newStatus })
+          WatchItem.findByIdAndUpdate(watchItem._id, {
+            status: newStatus,
+            $inc: { performancePoints: updateScore }
+          })
             .then(resp => {
               // Update watchList
               User.findByIdAndUpdate(item.userId._id, {
@@ -94,7 +93,6 @@ WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
   .populate("userId")
   .populate("stockId")
   .exec((err, watchList) => {
-    console.log("watchIList************* =>", watchList);
     // calculate score
     watchList.forEach(watchItem => {
       let updateScore = calculateScore(
@@ -102,9 +100,9 @@ WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
         watchItem.initialPrice,
         watchItem.stockId.price
       );
-      console.log("watchItem =>", watchItem);
-      User.findByIdAndUpdate(watchItem.userId, {
-        $inc: { score: updateScore }
+
+      WatchItem.findByIdAndUpdate(watchItem._id, {
+        $inc: { performancePoints: updateScore }
       }).exec();
     });
     mongoose.connection.close();

@@ -22,9 +22,7 @@ const babblesController = require("./routes/babblesController.js");
 const stocksController = require("./routes/stocksController.js");
 const watchItemsController = require("./routes/watchItemsController.js");
 const followerController = require("./routes/followerController.js");
-// const adminController = require("./routes/adminController.js");
-// const trendingController = require("./routes/trendingController.js");
-// const dashboardController = require("./routes/leaderboardController.js");
+const usersController = require("./routes/usersController.js");
 
 // configuration ===============================================================
 // mongodb://localhost/insidersDB-dev
@@ -87,10 +85,7 @@ app.use("/api/stocks", stocksController);
 app.use("/api/babbles", babblesController);
 app.use("/api/watchitems", watchItemsController);
 app.use("/api/follow", followerController);
-// app.use("/api/profile", profileController);
-// app.use("/api/trending", trendingController);
-// app.use("/api/dashboard", dashboardController);
-// app.use("/api/admin", adminController);
+app.use("/api/users", usersController);
 
 // This is an example of protected route
 app.get(
