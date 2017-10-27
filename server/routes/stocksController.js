@@ -57,42 +57,11 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
         (nbBear / (nbBull + nbBear) * 100).toFixed(2)
       ];
 
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        const today = moment().startOf("day");
-        const thirtyDaysAgo = moment(today).subtract(attribute, "days");
-
-        WatchItem.find({
-          stockId: stock._id,
-          status: "active",
-          created_at: {
-            $gte: thirtyDaysAgo.toDate()
-          }
-        }).then(activeWatchItems => {
-          function countPositions(array, position) {
-            return array
-              .map(item => {
-                return item.position == position;
-              })
-              .filter(val => {
-                return val === true;
-              }).length;
-          }
-          var nbBull = countPositions(activeWatchItems, "bull");
-          var nbBear = countPositions(activeWatchItems, "bear");
-          var percentage = [
-            nbBull / (nbBull + nbBear),
-            nbBear / (nbBull + nbBear)
-          ];
-
-          res.json(percentage);
-        });
-      });
+      res.json(percentage);
     });
   });
 });
+
 // **********************************************************
 // Send wachtlist info  =====================================
 // **********************************************************
@@ -119,73 +88,6 @@ stocksController.get(
         }
       });
     });
-  }
-);
-// ***************************************************
-// Send babbles info linked to a stock ===============
-// ***************************************************
-
-stocksController.get(
-  "/babbles",
-  passport.authenticate("jwt", config.jwtSession),
-  function(req, res, next) {
-    const stock = req.params.name.toUpperCase();
-    const user = req.user;
-    const sort = req.query.sort;
-    const page = req.query.page;
-    const group = page * 50;
-
-    if (!sort) {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        Babble.find({ stockLink: stock._id })
-          .sort({ updated_at: -1 })
-          .populate("user")
-          .limit(group)
-          .exec((err, timeline) => {
-            res.json({
-              timeline,
-              moment
-            });
-          });
-      });
-    } else if (sort === "me") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        Babble.find({ stockLink: stock._id, user: user._id })
-          .sort({ updated_at: -1 })
-          .populate("user")
-          .limit(group)
-          .exec((err, timeline) => {
-            res.json({
-              timeline,
-              moment
-            });
-          });
-      });
-    } else if (sort === "insider-mates") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        User.findById(user._id, { following }).then(insiderMates => {
-          Babble.find({ $in: { user: insiderMates } })
-            .sort({ updated_at: -1 })
-            .populate("user")
-            .limit(group)
-            .exec((err, timeline) => {
-              res.json({
-                timeline,
-                moment
-              });
-            });
-        });
-      });
-    }
   }
 );
 
