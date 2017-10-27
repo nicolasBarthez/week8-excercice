@@ -104,6 +104,10 @@ app.get(
   }
 );
 
+const clientRoot = path.join(__dirname, "../client/dist");
+app.use("/", express.static(clientRoot));
+app.use(history("index.html", { root: clientRoot }));
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error("Not Found");
