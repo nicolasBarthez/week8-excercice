@@ -103,7 +103,7 @@ export function getTrend(stockName, nbDays) {
 }
 
 export function getStockBabbles(stockName) {
-    let url = `/stocks/${stockName}/babbles`;
+    let url = `/babbles/${stockname}/?page=1`;
     return insiders
         .get(url)
         .then(response => {
@@ -120,6 +120,21 @@ export function getWatchInsight() {
         .get(url)
         .then(response => {
             console.log("*****************************DEBUG watchInsight", response.data);
+            return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}
+
+export function sendBabble(babble, stockId) {
+    let url = `/babbles?stock=${stockId}`;
+    return insiders
+        .post(url, {
+            babble
+        })
+        .then(response => {
+            console.log("*****************************DEBUG babble", response.data);
             return response.data;
         })
         .catch(err => {
