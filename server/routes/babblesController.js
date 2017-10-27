@@ -128,7 +128,7 @@ babblesController.post(
   "/",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
-    const stock = req.query.stockId ? req.query.stockId : "";
+    const stock = req.query.stock ? req.query.stock : "";
     const babble = req.body.babble;
     const user = req.user;
 
