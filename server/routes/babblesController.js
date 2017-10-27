@@ -31,10 +31,7 @@ babblesController.get(
         .limit(group)
         .exec((err, timeline) => {
           if (err) res.json(null);
-          res.json({
-            timeline,
-            moment
-          });
+          res.json(timeline);
         });
     } else if (sort === "me") {
       Babble.find({ stockLink: stock._id, user: user._id })
@@ -43,10 +40,7 @@ babblesController.get(
         .limit(group)
         .exec((err, timeline) => {
           if (err) res.json(null);
-          res.json({
-            timeline,
-            moment
-          });
+          res.json(timeline);
         });
     } else if (sort === "insider-mates") {
       User.findById(user._id, { following }).then(insiderMates => {
@@ -56,10 +50,7 @@ babblesController.get(
           .limit(group)
           .exec((err, timeline) => {
             if (err) res.json(null);
-            res.json({
-              timeline,
-              moment
-            });
+            res.json(timeline);
           });
       });
     }
@@ -92,10 +83,7 @@ babblesController.get(
           .limit(group)
           .exec((err, timeline) => {
             if (err) res.json(null);
-            res.json({
-              timeline,
-              moment
-            });
+            res.json(timeline);
           });
       });
     } else if (sort === "me") {
@@ -109,10 +97,7 @@ babblesController.get(
           .limit(group)
           .exec((err, timeline) => {
             if (err) res.json(null);
-            res.json({
-              timeline,
-              moment
-            });
+            res.json(timeline);
           });
       });
     } else if (sort === "insider-mates") {
@@ -127,10 +112,7 @@ babblesController.get(
             .limit(group)
             .exec((err, timeline) => {
               if (err) res.json(null);
-              res.json({
-                timeline,
-                moment
-              });
+              res.json(timeline);
             });
         });
       });
@@ -146,7 +128,7 @@ babblesController.post(
   "/",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
-    const stock = req.query.stockId ? req.query.stockId : "";
+    const stock = req.query.stock ? req.query.stock : "";
     const babble = req.body.babble;
     const user = req.user;
 

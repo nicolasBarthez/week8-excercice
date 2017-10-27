@@ -21,6 +21,10 @@ const watchItemSchema = new Schema(
       type: Number,
       default: 0
     },
+    performancePoints: {
+      type: Number,
+      default: 0
+    },
     status: {
       type: String,
       enum: ["won", "lost", "active", "removed"],

@@ -19,7 +19,7 @@ followerController.post(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const insiderId = req.body.insiderId;
+    const insiderId = req.body.insider;
 
     // GAMIFICATION => Add 20 points per people that follow you
     User.findByIdAndUpdate(insiderId, {
@@ -49,7 +49,7 @@ followerController.delete(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const insiderId = req.body.insiderId;
+    const insiderId = req.body.insider;
 
     // GAMIFICATION => Add 20 points per people that follow you
     User.findByIdAndUpdate(insiderId, {
