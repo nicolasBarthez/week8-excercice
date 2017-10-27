@@ -8,7 +8,7 @@ const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const history = require("connect-history-api-fallback");
+const history = require("express-history-api-fallback");
 require("dotenv").config();
 
 const passport = require("passport");

@@ -298,4 +298,33 @@ stocksController.post(
   }
 );
 
+// **********************************************************
+// Prefered stock of a user   ===============================
+// **********************************************************
+
+stocksController.get(
+  "/:stockName/watchitem",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const stock = req.params.stockName.toUpperCase();
+    const user = req.user;
+
+    Stock.findOne({ longName: stock }, (err, stock) => {
+      WatchItem.findOne({
+        userId: user._id,
+        stockId: stock._id,
+        status: "active"
+      }).then(watchitem => {
+        if (!watchitem) {
+          //const err = new Error("Not Found");
+          //err.status = 404;
+          res.json(null);
+        } else {
+          res.json(watchitem);
+        }
+      });
+    });
+  }
+);
+
 module.exports = stocksController;
