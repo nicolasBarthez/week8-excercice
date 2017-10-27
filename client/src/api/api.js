@@ -94,7 +94,7 @@ export function getTrend(stockName, nbDays) {
     return insiders
         .get(url)
         .then(response => {
-            //console.log("DEBUG response.data", response);
+
             return response.data;
         })
         .catch(err => {
@@ -115,10 +115,11 @@ export function getStockBabbles(stockName) {
 }
 
 export function getWatchInsight() {
-    let url = `/watchitem/user`;
+    let url = `/watchitems/user`;
     return insiders
         .get(url)
         .then(response => {
+            console.log("*****************************DEBUG watchInsight", response.data);
             return response.data;
         })
         .catch(err => {
