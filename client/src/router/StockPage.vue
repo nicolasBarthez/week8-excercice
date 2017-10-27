@@ -2,7 +2,7 @@
   <section class="section main">
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
-
+  <side-current-insight @changeWatchlist="updateWatchList($event)"></side-current-insight>
 
   </section>
 

@@ -8,21 +8,22 @@
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
             </nav>
         </div>
-        <div v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
+        <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
             <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <h1 class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</h1>
-                   <b class="price is-6">{{watchItem.stockId.price}}</b>
-                   <b :id="variation" :class="{'is-6':true, 'has-text-green':watchItem.stockId.variation>0, 'has-text-red':watchItem.stockId.variation<0}">
+                   <b class="price is-6">{{watchItem.stockId.price}}</b> <br>
+                   <b id="variation" :class="{'is-6':true, 'has-text-green':watchItem.stockId.variation>0, 'has-text-red':watchItem.stockId.variation<0}">
                        <span class= "indice">{{watchItem.stockId.variation}}</span>
                    </b>  
                 </div>
-                <div id="bullAndBear"><img src="/images/bulls.png" alt="bulls-and-bears"></div>
+                <div v-if='watchInsight.position ="bull"' id="bullAndBear"><img src="/static/images/bulls.png" alt="bulls-and-bears"></div>
+                <div v-else='watchInsight.position ="bear"' id="bullAndBear"><img src="/static/images/bears.png" alt="bulls-and-bears"></div>
                 <div id="position">
                    <span class="stockName">Performance</span>
-                   <h1 id="WinOrLoss">{{performanceWatchlist}}&nbsp;%</h1>
+                   <h1 id="WinOrLoss">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</h1>
                    <div id="close" action="/" method="post">
-                      <button id="Bclose" type="submit" class="button is-small is-outlined is-primary">Close</button>
+                      <button id="Bclose" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary">Close</button>
                    </div>
                 </div>
             </div>
@@ -36,32 +37,42 @@
 <script>
 
 import { getWatchInsight } from "@/api/api";
+import { removePosition } from "@/api/api";
 
 export default {
-     name: 'SideCurrentInsight',
-    data(){
+    data() {
         return {
-         watchInsight: null,
+         watchInsight:null,        
         }
-    },
-    
-    computed(){
-        performanceWatchlist: watchList.watchItem.initialPrice-(watchList.watchItem.stockId.price*100/watchList.watchItem.initialPrice)
     },
 
     props: {
     },
 
     methods:{
+        closePosition(watchItem) {
+      removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
+        this.$emit("changeWatchlist", null);
+        getWatchInsight()
+      });
+    },
     },
 
     created() {
-    getWatchInsight().then(watchInsight => (this.watchInsight = watchInsight));
+    getWatchInsight().then(watchInsight =>{
+this.watchInsight = watchInsight
+console.log(watchInsight,'AAAAAA')
+    } );
   }
 }
 </script>
 
 <style>
+.Symbol {
+    color: #192b41 !important;
+    width: 40%;
+}
+
 .navbar.is-dark {
     background-color: #192b41;
     color: #f9f9f9;
@@ -86,8 +97,9 @@ export default {
     color: #0a0a0a;
 }
 
-#WatchList {
+#watchList {
     padding-right: 40px;
+    display: flex;
 }
 .stockName {
     padding-bottom: 10px;
