@@ -2,34 +2,52 @@
   <section class="section main">
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
-  <side-current-insight @changeWatchlist="updateWatchList($event)"></side-current-insight>
-
+  <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+<timeline-babble :babbles="babbles"></timeline-babble>
+{{babbles}}
   </section>
 
 </template>
 
 <script>
+import { getWatchInsight } from "@/api/api";
 import { getStock } from "@/api/api";
 import { getWatchItem } from "@/api/api";
 import { getStockBabbles } from "@/api/api";
 import StockHeader from "../components/StockHeader";
 import SideCurrentInsight from "../components/SideCurrentInsight";
+import TimelineBabble from "../components/TimelineBabble";
+
 
 export default {
   data() {
     return {
       stock: null,
-      watchItem: null
+      watchItem: null,
+      watchInsight:null, 
+      babbles:null,
     };
   },
   components: {
     StockHeader,
-    SideCurrentInsight
+    SideCurrentInsight,
+    TimelineBabble
   },
   methods: {
-    updateWatchList(item) {
-      this.watchItem = item;
-      console.log(item);
+    updateWatchList() {
+      console.log("DEBUG")
+      getWatchItem(this.stock.longName)
+        .then(watchItem => {
+          this.watchItem = watchItem;
+        })
+        .catch(err => {
+          throw err;
+        });
+    
+      getWatchInsight().then(watchInsight =>{
+        this.watchInsight = watchInsight
+        console.log(watchInsight,'AAAAAA')
+      });
     }
   },
   created() {
@@ -43,8 +61,13 @@ export default {
       .catch(err => {
         throw err;
       });
+    
+    getWatchInsight().then(watchInsight =>{
+      this.watchInsight = watchInsight
+      console.log(watchInsight,'AAAAAA')
+    });
 
-    //getStockBabbles(stockName).then(babbles => this.babbles = babbles);
+    getStockBabbles(stockName).then(babbles => this.babbles = babbles);
   }
 };
 </script>

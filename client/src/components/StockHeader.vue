@@ -111,6 +111,7 @@ export default {
 
     imBull() {
       beBull(this.stock.longName).then(item => {
+          console.log("DEBUG item", item)
         this.$emit("changeWatchlist", item);
       });
     },

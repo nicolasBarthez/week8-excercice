@@ -17,8 +17,10 @@
                        <span class= "indice">{{watchItem.stockId.variation}}</span>
                    </b>  
                 </div>
-                <div v-if='watchInsight.position ="bull"' id="bullAndBear"><img src="/static/images/bulls.png" alt="bulls-and-bears"></div>
-                <div v-else='watchInsight.position ="bear"' id="bullAndBear"><img src="/static/images/bears.png" alt="bulls-and-bears"></div>
+                <div  id="bullAndBear">
+                <img v-if="watchItem.position ==='bull'" src="/static/images/bulls.png" alt="bulls-and-bears">
+                <img  v-else src="/static/images/bears.png" alt="bulls-and-bears">
+                </div>
                 <div id="position">
                    <span class="stockName">Performance</span>
                    <h1 id="WinOrLoss">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</h1>
@@ -41,29 +43,24 @@ import { removePosition } from "@/api/api";
 
 export default {
     data() {
-        return {
-         watchInsight:null,        
+        return {      
         }
     },
 
     props: {
+        watchInsight:null, 
     },
 
     methods:{
         closePosition(watchItem) {
       removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
         this.$emit("changeWatchlist", null);
-        getWatchInsight()
       });
+        getWatchInsight()
+      
     },
     },
 
-    created() {
-    getWatchInsight().then(watchInsight =>{
-this.watchInsight = watchInsight
-console.log(watchInsight,'AAAAAA')
-    } );
-  }
 }
 </script>
 
@@ -106,7 +103,7 @@ console.log(watchInsight,'AAAAAA')
 }
 
 #bullAndBear {
-    width: 20%;
+    width: 40%;
 }
 #position {
     padding-left: 20px;
