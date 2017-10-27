@@ -9,7 +9,7 @@ const config = require("../config");
 const moment = require("moment");
 
 // **********************************************************
-// Send users sort by score   ===============================
+// Send users sort by  social score
 // **********************************************************
 
 usersController.get(
@@ -26,5 +26,19 @@ usersController.get(
       });
   }
 );
+// **********************************************************
+// Send Best users by stock
+// **********************************************************
+
+// usersController.get(
+//   "/performance",
+//   passport.authenticate("jwt", config.jwtSession),
+//   (req, res, next) => {
+//     const user = req.user;
+//
+//     WatchItem.find((status: { $in: ["won", "lost"] })).then(watchItem => {});
+//
+//   }
+// );
 
 module.exports = usersController;
