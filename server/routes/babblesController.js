@@ -42,6 +42,40 @@ babblesController.post(
 );
 
 // **********************************************************
+// Response to a babble   ===================================
+// **********************************************************
+
+babblesController.post(
+  "/resp",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const stock = req.query.stockId ? req.query.stockId : "";
+    const babbleResp = req.body.babble;
+    const parentBabbleId = req.query.respto;
+    const user = req.user;
+
+    const newReply = new Babble({
+      user,
+      babble: babbleResp
+    });
+
+    Babble.findByIdAndUpdate(
+      parentBabbleId,
+      { $push: { reply: newReply } },
+      err => {
+        if (err) {
+          return next(err);
+        }
+        // GAMIFICATION => +10 points per babble replied posted
+        User.findByIdAndUpdate(user._id, { $inc: { score: 10 } }).exec();
+      }
+    ).then(resp => {
+      return res.json(babble);
+    });
+  }
+);
+
+// **********************************************************
 // Like a babble  (only once) ===============================
 // **********************************************************
 babblesController.post(

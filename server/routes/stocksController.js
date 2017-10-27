@@ -57,39 +57,7 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
         (nbBear / (nbBull + nbBear) * 100).toFixed(2)
       ];
 
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        const today = moment().startOf("day");
-        const thirtyDaysAgo = moment(today).subtract(attribute, "days");
-
-        WatchItem.find({
-          stockId: stock._id,
-          status: "active",
-          created_at: {
-            $gte: thirtyDaysAgo.toDate()
-          }
-        }).then(activeWatchItems => {
-          function countPositions(array, position) {
-            return array
-              .map(item => {
-                return item.position == position;
-              })
-              .filter(val => {
-                return val === true;
-              }).length;
-          }
-          var nbBull = countPositions(activeWatchItems, "bull");
-          var nbBear = countPositions(activeWatchItems, "bear");
-          var percentage = [
-            nbBull / (nbBull + nbBear),
-            nbBear / (nbBull + nbBear)
-          ];
-
-          res.json(percentage);
-        });
-      });
+      res.json(percentage);
     });
   });
 });
