@@ -61,6 +61,7 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
     });
   });
 });
+
 // **********************************************************
 // Send wachtlist info  =====================================
 // **********************************************************
@@ -87,73 +88,6 @@ stocksController.get(
         }
       });
     });
-  }
-);
-// ***************************************************
-// Send babbles info linked to a stock ===============
-// ***************************************************
-
-stocksController.get(
-  "/babbles",
-  passport.authenticate("jwt", config.jwtSession),
-  function(req, res, next) {
-    const stock = req.params.name.toUpperCase();
-    const user = req.user;
-    const sort = req.query.sort;
-    const page = req.query.page;
-    const group = page * 50;
-
-    if (!sort) {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        Babble.find({ stockLink: stock._id })
-          .sort({ updated_at: -1 })
-          .populate("user")
-          .limit(group)
-          .exec((err, timeline) => {
-            res.json({
-              timeline,
-              moment
-            });
-          });
-      });
-    } else if (sort === "me") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        Babble.find({ stockLink: stock._id, user: user._id })
-          .sort({ updated_at: -1 })
-          .populate("user")
-          .limit(group)
-          .exec((err, timeline) => {
-            res.json({
-              timeline,
-              moment
-            });
-          });
-      });
-    } else if (sort === "insider-mates") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
-        if (err) return next(err);
-        if (!stock) return next(err);
-
-        User.findById(user._id, { following }).then(insiderMates => {
-          Babble.find({ $in: { user: insiderMates } })
-            .sort({ updated_at: -1 })
-            .populate("user")
-            .limit(group)
-            .exec((err, timeline) => {
-              res.json({
-                timeline,
-                moment
-              });
-            });
-        });
-      });
-    }
   }
 );
 

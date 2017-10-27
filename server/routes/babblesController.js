@@ -10,6 +10,134 @@ const config = require("../config");
 // Moment to format dates
 const moment = require("moment");
 
+// ***************************************************
+// Send babbles info All =============================
+// ***************************************************
+
+babblesController.get(
+  "/",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const user = req.user;
+    // sort by people who wrote the babble
+    const sort = req.query.sort;
+    const page = req.query.page;
+    const group = page * 50;
+
+    if (!sort) {
+      Babble.find()
+        .sort({ updated_at: -1 })
+        .populate("user")
+        .limit(group)
+        .exec((err, timeline) => {
+          if (err) res.json(null);
+          res.json({
+            timeline,
+            moment
+          });
+        });
+    } else if (sort === "me") {
+      Babble.find({ stockLink: stock._id, user: user._id })
+        .sort({ updated_at: -1 })
+        .populate("user")
+        .limit(group)
+        .exec((err, timeline) => {
+          if (err) res.json(null);
+          res.json({
+            timeline,
+            moment
+          });
+        });
+    } else if (sort === "insider-mates") {
+      User.findById(user._id, { following }).then(insiderMates => {
+        Babble.find({ $in: { user: insiderMates } })
+          .sort({ updated_at: -1 })
+          .populate("user")
+          .limit(group)
+          .exec((err, timeline) => {
+            if (err) res.json(null);
+            res.json({
+              timeline,
+              moment
+            });
+          });
+      });
+    }
+  }
+);
+
+// ***************************************************
+// Send babbles info linked to a stock ===============
+// ***************************************************
+
+babblesController.get(
+  "/:name",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const stock = req.params.name.toUpperCase();
+    const user = req.user;
+    // sort by people who wrote the babble
+    const sort = req.query.sort;
+    const page = req.query.page;
+    const group = page * 50;
+
+    if (!sort) {
+      Stock.findOne({ longName: stock }, (err, stock) => {
+        if (err) return next(err);
+        if (!stock) return next(err);
+
+        Babble.find({ stockLink: stock._id })
+          .sort({ updated_at: -1 })
+          .populate("user")
+          .limit(group)
+          .exec((err, timeline) => {
+            if (err) res.json(null);
+            res.json({
+              timeline,
+              moment
+            });
+          });
+      });
+    } else if (sort === "me") {
+      Stock.findOne({ longName: stock }, (err, stock) => {
+        if (err) return next(err);
+        if (!stock) return next(err);
+
+        Babble.find({ stockLink: stock._id, user: user._id })
+          .sort({ updated_at: -1 })
+          .populate("user")
+          .limit(group)
+          .exec((err, timeline) => {
+            if (err) res.json(null);
+            res.json({
+              timeline,
+              moment
+            });
+          });
+      });
+    } else if (sort === "insider-mates") {
+      Stock.findOne({ longName: stock }, (err, stock) => {
+        if (err) return next(err);
+        if (!stock) return next(err);
+
+        User.findById(user._id, { following }).then(insiderMates => {
+          Babble.find({ $in: { user: insiderMates } })
+            .sort({ updated_at: -1 })
+            .populate("user")
+            .limit(group)
+            .exec((err, timeline) => {
+              if (err) res.json(null);
+              res.json({
+                timeline,
+                moment
+              });
+            });
+        });
+      });
+    }
+  }
+);
+
 // **********************************************************
 // Post a babble   ==========================================
 // **********************************************************
