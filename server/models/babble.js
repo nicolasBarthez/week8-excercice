@@ -16,8 +16,7 @@ const babbleSchema = new Schema(
       default: ["news"]
     },
     like: {
-      type: Number,
-      default: 0
+      type: [String]
     },
     babble_img: String,
     reply: Array
