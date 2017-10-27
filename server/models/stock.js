@@ -15,11 +15,7 @@ const stockSchema = new Schema(
     index: [String],
     price: Number,
     variation: Number,
-    volume: Number,
-    trend: {
-      type: [Number],
-      default: [50, 50]
-    }
+    volume: Number
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
