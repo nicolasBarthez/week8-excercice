@@ -69,7 +69,6 @@ export function beBull(stockName) {
     return insiders
         .post(url)
         .then(response => {
-            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùDEBUG POST bebull", response.data);
             return response.data;
         })
         .catch(err => {
@@ -82,7 +81,6 @@ export function beBear(stockName) {
     return insiders
         .post(url)
         .then(response => {
-            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùDEBUG POST babble", response.data);
             return response.data;
         })
         .catch(err => {

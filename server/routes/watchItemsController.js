@@ -16,7 +16,7 @@ watchItemsController.get(
   "/positions/:id",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
-    const user = req.user;
+    const user = req.params.id;
 
     WatchItem.find({
       _id: user._id,
@@ -24,6 +24,34 @@ watchItemsController.get(
       position: { $in: ["bull", "bear"] }
     })
       .sort({ created_at: -1 })
+      .populate("stockId")
+      .populate("userId")
+      .exec((err, watchitem) => {
+        if (!watchitem) {
+          res.json(null);
+        } else {
+          res.json(watchitem);
+        }
+      });
+  }
+);
+
+// **********************************************************
+// Send the last 5 positions of the user (left side)   ======
+// **********************************************************
+
+watchItemsController.get(
+  "/positions/user",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const user = req.user;
+
+    WatchItem.find({
+      status: "active",
+      position: { $in: ["bull", "bear"] }
+    })
+      .sort({ created_at: -1 })
+      .limit(5)
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
