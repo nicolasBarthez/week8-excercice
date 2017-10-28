@@ -66,7 +66,7 @@ watchItemsController.get(
 );
 
 // **********************************************************
-// Send the last 5 positions of All users   =================
+// Send the last 5 positions of All users
 // **********************************************************
 
 watchItemsController.get(
