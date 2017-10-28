@@ -86,7 +86,6 @@ export default {
     addWatchList() {
       addWatchItem(this.stock.longName)
         .then(item => {
-          console.log("added item");
           this.$emit("changeWatchlist", item);
         })
         .catch(err => {

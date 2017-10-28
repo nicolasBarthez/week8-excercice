@@ -7,7 +7,7 @@
                     <figure class="image is-32x32 is-circle"><img src="" alt="Image"></figure>
                 </div>
                 <div class="media-content">
-                    <form @submit.prevent="postBabble">
+                    <div>
                         <div class="field">
                             <div class="control">
                                 <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea">
@@ -26,7 +26,7 @@
                                 <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
                         </div>      
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -54,7 +54,8 @@ export default {
     
       postBabble(){
         sendBabble(this.babble,this.stock._id).then(() => {
-        this.$emit("changeBabbles", null);
+        this.babble='';
+        this.$emit("changeBabbles");
         });
       },
   }

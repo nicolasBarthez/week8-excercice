@@ -69,6 +69,7 @@ export function beBull(stockName) {
     return insiders
         .post(url)
         .then(response => {
+            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùDEBUG POST bebull", response.data);
             return response.data;
         })
         .catch(err => {
@@ -81,6 +82,7 @@ export function beBear(stockName) {
     return insiders
         .post(url)
         .then(response => {
+            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùDEBUG POST babble", response.data);
             return response.data;
         })
         .catch(err => {
@@ -105,7 +107,6 @@ export function getStockBabbles(stockName) {
     return insiders
         .get(url)
         .then(response => {
-            console.log("*****************************DEBUG babble", response.data);
             return response.data;
         })
         .catch(err => {
@@ -113,8 +114,8 @@ export function getStockBabbles(stockName) {
         });
 }
 
-export function getWatchInsight() {
-    let url = `/watchitems/user`;
+export function getWatchInsight(stockName) {
+    let url = `/${stockName}/watchitems/user`;
     return insiders
         .get(url)
         .then(response => {
@@ -132,7 +133,20 @@ export function sendBabble(babble, stockId) {
             babble: babble
         })
         .then(response => {
-            console.log("*****************************DEBUG babble", response.data);
+            return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}
+
+export function postLike(babbleId) {
+    let url = `/babbles/like`;
+    return insiders
+        .post(url, {
+            babbleId: babbleId
+        })
+        .then(response => {
             return response.data;
         })
         .catch(err => {

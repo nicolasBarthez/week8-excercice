@@ -27,7 +27,7 @@
                         <div class="content">
                             <p class="tweet-meta">
                                 <router-link to="/" class="has-text-dark">
-                                   <strong>{{babble.user_id.username}}</strong></router-link>
+                                   <strong>{{babble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
@@ -40,17 +40,15 @@
                                     <span class="icon is-small"><i class="fa fa-reply modal-button" data-target="#modal"></i></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </router-link>
-                                <router-link to="/" class="level-item has-text-grey-light">
-                                    <div id="like-form"> <span class="icon is-small"><i class="fa fa-thumbs-o-up like-btn"></i></span>
+                                <a class="level-item has-text-grey-light">
+                                    <form id="like-form"> <span class="icon is-small"><i @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
                                         <small>{{babble.like.length}}</small>
-                                        <input class="like-input" name="likeInput" val="">
-                                    </div>
-                                </router-link>
+                                   </form>
+                                </a>
                             </div>
                         </nav>
                     </div>
                 </article>
-                <button class="button m-t-1 m-b-1 is-fullwidth">Load more...</button>
             </div>
             <div v-else class="babble-container no-babble">
                 <p>The timeline is empty</p>
@@ -62,21 +60,38 @@
  </template>
 
 <script>
-import { getStockBabbles } from "@/api/api";
-   
+import { postLike } from "@/api/api";
+import moment from 'moment';
+
 export default {
     data() {
         return {
         }
     },
     props: {
-        babbles: Object,
+        babbles:Array,
         stock: Object,
-        },        
+    },  
+    methods: {
+        moment: function () {
+            return moment();
+        },
+        iLike(babble) {
+            postLike(babble._id)
+                .then(() => {
+                this.$emit("changeBabbles");
+                })
+                .catch(err => {
+                console.log("something is wrong");
+                });
+        },
+    },      
 }
             
 </script>
 
 <style>
-    
+    .level-item{
+        cursor: pointer;
+    }
 </style>

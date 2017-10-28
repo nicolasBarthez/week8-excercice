@@ -9,7 +9,7 @@
             </nav>
         </div>
         <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
-            <div id="watchList" class="card-content">
+              <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <h1 class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</h1>
                    <b class="price is-6">{{watchItem.stockId.price}}</b> <br>
@@ -38,7 +38,6 @@
 
 <script>
 
-import { getWatchInsight } from "@/api/api";
 import { removePosition } from "@/api/api";
 
 export default {
@@ -53,13 +52,11 @@ export default {
 
     methods:{
         closePosition(watchItem) {
-      removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
-        this.$emit("changeWatchlist", null);
-      });
-        getWatchInsight()
-      
-    },
-    },
+            removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
+            this.$emit("changeWatchlist");
+            });
+        },
+    }
 
 }
 </script>
