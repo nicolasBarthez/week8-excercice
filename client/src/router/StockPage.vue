@@ -4,7 +4,7 @@
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
   <div class="column is-6">
-<publish-babble :stock="stock"></publish-babble>
+<publish-babble :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
 <timeline-babble :stock="stock" :babbles="babbles" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
   </div>
   </section>
@@ -47,9 +47,10 @@ export default {
           throw err;
         });
     
-      getWatchInsight().then(watchInsight =>{
+      getWatchInsight(this.stock.longName)
+      .then(watchInsight =>{
         this.watchInsight = watchInsight
-        console.log(watchInsight,'AAAAAA')
+        console.log('AAAAAAwatchInsight', watchInsight)
       });
     },
 
@@ -74,14 +75,14 @@ export default {
         throw err;
       });
     
-    getWatchInsight()
+    getWatchInsight(stockName)
       .then(watchInsight =>{
+        console.log("debug***************watchInsight*****************",watchInsight)
         this.watchInsight = watchInsight
     });
 
     getStockBabbles(stockName)
       .then(babbles => {
-        console.log("debug********************************",babbles)
         this.babbles = babbles;
     });
   }
