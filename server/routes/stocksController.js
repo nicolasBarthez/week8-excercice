@@ -63,7 +63,7 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
 });
 
 // **********************************************************
-// Send wachtlist info  =====================================
+// Send wachtitem info for a user on a stock  ===============
 // **********************************************************
 
 stocksController.get(

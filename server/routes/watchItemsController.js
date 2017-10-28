@@ -13,7 +13,7 @@ const moment = require("moment");
 // **********************************************************
 
 watchItemsController.get(
-  "/positions/:id",
+  "/positions/user/:id",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.params.id;
@@ -45,7 +45,7 @@ watchItemsController.get(
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
-
+    console.log("user*********", user);
     WatchItem.find({
       status: "active",
       position: { $in: ["bull", "bear"] }
@@ -55,6 +55,7 @@ watchItemsController.get(
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
+        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {
