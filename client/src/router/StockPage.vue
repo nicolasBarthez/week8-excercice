@@ -6,7 +6,7 @@
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
   <div class="column is-6">
 <publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
-<timeline-babble :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
+<timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
 <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
   </div>
             
@@ -56,13 +56,19 @@ export default {
         })
         .catch(err => {
           throw err;
-        });
+      });
     
       getWatchInsight(this.stock.longName)
       .then(watchInsight =>{
         this.watchInsight = watchInsight
         console.log('AAAAAAwatchInsight', watchInsight)
       });
+
+      getRecentPosition()
+      .then(recentPositions => {
+        this.recentPositions =recentPositions;
+      });
+      
     },
 
     updateTimelineBabble(){
@@ -74,10 +80,9 @@ export default {
       this.filterBy=filterBy;
       getStockBabbles(this.stock.longName,this.filterBy)
       .then(babbles => (this.babbles = babbles));
-    }
-  },
-  created() {
-    const stockName = this.$route.params.stockName;
+    },
+    fetchData() {
+      const stockName = this.$route.params.stockName;
     
     getStock(stockName)
     .then(stock => {
@@ -111,6 +116,15 @@ export default {
      getUser().then(connectedUser => {
         this.connectedUser =connectedUser;
     });
+    }
+  },
+  created() {
+    this.fetchData()
+  },
+  watch: {
+    '$route'() {
+      this.fetchData()
+    }
   }
 };
 </script>

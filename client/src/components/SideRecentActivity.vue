@@ -13,8 +13,8 @@
         <p>
             <router-link :to="'/dashboard/'+recentPosition.userId._id" >
                 <strong>&commat;{{recentPosition.userId.username}}</strong></router-link>
-                <span>is {{recentPosition.position}} on  <a @click="reDirect(recentPosition.stockId.longName)" >#{{recentPosition.stockId.longName.length<7 ? recentPosition.stockId.longName : recentPosition.stockId.shortName }}
-            </a></span>
+                <span>is {{recentPosition.position}} on  <router-link :to="'/stocks/'+recentPosition.stockId.longName">#{{recentPosition.stockId.longName.length<7 ? recentPosition.stockId.longName : recentPosition.stockId.shortName }}
+            </router-link></span>
             <span>Followed by {{recentPosition.userId.nbFollower}} peoples</span>
             <router-link :to="'/dashboard/'+recentPosition.userId._id">See Dashboard</router-link>
         </p>
@@ -30,11 +30,6 @@ export default {
     props: {
      recentPositions:null, 
     },
-    methods: {
-        reDirect (t) {
-        this.$router.push('/stocks/'+t)
-        },
-    }
 }
 </script>
 

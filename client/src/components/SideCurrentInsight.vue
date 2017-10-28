@@ -11,7 +11,7 @@
         <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
-                   <h1 class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</h1>
+                   <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</router-link>
                    <b class="price is-6">{{watchItem.stockId.price}}</b> <br>
                    <b id="variation" :class="{'is-6':true, 'has-text-green':watchItem.stockId.variation>0, 'has-text-red':watchItem.stockId.variation<0}">
                        <span class= "indice">{{watchItem.stockId.variation}}</span>
