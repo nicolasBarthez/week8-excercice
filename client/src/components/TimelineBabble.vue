@@ -41,7 +41,8 @@
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </router-link>
                                 <a class="level-item has-text-grey-light">
-                                    <form id="like-form"> <span class="icon is-small"><i @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
+                                    <form id="like-form"> <span class="icon is-small"><i
+                                     @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
                                         <small>{{babble.like.length}}</small>
                                    </form>
                                 </a>

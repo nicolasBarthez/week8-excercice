@@ -1,5 +1,6 @@
 <template>
   <section class="section main">
+        
 
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
@@ -7,6 +8,7 @@
 <publish-babble :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
 <timeline-babble :stock="stock" :babbles="babbles" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
   </div>
+            
   </section>
 
 </template>

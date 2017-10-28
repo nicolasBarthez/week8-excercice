@@ -16,6 +16,7 @@ export function getStock(stockName) {
         });
 }
 
+//know user position on a stock
 export function getWatchItem(stockName) {
     let url = "/stocks/" + stockName + "/watchitem";
     return insiders
@@ -112,8 +113,8 @@ export function getStockBabbles(stockName) {
         });
 }
 
-export function getWatchInsight(stockName) {
-    let url = `/${stockName}/watchitems/user`;
+export function getWatchInsight() {
+    let url = `/watchitems/positions/user`;
     return insiders
         .get(url)
         .then(response => {
