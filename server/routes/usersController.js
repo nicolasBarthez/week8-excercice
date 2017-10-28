@@ -13,18 +13,37 @@ const moment = require("moment");
 // **********************************************************
 
 usersController.get(
-  "/",
-  passport.authenticate("jwt", config.jwtSession),
-  (req, res, next) => {
-    const user = req.user;
+    "/",
+    passport.authenticate("jwt", config.jwtSession),
+    (req, res, next) => {
+        const user = req.user;
 
-    User.find()
-      .sort({ score: -1 })
-      .exec((err, resp) => {
-        if (err) res.json(null);
-        return res.json(resp);
-      });
-  }
+        User.find()
+            .sort({ score: -1 })
+            .exec((err, resp) => {
+                if (err) res.json(null);
+                return res.json(resp);
+            });
+    }
+);
+
+
+// **********************************************************
+// Send userConnected info
+// **********************************************************
+
+usersController.get(
+    "/userconnected",
+    passport.authenticate("jwt", config.jwtSession),
+    (req, res, next) => {
+        const user = req.user;
+
+        User.findById(user._id)
+            .exec((err, resp) => {
+                if (err) res.json(null);
+                return res.json(resp);
+            });
+    }
 );
 // **********************************************************
 // Send Best users by stock

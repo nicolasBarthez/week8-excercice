@@ -4,6 +4,18 @@ const insiders = axios.create({
     baseURL: process.env.NODE_ENV === "production" ? "/api" : "http://localhost:3000/api"
 });
 
+export function getUser() {
+    let url = "users/userconnected";
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            throw err;
+        });
+}
+
 export function getStock(stockName) {
     let url = "/stocks/" + stockName;
     return insiders
@@ -101,8 +113,8 @@ export function getTrend(stockName, nbDays) {
         });
 }
 
-export function getStockBabbles(stockName) {
-    let url = `/babbles/${stockName}/?page=1`;
+export function getStockBabbles(stockName, sortBy) {
+    let url = `/babbles/${stockName}?page=1&sort=${sortBy}`;
     return insiders
         .get(url)
         .then(response => {
@@ -145,6 +157,18 @@ export function postLike(babbleId) {
         .post(url, {
             babbleId: babbleId
         })
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}
+
+export function getRecentPosition() {
+    let url = `/watchitems/positions`;
+    return insiders
+        .get(url)
         .then(response => {
             return response.data;
         })

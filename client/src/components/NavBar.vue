@@ -38,7 +38,7 @@
                 <div class="nav-profile" v-if="$root.user">
                     <router-link to="/" id="profile-pic">
                         <div class="nav-photo-profil">
-                        <img :src="$root.user.picProfile" alt="">
+                        <img  v-if="connectedUser" :src="connectedUser.picProfile" alt="">
                         </div>
                     </router-link>
                     <div class="nav-user-profile">
@@ -67,6 +67,9 @@ export default {
         { location: '/dashboard', text: 'My Dashboard' },
       ],
     }
+  },
+  props: {
+    connectedUser: Object
   },
 
   methods: {

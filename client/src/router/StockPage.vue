@@ -5,8 +5,9 @@
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
   <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
   <div class="column is-6">
-<publish-babble :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
-<timeline-babble :stock="stock" :babbles="babbles" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
+<publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
+<timeline-babble :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
+<side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
   </div>
             
   </section>
@@ -14,6 +15,8 @@
 </template>
 
 <script>
+import { getUser } from "@/api/api";
+import { getRecentPosition } from "@/api/api";      
 import { getWatchInsight } from "@/api/api";
 import { getStock } from "@/api/api";
 import { getWatchItem } from "@/api/api";
@@ -22,23 +25,29 @@ import StockHeader from "../components/StockHeader";
 import SideCurrentInsight from "../components/SideCurrentInsight";
 import TimelineBabble from "../components/TimelineBabble";
 import PublishBabble from "../components/PublishBabble";
+import SideRecentActivity from "../components/SideRecentActivity";
 
 
 export default {
   data() {
     return {
+      filterBy:'all',
       stock: null,
       watchItem: null,
       watchInsight:null, 
       babbles:null,
+      recentPositions:null,
+      connectedUser:null,
     };
   },
   components: {
     StockHeader,
     SideCurrentInsight,
     TimelineBabble,
-    PublishBabble
+    PublishBabble,
+    SideRecentActivity
   },
+
   methods: {
     updateWatchList() {
       getWatchItem(this.stock.longName)
@@ -57,7 +66,13 @@ export default {
     },
 
     updateTimelineBabble(){
-      getStockBabbles(this.stock.longName)
+      getStockBabbles(this.stock.longName,this.filterBy)
+      .then(babbles => (this.babbles = babbles));
+    },
+
+    changeSort(filterBy){
+      this.filterBy=filterBy;
+      getStockBabbles(this.stock.longName,this.filterBy)
       .then(babbles => (this.babbles = babbles));
     }
   },
@@ -83,9 +98,18 @@ export default {
         this.watchInsight = watchInsight
     });
 
-    getStockBabbles(stockName)
+    getStockBabbles(stockName, 'all')
       .then(babbles => {
         this.babbles = babbles;
+    });
+
+    getRecentPosition()
+      .then(recentPositions => {
+        this.recentPositions =recentPositions;
+    });
+
+     getUser().then(connectedUser => {
+        this.connectedUser =connectedUser;
     });
   }
 };

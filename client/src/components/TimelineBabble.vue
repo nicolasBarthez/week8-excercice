@@ -5,10 +5,9 @@
      <nav class="navbar is-dark">
         <div>
             <div class="babblesMenu">
-                <router-link to="/" class="babMenu navbar-item is-tab is-active">All</router-link>
-                <router-link to="/" class="babMenu navbar-item">Insiders Mates</router-link>
-                <router-link to="/" class="babMenu navbar-item">Watch List</router-link>
-                <router-link to="/" class="babMenu navbar-item">My Posts</router-link>
+                 <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
+                    :class="{'is-active': link.text, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
+                </div>
                 <p id="vide"></p>
                 <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
             </div>
@@ -61,14 +60,20 @@
  </template>
 
 <script>
+
 import { postLike } from "@/api/api";
 import moment from 'moment';
 
 export default {
-    data() {
-        return {
-        }
-    },
+     data () {
+    return {
+      navbarLinks: [
+        {  text: 'All', query: 'all'},
+        {  text: 'Insiders Mates',  query: 'insider-mates' },
+        {  text: 'My posts', query: 'me'},
+      ],
+    }
+  },
     props: {
         babbles:Array,
         stock: Object,
@@ -86,6 +91,13 @@ export default {
                 console.log("something is wrong");
                 });
         },
+        sortBabbles(link){
+            console.log('linnnnnnnnk', link)
+            this.$emit("sort",link)
+        }
+           
+
+        
     },      
 }
             
