@@ -1,6 +1,5 @@
 <template>
     <div class="column is-6" id="ActionCard">
-
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
                 <div class="media" id="stockInfo">
@@ -24,12 +23,13 @@
                                <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
-                                 <span> You're {{watchItem.position}} from {{watchItem.initialPrice}}</span>
+                                 <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
+                                      You're {{watchItem.position}} from {{watchItem.initialPrice}}</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
                                <strong class="">{{stock.price}} €</strong>
-                               <small class="">&nbsp;{{stock.variation}} %</small>
+                               <small :class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp;{{stock.variation}} %</small>
                            </div>
                         </div>
                            <nav id="bandB" class="level media">
@@ -77,10 +77,11 @@ export default {
   name: "StockHeader",
   props: {
     stock: Object,
-    watchItem: Object
+    watchItem: Object,
+    trendBullBear: Array
   },
   data() {
-    return { trendBullBear: [50, 50] };
+    return {};
   },
   methods: {
     addWatchList() {
@@ -108,7 +109,7 @@ export default {
     imBull() {
       beBull(this.stock.longName).then(item => {
         this.$emit("changeWatchlist", item);
-      });
+      });  
     },
 
     imBear() {
@@ -116,31 +117,23 @@ export default {
         this.$emit("changeWatchlist", item);
       });
     },
+
     trend30() {
-      getTrend(this.stock.longName, 30).then(trendBullBear => {
-        this.item = trendBullBear;
-      });
+        this.$emit("changeWatchlist", item);
     },
+
     trend7() {
-      getTrend(this.stock.longName, 7).then(trendBullBear => {
-        this.item = trendBullBear;
-      });
+        this.$emit("trendBullBearSeven", item);
     },
+
     trend1() {
-      getTrend(this.stock.longName, 1).then(trendBullBear => {
-        this.item = trendBullBear;
-      });
+        this.$emit("trendBullBearOne", item);
     }
   },
-  created() {
-    getTrend(this.stock.longName, 30).then(trendBullBear => {
-      this.trendBullBear = trendBullBear;
-    });
-  }
 };
 </script>
 
-<style>
+<style scoped>
 .stock-banner {
     display: flex;
     flex-direction: row;
@@ -152,7 +145,9 @@ export default {
         flex-direction: column;
     }
 }
-
+.pos{
+    text-align: center
+}
 a {
     color: #192b41;
     cursor: inherit;

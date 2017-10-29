@@ -113,7 +113,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .section.main {
     background-color: #f9f9f9;
     padding-top: 100px;

@@ -17,3 +17,11 @@ body {
 .icon .mdi {
     color: #192b41;
 }
+
+.has-text-green {
+    color: #21ce99
+}
+
+.has-text-red {
+    color: #ff6026
+}

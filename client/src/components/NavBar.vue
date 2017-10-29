@@ -82,7 +82,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
 
 #nav-toggle-state {
   display: none;

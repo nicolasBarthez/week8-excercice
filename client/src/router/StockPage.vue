@@ -1,17 +1,18 @@
 <template>
-  <section class="section main">
-
-
-  <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" @changeWatchlist="updateWatchList($event)"></stock-header>
-  <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
-  <div class="column is-6">
-<publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
-<timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
-<side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
-  </div>
-
+<div v-if="!stock">.....loading</div>
+  <section v-else class="section main">
+    <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
+    <div class="container">
+      <div class="columns">
+        <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <div class="column is-6">
+          <publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
+          <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
+        </div>  
+        <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
+      </div>
+    </div>
   </section>
-
 </template>
 
 <script>
@@ -21,6 +22,7 @@ import { getWatchInsight } from "@/api/api";
 import { getStock } from "@/api/api";
 import { getWatchItem } from "@/api/api";
 import { getStockBabbles } from "@/api/api";
+import { getTrend } from "@/api/api";
 import StockHeader from "../components/StockHeader";
 import SideCurrentInsight from "../components/SideCurrentInsight";
 import TimelineBabble from "../components/TimelineBabble";
@@ -36,7 +38,8 @@ export default {
       watchInsight: null,
       babbles: null,
       recentPositions: null,
-      connectedUser: null
+      connectedUser: null,
+      trendBullBear:[50,50]
     };
   },
   components: {
@@ -64,6 +67,10 @@ export default {
 
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;
+      });
+
+      getTrend(this.stock.longName, 30).then(trendBullBear => {
+        this.trendBullBear = trendBullBear;
       });
     },
 
@@ -109,7 +116,24 @@ export default {
       getUser().then(connectedUser => {
         this.connectedUser = connectedUser;
       });
+
+      getTrend(stockName, 30).then(trendBullBear => {
+        this.trendBullBear = trendBullBear;
+      });
+    },
+
+    getTrend7(){
+      getTrend(this.stock.longName, 7).then(trendBullBear => {
+        this.trendBullBear = trendBullBear;
+      });
+    },
+
+    getTrend1(){
+      getTrend(this.stock.longName, 1).then(trendBullBear => {
+        this.trendBullBear = trendBullBear;
+      });
     }
+    
   },
   created() {
     this.fetchData();
@@ -122,13 +146,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .section.main {
     background-color: #f9f9f9;
-    padding-top: 100px;
+    padding: 7rem 1.5rem;
+}
+.container{
+  display: flex;
 }
 
-.section {
-    padding: 3rem 1.5rem;
-}
 </style>
