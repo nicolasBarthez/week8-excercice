@@ -3,6 +3,7 @@ const babblesController = express.Router();
 const Stock = require("../models/stock");
 const User = require("../models/user");
 const Babble = require("../models/babble");
+const Babblereply = require("../models/babblereply");
 const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
@@ -175,8 +176,10 @@ babblesController.post(
     const parentBabbleId = req.query.respto;
     const user = req.user;
 
-    const newReply = new Babble({
+    const newReply = new Babblereply({
       user: user._id,
+      username: user.username,
+      picProfile: user.picProfile,
       babble: babbleResp
     });
 

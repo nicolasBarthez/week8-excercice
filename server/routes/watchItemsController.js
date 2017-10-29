@@ -132,21 +132,42 @@ watchItemsController.get(
     const user = req.user;
     const stockId = req.params.id;
 
+    const today = moment().startOf("day");
+    const thirtyDaysAgo = moment(today).subtract(30, "days");
+
     WatchItem.find({
       stockId: stockId,
       status: "active",
-      position: { $in: ["bull", "bear"] }
-    })
-      .sort({ created_at: -1 })
-      .populate("stockId")
-      .populate("userId")
-      .exec((err, watchitem) => {
-        if (!watchitem) {
-          res.json(null);
-        } else {
-          res.json(watchitem);
-        }
-      });
+      position: { $in: ["bull", "bear"] },
+      created_at: {
+        $gte: thirtyDaysAgo.toDate()
+      }
+    }).then(activeWatchItems => {
+      function countPositions(array, position) {
+        return array
+          .map(item => {
+            return item.position == position;
+          })
+          .filter(val => {
+            return val === true;
+          }).length;
+      }
+      let nbBull = 50 + countPositions(activeWatchItems, "bull");
+      let nbBear = 50 + countPositions(activeWatchItems, "bear");
+
+      console.log("bull", nbBull);
+      console.log("bear", nbBear);
+
+      if (nbBull < nbBear) {
+        var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(2);
+        var currentTrend = { trend: "bear", percentage: currentPercentage };
+      } else {
+        var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(2);
+        var currentTrend = { trend: "bull", percentage: currentPercentage };
+      }
+
+      res.json(currentTrend);
+    });
   }
 );
 

@@ -1,19 +1,20 @@
 <template>
 <section class="section main">
   <stock-index-filter ></stock-index-filter>
-  <stock-trending :stocks="stocks"></stock-trending>
+  <stock-trending :stocks="stocks" :stockTrend="stockTrend"></stock-trending>
 </section>
 </template>
 
 <script>
 import StockIndexFilter from "../components/StockIndexFilter";
 import StockTrending from "../components/StockTrending";
-import { getStocks } from "@/api/apiTrending";
+import { getStocks, getTrend } from "@/api/apiTrending";
 export default {
   data() {
     return {
       indexSelected: "all",
-      stocks: null
+      stocks: null,
+      stockTrend: null
     };
   },
   components: {
@@ -26,6 +27,16 @@ export default {
       getStocks(indexSelected)
         .then(stocks => {
           this.stocks = stocks;
+        })
+        .catch(err => {
+          throw err;
+        });
+    },
+    getStockTrend(stockId) {
+      this.stockId = stockId;
+      getTrend(stockId)
+        .then(stockTrend => {
+          this.stockTrend = stockTrend;
         })
         .catch(err => {
           throw err;
