@@ -6,10 +6,11 @@ const insiders = axios.create({
 });
 
 export function getStocks(indexSelected) {
-  let url = "stocks/index=" + indexSelected;
+  let url = "stocks?index=" + indexSelected;
   return insiders
     .get(url)
     .then(response => {
+      console.log("*************EHHHHE", response.data);
       return response.data;
     })
     .catch(err => {
