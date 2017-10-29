@@ -45,7 +45,7 @@ watchItemsController.get(
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
-    console.log("user*********", user);
+
     WatchItem.find({
       status: "active",
       position: { $in: ["bull", "bear"] }
@@ -55,7 +55,6 @@ watchItemsController.get(
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
-        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {
@@ -84,7 +83,6 @@ watchItemsController.get(
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
-        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {
@@ -109,6 +107,35 @@ watchItemsController.get(
       _id: insiderId,
       status: "active",
       position: "none"
+    })
+      .sort({ created_at: -1 })
+      .populate("stockId")
+      .populate("userId")
+      .exec((err, watchitem) => {
+        if (!watchitem) {
+          res.json(null);
+        } else {
+          res.json(watchitem);
+        }
+      });
+  }
+);
+
+// **********************************************************
+// Send tendancy of an action      ==========================
+// **********************************************************
+
+watchItemsController.get(
+  "/stocks/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const user = req.user;
+    const stockId = req.params.id;
+
+    WatchItem.find({
+      stockId: stockId,
+      status: "active",
+      position: { $in: ["bull", "bear"] }
     })
       .sort({ created_at: -1 })
       .populate("stockId")

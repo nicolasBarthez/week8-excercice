@@ -13,38 +13,55 @@ const moment = require("moment");
 // **********************************************************
 
 usersController.get(
-    "/",
-    passport.authenticate("jwt", config.jwtSession),
-    (req, res, next) => {
-        const user = req.user;
+  "/",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
 
-        User.find()
-            .sort({ score: -1 })
-            .exec((err, resp) => {
-                if (err) res.json(null);
-                return res.json(resp);
-            });
-    }
+    User.find()
+      .sort({ score: -1 })
+      .exec((err, resp) => {
+        if (err) res.json(null);
+        return res.json(resp);
+      });
+  }
 );
-
 
 // **********************************************************
 // Send userConnected info
 // **********************************************************
 
 usersController.get(
-    "/userconnected",
-    passport.authenticate("jwt", config.jwtSession),
-    (req, res, next) => {
-        const user = req.user;
+  "/userconnected",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
 
-        User.findById(user._id)
-            .exec((err, resp) => {
-                if (err) res.json(null);
-                return res.json(resp);
-            });
-    }
+    User.findById(user._id).exec((err, resp) => {
+      if (err) res.json(null);
+      return res.json(resp);
+    });
+  }
 );
+
+// **********************************************************
+// Send full info of a user info
+// **********************************************************
+
+usersController.get(
+  "/info/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const insider = req.param.id;
+
+    User.findById(insider).exec((err, resp) => {
+      if (err) return res.json(null);
+      res.json(resp);
+    });
+  }
+);
+
 // **********************************************************
 // Send Best users by stock
 // **********************************************************
