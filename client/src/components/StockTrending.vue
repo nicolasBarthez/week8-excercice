@@ -14,7 +14,7 @@
     <td>{{stock.longName}}</td>
     <td>{{stock.variation}}</td>
     <td>{{stock.volume}}</td>
-    <td>50</td>
+    <td  >50</td>
     <td>50</td>
     <td>50</td>
     <td>50</td>
@@ -27,6 +27,9 @@
 
 <script>
 export default {
+  data() {
+    return {};
+  },
   props: {
     stocks: Array
   }

@@ -10,7 +10,18 @@ export function getStocks(indexSelected) {
   return insiders
     .get(url)
     .then(response => {
-      console.log("*************EHHHHE", response.data);
+      return response.data;
+    })
+    .catch(err => {
+      throw err;
+    });
+}
+
+export function getTrend(stockId) {
+  let url = "/watchitems/stocks/" + stockId;
+  return insiders
+    .get(url)
+    .then(response => {
       return response.data;
     })
     .catch(err => {

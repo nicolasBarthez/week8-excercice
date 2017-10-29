@@ -45,7 +45,7 @@ watchItemsController.get(
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
-    console.log("user*********", user);
+
     WatchItem.find({
       status: "active",
       position: { $in: ["bull", "bear"] }
@@ -55,7 +55,6 @@ watchItemsController.get(
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
-        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {
@@ -84,7 +83,6 @@ watchItemsController.get(
       .populate("stockId")
       .populate("userId")
       .exec((err, watchitem) => {
-        console.log("watchitem*********", watchitem);
         if (!watchitem) {
           res.json(null);
         } else {
@@ -120,6 +118,56 @@ watchItemsController.get(
           res.json(watchitem);
         }
       });
+  }
+);
+
+// **********************************************************
+// Send tendancy of an action      ==========================
+// **********************************************************
+
+watchItemsController.get(
+  "/stocks/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  function(req, res, next) {
+    const user = req.user;
+    const stockId = req.params.id;
+
+    const today = moment().startOf("day");
+    const thirtyDaysAgo = moment(today).subtract(30, "days");
+
+    WatchItem.find({
+      stockId: stockId,
+      status: "active",
+      position: { $in: ["bull", "bear"] },
+      created_at: {
+        $gte: thirtyDaysAgo.toDate()
+      }
+    }).then(activeWatchItems => {
+      function countPositions(array, position) {
+        return array
+          .map(item => {
+            return item.position == position;
+          })
+          .filter(val => {
+            return val === true;
+          }).length;
+      }
+      let nbBull = 50 + countPositions(activeWatchItems, "bull");
+      let nbBear = 50 + countPositions(activeWatchItems, "bear");
+
+      console.log("bull", nbBull);
+      console.log("bear", nbBear);
+
+      if (nbBull < nbBear) {
+        var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(2);
+        var currentTrend = { trend: "bear", percentage: currentPercentage };
+      } else {
+        var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(2);
+        var currentTrend = { trend: "bull", percentage: currentPercentage };
+      }
+
+      res.json(currentTrend);
+    });
   }
 );
 
