@@ -95,10 +95,6 @@ export default {
         });
 
       getWatchInsight(stockName).then(watchInsight => {
-        console.log(
-          "debug***************watchInsight*****************",
-          watchInsight
-        );
         this.watchInsight = watchInsight;
       });
 

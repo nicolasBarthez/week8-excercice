@@ -176,3 +176,17 @@ export function getRecentPosition() {
             return null;
         });
 }
+
+export function sendBabbleReply(babble) {
+    let url = `/babbles/resp`;
+    return insiders
+        .post(url, {
+            babble: babble
+        })
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}

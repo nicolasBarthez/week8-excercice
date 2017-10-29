@@ -35,10 +35,10 @@
                         </div>
                         <nav class="media-right">
                             <div class="level-right">
-                                <a class="level-item has-text-grey-light">
-                                    <span class="icon is-small"><i class="fa fa-reply modal-button" @click="showModal(babble)"></i></span>
+                                <div class="level-item has-text-grey-light" @click="showModal(babble)">
+                                    <span class="icon is-small"><i class="fa fa-reply"></i></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
-                                </a>
+                                </div>
                                 <a class="level-item has-text-grey-light">
                                     <form id="like-form"> <span class="icon is-small"><i
                                      @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
@@ -49,20 +49,8 @@
                         </nav>
                     </div>
                 </article>
-            </div>
-            <div v-else class="babble-container no-babble">
-                <p>The timeline is empty</p>
-            </div>
-        </div>
-      </div>
-    </div>
-
-    <b-modal v-if="isCardModalActive=true" :width="640">
-        <div id="modal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="card">
-        <div class="babbles-box" id="babble-container">
+                <b-modal :active.sync="isCardModalActive" :width="640">
+        <div class="card">
            <div class="tweets card-content p-x-1">    
                 <article class="media tweet">
                     <figure class="media-left">
@@ -74,7 +62,7 @@
                         <div class="content">
                             <p class="tweet-meta">
                                 <router-link to="/" class="has-text-dark">
-                                   <strong>{{modalBabble.user}}</strong></router-link>
+                                   <strong>{{modalBabble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at).format('llll')}}</small>
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
@@ -85,12 +73,12 @@
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light">
                                     <span class="icon is-small"><i class="fa fa-reply modal-button"></i></span>
-                                    <small class="favicon"> {{modalBabble.reply}}</small>
+                                    <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
                                 <a class="level-item has-text-grey-light">
                                     <form id="like-form"> <span class="icon is-small"><i
-                                     @click="iLike(modalBabble)" class="fa fa-thumbs-o-up like-btn"></i></span>
-                                        <small>{{modalBabble.like}}</small>
+                                     @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
+                                        <small>{{modalBabble.like.length}}</small>
                                    </form>
                                 </a>
                             </div>
@@ -98,11 +86,7 @@
                     </div>
                 </article>
             </div>
-            
-        </div>
       </div>
-      </div>
-        <div id="babbleModal" class="card">
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
@@ -133,10 +117,16 @@
                 </div>
             </div>
         </div>
-        </div>
-        <button class="modal-close"></button>
-    </div>
     </b-modal>
+            </div>
+            <div v-else class="babble-container no-babble">
+                <p>The timeline is empty</p>
+            </div>
+        </div>
+      </div>
+    </div>
+ 
+</div>
 </div>
 </template>
 
@@ -148,6 +138,7 @@ import moment from 'moment';
 export default {
      data () {
         return {
+            isCardModalActive: false,
             navbarLinks: [
                 {  text: 'All', query: 'all'},
                 {  text: 'Insiders Mates',  query: 'insider-mates' },
@@ -156,8 +147,7 @@ export default {
             isCardModalActive: false,
             babbleText:'',
             modalBabble:'',
-
-    }
+            }
   },
     props: {
         babbles:Array,
