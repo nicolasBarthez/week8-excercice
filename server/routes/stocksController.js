@@ -7,8 +7,9 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
+
 // **********************************************************
-// Send stock info  =========================================
+// Send info about a stock  =================================
 // **********************************************************
 stocksController.get("/:stockName", function(req, res, next) {
   const stock = req.params.stockName.toUpperCase();
@@ -19,6 +20,25 @@ stocksController.get("/:stockName", function(req, res, next) {
     res.json(stock);
   });
 });
+
+// **********************************************************
+// Send info about Stocks (trending)  =======================
+// **********************************************************
+stocksController.get("/", function(req, res, next) {
+  let indexSelected = req.query.index;
+  if (indexSelected === "all") {
+    Stock.find().exec((err, stocks) => {
+      if (err) return res.json(null);
+      res.json(stocks);
+    });
+  } else {
+    Stock.find({ index: { $in: { indexSelected } } }).exec((err, stocks) => {
+      if (err) return res.json(null);
+      res.json(stocks);
+    });
+  }
+});
+
 // **********************************************************
 // Send BULL & BEAR trending percentage according nb of days
 // **********************************************************
