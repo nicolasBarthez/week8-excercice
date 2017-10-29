@@ -49,6 +49,15 @@
                         </nav>
                     </div>
                 </article>
+                
+            </div>
+            <div v-else class="babble-container no-babble">
+                <p>The timeline is empty</p>
+            </div>
+        </div>
+      </div>
+    </div>
+ <div v-if="modalBabble">
                 <b-modal :active.sync="isCardModalActive" :width="640">
         <div class="card">
            <div class="tweets card-content p-x-1">    
@@ -77,7 +86,7 @@
                                 </a>
                                 <a class="level-item has-text-grey-light">
                                     <form id="like-form"> <span class="icon is-small"><i
-                                     @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
+                                     @click="iLike(modalBabble)" class="fa fa-thumbs-o-up like-btn"></i></span>
                                         <small>{{modalBabble.like.length}}</small>
                                    </form>
                                 </a>
@@ -110,7 +119,7 @@
                             </div>
                         <div class="level-right">
                             <div class="level-item has-text-grey">200</div>
-                            <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                            <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary">Babble</button></div>
                         </div>
                         </div>      
                     </div>
@@ -118,20 +127,13 @@
             </div>
         </div>
     </b-modal>
-            </div>
-            <div v-else class="babble-container no-babble">
-                <p>The timeline is empty</p>
-            </div>
-        </div>
-      </div>
     </div>
- 
 </div>
-</div>
+
 </template>
 
 <script>
-import { sendBabble } from "@/api/api";
+import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from 'moment';
 
@@ -144,7 +146,6 @@ export default {
                 {  text: 'Insiders Mates',  query: 'insider-mates' },
                 {  text: 'My posts', query: 'me'},
             ],
-            isCardModalActive: false,
             babbleText:'',
             modalBabble:'',
             }
@@ -161,10 +162,11 @@ export default {
         showModal(babble){
             console.log("***************************************something is wrong", babble);
             this.modalBabble=babble;
-            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble, this.modalBabble.like, this.modalBabble.like.length )
+            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble)
             this.isCardModalActive=true;
             console.log("***************************************modalBabble", this.isCardModalActive)
         },
+        
         iLike(babble) {
             postLike(babble._id)
                 .then(() => {
@@ -178,11 +180,13 @@ export default {
             console.log('linnnnnnnnk', link)
             this.$emit("sort",link)
         },
-        postBabble(){
-        sendBabble(this.babbleText,this.stock._id).then(() => {
-        this.babble='';
-        this.$emit("changeBabbles");
-        });
+        postBabble(modalBabble){
+            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble._id);
+            sendBabbleReply(this.babbleText,modalBabble._id).then(() => {
+            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble._id);
+                this.babbleText='';
+                this.$emit("changeBabbles");
+            });
       },        
     },      
 }

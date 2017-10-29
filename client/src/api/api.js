@@ -177,8 +177,8 @@ export function getRecentPosition() {
         });
 }
 
-export function sendBabbleReply(babble) {
-    let url = `/babbles/resp`;
+export function sendBabbleReply(babble, babbleid) {
+    let url = `/babbles/resp?respto=${babbleid}`;
     return insiders
         .post(url, {
             babble: babble
