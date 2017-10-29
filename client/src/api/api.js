@@ -178,6 +178,7 @@ export function getRecentPosition() {
 }
 
 export function sendBabbleReply(babble, babbleid) {
+    console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", babble._id);
     let url = `/babbles/resp?respto=${babbleid}`;
     return insiders
         .post(url, {
