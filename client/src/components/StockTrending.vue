@@ -12,11 +12,11 @@
   </tr>
   <tr v-for="(stock, i) in stocks" :key="i">
     <td>{{stock.longName}}</td>
+    <td>{{stock.currentPrice}}</td>
     <td>{{stock.variation}}</td>
-    <td>{{stock.volume}}</td>
-    <td  >50</td>
-    <td>50</td>
-    <td>50</td>
+    <td >{{stock.volume}}</td>
+    <td><strong>{{stock.trending.trend}}</strong>({{stock.trending.percentage}})</td>
+    <td>{{stock.hotInsights}}</td>
     <td>50</td>
     <td><button class="button is-small is-outlined is-primary">Add to Watchlist</button></td>
   </tr>
