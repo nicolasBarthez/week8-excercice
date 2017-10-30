@@ -1,16 +1,13 @@
 <template>
     <div>
-    <div v-if="!stock">.....loading</div>
      <div>
      <nav class="navbar is-dark">
-        <div>
-            <div class="babblesMenu">
-                 <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-                    :class="{'is-active': link.text, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
-                </div>
-                <p id="vide"></p>
-                <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
+        <div class="babblesMenu">
+            <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
+                :class="{'is-active': link.text, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
             </div>
+            <p id="vide"></p>
+            <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
         </div>
     </nav>
     <div class="card">
@@ -64,7 +61,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img src=""></router-link>
+                          <router-link to="/" class=""><img :src="modalBabble.user.picProfile" alt="Image"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -95,7 +92,32 @@
                     </div>
                 </article>
             </div>
+            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="tweets card-content p-x-1">    
+                <article class="media tweet">
+                    <figure class="media-left">
+                        <p class="image is-64x64 is-circle">
+                          <router-link to="/" class=""><img src="reply.picProfil"></router-link>
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="tweet-meta">
+                                <router-link to="/" class="has-text-dark">
+                                   <strong>{{reply.username}}</strong></router-link>
+                                   <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('llll')}}</small>
+                            </p>
+                            <p class="tweet-body has-text-grey babble-body">
+                                {{reply.babble}}
+                           </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
       </div>
+
+
+
+
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
@@ -148,6 +170,7 @@ export default {
             ],
             babbleText:'',
             modalBabble:'',
+            userReply:''
             }
   },
     props: {
@@ -188,14 +211,77 @@ export default {
                 this.$emit("changeBabbles");
             });
       },        
-    },      
+    },  
 }
             
 </script>
 
-<style>
-    .card-content {
+<style scoped>
+body {
+    color: #4a4a4a;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.tweets {
+    border-bottom: 1px solid;
+    border-bottom-color: darkgray;
+}
+.babblesMenu{
+    display:flex;
+}
+.card-content {
     padding: 1.5rem;
+}
+.navbar-item, .navbar-link {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+}
+.navbar-item.is-tab.is-active {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #f9f9f9;
+    padding-bottom: calc(0.5rem - 3px);
+}
+.navbar-item.is-tab {
+    border-bottom: 1px solid transparent;
+    min-height: 3.25rem;
+}
+.navbar-item, .navbar-link {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+}
+.navbar.is-dark {
+    background-color: #192b41;
+    color: #f9f9f9;
+}
+
+@media screen and (min-width: 1024px){
+.navbar {
+    min-height: 3.25rem;
+    }
+}
+@media screen and (min-width: 1024px){
+.navbar, .navbar-end, .navbar-menu, .navbar-start {
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    }
+}
+.navbar {
+    background-color: #fff;
+    min-height: 3.25rem;
+    position: relative;
 }
 .bg-light {
     background-color: #f9f9f9;
@@ -275,8 +361,7 @@ export default {
         color: #c9c9c9;
     }
 }
-
-    .level-item{
+ .level-item{
         cursor: pointer;
     }
 </style>

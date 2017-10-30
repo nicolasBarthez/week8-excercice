@@ -1,5 +1,4 @@
 <template>
-<section class="section main">
     <div class="card">
         <div class="card-content bg-light">
             <div class="media">
@@ -31,8 +30,6 @@
             </div>
         </div>
     </div>    
-</section>
-
 </template>
 
 <script>
@@ -63,7 +60,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card-content {
     padding: 1.5rem;
 }

@@ -1,39 +1,36 @@
 <template>
-<div class="container">
- <div class="columns">
   <div class="column is-3">
-    <div class="is-sticky">
-        <div class="card-image">
-            <nav class="navbar is-dark">
+    <div class="is-sticky">    
+        <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
-            </nav>
-        </div>
+        </nav>
         <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
-                   <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName" data-replace="Symbol">{{watchItem.stockId.longName}}</router-link>
-                   <b class="price is-6">{{watchItem.stockId.price}}</b> <br>
-                   <b id="variation" :class="{'is-6':true, 'has-text-green':watchItem.stockId.variation>0, 'has-text-red':watchItem.stockId.variation<0}">
-                       <span class= "indice">{{watchItem.stockId.variation}}</span>
+                   <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.longName.length<7 ? watchItem.stockId.longName : watchItem.stockId.shortName }}</router-link><br>
+                   <b class="price is-6">{{watchItem.stockId.price}} €</b>
+                   <b id="variation" class="is-6" :class="{'has-text-green' : watchItem.stockId.variation>0, 'has-text-red' : watchItem.stockId.variation<0}">
+            <!-- <b id="variation" class="is-6" :class="(watchItem.stockId.variation<0 ? 'has-text-green' : 'has-text-red')"> -->
+
+                       <span class= "indice">{{watchItem.stockId.variation}} %</span>
                    </b>  
                 </div>
-                <div  id="bullAndBear">
+                <div  class="Symbol" id="bullAndBear">
                 <img v-if="watchItem.position ==='bull'" src="/static/images/bulls.png" alt="bulls-and-bears">
                 <img  v-else src="/static/images/bears.png" alt="bulls-and-bears">
                 </div>
-                <div id="position">
-                   <span class="stockName">Performance</span>
-                   <h1 id="WinOrLoss">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</h1>
+                <div class="Symbol2" id="position">
+                   <a class="stockName is-6">Performance</a>
+                   <b class="price is-6">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b><br>
                    <div id="close" action="/" method="post">
-                      <button id="Bclose" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary">Close</button>
+                      <button @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
+                      :class="{'btn-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'btn-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'btn' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice===0}">Close</button>
                    </div>
                 </div>
             </div>
         </div>
     </div>
   </div>
- </div>
-</div>
 </template>
 
 <script>
@@ -61,10 +58,22 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .Symbol {
     color: #192b41 !important;
     width: 40%;
+    DISPLAY: FLEX;
+    FLEX-DIRECTION: column;
+    justify-content: center;
+}
+.Symbol2 {
+    color: #192b41 !important;
+    width: 40%;
+    DISPLAY: FLEX;
+    FLEX-DIRECTION: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 5%;
 }
 
 .navbar.is-dark {
@@ -74,37 +83,24 @@ export default {
 
 .navbar-item.is-tab.is-active {
     background-color: transparent;
-    border-bottom-color: #f9f9f9;
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
     color: #f9f9f9;
     padding-bottom: calc(0.5rem - 3px);
+    border-bottom-style: none;
+    border-bottom-width: 0px
 }
 #currentInsight {
     padding-left: 20px;
 }
 
-.navbar-item.is-tab:hover {
-    background-color: transparent;
-    border-bottom-color: #f5f5f5;
-    background-color: #f5f5f5;
-    color: #0a0a0a;
-}
-
 #watchList {
-    padding-right: 40px;
     display: flex;
 }
 .stockName {
-    padding-bottom: 10px;
+    font-size: 100%;
+    font-weight: 400;
+    color:#192b41
 }
 
-#bullAndBear {
-    width: 40%;
-}
-#position {
-    padding-left: 20px;
-}
 #WinOrLoss {
     color: #ff6026;
     font-weight: bolder;
@@ -115,19 +111,47 @@ export default {
 #close {
     padding-top: 10px;
 }
-#Bclose {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
+.btn-red.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
     font-weight: bolder;
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
 }
-
-#Bclose.is-outlined:focus,
-#Bclose.is-outlined:hover {
+.btn-red.is-outlined:focus,
+.btn-red.is-outlined:hover {
     background-color: #ff6026;
     border-color: #ff6026;
+    color: #fff;
+}
+.btn-green.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    font-weight: bolder;
+    color: #21ce99;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+}
+
+.btn-green.is-outlined:focus,
+.btn-green.is-outlined:hover {
+    background-color: #21ce99;
+    border-color: #21ce99;
+    color: #fff;
+}
+.btn.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    font-weight: bolder;
+    color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+}
+
+.btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {
+    background-color: #192b41;
+    border-color: #192b41;
     color: #fff;
 }
 </style>

@@ -191,3 +191,15 @@ export function sendBabbleReply(babble, babbleid) {
             return null;
         });
 }
+
+export function getAUser(userid) {
+    let url = `user/info/${userid}`;
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}
