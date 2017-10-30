@@ -69,7 +69,8 @@
                             <p class="tweet-meta">
                                 <router-link to="/" class="has-text-dark">
                                    <strong>{{modalBabble.user.username}}</strong></router-link>
-                                   <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at).format('llll')}}</small>
+                                   <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('llll')}}</small>
+                                   
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
                                 {{modalBabble.babble}}
@@ -96,7 +97,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img src="reply.picProfil"></router-link>
+                          <router-link to="/" class=""><img src="reply.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -179,8 +180,8 @@ export default {
         connectedUser:Object
     },  
     methods: {
-        moment: function () {
-            return moment();
+        moment: function (time) {
+            return moment(time);
         },
         showModal(babble){
             this.modalBabble=babble;
@@ -191,6 +192,7 @@ export default {
             postLike(babble._id)
                 .then(() => {
                 this.$emit("changeBabbles");
+                this.isCardModalActive= false
                 })
                 .catch(err => {
                 console.log("something is wrong");
@@ -205,6 +207,7 @@ export default {
             sendBabbleReply(this.babbleText,modalBabble._id).then(() => {
             console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùmodalBabbleIDAfterSend", this.modalBabble._id);
                 this.babbleText='';
+                this.isCardModalActive= false
                 this.$emit("changeBabbles");
             });
       },        
