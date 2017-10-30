@@ -1,37 +1,82 @@
 <template >
-  <table style="width:100%">
+<table style="width:100%">
   <tr>
-    <th>Stock</th>
-    <th>Current price</th>
-    <th>Var</th>
-    <th>Volume</th>
-    <th>Insiders trending</th>
-    <th>Hot insights</th>
-    <th>Insiders on it</th>
+    <th @click="sortByName()">Stock</th>
+    <th @click="sortByPrice()">Current price</th>
+    <th @click="sortByVar()">Var</th>
+    <th @click="sortByVol()">Volume</th>
+    <th @click="sortByTrend()">Insiders trending</th>
+    <th @click="sortByHi()">Hot insights</th>
+    <th @click="sortByInsider()">Insiders on it</th>
     <th></th>
   </tr>
   <tr v-for="(stock, i) in stocks" :key="i">
     <td>{{stock.longName}}</td>
     <td>{{stock.currentPrice}}</td>
     <td>{{stock.variation}}</td>
-    <td >{{stock.volume}}</td>
+    <td>{{stock.volume}}</td>
     <td><strong>{{stock.trending.trend}}</strong>({{stock.trending.percentage}})</td>
-    <td>{{stock.hotInsights}}</td>
-    <td>50</td>
+    <td><strong>{{stock.hotInsights}} Babbles posted</strong><small>({{stock.nbOfLikes}} likes)</small></td>
+    <td><strong v-if="stock.bestInsiders[0]">@{{stock.bestInsiders[0].username}}</strong><small v-if="stock.bestInsiders[0]"> ({{stock.bestInsiders[0].perf}} points)</small></td>
     <td><button class="button is-small is-outlined is-primary">Add to Watchlist</button></td>
   </tr>
 
 </table>
-
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      sortBy: "trenddsc"
+    };
   },
   props: {
     stocks: Array
+  },
+  methods: {
+    sortByName() {
+      this.sortBy === "namedsc"
+        ? (this.sortBy = "nameasc")
+        : (this.sortBy = "namedsc");
+      this.$emit("sortname", this.sortBy);
+    },
+    sortByPrice() {
+      this.sortBy === "pricedsc"
+        ? (this.sortBy = "priceasc")
+        : (this.sortBy = "pricedsc");
+      this.$emit("sortprice", this.sortBy);
+    },
+    sortByVar() {
+      this.sortBy === "vardsc"
+        ? (this.sortBy = "varasc")
+        : (this.sortBy = "vardsc");
+      this.$emit("sortvar", this.sortBy);
+    },
+    sortByVol() {
+      this.sortBy === "voldsc"
+        ? (this.sortBy = "volasc")
+        : (this.sortBy = "voldsc");
+      this.$emit("sortvol", this.sortBy);
+    },
+    sortByTrend() {
+      this.sortBy === "trenddsc"
+        ? (this.sortBy = "trendasc")
+        : (this.sortBy = "trenddsc");
+      this.$emit("sorttrend", this.sortBy);
+    },
+    sortByHi() {
+      this.sortBy === "hidsc"
+        ? (this.sortBy = "hiasc")
+        : (this.sortBy = "hidsc");
+      this.$emit("sorthi", this.sortBy);
+    },
+    sortByInsider() {
+      this.sortBy === "bidsc"
+        ? (this.sortBy = "biasc")
+        : (this.sortBy = "bidsc");
+      this.$emit("sortinsider", this.sortBy);
+    }
   }
 };
 </script>
