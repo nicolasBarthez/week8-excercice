@@ -6,7 +6,7 @@ const insiders = axios.create({
 });
 
 export function getStocks(indexSelected) {
-  let url = "stocks?index=" + indexSelected;
+  let url = "trending?index=" + indexSelected;
   return insiders
     .get(url)
     .then(response => {

@@ -8,7 +8,7 @@
 <script>
 import StockIndexFilter from "../components/StockIndexFilter";
 import StockTrending from "../components/StockTrending";
-import { getStocks, getTrend } from "@/api/apiTrending";
+import { getStocks } from "@/api/apiTrending";
 export default {
   data() {
     return {
@@ -27,16 +27,6 @@ export default {
       getStocks(indexSelected)
         .then(stocks => {
           this.stocks = stocks;
-        })
-        .catch(err => {
-          throw err;
-        });
-    },
-    getStockTrend(stockId) {
-      this.stockId = stockId;
-      getTrend(stockId)
-        .then(stockTrend => {
-          this.stockTrend = stockTrend;
         })
         .catch(err => {
           throw err;
