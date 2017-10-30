@@ -189,7 +189,7 @@ babblesController.post(
     Babble.findByIdAndUpdate(parentBabbleId, {
       $push: { reply: newReply }
     }).then(resp => {
-      return res.json(babble);
+      return res.json(newReply);
     });
   }
 );

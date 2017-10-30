@@ -78,22 +78,20 @@ trendingController.get("/", function(req, res, next) {
             }
           }).then(babbles => {
             stockCurrentTrend.hotInsights = 0 + babbles.length;
-            // stockCurrentTrend.nbOfLikes =
-            //   0 +
-            //   babbles.map(item => item.like).reduce((prev, next) => {
-            //     Number(prev.length) + Number(next.length);
-            //   }, 0);
+            console.log(babbles.map(item => item.like));
+            stockCurrentTrend.nbOfLikes =
+              0 +
+              babbles.map(item => item.like).reduce((sum, next) => {
+                return sum + next.length;
+              }, 0);
 
             stockTrendBoard.push(stockCurrentTrend);
+
+            // Add
             if (stockTrendBoard.length === stocks.length) {
               res.json(stockTrendBoard);
             }
           });
-
-          // stockTrendBoard.push(stockCurrentTrend);
-          // if (stockTrendBoard.length === stocks.length) {
-          //   res.json(stockTrendBoard);
-          // }
         });
       });
     });

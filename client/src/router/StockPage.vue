@@ -8,7 +8,7 @@
         <div class="column is-6">
           <publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
-        </div>  
+        </div>
         <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
       </div>
     </div>
@@ -39,7 +39,7 @@ export default {
       babbles: null,
       recentPositions: null,
       connectedUser: null,
-      trendBullBear:[50,50]
+      trendBullBear: [50, 50]
     };
   },
   components: {
@@ -122,18 +122,17 @@ export default {
       });
     },
 
-    getTrend7(){
+    getTrend7() {
       getTrend(this.stock.longName, 7).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
     },
 
-    getTrend1(){
+    getTrend1() {
       getTrend(this.stock.longName, 1).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
     }
-    
   },
   created() {
     this.fetchData();

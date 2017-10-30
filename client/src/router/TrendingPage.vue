@@ -1,4 +1,5 @@
 <template>
+
 <section class="section main">
   <stock-index-filter ></stock-index-filter>
   <stock-trending :stocks="stocks" :stockTrend="stockTrend"></stock-trending>
