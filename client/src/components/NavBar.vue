@@ -6,19 +6,33 @@
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </a>
             </div>
-            <div v-if="data!=null" class="nav" id="formNav">
+            <div v-if="data" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
-                        <b-field label="Find a Stock">
+                         
+                        <b-field>
                             <b-autocomplete
-                v-model="name"
-                placeholder="Find a stock"
-                :keep-first="keepFirst"
-                :data="filteredDataObj"
-                field="data.longName"
-                @select="option => selected = option">
-            </b-autocomplete>
+                                v-model="name"
+                                placeholder="Find a stock"
+                                :keep-first="keepFirst"
+                                :data="filteredDataObj"
+                                field="longName"
+                                @select="option => selected = option"
+                            >
+                                 
+                                
+                                </span>
+                                <div
+                                    class="dropdown-item"
+                                    slot-scope="match"
+                                    :style="{ width: '100%' }"
+                                    @click="$router.push('/stocks/' + match.option.longName.toLowerCase())"
+                                >
+                                    {{ match.option.longName }}
+                                </div>     
+                            </b-autocomplete>
                         </b-field>
+                         
                         <span id="loupe" class="icon is-small is-left">
                           <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
                         </span>
@@ -78,7 +92,7 @@ export default {
         { location: '/dashboard', text: 'My Dashboard' },
       ],
       data:null,
-      keepFirst: false,
+      keepFirst: true,
       name: '',
       selected: null
     }
@@ -91,30 +105,38 @@ export default {
     logout () {
       logout(this.$root)
       this.$router.push('/')
-    },
+    }
  },
  computed: {
     filteredDataObj() {
-        if(data!=null){
-            return this.data.filter((option) => {
-                return option.data.longName
+        if(this.data){
+            return this.data.filter((stock) => {
+                return stock.longName
                         .toString()
-                        .toLowerCase()
-                        .indexOf(this.longName.toLowerCase()) >= 0
+                        .toUpperCase()
+                        .indexOf(this.name.toUpperCase()) >= 0
             })
         }
+        return []
     }
  },
+ 
  created() {
     getAllStocks().then(data => {
-      this.data =data;
-      console.log(data)
+        this.data = data
     });
  }
 }  
 
 
 </script>
+
+<style>
+a.dropdown-item {
+    padding: 0;
+}
+</style>
+
 
 <style scoped>
 
@@ -133,7 +155,15 @@ export default {
     display: flex;
     justify-content: flex-end;
 }
+.nav-photo-profil{
+    width:12%;
+}
 
+.nav-right {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
 .nav-photo-profil>img {
     width: auto;
     border: 1px solid black;
@@ -259,6 +289,10 @@ a.nav-item:not(.button).is-tab:hover {
     .nav-toggle {
         padding-top: 75px;
     }
+}
+
+.field{ 
+    margin-bottom: 0px;
 }
 
 </style>

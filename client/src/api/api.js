@@ -210,7 +210,6 @@ export function getAllStocks() {
         .get(url)
         .then(response => {
             return response.data;
-            console.log("***************************************stocks", response.data);
         })
         .catch(err => {
             return null;
