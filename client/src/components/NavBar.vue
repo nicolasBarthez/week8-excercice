@@ -6,12 +6,21 @@
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </a>
             </div>
-            <div class="nav" id="formNav">
+            <div v-if="data!=null" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
-                        <input id="search-query" name="search" class="input is-hovered" type="text" placeholder="Stock or Username">
+                        <b-field label="Find a Stock">
+                            <b-autocomplete
+                v-model="name"
+                placeholder="Find a stock"
+                :keep-first="keepFirst"
+                :data="filteredDataObj"
+                field="data.longName"
+                @select="option => selected = option">
+            </b-autocomplete>
+                        </b-field>
                         <span id="loupe" class="icon is-small is-left">
-                            <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
+                          <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
                         </span>
                     </div>
                 </div>
@@ -55,7 +64,9 @@
 </template>
 
 <script>
+import { getAllStocks } from "@/api/api";
 import { logout } from '@/api/auth'
+import debounce from 'lodash/debounce'
 
 export default {
   name: 'NavBar',
@@ -66,10 +77,14 @@ export default {
         { location: '/trending', text: 'Trending' },
         { location: '/dashboard', text: 'My Dashboard' },
       ],
+      data:null,
+      keepFirst: false,
+      name: '',
+      selected: null
     }
   },
   props: {
-    connectedUser: Object
+    connectedUser: Object,
   },
 
   methods: {
@@ -77,8 +92,27 @@ export default {
       logout(this.$root)
       this.$router.push('/')
     },
-     }
-}
+ },
+ computed: {
+    filteredDataObj() {
+        if(data!=null){
+            return this.data.filter((option) => {
+                return option.data.longName
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(this.longName.toLowerCase()) >= 0
+            })
+        }
+    }
+ },
+ created() {
+    getAllStocks().then(data => {
+      this.data =data;
+      console.log(data)
+    });
+ }
+}  
+
 
 </script>
 
