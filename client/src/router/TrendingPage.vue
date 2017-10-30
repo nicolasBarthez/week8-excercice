@@ -44,4 +44,11 @@ export default {
 </script>
 
 <style scoped>
+.section.main {
+    background-color: #f9f9f9;
+    padding: 7rem 1.5rem;
+}
+.container{
+  display: flex;
+}
 </style>

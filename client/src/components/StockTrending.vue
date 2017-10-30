@@ -11,12 +11,12 @@
     <th></th>
   </tr>
   <tr v-for="(stock, i) in stocks" :key="i">
-    <td>{{stock.longName}}</td>
-    <td>{{stock.currentPrice}}</td>
-    <td>{{stock.variation}}</td>
-    <td>{{stock.volume}}</td>
-    <td><strong>{{stock.trending.trend}}</strong>({{stock.trending.percentage}})</td>
-    <td><strong>{{stock.hotInsights}} Babbles posted</strong><small>({{stock.nbOfLikes}} likes)</small></td>
+    <td><router-link :to="'/stocks/'+stock.longName"class="stockName is-6" data-replace="Symbol">{{stock.longName}}</router-link></td>
+    <td>{{stock.currentPrice.toFixed(2)}} €</td>
+    <td :class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">{{stock.variation.toFixed(2)}} %</td>
+    <td>{{stock.volume.toLocaleString()}}</td>
+    <td :class="{'has-text-green' : stock.trending.trend==='bull', 'has-text-red' : stock.trending.trend==='bear'}"><strong :class="{'has-text-green' : stock.trending.trend==='bull', 'has-text-red' : stock.trending.trend==='bear'}">{{stock.trending.trend}}</strong> <small>({{stock.trending.percentage}}%)</small></td>
+    <td><strong>{{stock.hotInsights}} Babbles posted</strong><br><small>({{stock.nbOfLikes}} likes)</small></td>
     <td><strong v-if="stock.bestInsiders[0]">@{{stock.bestInsiders[0].username}}</strong><small v-if="stock.bestInsiders[0]"> ({{stock.bestInsiders[0].perf}} points)</small></td>
     <td><button class="button is-small is-outlined is-primary">Add to Watchlist</button></td>
   </tr>
