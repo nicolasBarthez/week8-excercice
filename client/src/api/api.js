@@ -178,7 +178,7 @@ export function getRecentPosition() {
 }
 
 export function sendBabbleReply(babble, babbleid) {
-    console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", babble._id);
+    console.log("***************************************modalBabbleAPI", babbleid);
     let url = `/babbles/resp?respto=${babbleid}`;
     return insiders
         .post(url, {
@@ -198,6 +198,19 @@ export function getAUser(userid) {
         .get(url)
         .then(response => {
             return response.data;
+        })
+        .catch(err => {
+            return null;
+        });
+}
+
+export function getAllStocks() {
+    let url = `/stocks?index=all`;
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+            console.log("***************************************stocks", response.data);
         })
         .catch(err => {
             return null;

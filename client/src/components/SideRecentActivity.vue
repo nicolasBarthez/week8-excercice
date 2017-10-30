@@ -16,8 +16,8 @@
                     </router-link>
                     <span>is {{recentPosition.position}} on  <router-link :to="'/stocks/'+recentPosition.stockId.longName">#{{recentPosition.stockId.longName.length<7 ? recentPosition.stockId.longName : recentPosition.stockId.shortName }}</router-link>
                     </span>
-                    <span>Followed by {{recentPosition.userId.nbFollower}} peoples</span>
-                    <router-link :to="'/dashboard/'+recentPosition.userId._id">See Dashboard</router-link>
+                    <span>Followed by {{recentPosition.userId.nbFollower}} peoples</span><br>
+                    <router-link :to="'/dashboard/'+recentPosition.userId._id" class = "seeDash">See Dashboard</router-link>
                 </p>
             </div>
         </div>
@@ -34,5 +34,8 @@ export default {
 </script>
 
 <style scoped>
+.seeDash{
+        color: #b5b5b5 !important;
+}
 
 </style>

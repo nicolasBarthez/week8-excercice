@@ -183,11 +183,8 @@ export default {
             return moment();
         },
         showModal(babble){
-            console.log("***************************************something is wrong", babble);
             this.modalBabble=babble;
-            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble)
             this.isCardModalActive=true;
-            console.log("***************************************modalBabble", this.isCardModalActive)
         },
         
         iLike(babble) {
@@ -204,9 +201,9 @@ export default {
             this.$emit("sort",link)
         },
         postBabble(modalBabble){
-            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble._id);
+            console.log("***************************************modalBabbleID", this.modalBabble._id);
             sendBabbleReply(this.babbleText,modalBabble._id).then(() => {
-            console.log("***************************************modalBabbleufjhgjhgfhjgfhfhgf", this.modalBabble._id);
+            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùmodalBabbleIDAfterSend", this.modalBabble._id);
                 this.babbleText='';
                 this.$emit("changeBabbles");
             });
@@ -230,6 +227,7 @@ body {
 }
 .babblesMenu{
     display:flex;
+    padding-left:20px;
 }
 .card-content {
     padding: 1.5rem;

@@ -29,6 +29,13 @@
                 </div>
             </div>
         </div>
+        <div v-else>
+            <div id="watchList" class="card-content">
+                <p>
+                    Share your insights with the others Insiders 
+                </p>
+            </div>
+        </div>
     </div>
   </div>
 </template>
@@ -59,6 +66,7 @@ export default {
 </script>
 
 <style scoped>
+
 .Symbol {
     color: #192b41 !important;
     width: 40%;

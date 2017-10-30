@@ -19,9 +19,13 @@ body {
 }
 
 .has-text-green {
-    color: #21ce99
+    color: #21ce99;
 }
 
 .has-text-red {
-    color: #ff6026
+    color: #ff6026;
+}
+
+a {
+    color: #192b41 !important;
 }
