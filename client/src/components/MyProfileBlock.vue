@@ -1,5 +1,5 @@
 <template >
-<section class="section main">
+<section v-if = "profileInfo" class="section main">
   <div class="column is-6" id="ActionCard">
     <div class="card profile-card">
       <div class="card-content">
@@ -23,7 +23,7 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <a href="/profile/edit"><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button></a>
+            <a href="/profile/edit"><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my picture</button></a>
           </div>
         </div>
         <nav class="level">

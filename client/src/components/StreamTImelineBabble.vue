@@ -12,7 +12,7 @@
     </nav>
     <div class="card">
         <div class="babbles-box" id="babble-container">
-           <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">    
+           <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -46,7 +46,7 @@
                         </nav>
                     </div>
                 </article>
-                
+
             </div>
             <div v-else class="babble-container no-babble">
                 <p>The timeline is empty</p>
@@ -57,7 +57,7 @@
  <div v-if="modalBabble">
                 <b-modal :active.sync="isCardModalActive" :width="640">
         <div class="card">
-           <div class="tweets card-content p-x-1">    
+           <div class="tweets card-content p-x-1">
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -70,7 +70,7 @@
                                 <router-link to="/" class="has-text-dark">
                                    <strong>{{modalBabble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('llll')}}</small>
-                                   
+
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
                                 {{modalBabble.babble}}
@@ -93,7 +93,7 @@
                     </div>
                 </article>
             </div>
-            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="tweets card-content p-x-1">    
+            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="tweets card-content p-x-1">
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -143,7 +143,7 @@
                             <div class="level-item has-text-grey">200</div>
                             <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary">Babble</button></div>
                         </div>
-                        </div>      
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,63 +157,80 @@
 <script>
 import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
-import moment from 'moment';
+import moment from "moment";
 
 export default {
-     data () {
-        return {
-            isCardModalActive: false,
-            navbarLinks: [
-                {  text: 'All', query: 'all'},
-                {  text: 'Insiders Mates',  query: 'insider-mates' },
-                {  text: 'Watch List',  query: 'watchlist' },
-                {  text: 'My posts', query: 'me'},
-                
-            ],
-            babbleText:'',
-            modalBabble:'',
-            userReply:''
-            }
+  data() {
+    return {
+      isCardModalActive: false,
+      navbarLinks: [
+        { text: "All", query: "all" },
+        { text: "Insiders Mates", query: "insider-mates" },
+        { text: "Watch List", query: "watchlist" },
+        { text: "My posts", query: "me" }
+      ],
+      babbleText: "",
+      modalBabble: "",
+      userReply: ""
+    };
   },
-    props: {
-        babbles:Array,
-        connectedUser:Object
-    },  
-    methods: {
-        moment: function (time) {
-            return moment(time);
-        },
-        showModal(babble){
-            this.modalBabble=babble;
-            this.isCardModalActive=true;
-        },
-        
-        iLike(babble) {
-            postLike(babble._id)
-                .then(() => {
-                this.$emit("changeBabbles");
-                this.isCardModalActive= false
-                })
-                .catch(err => {
-                console.log("something is wrong");
-                });
-        },
-        sortBabbles(link){
-            console.log('linnnnnnnnk', link)
-            this.$emit("sort",link)
-        },
-        postBabble(modalBabble){
-            console.log("***************************************modalBabbleID", this.modalBabble._id);
-            sendBabbleReply(this.babbleText,modalBabble._id).then(() => {
-            console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùmodalBabbleIDAfterSend", this.modalBabble._id);
-                this.babbleText='';
-                this.isCardModalActive= false
-                this.$emit("changeBabbles");
-            });
-      },        
-    },  
-}
-            
+  props: {
+    babbles: Array,
+    connectedUser: Object
+  },
+  methods: {
+    moment: function(time) {
+      return moment(time);
+    },
+    showModal(babble) {
+      this.modalBabble = babble;
+      this.isCardModalActive = true;
+    },
+
+    iLike(babble) {
+      postLike(babble._id)
+        .then(() => {
+          this.$emit("changeBabbles");
+          this.isCardModalActive = false;
+        })
+        .catch(err => {
+          console.log("something is wrong");
+        });
+    },
+    sortBabbles(link) {
+      console.log("linnnnnnnnk", link);
+      this.$emit("sort", link);
+    },
+    postBabble(modalBabble) {
+      console.log(
+        "***************************************modalBabbleID",
+        this.modalBabble._id
+      );
+      sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
+        console.log(
+          "ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùmodalBabbleIDAfterSend",
+          this.modalBabble._id
+        );
+        this.babbleText = "";
+        this.isCardModalActive = false;
+        this.$emit("changeBabbles");
+      });
+    },
+    getLinkOnStocks() {
+      $(document).ready(function() {
+        $(".babble-body").each((i, babble) => {
+          let link = $(babble)
+            .html()
+            .replace(/#(\w+)(\W|$)/g, '<a href="/stock/$1">#$1$2</a>');
+          $(babble).html(link);
+        });
+      });
+    }
+  },
+  created() {
+    getLinkOnStocks();
+  }
+};
 </script>
 
 <style scoped>

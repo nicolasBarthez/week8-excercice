@@ -59,7 +59,10 @@ dashboardsController.get(
 
               // then, map your counts object back to an array
               return Array.from(counts).map(([stockId, performancePoints]) => {
-                return { stockId, performancePoints };
+                return {
+                  stockId,
+                  performancePoints
+                };
               });
             }
 
@@ -67,7 +70,9 @@ dashboardsController.get(
 
             WatchItem.find({
               userId: user._id,
-              status: { $in: ["won", "lost"] }
+              status: {
+                $in: ["won", "lost"]
+              }
             }).exec((err, wiClosed) => {
               console.log("wiClosed", wiClosed);
               // Calculate performance points
@@ -80,7 +85,9 @@ dashboardsController.get(
                 return item.status == "won";
               }, 0).length;
 
-              User.find({ following: user._id }).exec((err, us) => {
+              User.find({
+                following: user._id
+              }).exec((err, us) => {
                 userInfo.followers = us.length ? us.length : 0;
 
                 return res.json(userInfo);
@@ -93,42 +100,152 @@ dashboardsController.get(
 );
 
 // **********************************************************
-// Send user prefered stocks info
+// Send user connected Current insights
 // **********************************************************
 
 dashboardsController.get(
-  "/prefered",
+  "/currentinsights",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
 
     WatchItem.find({
       userId: user._id,
-      status: "won"
+      status: "active",
+      position: {
+        $in: ["bull", "bear"]
+      }
     })
       .populate("stockId")
       .exec((err, wi) => {
         if (err) res.json(null);
 
-        console.log(wi);
-        // first, convert data into a Map with reduce
-        function reduceArrayByStockPoints(array) {
-          let counts = array.reduce((prev, curr) => {
-            const stockId = curr.stockId.toString();
-            let count = prev.get(stockId) || 0;
-            prev.set(stockId, curr.performancePoints + count);
-            return prev;
-          }, new Map());
+        return res.json(wi);
+      });
+  }
+);
 
-          // then, map your counts object back to an array
-          return Array.from(counts).map(([stockId, performancePoints]) => {
-            return { stockId, performancePoints };
+// **********************************************************
+// Send user connected Watch list
+// **********************************************************
+
+dashboardsController.get(
+  "/watchlist",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+
+    WatchItem.find({
+      userId: user._id,
+      status: "active",
+      position: "none"
+    })
+      .populate("stockId")
+      .exec((err, activeWi) => {
+        if (err) res.json(null);
+
+        activeWi.forEach(activeWatchItem => {
+          const stockCurrentTrend = {
+            longName: activeWatchItem.stockId.longName,
+            currentPrice: activeWatchItem.stockId.price,
+            variation: activeWatchItem.stockId.variation,
+            volume: activeWatchItem.stockId.volume
+          };
+          // looking for insider trending
+          const today = moment().startOf("day");
+          const thirtyDaysAgo = moment(today).subtract(30, "days");
+
+          WatchItem.find({
+            stockId: activeWatchItem.stockId._id,
+            status: "active",
+            position: {
+              $in: ["bull", "bear"]
+            },
+            created_at: {
+              $gte: thirtyDaysAgo.toDate()
+            }
+          }).then(activeWatchItems => {
+            function countPositions(array, position) {
+              return array
+                .map(item => {
+                  return item.position == position;
+                })
+                .filter(val => {
+                  return val === true;
+                }).length;
+            }
+            let nbBull = 50 + countPositions(activeWatchItems, "bull");
+            let nbBear = 50 + countPositions(activeWatchItems, "bear");
+
+            if (nbBull < nbBear) {
+              var currentPercentage = (nbBear /
+                (nbBull + nbBear) *
+                100).toFixed(2);
+              var currentTrend = {
+                trend: "bear",
+                percentage: currentPercentage
+              };
+            } else {
+              var currentPercentage = (nbBull /
+                (nbBull + nbBear) *
+                100).toFixed(2);
+              var currentTrend = {
+                trend: "bull",
+                percentage: currentPercentage
+              };
+            }
+            stockCurrentTrend.trending = currentTrend;
+
+            // Add Hot insights
+            Babble.find({
+              stockLink: activeWatchItem.stockId._id,
+              created_at: {
+                $gte: thirtyDaysAgo.toDate()
+              }
+            }).then(babbles => {
+              stockCurrentTrend.hotInsights = 0 + babbles.length;
+
+              stockCurrentTrend.nbOfLikes =
+                0 +
+                babbles.map(item => item.like).reduce((sum, next) => {
+                  return sum + next.length;
+                }, 0);
+
+              // Add the current 3 best insiders on it
+              const oneHundredDaysAgo = moment(today).subtract(100, "days");
+              WatchItem.find({
+                stockId: activeWatchItem.stockId._id,
+                created_at: {
+                  $gte: oneHundredDaysAgo.toDate()
+                },
+                status: "won"
+              })
+                .sort({
+                  performancePoints: -1
+                })
+                .limit(3)
+                .populate("userId")
+                .exec((err, wisWon) => {
+                  const bestInsiders = [];
+                  wisWon.forEach(ww => {
+                    let insider = {
+                      id: ww.userId._id,
+                      username: ww.userId.username,
+                      perf: ww.performancePoints
+                    };
+                    if (insider.perf > 0) {
+                      bestInsiders.push(insider);
+                    }
+                  });
+                  stockCurrentTrend.bestInsiders = bestInsiders;
+
+                  stockTrendBoard.push(stockCurrentTrend);
+
+                  return res.json(stockCurrentTrend);
+                });
+            });
           });
-        }
-
-        let preferedStocks = reduceArrayByStockPoints(wi);
-
-        return res.json(preferedStocks);
+        });
       });
   }
 );
