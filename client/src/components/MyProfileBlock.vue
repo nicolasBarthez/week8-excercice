@@ -15,11 +15,11 @@
             </p>
             <p class="subtitle is-6"> <strong>Following</strong> {{profileInfo.following}}
             </p>
-            <p class="subtitle is-6"> <strong>Followers</strong> {{/*profileInfo.followers*/}}
+            <p class="subtitle is-6"> <strong>Followers</strong> {{profileInfo.followers}}
             </p>
             <p class="subtitle is-6"> <strong>Babbles posted</strong> {{profileInfo.nbBabbles}}
             </p>
-            <p class="subtitle is-6"> <strong>Nb of insights</strong> {{/*profileInfo.nbOfInsights*/}}
+            <p class="subtitle is-6"> <strong>Nb of insights won</strong> {{profileInfo.nbOfInsightsWon}}
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
@@ -31,7 +31,7 @@
             <div>
               <p class="is-6 has-text-grey-light"><strong>PERF</strong></p>
               <p class="is-4">
-                {{/*profileInfo.performancePoints*/}} P$
+                {{profileInfo.performancePoints}} <strong>P$</strong>
               </p>
               </a>
             </div>
@@ -48,15 +48,15 @@
           </div>
           <div class="level-item has-text-centered">
             <div>
-              <p class="is-6 has-text-grey-light">Prefered Stocks</p>
+              <p class="is-6 has-text-grey-light">Prefered trades</p>
               <p class="is-4">
-              1.   {{preferedStocks[0]? preferedStocks[0].stockId.longName  : "-" }} - {{preferedStocks[0]? preferedStocks[0].performancePoints : "-" }}  P$
+              1.   {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }}  P$
               </p>
               <p class="is-4">
-              2.   {{preferedStocks[1]? preferedStocks[1].stockId.longName  : "-" }} - {{preferedStocks[1]? preferedStocks[1].performancePoints : "-" }}  P$
+              2.   {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }}  P$
               </p>
               <p class="is-4">
-              3.   {{preferedStocks[2]? preferedStocks[2].stockId.longName  : "-" }} - {{preferedStocks[2]? preferedStocks[2].performancePoints : "-" }}  P$
+              3.   {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }}  P$
               </p>
             </div>
           </div>
@@ -76,8 +76,7 @@
 <script>
 export default {
   props: {
-    profileInfo: Object,
-    preferedStocks: Object
+    profileInfo: Object
   }
 };
 </script>

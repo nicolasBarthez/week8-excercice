@@ -1,12 +1,12 @@
 <template >
 <section v-else class="section main">
-  <my-profile-block :preferedStocks="preferedStocks" :profileInfo="profileInfo"></my-profile-block>
+  <my-profile-block  :profileInfo="profileInfo"></my-profile-block>
 </section>
 </template>
 
 <script>
 import MyProfileBlock from "../components/MyProfileBlock";
-import { getUserProfileInfo, getUserPreferedStock } from "@/api/apiDashboard";
+import { getUserProfileInfo } from "@/api/apiDashboard";
 export default {
   data() {
     return {
@@ -21,9 +21,6 @@ export default {
   created() {
     getUserProfileInfo().then(profileInfo => {
       this.profileInfo = profileInfo;
-    });
-    getUserPreferedStock().then(preferedStocks => {
-      this.preferedStocks = preferedStocks;
     });
   }
 };

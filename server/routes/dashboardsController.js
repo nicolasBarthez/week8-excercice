@@ -39,7 +39,54 @@ dashboardsController.get(
             return sum + next.length;
           }, 0);
 
-        return res.json(userInfo);
+        // Calculate prefered stocks
+        WatchItem.find({
+          userId: user._id,
+          status: "won"
+        })
+          .populate("stockId")
+          .exec((err, wi) => {
+            if (err) res.json(null);
+
+            // first, convert data into a Map with reduce
+            function reduceArrayByStockPoints(array) {
+              let counts = array.reduce((prev, curr) => {
+                const stockId = curr.stockId.toString();
+                let count = prev.get(stockId) || 0;
+                prev.set(stockId, curr.performancePoints + count);
+                return prev;
+              }, new Map());
+
+              // then, map your counts object back to an array
+              return Array.from(counts).map(([stockId, performancePoints]) => {
+                return { stockId, performancePoints };
+              });
+            }
+
+            userInfo.preferedStocks = reduceArrayByStockPoints(wi);
+
+            WatchItem.find({
+              userId: user._id,
+              status: { $in: ["won", "lost"] }
+            }).exec((err, wiClosed) => {
+              console.log("wiClosed", wiClosed);
+              // Calculate performance points
+              userInfo.performancePoints = wiClosed
+                .map(item => item.performancePoints)
+                .reduce((prev, next) => prev + next);
+
+              userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+                console.log("item.status", item.status);
+                return item.status == "won";
+              }, 0).length;
+
+              User.find({ following: user._id }).exec((err, us) => {
+                userInfo.followers = us.length ? us.length : 0;
+
+                return res.json(userInfo);
+              });
+            });
+          });
       });
     });
   }
