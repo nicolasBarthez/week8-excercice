@@ -5,8 +5,8 @@
     <div class="container">
       <div class="columns">
         <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
-        <div class="column is-6">
-          <publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
+        <div class="babblesField column is-6">
+          <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
         </div>
         <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
@@ -54,6 +54,7 @@ export default {
     updateWatchList() {
       getWatchItem(this.stock.longName)
         .then(watchItem => {
+          console.log("DEBUG getWatchItem watchItem", watchItem);
           this.watchItem = watchItem;
         })
         .catch(err => {
@@ -154,4 +155,17 @@ export default {
   display: flex;
 }
 
+.babblesField{
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+@media screen and (min-width: 769px){
+  .babblesField {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    width: 60%;
+  }
+}
 </style>

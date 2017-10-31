@@ -4,7 +4,7 @@
     <div class="container">
       <div class="columns">
         <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
-        <div class="column is-6">
+        <div class="babblesField column is-6">
           <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
          <stream-timeline-babble :connectedUser="connectedUser" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></stream-timeline-babble>
         </div>
@@ -102,5 +102,8 @@ export default {
 .container{
   display: flex;
 }
-
+.babblesField{
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
 </style>

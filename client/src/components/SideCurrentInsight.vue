@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-3">
+  <div class="column is-3 sideRecent">
     <div class="is-sticky">    
         <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
@@ -10,8 +10,6 @@
                    <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.longName.length<7 ? watchItem.stockId.longName : watchItem.stockId.shortName }}</router-link><br>
                    <b class="price is-6">{{watchItem.stockId.price}} €</b>
                    <b id="variation" class="is-6" :class="{'has-text-green' : watchItem.stockId.variation>0, 'has-text-red' : watchItem.stockId.variation<0}">
-            <!-- <b id="variation" class="is-6" :class="(watchItem.stockId.variation<0 ? 'has-text-green' : 'has-text-red')"> -->
-
                        <span class= "indice">{{watchItem.stockId.variation}} %</span>
                    </b>  
                 </div>
@@ -66,7 +64,9 @@ export default {
 </script>
 
 <style scoped>
-
+.sideRecent{
+    margin-left:-7%;
+}
 .Symbol {
     color: #192b41 !important;
     width: 40%;
