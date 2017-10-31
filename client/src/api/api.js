@@ -215,3 +215,17 @@ export function getAllStocks() {
             return null;
         });
 }
+
+export function getAllBabbles(sortBy) {
+    console.log("*************************", sortBy);
+    let url = `/babbles/?page=1&sort=${sortBy}`;
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+            console.log("*************************", response.data);
+        })
+        .catch(err => {
+            return null;
+        });
+}

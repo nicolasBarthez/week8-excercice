@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" :value="'#'+stock.shortName" class="textarea">
+                                <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -50,25 +50,24 @@ export default {
   },
   methods: {
     
-      postBabble(){
-        sendBabble(this.babble,this.stock._id).then(() => {
-        this.babble='';
-        this.$emit("changeBabbles");
+    postBabble(){
+        sendBabble(this.babble,null).then(() => {
+            this.babble='';
+            this.$emit("changeBabbles");
         });
       },
   },
-  computed: {
+ computed: {
     charactersLeft() {
         var char = this.babble.length,
             limit = 200;
         return (limit - char);
       }
-}
+ }
 };
 </script>
 
 <style scoped>
-
 .card-content {
     padding: 1.5rem;
 }

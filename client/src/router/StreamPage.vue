@@ -1,114 +1,95 @@
 <template>
-  <section class="section main">
-        
-  <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
-  <div class="column is-6">
-<publish-babble :connectedUser="connectedUser" :stock="stock" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
-<timeline-babble :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
-<side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
-  </div>
-            
-  </section>
 
+  <section v-else class="section main">
+    <div class="container">
+      <div class="columns">
+        <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <div class="column is-6">
+          <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
+         <stream-timeline-babble :connectedUser="connectedUser" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></stream-timeline-babble>
+        </div>
+        <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 import { getUser } from "@/api/api";
-import { getRecentPosition } from "@/api/api";      
+import { getRecentPosition } from "@/api/api";
 import { getWatchInsight } from "@/api/api";
-import { getStock } from "@/api/api";
-import { getWatchItem } from "@/api/api";
-import { getStockBabbles } from "@/api/api";
-import StockHeader from "../components/StockHeader";
+import { getAllBabbles } from "@/api/api";
 import SideCurrentInsight from "../components/SideCurrentInsight";
-import TimelineBabble from "../components/TimelineBabble";
-import PublishBabble from "../components/PublishBabble";
+import StreamTimelineBabble from "../components/StreamTimelineBabble";
+import StreamPublishBabble from "../components/StreamPublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
-
 
 export default {
   data() {
     return {
-      filterBy:'all',
-      stock: null,
+      filterBy: "all",
       watchItem: null,
-      watchInsight:null, 
-      babbles:null,
-      recentPositions:null,
-      connectedUser:null,
+      watchInsight: null,
+      babbles: null,
+      recentPositions: null,
+      connectedUser: null,
     };
   },
   components: {
-    StockHeader,
     SideCurrentInsight,
-    TimelineBabble,
-    PublishBabble,
+    StreamTimelineBabble,
+    StreamPublishBabble,
     SideRecentActivity
   },
 
   methods: {
     updateWatchList() {
-      getWatchItem(this.stock.longName)
-        .then(watchItem => {
-          this.watchItem = watchItem;
-        })
-        .catch(err => {
-          throw err;
-        });
+      getWatchInsight().then(watchInsight => {
+        this.watchInsight = watchInsight;
+        console.log("AAAAAAwatchInsight", watchInsight);   
+      });    
+
+      getRecentPosition().then(recentPositions => {
+        this.recentPositions = recentPositions;
+      });
+
     
-      getWatchInsight(this.stock.longName)
-      .then(watchInsight =>{
-        this.watchInsight = watchInsight
-        console.log('AAAAAAwatchInsight', watchInsight)
+  },
+    updateTimelineBabble() {
+      getAllBabbles(this.filterBy).then(babbles =>{ 
+      this.babbles = babbles
       });
     },
-
-    updateTimelineBabble(){
-      getStockBabbles(this.stock.longName,this.filterBy)
-      .then(babbles => (this.babbles = babbles));
+    changeSort(filterBy) {
+      this.filterBy = filterBy;
+      getAllBabbles(this.filterBy).then(
+        babbles => (this.babbles = babbles)
+      );
     },
-
-    changeSort(filterBy){
-      this.filterBy=filterBy;
-      getStockBabbles(this.stock.longName,this.filterBy)
-      .then(babbles => (this.babbles = babbles));
+    
+    fetchData() {
+      getAllBabbles(this.filterBy).then(babbles =>{ 
+        console.log(this.babbles);
+        this.babbles = babbles
+      });
+      getWatchInsight().then(watchInsight => {
+        this.watchInsight = watchInsight;
+      });
+      getRecentPosition().then(recentPositions => {
+        this.recentPositions = recentPositions;
+      });
+      getUser().then(connectedUser => {
+        this.connectedUser = connectedUser;
+      });
     }
   },
   created() {
-    const stockName = this.$route.params.stockName;
-    
-    getStock(stockName)
-    .then(stock => {
-      this.stock = stock;
-    });
-
-    getWatchItem(stockName)
-      .then(watchItem => {
-        this.watchItem = watchItem;
-      })
-      .catch(err => {
-        throw err;
-      });
-    
-    getWatchInsight(stockName)
-      .then(watchInsight =>{
-        console.log("debug***************watchInsight*****************",watchInsight)
-        this.watchInsight = watchInsight
-    });
-
-    getStockBabbles(stockName, 'all')
-      .then(babbles => {
-        this.babbles = babbles;
-    });
-
-    getRecentPosition()
-      .then(recentPositions => {
-        this.recentPositions =recentPositions;
-    });
-
-     getUser().then(connectedUser => {
-        this.connectedUser =connectedUser;
-    });
+    this.fetchData();
+  },
+  watch: {
+    $route() {
+      this.fetchData();
+    }
   }
 };
 </script>
@@ -116,10 +97,10 @@ export default {
 <style scoped>
 .section.main {
     background-color: #f9f9f9;
-    padding-top: 100px;
+    padding: 7rem 1.5rem;
+}
+.container{
+  display: flex;
 }
 
-.section {
-    padding: 3rem 1.5rem;
-}
 </style>

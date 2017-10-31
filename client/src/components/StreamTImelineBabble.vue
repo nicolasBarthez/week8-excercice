@@ -4,7 +4,7 @@
      <nav class="navbar is-dark">
         <div class="babblesMenu">
             <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-                :class="{'is-active': link===link.query}" class="nav-item is-tab poi"> {{ link.text }}
+                :class="{'is-active': link.text[index], 'nav-item': true, 'is-tab': true }"> {{ link.text }}
             </div>
             <p id="vide"></p>
             <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
@@ -37,9 +37,10 @@
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </div>
                                 <a class="level-item has-text-grey-light">
-                                    <span class="icon is-small"><i
+                                    <form id="like-form"> <span class="icon is-small"><i
                                      @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
-                                    <small>{{babble.like.length}}</small>
+                                        <small>{{babble.like.length}}</small>
+                                   </form>
                                 </a>
                             </div>
                         </nav>
@@ -77,13 +78,15 @@
                         </div>
                         <nav class="media-right">
                             <div class="level-right">
-                                <a class="likeModal level-item has-text-grey-light">
-                                    <span class="icon is-small"><i class=" likeModal fa fa-reply modal-button"></i></span>
+                                <a class="level-item has-text-grey-light">
+                                    <span class="icon is-small"><i class="fa fa-reply modal-button"></i></span>
                                     <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
-                                <a class="likeModal level-item has-text-grey-light">
-                                   <span class="icon is-small"><i class="likeModal fa fa-thumbs-o-up like-btn"></i></span>
+                                <a class="level-item has-text-grey-light">
+                                    <form id="like-form"> <span class="icon is-small"><i
+                                     @click="iLike(modalBabble)" class="fa fa-thumbs-o-up like-btn"></i></span>
                                         <small>{{modalBabble.like.length}}</small>
+                                   </form>
                                 </a>
                             </div>
                         </nav>
@@ -112,7 +115,6 @@
                 </article>
             </div>
       </div>
-
 
 
 
@@ -164,17 +166,17 @@ export default {
             navbarLinks: [
                 {  text: 'All', query: 'all'},
                 {  text: 'Insiders Mates',  query: 'insider-mates' },
+                {  text: 'Watch List',  query: 'watchlist' },
                 {  text: 'My posts', query: 'me'},
+                
             ],
             babbleText:'',
             modalBabble:'',
-            userReply:'',
-            link:'all'
+            userReply:''
             }
   },
     props: {
         babbles:Array,
-        stock: Object,
         connectedUser:Object
     },  
     methods: {
@@ -199,7 +201,6 @@ export default {
         sortBabbles(link){
             console.log('linnnnnnnnk', link)
             this.$emit("sort",link)
-            this.link=link
         },
         postBabble(modalBabble){
             console.log("***************************************modalBabbleID", this.modalBabble._id);
@@ -222,13 +223,11 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
+
 .tweet-body{
 word-break: break-word;
 }
 
-.likeModal{
-    cursor:initial !important;
-}
 .tweets {
     border-bottom: 1px solid;
     border-bottom-color: darkgray;
@@ -240,7 +239,31 @@ word-break: break-word;
 .card-content {
     padding: 1.5rem;
 }
-
+.navbar-item, .navbar-link {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+    cursor: pointer;
+}
+.navbar-item.is-tab.is-active {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #f9f9f9;
+    padding-bottom: calc(0.5rem - 3px);
+}
+.navbar-item.is-tab {
+    border-bottom: 1px solid transparent;
+    min-height: 3.25rem;
+}
+.navbar-item, .navbar-link {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+}
 .navbar.is-dark {
     background-color: #192b41;
     color: #f9f9f9;
@@ -252,7 +275,7 @@ word-break: break-word;
     }
 }
 @media screen and (min-width: 1024px){
-.navbar .navbar-end, .navbar-menu, .navbar-start {
+.navbar, .navbar-end, .navbar-menu, .navbar-start {
     -webkit-box-align: stretch;
     -ms-flex-align: stretch;
     align-items: stretch;
@@ -301,7 +324,10 @@ word-break: break-word;
     border-color: #192b41;
     color: #fff;
 }
-
+.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
+    -webkit-box-shadow: 0 0 0 0.125em #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+}
 .button.is-primary.is-hovered,
 .button.is-primary:hover,
 .button.is-primary.is-active,
@@ -310,10 +336,7 @@ word-break: break-word;
     border-color: transparent;
     color: #fff;
 }
-.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
-    -webkit-box-shadow: 0 0 0 0.125em #192b41;
-    box-shadow: 0 0 0 0.125em #192b41;
-}
+
 .button.is-primary {
     background-color: #21ce99;
     border-color: transparent;

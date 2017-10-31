@@ -29,3 +29,33 @@ body {
 a {
     color: #192b41 !important;
 }
+
+.navbar-item .navbar-link .poi {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.navbar-item.is-tab.is-active .poi {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #f9f9f9;
+    padding-bottom: calc(0.5rem - 3px);
+}
+
+.navbar-item.is-tab .poi {
+    border-bottom: 1px solid transparent;
+    min-height: 3.25rem;
+}
+
+.navbar-item,
+.navbar-link .poi {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+}
