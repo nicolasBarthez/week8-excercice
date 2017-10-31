@@ -16,7 +16,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img src=""></router-link>
+                          <router-link to="/" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -60,7 +60,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img :src="modalBabble.user.picProfile" alt="Image"></router-link>
+                          <router-link to="/" class=""><img class="imgProfile" :src="modalBabble.user.picProfile" alt="Image"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -94,7 +94,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img src="reply.picProfile"></router-link>
+                          <router-link to="/" class=""><img class="imgProfile" :src="reply.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
@@ -119,7 +119,7 @@
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
-                <figure v-if="connectedUser" class="image is-32x32 is-circle"><img :src="connectedUser.picProfile" alt="Image"></figure>
+                <figure v-if="connectedUser" class="image is-32x32 is-circle"><img class="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
                 </div>
                 <div class="media-content">
                     <div>

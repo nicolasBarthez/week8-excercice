@@ -1,12 +1,15 @@
 <template>
   <div class="column is-3">
     <div class="box">
-        <p><span class="title is-5">Recent activities of insiders</span></p>
+        <p><span class="title is-5">Recent position</span></p>
         <hr>
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
             <div class="column is-3 is-marginless">
-                <div class="image is-circle">
-                   <router-link :to="'/dashboard/'+recentPosition.userId._id" ><img :src="recentPosition.userId.picProfile"></router-link>
+                <div class="media-left">
+                    <figure class="image is-32x32 is-circle">
+                        <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
+                        </router-link>
+                    </figure>
                 </div>
             </div>
             <div class="column is-9">
@@ -36,6 +39,14 @@ export default {
 <style scoped>
 .seeDash{
         color: #b5b5b5 !important;
+}
+@media screen and (min-width: 769px){
+.column.is-9, .column.is-9-tablet {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    width: 80%;
+}
 }
 
 </style>

@@ -3,7 +3,7 @@
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
-                    <figure v-if="connectedUser" class="image is-32x32 is-circle"><img :src="connectedUser.picProfile" alt="Image"></figure>
+                    <figure v-if="connectedUser" class="image is-32x32 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
                 </div>
                 <div class="media-content">
                     <div>
@@ -29,33 +29,67 @@
                 </div>
             </div>
         </div>
+        <b-modal :active.sync="isCardModalActive">
+            <div class="mediaModal">
+                <nav id="bandB" class="level media">
+                    <h1 class="modalTitle">
+                        Take position on {{stock.longName}} !
+                    </h1>
+                    <div id="bullsAndBearsPic">
+                        <img src="/static/images/roundBullBear.jpg" alt="bull and bear">
+                    </div>
+                </nav>
+                <div id="bullsAndBears">
+                    <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
+                    <button id="NotNow" @click="isCardModalActive = false" class="button is-small is-outlined is-primary">Not Now</button>
+                    <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
+                </div>
+            </div>
+        </b-modal>
     </div>    
 </template>
 
 <script>
 import { sendBabble } from "@/api/api";
+import { beBear } from "@/api/api";
+import { beBull } from "@/api/api";
 
 export default {
   data() {
     return {
       babble:'',
+      isCardModalActive: false,
     };
   },
     props: {
         stock: Object,
-        connectedUser:Object
+        connectedUser:Object,
+        watchItem:Object,
     },
 
   components: { 
   },
   methods: {
-    
-      postBabble(){
+    postBabble(){
+        if(!this.watchItem || this.watchItem.position==='none'){
+            this.isCardModalActive=true;}
         sendBabble(this.babble,this.stock._id).then(() => {
         this.babble='';
         this.$emit("changeBabbles");
         });
-      },
+    },
+    imBull() {
+        beBull(this.stock.longName).then(item => {
+        this.$emit("changeWatchlist", item);
+        this.isCardModalActive=false;
+        });  
+    },
+    imBear() {
+        beBear(this.stock.longName).then(item => {
+        this.$emit("changeWatchlist", item);
+        this.isCardModalActive=false;
+        });
+    },
   },
   computed: {
     charactersLeft() {
@@ -68,6 +102,30 @@ export default {
 </script>
 
 <style scoped>
+#bandB{
+    background-color:#fff;
+    display: flex;
+    flex-direction: column;
+}
+#bullsAndBears{
+    display: flex;
+    justify-content: space-around;
+}
+.modalTitle{
+    margin-top: -2%;
+    margin-top: -2%;
+    font-weight: bolder;
+    margin-bottom: 3%;
+    color:#192b41;
+}
+
+.mediaModal{
+    background-color:#fff;
+    padding: 5%;
+    margin: 5%;
+    border-radius: 3%;
+    border: solid,#192b41;
+}
 
 .card-content {
     padding: 1.5rem;
@@ -89,6 +147,12 @@ export default {
     width: 64px;
     height: 64px;
     background-color: #f9f9f9;
+}
+.profile-card .image.is-circle>img {
+    width: auto;
+    border: 1px solid #192b41;
+    border-radius: 50%;
+    border-radius: 50%;
 }
 .fa {
     text-align: center;
@@ -131,7 +195,58 @@ export default {
 .button.is-primary {
     background-color: #192b41;
 }
+#Bbull {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #21ce99;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+}
 
+#Bbull.is-outlined:focus,
+#Bbull.is-outlined:hover {
+    background-color: #21ce99;
+    border-color: #21ce99;
+    color: #fff;
+}
+
+.trend-b-b{
+  cursor:pointer;
+}
+
+#Bbear {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #ff6026;
+    box-shadow: 0 0 0 0.125em #ff6026;
+    border-color: #ff6026;
+}
+
+#Bbear.is-outlined:focus,
+#Bbear.is-outlined:hover {
+    background-color: #ff6026;
+    border-color: #ff6026;
+    color: #fff;
+}
+
+#NotNow {
+    MARGIN-TOP: -25%;
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+}
+
+#NotNow.is-outlined:focus,
+#NotNow.is-outlined:hover {
+    background-color: #192b41;
+    border-color: #192b41;
+    color: #fff;
+}
 @media screen and (max-width: 768px) {
     .level-item {
         margin-right: 10px;

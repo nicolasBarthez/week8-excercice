@@ -59,16 +59,15 @@
                  <router-link v-if="!$root.user" to="/signup" class="button">Signup</router-link>
                 </span>
                 <div class="nav-profile" v-if="$root.user">
-                    <router-link to="/" id="profile-pic">
-                        <div class="nav-photo-profil">
-                        <img  v-if="connectedUser" :src="connectedUser.picProfile" alt="">
+                    <router-link to="/" >
+                        <div class="image is-32x32 is-circle">
+                        <img class ="imgProfile" v-if="connectedUser" :src="connectedUser.picProfile" alt="">
                         </div>
                     </router-link>
                     <div class="nav-user-profile">
                         <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
                         <div class="nav-status">
-                            <div class="nav-status-light"></div>
-                           <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
+                            <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +88,7 @@ export default {
       navbarLinks: [
         { location: '/stream', text: 'Stream' },
         { location: '/trending', text: 'Trending' },
-        { location: '/dashboard', text: 'My Dashboard' },
+        { location: '/mydashboard', text: 'My Dashboard' },
       ],
       data:null,
       keepFirst: true,
@@ -150,6 +149,11 @@ a.dropdown-item {
 }
 /*nav profile*****************************************/
 
+.image.is-32x32 {
+    height: 45px;
+    width: 45px;
+}
+
 .nav-profile {
     display: flex;
     align-items: center;
@@ -164,12 +168,6 @@ a.dropdown-item {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end!important;
-    padding-left: 35%
-}
-.nav-photo-profil>img {
-    width: auto;
-    border: 1px solid black;
-    border-radius: 50%;
 }
 
 .nav-user-name {
@@ -184,7 +182,6 @@ a.dropdown-item {
 
 .nav {
     height: 4.5rem;
-    padding-right: 30px;
 }
 
 .section.main {
@@ -244,7 +241,7 @@ a.nav-item:not(.button).is-tab:hover {
 
 .button:focus:not(:active) {
     -webkit-box-shadow: 0 0 0 0.125em #192b41;
-    box-shadow: 0 0 0 0.125em rgba#192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
 }
 
 .button.is-focused,
@@ -254,10 +251,11 @@ a.nav-item:not(.button).is-tab:hover {
 }
 #menu {
     display: flex;
+    padding-right: 5%;
 }
 #formNav {
-    width: 20%!important;
-    margin-left: 12%;
+    min-width: 25%!important;
+    margin-left: 16%;
 }
 #formNav1 {
     width: 100%;
@@ -291,6 +289,10 @@ a.nav-item:not(.button).is-tab:hover {
     .nav-toggle {
         padding-top: 75px;
     }
+    #formNav {
+    min-width: 25%!important;
+    margin-left: -8%;
+}
 }
 
 .field{ 

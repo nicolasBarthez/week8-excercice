@@ -1,4 +1,4 @@
-body {
+    body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
@@ -59,3 +59,23 @@ a {
     padding: .5rem 1rem;
     position: relative;
 }
+
+.profile-card .image.is-circle {
+    margin-top: -2rem;
+    border: 2px solid #fff;
+    width: 64px;
+    height: 64px;
+    background-color: #f9f9f9;
+}
+
+.imgProfile {
+    width: auto!important;
+    border: 1px solid black!important;
+    border-radius: 50% !important;
+}
+
+@media screen and (max-width: 768px) {
+    .section.main {
+        background-color: #f9f9f9;
+        padding: 4.1rem 1.5rem;
+    }

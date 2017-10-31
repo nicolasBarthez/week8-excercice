@@ -5,7 +5,7 @@
                 <div class="media" id="stockInfo">
                    <div class="media-left">
                        <figure class="image is-64x64 is-circle">
-                         <img :src="stock.stockImg" alt="">
+                         <img class ="imgProfile" :src="stock.stockImg" alt="stockImg">
                        </figure>
                    </div>
                    <div class="media-content">
@@ -108,6 +108,8 @@ export default {
 
     imBull() {
       beBull(this.stock.longName).then(item => {
+        // this.watchItem = item;
+        console.log("DEBUG beBull: $emit item", item);
         this.$emit("changeWatchlist", item);
       });  
     },

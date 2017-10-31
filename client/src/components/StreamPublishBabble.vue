@@ -3,7 +3,7 @@
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
-                    <figure v-if="connectedUser" class="image is-32x32 is-circle"><img :src="connectedUser.picProfile" alt="Image"></figure>
+                    <figure v-if="connectedUser" class="image is-32x32 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
                 </div>
                 <div class="media-content">
                     <div>
