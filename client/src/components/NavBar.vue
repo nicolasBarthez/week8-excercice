@@ -124,6 +124,7 @@ export default {
  created() {
     getAllStocks().then(data => {
         this.data = data
+        
     });
  }
 }  
@@ -162,7 +163,8 @@ a.dropdown-item {
 .nav-right {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
-    justify-content: flex-end;
+    justify-content: flex-end!important;
+    padding-left: 35%
 }
 .nav-photo-profil>img {
     width: auto;
@@ -254,8 +256,8 @@ a.nav-item:not(.button).is-tab:hover {
     display: flex;
 }
 #formNav {
-    width: 350PX;
-    margin-left: 45PX;
+    width: 20%!important;
+    margin-left: 12%;
 }
 #formNav1 {
     width: 100%;
