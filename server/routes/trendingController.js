@@ -7,150 +7,364 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
+const {
+  sortTrendingByNameDes,
+  sortTrendingByNameAsc,
+  sortTrendingByPriceDes,
+  sortTrendingByPriceAsc,
+  sortTrendingByVariationDes,
+  sortTrendingByVariationAsc,
+  sortTrendingByVolumeDes,
+  sortTrendingByVolumeAsc,
+  sortTrendingByTrendingDes,
+  sortTrendingByTrendingAsc,
+  sortTrendingByHotInsightsDes,
+  sortTrendingByHotInsightsAsc,
+  sortTrendingByBestInsiderDes,
+  sortTrendingByBestInsiderAsc
+} = require("../config/sortingFunction.js");
+
+// const sortFunctions = {
+//   namedsc: sortTrendingByNameDes,
+//   nameasc: sortTrendingByNameAsc,
+//   priceasc: sortTrendingByPriceAsc,
+//   pricedsc: sortTrendingByPriceDes,
+//   varasc: sortTrendingByVariationAsc,
+//   vardsc: sortTrendingByVariationDes,
+//   volasc: sortTrendingByVolumeAsc,
+//   voldsc: sortTrendingByVolumeDes,
+//   trendasc: sortTrendingByTrendingAsc,
+//   trenddsc: sortTrendingByTrendingDes,
+//   hiasc: sortTrendingByHotInsightsAsc,
+//   hidsc: sortTrendingByHotInsightsDes,
+//   biasc: sortTrendingByBestInsiderAsc,
+//   bidsc: sortTrendingByBestInsiderDes
+// };
+
+//sortFunctions[req.query.sort]
 
 // **********************************************************
-// Send info about Stocks (trending)  =======================
+// Send info about Stocks (with specified index)  ===========
 // **********************************************************
 trendingController.get("/", function(req, res, next) {
-  let indexSelected = req.query.index;
+  let indexSelected = req.query.index || "all";
+  let sortBy = req.query.sort;
   const stockTrendBoard = [];
 
-  if (indexSelected === "all") {
-    // retrieve all stocks
-    Stock.find().exec((err, stocks) => {
-      if (err) return res.json(null);
+  const queryObject = {};
+  if (indexSelected !== "all") {
+    queryObject.index = indexSelected;
+  }
 
-      stocks.forEach(stock => {
-        const stockCurrentTrend = {
-          longName: stock.longName,
-          currentPrice: stock.price,
-          variation: stock.variation,
-          volume: stock.volume
-        };
-        // looking for insider trending
-        const today = moment().startOf("day");
-        const thirtyDaysAgo = moment(today).subtract(30, "days");
+  // retrieve all stocks
+  Stock.find(queryObject).exec((err, stocks) => {
+    if (err) return res.json(null);
 
-        WatchItem.find({
-          stockId: stock._id,
-          status: "active",
-          position: { $in: ["bull", "bear"] },
+    stocks.forEach(stock => {
+      const stockCurrentTrend = {
+        longName: stock.longName,
+        currentPrice: stock.price,
+        variation: stock.variation,
+        volume: stock.volume
+      };
+      // looking for insider trending
+      const today = moment().startOf("day");
+      const thirtyDaysAgo = moment(today).subtract(30, "days");
+
+      WatchItem.find({
+        stockId: stock._id,
+        status: "active",
+        position: {
+          $in: ["bull", "bear"]
+        },
+        created_at: {
+          $gte: thirtyDaysAgo.toDate()
+        }
+      }).then(activeWatchItems => {
+        function countPositions(array, position) {
+          return array
+            .map(item => {
+              return item.position == position;
+            })
+            .filter(val => {
+              return val === true;
+            }).length;
+        }
+        let nbBull = 50 + countPositions(activeWatchItems, "bull");
+        let nbBear = 50 + countPositions(activeWatchItems, "bear");
+
+        if (nbBull < nbBear) {
+          var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(2);
+          var currentTrend = {
+            trend: "bear",
+            percentage: currentPercentage
+          };
+        } else {
+          var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(2);
+          var currentTrend = {
+            trend: "bull",
+            percentage: currentPercentage
+          };
+        }
+        stockCurrentTrend.trending = currentTrend;
+
+        // Add Hot insights
+        Babble.find({
+          stockLink: stock._id,
           created_at: {
             $gte: thirtyDaysAgo.toDate()
           }
-        }).then(activeWatchItems => {
-          function countPositions(array, position) {
-            return array
-              .map(item => {
-                return item.position == position;
-              })
-              .filter(val => {
-                return val === true;
-              }).length;
-          }
-          let nbBull = 50 + countPositions(activeWatchItems, "bull");
-          let nbBear = 50 + countPositions(activeWatchItems, "bear");
+        }).then(babbles => {
+          stockCurrentTrend.hotInsights = 0 + babbles.length;
 
-          if (nbBull < nbBear) {
-            var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(
-              2
-            );
-            var currentTrend = {
-              trend: "bear",
-              percentage: currentPercentage
-            };
-          } else {
-            var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(
-              2
-            );
-            var currentTrend = {
-              trend: "bull",
-              percentage: currentPercentage
-            };
-          }
-          stockCurrentTrend.trending = currentTrend;
+          stockCurrentTrend.nbOfLikes =
+            0 +
+            babbles.map(item => item.like).reduce((sum, next) => {
+              return sum + next.length;
+            }, 0);
 
-          // Add Hot insights
-          Babble.find({
-            stockLink: stock._id,
+          // Add the current 3 best insiders on it
+          const oneHundredDaysAgo = moment(today).subtract(100, "days");
+          WatchItem.find({
+            stockId: stock._id,
             created_at: {
-              $gte: thirtyDaysAgo.toDate()
-            }
-          }).then(babbles => {
-            stockCurrentTrend.hotInsights = 0 + babbles.length;
-            console.log(babbles.map(item => item.like));
-            stockCurrentTrend.nbOfLikes =
-              0 +
-              babbles.map(item => item.like).reduce((sum, next) => {
-                return sum + next.length;
-              }, 0);
+              $gte: oneHundredDaysAgo.toDate()
+            },
+            status: "won"
+          })
+            .sort({
+              performancePoints: -1
+            })
+            .limit(3)
+            .populate("userId")
+            .exec((err, wisWon) => {
+              const bestInsiders = [];
+              wisWon.forEach(ww => {
+                let insider = {
+                  id: ww.userId._id,
+                  username: ww.userId.username,
+                  perf: ww.performancePoints
+                };
+                if (insider.perf > 0) {
+                  bestInsiders.push(insider);
+                }
+              });
+              stockCurrentTrend.bestInsiders = bestInsiders;
 
-            stockTrendBoard.push(stockCurrentTrend);
+              stockTrendBoard.push(stockCurrentTrend);
 
-            // Add
-            if (stockTrendBoard.length === stocks.length) {
-              res.json(stockTrendBoard);
-            }
-          });
+              if (stockTrendBoard.length === stocks.length) {
+                switch (sortBy) {
+                  case "namedsc":
+                    stockTrendBoard.sort(sortTrendingByNameDes);
+                    break;
+                  case "nameasc":
+                    stockTrendBoard.sort(sortTrendingByNameAsc);
+                    break;
+                  case "priceasc":
+                    stockTrendBoard.sort(sortTrendingByPriceAsc);
+                    break;
+                  case "pricedsc":
+                    stockTrendBoard.sort(sortTrendingByPriceDes);
+                    break;
+                  case "varasc":
+                    stockTrendBoard.sort(sortTrendingByVariationAsc);
+                    break;
+                  case "vardsc":
+                    stockTrendBoard.sort(sortTrendingByVariationDes);
+                    break;
+                  case "volasc":
+                    stockTrendBoard.sort(sortTrendingByVolumeAsc);
+                    break;
+                  case "voldsc":
+                    stockTrendBoard.sort(sortTrendingByVolumeDes);
+                    break;
+                  case "trendasc":
+                    stockTrendBoard.sort(sortTrendingByTrendingAsc);
+                    break;
+                  case "trenddsc":
+                    stockTrendBoard.sort(sortTrendingByTrendingDes);
+                    break;
+                  case "hiasc":
+                    stockTrendBoard.sort(sortTrendingByHotInsightsAsc);
+                    break;
+                  case "hidsc":
+                    stockTrendBoard.sort(sortTrendingByHotInsightsDes);
+                    break;
+                  case "biasc":
+                    stockTrendBoard.sort(sortTrendingByBestInsiderAsc);
+                    break;
+                  case "bidsc":
+                    stockTrendBoard.sort(sortTrendingByBestInsiderDes);
+                    break;
+                  default:
+                    stockTrendBoard.sort(sortTrendingByTrendingDes);
+                }
+                console.log("stockTrendBoard***********", stockTrendBoard);
+                res.json(stockTrendBoard);
+              }
+            });
         });
       });
     });
-  } else {
-    Stock.find({ index: { $in: { indexSelected } } }).exec((err, stocks) => {
-      if (err) return res.json(null);
-      console.log("index filled");
-    });
-  }
+  });
 });
 
 // **********************************************************
-// Send tendancy of an action      ==========================
+// Send info about Stocks (all index)  =======================
 // **********************************************************
-
-trendingController.get(
-  "/stocks/:id",
-  passport.authenticate("jwt", config.jwtSession),
-  function(req, res, next) {
-    const user = req.user;
-    const stockId = req.params.id;
-
-    const today = moment().startOf("day");
-    const thirtyDaysAgo = moment(today).subtract(30, "days");
-
-    WatchItem.find({
-      stockId: stockId,
-      status: "active",
-      position: { $in: ["bull", "bear"] },
-      created_at: {
-        $gte: thirtyDaysAgo.toDate()
-      }
-    }).then(activeWatchItems => {
-      function countPositions(array, position) {
-        return array
-          .map(item => {
-            return item.position == position;
-          })
-          .filter(val => {
-            return val === true;
-          }).length;
-      }
-      let nbBull = 50 + countPositions(activeWatchItems, "bull");
-      let nbBear = 50 + countPositions(activeWatchItems, "bear");
-
-      console.log("bull", nbBull);
-      console.log("bear", nbBear);
-
-      if (nbBull < nbBear) {
-        var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(2);
-        var currentTrend = { trend: "bear", percentage: currentPercentage };
-      } else {
-        var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(2);
-        var currentTrend = { trend: "bull", percentage: currentPercentage };
-      }
-
-      res.json(currentTrend);
-    });
-  }
-);
+// trendingController.get("/", function(req, res, next) {
+//   let sortBy = req.query.sort;
+//   const stockTrendBoard = [];
+//
+//   // retrieve all stocks
+//   Stock.find().exec((err, stocks) => {
+//     if (err) return res.json(null);
+//
+//     stocks.forEach(stock => {
+//       const stockCurrentTrend = {
+//         longName: stock.longName,
+//         currentPrice: stock.price,
+//         variation: stock.variation,
+//         volume: stock.volume
+//       };
+//       // looking for insider trending
+//       const today = moment().startOf("day");
+//       const thirtyDaysAgo = moment(today).subtract(30, "days");
+//
+//       WatchItem.find({
+//         stockId: stock._id,
+//         status: "active",
+//         position: { $in: ["bull", "bear"] },
+//         created_at: {
+//           $gte: thirtyDaysAgo.toDate()
+//         }
+//       }).then(activeWatchItems => {
+//         function countPositions(array, position) {
+//           return array
+//             .map(item => {
+//               return item.position == position;
+//             })
+//             .filter(val => {
+//               return val === true;
+//             }).length;
+//         }
+//         let nbBull = 50 + countPositions(activeWatchItems, "bull");
+//         let nbBear = 50 + countPositions(activeWatchItems, "bear");
+//
+//         if (nbBull < nbBear) {
+//           var currentPercentage = (nbBear / (nbBull + nbBear) * 100).toFixed(2);
+//           var currentTrend = {
+//             trend: "bear",
+//             percentage: currentPercentage
+//           };
+//         } else {
+//           var currentPercentage = (nbBull / (nbBull + nbBear) * 100).toFixed(2);
+//           var currentTrend = {
+//             trend: "bull",
+//             percentage: currentPercentage
+//           };
+//         }
+//         stockCurrentTrend.trending = currentTrend;
+//
+//         // Add Hot insights
+//         Babble.find({
+//           stockLink: stock._id,
+//           created_at: {
+//             $gte: thirtyDaysAgo.toDate()
+//           }
+//         }).then(babbles => {
+//           stockCurrentTrend.hotInsights = 0 + babbles.length;
+//           console.log(babbles.map(item => item.like));
+//           stockCurrentTrend.nbOfLikes =
+//             0 +
+//             babbles.map(item => item.like).reduce((sum, next) => {
+//               return sum + next.length;
+//             }, 0);
+//
+//           // Add the current 3 best insiders on it
+//           const oneHundredDaysAgo = moment(today).subtract(100, "days");
+//           WatchItem.find({
+//             stockId: stock._id,
+//             created_at: {
+//               $gte: oneHundredDaysAgo.toDate()
+//             },
+//             status: "won"
+//           })
+//             .sort({ performancePoints: -1 })
+//             .limit(3)
+//             .populate("userId")
+//             .exec((err, wisWon) => {
+//               const bestInsiders = [];
+//               wisWon.forEach(ww => {
+//                 console.log("XWWWW*********", ww);
+//                 let insider = {
+//                   id: ww.userId._id,
+//                   username: ww.userId.username,
+//                   perf: ww.performancePoints
+//                 };
+//                 if (insider.perf > 0) {
+//                   bestInsiders.push(insider);
+//                 }
+//               });
+//               stockCurrentTrend.bestInsiders = bestInsiders;
+//               stockTrendBoard.push(stockCurrentTrend);
+//
+//               if (stockTrendBoard.length === stocks.length) {
+//                 switch (sortBy) {
+//                   case "namedsc":
+//                     stockTrendBoard.sort(sortTrendingByNameDes);
+//                     break;
+//                   case "nameasc":
+//                     stockTrendBoard.sort(sortTrendingByNameAsc);
+//                     break;
+//                   case "priceasc":
+//                     stockTrendBoard.sort(sortTrendingByPriceAsc);
+//                     break;
+//                   case "pricedsc":
+//                     stockTrendBoard.sort(sortTrendingByPriceDes);
+//                     break;
+//                   case "varasc":
+//                     stockTrendBoard.sort(sortTrendingByVariationAsc);
+//                     break;
+//                   case "vardsc":
+//                     stockTrendBoard.sort(sortTrendingByVariationDes);
+//                     break;
+//                   case "volasc":
+//                     stockTrendBoard.sort(sortTrendingByVolumeAsc);
+//                     break;
+//                   case "voldsc":
+//                     stockTrendBoard.sort(sortTrendingByVolumeDes);
+//                     break;
+//                   case "trendasc":
+//                     stockTrendBoard.sort(sortTrendingByTrendingAsc);
+//                     break;
+//                   case "trenddsc":
+//                     stockTrendBoard.sort(sortTrendingByTrendingDes);
+//                     break;
+//                   case "hiasc":
+//                     stockTrendBoard.sort(sortTrendingByHotInsightsAsc);
+//                     break;
+//                   case "hidsc":
+//                     stockTrendBoard.sort(sortTrendingByHotInsightsDes);
+//                     break;
+//                   case "biasc":
+//                     stockTrendBoard.sort(sortTrendingByBestInsiderAsc);
+//                     break;
+//                   case "bidsc":
+//                     stockTrendBoard.sort(sortTrendingByBestInsiderDes);
+//                     break;
+//                   default:
+//                     stockTrendBoard.sort(sortTrendingByTrendingDes);
+//                 }
+//
+//                 res.json(stockTrendBoard);
+//               }
+//             });
+//         });
+//       });
+//     });
+//   });
+// });
 
 module.exports = trendingController;

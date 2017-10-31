@@ -8,12 +8,17 @@ const urlStart =
 const urlEnd =
   "%26f%3Dsl1d1t1c1ohgv%26e%3D.csv'%20and%20columns%3D'symbol%2Cprice%2Cdate%2Ctime%2Cchange%2Ccol1%2Chigh%2Clow%2Ccol2'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys";
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useMongoClient: true
-});
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useMongoClient: true
+  })
+  .then(() => {
+    console.info("The magic happens on port " + port);
+  });
 
 function getstockUpdate(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
+    if (err) console.err(err);
     stockArray.forEach(stock => {
       return axios.get(urlStart + stock.symbolPrice + urlEnd).then(response => {
         let stockProperties = response.data.query.results.row;
@@ -27,5 +32,8 @@ function getstockUpdate(index) {
     });
   });
 }
+
+// Update CAC40
+getstockUpdate("CAC40");
 
 module.exports = getstockUpdate;

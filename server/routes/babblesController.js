@@ -35,7 +35,7 @@ babblesController.get(
                     res.json(timeline);
                 });
         } else if (sort === "me") {
-            Babble.find({ stockLink: stock._id, user: user._id })
+            Babble.find({ user: user._id })
                 .sort({ updated_at: -1 })
                 .populate("user")
                 .limit(group)
@@ -55,13 +55,13 @@ babblesController.get(
                     });
             });
         } else if (sort === "watchlist") {
-            User.findById(user._id, { stockId }).then(stocks => {
-                Babble.find({ $in: { stockLink: stocks } })
+            User.findById(user._id).then(us => {
+                Babble.find({ $in: { user: us.following } })
                     .sort({ updated_at: -1 })
                     .populate("user")
                     .limit(group)
                     .exec((err, timeline) => {
-                        if (err) res.json(null);
+                        if (err) return res.json(null);
                         res.json(timeline);
                     });
             });
@@ -118,7 +118,7 @@ babblesController.get(
                 if (!stock) return next(err);
 
                 User.findById(user._id).then(us => {
-                    Babble.find({ $in: { user: us.following } })
+                    Babble.find({ stockLink: stock._id, $in: { user: us.following } })
                         .sort({ updated_at: -1 })
                         .populate("user")
                         .limit(group)
@@ -126,8 +126,10 @@ babblesController.get(
                             if (err) return res.json(null);
                             res.json(timeline);
                         });
+
                 });
             });
+
         }
     }
 );

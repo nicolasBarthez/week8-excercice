@@ -5,22 +5,10 @@ const insiders = axios.create({
     process.env.NODE_ENV === "production" ? "/api" : "http://localhost:3000/api"
 });
 
-export function getStocks(indexSelected) {
-  let url = "trending?index=" + indexSelected;
+export function getStocksTrending(params = {}) {
+  let url = "/trending";
   return insiders
-    .get(url)
-    .then(response => {
-      return response.data;
-    })
-    .catch(err => {
-      throw err;
-    });
-}
-
-export function getTrend(stockId) {
-  let url = "/watchitems/stocks/" + stockId;
-  return insiders
-    .get(url)
+    .get(url, { params })
     .then(response => {
       return response.data;
     })
