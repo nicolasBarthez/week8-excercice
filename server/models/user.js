@@ -18,12 +18,10 @@ const userSchema = new Schema(
       default: "/images/avatar.png"
     },
     location: {
-      type: String,
-      default: "Incomplete"
+      type: String
     },
     bio: {
-      type: String,
-      default: "Incomplete"
+      type: String
     },
     following: [{ type: Schema.Types.ObjectId, ref: "User" }],
     score: {

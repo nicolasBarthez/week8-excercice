@@ -17,7 +17,7 @@ const config = require("./config");
 const { Strategy, ExtractJwt } = require("passport-jwt");
 
 const authController = require("./routes/authController.js");
-// const profileController = require("./routes/profileController.js");
+const dashboardsController = require("./routes/dashboardsController.js");
 const babblesController = require("./routes/babblesController.js");
 const stocksController = require("./routes/stocksController.js");
 const watchItemsController = require("./routes/watchItemsController.js");
@@ -88,6 +88,7 @@ app.use("/api/watchitems", watchItemsController);
 app.use("/api/follow", followerController);
 app.use("/api/users", usersController);
 app.use("/api/trending", trendingController);
+app.use("/api/dashboards", dashboardsController);
 
 // This is an example of protected route
 app.get(
