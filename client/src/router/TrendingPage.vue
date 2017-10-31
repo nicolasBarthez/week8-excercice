@@ -1,7 +1,7 @@
 <template>
 <section class="section main">
   <stock-index-filter ></stock-index-filter>
-  <stock-trending :stocks="stocks"  @sortname="sortByCol($event)" @sortprice="sortByCol($event)" @sortvar="sortByCol($event)" @sortvol="sortByCol($event)" @sorttrend="sortByCol($event)" @sorthi="sortByCol($event)" @sortinsider="sortByCol($event)"></stock-trending>
+  <stock-trending :stocks="stocks"  @sortname="sortByCol" @sortprice="sortByCol" @sortvar="sortByCol($event)" @sortvol="sortByCol($event)" @sorttrend="sortByCol($event)" @sorthi="sortByCol($event)" @sortinsider="sortByCol($event)"></stock-trending>
 </section>
 </template>
 

@@ -8,7 +8,7 @@ const insiders = axios.create({
 export function getStocksTrending(params = {}) {
   let url = "/trending";
   return insiders
-    .get(url, params)
+    .get(url, { params })
     .then(response => {
       return response.data;
     })
