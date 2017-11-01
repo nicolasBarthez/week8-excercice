@@ -11,7 +11,7 @@
           </div>
           <div class="media-content">
             <p class="title is-5">
-              {{profileInfo.username}}
+              @{{profileInfo.username}}
             </p>
             <p class="subtitle is-6"> <strong>Following</strong> {{profileInfo.following}}
             </p>
@@ -23,7 +23,8 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <a href="/profile/edit"><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my picture</button></a>
+            <router-link to="/mydashboard/edit" ><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button></router-link>
+
           </div>
         </div>
         <nav class="level">
@@ -41,7 +42,6 @@
               <p class="is-6 has-text-grey-light"><small>Location</small></p>
               <p class="is-4">
                 {{profileInfo.location ? profileInfo.location : "Secret..." }}
-
               </p>
               </p>
             </div>
@@ -62,9 +62,7 @@
           </div>
 
           <div class="level-item has-text-centered">
-            <div>
 
-            </div>
           </div>
         </nav>
       </div>

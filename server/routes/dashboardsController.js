@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const dashboardsController = express.Router();
 const Stock = require("../models/stock");
@@ -7,6 +8,65 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+const multer = require("multer");
+const storage = cloudinaryStorage({
+  cloudinary,
+  folder: "user-images",
+  allowedFormats: ["jpg", "jpeg", "png", "gif", "tiff"]
+});
+const parser = multer({ storage });
+
+// **********************************************************
+// Upload image of users connected
+// **********************************************************
+dashboardsController.patch(
+  "/images",
+  parser.single("image"),
+  (req, res, next) => {
+    const id = req.user._id;
+    cosole.log("IMAGEE", req.body);
+
+    User.findByIdAndUpdate(
+      id,
+      { picProfile: req.file.secure_url },
+      { new: true }
+    ).then(response => {
+      console.log("updated url", response);
+      res.json(response);
+    });
+  }
+);
+
+// **********************************************************
+// Update user profile
+// **********************************************************
+dashboardsController.patch(
+  "/edit",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const id = req.user._id;
+    const bio = req.body.bio;
+    const skills = req.body.skills;
+    const location = req.body.location;
+
+    console.log("req.body", req.body);
+
+    User.findByIdAndUpdate(
+      id,
+      {
+        location,
+        skills,
+        bio
+      },
+      { new: true }
+    ).then(response => {
+      console.log("updated url", response);
+      res.json(response);
+    });
+  }
+);
 
 // **********************************************************
 // Send users connected info for Dashboard header

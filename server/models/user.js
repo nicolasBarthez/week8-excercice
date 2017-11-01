@@ -23,6 +23,9 @@ const userSchema = new Schema(
     bio: {
       type: String
     },
+    skills: {
+      type: [String]
+    },
     following: [{ type: Schema.Types.ObjectId, ref: "User" }],
     score: {
       type: Number,

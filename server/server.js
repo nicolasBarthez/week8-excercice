@@ -10,6 +10,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const history = require("express-history-api-fallback");
 require("dotenv").config();
+const cloudinary = require("cloudinary");
+const cloudinaryStorage = require("multer-storage-cloudinary");
+const multer = require("multer");
 
 const passport = require("passport");
 const User = require("./models/user");

@@ -14,7 +14,7 @@ export function getUserProfileInfo() {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -26,7 +26,7 @@ export function getCurrentInsights() {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -38,7 +38,7 @@ export function getMyWatchList() {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -50,7 +50,7 @@ export function getMyPastInsights() {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -62,7 +62,35 @@ export function getMyInsidersFollowed() {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
+    });
+}
+
+export function userUpdate(location, bio, skills) {
+  let url = "dashboards/edit";
+  return insiders
+    .patch(url, { location, bio, skills })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.err(err);
+    });
+}
+
+export function uploadPicture(image) {
+  const formData = new FormData();
+  formData.append("image", image);
+  let url = "dashboards/images";
+  return insiders
+    .patch(url, formData, {
+      headers: { "Content-Type": "multipart/form-data" }
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.err(err);
     });
 }
 
@@ -75,7 +103,7 @@ export function getInsiderProfileInfo(insiderId) {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -87,7 +115,7 @@ export function getInsiderCurrentInsights(insiderId) {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -99,7 +127,7 @@ export function getInsiderWatchList(insiderId) {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -111,7 +139,7 @@ export function getInsiderPastInsights(insiderId) {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
 
@@ -123,6 +151,6 @@ export function getInsiderInsidersFollowed(insiderId) {
       return response.data;
     })
     .catch(err => {
-      throw err;
+      console.err(err);
     });
 }
