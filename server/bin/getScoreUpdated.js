@@ -71,6 +71,7 @@ WatchItem.find({
           // close position
           WatchItem.findByIdAndUpdate(watchItem._id, {
             status: newStatus,
+            soldPrice: watchItem.stockId.price,
             $inc: { performancePoints: updateScore }
           })
             .then(resp => {
