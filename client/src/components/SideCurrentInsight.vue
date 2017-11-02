@@ -64,6 +64,7 @@ export default {
 </script>
 
 <style scoped>
+
 .mainSCI{
     position:sticky
 }

@@ -1,4 +1,5 @@
 <template>
+<section class="section main">
     <div class="column is-6" id="ActionCard">
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
@@ -63,6 +64,7 @@
                 </div>
             </div>
        </div>
+</section>
 </template>
 
 <script>

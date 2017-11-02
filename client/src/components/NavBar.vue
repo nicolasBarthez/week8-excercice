@@ -19,14 +19,13 @@
                                 field="longName"
                                 @select="option => selected = option"
                             >
-                                 
-                                
-                                </span>
+                            </span>
                                 <div
                                     class="dropdown-item"
                                     slot-scope="match"
                                     :style="{ width: '100%' }"
                                     @click="$router.push('/stocks/' + match.option.longName.toLowerCase())"
+                                    @keyup.enter.native="$router.push('/stocks/' + match.option.longName.toLowerCase())"
                                 >
                                     {{ match.option.longName }}
                                 </div>     
@@ -113,8 +112,8 @@ export default {
                 return stock.longName
                         .toString()
                         .toUpperCase()
-                        .indexOf(this.name.toUpperCase()) >= 0
-            })
+                        .indexOf(this.name.toUpperCase()) === 0
+            }).sort()
         }
         return []
     }
