@@ -26,7 +26,8 @@ dashboardsController.patch(
   parser.single("image"),
   (req, res, next) => {
     const id = req.user._id;
-    cosole.log("IMAGEE", req.body);
+
+    res.json(req.file);
 
     User.findByIdAndUpdate(
       id,
@@ -106,28 +107,30 @@ dashboardsController.get(
           status: "won"
         })
           .populate("stockId")
-          .exec((err, wi) => {
+          .exec((err, wis) => {
             if (err) res.json(null);
 
             // first, convert data into a Map with reduce
             function reduceArrayByStockPoints(array) {
-              let counts = array.reduce((prev, curr) => {
-                const stockId = curr.stockId.toString();
-                let count = prev.get(stockId) || 0;
-                prev.set(stockId, curr.performancePoints + count);
-                return prev;
+              const map = array.reduce((map, wi) => {
+                const stock = wi.stockId;
+                if (!map.get(stock._id)) {
+                  map.set(stock._id, {
+                    longName: stock.longName,
+                    performancePoints: 0
+                  });
+                }
+                map.get(stock._id).performancePoints += wi.performancePoints;
+                return map;
               }, new Map());
 
               // then, map your counts object back to an array
-              return Array.from(counts).map(([stockId, performancePoints]) => {
-                return {
-                  stockId,
-                  performancePoints
-                };
+              return Array.from(map).map(([stockId, data]) => {
+                return Object.assign({ stockId }, data);
               });
             }
 
-            userInfo.preferedStocks = reduceArrayByStockPoints(wi);
+            userInfo.preferedStocks = reduceArrayByStockPoints(wis);
 
             WatchItem.find({
               userId: user._id,

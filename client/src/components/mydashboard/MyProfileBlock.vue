@@ -55,13 +55,13 @@
             <div>
               <p class="is-6 has-text-grey-light">Prefered trades</p>
               <p class="is-4">
-              1.   {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }}  P$
+              1.   {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName  : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }}  P$
               </p>
               <p class="is-4">
-              2.   {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }}  P$
+              2.   {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName  : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }}  P$
               </p>
               <p class="is-4">
-              3.   {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].stockId.longName  : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }}  P$
+              3.   {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName  : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }}  P$
               </p>
             </div>
           </div>
