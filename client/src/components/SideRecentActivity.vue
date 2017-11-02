@@ -4,7 +4,7 @@
         <p><span class="title is-5">Recent position</span></p>
         <hr>
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
-            <div class="column is-3 is-marginless">
+            <div class="picss column is-3 is-marginless">
                 <div class="media-left">
                     <figure class="image is-32x32 is-circle">
                         <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
@@ -37,6 +37,11 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 768px) {
+    .picss{
+        display:none;
+    }
+}
 a {
         color: #192b41 !important;
     }
