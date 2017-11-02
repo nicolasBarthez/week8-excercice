@@ -157,6 +157,58 @@ dashboardsController.get(
 );
 
 // **********************************************************
+// CALCULATE LEADERBOARD POSITION
+// **********************************************************
+
+dashboardsController.get(
+  "/leaderboard/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const userId = req.params.id;
+
+    WatchItem.find({
+      status: {
+        $in: ["won", "lost"]
+      }
+    })
+      .populate("userId")
+      .exec((err, wis) => {
+        // first, convert data into a Map with reduce
+        function reduceArrayByInsiderPoints(array) {
+          const map = array.reduce((map, wi) => {
+            const us = wi.userId;
+            if (!map.get(us._id)) {
+              map.set(us._id, {
+                username: us.username,
+                performancePoints: 0
+              });
+            }
+            map.get(us._id).performancePoints += wi.performancePoints;
+            return map;
+          }, new Map());
+
+          // then, map your counts object back to an array
+          return Array.from(map).map(([userId, data]) => {
+            return Object.assign({ userId }, data);
+          });
+        }
+
+        const rankingByPoints = reduceArrayByInsiderPoints(wis);
+
+        sortInsidersAsc = function(a, b) {
+          if (a.performancePoints < b.performancePoints) return -1;
+          if (a.performancePoints > b.performancePoints) return 1;
+          return 0;
+        };
+
+        rankingByPoints.sort(sortInsidersAsc);
+
+        res.json(rankingByPoints);
+      });
+  }
+);
+
+// **********************************************************
 // Send user connected Current insights
 // **********************************************************
 
