@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" :placeholder="'Write here your info about '+'#'+stock.longName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.longName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -91,6 +91,13 @@ export default {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
       });
+    },
+    putHashtag(e) {
+      return this.babble.length !== 1
+        ? e.target.value.split("-")[0] === `#${this.stock.longName}-`
+          ? this.babble
+          : "#" + this.stock.longName + "- " + this.babble
+        : (this.babble = `#${this.stock.longName}-` + this.babble);
     }
   },
   computed: {
@@ -99,9 +106,6 @@ export default {
         limit = 200;
       return limit - char;
     }
-  },
-  amounted() {
-    this.babble = "#" + stock.longName;
   }
 };
 </script>

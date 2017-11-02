@@ -1,5 +1,5 @@
 <template>
-  <div  v-if="watchInsight.length" class="column is-3 sideRecent mainSCI">
+  <div  v-if="watchInsight" class="column is-3 sideRecent mainSCI">
     <div class="is-sticky">
         <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>

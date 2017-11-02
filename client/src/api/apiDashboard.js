@@ -71,7 +71,6 @@ export function userUpdate(location, bio, skills, picture) {
   return insiders
     .patch(url, { location, bio, skills, picture })
     .then(response => {
-      console.log("AFETER SAVING", response);
       return response.data;
     })
     .catch(err => {
@@ -98,7 +97,7 @@ export function uploadPicture(image) {
 
 // Insider profile info
 export function getInsiderProfileInfo(insiderId) {
-  let url = "dashboards/profile/?id=" + insiderId;
+  let url = "dashboards/insider/" + insiderId;
   return insiders
     .get(url)
     .then(response => {
@@ -149,6 +148,19 @@ export function getInsiderInsidersFollowed(insiderId) {
   let url = "dashboards/insidersfollowed/?id=" + insiderId;
   return insiders
     .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.err(err);
+    });
+}
+
+// Follow the user
+export function followInsider(insiderId) {
+  let url = "/follow";
+  return insiders
+    .post(url, { insiderId: insiderId })
     .then(response => {
       return response.data;
     })
