@@ -48,7 +48,7 @@
         </span>
                   </div>
                 </b-field> -->
-                <button>Save modifications</button>
+                <button @click="saveMyProfile" >Save modifications</button>
               </form>
             </div>
           </div>
@@ -122,13 +122,12 @@ export default {
         .catch(err => {
           console.err(err);
         });
+    },
+    saveMyProfile() {
+      this.$emit("saveprofile");
     }
   },
-  created() {
-    getUserProfileInfo().then(profileInfo => {
-      this.profileInfo = profileInfo;
-    });
-  }
+  created() {}
 };
 </script>
 

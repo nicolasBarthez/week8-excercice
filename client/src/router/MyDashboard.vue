@@ -1,6 +1,7 @@
 <template >
 <section v-else class="section main">
-  <my-profile-block :profileInfo="profileInfo"></my-profile-block>
+  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
+  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
   <nav class="navbar is-dark">
     <div class="babblesMenu">
       <div v-for="(link, index) in navbarLinks" :key="index"  :class="{'is-active': link.text[index], 'nav-item': true, 'is-tab': true }"> {{ link.text }}
@@ -19,6 +20,7 @@
 
 <script>
 import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
+import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
 import BoardMyCurrentInsights from "../components/mydashboard/BoardMyCurrentInsights";
 import BoardMyWatchList from "../components/mydashboard/BoardMyWatchList";
 import BoardMyPastInsights from "../components/mydashboard/BoardMyPastInsights";
@@ -34,6 +36,7 @@ import {
 export default {
   data() {
     return {
+      isEditing: false,
       profileInfo: null,
       currentInsights: null,
       watchList: null,
@@ -61,6 +64,7 @@ export default {
   },
   components: {
     MyProfileBlock,
+    UpdateMyInfo,
     BoardMyCurrentInsights,
     BoardMyWatchList,
     BoardMyPastInsights,
@@ -81,6 +85,9 @@ export default {
       getMyInsidersFollowed().then(insidersFollowed => {
         this.insidersFollowed = insidersFollowed;
       });
+    },
+    changeToEdit() {
+      this.isEditing = !this.isEditing;
     }
   },
   created() {

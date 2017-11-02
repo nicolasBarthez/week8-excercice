@@ -13,6 +13,11 @@
             <p class="title is-5">
               @{{profileInfo.username}}
             </p>
+          <p class="subtitle is-6"><strong>Skills</strong>
+            <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
+
+            <b-tag>{{profileInfo.skills[0]}}</b-tag>
+          <!-- </div></p> -->
             <p class="subtitle is-6"> <strong>Following</strong> {{profileInfo.following}}
             </p>
             <p class="subtitle is-6"> <strong>Followers</strong> {{profileInfo.followers}}
@@ -23,7 +28,7 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <router-link to="/mydashboard/edit" ><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button></router-link>
+            <button @click="editMyProfile" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
 
           </div>
         </div>
@@ -75,6 +80,11 @@
 export default {
   props: {
     profileInfo: Object
+  },
+  methods: {
+    editMyProfile() {
+      this.$emit("editprofile");
+    }
   }
 };
 </script>

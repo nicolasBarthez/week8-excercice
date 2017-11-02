@@ -85,6 +85,7 @@ dashboardsController.get(
         following: us.following,
         picProfile: us.picProfile,
         location: us.location,
+        skills: us.skills,
         following: us.following.length
       };
 

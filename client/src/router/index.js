@@ -8,7 +8,6 @@ import TrendingPage from "./TrendingPage";
 import MyDashboard from "./MyDashboard";
 import DashboardPage from "./DashboardPage";
 import StreamPage from "./StreamPage";
-import UpdateMyInfo from "./UpdateMyInfo";
 
 Vue.use(Router);
 
@@ -50,10 +49,6 @@ const router = new Router({
     {
       path: "/stream",
       component: StreamPage
-    },
-    {
-      path: "/mydashboard/edit",
-      component: UpdateMyInfo
     }
   ],
   scrollBehavior(to, from, savedPosition) {
