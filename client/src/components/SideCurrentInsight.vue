@@ -1,17 +1,17 @@
 <template>
-  <div  v-if="watchInsight.length!=0" class="column is-3 sideRecent mainSCI">
-    <div class="is-sticky">    
+  <div  v-if="watchInsight.length" class="column is-3 sideRecent mainSCI">
+    <div class="is-sticky">
         <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
         </nav>
-        <div v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
+        <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.longName.length<7 ? watchItem.stockId.longName : watchItem.stockId.shortName }}</router-link><br>
                    <b class="price is-6">{{watchItem.stockId.price}} €</b>
                    <b id="variation" class="is-6" :class="{'has-text-green' : watchItem.stockId.variation>0, 'has-text-red' : watchItem.stockId.variation<0}">
                        <span class= "indice">{{watchItem.stockId.variation}} %</span>
-                   </b>  
+                   </b>
                 </div>
                 <div  class="Symbol" id="bullAndBear">
                 <img v-if="watchItem.position ==='bull'" src="/static/images/bulls.png" alt="bulls-and-bears">
@@ -30,7 +30,7 @@
     </div>
   </div>
   <div  v-else class="column is-3 sideRecent">
-    <div class="is-sticky">    
+    <div class="is-sticky">
         <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active"> Current Insights</p>
         </nav>
@@ -42,28 +42,25 @@
 </template>
 
 <script>
-
 import { removePosition } from "@/api/api";
 
 export default {
-    data() {
-        return {      
-        }
-    },
+  data() {
+    return {};
+  },
 
-    props: {
-        watchInsight:null, 
-    },
+  props: {
+    watchInsight: null
+  },
 
-    methods:{
-        closePosition(watchItem) {
-            removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
-            this.$emit("changeWatchlist");
-            });
-        },
+  methods: {
+    closePosition(watchItem) {
+      removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
+        this.$emit("changeWatchlist");
+      });
     }
-
-}
+  }
+};
 </script>
 
 <style scoped>
