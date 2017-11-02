@@ -17,39 +17,34 @@
               <p v-if="okMessage">Your profile has been updated successfully!</p>
               <h2>Could you talk about yourself, your followers would like to know you a little better.</h2>
               <br>
-              <form @submit.prevent="userProfileUpdate(); saveImage();">
+              <form @submit.prevent="userProfileUpdate();">
 
-
-
-        <b-field label="What king of insider are you?" >
-            <b-input maxlength="200" v-model="bio" placeholder="Tell us about yourself..." type="textarea">{{profileInfo.bio}}</b-input>
-        </b-field>
-<br/>
+                <br/>
                 <span>Your magic skills</span>
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
                 <br>
                 <label>Location
-                  <input type="text" name="location" :value="(profileInfo.location)?profileInfo.location:''">
+                  <input type="text" name="location" >
                 </label>
-<br>
+                <br>
 
                 <label><span>Update your photo</span>
-        <input type="file" name="image"  @change="image = $event.target.files[0]">
+        <input type="file" name="image"   @change="image = $event.target.files[0]; saveImage()">
     </label><br/>
-                <!-- <b-field>
-                  <b-upload v-model="files" @change="image = $event.target.files[0]">
+                <b-field>
+                  <!-- <b-upload v-model="files" @change="image = $event.target.files[0]">
                     <a class="button is-primary">
                     <b-icon icon="file_upload"></b-icon>
                     <span>Update your picture</span>
                 </a>
-                  </b-upload>
-                  <div v-if="files && files.length">
-                    <span class="file-name" >
+                  </b-upload @change="image = $event.target.files[0]; saveImage()"> -->
+                  <!-- <div v-if="files && files.length">
+                    <span class="file-name"  >
                     {{ files[0].name }}
         </span>
-                  </div>
-                </b-field> -->
-                <button @click="saveMyProfile" >Save modifications</button>
+                  </div> -->
+                </b-field>
+                <button @click="saveMyProfile">Save modifications</button>
               </form>
             </div>
           </div>
@@ -96,6 +91,7 @@ export default {
       bio: "",
       skills: "",
       image: "",
+      url: "",
       files: [],
       okMessage: false
     };
@@ -104,7 +100,8 @@ export default {
   methods: {
     userProfileUpdate() {
       const userId = this.$root.user._id;
-      userUpdate(this.location, this.bio, this.skills)
+      if (this.url === "") this.url = profileInfo.picProfile;
+      userUpdate(this.location, this.bio, this.skills, this.url)
         .then(data => {
           setTimeout(() => (this.okMessage = false), 5000);
         })
@@ -112,12 +109,20 @@ export default {
           console.log(err);
         });
     },
+    displayPicturePreview() {
+      getUserProfileInfo().then(userInfo => {
+        console.log("userINFO=>", userInfo);
+        this.profileInfo = userInfo;
+      });
+    },
     saveImage() {
       console.log("this.image", this.image);
       uploadPicture(this.image)
         .then(response => {
           // change the image when the user uploads a new image
           this.profileInfo.picProfile = response.secure_url;
+          // prepare image to be saved
+          this.url = response.secure_url;
         })
         .catch(err => {
           console.log(err);
@@ -127,7 +132,11 @@ export default {
       this.$emit("saveprofile");
     }
   },
-  created() {}
+  created() {
+    getUserProfileInfo().then(userInfo => {
+      this.profileInfo = userInfo;
+    });
+  }
 };
 </script>
 

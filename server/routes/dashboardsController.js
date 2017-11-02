@@ -21,22 +21,11 @@ const parser = multer({ storage });
 // **********************************************************
 // Upload image of users connected
 // **********************************************************
-dashboardsController.patch(
-  "/images",
+dashboardsController.post(
+  "/upload",
   parser.single("image"),
   (req, res, next) => {
-    const id = req.user._id;
-
     res.json(req.file);
-
-    User.findByIdAndUpdate(
-      id,
-      { picProfile: req.file.secure_url },
-      { new: true }
-    ).then(response => {
-      console.log("updated url", response);
-      res.json(response);
-    });
   }
 );
 
@@ -51,19 +40,25 @@ dashboardsController.patch(
     const bio = req.body.bio;
     const skills = req.body.skills;
     const location = req.body.location;
+    const picProfile = req.body.picture;
 
-    console.log("req.body", req.body);
+    console.log(
+      "req.body********************************************",
+      req.body
+    );
 
     User.findByIdAndUpdate(
       id,
       {
         location,
         skills,
-        bio
+        bio,
+        picProfile
       },
       { new: true }
-    ).then(response => {
-      console.log("updated url", response);
+    ).exec((err, response) => {
+      console.log(err);
+      console.log("NEW USER", response);
       res.json(response);
     });
   }
@@ -158,6 +153,58 @@ dashboardsController.get(
           });
       });
     });
+  }
+);
+
+// **********************************************************
+// CALCULATE LEADERBOARD POSITION
+// **********************************************************
+
+dashboardsController.get(
+  "/leaderboard/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const userId = req.params.id;
+
+    WatchItem.find({
+      status: {
+        $in: ["won", "lost"]
+      }
+    })
+      .populate("userId")
+      .exec((err, wis) => {
+        // first, convert data into a Map with reduce
+        function reduceArrayByInsiderPoints(array) {
+          const map = array.reduce((map, wi) => {
+            const us = wi.userId;
+            if (!map.get(us._id)) {
+              map.set(us._id, {
+                username: us.username,
+                performancePoints: 0
+              });
+            }
+            map.get(us._id).performancePoints += wi.performancePoints;
+            return map;
+          }, new Map());
+
+          // then, map your counts object back to an array
+          return Array.from(map).map(([userId, data]) => {
+            return Object.assign({ userId }, data);
+          });
+        }
+
+        const rankingByPoints = reduceArrayByInsiderPoints(wis);
+
+        sortInsidersAsc = function(a, b) {
+          if (a.performancePoints < b.performancePoints) return -1;
+          if (a.performancePoints > b.performancePoints) return 1;
+          return 0;
+        };
+
+        rankingByPoints.sort(sortInsidersAsc);
+
+        res.json(rankingByPoints);
+      });
   }
 );
 

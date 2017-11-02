@@ -66,11 +66,12 @@ export function getMyInsidersFollowed() {
     });
 }
 
-export function userUpdate(location, bio, skills) {
+export function userUpdate(location, bio, skills, picture) {
   let url = "dashboards/edit";
   return insiders
-    .patch(url, { location, bio, skills })
+    .patch(url, { location, bio, skills, picture })
     .then(response => {
+      console.log("AFETER SAVING", response);
       return response.data;
     })
     .catch(err => {
@@ -81,12 +82,13 @@ export function userUpdate(location, bio, skills) {
 export function uploadPicture(image) {
   const formData = new FormData();
   formData.append("image", image);
-  let url = "dashboards/images";
+  let url = "dashboards/upload";
   return insiders
-    .patch(url, formData, {
+    .post(url, formData, {
       headers: { "Content-Type": "multipart/form-data" }
     })
     .then(response => {
+      console.log("response.data=>", response.data);
       return response.data;
     })
     .catch(err => {

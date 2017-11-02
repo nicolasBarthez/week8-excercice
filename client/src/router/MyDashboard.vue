@@ -1,5 +1,5 @@
 <template >
-<section v-else class="section main">
+<section >
   <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
   <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
   <nav class="navbar is-dark">

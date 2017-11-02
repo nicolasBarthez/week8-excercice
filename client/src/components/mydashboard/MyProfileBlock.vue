@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="add-to-watchlist">
-                            <button @click="editMyProfile" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
+                            <button @click="editMyProfile" id="adWL"class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
                         </div>
                     </div>
                     <nav id="bandB" class="level media">
@@ -295,42 +295,6 @@ a {
 
 #stockInfo {
     display: flex;
-}
-
-#Bbull {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-}
-
-#Bbull.is-outlined:focus,
-#Bbull.is-outlined:hover {
-    background-color: #21ce99;
-    border-color: #21ce99;
-    color: #fff;
-}
-
-.trend-b-b{
-  cursor:pointer;
-}
-
-#Bbear {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    color: #ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
-}
-
-#Bbear.is-outlined:focus,
-#Bbear.is-outlined:hover {
-    background-color: #ff6026;
-    border-color: #ff6026;
-    color: #fff;
 }
 
 #adWL.is-outlined:focus,
