@@ -21,22 +21,11 @@ const parser = multer({ storage });
 // **********************************************************
 // Upload image of users connected
 // **********************************************************
-dashboardsController.patch(
-  "/images",
+dashboardsController.post(
+  "/upload",
   parser.single("image"),
   (req, res, next) => {
-    const id = req.user._id;
-
     res.json(req.file);
-
-    User.findByIdAndUpdate(
-      id,
-      { picProfile: req.file.secure_url },
-      { new: true }
-    ).then(response => {
-      console.log("updated url", response);
-      res.json(response);
-    });
   }
 );
 
@@ -51,19 +40,25 @@ dashboardsController.patch(
     const bio = req.body.bio;
     const skills = req.body.skills;
     const location = req.body.location;
+    const picProfile = req.body.picture;
 
-    console.log("req.body", req.body);
+    console.log(
+      "req.body********************************************",
+      req.body
+    );
 
     User.findByIdAndUpdate(
       id,
       {
         location,
         skills,
-        bio
+        bio,
+        picProfile
       },
       { new: true }
-    ).then(response => {
-      console.log("updated url", response);
+    ).exec((err, response) => {
+      console.log(err);
+      console.log("NEW USER", response);
       res.json(response);
     });
   }
