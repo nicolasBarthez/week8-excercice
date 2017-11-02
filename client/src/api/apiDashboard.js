@@ -14,7 +14,7 @@ export function getUserProfileInfo() {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -26,7 +26,7 @@ export function getCurrentInsights() {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -38,7 +38,7 @@ export function getMyWatchList() {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -50,7 +50,7 @@ export function getMyPastInsights() {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -62,7 +62,7 @@ export function getMyInsidersFollowed() {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -74,7 +74,7 @@ export function userUpdate(location, bio, skills, picture) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -91,7 +91,7 @@ export function uploadPicture(image) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -104,7 +104,7 @@ export function getInsiderProfileInfo(insiderId) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -116,7 +116,7 @@ export function getInsiderCurrentInsights(insiderId) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 

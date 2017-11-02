@@ -53,7 +53,6 @@ dashboardsController.patch(
       { new: true }
     ).exec((err, response) => {
       console.log(err);
-      console.log("NEW USER", response);
       res.json(response);
     });
   }
@@ -102,27 +101,29 @@ dashboardsController.get(
           .exec((err, wis) => {
             if (err) res.json(null);
 
-            // first, convert data into a Map with reduce
-            function reduceArrayByStockPoints(array) {
-              const map = array.reduce((map, wi) => {
-                const stock = wi.stockId;
-                if (!map.get(stock._id)) {
-                  map.set(stock._id, {
-                    longName: stock.longName,
-                    performancePoints: 0
-                  });
-                }
-                map.get(stock._id).performancePoints += wi.performancePoints;
-                return map;
-              }, new Map());
+            if (wis) {
+              // first, convert data into a Map with reduce
+              function reduceArrayByStockPoints(array) {
+                const map = array.reduce((map, wi) => {
+                  const stock = wi.stockId;
+                  if (!map.get(stock._id)) {
+                    map.set(stock._id, {
+                      longName: stock.longName,
+                      performancePoints: 0
+                    });
+                  }
+                  map.get(stock._id).performancePoints += wi.performancePoints;
+                  return map;
+                }, new Map());
 
-              // then, map your counts object back to an array
-              return Array.from(map).map(([stockId, data]) => {
-                return Object.assign({ stockId }, data);
-              });
+                // then, map your counts object back to an array
+                return Array.from(map).map(([stockId, data]) => {
+                  return Object.assign({ stockId }, data);
+                });
+              }
+
+              userInfo.preferedStocks = reduceArrayByStockPoints(wis);
             }
-
-            userInfo.preferedStocks = reduceArrayByStockPoints(wis);
 
             WatchItem.find({
               userId: user._id,
@@ -130,14 +131,19 @@ dashboardsController.get(
                 $in: ["won", "lost"]
               }
             }).exec((err, wiClosed) => {
-              // Calculate performance points
-              userInfo.performancePoints = wiClosed
-                .map(item => item.performancePoints)
-                .reduce((prev, next) => prev + next);
+              if (wiClosed.length > 0) {
+                // Calculate performance points
+                userInfo.performancePoints = wiClosed
+                  .map(item => item.performancePoints)
+                  .reduce((prev, next) => prev + next);
 
-              userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                return item.status == "won";
-              }, 0).length;
+                userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+                  return item.status == "won";
+                }, 0).length;
+              } else {
+                userInfo.performancePoints = 0;
+                userInfo.nbOfInsightsWon = 0;
+              }
 
               User.find({
                 following: user._id
@@ -427,27 +433,29 @@ dashboardsController.get(
               .exec((err, wi) => {
                 if (err) res.json(null);
 
-                // first, convert data into a Map with reduce
-                function reduceArrayByStockPoints(array) {
-                  let counts = array.reduce((prev, curr) => {
-                    const stockId = curr.stockId.toString();
-                    let count = prev.get(stockId) || 0;
-                    prev.set(stockId, curr.performancePoints + count);
-                    return prev;
-                  }, new Map());
+                if (wi) {
+                  // first, convert data into a Map with reduce
+                  function reduceArrayByStockPoints(array) {
+                    let counts = array.reduce((prev, curr) => {
+                      const stockId = curr.stockId.toString();
+                      let count = prev.get(stockId) || 0;
+                      prev.set(stockId, curr.performancePoints + count);
+                      return prev;
+                    }, new Map());
 
-                  // then, map your counts object back to an array
-                  return Array.from(
-                    counts
-                  ).map(([stockId, performancePoints]) => {
-                    return {
-                      stockId,
-                      performancePoints
-                    };
-                  });
+                    // then, map your counts object back to an array
+                    return Array.from(
+                      counts
+                    ).map(([stockId, performancePoints]) => {
+                      return {
+                        stockId,
+                        performancePoints
+                      };
+                    });
+                  }
+
+                  userInfo.preferedStocks = reduceArrayByStockPoints(wi);
                 }
-
-                userInfo.preferedStocks = reduceArrayByStockPoints(wi);
 
                 WatchItem.find({
                   userId: usFollowed._id,
@@ -455,14 +463,16 @@ dashboardsController.get(
                     $in: ["won", "lost"]
                   }
                 }).exec((err, wiClosed) => {
-                  // Calculate performance points
-                  userInfo.performancePoints = wiClosed
-                    .map(item => item.performancePoints)
-                    .reduce((prev, next) => prev + next);
+                  if (wiClosed) {
+                    // Calculate performance points
+                    userInfo.performancePoints = wiClosed
+                      .map(item => item.performancePoints)
+                      .reduce((prev, next) => prev + next);
 
-                  userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                    return item.status == "won";
-                  }, 0).length;
+                    userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+                      return item.status == "won";
+                    }, 0).length;
+                  }
 
                   User.find({
                     following: usFollowed._id
@@ -561,7 +571,7 @@ dashboardsController.get(
               }
             }).exec((err, wiClosed) => {
               // Calculate performance points
-              if (wiClosed) {
+              if (wiClosed > 0) {
                 userInfo.performancePoints = wiClosed
                   .map(item => item.performancePoints)
                   .reduce((prev, next) => prev + next);
@@ -747,7 +757,7 @@ dashboardsController.get(
 // **********************************************************
 
 dashboardsController.get(
-  "/pastinsights",
+  "/pastinsights/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.params.id;

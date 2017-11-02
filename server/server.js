@@ -72,7 +72,6 @@ const strategy = new Strategy(
     User.findById(payload.id).then(user => {
       if (user) {
         // make the user accessible in req.user
-        console.log("USER", user);
         done(null, user);
       } else {
         done(new Error("User not found"));

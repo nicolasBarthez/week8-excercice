@@ -93,10 +93,7 @@ stocksController.get(
     const stock = req.params.stockName.toUpperCase();
     const user = req.user;
 
-    console.log("DEBUG search", { longName: stock });
     Stock.findOne({ longName: stock }, (err, stock) => {
-      console.log("DEBUG stock._id", stock._id);
-      console.log("DEBUG user._id", user._id);
       WatchItem.findOne({
         userId: user._id,
         stockId: stock._id,
@@ -107,7 +104,6 @@ stocksController.get(
           //err.status = 404;
           res.json(null);
         } else {
-          console.log("DEBUG watchItem", watchitem);
           res.json(watchitem);
         }
       });

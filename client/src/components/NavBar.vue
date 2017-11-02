@@ -9,7 +9,7 @@
             <div v-if="data" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
-                         
+
                         <b-field>
                             <b-autocomplete
                                 v-model="name"
@@ -28,10 +28,10 @@
                                     @keyup.enter.native="$router.push('/stocks/' + match.option.longName.toLowerCase())"
                                 >
                                     {{ match.option.longName }}
-                                </div>     
+                                </div>
                             </b-autocomplete>
                         </b-field>
-                         
+
                         <span id="loupe" class="icon is-small is-left">
                           <i id="quicksearch" type="submit"  class="fa fa-search" ></i>
                         </span>
@@ -39,14 +39,14 @@
                 </div>
             </div>
             <label class="nav-toggle" for="nav-toggle-state">
-                <span></span>           
+                <span></span>
                 <span></span>
                 <span></span>
             </label>
 
              <!-- This checkbox is hidden -->
              <input type="checkbox" id="nav-toggle-state" />
-            
+
             <div class="nav-right nav-menu">
                 <div id="menu">
                  <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
@@ -58,7 +58,7 @@
                  <router-link v-if="!$root.user" to="/signup" class="button">Signup</router-link>
                 </span>
                 <div class="nav-profile" v-if="$root.user">
-                    <router-link to="/" >
+                    <router-link to="/mydashboard" >
                         <div class="image is-32x32 is-circle">
                         <img class ="imgProfile" v-if="connectedUser" :src="connectedUser.picProfile" alt="">
                         </div>
@@ -77,57 +77,61 @@
 
 <script>
 import { getAllStocks } from "@/api/api";
-import { logout } from '@/api/auth'
-import debounce from 'lodash/debounce'
+import { logout } from "@/api/auth";
+import debounce from "lodash/debounce";
 
 export default {
-  name: 'NavBar',
-    data () {
+  name: "NavBar",
+  data() {
     return {
       navbarLinks: [
-        { location: '/stream', text: 'Stream' },
-        { location: '/trending', text: 'Trending' },
-        { location: '/mydashboard', text: 'My Dashboard' },
+        { location: "/stream", text: "Stream" },
+        { location: "/trending", text: "Trending" },
+        { location: "/mydashboard", text: "My Dashboard" }
       ],
-      data:null,
+      data: null,
       keepFirst: true,
-      name: '',
+      name: "",
       selected: null
-    }
+    };
   },
   props: {
-    connectedUser: Object,
+    connectedUser: Object
   },
 
   methods: {
-    logout () {
-      logout(this.$root)
-      this.$router.push('/')
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
     }
- },
- computed: {
+  },
+  computed: {
     filteredDataObj() {
-        if(this.data){
-            return this.data.filter((stock) => {
-                return stock.longName
-                        .toString()
-                        .toUpperCase()
-                        .indexOf(this.name.toUpperCase()) === 0
-            }).sort()
-        }
-        return []
+      if (this.data) {
+        return this.data
+          .filter(stock => {
+            return (
+              stock.longName
+                .toString()
+                .toUpperCase()
+                .indexOf(this.name.toUpperCase()) === 0
+            );
+          })
+          .sort();
+      }
+      return [];
     }
- },
- 
- created() {
+  },
+
+  created() {
     getAllStocks().then(data => {
-        this.data = data
-        
+      this.data = data;
     });
- }
-}  
-
-
+    getUser().then(data => {
+      this.connectedUser = data;
+    });
+  }
+};
 </script>
 
 <style>
@@ -294,7 +298,7 @@ a.nav-item:not(.button).is-tab:hover {
     }
 }
 
-.field{ 
+.field{
     margin-bottom: 0px;
 }
 

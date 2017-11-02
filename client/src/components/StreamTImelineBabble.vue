@@ -15,7 +15,7 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
+                          <router-link :to="'/dashboard/'+babble.user._id" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
