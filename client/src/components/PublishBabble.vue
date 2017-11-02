@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" :value="'#'+stock.shortName" class="textarea">
+                                <textarea v-model="babble" :data-prefix="'#'+ stock.shortName " id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea withprefix">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -24,7 +24,7 @@
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
                                 <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
-                        </div>      
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 </div>
             </div>
         </b-modal>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -57,47 +57,47 @@ import { beBull } from "@/api/api";
 export default {
   data() {
     return {
-      babble:'',
-      isCardModalActive: false,
+      babble: "",
+      isCardModalActive: false
     };
   },
-    props: {
-        stock: Object,
-        connectedUser:Object,
-        watchItem:Object,
-    },
-
-  components: { 
+  props: {
+    stock: Object,
+    connectedUser: Object,
+    watchItem: Object
   },
+
+  components: {},
   methods: {
-    postBabble(){
-        if(!this.watchItem || this.watchItem.position==='none'){
-            this.isCardModalActive=true;}
-        sendBabble(this.babble,this.stock._id).then(() => {
-        this.babble='';
+    postBabble() {
+      if (!this.watchItem || this.watchItem.position === "none") {
+        this.isCardModalActive = true;
+      }
+      sendBabble(this.babble, this.stock._id).then(() => {
+        this.babble = "";
         this.$emit("changeBabbles");
-        });
+      });
     },
     imBull() {
-        beBull(this.stock.longName).then(item => {
+      beBull(this.stock.longName).then(item => {
         this.$emit("changeWatchlist", item);
-        this.isCardModalActive=false;
-        });  
+        this.isCardModalActive = false;
+      });
     },
     imBear() {
-        beBear(this.stock.longName).then(item => {
+      beBear(this.stock.longName).then(item => {
         this.$emit("changeWatchlist", item);
-        this.isCardModalActive=false;
-        });
-    },
+        this.isCardModalActive = false;
+      });
+    }
   },
   computed: {
     charactersLeft() {
-        var char = this.babble.length,
-            limit = 200;
-        return (limit - char);
-      }
-}
+      var char = this.babble.length,
+        limit = 200;
+      return limit - char;
+    }
+  }
 };
 </script>
 

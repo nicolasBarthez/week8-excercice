@@ -4,7 +4,7 @@
      <nav class="navbar is-dark">
         <div class="babblesMenu">
             <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-               :class="{ active: is-active }" class="nav-item is-tab poi"> {{ link.text }}
+                class="nav-item is-tab poi"> {{ link.text }}
             </a>
             <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
         </div>
@@ -25,11 +25,10 @@
                                    <strong>{{babble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
                             </p>
-                            <p class="tweet-body has-text-grey babble-body">
-                                {{babble.babble}}
+                            <p class="tweet-body has-text-grey babble-body" v-html="addLinksToBabble(babble.babble)">
                            </p>
                         </div>
-                        <nav class="media-right">
+                        <nav v-if="babble.reply" class="media-right">
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light" @click="showModal(babble)">
                                     <span class="icon is-small"><i class="fa fa-reply"></i></span>
@@ -196,37 +195,25 @@ export default {
         });
     },
     sortBabbles(link) {
-      console.log("linnnnnnnnk", link);
       this.$emit("sort", link);
     },
     postBabble(modalBabble) {
-      console.log(
-        "***************************************modalBabbleID",
-        this.modalBabble._id
-      );
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
-        console.log(
-          "ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùùmodalBabbleIDAfterSend",
-          this.modalBabble._id
-        );
         this.babbleText = "";
         this.isCardModalActive = false;
         this.$emit("changeBabbles");
       });
     },
-    getLinkOnStocks() {
-      $(document).ready(function() {
-        $(".babble-body").each((i, babble) => {
-          let link = $(babble)
-            .html()
-            .replace(/#(\w+)(\W|$)/g, '<a href="/stock/$1">#$1$2</a>');
-          $(babble).html(link);
-        });
-      });
+    // Take into parameter a string and return the same string with HTML links
+    // Ex: "Hello #axa" => "Hello <a href='/stock/axa'>#axas</a>"
+    // Optimisation => rajouter un event listener qui sera appeler au click et fera un push
+    // ou regarder doc dynamic compile router link
+    addLinksToBabble(babbleString) {
+      return babbleString.replace(
+        /#(\w+)(\W|$)/g,
+        '<a href="/stocks/$1">#$1$2</a>'
+      );
     }
-  },
-  created() {
-    getLinkOnStocks();
   }
 };
 </script>
