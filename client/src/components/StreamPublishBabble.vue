@@ -15,8 +15,8 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span class="icon">
-                                        <i class="fa fa-image"></i>
+                                    <span class="icon chartIcon">
+                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
                                     </span>
                                 </a>
                             </div>
@@ -68,6 +68,25 @@ export default {
 </script>
 
 <style scoped>
+.fa-line-chart{
+    font-size: 15px;
+}
+
+.chartIcon{
+    width:100%
+}
+.level-right{
+    width:50%;
+    margin:0px;
+}
+.level-left{
+    width:50%;
+    margin:0px;
+}
+.level{
+    display:flex;
+}
+
 .card-content {
     padding: 1.5rem;
 }
@@ -148,6 +167,7 @@ export default {
         padding-top: 12px;
         color: #c9c9c9;
     }
+
 }
 
 </style>

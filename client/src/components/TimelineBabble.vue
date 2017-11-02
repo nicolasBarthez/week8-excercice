@@ -1,12 +1,11 @@
 <template>
-    <div>
+ <div>
      <div>
      <nav class="navbar is-dark">
         <div class="babblesMenu">
-            <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-                :class="{'is-active': link===link.query}" class="nav-item is-tab poi"> {{ link.text }}
-            </div>
-            <p id="vide"></p>
+            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
+                 :class="{ active: 'white' }" class="nav-item is-tab poi"> {{ link.text }}
+            </a>
             <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
         </div>
     </nav>
@@ -32,10 +31,10 @@
                         </div>
                         <nav class="media-right">
                             <div class="level-right">
-                                <div class="level-item has-text-grey-light" @click="showModal(babble)">
+                                <a class="level-item has-text-grey-light" @click="showModal(babble)">
                                     <span class="icon is-small"><i class="fa fa-reply"></i></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
-                                </div>
+                                </a>
                                 <a class="level-item has-text-grey-light">
                                     <span class="icon is-small"><i
                                      @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
@@ -129,15 +128,15 @@
                                 </textarea>
                             </div>
                         </div>
-                        <div class="level">
-                            <div class="level-left">
+                        <div class="level levelchartIcon">
+                            <div class="level-left leftchartIcon">
                                 <a class="has-text-grey-light">
-                                    <span class="icon">
-                                        <i class="fa fa-image"></i>
+                                    <span class="icon chartIcon">
+                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
                                     </span>
                                 </a>
                             </div>
-                        <div class="level-right">
+                        <div class="level-right rightchartIcon">
                             <div class="level-item has-text-grey">200</div>
                             <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary">Babble</button></div>
                         </div>
@@ -148,8 +147,7 @@
         </div>
     </b-modal>
     </div>
-</div>
-
+ </div>
 </template>
 
 <script>
@@ -169,7 +167,8 @@ export default {
             babbleText:'',
             modalBabble:'',
             userReply:'',
-            link:'all'
+            link:'all',
+            active: false
             }
   },
     props: {
@@ -200,6 +199,7 @@ export default {
             console.log('linnnnnnnnk', link)
             this.$emit("sort",link)
             this.link=link
+            this.active = !this.active;
         },
         postBabble(modalBabble){
             console.log("***************************************modalBabbleID", this.modalBabble._id);
@@ -222,6 +222,28 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
+.tweet-meta{
+    display: flex;
+    justify-content: space-between
+}
+.fa-line-chart{
+    font-size: 15px;
+}
+
+.chartIcon{
+    width:100%
+}
+.level-right .rightchartIcon{
+    width:50%;
+    margin:0px;
+}
+.level-left .leftchartIcon{
+    width:50%;
+    margin:0px;
+}
+.level .levelchartIcon{
+    display:flex;
+}
 .tweet-body{
 word-break: break-word;
 }
@@ -235,7 +257,6 @@ word-break: break-word;
 }
 .babblesMenu{
     display:flex;
-    padding-left:20px;
 }
 .card-content {
     padding: 1.5rem;
@@ -349,5 +370,9 @@ word-break: break-word;
 }
  .level-item{
         cursor: pointer;
+    }
+
+    .poi{
+
     }
 </style>

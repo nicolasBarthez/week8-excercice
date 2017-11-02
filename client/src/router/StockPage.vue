@@ -2,14 +2,14 @@
 <div v-if="!stock">.....loading</div>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
-    <div class="container">
-      <div class="columns">
-        <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+    <div class="container primordial">
+      <div class="columns sct1">
+        <side-current-insight  class="is-sticky sci" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
         </div>
-        <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
       </div>
     </div>
   </section>
@@ -147,9 +147,15 @@ export default {
 </script>
 
 <style scoped>
+.is-sticky{
+   position:sticky
+ }
 .section.main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
+}
+.primordial{
+  width:100%
 }
 .container{
   display: flex;
@@ -159,13 +165,29 @@ export default {
   margin-right: 2.5%;
   margin-left: 2.5%;
 }
+.sct1{
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  width:100%
+}
 
 @media screen and (min-width: 769px){
   .babblesField {
     -webkit-box-flex: 0;
-    -ms-flex: none;
-    flex: none;
-    width: 60%;
+    width: 45%;
   }
+  .columns {
+    margin-top: -0.75rem;
+  }
+}
+@media (max-width: 768px) {
+  .section.main {
+    background-color: #f9f9f9;
+    padding-top:3.5rem  !important;
+  }
+  .sci{
+    display: none
+  }
+
 }
 </style>

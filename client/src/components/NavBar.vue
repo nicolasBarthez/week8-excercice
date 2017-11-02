@@ -255,7 +255,7 @@ a.nav-item:not(.button).is-tab:hover {
 }
 #formNav {
     min-width: 25%!important;
-    margin-left: 16%;
+    margin-left: 12%;
 }
 #formNav1 {
     width: 100%;
@@ -291,8 +291,8 @@ a.nav-item:not(.button).is-tab:hover {
     }
     #formNav {
     min-width: 25%!important;
-    margin-left: -8%;
-}
+    margin-left:-3%
+    }
 }
 
 .field{ 

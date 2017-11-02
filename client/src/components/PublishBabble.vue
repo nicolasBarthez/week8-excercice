@@ -15,8 +15,8 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span class="icon">
-                                        <i class="fa fa-image"></i>
+                                    <span class="icon chartIcon">
+                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
                                     </span>
                                 </a>
                             </div>
@@ -102,6 +102,24 @@ export default {
 </script>
 
 <style scoped>
+.fa-line-chart{
+    font-size: 15px;
+}
+
+.chartIcon{
+    width:100%
+}
+.level-right{
+    width:50%;
+    margin:0px;
+}
+.level-left{
+    width:50%;
+    margin:0px;
+}
+.level{
+    display:flex;
+}
 #bandB{
     background-color:#fff;
     display: flex;
@@ -147,12 +165,6 @@ export default {
     width: 64px;
     height: 64px;
     background-color: #f9f9f9;
-}
-.profile-card .image.is-circle>img {
-    width: auto;
-    border: 1px solid #192b41;
-    border-radius: 50%;
-    border-radius: 50%;
 }
 .fa {
     text-align: center;
@@ -203,18 +215,15 @@ export default {
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
 }
-
 #Bbull.is-outlined:focus,
 #Bbull.is-outlined:hover {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
 }
-
 .trend-b-b{
   cursor:pointer;
 }
-
 #Bbear {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -223,14 +232,12 @@ export default {
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
 }
-
 #Bbear.is-outlined:focus,
 #Bbear.is-outlined:hover {
     background-color: #ff6026;
     border-color: #ff6026;
     color: #fff;
 }
-
 #NotNow {
     MARGIN-TOP: -25%;
     PADDING-LEFT: 30PX;
@@ -240,13 +247,13 @@ export default {
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
 }
-
 #NotNow.is-outlined:focus,
 #NotNow.is-outlined:hover {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
 }
+
 @media screen and (max-width: 768px) {
     .level-item {
         margin-right: 10px;
