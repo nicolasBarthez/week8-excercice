@@ -20,17 +20,18 @@
               <form @submit.prevent="userProfileUpdate(); saveImage();">
 
 
-                <label>What king of insider are you?
-            <textarea rows="6" cols="30" v-model="bio" placeholder="Tell us about yourself...">{{profileInfo.bio}}</textarea>
-        </label><br/>
 
+        <b-field label="What king of insider are you?" >
+            <b-input maxlength="200" v-model="bio" placeholder="Tell us about yourself..." type="textarea">{{profileInfo.bio}}</b-input>
+        </b-field>
+<br/>
                 <span>Your magic skills</span>
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
-
+                <br>
                 <label>Location
                   <input type="text" name="location" :value="(profileInfo.location)?profileInfo.location:''">
                 </label>
-
+<br>
 
                 <label><span>Update your photo</span>
         <input type="file" name="image"  @change="image = $event.target.files[0]">
@@ -105,11 +106,10 @@ export default {
       const userId = this.$root.user._id;
       userUpdate(this.location, this.bio, this.skills)
         .then(data => {
-          this.$router.push("/mydashboard");
           setTimeout(() => (this.okMessage = false), 5000);
         })
         .catch(err => {
-          console.err(err);
+          console.log(err);
         });
     },
     saveImage() {
@@ -120,7 +120,7 @@ export default {
           this.profileInfo.picProfile = response.secure_url;
         })
         .catch(err => {
-          console.err(err);
+          console.log(err);
         });
     },
     saveMyProfile() {
