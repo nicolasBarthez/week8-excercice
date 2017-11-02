@@ -20,8 +20,8 @@
                               <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
                             <div class="add-to-watchlist" >
-                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add Stock</button>
-                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove Stock</button>
+                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to watchlist</button>
+                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove</button>
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
                                  <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
@@ -113,7 +113,7 @@ export default {
         // this.watchItem = item;
         console.log("DEBUG beBull: $emit item", item);
         this.$emit("changeWatchlist", item);
-      });  
+      });
     },
 
     imBear() {
@@ -123,17 +123,17 @@ export default {
     },
 
     trend30() {
-        this.$emit("changeWatchlist", item);
+      this.$emit("changeWatchlist", item);
     },
 
     trend7() {
-        this.$emit("trendBullBearSeven", item);
+      this.$emit("trendBullBearSeven", item);
     },
 
     trend1() {
-        this.$emit("trendBullBearOne", item);
+      this.$emit("trendBullBearOne", item);
     }
-  },
+  }
 };
 </script>
 

@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" :data-prefix="'#'+ stock.shortName " id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea withprefix">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.longName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -58,6 +58,7 @@ export default {
   data() {
     return {
       babble: "",
+      prefix: "",
       isCardModalActive: false
     };
   },
@@ -73,7 +74,8 @@ export default {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-      sendBabble(this.babble, this.stock._id).then(() => {
+      let babbleToPost = "#" + this.stock.longName + " - " + this.babble;
+      sendBabble(babbleToPost, this.stock._id).then(() => {
         this.babble = "";
         this.$emit("changeBabbles");
       });
@@ -89,6 +91,13 @@ export default {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
       });
+    },
+    putHashtag(e) {
+      return this.babble.length !== 1
+        ? e.target.value.split("-")[0] === `#${this.stock.longName}-`
+          ? this.babble
+          : "#" + this.stock.longName + "- " + this.babble
+        : (this.babble = `#${this.stock.longName}-` + this.babble);
     }
   },
   computed: {

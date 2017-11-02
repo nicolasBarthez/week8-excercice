@@ -23,7 +23,7 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
+            <button @click="follow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
           </div>
         </div>
         <nav class="level">
@@ -77,6 +77,13 @@
 export default {
   props: {
     profileInfo: Object
+  },
+  methods: {
+    follow() {
+      followInsider(profileInfo.userId).then(resp => {
+        console.log(resp);
+      });
+    }
   }
 };
 </script>

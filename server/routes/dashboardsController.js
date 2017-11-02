@@ -42,11 +42,6 @@ dashboardsController.patch(
     const location = req.body.location;
     const picProfile = req.body.picture;
 
-    console.log(
-      "req.body********************************************",
-      req.body
-    );
-
     User.findByIdAndUpdate(
       id,
       {
@@ -73,6 +68,8 @@ dashboardsController.get(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
+
+    console.log("****************DANS LE /profile => ", user.username);
 
     User.findById(user._id).exec((err, us) => {
       if (err) res.json(null);
@@ -497,14 +494,15 @@ dashboardsController.get(
 // **********************************************************
 
 dashboardsController.get(
-  "/profile/:id",
+  "/insider/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
-    const user = req.params.id;
+    const userId = req.params.id;
 
-    User.findById(user._id).exec((err, us) => {
+    User.findById(userId).exec((err, us) => {
       if (err) res.json(null);
       let userInfo = {
+        userId: us._id,
         username: us.username,
         following: us.following,
         picProfile: us.picProfile,
@@ -513,7 +511,7 @@ dashboardsController.get(
       };
 
       Babble.find({
-        user: user._id
+        userId
       }).then(babbles => {
         userInfo.nbBabbles = 0 + babbles.length;
 
@@ -550,7 +548,11 @@ dashboardsController.get(
               });
             }
 
-            userInfo.preferedStocks = reduceArrayByStockPoints(wi);
+            if (wi) {
+              userInfo.preferedStocks = reduceArrayByStockPoints(wi);
+            } else {
+              userInfo.preferedStocks = [];
+            }
 
             WatchItem.find({
               userId: user._id,
@@ -559,14 +561,19 @@ dashboardsController.get(
               }
             }).exec((err, wiClosed) => {
               // Calculate performance points
-              userInfo.performancePoints = wiClosed
-                .map(item => item.performancePoints)
-                .reduce((prev, next) => prev + next);
+              if (wiClosed) {
+                userInfo.performancePoints = wiClosed
+                  .map(item => item.performancePoints)
+                  .reduce((prev, next) => prev + next);
 
-              userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                console.log("item.status", item.status);
-                return item.status == "won";
-              }, 0).length;
+                userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+                  console.log("item.status", item.status);
+                  return item.status == "won";
+                }, 0).length;
+              } else {
+                userInfo.performancePoints = 0;
+                userInfo.nbOfInsightsWon = 0;
+              }
 
               User.find({
                 following: user._id

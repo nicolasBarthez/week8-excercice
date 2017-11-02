@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text" name="babble" maxlength="200" rows="3" placeholder="Whats happening?" class="textarea">
+                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="200" rows="3" placeholder="Write here the interresting news you want to share, and use # to link to a stock..." class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -24,12 +24,12 @@
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
                                 <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
-                        </div>      
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 </template>
 
 <script>
@@ -38,32 +38,30 @@ import { sendBabble } from "@/api/api";
 export default {
   data() {
     return {
-      babble:'',
+      babble: ""
     };
   },
-    props: {
-        stock: Object,
-        connectedUser:Object
-    },
+  props: {
+    stock: Object,
+    connectedUser: Object
+  },
 
-  components: { 
-  },
+  components: {},
   methods: {
-    
-    postBabble(){
-        sendBabble(this.babble,null).then(() => {
-            this.babble='';
-            this.$emit("changeBabbles");
-        });
-      },
+    postBabble() {
+      sendBabble(this.babble, null).then(() => {
+        this.babble = "";
+        this.$emit("changeBabbles");
+      });
+    }
   },
- computed: {
+  computed: {
     charactersLeft() {
-        var char = this.babble.length,
-            limit = 200;
-        return (limit - char);
-      }
- }
+      var char = this.babble.length,
+        limit = 200;
+      return limit - char;
+    }
+  }
 };
 </script>
 
