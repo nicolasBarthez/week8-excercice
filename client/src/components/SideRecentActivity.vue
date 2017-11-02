@@ -37,6 +37,10 @@ export default {
 </script>
 
 <style scoped>
+a {
+        color: #192b41 !important;
+    }
+
 .seeDash{
         color: #b5b5b5 !important;
 }

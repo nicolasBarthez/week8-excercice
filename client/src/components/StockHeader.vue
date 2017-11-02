@@ -11,7 +11,7 @@
                    <div class="media-content">
                         <div class="stock-banner">
                            <div class="sock-info">
-                              <p class="title is-5">{{stock.longName}}</p>
+                              <p class="longNameTitle title is-5">{{stock.longName}}</p>
                               <p class="subtitle is-6">
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
@@ -19,17 +19,17 @@
                               <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
                             </div>
                             <div class="add-to-watchlist" >
-                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to Watchlist</button>
-                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove from Watchlist</button>
+                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add Stock</button>
+                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove Stock</button>
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
                                  <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
-                                      You're {{watchItem.position}} from {{watchItem.initialPrice}}</strong>
+                                      {{watchItem.position}} from {{watchItem.initialPrice}}</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
                                <strong class="">{{stock.price}} €</strong>
-                               <small :class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp;{{stock.variation}} %</small>
+                               <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp;{{stock.variation}} %</small>
                            </div>
                         </div>
                            <nav id="bandB" class="level media">
@@ -143,9 +143,68 @@ export default {
 }
 
 @media (max-width: 768px) {
-    .stock-banner {
-        flex-direction: column;
+    .stVar{
+        text-align:end;
     }
+    .longNameTitle{
+        font-size: 1REM !important;
+    }
+    #bullsAndBears{
+        justify-content: space-evenly !important;
+        width:100%
+    }
+    .stock-banner{
+        display: flex;
+    }
+    .level-item {
+        margin-bottom: 0px!important;
+    }
+    #bandbdigit1{
+        width:40%;
+        font-size:3.5vw!important
+    }
+     #bandbdigit2{
+         width:40%;
+        font-size:3.5vw!important;
+        text-align:right;
+        padding-right:2%;
+    }
+    .stock-price{
+        display: flex;
+        flex-direction: column
+    }
+    .media-left {
+        display:none;
+    }
+    .stock-see-desc{
+        display:none;
+    }
+    .subtitle {
+        display:none;
+    }
+    #bullsAndBearsPic{
+        width:20%;
+    }
+    #BBull{
+        width:20%
+    }
+    #BBear{
+        width:20%
+    }
+    #Bbull{
+        width:80%
+    }
+    #Bbear{
+        width:80%
+    }
+    .add-to-watchlist{
+        width:20%
+    }
+    #adWL{
+        width:95%;
+        font-size: 1.7vw !important;
+    }
+
 }
 .pos{
     text-align: center

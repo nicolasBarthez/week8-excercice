@@ -1,10 +1,10 @@
 <template>
-  <div class="column is-3 sideRecent">
+  <div  v-if="watchInsight.length!=0" class="column is-3 sideRecent mainSCI">
     <div class="is-sticky">    
         <nav class="navbar is-dark">
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
         </nav>
-        <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
+        <div v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.longName.length<7 ? watchItem.stockId.longName : watchItem.stockId.shortName }}</router-link><br>
@@ -27,12 +27,15 @@
                 </div>
             </div>
         </div>
-        <div v-else>
-            <div id="watchList" class="card-content">
-                <p>
-                    Share your insights with the others Insiders 
-                </p>
-            </div>
+    </div>
+  </div>
+  <div  v-else class="column is-3 sideRecent">
+    <div class="is-sticky">    
+        <nav class="navbar is-dark">
+               <p id="currentInsight" class="babMenu navbar-item is-tab is-active"> Current Insights</p>
+        </nav>
+        <div class="card profile-card">
+            <p>Take position on a stock to share your insights !!!</p>
         </div>
     </div>
   </div>
@@ -64,9 +67,10 @@ export default {
 </script>
 
 <style scoped>
-.sideRecent{
-    margin-left:-7%;
+.mainSCI{
+    position:sticky
 }
+
 .Symbol {
     color: #192b41 !important;
     width: 40%;

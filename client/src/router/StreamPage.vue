@@ -1,14 +1,14 @@
 <template>
 
-  <section v-else class="section main">
-    <div class="container">
+  <section v-else class="section main sideRecent">
+    <div class="container primordial">
       <div class="columns">
-        <side-current-insight :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <side-current-insight  class="is-sticky" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
         <div class="babblesField column is-6">
           <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
          <stream-timeline-babble :connectedUser="connectedUser" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></stream-timeline-babble>
         </div>
-        <side-recent-activity :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
       </div>
     </div>
   </section>
@@ -95,6 +95,10 @@ export default {
 </script>
 
 <style scoped>
+
+.is-sticky{
+   position:sticky
+ }
 .section.main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
@@ -102,8 +106,23 @@ export default {
 .container{
   display: flex;
 }
+.primordial{
+  width:100%
+}
+
 .babblesField{
   margin-right: 2.5%;
   margin-left: 2.5%;
+}
+@media screen and (min-width: 769px){
+  .babblesField {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    width: 45%;
+  }
+  .sci{
+    display: none
+  }
 }
 </style>
