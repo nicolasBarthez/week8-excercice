@@ -25,6 +25,7 @@ const watchItemSchema = new Schema(
       type: Number,
       default: 0
     },
+    soldPrice: Number,
     status: {
       type: String,
       enum: ["won", "lost", "active", "removed"],

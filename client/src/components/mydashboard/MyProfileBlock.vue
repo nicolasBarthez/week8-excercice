@@ -1,5 +1,5 @@
 <template >
-<section class="section main">
+<section v-if = "profileInfo" class="section main">
   <div class="column is-6" id="ActionCard">
     <div class="card profile-card">
       <div class="card-content">
@@ -11,8 +11,13 @@
           </div>
           <div class="media-content">
             <p class="title is-5">
-              {{profileInfo.username}}
+              @{{profileInfo.username}}
             </p>
+          <p class="subtitle is-6"><strong>Skills</strong>
+            <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
+
+            <b-tag>{{profileInfo.skills[0]}}</b-tag>
+          <!-- </div></p> -->
             <p class="subtitle is-6"> <strong>Following</strong> {{profileInfo.following}}
             </p>
             <p class="subtitle is-6"> <strong>Followers</strong> {{profileInfo.followers}}
@@ -23,7 +28,8 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <a href="/profile/edit"><button id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button></a>
+            <button @click="editMyProfile" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
+
           </div>
         </div>
         <nav class="level">
@@ -41,7 +47,6 @@
               <p class="is-6 has-text-grey-light"><small>Location</small></p>
               <p class="is-4">
                 {{profileInfo.location ? profileInfo.location : "Secret..." }}
-
               </p>
               </p>
             </div>
@@ -62,9 +67,7 @@
           </div>
 
           <div class="level-item has-text-centered">
-            <div>
 
-            </div>
           </div>
         </nav>
       </div>
@@ -77,6 +80,11 @@
 export default {
   props: {
     profileInfo: Object
+  },
+  methods: {
+    editMyProfile() {
+      this.$emit("editprofile");
+    }
   }
 };
 </script>
