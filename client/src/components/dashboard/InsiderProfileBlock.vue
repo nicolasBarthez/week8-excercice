@@ -23,8 +23,10 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
+            <div v-if="!($route.params.id===$root.user._id)">
             <button v-if="!followed" @click="follow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
             <button v-else @click="unfollow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Unfollow</button>
+          </div>
           </div>
         </div>
         <nav class="level">

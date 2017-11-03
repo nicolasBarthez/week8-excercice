@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <nav-bar v-if="$root.showNav" :connectedUser="connectedUser"></nav-bar>
 
         <router-view></router-view>
