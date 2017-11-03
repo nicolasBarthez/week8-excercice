@@ -89,14 +89,12 @@ export default {
         { location: "/trending", text: "Trending" },
         { location: "/mydashboard", text: "My Dashboard" }
       ],
+      connectedUser: Object,
       data: null,
       keepFirst: true,
       name: "",
       selected: null
     };
-  },
-  props: {
-    connectedUser: Object
   },
 
   methods: {

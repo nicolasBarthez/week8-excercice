@@ -1,13 +1,13 @@
 <template>
     <section class="main">
- <insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+ <insider-profile-block v-if="profileInfo" @changeFollow="updateProfileInfo" :profileInfo="profileInfo"></insider-profile-block>
   <nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/dashboard/:username"class="babMenu navbar-item ">Insider current insights</router-link>
-            <router-link to="/dashboard/:username/boardinsiderswatchlist" class="babMenu navbar-item">Insider watch list</router-link>
-            <router-link to="/dashboard/:username/boardmyinsiderspastinsights"class="babMenu navbar-item">Insider insights</router-link>
-            <router-link to="/dashboard/:username/boardinsidersfollowed"class="babMenu navbar-item is-tab is-active">Insiders followed</router-link>
+        <router-link :to="'/dashboard/'+profileInfo.userId"class="babMenu navbar-item ">Insider current insights</router-link>
+        <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsiderswatchlist'" class="babMenu navbar-item">Insider watch list</router-link>
+        <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsiderspastinsights'"class="babMenu navbar-item">Insider insights</router-link>
+        <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsidersfollowed'"class="babMenu navbar-item is-tab is-active">Insiders followed</router-link>
       </div>
       </div>
   </nav>
@@ -18,7 +18,7 @@
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -49,7 +49,7 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}} 
+                    {{props.row.preferedStocks}}
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
@@ -77,11 +77,10 @@
 </template>
 
 <script>
-
 import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import {
   getInsiderProfileInfo,
-  getInsiderInsidersFollowed,
+  getInsiderInsidersFollowed
 } from "@/api/apiDashboard";
 export default {
   data() {
@@ -92,72 +91,73 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-    }
+      defaultSortDirection: "asc"
+    };
   },
- components: {
-        InsiderProfileBlock,
+  components: {
+    InsiderProfileBlock
   },
   created() {
-     const insiderId = this.$route.params.id;
+    const insiderId = this.$route.params.id;
     getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
     });
     getInsiderInsidersFollowed(insiderId).then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-      });
+      this.insidersFollowed = insidersFollowed;
+    });
   },
 
-  methods:{
-  
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
-            /*
+  methods: {
+    updateProfileInfo() {
+      getInsiderProfileInfo(this.$route.params.id).then(profileInfo => {
+        this.profileInfo = profileInfo;
+      });
+    },
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
              * Handle sort event
              */
-  onSort(field, order) {
-    this.loading = true
-     getInsiderInsidersFollowed(this.$route.params.id)({
+    onSort(field, order) {
+      this.loading = true;
+      getInsiderInsidersFollowed(this.$route.params.id)({
         sort: makeSortParam(field, order)
-    }).then(insidersFollowed => {
-       this.insidersFollowed = insidersFollowed
-       this.loading = false
-    })
+      }).then(insidersFollowed => {
+        this.insidersFollowed = insidersFollowed;
+        this.loading = false;
+      });
     },
-           /*
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
- },              
- filters: {
-            /**
+    }
+  },
+  filters: {
+    /**
              * Filter to truncate string, accepts a length parameter
              */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
   }
- },
-}
-
+};
 </script>
 
 <style scoped>

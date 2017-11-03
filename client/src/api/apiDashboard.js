@@ -129,7 +129,7 @@ export function getInsiderWatchList(insiderId) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -141,7 +141,7 @@ export function getInsiderPastInsights(insiderId) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
@@ -153,19 +153,48 @@ export function getInsiderInsidersFollowed(insiderId) {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
 
 // Follow the user
 export function followInsider(insiderId) {
-  let url = "/follow";
+  let url = "/follow/" + insiderId;
+  console.log("insiderId", insiderId);
   return insiders
-    .post(url, { insiderId: insiderId })
+    .post(url)
+    .then(response => {
+      console.log("RETOUR API", response);
+      return response.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+// Unollow the user
+export function unfollowInsider(insiderId) {
+  let url = "/follow/" + insiderId;
+  return insiders
+    .delete(url)
+    .then(response => {
+      console.log("RETOUR DU UNFOLLOW", response.data);
+      return response.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}
+
+// Check if user is followed
+export function isFollowed(insiderId) {
+  let url = "/follow/" + insiderId;
+  return insiders
+    .get(url)
     .then(response => {
       return response.data;
     })
     .catch(err => {
-      console.err(err);
+      console.log(err);
     });
 }
