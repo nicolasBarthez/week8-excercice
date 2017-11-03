@@ -1,103 +1,122 @@
-    body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.input.is-active,
-.input.is-focused,
-.input:active,
-.input:focus,
-.textarea.is-active,
-.textarea.is-focused,
-.textarea:active,
-.textarea:focus {
-    border-color: #192b41 !important;
-    box-shadow: 0 0 0 0.125em #192b41 !important;
-}
-
-.icon .mdi {
-    color: #192b41;
-}
-
-.has-text-green {
-    color: #21ce99;
-}
-
-.has-text-red {
-    color: #ff6026;
-}
-
-.pagination-link {
-    color: #192b41 !important;
-}
-
-.pagination-link.is-current {
-    background-color: #192b41 !important;
-    border-color: #192b41 !important;
-    color: #f9f9f9!important;
-}
-
-.pagination-previous:focus,
-.pagination-next:focus,
-.pagination-link:focus {
-    border-color: #192b41 !important;
-}
-
-.navbar-item .navbar-link .poi {
-    display: block;
-    line-height: 1.5;
-    padding: .5rem 1rem;
-    position: relative;
-    cursor: pointer;
-}
-
-.navbar-item.is-tab.is-active .poi {
-    background-color: transparent !important;
-    ;
-    border-bottom-color: #f9f9f9 !important;
-    ;
-    border-bottom-style: solid !important;
-    ;
-    border-bottom-width: 3px;
-    color: #f9f9f9;
-    padding-bottom: calc(0.5rem - 3px);
-}
-
-a.nav-item:not(.button).is-tab:hover {
-    border-bottom-color: #192b41 !important;
-    border-top-color: transparent;
-    background-color: #f9f9f9 !important;
-    ;
-}
-
-.navbar-item.is-tab .poi {
-    border-bottom: 1px solid transparent;
-    min-height: 3.25rem;
-}
-
-.navbar-item,
-.navbar-link .poi {
-    display: block;
-    line-height: 1.5;
-    padding: .5rem 1rem;
-    position: relative;
-}
-
-.profile-card .image.is-circle {
-    margin-top: -2rem;
-    border: none;
-    width: 64px;
-    height: 64px;
-    background-color: transparent;
-}
-
-.imgProfile {
-    width: auto!important;
-    border: 1px solid black!important;
-    border-radius: 50% !important;
-}
-
-@media screen and (max-width: 768px) {
-    .section.main {
-        background-color: #f9f9f9;
-        padding: 4.1rem 1.5rem;
-    }
+            body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+        
+        a strong {
+            color: #192b41 !important
+        }
+        
+        span>a {
+            color: #192b41!important;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .babble-body>a {
+            color: #192b41!important;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .chartIcon {
+            color: #192b41 !important
+        }
+        
+        a.poi.nav-item:not(.button).is-tab.is-active {
+            border-bottom: 3px solid #f9f9f9!important;
+            color: #f9f9f9!important;
+            padding-bottom: calc(0.75rem - 3px);
+        }
+        
+        #bullsAndBears {
+            justify-content: space-evenly !important;
+            width: 70% !important
+        }
+        
+        .input.is-active,
+        .input.is-focused,
+        .input:active,
+        .input:focus,
+        .textarea.is-active,
+        .textarea.is-focused,
+        .textarea:active,
+        .textarea:focus {
+            border-color: #192b41 !important;
+            box-shadow: 0 0 0 0.125em #192b41 !important;
+        }
+        
+        .icon .mdi {
+            color: #192b41;
+        }
+        
+        .has-text-green {
+            color: #21ce99 !important;
+        }
+        
+        .has-text-red {
+            color: #ff6026 !important;
+        }
+        
+        .pagination-link {
+            color: #192b41 !important;
+        }
+        
+        .pagination-link.is-current {
+            background-color: #192b41 !important;
+            border-color: #192b41 !important;
+            color: #f9f9f9!important;
+        }
+        
+        .pagination-previous:focus,
+        .pagination-next:focus,
+        .pagination-link:focus {
+            border-color: #192b41 !important;
+        }
+        
+        .navbar-item .navbar-link .poi {
+            display: block;
+            line-height: 1.5;
+            padding: .5rem 1rem;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        a.nav-item:not(.button).is-tab:hover {
+            border-bottom-color: #192b41 !important;
+            border-top-color: transparent;
+            background-color: #f9f9f9 !important;
+            ;
+        }
+        
+        .navbar-item.is-tab .poi {
+            border-bottom: 1px solid transparent;
+            min-height: 3.25rem;
+        }
+        
+        .navbar-item,
+        .navbar-link .poi {
+            display: block;
+            line-height: 1.5;
+            padding: .5rem 1rem;
+            position: relative;
+        }
+        
+        .profile-card .image.is-circle {
+            margin-top: -2rem;
+            border: none;
+            width: 64px;
+            height: 64px;
+            background-color: transparent;
+        }
+        
+        .imgProfile {
+            width: auto!important;
+            border: 1px solid black!important;
+            border-radius: 50% !important;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .section.main {
+                background-color: #f9f9f9;
+                padding: 4.1rem 1.5rem;
+            }

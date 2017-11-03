@@ -22,6 +22,7 @@ babblesController.get(
         const user = req.user;
         // sort by people who wrote the babble
         const sort = req.query.sort;
+        console.log(sort)
         const page = req.query.page;
         const group = page * 50;
 
@@ -31,7 +32,7 @@ babblesController.get(
                 .populate("user")
                 .limit(group)
                 .exec((err, timeline) => {
-                    if (err) res.json(null);
+                    if (err) return res.json(null);
                     res.json(timeline);
                 });
         } else if (sort === "me") {
@@ -40,17 +41,17 @@ babblesController.get(
                 .populate("user")
                 .limit(group)
                 .exec((err, timeline) => {
-                    if (err) res.json(null);
+                    if (err) return res.json(null);
                     res.json(timeline);
                 });
-        } else if (sort === "insider-mates") {
+        } else if (sort === "insidermates") {
             User.findById(user._id).then(us => {
                 Babble.find({ $in: { user: us.following } })
                     .sort({ updated_at: -1 })
                     .populate("user")
                     .limit(group)
                     .exec((err, timeline) => {
-                        if (err) res.json(null);
+                        if (err) return res.json(null);
                         res.json(timeline);
                     });
             });
@@ -112,7 +113,7 @@ babblesController.get(
                         res.json(timeline);
                     });
             });
-        } else if (sort === "insider-mates") {
+        } else if (sort === "insidermates") {
             Stock.findOne({ longName: stock }, (err, stock) => {
                 if (err) return next(err);
                 if (!stock) return next(err);

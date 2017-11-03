@@ -16,7 +16,7 @@
                             <div class="level-left">
                                 <a class="has-text-grey-light">
                                     <span class="icon chartIcon">
-                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
+                                         <i class="fa fa-line-chart"></i>&nbsp Share a chart
                                     </span>
                                 </a>
                             </div>

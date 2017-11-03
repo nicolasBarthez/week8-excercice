@@ -3,8 +3,8 @@
      <div>
      <nav class="navbar is-dark">
         <div class="babblesMenu">
-            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-                 :class="{ active: 'white' }" class="nav-item is-tab poi"> {{ link.text }}
+            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query,$event)"
+                 class="nav-item is-tab poi" :class=" link.text==='All' ? 'is-active': '' "> {{ link.text }}
             </a>
          </div>
     </nav>
@@ -132,7 +132,8 @@
                             <div class="level-left leftchartIcon">
                                 <a class="has-text-grey-light">
                                     <span class="icon chartIcon">
-                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
+                                         <i class="fa fa-line-chart"></i>
+                                         &nbsp Share a chart
                                     </span>
                                 </a>
                             </div>
@@ -161,14 +162,14 @@ export default {
       isCardModalActive: false,
       navbarLinks: [
         { text: "All", query: "all" },
-        { text: "Insiders Mates", query: "insider-mates" },
+        { text: "Insiders Mates", query: "insidermates" },
         { text: "My posts", query: "me" }
       ],
       babbleText: "",
       modalBabble: "",
       userReply: "",
       link: "all",
-      active: false
+      currentMenu:'',
     };
   },
   props: {
@@ -195,10 +196,12 @@ export default {
           console.log("something is wrong");
         });
     },
-    sortBabbles(link) {
-      this.$emit("sort", link);
-      this.link = link;
-      this.active = !this.active;
+    sortBabbles(link, e) {
+    this.$emit("sort", link);
+    console.log(this.littleFucker)
+      if(this.currentMenu) this.currentMenu.classList.remove("is-active")
+      e.target.classList.add("is-active")
+      this.currentMenu=e.target
     },
     postBabble(modalBabble) {
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
@@ -206,8 +209,12 @@ export default {
         this.isCardModalActive = false;
         this.$emit("changeBabbles");
       });
+    },
+  },
+  mounted() {
+        this.currentMenu = document.getElementsByClassName('is-active')[0]
+        console.log('.....',this.currentMenu);
     }
-  }
 };
 </script>
 
@@ -218,6 +225,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
+
 .tweet-meta{
     display: flex;
     justify-content: space-between

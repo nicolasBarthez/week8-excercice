@@ -3,8 +3,8 @@
      <div>
      <nav class="navbar is-dark">
         <div class="babblesMenu">
-            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
-                class="nav-item is-tab poi"> {{ link.text }}
+            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query,$event)"
+                    class="nav-item is-tab poi" :class=" link.text==='All' ? 'is-active': '' "> {{ link.text }}
             </a>
          </div>
     </nav>
@@ -131,7 +131,7 @@
                             <div class="level-left leftchartIcon">
                                 <a class="has-text-grey-light">
                                     <span class="icon chartIcon">
-                                         <i class="fa fa-line-chart">&nbsp Share a chart</i>
+                                         <i class="fa fa-line-chart"></i>&nbsp Share a chart
                                     </span>
                                 </a>
                             </div>
@@ -161,13 +161,14 @@ export default {
       isCardModalActive: false,
       navbarLinks: [
         { text: "All", query: "all" },
-        { text: "Insiders Mates", query: "insider-mates" },
+        { text: "Insiders Mates", query: "insidermates" },
         { text: "Watch List", query: "watchlist" },
         { text: "My posts", query: "me" }
       ],
       babbleText: "",
       modalBabble: "",
-      userReply: ""
+      userReply: "",
+      currentMenu:''
     };
   },
   props: {
@@ -193,8 +194,11 @@ export default {
           console.log("something is wrong");
         });
     },
-    sortBabbles(link) {
+    sortBabbles(link,e) {
       this.$emit("sort", link);
+      if(this.currentMenu)this.currentMenu.classList.remove("is-active")
+      e.target.classList.add("is-active")
+      this.currentMenu=e.target
     },
     postBabble(modalBabble) {
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
@@ -213,7 +217,10 @@ export default {
         '<a href="/stocks/$1">#$1$2</a>'
       );
     }
-  }
+  },
+    mounted() {
+        this.currentMenu = document.getElementsByClassName('is-active')[0]
+    }
 };
 </script>
 
@@ -227,7 +234,10 @@ body {
 .fa-line-chart{
     font-size: 15px;
 }
-
+.tweet-meta{
+    display: flex;
+    justify-content: space-between
+}
 .chartIcon{
     width:100%
 }
@@ -267,15 +277,8 @@ word-break: break-word;
     position: relative;
     cursor: pointer;
 }
-.navbar-item.is-tab.is-active {
-    background-color: transparent;
-    border-bottom-color: #f9f9f9;
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-    color: #f9f9f9;
-    padding-bottom: calc(0.5rem - 3px);
-}
-.navbar-item.is-tab {
+
+.navbar-item {
     border-bottom: 1px solid transparent;
     min-height: 3.25rem;
 }

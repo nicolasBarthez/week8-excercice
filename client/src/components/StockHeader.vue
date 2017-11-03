@@ -50,13 +50,15 @@
                             </nav>
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend1()" class="is-6 has-text-grey-light trend-b-b"><small >Last 24 hours</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</a>
+                                    <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
                                 </div>
+                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend7()" class="is-6 has-text-grey-light trend-b-b"><small >Last week</small> &nbsp &nbsp <small>|</small> &nbsp &nbsp</a>
+                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
                                 </div>
+                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend30()" class="is-6 has-text-grey-light trend-b-b"><small >Last month</small></a>
+                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
                                 </div>
                             </div>
                         </div>
@@ -66,6 +68,7 @@
        </div>
 </section>
 </template>
+
 
 <script>
 import { addWatchItem } from "@/api/api";
@@ -83,7 +86,9 @@ export default {
     trendBullBear: Array
   },
   data() {
-    return {};
+    return {
+         activeItem: 'thirty'
+    };
   },
   methods: {
     addWatchList() {
@@ -123,15 +128,18 @@ export default {
     },
 
     trend30() {
-      this.$emit("changeWatchlist", item);
+      this.$emit("changeWatchlist");
+      this.activeItem = "thirty"
     },
 
     trend7() {
-      this.$emit("trendBullBearSeven", item);
+      this.$emit("trendBullBearSeven");
+      this.activeItem = "seven"
     },
 
     trend1() {
-      this.$emit("trendBullBearOne", item);
+      this.$emit("trendBullBearOne");
+      this.activeItem = "one"
     }
   }
 };
@@ -151,10 +159,7 @@ export default {
     .longNameTitle{
         font-size: 1REM !important;
     }
-    #bullsAndBears{
-        justify-content: space-evenly !important;
-        width:100%
-    }
+
     .stock-banner{
         display: flex;
     }

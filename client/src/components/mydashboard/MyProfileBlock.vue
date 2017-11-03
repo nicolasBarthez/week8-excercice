@@ -110,6 +110,10 @@ export default {
 </script>
 
 <style scoped>
+body{
+    color:#192b41;
+}
+
 .sock-info {
     width:20%;
 }
@@ -146,7 +150,12 @@ text-align: center;
 }
 #perf{
   display:flex;
-  width:20%;
+  width:30%;
+}
+span>a {
+    color: #192b41!important;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
