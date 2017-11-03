@@ -184,51 +184,12 @@ stocksController.post(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const watchItemId = req.body.watchitemId;
     const stockName = req.params.name.toUpperCase();
+    const watchitemId = req.query.wi;
 
-    if (watchitem) {
-      WatchItem.findByIdAndUpdate(watchItemId, { status: "removed" })
-        .then(resp => {
-          User.findByIdAndUpdate(user._id, {
-            $pull: { watchList: watchItemId }
-          }).then(resp => {
-            Stock.findOne({ longName: stockName })
-              .then(stock => {
-                if (!stock) {
-                  res.json({
-                    error: req.app.get("env") === "development" ? err : {}
-                  });
-                }
-                const newWatchItem = new WatchItem({
-                  userId: user._id,
-                  username: user.username,
-                  stockId: stock._id,
-                  initialPrice: stock.price,
-                  position: "bull"
-                });
+    console.log("**********WI identifié", watchitemId);
 
-                newWatchItem.save().then(newItem => {
-                  User.findByIdAndUpdate(
-                    user._id,
-                    {
-                      $addToSet: { watchList: newItem._id }
-                    },
-                    { new: true }
-                  ).then(user => {
-                    req.user = user;
-                    res.locals.user = user;
-                    res.json(newItem);
-                  });
-                });
-              })
-              .catch(err => res.status(404));
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    } else {
+    if (!watchitemId) {
       Stock.findOne({ longName: stockName })
         .then(stock => {
           if (!stock) {
@@ -252,16 +213,56 @@ stocksController.post(
               },
               { new: true }
             ).then(user => {
-              req.user = user;
-              res.locals.user = user;
               res.json(newItem);
             });
           });
         })
         .catch(err => res.status(404));
+    } else {
+      console.log("**********WI identifié 2", watchitemId);
+      WatchItem.findByIdAndUpdate(
+        watchitemId,
+        {
+          status: "removed"
+        },
+        { new: true }
+      ).exec((err, resp) => {
+        console.log("**********WI removed", watchitemId);
+        User.findByIdAndUpdate(user._id, {
+          $pull: { watchList: watchitemId }
+        }).then(resp => {
+          Stock.findOne({ longName: stockName }).then(stock => {
+            if (!stock) {
+              res.json({
+                error: req.app.get("env") === "development" ? err : {}
+              });
+            }
+            const newWatchItem = new WatchItem({
+              userId: user._id,
+              username: user.username,
+              stockId: stock._id,
+              initialPrice: stock.price,
+              position: "bear"
+            });
+
+            newWatchItem.save().then(newItem => {
+              User.findByIdAndUpdate(
+                user._id,
+                {
+                  $addToSet: { watchList: newItem._id }
+                },
+                { new: true }
+              ).then(user => {
+                res.json(newItem);
+              });
+            });
+          });
+        });
+      });
     }
   }
 );
+
 // ***************************************************
 // Close position Bull & Bear =======================
 // ***************************************************
@@ -327,37 +328,73 @@ stocksController.post(
   (req, res, next) => {
     const user = req.user;
     const stockName = req.params.name.toUpperCase();
+    const watchitemId = req.query.wi;
 
-    Stock.findOne({ longName: stockName })
-      .then(stock => {
-        if (!stock) {
-          res.json({
-            error: req.app.get("env") === "development" ? err : {}
+    if (!watchitemId) {
+      Stock.findOne({ longName: stockName })
+        .then(stock => {
+          if (!stock) {
+            res.json({
+              error: req.app.get("env") === "development" ? err : {}
+            });
+          }
+          const newWatchItem = new WatchItem({
+            userId: user._id,
+            username: user.username,
+            stockId: stock._id,
+            initialPrice: stock.price,
+            position: "bear"
           });
-        }
-        const newWatchItem = new WatchItem({
-          userId: user._id,
-          username: user.username,
-          stockId: stock._id,
-          initialPrice: stock.price,
-          position: "bear"
-        });
 
-        newWatchItem.save().then(newItem => {
-          User.findByIdAndUpdate(
-            user._id,
-            {
-              $addToSet: { watchList: newItem._id }
-            },
-            { new: true }
-          ).then(user => {
-            req.user = user;
-            res.locals.user = user;
-            res.json(newItem);
+          newWatchItem.save().then(newItem => {
+            User.findByIdAndUpdate(
+              user._id,
+              {
+                $addToSet: { watchList: newItem._id }
+              },
+              { new: true }
+            ).then(user => {
+              res.json(newItem);
+            });
+          });
+        })
+        .catch(err => res.status(404));
+    } else {
+      WatchItem.findByIdAndUpdate(watchitemId, {
+        status: "removed"
+      }).then(resp => {
+        User.findByIdAndUpdate(user._id, {
+          $pull: { watchList: watchitemId }
+        }).then(resp => {
+          Stock.findOne({ longName: stockName }).then(stock => {
+            if (!stock) {
+              res.json({
+                error: req.app.get("env") === "development" ? err : {}
+              });
+            }
+            const newWatchItem = new WatchItem({
+              userId: user._id,
+              username: user.username,
+              stockId: stock._id,
+              initialPrice: stock.price,
+              position: "bear"
+            });
+
+            newWatchItem.save().then(newItem => {
+              User.findByIdAndUpdate(
+                user._id,
+                {
+                  $addToSet: { watchList: newItem._id }
+                },
+                { new: true }
+              ).then(user => {
+                res.json(newItem);
+              });
+            });
           });
         });
-      })
-      .catch(err => res.status(404));
+      });
+    }
   }
 );
 
