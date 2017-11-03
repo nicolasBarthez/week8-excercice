@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import { getAllStocks } from "@/api/api";
+import { getAllStocks, getUser } from "@/api/api";
 import { logout } from "@/api/auth";
 import debounce from "lodash/debounce";
 

@@ -98,6 +98,7 @@ export function uploadPicture(image) {
 // Insider profile info
 export function getInsiderProfileInfo(insiderId) {
   let url = "dashboards/insider/" + insiderId;
+  console.log("URL PROFILE INFO", url);
   return insiders
     .get(url)
     .then(response => {
