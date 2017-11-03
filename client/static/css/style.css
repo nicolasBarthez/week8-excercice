@@ -84,10 +84,10 @@ a.nav-item:not(.button).is-tab:hover {
 
 .profile-card .image.is-circle {
     margin-top: -2rem;
-    border: 2px solid #fff;
+    border: none;
     width: 64px;
     height: 64px;
-    background-color: #f9f9f9;
+    background-color: transparent;
 }
 
 .imgProfile {

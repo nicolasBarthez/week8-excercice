@@ -3,14 +3,15 @@
   <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
   <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
   <nav class="navbar is-dark">
-    <div class="babblesMenu">
-      <div v-for="(link, index) in navbarLinks" :key="index"  :class="{'is-active': link.text[index], 'nav-item': true, 'is-tab': true }"> {{ link.text }}
+      <div>
+      <div class="babblesMenu">
+            <router-link to="/mydashboard"class="babMenu navbar-item ">My current insights</router-link>
+            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item">My watch list</router-link>
+            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item is-tab is-active">My past insights</router-link>
+            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item">Insiders I follow</router-link>
       </div>
-      <p id="vide"></p>
-      <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
-    </div>
+      </div>
   </nav>
-  <section class="main">
         <b-table
             
             :data="pastInsight"
@@ -78,7 +79,7 @@ import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
 import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
 import {
   getUserProfileInfo,
-   getInsiderPastInsights,
+  getMyPastInsights,
 } from "@/api/apiDashboard";
 export default {
   data() {
@@ -96,24 +97,6 @@ export default {
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: 'asc',
-       navbarLinks: [
-        {
-          location: "/myinsights",
-          text: "My current insights"
-        },
-        {
-          location: "/mywatchlist",
-          text: "My watch list"
-        },
-        {
-          location: "/mypastinsights",
-          text: "My past insights"
-        },
-        {
-          location: "/insiderfollowed",
-          text: "Insiders I follow"
-        }
-      ]
     }
   },
   components: {
@@ -124,7 +107,7 @@ export default {
     getUserProfileInfo().then(profileInfo => {
       this.profileInfo = profileInfo;
     });
-    getInsiderPastInsights(this.$root.user._id).then(pastInsights => {
+    getMyPastInsights().then(pastInsights => {
         this.pastInsights = pastInsights;
       });
   },
@@ -142,7 +125,7 @@ export default {
              */
   onSort(field, order) {
     this.loading = true
-    getInsiderPastInsights(insiderId)({
+    getMyPastInsights()({
         sort: makeSortParam(field, order)
     }).then(pastInsights => {
        this.pastInsights = pastInsights
@@ -185,8 +168,22 @@ export default {
 .container{
   display: flex;
 }
-a {
-  color: #192b41 !important;
+
+.navbar.is-dark {
+    background-color: #192b41;
+    color: #f9f9f9;
+}
+
+.navbar-item.is-tab.is-active {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #f9f9f9;
+    padding-bottom: calc(0.5rem - 3px);
+}
+.babblesMenu {
+    display: flex;
 }
 
 </style>

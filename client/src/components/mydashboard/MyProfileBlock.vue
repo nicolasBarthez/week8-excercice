@@ -1,5 +1,5 @@
 <template >
-<section class="section main">
+<section >
   <div class="column is-6" id="ActionCard">
     <div id="cardAction" class="card profile-card">
         <div class="card-content">
@@ -19,67 +19,67 @@
                                 <small>{{profileInfo.location ? profileInfo.location : "Secret..." }}</small>
                             </p>
                         </div>
-                        <div id="perf">
-                            <div>
-                                <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Performance</strong></p>
-                                <p class="title is-5 follOwStrong">
-                                    <strong class="follOwStrong"> {{profileInfo.performancePoints}} P$</strong>
-                                </p>
+                            <div id="perf">
+                                    <div>
+                                        <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Performance</strong></p>
+                                        <p class="title is-5 follOwStrong">
+                                            <strong class="follOwStrong"> {{profileInfo.performancePoints}} P$</strong>
+                                        </p>
+                                    </div>
+                                    <div class="wonTrade">
+                                        <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
+                                        <p class="title is-5 follOwStrong">
+                                            <strong class="follOwStrong">{{profileInfo.nbOfInsightsWon}}</strong>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="add-to-watchlist">
+                                    <button @click="editMyProfile" id="adWLT"class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
+                                </div>
                             </div>
-                            <div class="wonTrade">
-                                <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
-                                <p class="title is-5 follOwStrong">
-                                    <strong class="follOwStrong">{{profileInfo.nbOfInsightsWon}}</strong>
+                            <div id="refAndSkills">
+                                <div class="preferedTrades level-item has-text-centered column is-3">
+                                <p class="title is-6">Prefered trades</p>
+                                <p class="is-4">
+                                    1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
                                 </p>
+                                <p class="is-4">
+                                    2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
+                                </p>
+                                <p class="is-4">
+                                    3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
+                                </p>
+                                </div>
+                                
+                                <nav id="bandB" class="level media">
+                                    <figure class="image is-64x64 is-circle">
+                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                        <span class="subtitle is-6">
+                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                        </span>
+                                    </figure>
+                                    <figure class="centralPic image is-64x64 is-circle">
+                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                        <span class="subtitle is-6">
+                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                        </span>
+                                    </figure>
+                                    <figure class="image is-64x64 is-circle">
+                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                    <span class="subtitle is-6">
+                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                    </span>
+                                    </figure>
+                                </nav>
+                                <div class="preferedTrades level-item has-text-centered column is-3">
+                                    <p class="title is-6"><strong>Skills</strong></p>
+                                    <b-tag>{{profileInfo.skills[0]}}</b-tag>
+                                    <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
+                                </div>
                             </div>
-                        </div>
-                        <div class="add-to-watchlist">
-                            <button @click="editMyProfile" id="adWL"class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
-                        </div>
                     </div>
-                    <nav id="bandB" class="level media">
-                        <figure class="image is-64x64 is-circle">
-                            <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
-                            <span class="subtitle is-6">
-                            {{profileInfo.performancePoints}} <small>P$</small>
-                            </span>
-                        </figure>
-                        <figure class="centralPic image is-64x64 is-circle">
-                            <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
-                            <span class="subtitle is-6">
-                              {{profileInfo.performancePoints}} <small>P$</small>
-                            </span>
-                        </figure>
-                        <figure class="image is-64x64 is-circle">
-                            <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
-                            <span class="subtitle is-6">
-                                {{profileInfo.performancePoints}} <small>P$</small>
-                            </span>
-                        </figure>
-                    </nav>
                 </div>
             </div>
-            <div class="refAndSkills">
-            <div class="preferedTrades2 level-item has-text-centered column is-3">
-                <p class="title is-6"><strong>Skills</strong></p>
-                <b-tag>{{profileInfo.skills[0]}}</b-tag>
-                <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
-            </div>
-            <div class="preferedTrades level-item has-text-centered column is-3">
-                    <p class="title is-6">Prefered trades</p>
-                    <p class="is-4">
-                        1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
-                    </p>
-                    <p class="is-4">
-                        2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
-                    </p>
-                    <p class="is-4">
-                        3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
-                    </p>
-            </div>
-            </div>
-
-
             <nav class="level media follOwNav">
                 <p class="subtitle is-6 follOw"> <small>Following</small><strong class="follOwStrong title is-5"> {{profileInfo.following}}</strong>
                 </p>
@@ -91,13 +91,9 @@
                 <p class="subtitle is-6 follOw"> <small>Likes</small><strong class="follOwStrong title is-5"> {{profileInfo.nbOfLikes}}</strong>
                 </p>
             </nav>
-
-
-
+            </div>
         </div>
-    </div>
-</div>
-</section>
+    </section>
 </template>
 
 <script>
@@ -114,24 +110,24 @@ export default {
 </script>
 
 <style scoped>
-.refAndSkills{
-  display:flex;
-  padding:2%;
-  justify-content:center
+.sock-info {
+    width:20%;
 }
-.preferedTrades{
-  display:flex;
-  flex-direction:column;
-}
-.preferedTrades2{
-  display:flex;
-  flex-direction:column;
-  margin-right: 2%;
-  margin-left: 6%;
+
+#refAndSkills{
+    display: flex!important;
+    justify-content: space-evenly!important;
 }
 .wonTrade{
-  margin-left:10%;
+    margin-left: 10%;
 }
+
+.preferedTrades{
+ margin-top:-3%;
+ display:flex;
+  flex-direction:column;
+}
+
 .stock-banner {
     display: flex;
     flex-direction: row;
@@ -151,7 +147,6 @@ text-align: center;
 #perf{
   display:flex;
   width:20%;
-  margin-left:7%
 }
 
 @media (max-width: 768px) {
@@ -212,9 +207,9 @@ text-align: center;
     .add-to-watchlist{
         width:20%
     }
-    #adWL{
+    #adWLT{
         width:95%;
-        font-size: 1.7vw !important;
+        font-size: 1vw !important;
     }
 
 }
@@ -261,7 +256,6 @@ a {
 #bandB {
     justify-content: center;
         WIDTH: 50%;
-    margin-left: 25%;
 }
 
 #Last {
@@ -292,11 +286,6 @@ a {
 .title.is-5 {
     font-size: 1.5REM;
 }
-
-#stockInfo {
-    display: flex;
-}
-
 #adWL.is-outlined:focus,
 #adWL.is-outlined:hover {
     PADDING-LEFT: 30PX;

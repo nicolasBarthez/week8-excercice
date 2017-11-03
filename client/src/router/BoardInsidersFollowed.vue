@@ -1,18 +1,17 @@
 <template>
     <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
-   <nav class="navbar is-dark">
+ <insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+  <nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/mydashboard"class="babMenu navbar-item is-tab is-active">My current insights</router-link>
-            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item">My watch list</router-link>
-            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item">My past insights</router-link>
-            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item is-tab is-active">Insiders I follow</router-link>
+            <router-link to="/dashboard/:username"class="babMenu navbar-item ">Insider current insights</router-link>
+            <router-link to="/dashboard/:username/boardinsiderswatchlist" class="babMenu navbar-item">Insider watch list</router-link>
+            <router-link to="/dashboard/:username/boardmyinsiderspastinsights"class="babMenu navbar-item">Insider insights</router-link>
+            <router-link to="/dashboard/:username/boardinsidersfollowed"class="babMenu navbar-item is-tab is-active">Insiders followed</router-link>
       </div>
       </div>
   </nav>
-        <b-table
+  <b-table
             :data="insidersFollowed"
             :loading="loading"
 
@@ -79,11 +78,10 @@
 
 <script>
 
-import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
-import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
+import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import {
-  getUserProfileInfo,
-  getMyInsidersFollowed,
+  getInsiderProfileInfo,
+  getInsiderInsidersFollowed,
 } from "@/api/apiDashboard";
 export default {
   data() {
@@ -101,25 +99,23 @@ export default {
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: 'asc',
-     };
+    }
   },
-  components: {
-    MyProfileBlock,
-    UpdateMyInfo,
+ components: {
+        InsiderProfileBlock,
   },
   created() {
-    getUserProfileInfo().then(profileInfo => {
+     const insiderId = this.$route.params.id;
+    getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
     });
-    getMyInsidersFollowed().then(insidersFollowed => {
+    getInsiderInsidersFollowed(insiderId).then(insidersFollowed => {
         this.insidersFollowed = insidersFollowed;
       });
   },
 
   methods:{
-    changeToEdit() {
-      this.isEditing = !this.isEditing;
-    },
+  
    onPageChange(page) {
     this.page = page
     this.onSort()
@@ -129,7 +125,7 @@ export default {
              */
   onSort(field, order) {
     this.loading = true
-    getMyInsidersFollowed({
+     getInsiderInsidersFollowed(this.$route.params.id)({
         sort: makeSortParam(field, order)
     }).then(insidersFollowed => {
        this.insidersFollowed = insidersFollowed
@@ -189,4 +185,6 @@ export default {
 .babblesMenu {
     display: flex;
 }
+
+
 </style>

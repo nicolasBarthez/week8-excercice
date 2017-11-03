@@ -1,19 +1,19 @@
 <template>
     <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
-   <nav class="navbar is-dark">
+ <insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+  <nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/mydashboard"class="babMenu navbar-item is-tab is-active">My current insights</router-link>
-            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item">My watch list</router-link>
-            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item">My past insights</router-link>
-            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item is-tab is-active">Insiders I follow</router-link>
+            <router-link to="/dashboard/:username"class="babMenu navbar-item is-tab is-active">Insider current insights</router-link>
+            <router-link to="/dashboard/:username/boardinsiderswatchlist" class="babMenu navbar-item">Insider watch list</router-link>
+            <router-link to="/dashboard/:username/boardmyinsiderspastinsights"class="babMenu navbar-item">Insider insights</router-link>
+            <router-link to="/dashboard/:username/boardinsidersfollowed"class="babMenu navbar-item">Insiders followed</router-link>
       </div>
       </div>
   </nav>
-        <b-table
-            :data="insidersFollowed"
+ <b-table
+            
+            :data="currentInsights"
             :loading="loading"
 
             :paginated="isPaginated"
@@ -29,28 +29,24 @@
             :default-sort="defaultSortField"
             backend-sorting
             @sort="onSort">
-
             <template scope="props">
-                <b-table-column label="Insider" field='_id' sortable centered><figure class="image is-32x32 is-circle">
-            <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
-            </router-link>
-        </figure>
-        <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.stockId.longName"class="stockName is-6" data-replace="Symbol">
+                    {{ props.row.stockId.longName }}</router-link>
                 </b-table-column>
 
-                <b-table-column field='followers' sortable centered label="Followers">
-                    {{ props.row.followers }}
+                <b-table-column field='position' sortable centered label="Insight">
+                    {{ props.row.position }}
                 </b-table-column>
-                 <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
-                    {{ props.row.nbBabbles }}
-                </b-table-column>
-
-                <b-table-column  field='nbOfLikes' sortable numeric centered label="Likes">
-                    {{ props.row.nbOfLikes }}
+                 <b-table-column field='initialPrice' numeric sortable centered label="Initial price">
+                    {{ props.row.initialPrice }}
                 </b-table-column>
 
-                <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}} 
+                <b-table-column  field='price' sortable numeric centered label="Current price">
+                    {{ props.row.stockId.price }}
+                </b-table-column>
+
+                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="Variation">
+                    {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
@@ -73,22 +69,19 @@
             </template>
         </b-table>
     </section>
-    </section>
-
 </template>
 
 <script>
 
-import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
-import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
+import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import {
-  getUserProfileInfo,
-  getMyInsidersFollowed,
+  getInsiderProfileInfo,
+  getInsiderCurrentInsights,
 } from "@/api/apiDashboard";
 export default {
   data() {
     return {
-      insidersFollowed: [],
+      currentInsights: [],
       isEditing: false,
       profileInfo: null,
       indexSelected: "all",
@@ -101,25 +94,23 @@ export default {
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: 'asc',
-     };
+    }
   },
-  components: {
-    MyProfileBlock,
-    UpdateMyInfo,
+ components: {
+        InsiderProfileBlock,
   },
   created() {
-    getUserProfileInfo().then(profileInfo => {
+     const insiderId = this.$route.params.id;
+    getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
     });
-    getMyInsidersFollowed().then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
+    getInsiderCurrentInsights(insiderId).then(currentInsights => {
+        this.currentInsights = currentInsights;
       });
   },
 
   methods:{
-    changeToEdit() {
-      this.isEditing = !this.isEditing;
-    },
+  
    onPageChange(page) {
     this.page = page
     this.onSort()
@@ -129,10 +120,10 @@ export default {
              */
   onSort(field, order) {
     this.loading = true
-    getMyInsidersFollowed({
+     getInsiderCurrentInsights(this.$route.params.id)({
         sort: makeSortParam(field, order)
-    }).then(insidersFollowed => {
-       this.insidersFollowed = insidersFollowed
+    }).then(currentInsights => {
+       this.currentInsights = currentInsights
        this.loading = false
     })
     },
@@ -189,4 +180,7 @@ export default {
 .babblesMenu {
     display: flex;
 }
+
+
 </style>
+

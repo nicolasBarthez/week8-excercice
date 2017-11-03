@@ -34,7 +34,8 @@ const router = new Router({
         },
         {
             path: "/stocks/:stockName",
-            component: StockPage
+            component: StockPage,
+            saveScrollPosition: false
         },
         {
             path: "/trending",
@@ -42,29 +43,49 @@ const router = new Router({
         },
         {
             path: "/mydashboard",
-            component: BoardMyCurrentInsights
+            component: BoardMyCurrentInsights,
+            saveScrollPosition: true
         },
         {
             path: "/mydashboard/boardmyinsidersfollowed",
-            component: BoardMyInsidersFollowed
+            component: BoardMyInsidersFollowed,
+            saveScrollPosition: true
         },
         {
             path: "/mydashboard/boardmywatchlist",
-            component: BoardMyWatchList
+            component: BoardMyWatchList,
+            saveScrollPosition: true
         },
         {
             path: "/mydashboard/boardmypastinsights",
-            component: BoardMyPastInsights
+            component: BoardMyPastInsights,
+            saveScrollPosition: true
         },
         {
-            path: "/dashboard/:username",
+            path: "/dashboard/:id",
             component: DashboardPage
+        },
+        {
+            path: "/dashboard/:id/boardinsidersfollowed",
+            component: BoardInsidersFollowed,
+            saveScrollPosition: true
+        },
+        {
+            path: "/dashboard/:id/boardinsiderswatchlist",
+            component: BoardInsidersWatchList,
+            saveScrollPosition: true
+        },
+        {
+            path: "/dashboard/:id/boardinsiderspastinsights",
+            component: BoardInsidersPastInsights,
+            saveScrollPosition: true
         },
         {
             path: "/stream",
             component: StreamPage
         }
     ],
+
     scrollBehavior(to, from, savedPosition) {
         return { x: 0, y: 0 };
     }
