@@ -58,32 +58,35 @@
 
 
 <script>
-import { login } from '@/api/auth'
+import { login } from "@/api/auth";
 
 export default {
-  data () {
+  data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
       error: ""
-    }
+    };
   },
 
   methods: {
-    login () {
-      login(this.email, this.password, this.$root).then(data => {
-        this.$router.push('/')
-      }).catch(err => {this.error = "whoops"})
-    },
+    login() {
+      login(this.email, this.password, this.$root)
+        .then(data => {
+          this.$router.push("/trending");
+        })
+        .catch(err => {
+          this.error = "error";
+        });
+    }
   },
-  created(){
-      this.$root.hideNav();
+  created() {
+    this.$root.hideNav();
   },
   destroyed() {
     this.$root.showNav = true;
-
   }
-}
+};
 </script>
 
 <style scoped>
@@ -132,6 +135,5 @@ form {
 a{
     color: #192b41;
 }
-  
-</style>
 
+</style>
