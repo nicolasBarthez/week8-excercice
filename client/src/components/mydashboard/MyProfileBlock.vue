@@ -50,7 +50,7 @@
                                     3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
                                 </p>
                                 </div>
-                                
+
                                 <nav id="bandB" class="level media">
                                     <figure class="image is-64x64 is-circle">
                                         <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
@@ -97,7 +97,11 @@
 </template>
 
 <script>
+import { getLeaderboard } from "@/api/apiDashboard";
 export default {
+  data() {
+    return { leaderboard: Object };
+  },
   props: {
     profileInfo: Object
   },
@@ -105,6 +109,11 @@ export default {
     editMyProfile() {
       this.$emit("editprofile");
     }
+  },
+  created() {
+    getLeaderboard(this.$route._id).then(leaderboard => {
+      this.leaderboard = leaderboard;
+    });
   }
 };
 </script>

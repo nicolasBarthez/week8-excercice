@@ -196,7 +196,7 @@ dashboardsController.get(
           });
         }
 
-        const rankingByPoints = reduceArrayByInsiderPoints(wis);
+        let rankingByPoints = reduceArrayByInsiderPoints(wis);
 
         sortInsidersAsc = function(a, b) {
           if (a.performancePoints < b.performancePoints) return -1;
@@ -204,9 +204,18 @@ dashboardsController.get(
           return 0;
         };
 
-        rankingByPoints.sort(sortInsidersAsc);
+        rankingByPoints = rankingByPoints.sort(sortInsidersAsc);
 
-        res.json(rankingByPoints);
+        const arrayOfId = rankingByPoints.map(us => {
+          return us.userId.toString();
+        });
+
+        let index = arrayOfId.indexOf(userId);
+        // console.log("****************ARRAY", arrayOfId);
+        // console.log("*****************INDEX", index);
+        // console.log("*****************USERID", userId);
+
+        res.json({ rankingByPoints, index });
       });
   }
 );
