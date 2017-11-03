@@ -198,3 +198,16 @@ export function isFollowed(insiderId) {
       console.log(err);
     });
 }
+
+// Get leaderboar and index of the user
+export function getLeaderboard(insiderId) {
+  let url = "/dashboards/leaderboard/" + insiderId;
+  return insiders
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+}

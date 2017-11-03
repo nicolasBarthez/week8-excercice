@@ -55,9 +55,9 @@
     "stockImg": "static/images/cac40img/safran.jpeg",
     "symbolPrice": "SAF.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 88.19,
+    "variation": 0.46,
+    "volume": 137525
   },
   {
     "longName": "AIR LIQUIDE",
@@ -79,9 +79,9 @@
     "stockImg": "static/images/cac40img/carrefour.jpeg",
     "symbolPrice": "CA.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 17.38,
+    "variation": -0.07,
+    "volume": 672166
   },
   {
     "longName": "TOTAL",
@@ -91,9 +91,9 @@
     "stockImg": "static/images/cac40img/total.png",
     "symbolPrice": "FP.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 46.005,
+    "variation": 0.105,
+    "volume": 826585
   },
   {
     "longName": "L'OREAL",
@@ -115,9 +115,9 @@
     "stockImg": "static/images/cac40img/accorshotels.png",
     "symbolPrice": "AC.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 41.995,
+    "variation": -0.08,
+    "volume": 204239
   },
   {
     "longName": "BOUYGUES",
@@ -139,9 +139,9 @@
     "stockImg": "static/images/cac40img/sanofi.png",
     "symbolPrice": "SAN.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 80.99,
+    "variation": -0.43,
+    "volume": 394154
   },
   {
     "longName": "AXA",
@@ -151,9 +151,9 @@
     "stockImg": "static/images/cac40img/axa.png",
     "symbolPrice": "CS.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 25.57,
+    "variation": 0.03,
+    "volume": 809137
   },
   {
     "longName": "DANONE",
@@ -163,9 +163,9 @@
     "stockImg": "static/images/cac40img/danone.jpeg",
     "symbolPrice": "BN.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 68.96,
+    "variation": 0.3,
+    "volume": 238617
   },
   {
     "longName": "PERNOD RICARD",
@@ -175,9 +175,9 @@
     "stockImg": "static/images/cac40img/pernodricard.png",
     "symbolPrice": "RI.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 125.95,
+    "variation": -0.05,
+    "volume": 98882
   },
   {
     "longName": "LVMH",
@@ -187,9 +187,9 @@
     "stockImg": "static/images/cac40img/lvmh.png",
     "symbolPrice": "MC.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 242.2,
+    "variation": -1.75,
+    "volume": 109612
   },
   {
     "longName": "SODEXO",
@@ -199,9 +199,9 @@
     "stockImg": "static/images/cac40img/sodexo.png",
     "symbolPrice": "SW.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 105.65,
+    "variation": 0.2,
+    "volume": 52197
   },
   {
     "longName": "MICHELIN",
@@ -211,9 +211,9 @@
     "stockImg": "static/images/cac40img/michelin.jpeg",
     "symbolPrice": "ML.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 123.95,
+    "variation": 0.4,
+    "volume": 81591
   },
   {
     "longName": "KERING",
@@ -223,9 +223,9 @@
     "stockImg": "static/images/cac40img/kering.png",
     "symbolPrice": "KER.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 388.85,
+    "variation": -5.85,
+    "volume": 77524
   },
   {
     "longName": "PEUGEOT",
@@ -247,9 +247,9 @@
     "stockImg": "static/images/cac40img/essilor.jpeg",
     "symbolPrice": "EI.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 103.25,
+    "variation": -0.25,
+    "volume": 190519
   },
   {
     "longName": "SCHNEIDER ELECTRIC",
@@ -307,9 +307,9 @@
     "stockImg": "static/images/cac40img/capgemini.jpeg",
     "symbolPrice": "CAP.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 102.35,
+    "variation": 0.15,
+    "volume": 122458
   },
   {
     "longName": "VINCI",
@@ -367,9 +367,9 @@
     "stockImg": "static/images/cac40img/bnp.jpeg",
     "symbolPrice": "BNP.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 67.33,
+    "variation": -0.15,
+    "volume": 557036
   },
   {
     "longName": "RENAULT",
@@ -391,9 +391,9 @@
     "stockImg": "static/images/cac40img/orange.jpeg",
     "symbolPrice": "ORA.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 13.76,
+    "variation": 0.2,
+    "volume": 3336596
   },
   {
     "longName": "ENGIE",
@@ -403,9 +403,9 @@
     "stockImg": "static/images/cac40img/engie.jpeg",
     "symbolPrice": "ENGI.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 14.21,
+    "variation": -0.03,
+    "volume": 772751
   },
   {
     "longName": "LEGRAND SA",
@@ -415,9 +415,9 @@
     "stockImg": "static/images/cac40img/legrand.png",
     "symbolPrice": "LR.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 61.29,
+    "variation": 0.19,
+    "volume": 114200
   },
   {
     "longName": "VALEO",
@@ -427,9 +427,9 @@
     "stockImg": "static/images/cac40img/valeo.png",
     "symbolPrice": "FR.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 58.43,
+    "variation": 0.45,
+    "volume": 267470
   },
   {
     "longName": "TECHNIP",
@@ -439,9 +439,9 @@
     "stockImg": "static/images/cac40img/technip.png",
     "symbolPrice": "FTI.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 21.805,
+    "variation": 0.645,
+    "volume": 1332675
   },
   {
     "longName": "ARCELOR MITTAL",
@@ -451,9 +451,9 @@
     "stockImg": "static/images/cac40img/arcelor.png",
     "symbolPrice": "MT.AS",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 25.54,
+    "variation": 0.11,
+    "volume": 1369191
   },
   {
     "longName": "STMICROELECTRONICS",
@@ -463,9 +463,9 @@
     "stockImg": "static/images/cac40img/stmicro.jpeg",
     "symbolPrice": "STM.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 18.63,
+    "variation": 0.91,
+    "volume": 1967268
   },
   {
     "longName": "AIRBUS",
@@ -475,8 +475,8 @@
     "stockImg": "static/images/cac40img/airbus.jpeg",
     "symbolPrice": "AIR.PA",
     "index": ["CAC40"],
-    "price": 1,
-    "variation": 1,
-    "volume": 1000
+    "price": 83.79,
+    "variation": 0.32,
+    "volume": 296745
   }
 ]
