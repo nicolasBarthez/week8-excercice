@@ -11,30 +11,48 @@ const config = require("../config");
 const moment = require("moment");
 
 // **********************************************************
+// Check if the user follow the insider   ===================
+// **********************************************************
+
+followerController.get(
+  "/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const insiderId = req.params.id;
+
+    User.findById(user._id).exec((err, us) => {
+      let isFollowed = !(us.following.indexOf(insiderId) === -1);
+
+      res.json(isFollowed);
+    });
+  }
+);
+
+// **********************************************************
 // Follow an insider   ======================================
 // **********************************************************
 
 followerController.post(
-  "/",
+  "/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const insiderId = req.body.insider;
+    const insiderId = req.params.id;
+
+    console.log("req.boby", req.body);
+    console.log("insiderId", req.body.insider);
+    console.log("USER ID", user.id + user.username);
 
     // GAMIFICATION => Add 20 points per people that follow you
     User.findByIdAndUpdate(insiderId, {
       $inc: { score: 20, nbFollower: 1 }
     }).exec();
 
-    User.findByIdAndUpdate(
-      user._id,
-      { $addToSet: { following: insiderId } },
-      err => {
-        if (err) {
-          return next(err);
-        }
-      }
-    ).then(resp => {
+    User.findByIdAndUpdate(user._id, {
+      $addToSet: { following: insiderId }
+    }).then(resp => {
+      console.log("RESP", resp);
       return res.json(user);
     });
   }
@@ -49,22 +67,16 @@ followerController.delete(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const insiderId = req.body.insider;
+    const insiderId = req.params.id;
 
     // GAMIFICATION => Add 20 points per people that follow you
     User.findByIdAndUpdate(insiderId, {
       $inc: { score: -20, nbFollower: -1 }
     }).exec();
 
-    User.findByIdAndUpdate(
-      user._id,
-      { $pull: { following: insiderId } },
-      err => {
-        if (err) {
-          return next(err);
-        }
-      }
-    ).then(resp => {
+    User.findByIdAndUpdate(user._id, {
+      $pull: { following: insiderId }
+    }).then(resp => {
       return res.json(user);
     });
   }
@@ -74,20 +86,20 @@ followerController.delete(
 // See Followers of an insider or me   ======================
 // **********************************************************
 
-followerController.get(
-  "/",
-  passport.authenticate("jwt", config.jwtSession),
-  (req, res, next) => {
-    const user = req.user;
-    const insiderId = req.body.insider ? req.body.insider : user._id;
-
-    User.findById(insiderId)
-      .populate("following")
-      .exec((err, resp) => {
-        if (err) res.json(null);
-        return res.json(resp);
-      });
-  }
-);
+// followerController.get(
+//   "/",
+//   passport.authenticate("jwt", config.jwtSession),
+//   (req, res, next) => {
+//     const user = req.user;
+//     const insiderId = req.body.insider ? req.body.insider : user._id;
+//
+//     User.findById(insiderId)
+//       .populate("following")
+//       .exec((err, resp) => {
+//         if (err) res.json(null);
+//         return res.json(resp);
+//       });
+//   }
+// );
 
 module.exports = followerController;

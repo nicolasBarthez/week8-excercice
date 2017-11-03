@@ -1,41 +1,41 @@
 <template>
   <div id="app">
-    <nav-bar v-if="connectedUser" :connectedUser="connectedUser"></nav-bar>
-    
+
+    <nav-bar v-if="$root.showNav" :connectedUser="connectedUser"></nav-bar>
+
         <router-view></router-view>
-     
+
   </div>
 </template>
 
 <script>
 import { getUser } from "@/api/api";
-import { logout } from '@/api/auth'
-import NavBar from './components/NavBar'
+import { logout } from "@/api/auth";
+import NavBar from "./components/NavBar";
 
 export default {
-  name: 'app',
+  name: "app",
   data() {
     return {
-      connectedUser:null,
-  };
-},
+      connectedUser: null
+    };
+  },
 
-  components:{
+  components: {
     NavBar
   },
 
   methods: {
-    logout () {
-      logout(this.$root)
-      this.$router.push('/')
+    logout() {
+      logout(this.$root);
+      this.$router.push("/");
     }
   },
 
-   created() {
+  created() {
     getUser().then(connectedUser => {
-        this.connectedUser =connectedUser;
+      this.connectedUser = connectedUser;
     });
   }
-}
+};
 </script>
-

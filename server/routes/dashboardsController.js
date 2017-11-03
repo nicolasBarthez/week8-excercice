@@ -507,6 +507,7 @@ dashboardsController.get(
   "/insider/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
+    const user = req.user;
     const userId = req.params.id;
     console.log("USERID INSIDER", userId);
 
@@ -520,10 +521,11 @@ dashboardsController.get(
         location: us.location,
         following: us.following.length
       };
-      console.log("USERINFO ", userInfo);
+
       Babble.find({
-        userId
+        user: userId
       }).then(babbles => {
+        console.log("BABBLES OF INSIDER***********", babbles);
         userInfo.nbBabbles = 0 + babbles.length;
 
         userInfo.nbOfLikes =
@@ -531,16 +533,15 @@ dashboardsController.get(
           babbles.map(item => item.like).reduce((sum, next) => {
             return sum + next.length;
           }, 0);
-        console.log("USERINFO BABBLES ", userInfo);
+
         // Calculate prefered stocks
         WatchItem.find({
-          userId,
+          userId: userId,
           status: "won"
         })
           .populate("stockId")
           .exec((err, wi) => {
             if (err) res.json(null);
-            console.log("WI ", wi);
 
             // first, convert data into a Map with reduce
             function reduceArrayByStockPoints(array) {

@@ -1,5 +1,5 @@
 <template >
-<section v-if = "profileInfo" class="section main">
+<section v-if = "profileInfo" >
   <div class="column is-6" id="ActionCard">
     <div class="card profile-card">
       <div class="card-content">
@@ -23,7 +23,8 @@
             </p>
             <p class="subtitle is-6"> <strong>Likes</strong> {{profileInfo.nbOfLikes}}
             </p>
-            <button @click="follow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
+            <button v-if="!followed" @click="follow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
+            <button v-else @click="unfollow" id="BEditFollow" class="button is-small is-outlined is-primary" type="button" name="button">Unfollow</button>
           </div>
         </div>
         <nav class="level">
@@ -74,14 +75,32 @@
 </template>
 
 <script>
+import { followInsider, unfollowInsider, isFollowed } from "@/api/apiDashboard";
 export default {
+  data() {
+    return { followed: "" };
+  },
   props: {
     profileInfo: Object
   },
+  created() {
+    const id = this.$route.params.id;
+    isFollowed(id).then(followed => {
+      this.followed = followed;
+    });
+  },
   methods: {
     follow() {
-      followInsider(profileInfo.userId).then(resp => {
-        console.log(resp);
+      followInsider(this.profileInfo.userId).then(resp => {
+        this.followed = true;
+        this.$emit("changeFollow");
+      });
+    },
+
+    unfollow() {
+      unfollowInsider(this.profileInfo.userId).then(resp => {
+        this.followed = false;
+        this.$emit("changeFollow");
       });
     }
   }

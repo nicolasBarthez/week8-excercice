@@ -1,25 +1,25 @@
 <template>
     <section class="main">
- <insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+ <insider-profile-block v-if="profileInfo" @changeFollow="updateProfileInfo" :profileInfo="profileInfo"></insider-profile-block>
   <nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/dashboard/:username"class="babMenu navbar-item is-tab is-active">Insider current insights</router-link>
-            <router-link to="/dashboard/:username/boardinsiderswatchlist" class="babMenu navbar-item">Insider watch list</router-link>
-            <router-link to="/dashboard/:username/boardmyinsiderspastinsights"class="babMenu navbar-item">Insider insights</router-link>
-            <router-link to="/dashboard/:username/boardinsidersfollowed"class="babMenu navbar-item">Insiders followed</router-link>
+            <router-link :to="'/dashboard/'+profileInfo.userId"class="babMenu navbar-item is-tab is-active">Insider current insights</router-link>
+            <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsiderswatchlist'" class="babMenu navbar-item">Insider watch list</router-link>
+            <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsiderspastinsights'"class="babMenu navbar-item">Insider insights</router-link>
+            <router-link :to="'/dashboard/'+profileInfo.userId+'/boardinsidersfollowed'"class="babMenu navbar-item">Insiders followed</router-link>
       </div>
       </div>
   </nav>
  <b-table
-            
+
             :data="currentInsights"
             :loading="loading"
 
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -72,11 +72,10 @@
 </template>
 
 <script>
-
 import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import {
   getInsiderProfileInfo,
-  getInsiderCurrentInsights,
+  getInsiderCurrentInsights
 } from "@/api/apiDashboard";
 export default {
   data() {
@@ -87,72 +86,73 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-    }
+      defaultSortDirection: "asc"
+    };
   },
- components: {
-        InsiderProfileBlock,
+  components: {
+    InsiderProfileBlock
   },
   created() {
-     const insiderId = this.$route.params.id;
+    const insiderId = this.$route.params.id;
     getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
     });
     getInsiderCurrentInsights(insiderId).then(currentInsights => {
-        this.currentInsights = currentInsights;
-      });
+      this.currentInsights = currentInsights;
+    });
   },
 
-  methods:{
-  
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
-            /*
+  methods: {
+    updateProfileInfo() {
+      getInsiderProfileInfo(this.$route.params.id).then(profileInfo => {
+        this.profileInfo = profileInfo;
+      });
+    },
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
              * Handle sort event
              */
-  onSort(field, order) {
-    this.loading = true
-     getInsiderCurrentInsights(this.$route.params.id)({
+    onSort(field, order) {
+      this.loading = true;
+      getInsiderCurrentInsights(this.$route.params.id)({
         sort: makeSortParam(field, order)
-    }).then(currentInsights => {
-       this.currentInsights = currentInsights
-       this.loading = false
-    })
+      }).then(currentInsights => {
+        this.currentInsights = currentInsights;
+        this.loading = false;
+      });
     },
-           /*
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
- },              
- filters: {
-            /**
+    }
+  },
+  filters: {
+    /**
              * Filter to truncate string, accepts a length parameter
              */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
   }
- },
-}
-
+};
 </script>
 
 <style scoped>
@@ -183,4 +183,3 @@ export default {
 
 
 </style>
-
