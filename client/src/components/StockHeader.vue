@@ -109,15 +109,15 @@ export default {
     },
 
     imBull() {
-      beBull(this.stock.longName).then(item => {
-        // this.watchItem = item;
-        console.log("DEBUG beBull: $emit item", item);
+      const inWatchList = this.watchItem ? this.watchItem._id : undefined;
+      beBull(this.stock.longName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
     },
 
     imBear() {
-      beBear(this.stock.longName).then(item => {
+      const inWatchList = this.watchItem ? this.watchItem._id : undefined;
+      beBear(this.stock.longName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
     },
