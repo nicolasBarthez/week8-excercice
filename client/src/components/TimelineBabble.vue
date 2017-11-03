@@ -6,8 +6,7 @@
             <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)"
                  :class="{ active: 'white' }" class="nav-item is-tab poi"> {{ link.text }}
             </a>
-            <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
-        </div>
+         </div>
     </nav>
     <div class="card">
         <div class="babbles-box" id="babble-container">
@@ -15,13 +14,13 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
+                          <router-link :to="'/dashboard/'+babble.user._id" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <p class="tweet-meta">
-                                <router-link to="/" class="has-text-dark">
+                                <router-link :to="'/dashboard/'+babble.user._id" class="">
                                    <strong>{{babble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
                             </p>
@@ -59,13 +58,14 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img class="imgProfile" :src="modalBabble.user.picProfile" alt="Image"></router-link>
+                          <router-link :to="'/dashboard/'+modalBabble.user._id" class="">
+                        <img class="imgProfile" :src="modalBabble.user.picProfile" alt="Image"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <p class="tweet-meta">
-                                <router-link to="/" class="has-text-dark">
+                                  <router-link :to="'/dashboard/'+modalBabble.user._id" class="">
                                    <strong>{{modalBabble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('llll')}}</small>
 
@@ -93,13 +93,13 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="/" class=""><img class="imgProfile" :src="reply.picProfile"></router-link>
+                          <router-link :to="'/dashboard/'+reply.user._id" class=""><img class="imgProfile" :src="reply.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <p class="tweet-meta">
-                                <router-link to="/" class="has-text-dark">
+                               <router-link :to="'/dashboard/'+reply.user._id" class="">
                                    <strong>{{reply.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('llll')}}</small>
                             </p>
