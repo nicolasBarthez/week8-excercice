@@ -74,8 +74,8 @@ export default {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-      let babbleToPost = "#" + this.stock.longName + " - " + this.babble;
-      sendBabble(babbleToPost, this.stock._id).then(() => {
+
+      sendBabble(this.babble, this.stock._id).then(() => {
         this.babble = "";
         this.$emit("changeBabbles");
       });

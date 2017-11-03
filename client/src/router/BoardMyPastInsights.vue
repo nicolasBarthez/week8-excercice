@@ -13,14 +13,14 @@
       </div>
   </nav>
         <b-table
-            
-            :data="pastInsight"
+
+            :data="pastInsights"
             :loading="loading"
 
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -44,7 +44,7 @@
                 </b-table-column>
 
                 <b-table-column  field='soldPrice' sortable numeric centered label="Sold price">
-                    {{ props.row.sold.price }}
+                    {{ props.row.soldPrice }}
                 </b-table-column>
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
@@ -74,90 +74,83 @@
 </template>
 
 <script>
-
 import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
 import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
-import {
-  getUserProfileInfo,
-  getMyPastInsights,
-} from "@/api/apiDashboard";
+import { getUserProfileInfo, getMyPastInsights } from "@/api/apiDashboard";
 export default {
   data() {
     return {
-      pastInsight: [],
+      pastInsights: [],
       isEditing: false,
       profileInfo: null,
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-    }
+      defaultSortDirection: "asc"
+    };
   },
   components: {
     MyProfileBlock,
-    UpdateMyInfo,
+    UpdateMyInfo
   },
   created() {
     getUserProfileInfo().then(profileInfo => {
       this.profileInfo = profileInfo;
     });
     getMyPastInsights().then(pastInsights => {
-        this.pastInsights = pastInsights;
-      });
+      this.pastInsights = pastInsights;
+    });
   },
 
-  methods:{
+  methods: {
     changeToEdit() {
       this.isEditing = !this.isEditing;
     },
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
-            /*
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
              * Handle sort event
              */
-  onSort(field, order) {
-    this.loading = true
-    getMyPastInsights()({
+    onSort(field, order) {
+      this.loading = true;
+      getMyPastInsights()({
         sort: makeSortParam(field, order)
-    }).then(pastInsights => {
-       this.pastInsights = pastInsights
-       this.loading = false
-    })
+      }).then(pastInsights => {
+        this.pastInsights = pastInsights;
+        this.loading = false;
+      });
     },
-           /*
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
- },              
- filters: {
-            /**
+    }
+  },
+  filters: {
+    /**
              * Filter to truncate string, accepts a length parameter
              */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
   }
- },
-}
-
+};
 </script>
 
 <style scoped>

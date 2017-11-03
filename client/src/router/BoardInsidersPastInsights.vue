@@ -13,7 +13,7 @@
   </nav>
         <b-table
 
-            :data="pastInsight"
+            :data="pastInsights"
             :loading="loading"
 
             :paginated="isPaginated"
@@ -43,7 +43,7 @@
                 </b-table-column>
 
                 <b-table-column  field='soldPrice' sortable numeric centered label="Sold price">
-                    {{ props.row.sold.price }}
+                    {{ props.row.soldPrice }}
                 </b-table-column>
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
@@ -81,7 +81,7 @@ import {
 export default {
   data() {
     return {
-      pastInsight: [],
+      pastInsights: [],
       isEditing: false,
       profileInfo: null,
       indexSelected: "all",
