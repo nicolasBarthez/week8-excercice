@@ -54,8 +54,8 @@ export function getMyPastInsights() {
     });
 }
 
-export function getMyInsidersFollowed() {
-  let url = "dashboards/insidersfollowed";
+export function getMyInsidersFollowed(insiderId) {
+  let url = "dashboards/insidersfollowed/id=" + insiderId;
   return insiders
     .get(url)
     .then(response => {

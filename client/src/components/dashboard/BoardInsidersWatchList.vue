@@ -52,7 +52,7 @@
                     {{ props.row.hotInsights }}
                 </b-table-column>
 
-                <b-table-column field='bestInsiders[0].perf' sortable centered label="Insiders I follow">
+                <b-table-column field='bestInsiders[0].perf' sortable centered label="Insiders on it">
                     <strong v-if="props.row.bestInsiders[0]">@{{props.row.bestInsiders[0].username}}</strong><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf}} points)</small>
                 </b-table-column>
             </template>
@@ -101,19 +101,19 @@ export default {
   },
 
   methods: {
-   curInsights(){ 
-         this.$emit("curIns");
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
-    
+
     onPageChange(page) {
       this.page = page;
       this.onSort();
