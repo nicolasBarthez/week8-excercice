@@ -17,7 +17,7 @@
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -48,7 +48,7 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}} 
+                    {{props.row.preferedStocks}}
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
@@ -83,78 +83,74 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-     };
+      defaultSortDirection: "asc"
+    };
   },
   created() {
-    getMyInsidersFollowed().then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-      });
+    getMyInsidersFollowed(this.$root.user._id).then(insidersFollowed => {
+      this.insidersFollowed = insidersFollowed;
+    });
   },
-    
-   methods: { 
-    
-    curInsights(){ 
-         this.$emit("curIns");
+
+  methods: {
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
-    
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
-            /*
+
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
              * Handle sort event
              */
-  onSort(field, order) {
-    this.loading = true
-    getMyInsidersFollowed({
+    onSort(field, order) {
+      this.loading = true;
+      getMyInsidersFollowed({
         sort: makeSortParam(field, order)
-    }).then(insidersFollowed => {
-       this.insidersFollowed = insidersFollowed
-       this.loading = false
-    })
+      }).then(insidersFollowed => {
+        this.insidersFollowed = insidersFollowed;
+        this.loading = false;
+      });
     },
-           /*
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
- },              
- filters: {
-            /**
+    }
+  },
+  filters: {
+    /**
              * Filter to truncate string, accepts a length parameter
              */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
   }
- },
-}
-
+};
 </script>
 
 <style scoped>

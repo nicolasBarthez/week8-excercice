@@ -219,7 +219,6 @@ stocksController.post(
         })
         .catch(err => res.status(404));
     } else {
-      console.log("**********WI identifié 2", watchitemId);
       WatchItem.findByIdAndUpdate(
         watchitemId,
         {
@@ -227,7 +226,6 @@ stocksController.post(
         },
         { new: true }
       ).exec((err, resp) => {
-        console.log("**********WI removed", watchitemId);
         User.findByIdAndUpdate(user._id, {
           $pull: { watchList: watchitemId }
         }).then(resp => {

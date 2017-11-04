@@ -17,7 +17,7 @@
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -52,7 +52,7 @@
                     {{ props.row.hotInsights }}
                 </b-table-column>
 
-                <b-table-column field='bestInsiders[0].perf' sortable centered label="Insiders I follow">
+                <b-table-column field='bestInsiders[0].perf' sortable centered label="Insiders on it">
                     <strong v-if="props.row.bestInsiders[0]">@{{props.row.bestInsiders[0].username}}</strong><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf}} points)</small>
                 </b-table-column>
             </template>
@@ -83,75 +83,71 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-      }
+      defaultSortDirection: "asc"
+    };
   },
 
   created() {
     getMyWatchList().then(watchList => {
-        this.watchList = watchList;
-      });
+      this.watchList = watchList;
+    });
   },
-  methods: { 
-    
-    curInsights(){ 
-         this.$emit("curIns");
+  methods: {
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
 
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
 
-  onSort(field, order) {
-    this.loading = true
-    getMyWatchList({
+    onSort(field, order) {
+      this.loading = true;
+      getMyWatchList({
         sort: makeSortParam(field, order)
-        }).then(watchList => {
-       this.watchList = watchList
-       this.loading = false
-      })
+      }).then(watchList => {
+        this.watchList = watchList;
+        this.loading = false;
+      });
     },
-   
-           /*
+
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
-},
-             
- filters: {
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
-  }
- },
+    }
+  },
 
-}
+  filters: {
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
+  }
+};
 </script>
 
 

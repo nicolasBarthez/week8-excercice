@@ -54,8 +54,8 @@ export function getMyPastInsights() {
     });
 }
 
-export function getMyInsidersFollowed() {
-  let url = "dashboards/insidersfollowed";
+export function getMyInsidersFollowed(insiderId) {
+  let url = "dashboards/insidersfollowed/id=" + insiderId;
   return insiders
     .get(url)
     .then(response => {
@@ -202,6 +202,7 @@ export function isFollowed(insiderId) {
 // Get leaderboar and index of the user
 export function getLeaderboard(insiderId) {
   let url = "/dashboards/leaderboard/" + insiderId;
+  console.log("URL=> ", url);
   return insiders
     .get(url)
     .then(response => {

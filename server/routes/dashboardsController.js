@@ -795,17 +795,20 @@ dashboardsController.get(
 // **********************************************************
 
 dashboardsController.get(
-  "/insidersfollowed",
+  "/insidersfollowed/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
-    const user = req.params.id;
+    const id = req.params.id;
     const insidersFollowed = [];
 
-    User.findById(user._id)
+    console.log("BOUCLE INSIDER FOLLOWED");
+
+    User.findById(id)
       .populate("following")
       .exec((err, followed) => {
         if (err) res.json(null);
 
+        console.log(" LIST FOLLOWED", followed);
         followed.following.forEach(usFollowed => {
           let userInfo = {
             username: usFollowed.username,
@@ -877,8 +880,15 @@ dashboardsController.get(
                     userInfo.followers = us.length ? us.length : 0;
 
                     insidersFollowed.push(userInfo);
-
-                    if (insidersFollowed.length === followed.length) {
+                    console.log(
+                      "insidersFollowed.length",
+                      insidersFollowed.length
+                    );
+                    console.log(
+                      "followed.following.length",
+                      followed.following.length
+                    );
+                    if (insidersFollowed.length === followed.following.length) {
                       if (followed.length === 0) {
                         return res.json(null);
                       }
