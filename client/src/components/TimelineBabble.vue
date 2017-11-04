@@ -1,13 +1,13 @@
 <template>
  <div>
      <div>
-     <nav class="navbar is-dark">
-        <div class="babblesMenu">
-            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query,$event)"
-                 class="nav-item is-tab poi" :class=" link.text==='All' ? 'is-active': '' "> {{ link.text }}
-            </a>
-         </div>
-    </nav>
+    <nav class="navbar is-dark">
+      <div class="babblesMenu">
+            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="babMenu navbar-item is-tab ">All</a>
+            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="babMenu navbar-item is-tab">Insider Mates</a>
+            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="babMenu navbar-item is-tab ">My Posts</a>
+      </div>
+  </nav>
     <div class="card">
         <div class="babbles-box" id="babble-container">
            <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">
@@ -160,22 +160,16 @@ export default {
   data() {
     return {
       isCardModalActive: false,
-      navbarLinks: [
-        { text: "All", query: "all" },
-        { text: "Insiders Mates", query: "insidermates" },
-        { text: "My posts", query: "me" }
-      ],
       babbleText: "",
       modalBabble: "",
       userReply: "",
-      link: "all",
-      currentMenu:'',
+      activeItem: "all"
     };
   },
   props: {
     babbles: Array,
     stock: Object,
-    connectedUser: Object
+    connectedUser: Object,
   },
   methods: {
     moment: function(time) {
@@ -196,13 +190,11 @@ export default {
           console.log("something is wrong");
         });
     },
-    sortBabbles(link, e) {
-    this.$emit("sort", link);
-    console.log(this.littleFucker)
-      if(this.currentMenu) this.currentMenu.classList.remove("is-active")
-      e.target.classList.add("is-active")
-      this.currentMenu=e.target
+     sortBabbles(activeItem) {
+      this.$emit("sort", activeItem);
+      this.activeItem=activeItem
     },
+
     postBabble(modalBabble) {
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
         this.babbleText = "";
@@ -211,10 +203,6 @@ export default {
       });
     },
   },
-  mounted() {
-        this.currentMenu = document.getElementsByClassName('is-active')[0]
-        console.log('.....',this.currentMenu);
-    }
 };
 </script>
 
@@ -376,7 +364,5 @@ word-break: break-word;
         cursor: pointer;
     }
 
-    .poi{
 
-    }
 </style>

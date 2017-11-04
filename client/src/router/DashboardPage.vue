@@ -1,98 +1,55 @@
 <template >
 <section v-else class="section main">
-  <insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
-  <nav class="navbar is-dark">
-    <div class="babblesMenu">
-      <div v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query)" :class="{'is-active': link.text[index], 'nav-item': true, 'is-tab': true }"> {{ link.text }}
-      </div>
-      <p id="vide"></p>
-      <router-link to="/" id="reload1" class="babMenu"><i href="/stream" id="reload" class="navbar-item fa fa-refresh"></i></router-link>
-    </div>
-  </nav>
-  <board-current-insights :currentInsights="currentInsights"></board-current-insights>
-  <board-watch-list :watchList="watchList"></board-watch-list>
-  <board-past-insights :pastInsights="pastInsights"></board-past-insights>
-  <board-insiders-followed :insidersFollowed="insidersFollowed"></board-insiders-followed>
+<insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+ 
+  <board-insiders-current-insights v-if="activeItem==='curinsights'" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-current-insights>
+  <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-watch-list>
+  <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-past-insights>
+  <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-followed>
 
 </section>
 </template>
 
 <script>
 import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
-import BoardCurrentInsights from "../components/dashboard/BoardCurrentInsights";
-import BoardWatchList from "../components/dashboard/BoardWatchList";
-import BoardPastInsights from "../components/dashboard/BoardPastInsights";
+import BoardInsidersCurrentInsights from "../components/dashboard/BoardInsidersCurrentInsights";
+import BoardInsidersWatchList from "../components/dashboard/BoardInsidersWatchList";
+import BoardInsidersPastInsights from "../components/dashboard/BoardInsidersPastInsights";
 import BoardInsidersFollowed from "../components/dashboard/BoardInsidersFollowed";
-import {
-  getInsiderProfileInfo,
-  getInsiderCurrentInsights,
-  getInsiderWatchList,
-  getInsiderPastInsights,
-  getInsiderInsidersFollowed
-} from "@/api/apiDashboard";
+import { getInsiderProfileInfo } from "@/api/apiDashboard";
 
 export default {
   data() {
     return {
-      profileInfo: null,
-      currentInsights: null,
-      watchList: null,
-      pastInsights: null,
-      insidersFollowed: null,
-      navbarLinks: [
-        {
-          location: "/myinsights",
-          text: "My current insights"
-        },
-        {
-          location: "/mywatchlist",
-          text: "My watch list"
-        },
-        {
-          location: "/mypastinsights",
-          text: "My past insights"
-        },
-        {
-          location: "/insiderfollowed",
-          text: "Insiders I follow"
-        }
-      ]
+    profileInfo: null,
+    activeItem: 'curinsights'
     };
   },
   components: {
     InsiderProfileBlock,
-    BoardCurrentInsights,
-    BoardWatchList,
-    BoardPastInsights,
+    BoardInsidersCurrentInsights,
+    BoardInsidersWatchList,
+    BoardInsidersPastInsights,
     BoardInsidersFollowed
   },
   methods: {
-    displayInsiderWatchList() {
-      const insiderId = this.$route.params.id;
-      getInsiderWatchList(insiderId).then(watchList => {
-        this.watchList = watchList;
-      });
+    currentInsights(){ 
+            this.activeItem= "curinsights"
+        },
+    myWatchList(){
+            this.activeItem= "watchlist"
+        },
+    myInsidersFollowed(){
+            this.activeItem= "insfollowed"
     },
-    displayInsiderPastInsights() {
-      const insiderId = this.$route.params.id;
-      getInsiderPastInsights(insiderId).then(pastInsights => {
-        this.pastInsights = pastInsights;
-      });
-    },
-    displayInsiderInsidersFollowed() {
-      const insiderId = this.$route.params.id;
-      getInsiderInsidersFollowed(insiderId).then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-      });
-    }
+    myPastInsights(){
+            this.activeItem= "pastinsights"
+    }, 
   },
   created() {
     const insiderId = this.$route.params.id;
     getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
-    });
-    getInsiderCurrentInsights(insiderId).then(currentInsights => {
-      this.currentInsights = currentInsights;
     });
   }
 };

@@ -1,17 +1,15 @@
 <template>
-    <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
+<div>
   <nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/mydashboard"class="babMenu navbar-item ">My current insights</router-link>
-            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item">My watch list</router-link>
-            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item is-tab is-active">My past insights</router-link>
-            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item">Insiders I follow</router-link>
+            <a  @click="curInsights()" class="babMenu navbar-item is-tab">My current insights</a>
+            <a  @click="WatchList()" class="babMenu navbar-item is-tab">My watch list</a>
+            <a  @click="PastInsights()"class="babMenu navbar-item is-tab is-active">My past insights</a>
+            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders I follow</a>
       </div>
       </div>
-  </nav>
+   </nav>
         <b-table
 
             :data="pastInsights"
@@ -32,11 +30,14 @@
             @sort="onSort">
 
             <template scope="props">
+              <b-table-column field='created' numeric sortable centered label="Initiated">
+                    {{ moment(props.row.created_at).format('MMM Do YY') }}
+                </b-table-column>
                 <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.stockId.longName"class="stockName is-6" data-replace="Symbol">
                     {{ props.row.stockId.longName }}</router-link>
                 </b-table-column>
 
-                <b-table-column field='position' sortable centered label="Insight">
+                <b-table-column field='position' :class="{'has-text-green' : props.row.position==='bull', 'has-text-red' : props.row.position==='bear'}"sortable centered label="Insight">
                     {{ props.row.position }}
                 </b-table-column>
                  <b-table-column field='initialPrice' numeric sortable centered label="Initial price">
@@ -49,8 +50,11 @@
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
                     {{((props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
-                </b-table-column><b-table-column field='performancePoints' numeric sortable centered label="Performnce">
+                </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="P$">
                     {{ props.row.performancePoints }}
+                </b-table-column>
+                <b-table-column field='closed' numeric sortable centered label="Closed">
+                    {{ moment(props.row.updated_at).format('MMM Do YY') }}
                 </b-table-column>
 
             </template>
@@ -68,25 +72,22 @@
                 </section>
             </template>
         </b-table>
-    </section>
-    </section>
+   </div>
 
 </template>
 
 <script>
-import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
-import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
-import { getUserProfileInfo, getMyPastInsights } from "@/api/apiDashboard";
+import moment from "moment";
+import { getMyPastInsights } from "@/api/apiDashboard";
+
 export default {
   data() {
     return {
       pastInsights: [],
-      isEditing: false,
-      profileInfo: null,
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: "longName",
+      defaultSortField: "closed",
       defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
@@ -95,22 +96,28 @@ export default {
       defaultSortDirection: "asc"
     };
   },
-  components: {
-    MyProfileBlock,
-    UpdateMyInfo
-  },
+
   created() {
-    getUserProfileInfo().then(profileInfo => {
-      this.profileInfo = profileInfo;
-    });
     getMyPastInsights().then(pastInsights => {
       this.pastInsights = pastInsights;
     });
   },
 
-  methods: {
-    changeToEdit() {
-      this.isEditing = !this.isEditing;
+methods: { 
+    moment: function(time) {
+      return moment(time);
+    },
+    curInsights(){ 
+         this.$emit("curIns");
+    },
+    WatchList(){
+         this.$emit("Watch");
+    },
+    InsidersFollowed(){
+         this.$emit("InsFollo");
+    },
+    PastInsights(){
+        this.$emit("PastIns");
     },
     onPageChange(page) {
       this.page = page;
@@ -155,7 +162,7 @@ export default {
 
 <style scoped>
 .main {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9!important;
     padding: 7rem 1.5rem;
 }
 .container{
@@ -163,20 +170,19 @@ export default {
 }
 
 .navbar.is-dark {
-    background-color: #192b41;
-    color: #f9f9f9;
+    background-color: #192b41!important;
+    color: #f9f9f9!important;
 }
 
 .navbar-item.is-tab.is-active {
     background-color: transparent;
-    border-bottom-color: #f9f9f9;
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-    color: #f9f9f9;
-    padding-bottom: calc(0.5rem - 3px);
+    border-bottom-color: #f9f9f9!important;
+    border-bottom-style: solid!important;
+    border-bottom-width: 3px!important;
+    color: #f9f9f9!important;
+    padding-bottom: calc(0.5rem - 3px)!important;
 }
 .babblesMenu {
     display: flex;
 }
-
 </style>

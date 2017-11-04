@@ -5,15 +5,9 @@ import Login from "./Login";
 import Signup from "./Signup";
 import StockPage from "./StockPage";
 import TrendingPage from "./TrendingPage";
-import BoardMyCurrentInsights from "./BoardMyCurrentInsights";
-import BoardInsidersCurrentInsights from "./BoardInsidersCurrentInsights";
-import BoardInsidersFollowed from "./BoardInsidersFollowed";
-import BoardInsidersPastInsights from "./BoardInsidersPastInsights";
-import BoardInsidersWatchList from "./BoardInsidersWatchList";
+import DashboardPage from "./DashboardPage";
 import StreamPage from "./StreamPage";
-import BoardMyInsidersFollowed from "./BoardMyInsidersFollowed";
-import BoardMyWatchList from "./BoardMyWatchList";
-import BoardMyPastInsights from "./BoardMyPastInsights";
+import MyDashBoard from "./MyDashBoard";
 
 Vue.use(Router);
 
@@ -38,7 +32,6 @@ const router = new Router({
         {
             path: "/stocks/:stockName",
             component: StockPage,
-            saveScrollPosition: false
         },
         {
             path: "/trending",
@@ -46,42 +39,11 @@ const router = new Router({
         },
         {
             path: "/mydashboard",
-            component: BoardMyCurrentInsights,
-            saveScrollPosition: true
-        },
-        {
-            path: "/mydashboard/boardmyinsidersfollowed",
-            component: BoardMyInsidersFollowed,
-            saveScrollPosition: true
-        },
-        {
-            path: "/mydashboard/boardmywatchlist",
-            component: BoardMyWatchList,
-            saveScrollPosition: true
-        },
-        {
-            path: "/mydashboard/boardmypastinsights",
-            component: BoardMyPastInsights,
-            saveScrollPosition: true
+            component: MyDashBoard,
         },
         {
             path: "/dashboard/:id",
-            component: BoardInsidersCurrentInsights,
-        },
-        {
-            path: "/dashboard/:id/boardinsidersfollowed",
-            component: BoardInsidersFollowed,
-            saveScrollPosition: true
-        },
-        {
-            path: "/dashboard/:id/boardinsiderswatchlist",
-            component: BoardInsidersWatchList,
-            saveScrollPosition: true
-        },
-        {
-            path: "/dashboard/:id/boardinsiderspastinsights",
-            component: BoardInsidersPastInsights,
-            saveScrollPosition: true
+            component: DashboardPage,
         },
         {
             path: "/stream",

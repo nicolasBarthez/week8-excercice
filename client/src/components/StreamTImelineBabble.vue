@@ -1,13 +1,14 @@
 <template>
     <div>
-     <div>
-     <nav class="navbar is-dark">
-        <div class="babblesMenu">
-            <a v-for="(link, index) in navbarLinks" :key="index" @click="sortBabbles(link.query,$event)"
-                    class="nav-item is-tab poi" :class=" link.text==='All' ? 'is-active': '' "> {{ link.text }}
-            </a>
-         </div>
-    </nav>
+        <div>
+   <nav class="navbar is-dark">
+      <div class="babblesMenu">
+            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="babMenu navbar-item is-tab ">All</a>
+            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="babMenu navbar-item is-tab">Insider Mates</a>
+            <a  @click="sortBabbles('watchlist')" :class="{'is-active':activeItem ==='watchlist'}" class="babMenu navbar-item is-tab ">My Watch List</a>
+            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="babMenu navbar-item is-tab ">My Posts</a>
+      </div>
+  </nav>
     <div class="card">
         <div class="babbles-box" id="babble-container">
            <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">
@@ -159,16 +160,10 @@ export default {
   data() {
     return {
       isCardModalActive: false,
-      navbarLinks: [
-        { text: "All", query: "all" },
-        { text: "Insiders Mates", query: "insidermates" },
-        { text: "Watch List", query: "watchlist" },
-        { text: "My posts", query: "me" }
-      ],
       babbleText: "",
       modalBabble: "",
       userReply: "",
-      currentMenu:''
+      activeItem: "all"
     };
   },
   props: {
@@ -194,11 +189,9 @@ export default {
           console.log("something is wrong");
         });
     },
-    sortBabbles(link,e) {
-      this.$emit("sort", link);
-      if(this.currentMenu)this.currentMenu.classList.remove("is-active")
-      e.target.classList.add("is-active")
-      this.currentMenu=e.target
+   sortBabbles(activeItem) {
+      this.$emit("sort", activeItem);
+      this.activeItem=activeItem
     },
     postBabble(modalBabble) {
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
@@ -218,9 +211,6 @@ export default {
       );
     }
   },
-    mounted() {
-        this.currentMenu = document.getElementsByClassName('is-active')[0]
-    }
 };
 </script>
 
@@ -252,14 +242,13 @@ body {
 .level .levelchartIcon{
     display:flex;
 }
-.tweet-meta{
-    display: flex;
-    justify-content: space-between
-}
+
 .tweet-body{
 word-break: break-word;
 }
-
+.likeModal{
+    cursor:initial !important;
+}
 .tweets {
     border-bottom: 1px solid;
     border-bottom-color: darkgray;
@@ -270,24 +259,7 @@ word-break: break-word;
 .card-content {
     padding: 1.5rem;
 }
-.navbar-item, .navbar-link {
-    display: block;
-    line-height: 1.5;
-    padding: .5rem 1rem;
-    position: relative;
-    cursor: pointer;
-}
 
-.navbar-item {
-    border-bottom: 1px solid transparent;
-    min-height: 3.25rem;
-}
-.navbar-item, .navbar-link {
-    display: block;
-    line-height: 1.5;
-    padding: .5rem 1rem;
-    position: relative;
-}
 .navbar.is-dark {
     background-color: #192b41;
     color: #f9f9f9;
@@ -347,10 +319,7 @@ word-break: break-word;
     border-color: #192b41;
     color: #fff;
 }
-.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
-    -webkit-box-shadow: 0 0 0 0.125em #192b41;
-    box-shadow: 0 0 0 0.125em #192b41;
-}
+
 .button.is-primary.is-hovered,
 .button.is-primary:hover,
 .button.is-primary.is-active,
@@ -359,7 +328,10 @@ word-break: break-word;
     border-color: transparent;
     color: #fff;
 }
-
+.button.is-primary:focus:not(:active), .button.is-primary.is-focused:not(:active) {
+    -webkit-box-shadow: 0 0 0 0.125em #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+}
 .button.is-primary {
     background-color: #21ce99;
     border-color: transparent;

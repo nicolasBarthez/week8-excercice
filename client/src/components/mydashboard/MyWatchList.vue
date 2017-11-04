@@ -1,14 +1,12 @@
 <template>
-    <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
- <nav class="navbar is-dark">
+<div>
+<nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/mydashboard"class="babMenu navbar-item ">My current insights</router-link>
-            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item is-tab is-active">My watch list</router-link>
-            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item">My past insights</router-link>
-            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item">Insiders I follow</router-link>
+            <a  @click="curInsights()" class="babMenu navbar-item is-tab">My current insights</a>
+            <a  @click="WatchList()" class="babMenu navbar-item is-tab is-active">My watch list</a>
+            <a  @click="PastInsights()"class="babMenu navbar-item is-tab">My past insights</a>
+            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders I follow</a>
       </div>
       </div>
   </nav>
@@ -72,25 +70,16 @@
                 </section>
             </template>
         </b-table>
-    </section>
-    </section>
-
+</div>
 </template>
 
 <script>
-import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
-import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
-import {
-  getUserProfileInfo,
-  getMyWatchList,
-} from "@/api/apiDashboard";
+import { getMyWatchList } from "@/api/apiDashboard";
 
 export default {
   data() {
     return {
       watchList: [],
-      isEditing: false,
-      profileInfo: null,
       indexSelected: "all",
       total: 0,
       loading: false,
@@ -103,32 +92,32 @@ export default {
       defaultSortDirection: 'asc',
       }
   },
-components: {
-    MyProfileBlock,
-    UpdateMyInfo,
-  },
+
   created() {
-    getUserProfileInfo().then(profileInfo => {
-      this.profileInfo = profileInfo;
-    });
     getMyWatchList().then(watchList => {
         this.watchList = watchList;
       });
   },
-
   methods: { 
-    changeToEdit() {
-      this.isEditing = !this.isEditing;
-    },         /*
-             * Handle page-change event
-             */
+    
+    curInsights(){ 
+         this.$emit("curIns");
+    },
+    WatchList(){
+         this.$emit("Watch");
+    },
+    InsidersFollowed(){
+         this.$emit("InsFollo");
+    },
+    PastInsights(){
+        this.$emit("PastIns");
+    },
+
    onPageChange(page) {
     this.page = page
     this.onSort()
   },
-            /*
-             * Handle sort event
-             */
+
   onSort(field, order) {
     this.loading = true
     getMyWatchList({
@@ -155,9 +144,6 @@ components: {
 },
              
  filters: {
-            /**
-             * Filter to truncate string, accepts a length parameter
-             */
   truncate(value, length) {
     return value.length > length
     ? value.substr(0, length) + '...'

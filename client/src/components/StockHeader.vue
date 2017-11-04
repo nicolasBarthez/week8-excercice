@@ -213,6 +213,9 @@ export default {
     }
 
 }
+.longNameTitle{
+    margin-bottom:0px !important
+}
 .pos{
     text-align: center
 }

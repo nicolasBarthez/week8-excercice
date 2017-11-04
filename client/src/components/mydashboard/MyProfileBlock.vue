@@ -87,7 +87,6 @@
                 </p>
                 <p class="subtitle is-6 follOw"> <small>Babbles posted</small><strong class="follOwStrong title is-5"> {{profileInfo.nbBabbles}}</strong>
                 </p>
-
                 <p class="subtitle is-6 follOw"> <small>Likes</small><strong class="follOwStrong title is-5"> {{profileInfo.nbOfLikes}}</strong>
                 </p>
             </nav>

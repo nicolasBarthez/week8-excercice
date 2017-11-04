@@ -1,19 +1,18 @@
 <template>
-    <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
-   <nav class="navbar is-dark">
+    <div>
+<nav class="navbar is-dark">
       <div>
       <div class="babblesMenu">
-            <router-link to="/mydashboard"class="babMenu navbar-item is-tab is-active">My current insights</router-link>
-            <router-link to="/mydashboard/boardmywatchlist" class="babMenu navbar-item">My watch list</router-link>
-            <router-link to="/mydashboard/boardmypastinsights"class="babMenu navbar-item">My past insights</router-link>
-            <router-link to="/mydashboard/boardmyinsidersfollowed"class="babMenu navbar-item is-tab is-active">Insiders I follow</router-link>
+            <a  @click="curInsights()" class="babMenu navbar-item is-tab is-active">My current insights</a>
+            <a  @click="WatchList()" class="babMenu navbar-item is-tab">My watch list</a>
+            <a  @click="PastInsights()"class="babMenu navbar-item is-tab">My past insights</a>
+            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders I follow</a>
       </div>
       </div>
-  </nav>
+    </nav>
         <b-table
-            :data="insidersFollowed"
+            
+            :data="currentInsights"
             :loading="loading"
 
             :paginated="isPaginated"
@@ -29,31 +28,32 @@
             :default-sort="defaultSortField"
             backend-sorting
             @sort="onSort">
-
             <template scope="props">
-                <b-table-column label="Insider" field='_id' sortable centered><figure class="image is-32x32 is-circle">
-            <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
-            </router-link>
-        </figure>
-        <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                <b-table-column field='created' numeric sortable centered label="Initiated">
+                    {{ moment(props.row.created_at).format('MMM Do YY') }}
+                </b-table-column>
+                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.stockId.longName"class="stockName is-6" data-replace="Symbol">
+                    {{ props.row.stockId.longName }}</router-link>
                 </b-table-column>
 
-                <b-table-column field='followers' sortable centered label="Followers">
-                    {{ props.row.followers }}
+                <b-table-column field='position' :class="{'has-text-green' : props.row.position==='bull', 'has-text-red' : props.row.position==='bear'}"sortable centered label="Insight">
+                    {{ props.row.position }}
                 </b-table-column>
-                 <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
-                    {{ props.row.nbBabbles }}
+                 
+
+                 <b-table-column field='initialPrice' numeric sortable centered label="Initial price">
+                    {{ props.row.initialPrice }}
                 </b-table-column>
 
-                <b-table-column  field='nbOfLikes' sortable numeric centered label="Likes">
-                    {{ props.row.nbOfLikes }}
+                <b-table-column  field='price' sortable numeric centered label="Current price">
+                    {{ props.row.stockId.price }}
                 </b-table-column>
 
-                <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}} 
+                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="Variation">
+                    {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
-                <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
+                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Potential P$">
                     {{ props.row.performancePoints }}
                 </b-table-column>
 
@@ -72,53 +72,51 @@
                 </section>
             </template>
         </b-table>
-    </section>
-    </section>
-
+    </div>
 </template>
 
 <script>
-
-import MyProfileBlock from "../components/mydashboard/MyProfileBlock";
-import UpdateMyInfo from "../components/mydashboard/UpdateMyInfo";
-import {
-  getUserProfileInfo,
-  getMyInsidersFollowed,
-} from "@/api/apiDashboard";
+import moment from "moment";
+import { getCurrentInsights } from "@/api/apiDashboard";
 export default {
   data() {
     return {
-      insidersFollowed: [],
-      isEditing: false,
-      profileInfo: null,
+      currentInsights: [],
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
+      defaultSortField: 'created',
       defaultSortOrder: 'desc',
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: 'asc',
-     };
-  },
-  components: {
-    MyProfileBlock,
-    UpdateMyInfo,
-  },
-  created() {
-    getUserProfileInfo().then(profileInfo => {
-      this.profileInfo = profileInfo;
-    });
-    getMyInsidersFollowed().then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-      });
+    }
   },
 
-  methods:{
-    changeToEdit() {
-      this.isEditing = !this.isEditing;
+  created() {
+    getCurrentInsights().then(currentInsights => {
+      this.currentInsights = currentInsights;
+    });
+  },
+ 
+   methods: { 
+       moment: function(time) {
+      return moment(time);
+    },
+    
+    curInsights(){ 
+         this.$emit("curIns");
+    },
+    WatchList(){
+         this.$emit("Watch");
+    },
+    InsidersFollowed(){
+         this.$emit("InsFollo");
+    },
+    PastInsights(){
+        this.$emit("PastIns");
     },
    onPageChange(page) {
     this.page = page
@@ -129,10 +127,10 @@ export default {
              */
   onSort(field, order) {
     this.loading = true
-    getMyInsidersFollowed({
+    getCurrentInsights({
         sort: makeSortParam(field, order)
-    }).then(insidersFollowed => {
-       this.insidersFollowed = insidersFollowed
+    }).then(currentInsights => {
+       this.currentInsights = currentInsights
        this.loading = false
     })
     },
@@ -189,4 +187,6 @@ export default {
 .babblesMenu {
     display: flex;
 }
+
+
 </style>

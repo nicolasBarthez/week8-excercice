@@ -1,0 +1,188 @@
+<template>
+   <div>
+<nav class="navbar is-dark">
+      <div>
+      <div class="babblesMenu">
+            <a  @click="curInsights()" class="babMenu navbar-item is-tab">Current insights</a>
+            <a  @click="WatchList()" class="babMenu navbar-item is-tab">Watch list</a>
+            <a  @click="PastInsights()"class="babMenu navbar-item is-tab">Past insights</a>
+            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab is-active">Insiders followed</a>
+      </div>
+      </div>
+    </nav>
+  <b-table
+            :data="insidersFollowed"
+            :loading="loading"
+
+            :paginated="isPaginated"
+            :per-page="perPage"
+            :pagination-simple="isPaginationSimple"
+
+            :total="total"
+            @page-change="onPageChange"
+
+            :striped="true"
+
+            :default-sort-direction="defaultSortOrder"
+            :default-sort="defaultSortField"
+            backend-sorting
+            @sort="onSort">
+
+            <template scope="props">
+                <b-table-column label="Insider" field='_id' sortable centered><figure class="image is-32x32 is-circle">
+            <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
+            </router-link>
+        </figure>
+        <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                </b-table-column>
+
+                <b-table-column field='followers' sortable centered label="Followers">
+                    {{ props.row.followers }}
+                </b-table-column>
+                 <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
+                    {{ props.row.nbBabbles }}
+                </b-table-column>
+
+                <b-table-column  field='nbOfLikes' sortable numeric centered label="Likes">
+                    {{ props.row.nbOfLikes }}
+                </b-table-column>
+
+                <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
+                    {{props.row.preferedStocks}}
+                </b-table-column>
+
+                <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
+                    {{ props.row.performancePoints }}
+                </b-table-column>
+
+            </template>
+            <template slot="empty">
+                <section class="section">
+                    <div class="content has-text-grey has-text-centered">
+                        <p>
+                            <b-icon
+                                icon="sentiment_very_satisfied"
+                                size="is-large">
+                            </b-icon>
+                        </p>
+                        <p>...loading</p>
+                    </div>
+                </section>
+            </template>
+        </b-table>
+ </div>
+
+</template>
+
+<script>
+import { getInsiderInsidersFollowed } from "@/api/apiDashboard";
+export default {
+  data() {
+    return {
+      insidersFollowed: [],
+      indexSelected: "all",
+      total: 0,
+      loading: false,
+      defaultSortField: "longName",
+      defaultSortOrder: "desc",
+      page: 1,
+      perPage: 20,
+      isPaginated: true,
+      isPaginationSimple: false,
+      defaultSortDirection: "asc"
+    };
+  },
+
+  created() {
+    const insiderId = this.$route.params.id;
+    getInsiderProfileInfo(insiderId).then(profileInfo => {
+      this.profileInfo = profileInfo;
+    });
+    getInsiderInsidersFollowed(insiderId).then(insidersFollowed => {
+      this.insidersFollowed = insidersFollowed;
+    });
+  },
+
+  methods: {
+    curInsights(){ 
+         this.$emit("curIns");
+    },
+    WatchList(){
+         this.$emit("Watch");
+    },
+    InsidersFollowed(){
+         this.$emit("InsFollo");
+    },
+    PastInsights(){
+        this.$emit("PastIns");
+    },
+
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
+             * Handle sort event
+             */
+    onSort(field, order) {
+      this.loading = true;
+      getInsiderInsidersFollowed(this.$route.params.id)({
+        sort: makeSortParam(field, order)
+      }).then(insidersFollowed => {
+        this.insidersFollowed = insidersFollowed;
+        this.loading = false;
+      });
+    },
+    /*
+             * Type style in relation to the value
+             */
+    type(value) {
+      const number = parseFloat(value);
+      if (number < 6) {
+        return "is-danger";
+      } else if (number >= 6 && number < 8) {
+        return "is-warning";
+      } else if (number >= 8) {
+        return "is-success";
+      }
+    }
+  },
+  filters: {
+    /**
+             * Filter to truncate string, accepts a length parameter
+             */
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
+  }
+};
+</script>
+
+<style scoped>
+.main {
+    background-color: #f9f9f9;
+    padding: 7rem 1.5rem;
+}
+.container{
+  display: flex;
+}
+
+.navbar.is-dark {
+    background-color: #192b41;
+    color: #f9f9f9;
+}
+
+.navbar-item.is-tab.is-active {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    color: #f9f9f9;
+    padding-bottom: calc(0.5rem - 3px);
+}
+.babblesMenu {
+    display: flex;
+}
+
+
+</style>
