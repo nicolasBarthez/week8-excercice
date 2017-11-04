@@ -51,23 +51,23 @@
                                 </p>
                                 </div>
 
-                                <nav id="bandB" class="level media">
+                                <nav v-if="leaderboard.rankingByPoints" id="bandB" class="level media">
                                     <figure class="image is-64x64 is-circle">
-                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                        <img class="imgProfile" :src="leaderboard.index === -1 ? profileInfo.picProfile:rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
                                         <span class="subtitle is-6">
-                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                        {{leaderboard.index === -1 ? profileInfo.performancePoints:leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
                                         </span>
                                     </figure>
                                     <figure class="centralPic image is-64x64 is-circle">
-                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                        <img class="imgProfile" :src="leaderboard.rankingByPoints.index === -1 ? leaderboard.rankingByPoints[O].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture">
                                         <span class="subtitle is-6">
-                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                        {{leaderboard.index === -1 ? leaderboard.rankingByPoints[O].performancePoints:leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
                                         </span>
                                     </figure>
                                     <figure class="image is-64x64 is-circle">
-                                        <img class="imgProfile" :src="profileInfo.picProfile" alt="my picture">
+                                        <img class="imgProfile" :src="leaderboard.rankingByPoints.index === -1 ? leaderboard.rankingByPoints[O].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture">
                                     <span class="subtitle is-6">
-                                        {{profileInfo.performancePoints}} <small>P$</small>
+                                        {{leaderboard.rankingByPoints.performancePoints === -1 ? leaderboard.rankingByPoints[1].performancePoints:leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
                                     </span>
                                     </figure>
                                 </nav>
