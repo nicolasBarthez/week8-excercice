@@ -74,9 +74,6 @@ export default {
   .navbar {
     min-height: 3.25rem;
   }
-}
-
-@media screen and (min-width: 1024px) {
   .navbar,
   .navbar-end,
   .navbar-menu,
@@ -89,7 +86,12 @@ export default {
     display: flex;
   }
 }
-
+@media (max-width: 768px) {
+  .main {
+    background-color: #f9f9f9;
+    padding-top:4.2rem  !important;
+  }
+}
 .navbar {
   background-color: #fff;
   min-height: 3.25rem;

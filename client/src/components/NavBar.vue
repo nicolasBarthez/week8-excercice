@@ -1,11 +1,11 @@
 <template>
-  <nav class="nav has-shadow " id="top">
+  <navbar class="nav has-shadow " id="top">
         <div class="container" id="top2">
-            <div class="nav">
+            <navbar-brand class="nav">
                 <a class="nav-item" href="/">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </a>
-            </div>
+            </navbar-brand>
             <div v-if="data" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
@@ -72,13 +72,12 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </navbar>
 </template>
 
 <script>
 import { getAllStocks, getUser } from "@/api/api";
 import { logout } from "@/api/auth";
-import debounce from "lodash/debounce";
 
 export default {
   name: "NavBar",

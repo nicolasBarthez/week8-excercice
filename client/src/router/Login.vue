@@ -135,5 +135,10 @@ form {
 a{
     color: #192b41;
 }
-
+@media (max-width: 768px) {
+  .section.main {
+    background-color: #f9f9f9;
+    padding-top:3.5rem  !important;
+  }
+}
 </style>
