@@ -202,6 +202,7 @@ export function isFollowed(insiderId) {
 // Get leaderboar and index of the user
 export function getLeaderboard(insiderId) {
   let url = "/dashboards/leaderboard/" + insiderId;
+  console.log("URL=> ", url);
   return insiders
     .get(url)
     .then(response => {
