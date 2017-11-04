@@ -182,6 +182,7 @@ dashboardsController.get(
             const us = wi.userId;
             if (!map.get(us._id)) {
               map.set(us._id, {
+                picProfile: us.picProfile,
                 username: us.username,
                 performancePoints: 0
               });
