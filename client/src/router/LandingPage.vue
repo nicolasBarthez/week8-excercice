@@ -8,11 +8,6 @@
  </div>
     </div>
   </div>
-
-  
- 
-
-  
   <section class="hero separator">
     <div class="hero-body testimonials-section">
       <div class="container">
@@ -80,7 +75,7 @@ export default {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
-      autenticate:""
+      autenticate:''
     }
   },
   components: {

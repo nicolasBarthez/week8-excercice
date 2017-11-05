@@ -1,6 +1,6 @@
 <template >
 <section v-else class="section main">
-<insider-profile-block :profileInfo="profileInfo"></insider-profile-block>
+<insider-profile-block @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
  
   <board-insiders-current-insights v-if="activeItem==='curinsights'" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-current-insights>
   <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-watch-list>
@@ -44,7 +44,12 @@ export default {
     },
     myPastInsights(){
             this.activeItem= "pastinsights"
-    }, 
+    },
+    updateInsiderProfile() {
+      getInsiderProfileInfo(this.$route.params.id).then(profileInfo => {
+        this.profileInfo = profileInfo;
+      });
+    }
   },
   created() {
     const insiderId = this.$route.params.id;

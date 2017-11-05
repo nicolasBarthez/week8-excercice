@@ -157,7 +157,7 @@ export default {
         text-align:end;
     }
     .longNameTitle{
-        font-size: 1REM !important;
+        font-size: 0.8REM !important;
     }
 
     .stock-banner{
@@ -167,14 +167,14 @@ export default {
         margin-bottom: 0px!important;
     }
     #bandbdigit1{
-        width:40%;
-        font-size:3.5vw!important
+        width:50%;
+        font-size:3.5vw!important;
+        text-align:center
     }
      #bandbdigit2{
-         width:40%;
+         width:50%;
         font-size:3.5vw!important;
-        text-align:right;
-        padding-right:2%;
+        text-align:center;
     }
     .stock-price{
         display: flex;
@@ -190,7 +190,7 @@ export default {
         display:none;
     }
     #bullsAndBearsPic{
-        width:20%;
+        display:none;
     }
     #BBull{
         width:20%
@@ -213,6 +213,14 @@ export default {
     }
 
 }
+
+.stock-price{
+    font-size:1.3rem
+}
+.add-to-watchlist{
+        margin-left:-5%
+    }
+
 .longNameTitle{
     margin-bottom:0px !important
 }
@@ -240,13 +248,14 @@ a {
 }
 
 #bullsAndBearsPic {
-    width: 40%;
+    width: 25%;
 }
 
 #bullsAndBears {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width:100%!important
 }
 
 #bandB {
@@ -324,22 +333,20 @@ a {
 
 #adWL.is-outlined:focus,
 #adWL.is-outlined:hover {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    color: #fff;
-    box-shadow: 0 0 0 0.125em #192b41;
-    border-color: #192b41;
-}
-
-#adWL {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
+    
+}
+
+#adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    font-size: 1.2vw;
+    color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+    font-size:1vw !important
 }
 
 .position{

@@ -51,7 +51,7 @@
                 </p>
               </div>
 
-              <nav v-if="leaderboard" id="bandB" class="level media">
+              <nav id="bandB" class="level media">
                 <figure class="image is-64x64 is-circle">
                   <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
                   <span class="subtitle is-6">
@@ -71,9 +71,11 @@
                                     </span>
                 </figure>
               </nav>
-              <div class="preferedTrades level-item has-text-centered column is-3">
+              <div  v-if="profileInfo.skills[0]" class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6"><strong>Skills</strong></p>
                 <b-tag>{{profileInfo.skills[0]}}</b-tag>
+                <b-tag v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
+                <b-tag v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
                 <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
               </div>
             </div>
@@ -121,10 +123,47 @@ export default {
 </script>
 
 <style scoped>
+@media (max-width: 768px) {
+    .stVar{
+        text-align:end;
+    }
+    .longNameTitle{
+        font-size: 0.8REM !important;
+    }
+
+    .stock-banner{
+        display: flex;
+    }
+    .level-item {
+        margin-bottom: 0px!important;
+    }
+
+    .stock-price{
+        display: flex;
+        flex-direction: column
+    }
+    .media-left {
+        display:none;}
+    .subtitle {
+        display:none;
+    }
+    .preferedTrades{
+      font-size:10px;
+      margin-top:-40px;
+    }
+
+
+}
 body {
   color: #192b41;
 }
-
+.preferedTrades{
+      font-size:1rem;
+      margin-top:-40px;
+    }
+.title.is-6{
+  margin-bottom:10px;
+}
 .sock-info {
   width: 20%;
 }
@@ -174,69 +213,12 @@ span>a {
   cursor: pointer;
   text-decoration: none;
 }
-
-@media (max-width: 768px) {
-  .stVar {
-    text-align: end;
-  }
-  .longNameTitle {
-    font-size: 1REM !important;
-  }
-  #bullsAndBears {
-    justify-content: space-evenly !important;
-    width: 100%
-  }
-  .stock-banner {
+.media .media {
+    border-top: 3px solid #21ce99;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-  }
-  .level-item {
-    margin-bottom: 0px!important;
-  }
-  #bandbdigit1 {
-    width: 40%;
-    font-size: 3.5vw!important
-  }
-  #bandbdigit2 {
-    width: 40%;
-    font-size: 3.5vw!important;
-    text-align: right;
-    padding-right: 2%;
-  }
-  .stock-price {
-    display: flex;
-    flex-direction: column
-  }
-  .media-left {
-    display: none;
-  }
-  .stock-see-desc {
-    display: none;
-  }
-  .subtitle {
-    display: none;
-  }
-  #bullsAndBearsPic {
-    width: 20%;
-  }
-  #BBull {
-    width: 20%
-  }
-  #BBear {
-    width: 20%
-  }
-  #Bbull {
-    width: 80%
-  }
-  #Bbear {
-    width: 80%
-  }
-  .add-to-watchlist {
-    width: 20%
-  }
-  #adWLT {
-    width: 95%;
-    font-size: 1vw !important;
-  }
+    padding-top: 0.75rem;
 }
 
 .pos {
@@ -263,51 +245,6 @@ a {
   margin-bottom: 0%;
 }
 
-#descr {
-  margin-top: -1.5rem;
-  font-size: 0.7rem;
-}
-
-#bullsAndBearsPic {
-  width: 40%;
-}
-
-.centralPic {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-#bullsAndBears {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#bandB {
-  justify-content: center;
-  WIDTH: 50%;
-}
-
-#Last {
-  display: flex;
-  justify-content: center;
-}
-
-#bandbdigit1 {
-  font-size: 2.5vw;
-  color: #21ce99;
-}
-
-#bandbdigit2 {
-  font-size: 2.5vw;
-  color: #ff6026;
-}
-
-#priceStock {
-  display: flex;
-  font-size: 2REM;
-  align-items: center;
-}
 
 #ActionCard {
   width: 100%;
@@ -317,8 +254,8 @@ a {
   font-size: 1.5REM;
 }
 
-#adWL.is-outlined:focus,
-#adWL.is-outlined:hover {
+#adWLT.is-outlined:focus,
+#adWLT.is-outlined:hover {
   PADDING-LEFT: 30PX;
   PADDING-RIGHT: 30PX;
   font-weight: bolder;
@@ -327,7 +264,7 @@ a {
   border-color: #192b41;
 }
 
-#adWL {
+#adWLT {
   background-color: #192b41;
   border-color: #192b41;
   color: #fff;

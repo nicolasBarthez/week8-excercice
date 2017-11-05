@@ -24,15 +24,23 @@
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
                 <br>
                 <label>Location
-                  <input type="text" name="location" >
+                  <input type="text" v-model="location" >
                 </label>
                 <br>
 
                 <label><span>Update your photo</span>
-        <input type="file" name="image"   @change="image = $event.target.files[0]; saveImage()">
+                <croppa v-model="image"
+                  initial-image="/static/images/Warren.jpeg"
+                  :width="150"
+                  :height="150"
+                  :quality="1"
+                  :placeholder-font-size="18"
+                  :prevent-white-space="true">
+ </croppa>
+  
+       
     </label><br/>
-                <b-field>
-                  <!-- <b-upload v-model="files" @change="image = $event.target.files[0]">
+                                  <!-- <b-upload v-model="files" @change="image = $event.target.files[0]">
                     <a class="button is-primary">
                     <b-icon icon="file_upload"></b-icon>
                     <span>Update your picture</span>
@@ -43,7 +51,7 @@
                     {{ files[0].name }}
         </span>
                   </div> -->
-                </b-field>
+                
                 <button @click="saveMyProfile">Save modifications</button>
               </form>
             </div>
@@ -57,6 +65,7 @@
 
 <script>
 // mutli select
+
 import vSelect from "vue-select";
 import {
   userUpdate,
@@ -93,11 +102,12 @@ export default {
       image: "",
       url: "",
       files: [],
-      okMessage: false
+      okMessage: false,
+      location:''
     };
   },
 
-  methods: {
+  methods: {   
     userProfileUpdate() {
       const userId = this.$root.user._id;
       if (this.url === "") this.url = profileInfo.picProfile;
@@ -109,14 +119,15 @@ export default {
           console.log(err);
         });
     },
+    
     displayPicturePreview() {
-      getUserProfileInfo().then(userInfo => {
-        console.log("userINFO=>", userInfo);
-        this.profileInfo = userInfo;
+      getUserProfileInfo().then(profileInfo => {
+        console.log("userINFO=>", profileInfo);
+        this.profileInfo = profileInfo;
       });
     },
     saveImage() {
-      console.log("this.image", this.image);
+      console.log("************************************this.image", this.image);
       uploadPicture(this.image)
         .then(response => {
           // change the image when the user uploads a new image
@@ -128,13 +139,30 @@ export default {
           console.log(err);
         });
     },
+    
     saveMyProfile() {
+      this.generateImage()
+      console.log("************************************this.image", this.image);
+       console.log("***********************µµµµµµµµ******************this.image", this.url);
+      this.userProfileUpdate()
+      console.log("********************************************µµµµµµµµµ*******this.profileInfo", this.profileInfo);
       this.$emit("saveprofile");
+    },
+    	generateImage: function() {
+    	let url = this.image.generateDataUrl()
+      if (!url) {
+      	alert('no image')
+        return
+      }
+      this.url = url
     }
-  },
+},
   created() {
-    getUserProfileInfo().then(userInfo => {
-      this.profileInfo = userInfo;
+    getUserProfileInfo().then(profileInfo => {
+      this.profileInfo = profileInfo;
+      this.location= profileInfo.location;
+      this.skills= profileInfo.skills;
+      this.url=profileInfo.url;
     });
   }
 };

@@ -31,7 +31,7 @@
 
             <template scope="props">
               <b-table-column field='created' numeric sortable centered label="Initiated">
-                    {{ moment(props.row.created_at).format('MMM Do YY') }}
+                    {{ moment(props.row.created_at).format('L') }}
                 </b-table-column>
                 <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.stockId.longName"class="stockName is-6" data-replace="Symbol">
                     {{ props.row.stockId.longName }}</router-link>
@@ -54,7 +54,7 @@
                     {{ props.row.performancePoints }}
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
-                    {{ moment(props.row.updated_at).format('MMM Do YY') }}
+                    {{ moment(props.row.updated_at).format('L') }}
                 </b-table-column>
 
             </template>
@@ -88,7 +88,7 @@ export default {
       total: 0,
       loading: false,
       defaultSortField: "closed",
-      defaultSortOrder: "desc",
+      defaultSortOrder: "asc",
       page: 1,
       perPage: 20,
       isPaginated: true,

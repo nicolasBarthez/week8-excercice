@@ -87,7 +87,7 @@ export default {
       total: 0,
       loading: false,
       defaultSortField: "closed",
-      defaultSortOrder: "desc",
+      defaultSortOrder: "asc",
       page: 1,
       perPage: 20,
       isPaginated: true,

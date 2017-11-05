@@ -6,7 +6,7 @@
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
             <div class="picss column is-3 is-marginless">
                 <div class="media-left">
-                    <figure class="image is-32x32 is-circle">
+                    <figure class="image is-64x64 is-circle">
                         <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
                         </router-link>
                     </figure>
