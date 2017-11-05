@@ -40,6 +40,9 @@ export default {
 methods: {
     changeToEdit() {
       this.isEditing = !this.isEditing;
+      getUserProfileInfo().then(profileInfo => {
+      this.profileInfo = profileInfo;
+    });
     }, 
     currentInsights(){ 
             this.activeItem= "curinsights"

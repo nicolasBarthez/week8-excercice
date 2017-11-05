@@ -88,7 +88,7 @@ export default {
         { location: "/trending", text: "Trending" },
         { location: "/mydashboard", text: "My Dashboard" }
       ],
-      connectedUser: Object,
+      connectedUser:null,
       data: null,
       keepFirst: true,
       name: "",
@@ -120,7 +120,7 @@ export default {
     }
   },
 
-  created() {
+  mounted() {
     getAllStocks().then(data => {
       this.data = data;
     });
