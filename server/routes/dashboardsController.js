@@ -806,9 +806,11 @@ dashboardsController.get(
     User.findById(id)
       .populate("following")
       .exec((err, followed) => {
-        if (err) res.json(null);
+        if (err) return res.json(null);
 
-        console.log(" LIST FOLLOWED", followed);
+        if (!followed) {
+          res.json(null);
+        }
         followed.following.forEach(usFollowed => {
           let userInfo = {
             username: usFollowed.username,

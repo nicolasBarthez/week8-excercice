@@ -36,7 +36,7 @@
                         Take position on {{stock.longName}} !
                     </h1>
                     <div id="bullsAndBearsPic">
-                        <img src="/static/images/roundBullBear.jpg" alt="bull and bear">
+                        <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
                     </div>
                 </nav>
                 <div id="bullsAndBears2">
