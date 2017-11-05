@@ -9,6 +9,34 @@ span>a {
     cursor: pointer;
     text-decoration: none;
 }
+.select select:focus, .select select.is-focused, .select select:active, .select select.is-active {
+    border-color: #192b41!important;
+        box-shadow: 0 0 0 0.125em #192b41!important;
+}
+.select:not(.is-multiple)::after {
+    border: 1px solid #192b41 !important;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: 0.5em;
+    pointer-events: none;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 0.5em;
+    margin-top: -0.375em;
+    right: 1.125em;
+    top: 50%;
+    z-index: 4;
+}
+
+.button.is-primary:active .button.is-primary.is-active .button.is-primary
+.button.is-primary:hover .button.is-primary.is-hovered{
+    background-color: #192b41!important;
+    border-color: transparent;
+    color: #f9f9f9!important;
+}
 .babble-body>a {
     color: #192b41!important;
     cursor: pointer;
@@ -20,25 +48,12 @@ span>a {
 .navbar-item.is-tab:hover {
     background-color: transparent;
     border-bottom-color: #f9f9f9!important;
+    color:#f9f9f9!important
 }
 .columns {
     width: 100%!important
 }
-a.navbar-item:hover,
-a.navbar-item.is-active,
-.navbar-link:hover,
-.navbar-link.is-active {
-    background-color: whitesmoke;
-    color: #f9f9f9!important;
-}
-a.poi.nav-item:not(.button).is-tab.is-active {
-    background-color: transparent!important;
-    border-bottom-color: #f9f9f9!important;
-    border-bottom-style: solid!important;
-    border-bottom-width: 3px!important;
-    color: #f9f9f9!important;
-    padding-bottom: calc(0.5rem - 3px)!important;
-}
+
 .navbar.is-dark {
     background-color: #192b41!important;
     color: #f9f9f9!important;
@@ -127,8 +142,13 @@ a.nav-item:not(.button).is-tab:hover {
     border: 1px solid black!important;
     border-radius: 50% !important;
 }
-@media screen and (max-width: 768px) {
-    .section.main {
-        background-color: #f9f9f9;
-        padding: 4.1rem 1.5rem;
-    }
+@media (max-width: 768px) {
+  .main {
+    background-color: #f9f9f9;
+    padding-top:4.2rem  !important;
+  }
+}
+.field.has-addons .control:last-child .button{
+    background-color:#f9f9f9 !important;
+    color: #f9f9f9 !important
+}

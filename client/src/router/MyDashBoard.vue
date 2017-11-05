@@ -77,6 +77,13 @@ methods: {
     color: #f9f9f9;
 }
 
+@media (max-width: 768px) {
+.main {
+    background-color: #f9f9f9;
+    padding-top:4.2rem  !important;
+  }
+}
+
 .navbar-item.is-tab.is-active {
     background-color: transparent;
     border-bottom-color: #f9f9f9;

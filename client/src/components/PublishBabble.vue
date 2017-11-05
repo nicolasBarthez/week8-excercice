@@ -39,7 +39,7 @@
                         <img src="/static/images/roundBullBear.jpg" alt="bull and bear">
                     </div>
                 </nav>
-                <div id="bullsAndBears">
+                <div id="bullsAndBears2">
                     <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                     <button id="NotNow" @click="isCardModalActive = false" class="button is-small is-outlined is-primary">Not Now</button>
                     <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
@@ -134,7 +134,7 @@ export default {
     display: flex;
     flex-direction: column;
 }
-#bullsAndBears{
+#bullsAndBears2{
     display: flex;
     justify-content: space-around;
 }

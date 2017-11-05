@@ -1,9 +1,9 @@
 <template>
-    <section class="hero is-fullheight is-dark is-bold">
+    <section id="modalAuth" class="hero is-fullheight is-dark is-bold">
         <div class="hero-body">
-            <div class="container">
+            
                 <div class="columns is-vcentered">
-                    <div class="column is-4 is-offset-4">
+                    <div class="column is-8 is-offset-2">
                         <h1 class="title">
                             Register an Account
                         </h1>
@@ -43,18 +43,9 @@
                             </p>
                           </div>
                         </form>
-                        <p>Or Register with:</p>
-                        <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> </a>
-                        <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> </a>
-                        <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> </a>
-                        <br>
-                        <p class="has-text-centered">
-                         <a href="/login">Already an account?</a> |
-                         <a href="/">Go Home</a>
-                        </p>
                     </div>
                 </div>
-            </div>
+            
         </div>
     </section>
 </template>
@@ -78,20 +69,18 @@ export default {
         email: this.email,
         username: this.username,
         password: this.password
-      }).then(() => {
-        this.$router.push('/login')
-      }).catch(err => {
+      }).then(r => {
+        let mail = this.email;
+        let pass = this.password;
+        let authenticate = {mail, pass};
+        this.$emit('loginModal', authenticate);
+        console.log('emiting the username...', payload);
+      })
+      .catch(err => {
         this.error = err.response.data.error
-        console.error('Signup err', err)
+        console.log('the error is', this.error )
       })
     }
-  },
-  created(){
-      this.$root.hideNav();
-  },
-  destroyed() {
-    this.$root.showNav = true;
-
   }
 }
 </script>
@@ -101,7 +90,12 @@ export default {
     max-width: 400px;
     margin: auto;
   }
-
+#modalAuth{
+    border-radius:5px;
+}
+.hero.is-fullheight {
+    min-height: 70vh!important;
+}
   .hero.is-dark.is-bold {
     background-image: linear-gradient( 141deg, #f9f9f9 0, #f9f9f9 71%, #f9f9f9 100%) !important;
     background-color: #f9f9f9 !important;

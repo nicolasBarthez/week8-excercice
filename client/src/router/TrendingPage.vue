@@ -154,6 +154,13 @@ export default {
 
 
 <style scoped>
+
+@media (max-width: 768px) {
+  .main {
+    background-color: #f9f9f9;
+    padding-top:4.2rem  !important;
+  }
+}
 .main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;

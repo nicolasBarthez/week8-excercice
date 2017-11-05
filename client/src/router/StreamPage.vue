@@ -3,12 +3,12 @@
   <section v-else class="section main sideRecent">
     <div class="container primordial">
       <div class="columns">
-        <side-current-insight  class="is-sticky" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
          <stream-timeline-babble :connectedUser="connectedUser" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></stream-timeline-babble>
         </div>
-        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-current-insight  class="is-sticky" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
       </div>
     </div>
   </section>
@@ -113,6 +113,12 @@ export default {
 .babblesField{
   margin-right: 2.5%;
   margin-left: 2.5%;
+}
+@media (max-width: 768px) {
+  .main {
+    background-color: #f9f9f9;
+    padding-top:4.2rem  !important;
+  }
 }
 @media screen and (min-width: 769px){
   .babblesField {

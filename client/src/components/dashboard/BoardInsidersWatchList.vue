@@ -179,6 +179,7 @@ export default {
 }
 .babblesMenu {
     display: flex;
+    overflow:auto;
 }
 
 </style>

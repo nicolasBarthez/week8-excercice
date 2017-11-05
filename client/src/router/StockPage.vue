@@ -4,12 +4,12 @@
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="container primordial">
       <div class="columns sct1">
-        <side-current-insight  class="is-sticky sci" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
         </div>
-        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-current-insight  class="is-sticky sci" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
       </div>
     </div>
   </section>
@@ -181,10 +181,11 @@ export default {
   }
 }
 @media (max-width: 768px) {
-  .section.main {
+  .main {
     background-color: #f9f9f9;
-    padding-top:3.5rem  !important;
+    padding-top:4.2rem  !important;
   }
+
   .sci{
     display: none
   }

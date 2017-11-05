@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav has-shadow " id="top">
+  <nav v-if="this.$root.user._id" class="nav has-shadow " id="top">
         <div class="container" id="top2">
             <div class="nav">
                 <a class="nav-item" href="/">
@@ -78,7 +78,6 @@
 <script>
 import { getAllStocks, getUser } from "@/api/api";
 import { logout } from "@/api/auth";
-import debounce from "lodash/debounce";
 
 export default {
   name: "NavBar",

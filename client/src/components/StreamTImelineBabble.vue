@@ -3,10 +3,10 @@
         <div>
    <nav class="navbar is-dark">
       <div class="babblesMenu">
-            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="babMenu navbar-item is-tab ">All</a>
-            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="babMenu navbar-item is-tab">Insider Mates</a>
-            <a  @click="sortBabbles('watchlist')" :class="{'is-active':activeItem ==='watchlist'}" class="babMenu navbar-item is-tab ">My Watch List</a>
-            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="babMenu navbar-item is-tab ">My Posts</a>
+            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="navbar-item is-tab babMenu">All</a>
+            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="navbar-item is-tab babMenu">Insider Mates</a>
+            <a  @click="sortBabbles('watchlist')" :class="{'is-active':activeItem ==='watchlist'}" class="navbar-item is-tab babMenu">Watch List</a>
+            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="navbar-item is-tab babMenu">My Posts</a>
       </div>
   </nav>
     <div class="card">

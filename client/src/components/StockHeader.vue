@@ -25,7 +25,7 @@
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
                                  <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
-                                      {{watchItem.position}} from {{watchItem.initialPrice}}</strong>
+                                      {{watchItem.position}} @ {{watchItem.initialPrice}}</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
