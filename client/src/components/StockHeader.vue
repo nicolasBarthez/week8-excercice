@@ -40,7 +40,7 @@
                                     </div>
                                     <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     <div id="bullsAndBearsPic">
-                                        <img src="/static/images/bulls-and-bears.png" alt="bull and bear">
+                                        <img src="/static/images/bull-bear-arrow.png" alt="bull and bear">
                                     </div>
                                     <span id="bandbdigit2">{{trendBullBear[1]}}  %</span>
                                     <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
@@ -87,7 +87,7 @@ export default {
   },
   data() {
     return {
-         activeItem: 'thirty'
+      activeItem: "thirty"
     };
   },
   methods: {
@@ -129,17 +129,17 @@ export default {
 
     trend30() {
       this.$emit("changeWatchlist");
-      this.activeItem = "thirty"
+      this.activeItem = "thirty";
     },
 
     trend7() {
       this.$emit("trendBullBearSeven");
-      this.activeItem = "seven"
+      this.activeItem = "seven";
     },
 
     trend1() {
       this.$emit("trendBullBearOne");
-      this.activeItem = "one"
+      this.activeItem = "one";
     }
   }
 };
