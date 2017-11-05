@@ -1,5 +1,5 @@
 <template>
-  <nav v-if="this.$root.user._id" class="nav has-shadow " id="top">
+  <nav class="nav has-shadow" id="top">
         <div class="container" id="top2">
             <div class="nav">
                 <a class="nav-item" href="/">
@@ -14,21 +14,10 @@
                             <b-autocomplete
                                 v-model="name"
                                 placeholder="Find a stock"
-                                :keep-first="keepFirst"
                                 :data="filteredDataObj"
                                 field="longName"
-                                @select="option => selected = option"
+                                @select="onSelect($event)"
                             >
-                            </span>
-                                <div
-                                    class="dropdown-item"
-                                    slot-scope="match"
-                                    :style="{ width: '100%' }"
-                                    @click="$router.push('/stocks/' + match.option.longName.toLowerCase())"
-                                    @keyup.enter.native="$router.push('/stocks/' + match.option.longName.toLowerCase())"
-                                >
-                                    {{ match.option.longName }}
-                                </div>
                             </b-autocomplete>
                         </b-field>
 
@@ -90,17 +79,30 @@ export default {
       ],
       connectedUser:null,
       data: null,
-      keepFirst: true,
       name: "",
       selected: null
     };
   },
-
   methods: {
     logout() {
       logout(this.$root);
       this.$router.push("/");
+    },
+    onSelect(stock) {
+        if(stock) {
+            this.selected = stock
+            this.$router.push('/stocks/' + stock.longName.toLowerCase())
+        }
     }
+  },
+  watch: {
+      name(name) {
+          // CRACRA, PLEASE FIX BUEFY AUTOCOMPLETE
+          if(this.selected && name === this.selected.longName) {
+              this.name = ""
+              this.selected = null
+          }
+      }
   },
   computed: {
     filteredDataObj() {
@@ -130,13 +132,6 @@ export default {
   }
 };
 </script>
-
-<style>
-a.dropdown-item {
-    padding: 0;
-}
-</style>
-
 
 <style scoped>
 

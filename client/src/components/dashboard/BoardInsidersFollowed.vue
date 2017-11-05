@@ -28,7 +28,7 @@
             backend-sorting
             @sort="onSort">
 
-            <template scope="props">
+            <template slot-scope="props">
                 <b-table-column label="Insider" field='_id' sortable centered><figure class="image is-32x32 is-circle">
             <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
             </router-link>

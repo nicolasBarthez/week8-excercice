@@ -153,6 +153,7 @@ export default {
 }
 
 @media (max-width: 768px) {
+    .pos{font-size:0.5rem}
     .stVar{
         text-align:end;
     }
@@ -248,7 +249,7 @@ a {
 }
 
 #bullsAndBearsPic {
-    width: 25%;
+    width: 20%;
 }
 
 #bullsAndBears {
@@ -302,6 +303,7 @@ a {
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
+    font-size:1vw
 }
 
 #Bbull.is-outlined:focus,
@@ -309,6 +311,7 @@ a {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
+    
 }
 
 .trend-b-b{
@@ -322,6 +325,7 @@ a {
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
+    font-size:1vw
 }
 
 #Bbear.is-outlined:focus,

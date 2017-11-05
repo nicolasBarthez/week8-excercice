@@ -29,7 +29,7 @@
             backend-sorting
             @sort="onSort">
 
-            <template scope="props">
+            <template slot-scope="props">
               <b-table-column field='created' numeric sortable centered label="Initiated">
                     {{ moment(props.row.created_at).format('MMM Do YY') }}
                 </b-table-column>

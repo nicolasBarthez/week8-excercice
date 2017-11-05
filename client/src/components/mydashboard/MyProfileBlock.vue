@@ -1,6 +1,5 @@
 <template >
-<section v-if="profileInfo ">
-  <div  class="column is-6" id="ActionCard">
+  <div v-if="profileInfo "  class="column is-3" id="ActionCard">
     <div id="cardAction" class="card profile-card">
       <div class="card-content">
         <div class="media" id="stockInfo">
@@ -87,14 +86,14 @@
         </p>
         <p class="subtitle is-6 follOw"> <small>Followers</small><strong class="follOwStrong title is-5"> {{profileInfo.followers}}</strong>
         </p>
-        <p class="subtitle is-6 follOw"> <small>Babbles posted</small><strong class="follOwStrong title is-5"> {{profileInfo.nbBabbles}}</strong>
+        <p class="subtitle is-6 follOw"> <small>Babbles</small><strong class="follOwStrong title is-5"> {{profileInfo.nbBabbles}}</strong>
         </p>
         <p class="subtitle is-6 follOw"> <small>Likes</small><strong class="follOwStrong title is-5"> {{profileInfo.nbOfLikes}}</strong>
         </p>
       </nav>
     </div>
   </div>
-</section>
+
 </template>
 
 <script>
@@ -151,7 +150,12 @@ export default {
       font-size:10px;
       margin-top:-40px;
     }
-
+    .follOwStrong .is-5{
+      font-size:12px !important;
+    }
+    #bandB{
+      display: initial !important
+    }
 
 }
 body {
@@ -170,7 +174,8 @@ body {
 
 #refAndSkills {
   display: flex!important;
-  justify-content: space-evenly!important;
+  justify-content: space-between!important;
+  margin-left:-7%
 }
 
 .wonTrade {
@@ -271,7 +276,7 @@ a {
   PADDING-LEFT: 30PX;
   PADDING-RIGHT: 30PX;
   font-weight: bolder;
-  font-size: 1.2vw;
+  font-size: 1vw;
 }
 
 .position {

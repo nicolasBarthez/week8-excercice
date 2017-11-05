@@ -43,9 +43,11 @@ export default {
       error: null,
     };
   },
-    props: {
-    autenticate: {type: Object,
-          default: null}
+  props: {
+    autenticate: {
+        type: Object,
+        default: null
+    }
   },
   methods: {
     login() {

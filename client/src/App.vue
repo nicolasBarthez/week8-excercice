@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <nav-bar v-if="$root.showNav" :connectedUser="connectedUser"></nav-bar>
+    <nav-bar v-if="this.$root.user"></nav-bar>
 
         <router-view></router-view>
 
@@ -15,12 +15,6 @@ import NavBar from "./components/NavBar";
 
 export default {
   name: "app",
-  data() {
-    return {
-      connectedUser: null
-    };
-  },
-
   components: {
     NavBar
   },
@@ -30,12 +24,6 @@ export default {
       logout(this.$root);
       this.$router.push("/");
     }
-  },
-
-  created() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
   }
 };
 </script>
