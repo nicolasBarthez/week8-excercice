@@ -1,11 +1,11 @@
 <template>
-  <navbar class="nav has-shadow " id="top">
+  <nav v-if="this.$root.user._id" class="nav has-shadow " id="top">
         <div class="container" id="top2">
-            <navbar-brand class="nav">
+            <div class="nav">
                 <a class="nav-item" href="/">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </a>
-            </navbar-brand>
+            </div>
             <div v-if="data" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-    </navbar>
+    </nav>
 </template>
 
 <script>

@@ -1,23 +1,13 @@
 <template>
-  <div>
-    <div class="login-wrapper columns">
-        <div class="column is-8 is-hidden-mobile hero-banner">
-            <section class="hero is-fullheight is-dark">
-                <div class="has-text-right">
-                    <p class="citation title is-3"> "Anybody who plays the stock market not as an insider </br>is like a man buying cows in the moonlight." - Daniel Drew</p>
-                </div>
-            </section>
-        </div>
-        <div class="column is-4">
-            <section class="hero is-fullheight">
+     <section id="modalAuth" class="hero is-fullheight">
                 <div class="hero-heading">
                     <div class="section has-text-centered">
                         <img src="/static/images/logo.png" alt="Insiders logo" width="150px">
                     </div>
                 </div>
                 <div class="hero-body">
-                    <div class="container">
-                        <div class="columns">
+                   
+                       
                             <div class="column is-8 is-offset-2">
                             <b-notification v-if="error" type="is-danger" has-icon>
                                 {{ error }}
@@ -35,25 +25,10 @@
                                         <button class="button is-success is-outlined is-large is-fullwidth">Login</button>
                                     </p>
                                 </form>
-                                <br>
-                                <div class='social'>
-                                    <p>Or Login with:</p>
-                                    <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> </a>
-                                    <a href="/auth/twitter" class="btn btn-info"><span class="fa fa-twitter"></span> </a>
-                                    <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> </a>
-                                    <div class="section forgot-password">
-                                        <p>Need an account? <a href="/signup">Signup</a></p>
-                                        <p>Or go <a href="/">home</a>.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                            
+                   </div>
                 </div>
             </section>
-        </div>
-    </div>
-</div>
 </template>
 
 
@@ -63,12 +38,15 @@ import { login } from "@/api/auth";
 export default {
   data() {
     return {
-      email: "",
-      password: "",
-      error: ""
+      email: this.autenticate ? this.autenticate.mail : '',
+      password: this.autenticate ? this.autenticate.pass : '',
+      error: null,
     };
   },
-
+    props: {
+    autenticate: {type: Object,
+          default: null}
+  },
   methods: {
     login() {
       login(this.email, this.password, this.$root)
@@ -90,8 +68,23 @@ export default {
 </script>
 
 <style scoped>
+#modalAuth{
+    border-radius:5px;
+}
+.section {
+    padding:0px!important;
+    padding-top: 4rem!important;
+}
+.hero.is-fullheight {
+    min-height: 75vh !important;
+}
 
-
+.field:not(:last-child) {
+    margin-bottom: 2.75rem!important;
+}
+.hero-body{
+    padding:0px !important;
+}
 form {
     max-width: 400px;
     margin: auto;
@@ -120,6 +113,7 @@ form {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
+        box-shadow: 0 0 0 0.125em #f9f9f9;;
 }
 
 .button.is-success.is-outlined {
