@@ -152,69 +152,6 @@ export default {
     justify-content: space-between;
 }
 
-@media (max-width: 768px) {
-    .pos{font-size:0.5rem}
-    .stVar{
-        text-align:end;
-    }
-    .longNameTitle{
-        font-size: 0.8REM !important;
-    }
-
-    .stock-banner{
-        display: flex;
-    }
-    .level-item {
-        margin-bottom: 0px!important;
-    }
-    #bandbdigit1{
-        width:50%;
-        font-size:3.5vw!important;
-        text-align:center
-    }
-     #bandbdigit2{
-         width:50%;
-        font-size:3.5vw!important;
-        text-align:center;
-    }
-    .stock-price{
-        display: flex;
-        flex-direction: column
-    }
-    .media-left {
-        display:none;
-    }
-    .stock-see-desc{
-        display:none;
-    }
-    .subtitle {
-        display:none;
-    }
-    #bullsAndBearsPic{
-        display:none;
-    }
-    #BBull{
-        width:20%
-    }
-    #BBear{
-        width:20%
-    }
-    #Bbull{
-        width:80%
-    }
-    #Bbear{
-        width:80%
-    }
-    .add-to-watchlist{
-        width:20%
-    }
-    #adWL{
-        width:95%;
-        font-size: 1.7vw !important;
-    }
-
-}
-
 .stock-price{
     font-size:1.3rem
 }
@@ -356,5 +293,67 @@ a {
 .position{
     display:flex;
     flex-direction: column;
+}
+@media (max-width: 768px) {
+    .pos{font-size:0.5rem}
+    .stVar{
+        text-align:end;
+    }
+    .longNameTitle{
+        font-size: 0.8REM !important;
+    }
+
+    .stock-banner{
+        display: flex;
+    }
+    .level-item {
+        margin-bottom: 0px!important;
+    }
+    #bandbdigit1{
+        width:50%;
+        font-size:3.5vw!important;
+        text-align:center
+    }
+     #bandbdigit2{
+         width:50%;
+        font-size:3.5vw!important;
+        text-align:center;
+    }
+    .stock-price{
+        display: flex;
+        flex-direction: column
+    }
+    .media-left {
+        display:none;
+    }
+    .stock-see-desc{
+        display:none;
+    }
+    .subtitle {
+        display:none;
+    }
+    #bullsAndBearsPic{
+        display:none;
+    }
+    #BBull{
+        width:20%
+    }
+    #BBear{
+        width:20%
+    }
+    #Bbull{
+        width:80%
+    }
+    #Bbear{
+        width:80%
+    }
+    .add-to-watchlist{
+        width:20%
+    }
+    #adWL{
+        width:95%;
+        font-size: 1.7vw !important;
+    }
+
 }
 </style>
