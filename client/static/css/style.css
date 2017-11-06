@@ -174,7 +174,7 @@ a.nav-item:not(.button).is-tab:hover {
         background-color: #f9f9f9;
         padding-top: 4.2rem !important;
     }
-    .image.is-circle {
+    .is-64x64 {
         display: none
     }
 }

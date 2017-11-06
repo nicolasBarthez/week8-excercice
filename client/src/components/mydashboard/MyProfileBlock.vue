@@ -9,23 +9,23 @@
             </figure>
           </div>
           <div class="media-content">
-            <div class="stock-banner">
+            <div class="stock-banner" id="profile-banner">
               <div class="sock-info">
                 <p class="title is-5">
                   @{{profileInfo.username}}
                 </p>
-                <p class="subtitle is-6">
+                <p class="subtitle is-6 location">
                   <small>{{profileInfo.location ? profileInfo.location : "Secret..." }}</small>
                 </p>
               </div>
               <div id="perf">
                 <div>
-                  <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Performance</strong></p>
+                  <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
                   <p class="title is-5 follOwStrong">
                     <strong class="follOwStrong"> {{profileInfo.performancePoints}} P$</strong>
                   </p>
                 </div>
-                <div class="wonTrade">
+                <div class="wonTrade"id="follOw">
                   <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
                   <p class="title is-5 follOwStrong">
                     <strong class="follOwStrong">{{profileInfo.nbOfInsightsWon}}</strong>
@@ -50,21 +50,21 @@
                 </p>
               </div>
 
-              <nav id="bandB" class="level media">
-                <figure class="image is-64x64 is-circle">
+              <nav id="LB" class="level media">
+                <figure class="image is-96x96 is-circle" >
                   <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
                   <span class="subtitle is-6">
                                         {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
-                <figure class="centralPic image is-64x64 is-circle">
-                  <img class="imgProfile" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture">
+                <figure class="image is-96x96 is-circle centralPic">
+                  <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture">
                   <span class="subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
-                <figure class="image is-64x64 is-circle">
-                  <img v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="imgProfile" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture">
+                <figure class="image is-96x96 is-circle">
+                  <img class="imgProfile" v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture">
                   <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
                                     </span>
@@ -122,45 +122,13 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 768px) {
-    .stVar{
-        text-align:end;
-    }
-    .longNameTitle{
-        font-size: 0.8REM !important;
-    }
-
-    .stock-banner{
-        display: flex;
-    }
-    .level-item {
-        margin-bottom: 0px!important;
-    }
-
-    .stock-price{
-        display: flex;
-        flex-direction: column
-    }
-    .media-left {
-        display:none;}
-    .subtitle {
-        display:none;
-    }
-    .preferedTrades{
-      font-size:10px;
-      margin-top:-40px;
-    }
-    .follOwStrong .is-5{
-      font-size:12px !important;
-    }
-    #bandB{
-      display: initial !important
-    }
-
-}
 body {
-  color: #192b41;
+  color: #192b41!important;
 }
+.is-96x96{
+    width: 96px!important;
+    height: 96px!important;
+    }
 .preferedTrades{
       font-size:1rem;
       margin-top:-40px;
@@ -196,7 +164,7 @@ body {
 
 .follOwNav {
   justify-content: space-evenly!important;
-  border-top: 1px solid rgba(219, 219, 219, 0.5)
+  border-top: 1px solid #192b41;
 }
 
 .follOw {
@@ -219,7 +187,7 @@ span>a {
   text-decoration: none;
 }
 .media .media {
-    border-top: 3px solid #21ce99;
+    border-top: 3px solid #192b41;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -282,5 +250,49 @@ a {
 .position {
   display: flex;
   flex-direction: column;
+}
+@media (max-width: 768px) {
+    .stVar{
+        text-align:end;
+    }
+    .title.is-5{
+        font-size: 0.8REM !important;
+    }
+.location {
+        display:none;
+    }
+    #profile-banner{
+        display: flex;
+        margin-bottom:10%!important;
+    }
+    .level-item {
+        margin-bottom: 0px!important;
+    }
+
+    .stock-price{
+        display: flex;
+        flex-direction: column
+    }
+    .media-left {
+        display:none;}
+    
+    .preferedTrades{
+      display:none!important;
+    }
+    .follOwStrong .is-5{
+      font-size:12px !important;
+    }
+    .is-96x96 {
+      width: 64px!important;
+    height: 64px!important;
+    }
+    #LB{
+    width: 90%;
+    margin-left: 9%;
+    }
+    #follOw{
+      display:none
+    }
+
 }
 </style>
