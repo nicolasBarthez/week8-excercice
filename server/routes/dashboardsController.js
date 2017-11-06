@@ -870,7 +870,7 @@ dashboardsController.get(
                   // Calculate performance points
                   userInfo.performancePoints = wiClosed
                     .map(item => item.performancePoints)
-                    .reduce((prev, next) => prev + next);
+                    .reduce((prev, next) => prev + next, 0);
 
                   userInfo.nbOfInsightsWon = wiClosed.filter(item => {
                     return item.status == "won";
