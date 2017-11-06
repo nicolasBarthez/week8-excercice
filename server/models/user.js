@@ -15,7 +15,7 @@ const userSchema = new Schema(
     },
     picProfile: {
       type: String,
-      default: "/images/avatar.png"
+      default: "/static/images/Georges.jpg"
     },
     location: {
       type: String

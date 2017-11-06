@@ -4,11 +4,11 @@
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
                 <div class="media" id="stockInfo">
-                   <div class="media-left">
+                   <!-- <div class="media-left">
                        <figure class="image is-64x64 is-circle">
                          <img class ="imgProfile" :src="stock.stockImg" alt="stockImg">
                        </figure>
-                   </div>
+                   </div> -->
                    <div class="media-content">
                         <div class="stock-banner">
                            <div class="sock-info">
@@ -160,7 +160,7 @@ export default {
     }
 
 .longNameTitle{
-    margin-bottom:0px !important
+    margin-bottom:12% !important
 }
 .pos{
     text-align: center
@@ -248,7 +248,7 @@ a {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
-    
+
 }
 
 .trend-b-b{
@@ -277,7 +277,7 @@ a {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
-    
+
 }
 
 #adWL {
