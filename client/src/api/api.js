@@ -132,8 +132,8 @@ export function getStockBabbles(stockName, sortBy) {
     });
 }
 
-export function getWatchInsight() {
-  let url = `/watchitems/positions/user`;
+export function getWatchInsight(userId) {
+  let url = `/watchitems/positions/user/${userId}`;
   return insiders
     .get(url)
     .then(response => {

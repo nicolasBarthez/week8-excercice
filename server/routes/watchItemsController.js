@@ -19,7 +19,7 @@ watchItemsController.get(
     const user = req.params.id;
 
     WatchItem.find({
-      _id: user._id,
+      userId: user,
       status: "active",
       position: { $in: ["bull", "bear"] }
     })

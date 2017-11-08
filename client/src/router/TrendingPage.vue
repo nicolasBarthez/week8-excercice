@@ -7,7 +7,7 @@
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -39,7 +39,7 @@
                     <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.trend}}</strong> <small>({{props.row.trending.percentage}}%)</small>
                 </b-table-column>
 
-                <b-table-column field='hotInsights' numeric sortable centered label="Hot insights">
+                <b-table-column field='hotInsights' numeric sortable centered label="Social trending">
                     {{ props.row.hotInsights }}
                 </b-table-column>
 
@@ -69,17 +69,17 @@
 import { getStocksTrending, getStocksTrendingByIndex } from "@/api/apiTrending";
 
 const sortParams = {
-    'longName': 'name',
-    'currentPrice': 'price',
-    'variation':'var',
-    'volume':'vol',
-    'trending.percentage': 'trend',
-    'hotInsights':'hi',
-    'bestInsiders[0].perf':'bi'
-}
+  longName: "name",
+  currentPrice: "price",
+  variation: "var",
+  volume: "vol",
+  "trending.percentage": "trend",
+  hotInsights: "hi",
+  "bestInsiders[0].perf": "bi"
+};
 
 function makeSortParam(field, order) {
-    return sortParams[field] + (order === 'desc' ? 'dsc' : 'asc')
+  return sortParams[field] + (order === "desc" ? "dsc" : "asc");
 }
 
 export default {
@@ -89,67 +89,65 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'longName',
-      defaultSortOrder: 'desc',
+      defaultSortField: "hotInsights",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-    }
+      defaultSortDirection: "desc"
+    };
   },
-  methods: { 
-            /*
+  methods: {
+    /*
              * Handle page-change event
              */
-   onPageChange(page) {
-    this.page = page
-    this.onSort()
-  },
-            /*
+    onPageChange(page) {
+      this.page = page;
+      this.onSort();
+    },
+    /*
              * Handle sort event
              */
-  onSort(field, order) {
-    this.loading = true
-    getStocksTrending({
+    onSort(field, order) {
+      this.loading = true;
+      getStocksTrending({
         sort: makeSortParam(field, order)
-    }).then(stocks => {
-       this.stocks = stocks
-       this.loading = false
-    })
+      }).then(stocks => {
+        this.stocks = stocks;
+        this.loading = false;
+      });
     },
-           /*
+    /*
              * Type style in relation to the value
              */
-   type(value) {
-    const number = parseFloat(value)
+    type(value) {
+      const number = parseFloat(value);
       if (number < 6) {
-      return 'is-danger'
+        return "is-danger";
       } else if (number >= 6 && number < 8) {
-      return 'is-warning'
+        return "is-warning";
       } else if (number >= 8) {
-      return 'is-success'
+        return "is-success";
       }
-   }
- },              
- filters: {
-            /**
+    }
+  },
+  filters: {
+    /**
              * Filter to truncate string, accepts a length parameter
              */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
+    truncate(value, length) {
+      return value.length > length ? value.substr(0, length) + "..." : value;
+    }
+  },
+  mounted() {
+    getStocksTrending({
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
   }
- },
- mounted() {
-   getStocksTrending({
-       sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-   }).then(stocks => {
-        this.stocks = stocks;
-      });
- }
-}
+};
 </script>
 
 

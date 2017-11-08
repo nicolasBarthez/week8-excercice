@@ -61,9 +61,8 @@ export default {
           throw err;
         });
 
-      getWatchInsight(this.stock.longName).then(watchInsight => {
+      getWatchInsight(this.$root.user._id).then(watchInsight => {
         this.watchInsight = watchInsight;
-        console.log("AAAAAAwatchInsight", watchInsight);
       });
 
       getRecentPosition().then(recentPositions => {
@@ -102,7 +101,7 @@ export default {
           throw err;
         });
 
-      getWatchInsight(stockName).then(watchInsight => {
+      getWatchInsight(this.$root.user._id).then(watchInsight => {
         this.watchInsight = watchInsight;
       });
 
