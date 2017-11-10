@@ -95,29 +95,30 @@ export default {
 
   created() {
     const insiderId = this.$route.params.id;
+    console.log(insiderId);
     getInsiderCurrentInsights(insiderId).then(currentInsights => {
       this.currentInsights = currentInsights;
     });
   },
 
-  methods: { 
-       moment: function(time) {
+  methods: {
+    moment: function(time) {
       return moment(time);
     },
-    
-    curInsights(){ 
-         this.$emit("curIns");
+
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
-    
+
     onPageChange(page) {
       this.page = page;
       this.onSort();

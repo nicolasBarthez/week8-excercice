@@ -50,8 +50,6 @@
                   3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
                 </p>
               </div>
-
-
                <nav v-if="!leaderboard" id="LB" class="level media">
                 <figure class="image is-96x96 is-circle" >
                   <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
@@ -78,7 +76,7 @@
                 <b-tag v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
                 <b-tag v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
                 <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
-              
+
             </div>
           </div>
         </div>
@@ -96,15 +94,15 @@
     </div>
   </div>
 </template>
-
 <script>
 import { getLeaderboard } from "@/api/apiDashboard";
 import { followInsider, unfollowInsider, isFollowed } from "@/api/apiDashboard";
 export default {
   data() {
-    return { followed: "", 
-    leaderboard: {}
-    }
+    return {
+      followed: "",
+      leaderboard: {}
+    };
   },
   props: {
     profileInfo: Object
@@ -114,9 +112,9 @@ export default {
     isFollowed(id).then(followed => {
       this.followed = followed;
     }),
-    getLeaderboard(id).then(leaderboard => {
-      this.leaderboard = leaderboard;
-    });
+      getLeaderboard(id).then(leaderboard => {
+        this.leaderboard = leaderboard;
+      });
   },
   methods: {
     follow() {
@@ -125,18 +123,15 @@ export default {
         this.$emit("changeFollow");
       });
     },
-
     unfollow() {
       unfollowInsider(this.profileInfo.userId).then(resp => {
         this.followed = false;
         this.$emit("changeFollow");
       });
-    },
-
+    }
   }
 };
 </script>
-
 <style scoped>
 body {
   color: #192b41!important;
@@ -155,48 +150,39 @@ body {
 .sock-info {
   width: 20%;
 }
-
 #refAndSkills {
   display: flex!important;
   justify-content: space-between!important;
   margin-left:-7%
 }
-
 .wonTrade {
   margin-left: 10%;
 }
-
 .preferedTrades {
   margin-top: -3%;
   display: flex;
   flex-direction: column;
 }
-
 .stock-banner {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
 .follOwNav {
   justify-content: space-evenly!important;
   border-top: 1px solid #192b41;
 }
-
 .follOw {
   display: flex;
   flex-direction: column;
 }
-
 .follOwStrong {
   text-align: center;
 }
-
 #perf {
   display: flex;
   width: 30%;
 }
-
 span>a {
   color: #192b41!important;
   cursor: pointer;
@@ -209,40 +195,31 @@ span>a {
     display: flex;
     padding-top: 0.75rem;
 }
-
 .pos {
   text-align: center
 }
-
 a {
   color: #192b41;
   cursor: inherit;
   text-decoration: none;
 }
-
 #cardAction {
   margin-bottom: 2.5% !important;
 }
-
 .stock-banner {
   margin-top: 0;
   margin-bottom: 5%!important;
 }
-
 .subtitle {
   margin-top: 0;
   margin-bottom: 0%;
 }
-
-
 #ActionCard {
   width: 100%;
 }
-
 .title.is-5 {
   font-size: 1.5REM;
 }
-
 #adWLT.is-outlined:focus,
 #adWLT.is-outlined:hover {
   PADDING-LEFT: 30PX;
@@ -252,7 +229,6 @@ a {
   box-shadow: 0 0 0 0.125em #192b41;
   border-color: #192b41;
 }
-
 #adWLT {
   background-color: #192b41;
   border-color: #192b41;
@@ -262,7 +238,6 @@ a {
   font-weight: bolder;
   font-size: 1vw;
 }
-
 .position {
   display: flex;
   flex-direction: column;
@@ -284,14 +259,13 @@ a {
     .level-item {
         margin-bottom: 0px!important;
     }
-
     .stock-price{
         display: flex;
         flex-direction: column
     }
     .media-left {
         display:none;}
-    
+
     .preferedTrades{
       display:none!important;
     }
@@ -318,6 +292,5 @@ a {
   PADDING-LEFT: 0PX;
   PADDING-RIGHT: 0PX;
 }
-
 }
 </style>

@@ -229,10 +229,16 @@ dashboardsController.get(
   "/currentinsights",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
-    const user = req.user;
+    // const user = req.params.id;
+    if (req.query.id) {
+      user = req.query.id;
+    } else {
+      user = req.user.id;
+    }
+    console.log("LA BONNE BOUCLE USER", user);
 
     WatchItem.find({
-      userId: user._id,
+      userId: user,
       status: "active",
       position: {
         $in: ["bull", "bear"]
@@ -402,109 +408,111 @@ dashboardsController.get(
 // **********************************************************
 // Send users connected info of the insiders followed
 // **********************************************************
-
-dashboardsController.get(
-  "/insidersfollowed",
-  passport.authenticate("jwt", config.jwtSession),
-  (req, res, next) => {
-    const user = req.user;
-    const insidersFollowed = [];
-
-    User.findById(user._id)
-      .populate("following")
-      .exec((err, followed) => {
-        if (err) res.json(null);
-
-        followed.following.forEach(usFollowed => {
-          let userInfo = {
-            username: usFollowed.username,
-            picProfile: usFollowed.picProfile,
-            location: usFollowed.location,
-            following: usFollowed.following.length
-          };
-
-          Babble.find({
-            user: usFollowed._id
-          }).then(babbles => {
-            userInfo.nbBabbles = 0 + babbles.length;
-
-            userInfo.nbOfLikes =
-              0 +
-              babbles.map(item => item.like).reduce((sum, next) => {
-                return sum + next.length;
-              }, 0);
-
-            // Calculate prefered stocks
-            WatchItem.find({
-              userId: usFollowed._id,
-              status: "won"
-            })
-              .populate("stockId")
-              .exec((err, wi) => {
-                if (err) res.json(null);
-
-                if (wi) {
-                  // first, convert data into a Map with reduce
-                  function reduceArrayByStockPoints(array) {
-                    let counts = array.reduce((prev, curr) => {
-                      const stockId = curr.stockId.toString();
-                      let count = prev.get(stockId) || 0;
-                      prev.set(stockId, curr.performancePoints + count);
-                      return prev;
-                    }, new Map());
-
-                    // then, map your counts object back to an array
-                    return Array.from(
-                      counts
-                    ).map(([stockId, performancePoints]) => {
-                      return {
-                        stockId,
-                        performancePoints
-                      };
-                    });
-                  }
-
-                  userInfo.preferedStocks = reduceArrayByStockPoints(wi);
-                }
-
-                WatchItem.find({
-                  userId: usFollowed._id,
-                  status: {
-                    $in: ["won", "lost"]
-                  }
-                }).exec((err, wiClosed) => {
-                  if (wiClosed) {
-                    // Calculate performance points
-                    userInfo.performancePoints = wiClosed
-                      .map(item => item.performancePoints)
-                      .reduce((prev, next) => prev + next);
-
-                    userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                      return item.status == "won";
-                    }, 0).length;
-                  }
-
-                  User.find({
-                    following: usFollowed._id
-                  }).exec((err, us) => {
-                    userInfo.followers = us.length ? us.length : 0;
-
-                    insidersFollowed.push(userInfo);
-
-                    if (insidersFollowed.length === followed.length) {
-                      if (followed.length === 0) {
-                        return res.json(null);
-                      }
-                      return res.json(userInfo);
-                    }
-                  });
-                });
-              });
-          });
-        });
-      });
-  }
-);
+//
+// dashboardsController.get(
+//   "/insidersfollowed",
+//   passport.authenticate("jwt", config.jwtSession),
+//   (req, res, next) => {
+//     const user = req.user;
+//     const insidersFollowed = [];
+//
+//     console.log("ARE YOU THERE ***********************?");
+//
+//     User.findById(user._id)
+//       .populate("following")
+//       .exec((err, followed) => {
+//         if (err) res.json(null);
+//
+//         followed.following.forEach(usFollowed => {
+//           let userInfo = {
+//             username: usFollowed.username,
+//             picProfile: usFollowed.picProfile,
+//             location: usFollowed.location,
+//             following: usFollowed.following.length
+//           };
+//
+//           Babble.find({
+//             user: usFollowed._id
+//           }).then(babbles => {
+//             userInfo.nbBabbles = 0 + babbles.length;
+//
+//             userInfo.nbOfLikes =
+//               0 +
+//               babbles.map(item => item.like).reduce((sum, next) => {
+//                 return sum + next.length;
+//               }, 0);
+//
+//             // Calculate prefered stocks
+//             WatchItem.find({
+//               userId: usFollowed._id,
+//               status: "won"
+//             })
+//               .populate("stockId")
+//               .exec((err, wi) => {
+//                 if (err) res.json(null);
+//
+//                 if (wi) {
+//                   // first, convert data into a Map with reduce
+//                   function reduceArrayByStockPoints(array) {
+//                     let counts = array.reduce((prev, curr) => {
+//                       const stockId = curr.stockId.toString();
+//                       let count = prev.get(stockId) || 0;
+//                       prev.set(stockId, curr.performancePoints + count);
+//                       return prev;
+//                     }, new Map());
+//
+//                     // then, map your counts object back to an array
+//                     return Array.from(
+//                       counts
+//                     ).map(([stockId, performancePoints]) => {
+//                       return {
+//                         stockId,
+//                         performancePoints
+//                       };
+//                     });
+//                   }
+//
+//                   userInfo.preferedStocks = reduceArrayByStockPoints(wi);
+//                 }
+//
+//                 WatchItem.find({
+//                   userId: usFollowed._id,
+//                   status: {
+//                     $in: ["won", "lost"]
+//                   }
+//                 }).exec((err, wiClosed) => {
+//                   if (wiClosed.length > 0) {
+//                     // Calculate performance points
+//                     userInfo.performancePoints = wiClosed
+//                       .map(item => item.performancePoints)
+//                       .reduce((prev, next) => prev + next);
+//
+//                     userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+//                       return item.status == "won";
+//                     }, 0).length;
+//                   }
+//
+//                   User.find({
+//                     following: usFollowed._id
+//                   }).exec((err, us) => {
+//                     userInfo.followers = us.length ? us.length : 0;
+//
+//                     insidersFollowed.push(userInfo);
+//
+//                     if (insidersFollowed.length === followed.length) {
+//                       if (followed.length === 0) {
+//                         return res.json(null);
+//                       }
+//                       return res.json(insidersFollowed);
+//                     }
+//                   });
+//                 });
+//               });
+//           });
+//         });
+//       });
+//   }
+// );
 
 // ***********************************************************
 // ***********************************************************
@@ -519,7 +527,6 @@ dashboardsController.get(
   (req, res, next) => {
     const user = req.user;
     const userId = req.params.id;
-    console.log("USERID INSIDER", userId);
 
     User.findById(userId).exec((err, us) => {
       if (err) res.json(null);
@@ -535,7 +542,6 @@ dashboardsController.get(
       Babble.find({
         user: userId
       }).then(babbles => {
-        console.log("BABBLES OF INSIDER***********", babbles);
         userInfo.nbBabbles = 0 + babbles.length;
 
         userInfo.nbOfLikes =
@@ -615,28 +621,30 @@ dashboardsController.get(
 // **********************************************************
 // Send Insider Current insights
 // **********************************************************
-
-dashboardsController.get(
-  "/currentinsights",
-  passport.authenticate("jwt", config.jwtSession),
-  (req, res, next) => {
-    const user = req.params.id;
-
-    WatchItem.find({
-      userId: user._id,
-      status: "active",
-      position: {
-        $in: ["bull", "bear"]
-      }
-    })
-      .populate("stockId")
-      .exec((err, wi) => {
-        if (err) res.json(null);
-
-        return res.json(wi);
-      });
-  }
-);
+//
+// dashboardsController.get(
+//   "/currentinsights",
+//   passport.authenticate("jwt", config.jwtSession),
+//   (req, res, next) => {
+//     const user = req.params.id;
+//     // if(!user) {user= req.user.id}
+//     console.log("HERE WE ARE ****************************");
+//
+//     WatchItem.find({
+//       userId: user,
+//       status: "active",
+//       position: {
+//         $in: ["bull", "bear"]
+//       }
+//     })
+//       .populate("stockId")
+//       .exec((err, wi) => {
+//         if (err) res.json(null);
+//
+//         return res.json(wi);
+//       });
+//   }
+// );
 
 // **********************************************************
 // Send insider Watch list
@@ -836,30 +844,33 @@ dashboardsController.get(
               status: "won"
             })
               .populate("stockId")
-              .exec((err, wi) => {
+              .exec((err, wis) => {
                 if (err) res.json(null);
 
-                // first, convert data into a Map with reduce
-                function reduceArrayByStockPoints(array) {
-                  let counts = array.reduce((prev, curr) => {
-                    const stockId = curr.stockId.toString();
-                    let count = prev.get(stockId) || 0;
-                    prev.set(stockId, curr.performancePoints + count);
-                    return prev;
-                  }, new Map());
+                if (wis) {
+                  // first, convert data into a Map with reduce
+                  function reduceArrayByStockPoints(array) {
+                    const map = array.reduce((map, wi) => {
+                      const stock = wi.stockId;
+                      if (!map.get(stock._id)) {
+                        map.set(stock._id, {
+                          longName: stock.longName,
+                          performancePoints: 0
+                        });
+                      }
+                      map.get(stock._id).performancePoints +=
+                        wi.performancePoints;
+                      return map;
+                    }, new Map());
 
-                  // then, map your counts object back to an array
-                  return Array.from(
-                    counts
-                  ).map(([stockId, performancePoints]) => {
-                    return {
-                      stockId,
-                      performancePoints
-                    };
-                  });
+                    // then, map your counts object back to an array
+                    return Array.from(map).map(([stockId, data]) => {
+                      return Object.assign({ stockId }, data);
+                    });
+                  }
+
+                  userInfo.preferedStocks = reduceArrayByStockPoints(wis);
                 }
-
-                userInfo.preferedStocks = reduceArrayByStockPoints(wi);
 
                 WatchItem.find({
                   userId: usFollowed._id,
@@ -870,7 +881,7 @@ dashboardsController.get(
                   // Calculate performance points
                   userInfo.performancePoints = wiClosed
                     .map(item => item.performancePoints)
-                    .reduce((prev, next) => prev + next);
+                    .reduce((prev, next) => prev + next, 0);
 
                   userInfo.nbOfInsightsWon = wiClosed.filter(item => {
                     return item.status == "won";
@@ -894,7 +905,7 @@ dashboardsController.get(
                       if (followed.length === 0) {
                         return res.json(null);
                       }
-                      return res.json(userInfo);
+                      return res.json(insidersFollowed);
                     }
                   });
                 });

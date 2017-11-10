@@ -32,7 +32,7 @@ export default {
       watchInsight: null,
       babbles: null,
       recentPositions: null,
-      connectedUser: null,
+      connectedUser: null
     };
   },
   components: {
@@ -44,36 +44,33 @@ export default {
 
   methods: {
     updateWatchList() {
-      getWatchInsight().then(watchInsight => {
+      const userId = this.$root.user._id;
+      getWatchInsight(userId).then(watchInsight => {
         this.watchInsight = watchInsight;
-        console.log("AAAAAAwatchInsight", watchInsight);   
-      });    
+      });
 
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;
       });
-
-    
-  },
+    },
     updateTimelineBabble() {
-      getAllBabbles(this.filterBy).then(babbles =>{ 
-      this.babbles = babbles
+      getAllBabbles(this.filterBy).then(babbles => {
+        this.babbles = babbles;
       });
     },
     changeSort(filterBy) {
       this.filterBy = filterBy;
-      getAllBabbles(this.filterBy).then(
-        babbles => (this.babbles = babbles)
-      );
+      getAllBabbles(this.filterBy).then(babbles => (this.babbles = babbles));
     },
-    
+
     fetchData() {
-      getAllBabbles(this.filterBy).then(babbles =>{ 
-        console.log(this.babbles);
-        this.babbles = babbles
+      getAllBabbles(this.filterBy).then(babbles => {
+        this.babbles = babbles;
       });
-      getWatchInsight().then(watchInsight => {
+      getWatchInsight(this.$root.user._id).then(watchInsight => {
+        console.log("UserId=>", this.$root.user._id);
         this.watchInsight = watchInsight;
+        console.log("watchInsight=>", watchInsight);
       });
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;

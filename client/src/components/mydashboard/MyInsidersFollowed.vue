@@ -94,6 +94,7 @@ export default {
   },
   created() {
     getMyInsidersFollowed(this.$root.user._id).then(insidersFollowed => {
+      console.log("insidersFollowed", insidersFollowed);
       this.insidersFollowed = insidersFollowed;
     });
   },
@@ -146,7 +147,7 @@ export default {
     /**
              * Filter to truncate string, accepts a length parameter
              */
-   /** truncate(value, length) {
+    /** truncate(value, length) {
       return value.length > length ? value.substr(0, length) + "..." : value;
     }*/
   }
