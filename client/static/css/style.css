@@ -169,6 +169,11 @@ a.nav-item:not(.button).is-tab:hover {
     border-radius: 50% !important;
 }
 
+.field.has-addons .control:last-child .button {
+    background-color: #f9f9f9 !important;
+    color: #f9f9f9 !important
+}
+
 @media (max-width: 768px) {
     .main {
         background-color: #f9f9f9;
@@ -177,9 +182,4 @@ a.nav-item:not(.button).is-tab:hover {
     .is-64x64 {
         display: none
     }
-}
-
-.field.has-addons .control:last-child .button {
-    background-color: #f9f9f9 !important;
-    color: #f9f9f9 !important
 }

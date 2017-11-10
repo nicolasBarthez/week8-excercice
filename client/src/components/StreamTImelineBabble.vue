@@ -265,10 +265,6 @@ word-break: break-word;
     color: #f9f9f9;
 }
 
-@media screen and (min-width: 1024px){
-.navbar {
-    min-height: 3.25rem;
-    }
 
 .navbar, .navbar-end, .navbar-menu, .navbar-start {
     -webkit-box-align: stretch;
@@ -278,7 +274,7 @@ word-break: break-word;
     display: -ms-flexbox;
     display: flex;
     }
-}
+
 .navbar {
     background-color: #fff;
     min-height: 3.25rem;
@@ -346,6 +342,9 @@ word-break: break-word;
 .button.is-primary {
     background-color: #192b41;
 }
+ .level-item{
+        cursor: pointer;
+    }
 
 @media screen and (max-width: 768px) {
     .level-item {
@@ -365,7 +364,9 @@ word-break: break-word;
         color: #c9c9c9;
     }
 }
- .level-item{
-        cursor: pointer;
+@media screen and (min-width: 1024px){
+.navbar {
+    min-height: 3.25rem;
     }
+}
 </style>

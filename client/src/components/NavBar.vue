@@ -205,12 +205,6 @@ export default {
     justify-content: space-between;
 }
 
-
-@media screen and (max-width: 768px) {
-    #top {
-        position: static;
-    }
-}
 .nav-item .button+.button {
     margin-left: 10px;
 }
@@ -274,6 +268,10 @@ a.nav-item:not(.button).is-tab:hover {
     box-shadow: 0 0 0 0.125em rgb(25, 43, 65);
     border-color: #192b41;
 }
+
+.field{
+    margin-bottom: 0px;
+}
 @media screen and (min-width: 769px) {
     .nav-toggle {
         display: none;
@@ -288,10 +286,8 @@ a.nav-item:not(.button).is-tab:hover {
     min-width: 25%!important;
     margin-left:-3%
     }
+    #top {
+        position: static;
+    }
 }
-
-.field{
-    margin-bottom: 0px;
-}
-
 </style>

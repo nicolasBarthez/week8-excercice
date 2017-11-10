@@ -75,6 +75,17 @@ export default {
   color: #f9f9f9;
 }
 
+.navbar {
+  background-color: #fff;
+  min-height: 3.25rem;
+  position: relative;
+}
+
+.babblesMenu {
+  display: flex;
+  padding-left: 20px;
+}
+
 @media screen and (min-width: 1024px) {
   .navbar {
     min-height: 3.25rem;
@@ -96,15 +107,5 @@ export default {
     background-color: #f9f9f9;
     padding-top:4.2rem  !important;
   }
-}
-.navbar {
-  background-color: #fff;
-  min-height: 3.25rem;
-  position: relative;
-}
-
-.babblesMenu {
-  display: flex;
-  padding-left: 20px;
 }
 </style>

@@ -99,20 +99,6 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (max-width: 768px) {
-    .buttonSignin{
-  margin-left:2.5%;
-  min-width:40% !important;
-}
-.buttonLogin{
-  margin-right:2.5%;
-  min-width:40% !important;
-}
-.loggiin{    
-    margin-left: 15%!important;;
-    margin-bottom: 20%;
-}
-}
 
 body{
   font-family:roboto
@@ -203,5 +189,19 @@ body{
 }
 .testimonials {
   text-align: center !important;
+}
+@media screen and (max-width: 768px) {
+    .buttonSignin{
+  margin-left:2.5%;
+  min-width:40% !important;
+}
+.buttonLogin{
+  margin-right:2.5%;
+  min-width:40% !important;
+}
+.loggiin{    
+    margin-left: 15%!important;;
+    margin-bottom: 20%;
+}
 }
 </style>

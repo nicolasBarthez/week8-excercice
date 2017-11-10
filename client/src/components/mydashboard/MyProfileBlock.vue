@@ -293,6 +293,15 @@ a {
     #follOw{
       display:none
     }
+    #adWLT {
+  background-color: #192b41;
+  border-color: #192b41;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1vw;
+  PADDING-LEFT: 0PX;
+  PADDING-RIGHT: 0PX;
+}
 
 }
 </style>
