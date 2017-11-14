@@ -18,10 +18,9 @@
                         <strong>&commat;{{recentPosition.userId.username}}</strong>
                     </router-link>
                     <span>is {{recentPosition.position}} on  <router-link :to="'/stocks/'+recentPosition.stockId.longName">#{{recentPosition.stockId.longName.length<7 ? recentPosition.stockId.longName : recentPosition.stockId.shortName }}</router-link>
-                    </span>
-                    <span>Followed by {{recentPosition.userId.nbFollower}} peoples</span><br>
-                    <router-link :to="'/dashboard/'+recentPosition.userId._id" class = "seeDash">See Dashboard</router-link>
-                </p>
+                    </span><br>
+                    <span class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} peoples</span><br>
+                    </p>
             </div>
         </div>
     </div>

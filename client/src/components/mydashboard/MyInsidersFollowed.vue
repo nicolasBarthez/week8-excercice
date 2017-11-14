@@ -48,7 +48,7 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}}
+                    {{ props.row.preferedStocks.map(el => el.longName)[0]}}                                
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
@@ -179,5 +179,9 @@ export default {
 .babblesMenu {
     display: flex;
     overflow:auto;
+}
+
+.image{
+  margin-right: 20px !important;
 }
 </style>

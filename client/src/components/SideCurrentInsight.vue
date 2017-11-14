@@ -2,7 +2,7 @@
   <div  v-if="watchInsight" class="column is-3 sideRecent mainSCI">
     <div class="is-sticky">
         <nav class="navbar is-dark">
-               <p id="currentInsight" class="babMenu navbar-item is-tab is-active">Current Insights</p>
+               <p id="currentInsight" class="babMenu navbar-item whiteci">Current Insights</p>
         </nav>
         <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
@@ -90,13 +90,13 @@ export default {
     background-color: #192b41;
     color: #f9f9f9;
 }
-
-.navbar-item.is-tab.is-active {
+.whiteci{
+     color: #f9f9f9;
+}
+.babMenu {
     background-color: transparent;
-    color: #f9f9f9;
+    color: #f9f9f9 !important;
     padding-bottom: calc(0.5rem - 3px);
-    border-bottom-style: none;
-    border-bottom-width: 0px
 }
 #currentInsight {
     padding-left: 20px;
@@ -163,5 +163,13 @@ export default {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
+}
+@media screen and (max-width: 768px) {
+    #currentInsight {
+        padding-top: 15px;
+    }
+    .card-content {
+        padding: 0.5rem;
+    }
 }
 </style>

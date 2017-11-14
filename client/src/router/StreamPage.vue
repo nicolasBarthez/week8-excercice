@@ -115,6 +115,22 @@ export default {
   .main {
     background-color: #f9f9f9;
     padding-top:4.2rem  !important;
+    margin-left:0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right:0px !important
+  }
+  .columns{
+    margin-left:0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right:0px !important
+  }
+  .column{
+    margin-left:0px !important;
+    margin-right: 0px !important;
+    padding-left: 0px !important;
+    padding-right:0px !important
   }
 }
 @media screen and (min-width: 769px){
@@ -127,5 +143,10 @@ export default {
   .sci{
     display: none
   }
+   .sct1{
+    margin-left:0px;
+    margin-right:0px;
+  }
+
 }
 </style>

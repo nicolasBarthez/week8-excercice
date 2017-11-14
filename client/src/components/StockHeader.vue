@@ -311,13 +311,16 @@ a {
     }
     #bandbdigit1{
         width:50%;
-        font-size:3.5vw!important;
+        font-size:1rem!important;
         text-align:center
     }
      #bandbdigit2{
          width:50%;
-        font-size:3.5vw!important;
+        font-size:1rem!important;
         text-align:center;
+    }
+    .title.is-5{
+        font-size:0.8rem!important;
     }
     .stock-price{
         display: flex;
@@ -342,17 +345,25 @@ a {
         width:20%
     }
     #Bbull{
-        width:80%
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        width:80%;
+        font-size:0.5rem;
     }
     #Bbear{
-        width:80%
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        width:80%;
+        font-size:0.5rem;
     }
     .add-to-watchlist{
         width:20%
     }
     #adWL{
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
         width:95%;
-        font-size: 1.7vw !important;
+        font-size:0.5rem !important;
     }
 
 }

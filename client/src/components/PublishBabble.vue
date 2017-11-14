@@ -280,6 +280,25 @@ export default {
         padding-top: 12px;
         color: #c9c9c9;
     }
+    .image{
+        display:none
+    }
+     .media-left{
+        margin:0px;
+        margin-right:5px;
+    }
+    .card-content{
+        padding: 5px
+    }
+    .icon{
+        font-size:10px;
+    }
+    .chartIcon{
+        justify-content: baseline !important;
+    }
+    .media-content{
+        margin-bottom: 3% !important
+    }
 }
 
 </style>

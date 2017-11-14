@@ -289,5 +289,9 @@ a.nav-item:not(.button).is-tab:hover {
     #top {
         position: static;
     }
+    .is-32x32 {
+        width: 16px !important;
+        height: 16px !important;
+    }
 }
 </style>

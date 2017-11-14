@@ -22,7 +22,7 @@
                             <p class="tweet-meta">
                                 <router-link :to="'/dashboard/'+babble.user._id" class="">
                                    <strong>{{babble.user.username}}</strong></router-link>
-                                   <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('llll')}}</small>
+                                   <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
                                 {{babble.babble}}
@@ -67,7 +67,7 @@
                             <p class="tweet-meta">
                                   <router-link :to="'/dashboard/'+modalBabble.user._id" class="">
                                    <strong>{{modalBabble.user.username}}</strong></router-link>
-                                   <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('llll')}}</small>
+                                   <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('DD-MM-YYYY HH:mm')}}</small>
 
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
@@ -101,7 +101,7 @@
                             <p class="tweet-meta">
                                <router-link :to="'/dashboard/'+reply.user._id" class="">
                                    <strong>{{reply.username}}</strong></router-link>
-                                   <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('llll')}}</small>
+                                   <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
                             <p class="tweet-body has-text-grey babble-body">
                                 {{reply.babble}}
@@ -118,7 +118,7 @@
         <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
-                <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
+                <figure v-if="connectedUser" class="image imageModal is-64x64 is-circle"><img class="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
                 </div>
                 <div class="media-content">
                     <div>
@@ -138,7 +138,7 @@
                                 </a>
                             </div>
                         <div class="level-right rightchartIcon">
-                            <div class="level-item has-text-grey">200</div>
+                            <div class="level-item has-text-grey">{{charactersLeft}}</div>
                             <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary">Babble</button></div>
                         </div>
                         </div>
@@ -170,6 +170,13 @@ export default {
     babbles: Array,
     stock: Object,
     connectedUser: Object,
+  },
+   computed: {
+    charactersLeft() {
+      var char = this.babbleText.length,
+        limit = 200;
+      return limit - char;
+    }
   },
   methods: {
     moment: function(time) {
@@ -208,7 +215,7 @@ export default {
 
 <style scoped>
 body {
-    color: #4a4a4a;
+    color: lightslategray;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -347,6 +354,26 @@ word-break: break-word;
     .babMenu {
         padding-top: 12px;
         color: #c9c9c9;
+    }
+     .imageModal{
+        display:none
+    }
+    .media-left{
+        margin:0px;
+        margin-right:5px;
+    }
+    .card-content{
+        padding: 10px
+    }
+    .icon{
+        font-size:10px;
+    }
+    .level-left + .level-right{
+        margin-top: 0px !important;
+    }
+    .levelchartIcon{
+        display: flex !important;
+        align-items: center !important;
     }
 }
 
