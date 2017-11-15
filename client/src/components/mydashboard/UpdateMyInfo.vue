@@ -30,7 +30,7 @@
 
                 <label><span>Update your photo</span>
                 <croppa v-model="image"
-                  initial-image="/static/images/Warren.jpeg"
+                  initial-image=""
                   :width="150"
                   :height="150"
                   :quality="1"
@@ -110,7 +110,7 @@ export default {
   methods: {   
     userProfileUpdate() {
       const userId = this.$root.user._id;
-      if (this.url === "") this.url = profileInfo.picProfile;
+      if (this.url === "") this.url = profileInfo.url;
       userUpdate(this.location, this.bio, this.skills, this.url)
         .then(data => {
           setTimeout(() => (this.okMessage = false), 5000);
@@ -122,12 +122,10 @@ export default {
     
     displayPicturePreview() {
       getUserProfileInfo().then(profileInfo => {
-        console.log("userINFO=>", profileInfo);
         this.profileInfo = profileInfo;
       });
     },
     saveImage() {
-      console.log("************************************this.image", this.image);
       uploadPicture(this.image)
         .then(response => {
           // change the image when the user uploads a new image
@@ -141,14 +139,11 @@ export default {
     },
     
     saveMyProfile() {
-      this.generateImage()
-      console.log("************************************this.image", this.image);
-       console.log("***********************µµµµµµµµ******************this.image", this.url);
+      this.image.imageSet === true ? this.generateImage() : '';
       this.userProfileUpdate()
-      console.log("********************************************µµµµµµµµµ*******this.profileInfo", this.profileInfo);
       this.$emit("saveprofile");
     },
-    	generateImage: function() {
+    generateImage: function() {
     	let url = this.image.generateDataUrl()
       if (!url) {
       	alert('no image')
@@ -162,7 +157,7 @@ export default {
       this.profileInfo = profileInfo;
       this.location= profileInfo.location;
       this.skills= profileInfo.skills;
-      this.url=profileInfo.url;
+      this.url=profileInfo.picProfile;
     });
   }
 };

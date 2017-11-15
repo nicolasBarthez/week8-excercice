@@ -10,7 +10,7 @@
       </div>
       </div>
   </nav>
-        <b-table
+        <b-table v-if="watchList.length>0"
             :data="watchList"
             :loading="loading"
 
@@ -70,6 +70,9 @@
                 </section>
             </template>
         </b-table>
+         <div v-else>
+            <p id="no">You have no Stock in your watchList for now </p>
+        </div>
 </div>
 </template>
 
@@ -152,6 +155,12 @@ export default {
 
 
 <style scoped>
+#no{
+  TEXT-ALIGN: CENTER;
+    MARGIN-TOP: 5%;
+    font-weight: bold;
+    color:#192b41
+}
 .main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;

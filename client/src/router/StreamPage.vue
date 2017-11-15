@@ -68,9 +68,7 @@ export default {
         this.babbles = babbles;
       });
       getWatchInsight(this.$root.user._id).then(watchInsight => {
-        console.log("UserId=>", this.$root.user._id);
         this.watchInsight = watchInsight;
-        console.log("watchInsight=>", watchInsight);
       });
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;

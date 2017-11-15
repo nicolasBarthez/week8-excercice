@@ -53,28 +53,31 @@
               <nav id="LB" class="level media">
                 <figure class="image is-96x96 is-circle" >
                   <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
-                  <span class="subtitle is-6">
+                  <span class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle centralPic">
                   <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture">
-                  <span class="subtitle is-6">
+                  <span class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle">
                   <img class="imgProfile" v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture">
-                  <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="subtitle is-6">
+                  <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
                                     </span>
                 </figure>
               </nav>
-              <div  v-if="profileInfo.skills[0]" class="preferedTrades level-item has-text-centered column is-3">
+              <div  class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6"><strong>Skills</strong></p>
-                <b-tag>{{profileInfo.skills[0]}}</b-tag>
-                <b-tag v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
-                <b-tag v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
+                <div   class="preferedTrades level-item has-text-centered column is-3" v-if="profileInfo.skills[0]">
+                <b-tag class="is-4">{{profileInfo.skills[0]}}</b-tag>
+                <b-tag class="is-4" v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
+                <b-tag class="is-4" v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
+                </div>
+                <div v-else >Update your profile to share your skills !</div>
                 <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
               </div>
             </div>
@@ -113,7 +116,6 @@ export default {
     }
   },
   created() {
-    console.log("UESRID OF =>", this.$root.user._id);
     getLeaderboard(this.$root.user._id).then(leaderboard => {
       this.leaderboard = leaderboard;
     });
@@ -124,6 +126,9 @@ export default {
 <style scoped>
 body {
   color: #192b41!important;
+}
+.rank{
+  margin-left:35%!important
 }
 .is-96x96{
     width: 96px!important;

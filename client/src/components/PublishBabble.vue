@@ -299,6 +299,34 @@ export default {
     .media-content{
         margin-bottom: 3% !important
     }
+    #Bbear {
+    PADDING-LEFT: 10PX;
+    PADDING-RIGHT: 10PX;
+    font-weight: bolder;
+    color: #ff6026;
+    box-shadow: 0 0 0 0.125em #ff6026;
+    border-color: #ff6026;
+    }
+  
+    #NotNow {
+    MARGIN-TOP: -25%;
+    PADDING-LEFT: 5PX;
+    PADDING-RIGHT: 5PX;
+    font-weight: bolder;
+    color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+    }
+    
+    #Bbull {
+    PADDING-LEFT: 10PX;
+    PADDING-RIGHT: 10PX;
+    font-weight: bolder;
+    color: #21ce99;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+    }
+   
 }
 
 </style>

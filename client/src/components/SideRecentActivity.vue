@@ -6,7 +6,7 @@
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
             <div class="picss column is-3 is-marginless">
                 <div class="media-left">
-                    <figure class="image is-64x64 is-circle">
+                    <figure class="image is-48x48 is-circle">
                         <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
                         </router-link>
                     </figure>
@@ -17,9 +17,9 @@
                     <router-link :to="'/dashboard/'+recentPosition.userId._id" >
                         <strong>&commat;{{recentPosition.userId.username}}</strong>
                     </router-link>
-                    <span>is {{recentPosition.position}} on  <router-link :to="'/stocks/'+recentPosition.stockId.longName">#{{recentPosition.stockId.longName.length<7 ? recentPosition.stockId.longName : recentPosition.stockId.shortName }}</router-link>
+                    <span>is <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> on <br> <router-link :to="'/stocks/'+recentPosition.stockId.longName" >#{{recentPosition.stockId.longName}}</router-link>
                     </span><br>
-                    <span class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} peoples</span><br>
+                    <span class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} Insiders</span><br>
                     </p>
             </div>
         </div>
@@ -36,6 +36,10 @@ export default {
 </script>
 
 <style scoped>
+.is-9{
+    margin-left: 5%
+}
+
 @media (max-width: 768px) {
     .picss{
         display:none;

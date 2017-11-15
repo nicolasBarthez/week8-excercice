@@ -10,7 +10,7 @@
       </div>
       </div>
     </nav>
-        <b-table
+        <b-table v-if="pastInsights.length>0"
 
             :data="pastInsights"
             :loading="loading"
@@ -50,7 +50,8 @@
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
                     {{((props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
-                </b-table-column><b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performnce">
+                </b-table-column>
+                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance">
                     {{ props.row.performancePoints }}
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
@@ -72,6 +73,9 @@
                 </section>
             </template>
         </b-table>
+        <div v-else>
+            <p id="no">There is no Past Position for this Insider</p>
+        </div>
   </div>
 
 </template>
@@ -163,6 +167,12 @@ export default {
 </script>
 
 <style scoped>
+#no{
+  TEXT-ALIGN: CENTER;
+    MARGIN-TOP: 5%;
+    font-weight: bold;
+    color:#192b41
+}
 .main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;

@@ -41,13 +41,13 @@
               <div class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6">Prefered trades</p>
                 <p class="is-4">
-                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
+                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].stockId.longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
                 </p>
                 <p class="is-4">
-                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
+                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].stockId.longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
                 </p>
                 <p class="is-4">
-                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
+                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].stockId.longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
                 </p>
               </div>
                <nav v-if="!leaderboard" id="LB" class="level media">
@@ -70,6 +70,17 @@
                                     </span>
                 </figure>
               </nav>
+
+              <div  class="preferedTrades level-item has-text-centered column is-3">
+                <p class="title is-6"><strong>Skills</strong></p>
+                <div   class="preferedTrades level-item has-text-centered column is-3" v-if="profileInfo.skills">
+                <b-tag class="is-4">{{profileInfo.skills[0]}}</b-tag>
+                <b-tag class="is-4" v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
+                <b-tag class="is-4" v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
+                </div>
+                <div v-else >No special skills for this Insiders !</div>
+                <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
+              </div>
                <!--  <div  v-if="profileInfo.skills[0]" class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6"><strong>Skills</strong></p>
                 <b-tag>{{profileInfo.skills[0]}}</b-tag>

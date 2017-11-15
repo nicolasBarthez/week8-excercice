@@ -146,6 +146,9 @@ export default {
 </script>
 
 <style scoped>
+.title, .subtitle {
+    word-break: initial;
+}
 .stock-banner {
     display: flex;
     flex-direction: row;
@@ -156,7 +159,7 @@ export default {
     font-size:1.3rem
 }
 .add-to-watchlist{
-        margin-left:-5%
+        margin-left:-13%
     }
 
 .longNameTitle{
@@ -179,7 +182,9 @@ a {
     margin-top: 0;
     margin-bottom: 0;
 }
-
+.sock-info{
+    width :25%
+}
 #descr {
     margin-top: -1.5rem;
     font-size: 0.7rem;
@@ -295,7 +300,10 @@ a {
     flex-direction: column;
 }
 @media (max-width: 768px) {
-    .pos{font-size:0.5rem}
+    .pos{
+        font-size:0.6rem;
+        padding:5%
+    }
     .stVar{
         text-align:end;
     }
@@ -347,23 +355,24 @@ a {
     #Bbull{
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
-        width:80%;
-        font-size:0.5rem;
+        width:100%;
+        font-size:0.7rem;
     }
     #Bbear{
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
-        width:80%;
-        font-size:0.5rem;
+        width:100%;
+        font-size:0.7rem;
     }
     .add-to-watchlist{
-        width:20%
+        width:40%;
+        margin-left: -5%;
     }
     #adWL{
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
-        width:95%;
-        font-size:0.5rem !important;
+        width:100%;
+        font-size:0.7rem !important;
     }
 
 }

@@ -10,7 +10,7 @@
       </div>
       </div>
     </nav>
-  <b-table
+  <b-table v-if="insidersFollowed.length>0"
             :data="insidersFollowed"
             :loading="loading"
 
@@ -29,11 +29,14 @@
             @sort="onSort">
 
             <template slot-scope="props">
-                <b-table-column label="Insider" field='_id' sortable centered><figure class="image is-32x32 is-circle">
-            <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
-            </router-link>
-        </figure>
-        <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                <b-table-column label="Insider" field='_id' sortable centered>
+                  <div class="insider">
+                    <figure class="image is-32x32 is-circle">
+                      <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
+                      </router-link>
+                    </figure>
+                    <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                  </div>
                 </b-table-column>
 
                 <b-table-column field='followers' sortable centered label="Followers">
@@ -48,7 +51,7 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    {{props.row.preferedStocks}}
+                    <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                 
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
@@ -70,6 +73,9 @@
                 </section>
             </template>
         </b-table>
+        <div v-else>
+            <p id="no">This Insider doesn't follow anybody yet !</p>
+        </div>
  </div>
 
 </template>
@@ -156,6 +162,20 @@ export default {
 </script>
 
 <style scoped>
+.insider{
+  display:flex;
+  align-items:center;
+  justify-content:center
+}
+a{
+  color:#192b41
+}
+#no{
+  TEXT-ALIGN: CENTER;
+    MARGIN-TOP: 5%;
+    font-weight: bold;
+    color:#192b41
+}
 .main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
@@ -181,6 +201,8 @@ export default {
     display: flex;
     overflow:auto;
 }
-
+.image{
+  margin-right: 20px !important;
+}
 
 </style>

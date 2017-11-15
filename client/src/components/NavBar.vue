@@ -2,9 +2,9 @@
   <nav class="nav has-shadow" id="top">
         <div class="container" id="top2">
             <div class="nav">
-                <a class="nav-item" href="/">
+                 <router-link to="/trending" class="nav-item"> 
                     <img id="logo" src="/static/images/logo.png" alt="Description">
-                </a>
+                </router-link>
             </div>
             <div v-if="data" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
@@ -166,12 +166,20 @@ export default {
 }
 
 .nav-user-name {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 .nav-item img {
     max-height: 2.75rem;
 }
-
+.nav-status{
+    height:1.5rem
+}
+.navbar-item{
+    padding:1%
+}
+.nav-user-profile{
+    padding-left: 10%
+}
 
 /*****************************************************/
 
@@ -244,7 +252,7 @@ a.nav-item:not(.button).is-tab:hover {
 }
 #formNav {
     min-width: 25%!important;
-    margin-left: 12%;
+    margin-left: 15%;
 }
 #formNav1 {
     width: 100%;

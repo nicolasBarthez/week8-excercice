@@ -9,9 +9,20 @@
             <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="navbar-item is-tab babMenu">My Posts</a>
       </div>
   </nav>
+
+
+
     <div class="card">
         <div class="babbles-box" id="babble-container">
            <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">
+                 
+    <div v-if = "babbles.babble_img" class="card-image">
+    <figure class="image is-4by3">
+      <img src="babbles.babble_img" alt="Placeholder image">
+    </figure>
+  </div>
+                
+                
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
