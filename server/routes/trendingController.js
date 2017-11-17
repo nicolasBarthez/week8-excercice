@@ -64,6 +64,7 @@ trendingController.get("/", function(req, res, next) {
     stocks.forEach(stock => {
       const stockCurrentTrend = {
         longName: stock.longName,
+        shortName: stock.shortName,
         currentPrice: stock.price,
         variation: stock.variation,
         volume: stock.volume
