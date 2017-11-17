@@ -36,7 +36,7 @@
                 </b-table-column>
 
                 <b-table-column field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Insiders trending">
-                    <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.trend}}</strong> <small>({{props.row.trending.percentage}}%)</small>
+                    <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.percentage}}%</strong> <small>({{props.row.trending.trend}})</small>
                 </b-table-column>
 
                 <b-table-column field='hotInsights' numeric sortable centered label="Social trending">
@@ -89,7 +89,7 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: "hotInsights",
+      defaultSortField: "trending.percentage",
       defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
