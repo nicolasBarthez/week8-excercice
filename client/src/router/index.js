@@ -6,6 +6,7 @@ import TrendingPage from "./TrendingPage";
 import DashboardPage from "./DashboardPage";
 import StreamPage from "./StreamPage";
 import MyDashBoard from "./MyDashBoard";
+import NotFound from "./NotFound"
 
 Vue.use(Router);
 
@@ -38,8 +39,13 @@ const router = new Router({
         {
             path: "/stream",
             component: StreamPage
+        },
+        {
+            path: "*",
+            component: NotFound
         }
     ],
+
 
     scrollBehavior(to, from, savedPosition) {
         return { x: 0, y: 0 };

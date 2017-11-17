@@ -38,12 +38,11 @@
                         <nav class="media-right">
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light" @click="showModal(babble)">
-                                    <span class="icon is-small"><i class="fa fa-reply"></i></span>
+                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </a>
                                 <a class="level-item has-text-grey-light">
-                                    <span class="icon is-medium"><i
-                                     @click="iLike(babble)" class="like-btn">🚀</i></span>
+                                    <span class="icon is-medium"><i @click="iLike(babble)" class="like-btn">🚀</i></span>
                                     <small>{{babble.like.length}}</small>
                                 </a>
                             </div>
@@ -84,7 +83,7 @@
                         <nav class="media-right">
                             <div class="level-right">
                                 <a class="likeModal level-item has-text-grey-light">
-                                    <span class="icon is-small"><i class=" likeModal fa fa-reply modal-button"></i></span>
+                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
                                 <a class="likeModal level-item has-text-grey-light">
