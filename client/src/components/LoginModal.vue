@@ -22,7 +22,7 @@
                                         </b-input>
                                     </b-field>
                                     <p class="control login">
-                                        <button class="button is-success is-outlined is-large is-fullwidth">Login</button>
+                                        <button class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Login</button>
                                     </p>
                                 </form>
                             

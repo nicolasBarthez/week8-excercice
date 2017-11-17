@@ -4,7 +4,7 @@
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="container primordial">
       <div class="columns sct1">
-        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  class="is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
@@ -183,7 +183,7 @@ export default {
   @media (max-width: 768px) {
   .main {
     background-color: #f9f9f9;
-    padding-top:4.2rem  !important;
+    padding-top:0.5rem  !important;
     margin-left:0px !important;
     margin-right: 0px !important;
     padding-left: 0px !important;

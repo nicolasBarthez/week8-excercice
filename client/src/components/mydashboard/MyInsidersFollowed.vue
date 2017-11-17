@@ -100,7 +100,6 @@ export default {
   },
   created() {
     getMyInsidersFollowed(this.$root.user._id).then(insidersFollowed => {
-      console.log("insidersFollowed", insidersFollowed);
       this.insidersFollowed = insidersFollowed;
     });
   },

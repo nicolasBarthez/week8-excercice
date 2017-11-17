@@ -4,15 +4,14 @@
         <p><span class="title is-5">Recent position</span></p>
         <hr>
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
-            <div class="picss column is-3 is-marginless">
+            <div class="picss column is-12 is-marginless">
                 <div class="media-left">
                     <figure class="image is-48x48 is-circle">
                         <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
                         </router-link>
                     </figure>
                 </div>
-            </div>
-            <div class="column is-9">
+            
                 <p>
                     <router-link :to="'/dashboard/'+recentPosition.userId._id" >
                         <strong>&commat;{{recentPosition.userId.username}}</strong>
@@ -39,11 +38,8 @@ export default {
 .is-9{
     margin-left: 5%
 }
-
-@media (max-width: 768px) {
-    .picss{
-        display:none;
-    }
+.picss{
+    display:flex
 }
 a {
         color: #192b41 !important;

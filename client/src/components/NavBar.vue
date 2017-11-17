@@ -39,13 +39,9 @@
             <div class="nav-right nav-menu">
                 <div id="menu">
                  <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
-                    :class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
+                    class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
                 </router-link>
                 </div>
-                <span class="nav-item">
-                 <router-link v-if="!$root.user" to="/login" class="button ">Login</router-link>
-                 <router-link v-if="!$root.user" to="/signup" class="button">Signup</router-link>
-                </span>
                 <div class="nav-profile" v-if="$root.user">
                     <router-link to="/mydashboard" >
                         <div class="image is-32x32 is-circle">
@@ -298,8 +294,32 @@ a.nav-item:not(.button).is-tab:hover {
         position: static;
     }
     .is-32x32 {
-        width: 16px !important;
-        height: 16px !important;
+        width: 24px !important;
+        height: 24px !important;
+    }
+    .menu1 {
+        font-size:0.8rem !important;
+        font-weight: 600;
+    }
+    a.nav-item:not(.button).is-tab {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    
+    }
+    #nav-username{
+        font-size:0.8rem !important;
+        font-weight: 600;
+    }
+    .navbar-item{
+        font-size:0.8rem !important;
+        font-weight: 600;
+    }
+    .nav-profile {
+        margin-right: 2%
+    }
+    .nav-right {
+    justify-content: space-around !important;
+    z-index: 5;
     }
 }
 </style>

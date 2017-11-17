@@ -346,6 +346,10 @@ word-break: break-word;
 
 
 @media screen and (max-width: 768px) {
+    .field:not(:last-child) {
+        margin-bottom: 0.75rem;
+        margin-top: 0.75rem !important;
+    }
     .level-item {
         margin-right: 10px;
     }
@@ -373,7 +377,7 @@ word-break: break-word;
         padding: 10px
     }
     .icon{
-        font-size:10px;
+        font-size:15px;
     }
     .level-left + .level-right{
         margin-top: 0px !important;

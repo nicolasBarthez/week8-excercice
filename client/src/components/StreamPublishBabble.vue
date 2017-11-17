@@ -149,6 +149,10 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+    .field:not(:last-child) {
+        margin-bottom: 0.75rem;
+        margin-top: 0.75rem !important;
+    }
     .level-item {
         margin-right: 10px;
     }
@@ -176,7 +180,7 @@ export default {
         padding: 5px
     }
     .icon{
-        font-size:10px;
+        font-size:15px;
     }
     .chartIcon{
         justify-content:baseline !important;

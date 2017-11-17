@@ -39,15 +39,15 @@
             <div id="refAndSkills">
               <div class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6">Prefered trades</p>
-                <p class="is-4">
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].longName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
-                </p>
-                <p class="is-4">
+                </router-link></p>
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].longName"class="stockName is-6" data-replace="Symbol">
                   2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
-                </p>
-                <p class="is-4">
+                 </router-link></p>
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[2]" :to="'/stocks/'+profileInfo.preferedStocks[2].longName"class="stockName is-6" data-replace="Symbol">
                   3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
-                </p>
+                 </router-link></p>
               </div>
 
               <nav id="LB" class="level media">
@@ -249,7 +249,7 @@ a {
   PADDING-LEFT: 30PX;
   PADDING-RIGHT: 30PX;
   font-weight: bolder;
-  font-size: 1vw;
+  font-size: 0.4rem;
 }
 
 .position {
