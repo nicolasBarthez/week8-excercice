@@ -40,17 +40,17 @@
              <div id="refAndSkills">
               <div class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6">Prefered trades</p>
-                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[1].longName"class="stockName is-6" data-replace="Symbol">
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].stockId.longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
                 </router-link></p>
-                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].longName"class="stockName is-6" data-replace="Symbol">
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].shortName"class="stockName is-6" data-replace="Symbol">
                   2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].stockId.longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
                 </router-link></p>
-                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[2]" :to="'/stocks/'+profileInfo.preferedStocks[1].longName"class="stockName is-6" data-replace="Symbol">
+                <p class="is-4"><router-link v-if="profileInfo.preferedStocks[2]" :to="'/stocks/'+profileInfo.preferedStocks[2].shortName"class="stockName is-6" data-replace="Symbol">
                   3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].stockId.longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
                 </router-link></p>
               </div>
-               <nav v-if="!leaderboard" id="LB" class="level media">
+               <nav v-if="leaderboard" id="LB" class="level media">
                 <figure class="image is-96x96 is-circle" >
                   <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
                   <span class="subtitle is-6">

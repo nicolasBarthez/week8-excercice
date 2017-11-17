@@ -68,8 +68,6 @@ dashboardsController.get(
   (req, res, next) => {
     const user = req.user;
 
-    console.log("****************DANS LE /profile => ", user.username);
-
     User.findById(user._id).exec((err, us) => {
       if (err) res.json(null);
       let userInfo = {
@@ -109,6 +107,7 @@ dashboardsController.get(
                   if (!map.get(stock._id)) {
                     map.set(stock._id, {
                       longName: stock.longName,
+                      shortName: stock.shortName,
                       performancePoints: 0
                     });
                   }
@@ -121,8 +120,16 @@ dashboardsController.get(
                   return Object.assign({ stockId }, data);
                 });
               }
+              let rankingByPoints = reduceArrayByStockPoints(wis);
 
-              userInfo.preferedStocks = reduceArrayByStockPoints(wis);
+              sortStockDes = function(a, b) {
+                if (a.performancePoints < b.performancePoints) return 1;
+                if (a.performancePoints > b.performancePoints) return -1;
+                return 0;
+              };
+
+              rankingByPoints = rankingByPoints.sort(sortStockDes);
+              userInfo.preferedStocks = rankingByPoints;
             }
 
             WatchItem.find({
@@ -536,6 +543,7 @@ dashboardsController.get(
         following: us.following,
         picProfile: us.picProfile,
         location: us.location,
+        skills: us.skills,
         following: us.following.length
       };
 
@@ -556,31 +564,40 @@ dashboardsController.get(
           status: "won"
         })
           .populate("stockId")
-          .exec((err, wi) => {
+          .exec((err, wis) => {
             if (err) res.json(null);
 
-            // first, convert data into a Map with reduce
-            function reduceArrayByStockPoints(array) {
-              let counts = array.reduce((prev, curr) => {
-                const stockId = curr.stockId.toString();
-                let count = prev.get(stockId) || 0;
-                prev.set(stockId, curr.performancePoints + count);
-                return prev;
-              }, new Map());
+            if (wis) {
+              // first, convert data into a Map with reduce
+              function reduceArrayByStockPoints(array) {
+                const map = array.reduce((map, wi) => {
+                  const stock = wi.stockId;
+                  if (!map.get(stock._id)) {
+                    map.set(stock._id, {
+                      longName: stock.longName,
+                      shortName: stock.shortName,
+                      performancePoints: 0
+                    });
+                  }
+                  map.get(stock._id).performancePoints += wi.performancePoints;
+                  return map;
+                }, new Map());
 
-              // then, map your counts object back to an array
-              return Array.from(counts).map(([stockId, performancePoints]) => {
-                return {
-                  stockId,
-                  performancePoints
-                };
-              });
-            }
+                // then, map your counts object back to an array
+                return Array.from(map).map(([stockId, data]) => {
+                  return Object.assign({ stockId }, data);
+                });
+              }
+              let rankingByPoints = reduceArrayByStockPoints(wis);
 
-            if (wi) {
-              userInfo.preferedStocks = reduceArrayByStockPoints(wi);
-            } else {
-              userInfo.preferedStocks = [];
+              sortStockDes = function(a, b) {
+                if (a.performancePoints < b.performancePoints) return 1;
+                if (a.performancePoints > b.performancePoints) return -1;
+                return 0;
+              };
+
+              rankingByPoints = rankingByPoints.sort(sortStockDes);
+              userInfo.preferedStocks = rankingByPoints;
             }
 
             WatchItem.find({
@@ -589,8 +606,9 @@ dashboardsController.get(
                 $in: ["won", "lost"]
               }
             }).exec((err, wiClosed) => {
+              console.log("wiClosed", wiClosed);
               // Calculate performance points
-              if (wiClosed > 0) {
+              if (wiClosed.length > 0) {
                 userInfo.performancePoints = wiClosed
                   .map(item => item.performancePoints)
                   .reduce((prev, next) => prev + next);

@@ -19,7 +19,7 @@
             @sort="onSort">
 
             <template slot-scope="props">
-                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.longName"class="stockName is-6" data-replace="Symbol">
+                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName is-6" data-replace="Symbol">
                     {{ props.row.longName }}</router-link>
                 </b-table-column>
 
@@ -43,8 +43,8 @@
                     {{ props.row.hotInsights }}
                 </b-table-column>
 
-                <b-table-column field='bestInsiders[0].perf' sortable centered label="Insiders on it">
-                    <strong v-if="props.row.bestInsiders[0]">@{{props.row.bestInsiders[0].username}}</strong><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf}} points)</small>
+                <b-table-column field='bestInsiders[0].perf' sortable centered label="Best insider on it">
+                    <router-link v-if="props.row.bestInsiders[0]" :to="'/dashboard/'+props.row.bestInsiders[0].id"><strong >@{{props.row.bestInsiders[0].username}}</strong></router-link><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf}} points)</small>
                 </b-table-column>
             </template>
             <template slot="empty">
