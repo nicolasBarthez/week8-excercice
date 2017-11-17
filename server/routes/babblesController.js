@@ -93,7 +93,7 @@ babblesController.get(
     const group = page * 50;
 
     if (sort === "all") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
+      Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
 
@@ -107,7 +107,7 @@ babblesController.get(
           });
       });
     } else if (sort === "me") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
+      Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
 
@@ -121,7 +121,7 @@ babblesController.get(
           });
       });
     } else if (sort === "insidermates") {
-      Stock.findOne({ longName: stock }, (err, stock) => {
+      Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return next(err);
 

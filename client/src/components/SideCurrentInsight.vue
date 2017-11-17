@@ -7,7 +7,7 @@
         <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
-                   <router-link :to="'/stocks/'+watchItem.stockId.longName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.longName.length<7 ? watchItem.stockId.longName : watchItem.stockId.shortName }}</router-link><br>
+                   <router-link :to="'/stocks/'+watchItem.stockId.shortName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.shortName.length<7 ? watchItem.stockId.shortName : watchItem.stockId.shortName }}</router-link><br>
                    <b class="price is-6">{{watchItem.stockId.price}} €</b>
                    <b id="variation" class="is-6" :class="{'has-text-green' : watchItem.stockId.variation>0, 'has-text-red' : watchItem.stockId.variation<0}">
                        <span class= "indice">{{watchItem.stockId.variation}} %</span>
@@ -55,7 +55,7 @@ export default {
 
   methods: {
     closePosition(watchItem) {
-      removePosition(watchItem.stockId.longName, watchItem._id).then(() => {
+      removePosition(watchItem.stockId.shortName, watchItem._id).then(() => {
         this.$emit("changeWatchlist");
       });
     }

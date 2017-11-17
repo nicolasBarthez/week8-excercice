@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.longName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -94,10 +94,10 @@ export default {
     },
     putHashtag(e) {
       return this.babble.length !== 1
-        ? e.target.value.split("-")[0] === `#${this.stock.longName}-`
+        ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
           ? this.babble
-          : "#" + this.stock.longName + "- " + this.babble
-        : (this.babble = `#${this.stock.longName}-` + this.babble);
+          : "#" + this.stock.shortName + "- " + this.babble
+        : (this.babble = `#${this.stock.shortName}-` + this.babble);
     }
   },
   computed: {
@@ -312,7 +312,7 @@ export default {
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
     }
-  
+
     #NotNow {
     MARGIN-TOP: -25%;
     PADDING-LEFT: 1PX;
@@ -322,7 +322,7 @@ export default {
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
     }
-    
+
     #Bbull {
     PADDING-LEFT: 10PX;
     PADDING-RIGHT: 10PX;
@@ -331,7 +331,7 @@ export default {
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
     }
-   
+
 }
 
 </style>
