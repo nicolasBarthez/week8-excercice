@@ -328,7 +328,7 @@ a {
 
     .stock-banner{
         display: flex;
-        margin-bottom:5%;
+        margin-bottom:4%;
     }
     .level-item {
         margin-bottom: 0px!important;

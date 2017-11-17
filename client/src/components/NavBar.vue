@@ -289,7 +289,8 @@ a.nav-item:not(.button).is-tab:hover {
         display:none
     }
     #logo2{
-        display:inherit
+        display:inherit;
+        margin-right: 0.9REM;
     }
     .nav-toggle {
         padding-top: 75px;
