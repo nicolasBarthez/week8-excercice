@@ -52,11 +52,11 @@
                                 <div class="level-item has-text-centered">
                                     <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
-                                 
+
                                 <div class="level-item has-text-centered">
                                     <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
                                  &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
-                                
+
                                 <div class="level-item has-text-centered">
                                     <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
                                 </div>
@@ -92,7 +92,7 @@ export default {
   },
   methods: {
     addWatchList() {
-      addWatchItem(this.stock.longName)
+      addWatchItem(this.stock.shortName)
         .then(item => {
           this.$emit("changeWatchlist", item);
         })
@@ -102,27 +102,27 @@ export default {
     },
 
     removeWatchList() {
-      removeWatchItem(this.stock.longName, this.watchItem._id).then(() => {
+      removeWatchItem(this.stock.shortName, this.watchItem._id).then(() => {
         this.$emit("changeWatchlist", null);
       });
     },
 
     closePosition() {
-      removePosition(this.stock.longName, this.watchItem._id).then(() => {
+      removePosition(this.stock.shortName, this.watchItem._id).then(() => {
         this.$emit("changeWatchlist", null);
       });
     },
 
     imBull() {
       const inWatchList = this.watchItem ? this.watchItem._id : undefined;
-      beBull(this.stock.longName, inWatchList).then(item => {
+      beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
     },
 
     imBear() {
       const inWatchList = this.watchItem ? this.watchItem._id : undefined;
-      beBear(this.stock.longName, inWatchList).then(item => {
+      beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
     },
@@ -310,7 +310,7 @@ a {
     flex-direction: column;
 }
 @media (max-width: 768px) {
-    
+
     .card-content {
         padding: 0.7REM;
         padding-top: 1REM;
@@ -383,7 +383,7 @@ a {
         width:100%;
         font-size:0.7rem;
     }
-       
+
     #adWL{
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;

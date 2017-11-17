@@ -52,7 +52,7 @@ export default {
 
   methods: {
     updateWatchList() {
-      getWatchItem(this.stock.longName)
+      getWatchItem(this.stock.shortName)
         .then(watchItem => {
           console.log("DEBUG getWatchItem watchItem", watchItem);
           this.watchItem = watchItem;
@@ -69,20 +69,20 @@ export default {
         this.recentPositions = recentPositions;
       });
 
-      getTrend(this.stock.longName, 30).then(trendBullBear => {
+      getTrend(this.stock.shortName, 30).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
     },
 
     updateTimelineBabble() {
-      getStockBabbles(this.stock.longName, this.filterBy).then(
+      getStockBabbles(this.stock.shortName, this.filterBy).then(
         babbles => (this.babbles = babbles)
       );
     },
 
     changeSort(filterBy) {
       this.filterBy = filterBy;
-      getStockBabbles(this.stock.longName, this.filterBy).then(
+      getStockBabbles(this.stock.shortName, this.filterBy).then(
         babbles => (this.babbles = babbles)
       );
     },
@@ -123,13 +123,13 @@ export default {
     },
 
     getTrend7() {
-      getTrend(this.stock.longName, 7).then(trendBullBear => {
+      getTrend(this.stock.shortName, 7).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
     },
 
     getTrend1() {
-      getTrend(this.stock.longName, 1).then(trendBullBear => {
+      getTrend(this.stock.shortName, 1).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
     }
