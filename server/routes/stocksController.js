@@ -97,19 +97,26 @@ stocksController.get(
       if (err) {
         res.json(null);
       }
-      WatchItem.findOne({
-        userId: user._id,
-        stockId: stock._id,
-        status: "active"
-      }).then(watchitem => {
-        if (!watchitem) {
-          //const err = new Error("Not Found");
-          //err.status = 404;
-          res.json(null);
-        } else {
-          res.json(watchitem);
-        }
-      });
+
+      if (stock === null) {
+        res.json(null);
+      } else {
+        WatchItem.findOne({
+          userId: user._id,
+          stockId: stock._id,
+          status: "active"
+        })
+          .then(watchitem => {
+            if (!watchitem) {
+              //const err = new Error("Not Found");
+              //err.status = 404;
+              res.json(null);
+            } else {
+              res.json(watchitem);
+            }
+          })
+          .catch(err => res.json(null));
+      }
     });
   }
 );
