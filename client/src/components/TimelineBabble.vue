@@ -42,8 +42,8 @@
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </a>
                                 <a class="level-item has-text-grey-light">
-                                    <span class="icon is-small"><i
-                                     @click="iLike(babble)" class="fa fa-thumbs-o-up like-btn"></i></span>
+                                    <span class="icon is-medium"><i
+                                     @click="iLike(babble)" class="like-btn">🚀</i></span>
                                     <small>{{babble.like.length}}</small>
                                 </a>
                             </div>
@@ -88,7 +88,8 @@
                                     <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
                                 <a class="likeModal level-item has-text-grey-light">
-                                   <span class="icon is-small"><i class="likeModal fa fa-thumbs-o-up like-btn"></i></span>
+                                  <span class="icon is-medium"><i
+                                     @click="iLike(babble)" class="like-btn">🚀</i></span>
                                         <small>{{modalBabble.like.length}}</small>
                                 </a>
                             </div>
@@ -349,6 +350,7 @@ word-break: break-word;
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;
+        padding-right: 5px;
     }
     .level-item {
         margin-right: 10px;

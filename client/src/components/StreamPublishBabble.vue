@@ -152,6 +152,7 @@ export default {
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;
+        padding-right: 5px;
     }
     .level-item {
         margin-right: 10px;

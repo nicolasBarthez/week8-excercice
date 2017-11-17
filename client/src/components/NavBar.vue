@@ -2,7 +2,8 @@
   <nav class="nav has-shadow" id="top">
         <div class="container" id="top2">
             <div class="nav">
-                 <router-link to="/trending" class="nav-item"> 
+                <router-link to="/trending" class="nav-item"> 
+                    <img id="logo2" src="/static/images//logoReduct.png" alt="Description">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
             </div>
@@ -130,7 +131,6 @@ export default {
 </script>
 
 <style scoped>
-
 #nav-toggle-state {
   display: none;
 }
@@ -139,7 +139,9 @@ export default {
   display: flex;
 }
 /*nav profile*****************************************/
-
+#logo2{
+    display:none
+}
 .image.is-32x32 {
     height: 45px;
     width: 45px;
@@ -283,6 +285,12 @@ a.nav-item:not(.button).is-tab:hover {
 }
 
 @media screen and (max-width: 768px) {
+    #logo{
+        display:none
+    }
+    #logo2{
+        display:inherit
+    }
     .nav-toggle {
         padding-top: 75px;
     }

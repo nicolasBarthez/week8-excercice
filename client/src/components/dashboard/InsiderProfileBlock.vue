@@ -159,7 +159,16 @@ body {
   margin-bottom:10px;
 }
 .sock-info {
-  width: 20%;
+  width: 15%;
+}
+.add-to-watchlist{
+    width:25%
+}
+#perf{
+    display: flex;
+    justify-content: center;
+    margin-left:0px;
+    width:40%;
 }
 #refAndSkills {
   display: flex!important;
@@ -178,6 +187,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 10%!important;
 }
 .follOwNav {
   justify-content: space-evenly!important;
@@ -189,10 +200,6 @@ body {
 }
 .follOwStrong {
   text-align: center;
-}
-#perf {
-  display: flex;
-  width: 30%;
 }
 span>a {
   color: #192b41!important;
@@ -247,20 +254,24 @@ a {
   PADDING-LEFT: 30PX;
   PADDING-RIGHT: 30PX;
   font-weight: bolder;
-  font-size: 1vw;
+  font-size:  0.75rem;
 }
 .position {
   display: flex;
   flex-direction: column;
 }
 @media (max-width: 768px) {
+   .add-to-watchlist{
+        display: flex;
+        justify-content: flex-end
+    }
     .stVar{
         text-align:end;
     }
     .title.is-5{
         font-size: 0.8REM !important;
     }
-.location {
+    .location {
         display:none;
     }
     #profile-banner{
@@ -275,8 +286,8 @@ a {
         flex-direction: column
     }
     .media-left {
-        display:none;}
-
+        display:none;
+    }
     .preferedTrades{
       display:none!important;
     }
@@ -285,23 +296,20 @@ a {
     }
     .is-96x96 {
       width: 64px!important;
-    height: 64px!important;
+      height: 64px!important;
     }
     #LB{
-    width: 90%;
-    margin-left: 9%;
-    }
-    #follOw{
-      display:none
+      width: 90%;
+      margin-left: 9%;
     }
     #adWLT {
-  background-color: #192b41;
-  border-color: #192b41;
-  color: #fff;
-  font-weight: bolder;
-  font-size: 0.4rem;
-  PADDING-LEFT: 0PX;
-  PADDING-RIGHT: 0PX;
-}
+      background-color: #192b41;
+      border-color: #192b41;
+      color: #fff;
+      font-weight: bolder;
+      font-size: 0.6rem;
+      PADDING-LEFT: 10PX;
+      PADDING-RIGHT: 10PX;
+    }
 }
 </style>

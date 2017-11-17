@@ -141,9 +141,19 @@ body {
 .title.is-6{
   margin-bottom:10px;
 }
-.sock-info {
-  width: 20%;
+.sock-info{
+    width:15%
 }
+.add-to-watchlist{
+    width:25%
+}
+#perf{
+    display: flex;
+    justify-content: center;
+    margin-left:0px;
+    width:40%;
+}
+
 
 #refAndSkills {
   display: flex!important;
@@ -165,6 +175,8 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 0;
+  margin-bottom: 10%!important;
 }
 
 .follOwNav {
@@ -180,12 +192,6 @@ body {
 .follOwStrong {
   text-align: center;
 }
-
-#perf {
-  display: flex;
-  width: 30%;
-}
-
 span>a {
   color: #192b41!important;
   cursor: pointer;
@@ -213,21 +219,13 @@ a {
   margin-bottom: 2.5% !important;
 }
 
-.stock-banner {
-  margin-top: 0;
-  margin-bottom: 5%!important;
-}
-
 .subtitle {
   margin-top: 0;
   margin-bottom: 0%;
 }
-
-
 #ActionCard {
   width: 100%;
 }
-
 .title.is-5 {
   font-size: 1.5REM;
 }
@@ -249,7 +247,7 @@ a {
   PADDING-LEFT: 30PX;
   PADDING-RIGHT: 30PX;
   font-weight: bolder;
-  font-size: 0.4rem;
+  font-size: 0.75rem;
 }
 
 .position {
@@ -257,15 +255,20 @@ a {
   flex-direction: column;
 }
 @media (max-width: 768px) {
+    .add-to-watchlist{
+        display: flex;
+        justify-content: flex-end
+    }
     .stVar{
         text-align:end;
     }
     .title.is-5{
         font-size: 0.8REM !important;
     }
-.location {
-        display:none;
+    .location {
+    display:none
     }
+
     #profile-banner{
         display: flex;
         margin-bottom:10%!important;
@@ -273,14 +276,13 @@ a {
     .level-item {
         margin-bottom: 0px!important;
     }
-
     .stock-price{
         display: flex;
         flex-direction: column
     }
     .media-left {
-        display:none;}
-    
+        display:none;
+    }
     .preferedTrades{
       display:none!important;
     }
@@ -289,24 +291,20 @@ a {
     }
     .is-96x96 {
       width: 64px!important;
-    height: 64px!important;
+      height: 64px!important;
     }
     #LB{
-    width: 90%;
-    margin-left: 9%;
-    }
-    #follOw{
-      display:none
+      width: 90%;
+      margin-left: 9%;
     }
     #adWLT {
-  background-color: #192b41;
-  border-color: #192b41;
-  color: #fff;
-  font-weight: bolder;
-  font-size: 1vw;
-  PADDING-LEFT: 0PX;
-  PADDING-RIGHT: 0PX;
-}
-
+      background-color: #192b41;
+      border-color: #192b41;
+      color: #fff;
+      font-weight: bolder;
+      font-size: 0.4rem;
+      PADDING-LEFT: 0PX;
+      PADDING-RIGHT: 0PX;
+    }
 }
 </style>
