@@ -6,24 +6,24 @@ const mongoose = require("mongoose");
 const urlStart = "https://api.iextrading.com/1.0/stock/";
 const urlEnd = "/quote";
 
-mongoose
-  .connect(
-    "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
-    {
-      useMongoClient: true
-    }
-  )
-  .then(() => {
-    console.info("The magic happens on port " + port);
-  });
-
 // mongoose
-//   .connect(process.env.MONGODB_URI, {
-//     useMongoClient: true
-//   })
+//   .connect(
+//     "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
+//     {
+//       useMongoClient: true
+//     }
+//   )
 //   .then(() => {
 //     console.info("The magic happens on port " + port);
 //   });
+
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useMongoClient: true
+  })
+  .then(() => {
+    console.info("The magic happens on port " + port);
+  });
 
 function getstockUpdate(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
