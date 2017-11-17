@@ -173,12 +173,19 @@ export default {
     margin-left:0px;
     width:40%;
 }
+.position{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .longNameTitle{
     margin-bottom:12% !important
 }
 .pos{
-    text-align: center
+    text-align: center;
+    width:100%;
 }
 a {
     color: #192b41;
@@ -317,10 +324,11 @@ a {
     }
     .pos{
         font-size:0.6rem;
-        padding:5%
+        padding:5%;
     }
     .stVar{
         text-align:end;
+        font-size:1rem
     }
     .longNameTitle{
         font-size: 0.8REM !important;
