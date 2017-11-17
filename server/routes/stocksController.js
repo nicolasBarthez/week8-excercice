@@ -14,7 +14,7 @@ const moment = require("moment");
 stocksController.get("/:stockName", function(req, res, next) {
   const stock = req.params.stockName.toUpperCase();
 
-  Stock.findOne({ longName: stock }, (err, stock) => {
+  Stock.findOne({ shortName: stock }, (err, stock) => {
     if (err) return next(err);
     if (!stock) return next(err);
     res.json(stock);
@@ -47,7 +47,7 @@ stocksController.get("/:stockName/bull-bear-trend", function(req, res, next) {
   let attribute = req.query.history;
   const stock = req.params.stockName.toUpperCase();
 
-  Stock.findOne({ longName: stock }, (err, stock) => {
+  Stock.findOne({ shortName: stock }, (err, stock) => {
     if (err) return next(err);
     if (!stock) return next(err);
 
@@ -93,7 +93,10 @@ stocksController.get(
     const stock = req.params.stockName.toUpperCase();
     const user = req.user;
 
-    Stock.findOne({ longName: stock }, (err, stock) => {
+    Stock.findOne({ shortName: stock }, (err, stock) => {
+      if (err) {
+        res.json(null);
+      }
       WatchItem.findOne({
         userId: user._id,
         stockId: stock._id,
@@ -121,7 +124,7 @@ stocksController.post(
     const user = req.user;
     const stockName = req.params.name.toUpperCase();
 
-    Stock.findOne({ longName: stockName })
+    Stock.findOne({ shortName: stockName })
       .then(stock => {
         if (!stock) {
           res.json({
@@ -187,10 +190,8 @@ stocksController.post(
     const stockName = req.params.name.toUpperCase();
     const watchitemId = req.query.wi;
 
-    console.log("**********WI identifié", watchitemId);
-
     if (!watchitemId) {
-      Stock.findOne({ longName: stockName })
+      Stock.findOne({ shortName: stockName })
         .then(stock => {
           if (!stock) {
             res.json({
@@ -229,7 +230,7 @@ stocksController.post(
         User.findByIdAndUpdate(user._id, {
           $pull: { watchList: watchitemId }
         }).then(resp => {
-          Stock.findOne({ longName: stockName }).then(stock => {
+          Stock.findOne({ shortName: stockName }).then(stock => {
             if (!stock) {
               res.json({
                 error: req.app.get("env") === "development" ? err : {}
@@ -329,7 +330,7 @@ stocksController.post(
     const watchitemId = req.query.wi;
 
     if (!watchitemId) {
-      Stock.findOne({ longName: stockName })
+      Stock.findOne({ shortName: stockName })
         .then(stock => {
           if (!stock) {
             res.json({
@@ -364,7 +365,7 @@ stocksController.post(
         User.findByIdAndUpdate(user._id, {
           $pull: { watchList: watchitemId }
         }).then(resp => {
-          Stock.findOne({ longName: stockName }).then(stock => {
+          Stock.findOne({ shortName: stockName }).then(stock => {
             if (!stock) {
               res.json({
                 error: req.app.get("env") === "development" ? err : {}

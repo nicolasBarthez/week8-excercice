@@ -2,7 +2,7 @@
   <nav class="nav has-shadow" id="top">
         <div class="container" id="top2">
             <div class="nav">
-                 <router-link to="/trending" class="nav-item"> 
+                 <router-link to="/trending" class="nav-item">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
             </div>
@@ -73,7 +73,7 @@ export default {
         { location: "/trending", text: "Trending" },
         { location: "/mydashboard", text: "My Dashboard" }
       ],
-      connectedUser:null,
+      connectedUser: null,
       data: null,
       name: "",
       selected: null
@@ -85,20 +85,20 @@ export default {
       this.$router.push("/");
     },
     onSelect(stock) {
-        if(stock) {
-            this.selected = stock
-            this.$router.push('/stocks/' + stock.longName.toLowerCase())
-        }
+      if (stock) {
+        this.selected = stock;
+        this.$router.push("/stocks/" + stock.shortName.toLowerCase());
+      }
     }
   },
   watch: {
-      name(name) {
-          // CRACRA, PLEASE FIX BUEFY AUTOCOMPLETE
-          if(this.selected && name === this.selected.longName) {
-              this.name = ""
-              this.selected = null
-          }
+    name(name) {
+      // CRACRA, PLEASE FIX BUEFY AUTOCOMPLETE
+      if (this.selected && name === this.selected.longName) {
+        this.name = "";
+        this.selected = null;
       }
+    }
   },
   computed: {
     filteredDataObj() {
@@ -304,7 +304,7 @@ a.nav-item:not(.button).is-tab:hover {
     a.nav-item:not(.button).is-tab {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
-    
+
     }
     #nav-username{
         font-size:0.8rem !important;
