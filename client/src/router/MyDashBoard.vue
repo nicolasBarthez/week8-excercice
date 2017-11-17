@@ -95,7 +95,7 @@ methods: {
 @media (max-width: 768px) {
 .main {
     background-color: #f9f9f9;
-    padding-top:4.2rem  !important;
+    padding-top:0.5rem  !important;
   }
 }
 

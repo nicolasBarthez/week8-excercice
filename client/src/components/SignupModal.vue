@@ -12,7 +12,7 @@
                         </b-notification>
                         <form @submit.prevent="signup">
                           <div class="box">
-                            <b-field label="Username">
+                            <b-field label="Username" maxlength="10">
                              <b-input v-model="username" ></b-input>
                             </b-field>
                             <b-field label="Email">
@@ -38,8 +38,8 @@
 
                             <hr>
                             <p class="control">
-                             <button class="button is-primary">Register</button>
-                             <button class="button is-default"><a href="/">Cancel</a></button>
+                             <button class="button is-primary"@click="$parent.close()">Register</button>
+                             <button class="button is-default"@click="$parent.close()"><a href="/">Cancel</a></button>
                             </p>
                           </div>
                         </form>

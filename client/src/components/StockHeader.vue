@@ -29,7 +29,7 @@
                               </p>
                             </div>
                             <div class="stock-price title is-5">
-                               <strong class="">{{stock.price}} €</strong>
+                               <strong class="stVar">{{stock.price}} €</strong>
                                <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp;{{stock.variation}} %</small>
                            </div>
                         </div>
@@ -51,12 +51,12 @@
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
                                     <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
-                                </div>
-                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
+                                &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
+                                 
                                 <div class="level-item has-text-centered">
                                     <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
-                                </div>
-                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
+                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
+                                
                                 <div class="level-item has-text-centered">
                                     <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
                                 </div>
@@ -156,11 +156,23 @@ export default {
 }
 
 .stock-price{
-    font-size:1.3rem
+    font-size:1.3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+ .sock-info{
+    width:25%
+}
+.stock-price{
+     width: 25%
 }
 .add-to-watchlist{
-        margin-left:-13%
-    }
+    display: flex;
+    justify-content: center;
+    margin-left:0px;
+    width:40%;
+}
 
 .longNameTitle{
     margin-bottom:12% !important
@@ -182,9 +194,7 @@ a {
     margin-top: 0;
     margin-bottom: 0;
 }
-.sock-info{
-    width :25%
-}
+
 #descr {
     margin-top: -1.5rem;
     font-size: 0.7rem;
@@ -300,6 +310,11 @@ a {
     flex-direction: column;
 }
 @media (max-width: 768px) {
+    
+    .card-content {
+        padding: 0.7REM;
+        padding-top: 1REM;
+    }
     .pos{
         font-size:0.6rem;
         padding:5%
@@ -313,9 +328,11 @@ a {
 
     .stock-banner{
         display: flex;
+        margin-bottom:5%;
     }
     .level-item {
         margin-bottom: 0px!important;
+        font-size:0.6rem;
     }
     #bandbdigit1{
         width:50%;
@@ -332,7 +349,9 @@ a {
     }
     .stock-price{
         display: flex;
-        flex-direction: column
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
     }
     .media-left {
         display:none;
@@ -364,14 +383,11 @@ a {
         width:100%;
         font-size:0.7rem;
     }
-    .add-to-watchlist{
-        width:40%;
-        margin-left: -5%;
-    }
+       
     #adWL{
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
-        width:100%;
+        width:80%;
         font-size:0.7rem !important;
     }
 
