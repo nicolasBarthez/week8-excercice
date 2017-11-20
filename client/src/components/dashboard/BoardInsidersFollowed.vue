@@ -122,7 +122,7 @@ export default {
     onPageChange(page) {
       this.page = page;
     },
-  }
+  },
 };
 </script>
 

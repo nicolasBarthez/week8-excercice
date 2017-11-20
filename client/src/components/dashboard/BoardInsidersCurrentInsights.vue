@@ -77,11 +77,9 @@
 
 <script>
 import moment from "moment";
-import { getInsiderCurrentInsights } from "@/api/apiDashboard";
 export default {
   data() {
     return {
-      currentInsights: [],
       indexSelected: "all",
       total: 0,
       loading: false,
@@ -94,13 +92,8 @@ export default {
       defaultSortDirection: "asc"
     };
   },
-
-  created() {
-    const insiderId = this.$route.params.id;
-    console.log(insiderId);
-    getInsiderCurrentInsights(insiderId).then(currentInsights => {
-      this.currentInsights = currentInsights;
-    });
+  props: {
+     currentInsights: Array,
   },
 
   methods: {
@@ -124,8 +117,8 @@ export default {
     onPageChange(page) {
       this.page = page;
     },
-  }
-};
+  },
+}
 </script>
 
 <style scoped>
