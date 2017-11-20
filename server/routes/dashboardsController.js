@@ -242,7 +242,6 @@ dashboardsController.get(
     } else {
       user = req.user.id;
     }
-    console.log("LA BONNE BOUCLE USER", user);
 
     WatchItem.find({
       userId: user,
