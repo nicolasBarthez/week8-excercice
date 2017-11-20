@@ -50,7 +50,9 @@
                         </div>
                     </router-link>
                     <div class="nav-user-profile">
+                       <router-link to="/mydashboard" >
                         <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
+                       </router-link>
                         <div class="nav-status">
                             <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
                         </div>
@@ -72,7 +74,7 @@ export default {
       navbarLinks: [
         { location: "/stream", text: "Stream" },
         { location: "/trending", text: "Trending" },
-        { location: "/mydashboard", text: "My Dashboard" }
+        { location: "/leaderboard", text: "Leaderboard" }
       ],
       connectedUser: null,
       data: null,
@@ -131,6 +133,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+    color:#192b41
+}
 #nav-toggle-state {
   display: none;
 }

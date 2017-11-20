@@ -22,8 +22,7 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong"> {{profileInfo.performancePoints}} P$</strong>
-                  </p>
+                    <strong class="follOwStrong"> {{profileInfo.performancePoints}}P$</strong></p>
                 </div>
                 <div class="wonTrade"id="follOw">
                   <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
@@ -40,33 +39,30 @@
               <div class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6">Prefered trades</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
-                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
-                </router-link></p>
+                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }}</router-link> - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].shortName"class="stockName is-6" data-replace="Symbol">
-                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
-                 </router-link></p>
+                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }}</router-link> - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[2]" :to="'/stocks/'+profileInfo.preferedStocks[2].shortName"class="stockName is-6" data-replace="Symbol">
-                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
-                 </router-link></p>
+                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }}</router-link> - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$</p>
               </div>
 
               <nav id="LB" class="level media">
                 <figure class="image is-96x96 is-circle" >
                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId"><img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
                   <span class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
+                                        {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} P$
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle centralPic">
                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[0].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index].userId"><img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture"></router-link>
                   <span class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
+                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} P$
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle">
                   <router-link v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[1].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index+1].userId"><img class="imgProfile" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture"></router-link>
                   <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
+                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} P$
                                     </span>
                 </figure>
               </nav>
@@ -191,6 +187,9 @@ body {
 
 .follOwStrong {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 span>a {
   color: #192b41!important;
@@ -255,6 +254,10 @@ a {
   flex-direction: column;
 }
 @media (max-width: 768px) {
+    .icon{
+        height: 1rem;
+        width: 1rem;
+    }
     .add-to-watchlist{
         display: flex;
         justify-content: flex-end

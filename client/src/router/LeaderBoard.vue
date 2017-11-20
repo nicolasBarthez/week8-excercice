@@ -1,17 +1,8 @@
 <template>
   <div>
-<nav class="navbar is-dark">
-      <div>
-      <div class="babblesMenu">
-            <a  @click="curInsights()" class="babMenu navbar-item is-tab ">My current insights</a>
-            <a  @click="WatchList()" class="babMenu navbar-item is-tab">My watch list</a>
-            <a  @click="PastInsights()"class="babMenu navbar-item is-tab ">My past insights</a>
-            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab is-active">Insiders I follow</a>
-      </div>
-      </div>
-  </nav>
-        <b-table v-if="insidersFollowed.length>0"
-            :data="insidersFollowed"
+
+        <b-table v-if="leaderBoard"
+            :data="leaderBoard"
             :loading="loading"
 
             :paginated="isPaginated"
@@ -73,19 +64,16 @@
                 </section>
             </template>
         </b-table>
-         <div v-else>
-            <p id="no">You follow no Insider, find the good ones </p>
-        </div>
 </div>
 
 </template>
 
 <script>
-import { getMyInsidersFollowed } from "@/api/apiDashboard";
+
 export default {
   data() {
     return {
-      insidersFollowed: [],
+      leaderBoard: [],
       indexSelected: "all",
       total: 0,
       loading: false,
@@ -99,64 +87,19 @@ export default {
     };
   },
   created() {
-    getMyInsidersFollowed(this.$root.user._id).then(insidersFollowed => {
-      this.insidersFollowed = insidersFollowed;
+    getLeaderBoard().then(leaderBoard => {
+      this.leaderBoard =leaderBoard;
     });
   },
 
   methods: {
-    curInsights() {
-      this.$emit("curIns");
-    },
-    WatchList() {
-      this.$emit("Watch");
-    },
-    InsidersFollowed() {
-      this.$emit("InsFollo");
-    },
-    PastInsights() {
-      this.$emit("PastIns");
-    },
-
     onPageChange(page) {
       this.page = page;
       this.onSort();
     },
-    /*
-             * Handle sort event
-             */
-    onSort(field, order) {
-      this.loading = true;
-      getMyInsidersFollowed({
-        sort: makeSortParam(field, order)
-      }).then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-        this.loading = false;
-      });
-    },
-    /*
-             * Type style in relation to the value
-             */
-    type(value) {
-      const number = parseFloat(value);
-      if (number < 6) {
-        return "is-danger";
-      } else if (number >= 6 && number < 8) {
-        return "is-warning";
-      } else if (number >= 8) {
-        return "is-success";
-      }
-    }
-  },
-  filters: {
-    /**
-             * Filter to truncate string, accepts a length parameter
-             */
-    /** truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + "..." : value;
-    }*/
   }
-};
+}
+    
 </script>
 
 <style scoped>

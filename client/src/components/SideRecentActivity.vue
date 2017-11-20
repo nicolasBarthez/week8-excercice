@@ -16,7 +16,7 @@
                     <router-link :to="'/dashboard/'+recentPosition.userId._id" >
                         <strong>&commat;{{recentPosition.userId.username}}</strong>
                     </router-link>
-                    <span>is <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> on <br> <router-link :to="'/stocks/'+recentPosition.stockId.shortName" >#{{recentPosition.stockId.shortName}}</router-link>
+                    <span>is <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> on <br> <router-link :to="'/stocks/'+recentPosition.stockId.shortName" >#{{recentPosition.stockId.longName}}</router-link>
                     </span><br>
                     <span class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} Insiders</span><br>
                     </p>

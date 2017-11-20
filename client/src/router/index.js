@@ -6,6 +6,7 @@ import TrendingPage from "./TrendingPage";
 import DashboardPage from "./DashboardPage";
 import StreamPage from "./StreamPage";
 import MyDashBoard from "./MyDashBoard";
+import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound"
 
 Vue.use(Router);
@@ -39,6 +40,10 @@ const router = new Router({
         {
             path: "/stream",
             component: StreamPage
+        },
+        {
+            path: "/leaderboard",
+            component: LeaderBoard
         },
         {
             path: "*",

@@ -51,7 +51,7 @@
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
                     {{((props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="P$">
-                    {{ props.row.performancePoints }}
+                    {{ props.row.performancePoints }} 
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
                     {{ moment(props.row.updated_at).format('DD-MM-YYYY') }}

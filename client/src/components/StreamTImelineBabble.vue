@@ -42,7 +42,7 @@
                         <nav v-if="babble.reply" class="media-right">
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light" @click="showModal(babble)">
-                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
+                                    <span class="icon is-medium"><img class="reply" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </a>
                                 <a class="level-item has-text-grey-light">
@@ -81,19 +81,19 @@
                                    <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('DD-MM-YYYY HH:mm')}}</small>
 
                             </p>
-                            <p class="tweet-body has-text-grey babble-body">
+                            <p class="tweet-body has-text-grey modalBabble babble-body">
                                 {{modalBabble.babble}}
                            </p>
                         </div>
                         <nav class="media-right">
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light">
-                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
+                                    <span class="icon is-medium"><img class="reply" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
                                 <a class="likeModal level-item has-text-grey-light">
                                    <span class="icon is-medium"><i
-                                     @click="iLike(babble)" class="like-btn">🚀</i></span>
+                                     @click="iLike(babble)" class="like-btn">🚀</i></span><small>{{modalBabble.like.length}}</small>
                                 </a>
                                 </a>
                             </div>
@@ -101,7 +101,7 @@
                     </div>
                 </article>
             </div>
-            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="tweets card-content p-x-1">
+            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="modal tweets card-content p-x-1">
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -238,6 +238,9 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+}
+.reply{
+    height: 1.4rem;
 }
 .fa-line-chart{
     font-size: 15px;
