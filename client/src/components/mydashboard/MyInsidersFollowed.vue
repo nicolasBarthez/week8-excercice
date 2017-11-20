@@ -35,7 +35,7 @@
                       <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
                       </router-link>
                     </figure>
-                    <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                    <router-link :to="'/dashboard/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
                   </div>
                 </b-table-column>
 
