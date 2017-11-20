@@ -25,8 +25,7 @@
 
             :default-sort-direction="defaultSortOrder"
             :default-sort="defaultSortField"
-            backend-sorting
-            @sort="onSort">
+            >
             <template slot-scope="props">
                 <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.longName"class="stockName is-6" data-replace="Symbol">
                     {{ props.row.longName }}</router-link>
@@ -117,37 +116,6 @@ export default {
 
     onPageChange(page) {
       this.page = page;
-      this.onSort();
-    },
-
-    onSort(field, order) {
-      this.loading = true;
-      getMyWatchList({
-        sort: makeSortParam(field, order)
-      }).then(watchList => {
-        this.watchList = watchList;
-        this.loading = false;
-      });
-    },
-
-    /*
-             * Type style in relation to the value
-             */
-    type(value) {
-      const number = parseFloat(value);
-      if (number < 6) {
-        return "is-danger";
-      } else if (number >= 6 && number < 8) {
-        return "is-warning";
-      } else if (number >= 8) {
-        return "is-success";
-      }
-    }
-  },
-
-  filters: {
-    truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + "..." : value;
     }
   }
 };
