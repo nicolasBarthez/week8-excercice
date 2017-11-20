@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="main">
 
         <b-table v-if="leaderBoard"
             :data="leaderBoard"
@@ -16,21 +16,20 @@
 
             :default-sort-direction="defaultSortOrder"
             :default-sort="defaultSortField"
-            backend-sorting
-            @sort="onSort">
+            >
 
             <template slot-scope="props">
-                <b-table-column label="Insider" field='_id' sortable centered>
+                <b-table-column label="Insider" centered field='userId'>
                   <div class="insider">
                     <figure class="image is-32x32 is-circle">
-                      <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
+                      <router-link :to="'/dashboard/'+props.row.userId" class=""><img class="imgProfile" :src="props.row.picProfile">
                       </router-link>
                     </figure>
-                    <router-link :to="'/dashboard/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                    <router-link :to="'/dashboard/'+props.row.userId" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
                   </div>
                 </b-table-column>
 
-                <b-table-column field='followers' sortable centered label="Followers">
+                <b-table-column field='followers' numeric sortable centered label="Followers">
                     {{ props.row.followers }}
                 </b-table-column>
                  <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
@@ -41,12 +40,12 @@
                     {{ props.row.nbOfLikes }}
                 </b-table-column>
 
-                <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
+                <b-table-column field='preferedStocks'centered label="Prefered stocks">
+                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
                 </b-table-column>
 
-                <b-table-column field='performancePoints' numeric sortable centered label="Potential <span class="icon"><img class="" src="/static/images/performance-points.png"></span>">
-                    {{ props.row.performancePoints }}
+                <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
 
             </template>
@@ -64,12 +63,12 @@
                 </section>
             </template>
         </b-table>
-</div>
+</section>
 
 </template>
 
 <script>
-
+import { getLeaderBoard } from "@/api/api"
 export default {
   data() {
     return {
@@ -77,7 +76,7 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: "longName",
+      defaultSortField: "performancePoints",
       defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
@@ -95,7 +94,6 @@ export default {
   methods: {
     onPageChange(page) {
       this.page = page;
-      this.onSort();
     },
   }
 }
@@ -103,11 +101,15 @@ export default {
 </script>
 
 <style scoped>
+.main {
+    background-color: #f9f9f9;
+    padding: 7rem 1.5rem;
+}
 
 .insider{
   display:flex;
   align-items:center;
-  justify-content:center
+  justify-content:start;
 }
 a{
   color:#192b41
