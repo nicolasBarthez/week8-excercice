@@ -200,4 +200,7 @@ a.nav-item:not(.button).is-tab:hover {
     .has-text-grey-light {
         font-size: 0.7em;
     }
+    small {
+        font-size: 0.875rem !important;
+    }
 }
