@@ -798,10 +798,10 @@ dashboardsController.get(
   "/pastinsights/:id",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
-    const user = req.params.id;
+    const userId = req.params.id;
 
     WatchItem.find({
-      userId: user._id,
+      userId: userId,
       status: {
         $in: ["won", "lost"]
       }

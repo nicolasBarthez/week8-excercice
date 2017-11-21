@@ -132,7 +132,7 @@ export function getInsiderWatchList(insiderId) {
 }
 
 export function getInsiderPastInsights(insiderId) {
-  let url = "dashboards/pastinsights/?id=" + insiderId;
+  let url = "dashboards/pastinsights/" + insiderId;
   return insiders
     .get(url)
     .then(response => {
