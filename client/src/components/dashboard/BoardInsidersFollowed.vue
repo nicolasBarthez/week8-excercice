@@ -130,7 +130,7 @@ export default {
 .insider{
   display:flex;
   align-items:center;
-  justify-content:center
+  justify-content:start
 }
 a{
   color:#192b41
