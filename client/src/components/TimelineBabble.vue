@@ -38,7 +38,7 @@
                         <nav class="media-right">
                             <div class="level-right">
                                 <a class="level-item has-text-grey-light" @click="showModal(babble)">
-                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
+                                    <span class="icon is-medium"><img class="reply" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{babble.reply.length}}</small>
                                 </a>
                                 <a class="level-item has-text-grey-light">
@@ -83,7 +83,7 @@
                         <nav class="media-right">
                             <div class="level-right">
                                 <a class="likeModal level-item has-text-grey-light">
-                                    <span class="icon is-medium"><img class="" src="/static/images/comments.png"></span>
+                                    <span class="icon is-medium"><img class="reply" src="/static/images/comments.png"></span>
                                     <small class="favicon"> {{modalBabble.reply.length}}</small>
                                 </a>
                                 <a class="likeModal level-item has-text-grey-light">
@@ -227,7 +227,9 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
-
+.reply{
+    height: 1.4rem;
+}
 .tweet-meta{
     display: flex;
     justify-content: space-between
@@ -346,6 +348,10 @@ word-break: break-word;
 
 
 @media screen and (max-width: 768px) {
+    .modal{
+        position: absolute;
+        
+    }
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;

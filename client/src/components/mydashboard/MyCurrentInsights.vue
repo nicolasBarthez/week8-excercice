@@ -26,8 +26,7 @@
 
             :default-sort-direction="defaultSortOrder"
             :default-sort="defaultSortField"
-            backend-sorting
-            @sort="onSort">
+            >
             <template slot-scope="props">
                 <b-table-column field='created' numeric sortable centered label="Initiated">
                     {{ moment(props.row.created_at).format('DD-MM-YYYY') }}
@@ -53,8 +52,8 @@
                     {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
-                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Potential P$">
-                    {{ props.row.performancePoints }}
+                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points"></span>">
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
 
             </template>
@@ -123,46 +122,10 @@ export default {
     },
    onPageChange(page) {
     this.page = page
-    this.onSort()
-  },
-            /*
-             * Handle sort event
-             */
-  onSort(field, order) {
-    this.loading = true
-    getCurrentInsights({
-        sort: makeSortParam(field, order)
-    }).then(currentInsights => {
-       this.currentInsights = currentInsights
-       this.loading = false
-    })
-    },
-           /*
-             * Type style in relation to the value
-             */
-   type(value) {
-    const number = parseFloat(value)
-      if (number < 6) {
-      return 'is-danger'
-      } else if (number >= 6 && number < 8) {
-      return 'is-warning'
-      } else if (number >= 8) {
-      return 'is-success'
-      }
-   }
- },              
- filters: {
-            /**
-             * Filter to truncate string, accepts a length parameter
-             */
-  truncate(value, length) {
-    return value.length > length
-    ? value.substr(0, length) + '...'
-    : value
-  }
+    }
  },
+   
 }
-
 </script>
 
 <style scoped>

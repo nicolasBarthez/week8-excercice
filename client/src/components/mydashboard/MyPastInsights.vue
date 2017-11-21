@@ -26,8 +26,7 @@
 
             :default-sort-direction="defaultSortOrder"
             :default-sort="defaultSortField"
-            backend-sorting
-            @sort="onSort">
+            >
 
             <template slot-scope="props">
               <b-table-column field='created' numeric sortable centered label="Initiated">
@@ -51,7 +50,7 @@
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
                     {{((props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="P$">
-                    {{ props.row.performancePoints }}
+                    {{ props.row.performancePoints }} 
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
                     {{ moment(props.row.updated_at).format('DD-MM-YYYY') }}
@@ -124,41 +123,7 @@ methods: {
     },
     onPageChange(page) {
       this.page = page;
-      this.onSort();
     },
-    /*
-             * Handle sort event
-             */
-    onSort(field, order) {
-      this.loading = true;
-      getMyPastInsights()({
-        sort: makeSortParam(field, order)
-      }).then(pastInsights => {
-        this.pastInsights = pastInsights;
-        this.loading = false;
-      });
-    },
-    /*
-             * Type style in relation to the value
-             */
-    type(value) {
-      const number = parseFloat(value);
-      if (number < 6) {
-        return "is-danger";
-      } else if (number >= 6 && number < 8) {
-        return "is-warning";
-      } else if (number >= 8) {
-        return "is-success";
-      }
-    }
-  },
-  filters: {
-    /**
-             * Filter to truncate string, accepts a length parameter
-             */
-    truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + "..." : value;
-    }
   }
 };
 </script>

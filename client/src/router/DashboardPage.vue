@@ -1,8 +1,8 @@
 <template >
 <section v-else class="section main">
-<insider-profile-block @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
+<insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
  
-  <board-insiders-current-insights v-if="activeItem==='curinsights'" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-current-insights>
+  <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-current-insights>
   <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-watch-list>
   <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-past-insights>
   <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-followed>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { getInsiderCurrentInsights } from "@/api/apiDashboard";
 import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import BoardInsidersCurrentInsights from "../components/dashboard/BoardInsidersCurrentInsights";
 import BoardInsidersWatchList from "../components/dashboard/BoardInsidersWatchList";
@@ -21,6 +22,7 @@ import { getInsiderProfileInfo } from "@/api/apiDashboard";
 export default {
   data() {
     return {
+    currentInsights:[],  
     profileInfo: null,
     activeItem: 'curinsights'
     };
@@ -33,9 +35,6 @@ export default {
     BoardInsidersFollowed
   },
   methods: {
-    currentInsights(){ 
-            this.activeItem= "curinsights"
-        },
     myWatchList(){
             this.activeItem= "watchlist"
         },
@@ -49,14 +48,23 @@ export default {
       getInsiderProfileInfo(this.$route.params.id).then(profileInfo => {
         this.profileInfo = profileInfo;
       });
-    }
+      this.activeItem= "curinsights";
+      const insiderId = this.$route.params.id;
+      getInsiderCurrentInsights(insiderId).then(currentInsights => {
+      this.currentInsights = currentInsights;
+    });
+    },
   },
   created() {
     const insiderId = this.$route.params.id;
     getInsiderProfileInfo(insiderId).then(profileInfo => {
       this.profileInfo = profileInfo;
     });
-  }
+    getInsiderCurrentInsights(insiderId).then(currentInsights => {
+      this.currentInsights = currentInsights;
+    });
+  },
+  
 };
 </script>
 

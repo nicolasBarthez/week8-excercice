@@ -25,8 +25,7 @@
 
             :default-sort-direction="defaultSortOrder"
             :default-sort="defaultSortField"
-            backend-sorting
-            @sort="onSort">
+            >
 
             <template slot-scope="props">
                 <b-table-column label="Insider" field='_id' sortable centered>
@@ -54,7 +53,7 @@
                   <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
                 </b-table-column>
 
-                <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
+                <b-table-column field='performancePoints' numeric sortable centered label="Potential <span class="icon"><img class="" src="/static/images/performance-points.png"></span>">
                     {{ props.row.performancePoints }}
                 </b-table-column>
 
@@ -120,41 +119,7 @@ export default {
 
     onPageChange(page) {
       this.page = page;
-      this.onSort();
-    },
-    /*
-             * Handle sort event
-             */
-    onSort(field, order) {
-      this.loading = true;
-      getMyInsidersFollowed({
-        sort: makeSortParam(field, order)
-      }).then(insidersFollowed => {
-        this.insidersFollowed = insidersFollowed;
-        this.loading = false;
-      });
-    },
-    /*
-             * Type style in relation to the value
-             */
-    type(value) {
-      const number = parseFloat(value);
-      if (number < 6) {
-        return "is-danger";
-      } else if (number >= 6 && number < 8) {
-        return "is-warning";
-      } else if (number >= 8) {
-        return "is-success";
-      }
     }
-  },
-  filters: {
-    /**
-             * Filter to truncate string, accepts a length parameter
-             */
-    /** truncate(value, length) {
-      return value.length > length ? value.substr(0, length) + "..." : value;
-    }*/
   }
 };
 </script>

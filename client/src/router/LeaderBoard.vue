@@ -1,17 +1,8 @@
 <template>
-   <div>
-<nav class="navbar is-dark">
-      <div>
-      <div class="babblesMenu">
-            <a  @click="curInsights()" class="babMenu navbar-item is-tab">Current insights</a>
-            <a  @click="WatchList()" class="babMenu navbar-item is-tab">Watch list</a>
-            <a  @click="PastInsights()"class="babMenu navbar-item is-tab">Past insights</a>
-            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab is-active">Insiders followed</a>
-      </div>
-      </div>
-    </nav>
-  <b-table v-if="insidersFollowed.length>0"
-            :data="insidersFollowed"
+  <section class="main">
+
+        <b-table v-if="leaderBoard"
+            :data="leaderBoard"
             :loading="loading"
 
             :paginated="isPaginated"
@@ -28,17 +19,17 @@
             >
 
             <template slot-scope="props">
-                <b-table-column label="Insider" field='_id' sortable centered>
+                <b-table-column label="Insider" centered field='userId'>
                   <div class="insider">
                     <figure class="image is-32x32 is-circle">
-                      <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
+                      <router-link :to="'/dashboard/'+props.row.userId" class=""><img class="imgProfile" :src="props.row.picProfile">
                       </router-link>
                     </figure>
-                    <router-link :to="'/dashboards/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                    <router-link :to="'/dashboard/'+props.row.userId" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
                   </div>
                 </b-table-column>
 
-                <b-table-column field='followers' sortable centered label="Followers">
+                <b-table-column field='followers' numeric sortable centered label="Followers">
                     {{ props.row.followers }}
                 </b-table-column>
                  <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
@@ -49,12 +40,12 @@
                     {{ props.row.nbOfLikes }}
                 </b-table-column>
 
-                <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                 
+                <b-table-column field='preferedStocks'centered label="Prefered stocks">
+                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
                 </b-table-column>
 
-                <b-table-column field='performancePoints' numeric sortable centered label="Potential P$">
-                    {{ props.row.performancePoints }}
+                <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
 
             </template>
@@ -72,23 +63,20 @@
                 </section>
             </template>
         </b-table>
-        <div v-else>
-            <p id="no">This Insider doesn't follow anybody yet !</p>
-        </div>
- </div>
+</section>
 
 </template>
 
 <script>
-import { getInsiderInsidersFollowed } from "@/api/apiDashboard";
+import { getLeaderBoard } from "@/api/api"
 export default {
   data() {
     return {
-      insidersFollowed: [],
+      leaderBoard: [],
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: "longName",
+      defaultSortField: "performancePoints",
       defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
@@ -97,52 +85,43 @@ export default {
       defaultSortDirection: "asc"
     };
   },
-
   created() {
-    const insiderId = this.$route.params.id;
-    getInsiderInsidersFollowed(insiderId).then(insidersFollowed => {
-      this.insidersFollowed = insidersFollowed;
+    getLeaderBoard().then(leaderBoard => {
+      this.leaderBoard =leaderBoard;
     });
   },
 
   methods: {
-    curInsights() {
-      this.$emit("curIns");
-    },
-    WatchList() {
-      this.$emit("Watch");
-    },
-    InsidersFollowed() {
-      this.$emit("InsFollo");
-    },
-    PastInsights() {
-      this.$emit("PastIns");
-    },
-
     onPageChange(page) {
       this.page = page;
     },
-  },
-};
+  }
+}
+    
 </script>
 
 <style scoped>
+.main {
+    background-color: #f9f9f9;
+    padding: 7rem 1.5rem;
+}
+
 .insider{
   display:flex;
   align-items:center;
-  justify-content:center
+  justify-content:start;
 }
 a{
   color:#192b41
 }
 #no{
-  TEXT-ALIGN: CENTER;
+    TEXT-ALIGN: CENTER;
     MARGIN-TOP: 5%;
     font-weight: bold;
     color:#192b41
 }
 .main {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9!important;
     padding: 7rem 1.5rem;
 }
 .container{
@@ -150,24 +129,24 @@ a{
 }
 
 .navbar.is-dark {
-    background-color: #192b41;
-    color: #f9f9f9;
+    background-color: #192b41!important;
+    color: #f9f9f9!important;
 }
 
 .navbar-item.is-tab.is-active {
     background-color: transparent;
-    border-bottom-color: #f9f9f9;
-    border-bottom-style: solid;
-    border-bottom-width: 3px;
-    color: #f9f9f9;
-    padding-bottom: calc(0.5rem - 3px);
+    border-bottom-color: #f9f9f9!important;
+    border-bottom-style: solid!important;
+    border-bottom-width: 3px!important;
+    color: #f9f9f9!important;
+    padding-bottom: calc(0.5rem - 3px)!important;
 }
 .babblesMenu {
     display: flex;
     overflow:auto;
 }
+
 .image{
   margin-right: 20px !important;
 }
-
 </style>

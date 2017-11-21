@@ -52,19 +52,22 @@
               </div>
                <nav v-if="leaderboard" id="LB" class="level media">
                 <figure class="image is-96x96 is-circle" >
-                  <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture">
-                  <span class="subtitle is-6">
+                  <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId">
+                    <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
+                   <span class="subtitle is-6">
                                         {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle centralPic">
-                  <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture">
+                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[0].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index].userId">
+                  <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture"></router-link>
                   <span class="subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
                 <figure class="image is-96x96 is-circle">
-                  <img class="imgProfile" v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture">
+                  <router-link v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[1].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index+1].userId">
+                  <img class="imgProfile" v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture"></router-link>
                   <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
                                     </span>
@@ -140,6 +143,15 @@ export default {
         this.$emit("changeFollow");
       });
     }
+  },
+     watch: {
+    $route() {
+      this.$emit("profileInfo")
+      const id = this.$route.params.id;
+      getLeaderboard(id).then(leaderboard => {
+        this.leaderboard = leaderboard;
+      });
+    } 
   }
 };
 </script>
@@ -162,6 +174,8 @@ body {
   width: 15%;
 }
 .add-to-watchlist{
+      display: flex;
+    justify-content: flex-end;
     width:25%
 }
 #perf{

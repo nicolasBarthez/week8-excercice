@@ -233,6 +233,17 @@ export function getAllBabbles(sortBy) {
       return null;
     });
 }
+export function getLeaderBoard() {
+    let url = `/leaderboard/`;
+    return insiders
+        .get(url)
+        .then(response => {
+            return response.data;
+        })
+        .catch(err => {
+            throw err;
+        });
+}
 
 export function getChart(stockName) {
   let url = `https://api.iextrading.com/1.0/stock/${stockName}/chart/1y`;
