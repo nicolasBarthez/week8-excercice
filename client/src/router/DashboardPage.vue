@@ -2,10 +2,10 @@
 <section v-else class="section main">
 <insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
  
-  <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-current-insights>
-  <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-watch-list>
-  <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></board-insiders-past-insights>
-  <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></board-insiders-followed>
+  <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-current-insights>
+  <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-watch-list>
+  <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-past-insights>
+  <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-followed>
 
 </section>
 </template>

@@ -64,7 +64,7 @@
       </div>
     </div>
  <div v-if="modalBabble">
-                <b-modal :active.sync="isCardModalActive" :width="640">
+                <b-modal :active.sync="isCardModalActive" >
         <div class="card">
            <div class="tweets card-content p-x-1">
                 <article class="media tweet">
@@ -368,6 +368,17 @@ word-break: break-word;
     }
 
 @media screen and (max-width: 768px) {
+
+    .modal-background {
+    text-align:center;
+}
+.modal-background {
+    display: inline-block;
+    width: auto;
+}
+.modal-background  {
+    max-height: calc(100vh - 225px);
+}
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;
