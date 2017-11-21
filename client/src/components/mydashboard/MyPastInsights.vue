@@ -49,8 +49,8 @@
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.soldPrice-props.row.initialPrice) > 0, 'has-text-red' : (props.row.soldPrice-props.row.initialPrice)<0}" label="Variation">
                     {{((props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
-                </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="P$">
-                    {{ props.row.performancePoints }} 
+                </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
                     {{ moment(props.row.updated_at).format('DD-MM-YYYY') }}
@@ -105,25 +105,25 @@ export default {
     });
   },
 
-methods: { 
+  methods: {
     moment: function(time) {
       return moment(time);
     },
-    curInsights(){ 
-         this.$emit("curIns");
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
     onPageChange(page) {
       this.page = page;
-    },
+    }
   }
 };
 </script>

@@ -51,7 +51,7 @@
                 </b-table-column>
 
                 <b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }}
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
 
             </template>
@@ -93,7 +93,7 @@ export default {
     };
   },
   props: {
-     currentInsights: Array,
+    currentInsights: Array
   },
 
   methods: {
@@ -116,9 +116,9 @@ export default {
 
     onPageChange(page) {
       this.page = page;
-    },
-  },
-}
+    }
+  }
+};
 </script>
 
 <style scoped>

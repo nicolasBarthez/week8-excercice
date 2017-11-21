@@ -11,14 +11,14 @@
       </div>
     </nav>
         <b-table v-if="currentInsights.length>0"
-            
+
             :data="currentInsights"
             :loading="loading"
 
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
-          
+
             :total="total"
             @page-change="onPageChange"
 
@@ -38,7 +38,7 @@
                 <b-table-column field='position' :class="{'has-text-green' : props.row.position==='bull', 'has-text-red' : props.row.position==='bear'}"sortable centered label="Insight">
                     {{ props.row.position }}
                 </b-table-column>
-                 
+
 
                  <b-table-column field='initialPrice' numeric sortable centered label="Initial price">
                     {{ props.row.initialPrice }}
@@ -52,7 +52,7 @@
                     {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
-                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points"></span>">
+                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
                     {{ props.row.performancePoints }} P$
                 </b-table-column>
 
@@ -87,14 +87,14 @@ export default {
       indexSelected: "all",
       total: 0,
       loading: false,
-      defaultSortField: 'created',
-      defaultSortOrder: 'desc',
+      defaultSortField: "created",
+      defaultSortOrder: "desc",
       page: 1,
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: 'asc',
-    }
+      defaultSortDirection: "asc"
+    };
   },
 
   created() {
@@ -102,30 +102,29 @@ export default {
       this.currentInsights = currentInsights;
     });
   },
- 
-   methods: { 
-       moment: function(time) {
+
+  methods: {
+    moment: function(time) {
       return moment(time);
     },
-    
-    curInsights(){ 
-         this.$emit("curIns");
+
+    curInsights() {
+      this.$emit("curIns");
     },
-    WatchList(){
-         this.$emit("Watch");
+    WatchList() {
+      this.$emit("Watch");
     },
-    InsidersFollowed(){
-         this.$emit("InsFollo");
+    InsidersFollowed() {
+      this.$emit("InsFollo");
     },
-    PastInsights(){
-        this.$emit("PastIns");
+    PastInsights() {
+      this.$emit("PastIns");
     },
-   onPageChange(page) {
-    this.page = page
+    onPageChange(page) {
+      this.page = page;
     }
- },
-   
-}
+  }
+};
 </script>
 
 <style scoped>
