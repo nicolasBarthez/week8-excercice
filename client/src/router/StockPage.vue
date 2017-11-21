@@ -1,6 +1,7 @@
 <template>
   <section class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
+    <chart-stock></chart-stock>
     <div class="container primordial">
       <div class="columns sct1">
         <side-recent-activity  class="is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
@@ -27,6 +28,7 @@ import SideCurrentInsight from "../components/SideCurrentInsight";
 import TimelineBabble from "../components/TimelineBabble";
 import PublishBabble from "../components/PublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
+import ChartStock from "../components/ChartStock";
 
 export default {
   data() {
@@ -46,7 +48,8 @@ export default {
     SideCurrentInsight,
     TimelineBabble,
     PublishBabble,
-    SideRecentActivity
+    SideRecentActivity,
+    ChartStock
   },
 
   methods: {

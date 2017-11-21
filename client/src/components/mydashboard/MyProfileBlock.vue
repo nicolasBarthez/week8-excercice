@@ -172,7 +172,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 0;
-  margin-bottom: 10%!important;
+  margin-bottom: 5%!important;
 }
 
 .follOwNav {
@@ -254,6 +254,12 @@ a {
   flex-direction: column;
 }
 @media (max-width: 768px) {
+   .sock-info {
+  width: 25%;
+}
+   #follOw{
+     display:none
+   }
     .icon{
         height: 1rem;
         width: 1rem;

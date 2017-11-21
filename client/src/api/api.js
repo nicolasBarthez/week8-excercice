@@ -4,6 +4,11 @@ const insiders = axios.create({
   baseURL:
     process.env.NODE_ENV === "production" ? "/api" : "http://localhost:3000/api"
 });
+const iex = axios.create({
+  baseURL: process.env.NODE_ENV === 'production' ? '/api/IEXfetch' : 'http://localhost:3000/api/IEXfetch',
+  
+})
+
 
 export function getUser() {
   let url = "users/userconnected";
@@ -245,7 +250,18 @@ export function getLeaderBoard() {
         });
 }
 
+function dataFromIEX (url) {
+    return iex
+      .get(url)
+      .then((response) => {
+          return response.data
+      })
+      .catch((error) => {
+        console.error(error)
+  })
+}
+
 export function getChart(stockName) {
   let url = `https://api.iextrading.com/1.0/stock/${stockName}/chart/1y`;
-  return proxyFetchFromIEX(url);
+  return dataFromIEX(url);
 }

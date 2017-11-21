@@ -3,15 +3,15 @@
     <div class='chart'>
       <canvas id="myChart" width="750" height="450"></canvas>
     </div>
-    <h1>{{ticker}} closing price, five years period</h1>
+    <h1>{{this.$route.params.stockName}} closing price, 12 months period</h1>
   </div>
 </template>
 
 <script>
-import { get5YChartFromIEX } from '@/api'
+import {  getChart } from '@/api/api'
 import Chart from 'chart.js';
 export default {
-  name: 'Chart5Y',
+  name: 'Chart1Y',
   
   data () {
     return {
@@ -25,7 +25,10 @@ export default {
     }
   },
   created () {
-    getChart(this.stock).then(response=> {
+    getChart(this.$route.params.stockName).then(response=> {
+      console.log(".........******...............",this.$route.params.stockName)
+      console.log(".........ùùùùùù...............",response, this.history)
+      
       this.history = response
       let prices = response.map(day => day.close)
       let dates = response.map(day => day.date)
