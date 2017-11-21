@@ -838,6 +838,7 @@ dashboardsController.get(
         }
         followed.following.forEach(usFollowed => {
           let userInfo = {
+            userId: usFollowed._id,
             username: usFollowed.username,
             picProfile: usFollowed.picProfile,
             location: usFollowed.location,

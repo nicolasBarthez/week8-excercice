@@ -28,6 +28,7 @@ const followerController = require("./routes/followerController.js");
 const usersController = require("./routes/usersController.js");
 const trendingController = require("./routes/trendingController.js");
 const leaderboardController = require("./routes/leaderboardController.js");
+const iexController = require("./routes/iexController.js");
 
 // configuration ===============================================================
 // mongodb://localhost/insidersDB-dev
@@ -93,6 +94,7 @@ app.use("/api/users", usersController);
 app.use("/api/trending", trendingController);
 app.use("/api/dashboards", dashboardsController);
 app.use("/api/leaderboard", leaderboardController);
+app.use("/api/iex", iexController);
 
 // This is an example of protected route
 app.get(

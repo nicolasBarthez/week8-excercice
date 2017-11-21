@@ -31,10 +31,10 @@
                 <b-table-column label="Insider" field='_id' sortable centered>
                   <div class="insider">
                     <figure class="image is-32x32 is-circle">
-                      <router-link :to="'/dashboard/'+props.row._id" class=""><img class="imgProfile" :src="props.row.picProfile">
+                      <router-link :to="'/dashboard/'+props.row.userId" class=""><img class="imgProfile" :src="props.row.picProfile">
                       </router-link>
                     </figure>
-                    <router-link :to="'/dashboard/'+props.row._id" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
+                    <router-link :to="'/dashboard/'+props.row.userId" class="stockName is-6" data-replace="Symbol">{{props.row.username}}</router-link>
                   </div>
                 </b-table-column>
 
@@ -50,11 +50,11 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
+                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }}
+                    {{ props.row.performancePoints }} P$
                 </b-table-column>
 
             </template>
