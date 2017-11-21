@@ -33,7 +33,7 @@ leaderboardController.get(
         let userInfo = {
           userId: insider._id,
           username: insider.username,
-          // picProfile: insider.picProfile,
+          picProfile: insider.picProfile,
           location: insider.location,
           skills: insider.skills,
           following: insider.following.length
