@@ -1,5 +1,5 @@
 <template >
-<section class="main">
+<section class="hero is-fullheight main">
 <svg id="robot" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="320px" height="300px" viewBox="0 0 160 300" enable-background="new 0 0 320 300" xml:space="preserve">
     <rect x="59.722" y="72.779" fill="#333" width="40.557" height="27.564" />
     <g id="head" class="up">
@@ -197,12 +197,18 @@
 </script>
 
 <style scoped>
+
 .main {
     background-color: #192b41;
     padding: 7rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width:100%;
+    min-height:calc(100vh - 4.5rem)!important
+}
+svg{
+  width:100%  
 }
 h1, p{
     color: #f9f9f9

@@ -1,10 +1,10 @@
 <template>
-  <div class='main'>
+  <div>
     <div class='chart'>
+       <h1> {{stock.longName}} closing price evolution </h1>
       <canvas id="myChart" width="750" height="450"></canvas>
     </div>
-    <h1>{{this.$route.params.stockName}} closing price, 12 months period</h1>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -16,8 +16,10 @@ export default {
   data() {
     return {
       history: null,
-      stock: Array
     };
+  },
+  props: {
+    stock: Object,
   },
   computed: {
     latestUpdate: function() {
@@ -30,7 +32,7 @@ export default {
       let prices = response.map(day => day.close);
       let dates = response.map(day => day.date);
       let ctx = document.getElementById("myChart");
-      Chart.defaults.global.defaultFontColor = "black";
+      Chart.defaults.global.defaultFontColor = "#192b41";
       let myChart = new Chart(ctx, {
         type: "line",
         data: {
@@ -40,7 +42,7 @@ export default {
               label: "closing price",
               data: prices,
               backgroundColor: ["rgba(241, 252, 244, 0.72)"],
-              borderColor: ["#8bc34a"],
+              borderColor: ["#192b41"],
               borderWidth: 2
             }
           ]
@@ -54,7 +56,7 @@ export default {
                 },
                 gridLines: {
                   display: true,
-                  color: "#f3f3f3"
+                  color: "#f9f9f9"
                 }
               }
             ],
@@ -62,7 +64,7 @@ export default {
               {
                 gridLines: {
                   display: true,
-                  color: "#f3f3f3"
+                  color: "#f9f9f9"
                 }
               }
             ]
@@ -103,14 +105,24 @@ export default {
   margin-bottom: 12px;
 }
 .chart {
-  color: black;
-  margin-right: 100px;
+  color: #192b41;
+  background-color:#f9f9f9
 }
 h1 {
-  font-size: 1.6em;
+  font-size: 1rem;
   font-weight: 600;
   margin: 0px;
-  margin-top: 15px;
+  margin-bottom: 15px;
   font-style: italic;
+  text-align: center;
+  color:#192b41
+}
+@media (max-width: 768px) {
+  .line-chart{
+    font-size: 10px;
+  }
+  .chartIcon{
+        font-size: 0.65REM;
+  }
 }
 </style>

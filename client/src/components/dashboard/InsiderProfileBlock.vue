@@ -41,13 +41,13 @@
               <div class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6">Prefered trades</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
-                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].stockId.longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
+                  1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints : "-" }} P$
                 </router-link></p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].shortName"class="stockName is-6" data-replace="Symbol">
-                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].stockId.longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
+                  2. {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].longName : "-" }} - {{profileInfo.preferedStocks[1]? profileInfo.preferedStocks[1].performancePoints : "-" }} P$
                 </router-link></p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[2]" :to="'/stocks/'+profileInfo.preferedStocks[2].shortName"class="stockName is-6" data-replace="Symbol">
-                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].stockId.longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
+                  3. {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].longName : "-" }} - {{profileInfo.preferedStocks[2]? profileInfo.preferedStocks[2].performancePoints : "-" }} P$
                 </router-link></p>
               </div>
                <nav v-if="leaderboard" id="LB" class="level media">
@@ -76,7 +76,7 @@
 
               <div  class="preferedTrades level-item has-text-centered column is-3">
                 <p class="title is-6"><strong>Skills</strong></p>
-                <div   class="preferedTrades level-item has-text-centered column is-3" v-if="profileInfo.skills">
+                <div   class="preferedTrades level-item has-text-centered column is-3" v-if="profileInfo.skills.length>0">
                 <b-tag class="is-4">{{profileInfo.skills[0]}}</b-tag>
                 <b-tag class="is-4" v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
                 <b-tag class="is-4" v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
@@ -158,6 +158,9 @@ export default {
 <style scoped>
 body {
   color: #192b41!important;
+}
+.rank{
+  margin-left:35%!important
 }
 .is-96x96{
     width: 96px!important;

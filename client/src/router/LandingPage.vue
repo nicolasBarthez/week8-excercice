@@ -91,7 +91,6 @@ export default {
     LoginModal(autenticate) {
       this.isSignupModalActive = false;
       this.autenticate = autenticate;
-      console.log("did the autenticate transfer...?", this.autenticate)
       this.isLoginModalActive = true;
     },
   }
