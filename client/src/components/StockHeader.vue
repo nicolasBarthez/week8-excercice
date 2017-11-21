@@ -29,8 +29,14 @@
                               </p>
                             </div>
                             <div class="stock-price title is-5">
+                                <div class="stock-priceVar title is-5">
                                <strong class="stVar">{{stock.price}} €</strong>
-                               <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp;{{stock.variation}} %</small>
+                               <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation}} %</small>
+                                </div>
+                                    <span @click="ChartStock"class="icon chartIcon">
+                                         <i class="fa fa-line-chart"></i>&nbsp see chart
+                                    </span>
+                                                    
                            </div>
                         </div>
                            <nav id="bandB" class="level media">
@@ -64,6 +70,9 @@
                         </div>
                     </div>
                 </div>
+                 <b-modal :active.sync="isChartStockActive" :width="640">
+          <chart-stock :stock="stock"></chart-stock>
+        </b-modal>
             </div>
        </div>
 </section>
@@ -71,6 +80,7 @@
 
 
 <script>
+import ChartStock from "@/components/ChartStock"
 import { addWatchItem } from "@/api/api";
 import { removeWatchItem } from "@/api/api";
 import { beBear } from "@/api/api";
@@ -87,10 +97,18 @@ export default {
   },
   data() {
     return {
-      activeItem: "thirty"
+      activeItem: "thirty",
+      isChartStockActive:false,
     };
   },
+  components: {
+      ChartStock
+  },
   methods: {
+    ChartStock(){
+        this.isChartStockActive=true;
+    },
+
     addWatchList() {
       addWatchItem(this.stock.shortName)
         .then(item => {
@@ -158,14 +176,26 @@ export default {
 .stock-price{
     font-size:1.3rem;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
+    flex-direction:column;
+    width: 25%
 }
+ .chartIcon{
+     width:100%;
+     justify-content:flex-end;
+     font-size:0.85REM;
+     font-weight:bold;
+     cursor:pointer
+ }
  .sock-info{
     width:25%
 }
-.stock-price{
-     width: 25%
+.stock-priceVar{
+     font-size:1.3rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 12% !important;
 }
 .add-to-watchlist{
     display: flex;
@@ -176,7 +206,6 @@ export default {
 .position{
     width:100%;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
@@ -328,7 +357,7 @@ a {
     }
     .stVar{
         text-align:end;
-        font-size:1rem
+        font-size:1rem;
     }
     .longNameTitle{
         font-size: 0.8REM !important;
@@ -355,7 +384,7 @@ a {
     .title.is-5{
         font-size:0.8rem!important;
     }
-    .stock-price{
+    .stock-priceVar{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -380,12 +409,16 @@ a {
         width:20%
     }
     #Bbull{
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
         width:100%;
         font-size:0.7rem;
     }
     #Bbear{
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
         width:100%;
@@ -393,6 +426,8 @@ a {
     }
 
     #adWL{
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
         PADDING-LEFT: 10PX;
         PADDING-RIGHT: 10PX;
         width:80%;
