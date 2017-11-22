@@ -5,6 +5,7 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const urlStart = "https://api.iextrading.com/1.0/stock/";
 const urlEnd = "/quote";
+const port = process.env.PORT || 3000;
 
 // mongoose
 //   .connect(

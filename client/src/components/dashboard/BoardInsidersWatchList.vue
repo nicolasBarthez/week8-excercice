@@ -11,7 +11,7 @@
           <router-link :to="'/stocks/'+props.row.longName" class="stockName is-6" data-replace="Symbol"> {{ props.row.longName }}</router-link>
         </b-table-column>
         <b-table-column field='currentPrice' sortable numeric centered label="Current price"> {{ props.row.currentPrice }} </b-table-column>
-        <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="Variation"> {{ props.row.variation }} %</b-table-column>
+        <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="variation"> {{ props.row.variation }} %</b-table-column>
         <b-table-column field='volume' numeric sortable centered label="Volume"> {{ props.row.volume.toLocaleString() }} </b-table-column>
         <b-table-column field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Insiders trending"> <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.trend}}</strong> <small>({{props.row.trending.percentage}}%)</small> </b-table-column>
         <b-table-column field='hotInsights' numeric sortable centered label="Hot insights"> {{ props.row.hotInsights }} </b-table-column>

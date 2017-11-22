@@ -12,8 +12,8 @@ const {
   sortTrendingByNameAsc,
   sortTrendingByPriceDes,
   sortTrendingByPriceAsc,
-  sortTrendingByVariationDes,
-  sortTrendingByVariationAsc,
+  sortTrendingByvariationDes,
+  sortTrendingByvariationAsc,
   sortTrendingByVolumeDes,
   sortTrendingByVolumeAsc,
   sortTrendingByTrendingDes,
@@ -29,8 +29,8 @@ const {
 //   nameasc: sortTrendingByNameAsc,
 //   priceasc: sortTrendingByPriceAsc,
 //   pricedsc: sortTrendingByPriceDes,
-//   varasc: sortTrendingByVariationAsc,
-//   vardsc: sortTrendingByVariationDes,
+//   varasc: sortTrendingByvariationAsc,
+//   vardsc: sortTrendingByvariationDes,
 //   volasc: sortTrendingByVolumeAsc,
 //   voldsc: sortTrendingByVolumeDes,
 //   trendasc: sortTrendingByTrendingAsc,
@@ -170,10 +170,10 @@ trendingController.get("/", function(req, res, next) {
                     stockTrendBoard.sort(sortTrendingByPriceDes);
                     break;
                   case "varasc":
-                    stockTrendBoard.sort(sortTrendingByVariationAsc);
+                    stockTrendBoard.sort(sortTrendingByvariationAsc);
                     break;
                   case "vardsc":
-                    stockTrendBoard.sort(sortTrendingByVariationDes);
+                    stockTrendBoard.sort(sortTrendingByvariationDes);
                     break;
                   case "volasc":
                     stockTrendBoard.sort(sortTrendingByVolumeAsc);
@@ -327,10 +327,10 @@ trendingController.get("/", function(req, res, next) {
 //                     stockTrendBoard.sort(sortTrendingByPriceDes);
 //                     break;
 //                   case "varasc":
-//                     stockTrendBoard.sort(sortTrendingByVariationAsc);
+//                     stockTrendBoard.sort(sortTrendingByvariationAsc);
 //                     break;
 //                   case "vardsc":
-//                     stockTrendBoard.sort(sortTrendingByVariationDes);
+//                     stockTrendBoard.sort(sortTrendingByvariationDes);
 //                     break;
 //                   case "volasc":
 //                     stockTrendBoard.sort(sortTrendingByVolumeAsc);
