@@ -66,7 +66,6 @@
 <script>
 import { getAllStocks, getUser } from "@/api/api";
 import { logout } from "@/api/auth";
-
 export default {
   name: "NavBar",
   data() {
@@ -120,7 +119,6 @@ export default {
       return [];
     }
   },
-
   mounted() {
     getAllStocks().then(data => {
       this.data = data;
@@ -131,6 +129,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
 a{

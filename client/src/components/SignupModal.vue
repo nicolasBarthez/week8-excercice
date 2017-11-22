@@ -74,12 +74,11 @@ export default {
         let pass = this.password;
         let authenticate = {mail, pass};
         this.$emit('loginModal', authenticate);
-        console.log('emiting the username...', payload);
+        console.log('emiting the username...', authenticate);
       })
       .catch(err => {
-        this.error = err.response.data.error
-        console.log('the error is', this.error )
-      })
+          this.error = "error";
+        }); 
     }
   }
 }

@@ -33,8 +33,8 @@
                                <strong class="stVar">{{stock.price}} €</strong>
                                <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation}} %</small>
                                 </div>
-                                    <span @click="ChartStock"class="icon chartIcon">
-                                         <i class="fa fa-line-chart"></i>&nbsp see chart
+                                    <span class="icon chartIcon">
+                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
                                                     
                            </div>
@@ -181,7 +181,9 @@ export default {
 }
  .chartIcon{
      width:100%;
-     justify-content:flex-end;
+     justify-content:flex-end
+ }
+ .fa-line-chart{
      font-size:0.85REM;
      font-weight:bold;
      cursor:pointer
@@ -346,7 +348,9 @@ a {
     flex-direction: column;
 }
 @media (max-width: 768px) {
-
+    .fa-line-chart{
+        font-size:0.65rem
+    }
     .card-content {
         padding: 0.7REM;
         padding-top: 1REM;
