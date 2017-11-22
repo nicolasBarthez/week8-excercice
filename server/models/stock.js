@@ -14,9 +14,12 @@ const stockSchema = new Schema(
     symbolPrice: String,
     index: [String],
     price: Number,
+    price2: Number,
     variation: Number,
+    variation2: Number,
     volume: Number,
-    currency: String
+    currency: String,
+    currency2: String
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
