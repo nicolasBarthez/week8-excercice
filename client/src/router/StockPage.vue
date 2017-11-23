@@ -1,5 +1,6 @@
 <template>
-<not-found v-if="!stock"></not-found>
+<landing-page v-if="!connectedUser"></landing-page>
+<not-found v-else-if="!stock"></not-found>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="container primordial">
@@ -31,6 +32,7 @@ import PublishBabble from "../components/PublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
 import ChartStock from "../components/ChartStock";
 import NotFound from "../router/NotFound"
+import LandingPage from "../router/LandingPage"
 
 export default {
   data() {
@@ -52,14 +54,18 @@ export default {
     PublishBabble,
     SideRecentActivity,
     ChartStock,
-    NotFound
+    NotFound,
+    LandingPage
   },
 
   methods: {
     updateWatchList() {
+      getStock(this.stock.shortName).then(stock => {
+        this.stock = stock;
+      });
+
       getWatchItem(this.stock.shortName)
         .then(watchItem => {
-          console.log("DEBUG getWatchItem watchItem", watchItem);
           this.watchItem = watchItem;
         })
         .catch(err => {
@@ -80,6 +86,9 @@ export default {
     },
 
     updateTimelineBabble() {
+      getStock(this.stock.shortName).then(stock => {
+        this.stock = stock;
+      });
       getStockBabbles(this.stock.shortName, this.filterBy).then(
         babbles => (this.babbles = babbles)
       );
@@ -90,9 +99,16 @@ export default {
       getStockBabbles(this.stock.shortName, this.filterBy).then(
         babbles => (this.babbles = babbles)
       );
+      getStock(this.stock.shortName).then(stock => {
+        this.stock = stock;
+      });
     },
+
     fetchData() {
       const stockName = this.$route.params.stockName;
+      getUser().then(connectedUser => {
+        this.connectedUser = connectedUser;
+      });
 
       getStock(stockName).then(stock => {
         this.stock = stock;
@@ -118,10 +134,6 @@ export default {
         this.recentPositions = recentPositions;
       });
 
-      getUser().then(connectedUser => {
-        this.connectedUser = connectedUser;
-      });
-
       getTrend(stockName, 30).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
@@ -131,11 +143,17 @@ export default {
       getTrend(this.stock.shortName, 7).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
+      getStock(this.stock.shortName).then(stock => {
+        this.stock = stock;
+      });
     },
 
     getTrend1() {
       getTrend(this.stock.shortName, 1).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
+      });
+      getStock(this.stock.shortName).then(stock => {
+        this.stock = stock;
       });
     }
   },

@@ -9,7 +9,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="200" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -81,17 +81,20 @@ export default {
       });
     },
     imBull() {
-      beBull(this.stock.longName).then(item => {
+      const inWatchList = this.watchItem ? this.watchItem._id : undefined;
+      beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
       });
     },
     imBear() {
-      beBear(this.stock.longName).then(item => {
+      const inWatchList = this.watchItem ? this.watchItem._id : undefined;
+      beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
       });
     },
+    
     putHashtag(e) {
       return this.babble.length !== 1
         ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
@@ -103,7 +106,7 @@ export default {
   computed: {
     charactersLeft() {
       var char = this.babble.length,
-        limit = 200;
+        limit = 500;
       return limit - char;
     }
   }
