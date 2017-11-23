@@ -51,24 +51,24 @@
                 </router-link></p>
               </div>
                <nav v-if="leaderboard" id="LB" class="level media">
-                <figure class="image is-96x96 is-circle" >
+                <figure v-if="leaderboard.rankingByPoints[leaderboard.index-1]"class="image is-96x96 is-circle" >
                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId">
                     <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
                    <span class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
-                <figure class="image is-96x96 is-circle centralPic">
+                <figure v-if="leaderboard.rankingByPoints[0]"class="image is-96x96 is-circle centralPic">
                    <router-link :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[0].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index].userId">
                   <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture"></router-link>
                   <span class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints :leaderboard.rankingByPoints[leaderboard.index].performancePoints}} <small>P$</small>
                                         </span>
                 </figure>
-                <figure class="image is-96x96 is-circle">
-                  <router-link v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[1].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index+1].userId">
-                  <img class="imgProfile" v-if="leaderboard.rankingByPoints[leaderboard.index+1]" :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture"></router-link>
-                  <span v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="rank subtitle is-6">
+                <figure v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="image is-96x96 is-circle">
+                  <router-link  :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[1].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index+1].userId">
+                  <img class="imgProfile"  :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture"></router-link>
+                  <span  class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints}} <small>P$</small>
                                     </span>
                 </figure>

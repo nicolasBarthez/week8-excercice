@@ -1,5 +1,6 @@
 <template>
     <section class="main">
+      <stock-index-filter></stock-index-filter>
         <b-table
             :data="stocks"
             :loading="loading"
@@ -67,6 +68,7 @@
 
 <script>
 import { getStocksTrending, getStocksTrendingByIndex } from "@/api/apiTrending";
+import StockIndexFilter from "../components/StockIndexFilter"
 
 const sortParams = {
   longName: "name",
@@ -98,6 +100,9 @@ export default {
       defaultSortDirection: "desc"
     };
   },
+   components: {
+  StockIndexFilter,
+ },
   methods: {
     /*
              * Handle page-change event

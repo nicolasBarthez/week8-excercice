@@ -29,50 +29,32 @@ const router = new Router({
         {
             path: "/trending",
             component: TrendingPage,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+           
         },
         {
             path: "/mydashboard",
             component: MyDashBoard,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+            
         },
         {
             path: "/dashboard/:id",
             component: DashboardPage,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+           
         },
         {
             path: "/stream",
             component: StreamPage,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+            
         },
         {
             path: "/leaderboard",
             component: LeaderBoard,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+            
         },
         {
             path: "*",
             component: NotFound,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+           
         }
     ],
 

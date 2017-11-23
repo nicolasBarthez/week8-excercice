@@ -1,17 +1,17 @@
 <template>
-    <b-dropdown v-model="all">
+    <b-dropdown v-model="usstock">
         <button class="button is-primary" type="button" slot="trigger">
-            <template v-if="all">
+            <template v-if="nyse">
                 <b-icon icon="public"></b-icon>
-                <span>all</span>
+                <span>NYSE</span>
             </template>
-            <template v-if="cac40">
+            <template v-if="dowjones">
                 <b-icon icon="people"></b-icon>
-                <span>cac40</span>
+                <span>Dow Jones</span>
             </template>
             <template v-if="nasdaq">
                 <b-icon icon="people"></b-icon>
-                <span>nasdaq</span>
+                <span>Nasdaq</span>
             </template>
             <b-icon icon="arrow_drop_down"></b-icon>
         </button>
@@ -20,7 +20,7 @@
             <div class="media">
                 <b-icon class="media-left" icon="public"></b-icon>
                 <div class="media-content">
-                    <h3>all</h3>
+                    <h3>NYSE</h3>
                     <small>All value of all index</small>
                 </div>
             </div>
@@ -52,8 +52,8 @@
 export default {
   data() {
     return {
-      all: true,
-      cac40: false,
+      nyse: true,
+      dowjones: false,
       nasdaq: false
     };
   }

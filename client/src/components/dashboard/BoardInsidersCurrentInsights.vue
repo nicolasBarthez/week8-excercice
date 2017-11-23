@@ -46,8 +46,11 @@
                     {{ props.row.stockId.price }}
                 </b-table-column>
 
-                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="variation">
-                    {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
+                <b-table-column v-if=" props.row.position==='bull'" field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="variation">
+                    {{((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(4)}} %
+                </b-table-column>
+                <b-table-column v-else field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) < 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)>0}" label="variation">
+                    {{(-(props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(4)}} %
                 </b-table-column>
 
                 <b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
