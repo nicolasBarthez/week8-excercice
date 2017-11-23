@@ -24,10 +24,7 @@ const router = new Router({
         {
             path: "/stocks/:stockName",
             component: StockPage,
-            beforeEnter: (to, from, next) => {
-                if (!router.app.$root.user) next("/");
-                else next();
-            }
+            
         },
         {
             path: "/trending",
