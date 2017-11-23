@@ -27,7 +27,7 @@
                     {{ props.row.currentPrice }}
                 </b-table-column>
 
-                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="Variation">
+                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="variation">
                     {{ props.row.variation }} %
                 </b-table-column>
 

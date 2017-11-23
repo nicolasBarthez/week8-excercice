@@ -31,16 +31,16 @@ exports.sortTrendingByPriceAsc = function(a, b) {
 };
 
 /*
-* SORTING BY VARIATION
+* SORTING BY variation
 */
 
-exports.sortTrendingByVariationDes = function(a, b) {
+exports.sortTrendingByvariationDes = function(a, b) {
   if (a.variation < b.variation) return 1;
   if (a.variation > b.variation) return -1;
   return 0;
 };
 
-exports.sortTrendingByVariationAsc = function(a, b) {
+exports.sortTrendingByvariationAsc = function(a, b) {
   if (a.variation < b.variation) return -1;
   if (a.variation > b.variation) return 1;
   return 0;

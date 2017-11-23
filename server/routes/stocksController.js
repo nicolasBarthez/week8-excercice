@@ -7,6 +7,7 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
+const scrapPrice = require("../config/scrapPrice");
 
 // **********************************************************
 // Send info about a stock  =================================
@@ -17,6 +18,12 @@ stocksController.get("/:stockName", function(req, res, next) {
   Stock.findOne({ shortName: stock }, (err, stock) => {
     if (err) return next(err);
     if (!stock) return next(err);
+    if (stock.index.indexOf("EURONEXT PARIS") > -1) {
+      scrapPrice(stock.scrapKey).then(resp => {
+        stock = resp;
+        res.json(stock);
+      });
+    }
     res.json(stock);
   });
 });
