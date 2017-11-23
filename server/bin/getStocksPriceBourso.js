@@ -17,18 +17,17 @@ mongoose
     console.info("The magic happens on port " + port);
   });
 
-Stock.find({ index: "CAC40" }).exec((err, stocksLongName) => {
+Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
   if (err) console.log(err);
 
-  const stockArrayLongName = stocksLongName.map(el => {
-    return el.longName;
+  const stockArraySymbolePrice = stocksSymbolePrice.map(el => {
+    return el.symbolPrice;
   });
 
-  console.log("stockArrayLongName", stockArrayLongName);
+  console.log("stockArraySymbolePrice", stockArraySymbolePrice);
 
   for (nbPage = 1; nbPage < 9; nbPage++) {
     let urlFull = url + nbPage;
-    console.log("URL", urlFull);
     // Scrap data from boursorama
     superagent.get(urlFull).end(function(err, res) {
       if (err) {
@@ -39,44 +38,58 @@ Stock.find({ index: "CAC40" }).exec((err, stocksLongName) => {
 
       $("tbody tr").each(function() {
         if (
-          stockArrayLongName.indexOf(
+          stockArraySymbolePrice.indexOf(
             $(this)
               .find("td:nth-child(2)")
               .text()
           ) > -1
         ) {
           let stUpdate = {};
-          stUpdate.longName = $(this)
+          stUpdate.symbolPrice = $(this)
             .find("td:nth-child(2)")
             .text();
 
-          stUpdate.symbolPrice = $(this)
-            .find("td:nth-child(2) a")
-            .attr("href")
-            .substring(
-              $(this)
-                .find("td:nth-child(2) a")
-                .attr("href")
-                .indexOf("=") + 3
-            );
-          stUpdate.price = $(this)
-            .find("td:nth-child(4)")
-            .text();
+          // stUpdate.symbolPrice = $(this)
+          //   .find("td:nth-child(2) a")
+          //   .attr("href")
+          //   .substring(
+          //     $(this)
+          //       .find("td:nth-child(2) a")
+          //       .attr("href")
+          //       .indexOf("=") + 3
+          //   );
+          stUpdate.price = parseFloat(
+            $(this)
+              .find("td:nth-child(4)")
+              .text()
+          );
 
-          stUpdate.variation = $(this)
-            .find("td:nth-child(5)")
-            .text();
+          stUpdate.variation = parseFloat(
+            $(this)
+              .find("td:nth-child(5)")
+              .text()
+          );
 
-          stUpdate.volume = $(this)
-            .find("td:nth-child(10)")
-            .text();
+          stUpdate.volume = parseFloat(
+            $(this)
+              .find("td:nth-child(10)")
+              .text()
+          );
 
-          stockUpdateInfo.push(stUpdate);
+          Stock.findOneAndUpdate(
+            { symbolPrice: stUpdate.symbolPrice },
+            stUpdate,
+            { new: true },
+            function(err, doc) {
+              if (err) {
+                console.log("Something wrong when updating data!");
+              }
+
+              console.log(doc);
+            }
+          );
         }
       });
-
-      console.log("stockUpdateInfo", stockUpdateInfo);
-      console.log("TAILLE DE L'OBJET", stockUpdateInfo.length);
     });
   }
 });

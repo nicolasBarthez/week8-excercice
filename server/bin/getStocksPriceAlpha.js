@@ -54,12 +54,14 @@ function getCryptoUpdate(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
     console.log(stockArray);
     if (err) console.err(err);
-    stockArray.forEach(stock => {
-      return axios
+    return stockArray.forEach(stock => {
+      axios
         .get(urlStart + stock.symbolPrice + urlEnd)
         .then(response => {
-          let priceList = resp.data["Time Series (Digital Currency Intraday)"];
+          let priceList =
+            response.data["Time Series (Digital Currency Intraday)"];
           let lastPrice = priceList[Object.keys(priceList)[0]];
+          console.log("lastPrice", lastPrice);
           let openDate = todayMidnight();
           let openPrice = priceList[`${openDate}`];
           let price2 = lastPrice["1a. price (EUR)"];

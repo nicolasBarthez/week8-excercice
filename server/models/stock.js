@@ -19,7 +19,8 @@ const stockSchema = new Schema(
     variation2: Number,
     volume: Number,
     currency: String,
-    currency2: String
+    currency2: String,
+    scrapKey: String
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
