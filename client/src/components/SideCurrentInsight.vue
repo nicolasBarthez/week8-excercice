@@ -19,10 +19,14 @@
                 </div>
                 <div class="Symbol2" id="position">
                    <a class="stockName is-6">Performance</a>
-                   <b class="price is-6">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b><br>
-                   <div id="close" action="/" method="post">
-                      <button @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
+                   <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'has-text-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0}">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b>
+                   <b v-else class="price is-6" :class="{'has-text-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'has-text-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0}">{{(-100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b>
+                   </br><div id="close" action="/" method="post">
+                      <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
                       :class="{'btn-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'btn-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'btn' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice===0}">Close</button>
+                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
+                      :class="{'btn-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'btn-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'btn' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice===0}">Close</button>
+                   
                    </div>
                 </div>
             </div>
@@ -133,7 +137,7 @@ export default {
 .btn-red.is-outlined:hover {
     background-color: #ff6026;
     border-color: #ff6026;
-    color: #fff;
+    color: #fff!important;
 }
 .btn-green.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 20PX;
@@ -148,7 +152,7 @@ export default {
 .btn-green.is-outlined:hover {
     background-color: #21ce99;
     border-color: #21ce99;
-    color: #fff;
+    color: #fff!important;
 }
 .btn.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 20PX;
