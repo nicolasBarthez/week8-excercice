@@ -50,7 +50,7 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks' sortable centered label="Prefered stocks">
-                    <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.longName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
+                    <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">

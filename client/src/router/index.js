@@ -17,37 +17,65 @@ const router = new Router({
             path: "/",
             component: LandingPage,
             beforeEnter: (to, from, next) => {
-                if (router.app.$root.user) next("/mydashboard");
+                if (router.app.$root.user) next("/trending");
                 else next();
             }
         },
         {
             path: "/stocks/:stockName",
             component: StockPage,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "/trending",
-            component: TrendingPage
+            component: TrendingPage,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "/mydashboard",
             component: MyDashBoard,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "/dashboard/:id",
             component: DashboardPage,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "/stream",
-            component: StreamPage
+            component: StreamPage,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "/leaderboard",
-            component: LeaderBoard
+            component: LeaderBoard,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         },
         {
             path: "*",
-            component: NotFound
+            component: NotFound,
+            beforeEnter: (to, from, next) => {
+                if (!router.app.$root.user) next("/");
+                else next();
+            }
         }
     ],
 

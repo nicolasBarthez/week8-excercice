@@ -27,7 +27,7 @@
             :default-sort="defaultSortField"
             >
             <template slot-scope="props">
-                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.longName"class="stockName is-6" data-replace="Symbol">
+                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName is-6" data-replace="Symbol">
                     {{ props.row.longName }}</router-link>
                 </b-table-column>
 

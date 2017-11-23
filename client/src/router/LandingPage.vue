@@ -41,7 +41,7 @@
   <div class="container">
     <div class="content has-text-centered">
       <p>
-        Anybody who plays the stock market not as an <strong>Insider</strong> is like a man buying cows in the moonlight." - Daniel Drew
+        "Anybody who plays the stock market not as an <strong>Insider</strong> is like a man buying cows in the moonlight." - Daniel Drew
       </p>
     </div>
   </div>

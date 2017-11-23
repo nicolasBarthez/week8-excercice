@@ -8,7 +8,7 @@
     <b-table v-if="watchList.length>0" :data="watchList" :loading="loading" :paginated="isPaginated" :per-page="perPage" :pagination-simple="isPaginationSimple" :total="total" @page-change="onPageChange" :striped="true" :default-sort-direction="defaultSortOrder" :default-sort="defaultSortField">
       <template slot-scope="props">
         <b-table-column label="Stock" field='longName' sortable centered>
-          <router-link :to="'/stocks/'+props.row.longName" class="stockName is-6" data-replace="Symbol"> {{ props.row.longName }}</router-link>
+          <router-link :to="'/stocks/'+props.row.shortName" class="stockName is-6" data-replace="Symbol"> {{ props.row.longName }}</router-link>
         </b-table-column>
         <b-table-column field='currentPrice' sortable numeric centered label="Current price"> {{ props.row.currentPrice }} </b-table-column>
         <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="variation"> {{ props.row.variation }} %</b-table-column>

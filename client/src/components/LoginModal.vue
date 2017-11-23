@@ -47,7 +47,7 @@ export default {
     autenticate: {
         type: Object,
         default: null
-    }
+    },
   },
   methods: {
     login() {
@@ -57,7 +57,7 @@ export default {
         })
         .catch(err => {
           this.error = "error";
-        });
+        });              
     }
   },
   created() {
