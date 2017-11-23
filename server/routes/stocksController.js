@@ -8,6 +8,7 @@ const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
 const scrapPrice = require("../config/scrapPrice");
+const scrapPriceCurrency = require("../config/scrapPriceCurrency");
 
 // **********************************************************
 // Send info about a stock  =================================
@@ -23,33 +24,10 @@ stocksController.get("/:stockName", function(req, res, next) {
         stock = resp;
         res.json(stock);
       });
-    } else if (stock.index.indexOf("crypto")) {
-      scrapPriceCurrency(stock.shortName).then(response => {
-        let priceList =
-          response.data["Time Series (Digital Currency Intraday)"];
-        let lastPrice = priceList[Object.keys(priceList)[0]];
-        let openDate = todayMidnight();
-        let openPrice = priceList[`${openDate}`];
-        let price2 = lastPrice["1a. price (EUR)"];
-        let price = lastPrice["1b. price (USD)"];
-        let variation2 =
-          (price2 - openPrice["1a. price (EUR)"]) /
-          openPrice["1a. price (EUR)"];
-        let variation =
-          (price - openPrice["1b. price (USD)"]) / openPrice["1b. price (USD)"];
-        let volume = lastPrice["2. volume"];
-
-        let newStock = {
-          price: price,
-          price2: price2,
-          variation: variation,
-          variation2: variation2,
-          volume: volume
-        };
-        Stock.findByIdAndUpdate(stock._id, newStock).exec((err, resp) => {
-          stock = resp;
-          res.json(stock);
-        });
+    } else if (stock.index.indexOf("crypto") > -1) {
+      scrapPriceCurrency(stock.shortName).then(resp => {
+        stock = resp;
+        res.json(stock);
       });
     }
     res.json(stock);

@@ -35,6 +35,7 @@ function scrapPrice(url) {
         $("#fiche_cours_details")
           .find("tr:nth-child(4) td:nth-child(2)")
           .text()
+          .replace(/ /g, "")
       );
 
       console.log("RESULT", stUpdate);
