@@ -7,6 +7,7 @@ const superagent = require("superagent");
 const axios = require("axios");
 const mongoose = require("mongoose");
 
+// Scrap Euronext
 function scrapPrice(url) {
   return new Promise((resolve, reject) => {
     const xhr = superagent.get(url).end(function(err, res) {
@@ -34,6 +35,7 @@ function scrapPrice(url) {
         $("#fiche_cours_details")
           .find("tr:nth-child(4) td:nth-child(2)")
           .text()
+          .replace(/ /g, "")
       );
 
       console.log("RESULT", stUpdate);

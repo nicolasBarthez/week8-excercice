@@ -74,6 +74,7 @@ Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
             $(this)
               .find("td:nth-child(10)")
               .text()
+              .replace(/ /g, "")
           );
 
           Stock.findOneAndUpdate(

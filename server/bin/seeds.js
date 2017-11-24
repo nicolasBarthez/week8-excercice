@@ -16,13 +16,13 @@ const nasdaq = require("../data/nasdaq");
 Stock.collection.drop();
 
 // Create stock data
-Stock.create(nasdaq, (err, stock) => {
-  if (err) {
-    console.error(err);
-  }
-  stock.forEach(stock => console.log(stock.longName));
-  mongoose.connection.close();
-});
+// Stock.create(nasdaq, (err, stock) => {
+//   if (err) {
+//     console.error(err);
+//   }
+//   stock.forEach(stock => console.log(stock.longName));
+//   mongoose.connection.close();
+// });
 
 Stock.create(euronextParis, (err, stock) => {
   if (err) {

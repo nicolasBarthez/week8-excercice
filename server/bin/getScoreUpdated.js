@@ -18,9 +18,9 @@ function calculateScore(position, initialPrice, currentPrice) {
   switch (position) {
     case "bull":
       break;
-      score = Math.floor((initialPrice - currentPrice) / initialPrice * 1000);
+      score = Math.floor((currentPrice - initialPrice) / initialPrice * 1000);
     case "bear":
-      score = Math.floor((initialPrice - currentPrice) / initialPrice * -1000);
+      score = Math.floor((currentPrice - initialPrice) / initialPrice * -1000);
       break;
     default:
       score = 0;
@@ -101,7 +101,12 @@ WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
         watchItem.initialPrice,
         watchItem.stockId.price
       );
-
+      console.log(
+        watchItem.position,
+        watchItem.initialPrice,
+        watchItem.stockId.price
+      );
+      console.log(updateScore);
       WatchItem.findByIdAndUpdate(watchItem._id, {
         $inc: { performancePoints: updateScore }
       }).exec();

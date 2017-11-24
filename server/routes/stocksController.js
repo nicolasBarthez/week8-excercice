@@ -8,6 +8,7 @@ const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
 const scrapPrice = require("../config/scrapPrice");
+const scrapPriceCurrency = require("../config/scrapPriceCurrency");
 
 // **********************************************************
 // Send info about a stock  =================================
@@ -20,6 +21,11 @@ stocksController.get("/:stockName", function(req, res, next) {
     if (!stock) return next(err);
     if (stock.index.indexOf("EURONEXT PARIS") > -1) {
       scrapPrice(stock.scrapKey).then(resp => {
+        stock = resp;
+        res.json(stock);
+      });
+    } else if (stock.index.indexOf("crypto") > -1) {
+      scrapPriceCurrency(stock.shortName).then(resp => {
         stock = resp;
         res.json(stock);
       });
