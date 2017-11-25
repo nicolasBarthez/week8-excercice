@@ -143,10 +143,11 @@ export default {
 }
 .primordial{
   width:100%;
-  justify-content:space-evenly
+  justify-content: center;
 }
 .container{
   display: flex;
+  max-width: 95%;
 }
 
 .babblesField{
@@ -158,7 +159,11 @@ export default {
   margin-right: -0.75rem;
   width:100%
 }
-
+@media screen and (min-width: 1408px){
+  .container {
+    max-width: 95%;
+  }
+}
 @media screen and (min-width: 769px){
   .babblesField {
     -webkit-box-flex: 0;
