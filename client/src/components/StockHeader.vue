@@ -4,11 +4,11 @@
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
                 <div class="media" id="stockInfo">
-                   <!-- <div class="media-left">
+                   <div class="media-left">
                        <figure class="image is-64x64 is-circle">
                          <img class ="imgProfile" :src="stock.stockImg" alt="stockImg">
                        </figure>
-                   </div> -->
+                   </div>
                    <div class="media-content">
                         <div class="stock-banner">
                            <div class="sock-info">
@@ -30,8 +30,11 @@
                             </div>
                             <div class="stock-price title is-5">
                                 <div class="stock-priceVar title is-5">
-                               <strong class="stVar">{{stock.price}} €</strong>
+                               <strong class="stVar">{{stock.price}} {{stock.currency}}</strong>
                                <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation}} %</small>
+                                </div>
+                                <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
+                                <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
                                 </div>
                                     <span class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
@@ -204,7 +207,8 @@ export default {
 }
  .chartIcon{
      width:100%;
-     justify-content:flex-end
+     justify-content:flex-end;
+     margin-top: 5%!important;
  }
  .fa-line-chart{
      font-size:0.85REM;
@@ -220,7 +224,7 @@ export default {
     align-items: flex-start;
     justify-content: flex-end;
     width: 100%;
-    margin-bottom: 12% !important;
+    margin-bottom: 2% !important;
 }
 .add-to-watchlist{
     display: flex;

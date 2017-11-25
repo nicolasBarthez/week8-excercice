@@ -1,11 +1,10 @@
 <template>
-<landing-page v-if="!connectedUser"></landing-page>
-<not-found v-else-if="!stock"></not-found>
+<not-found v-if="!stock"></not-found>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="container primordial">
       <div class="columns sct1">
-        <side-recent-activity  class="is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
@@ -32,7 +31,7 @@ import PublishBabble from "../components/PublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
 import ChartStock from "../components/ChartStock";
 import NotFound from "../router/NotFound"
-import LandingPage from "../router/LandingPage"
+
 
 export default {
   data() {
@@ -55,43 +54,15 @@ export default {
     SideRecentActivity,
     ChartStock,
     NotFound,
-    LandingPage
   },
 
   methods: {
     updateWatchList() {
-      getStock(this.stock.shortName).then(stock => {
-        this.stock = stock;
-      });
-
-      getWatchItem(this.stock.shortName)
-        .then(watchItem => {
-          this.watchItem = watchItem;
-        })
-        .catch(err => {
-          throw err;
-        });
-
-      getWatchInsight(this.$root.user._id).then(watchInsight => {
-        this.watchInsight = watchInsight;
-      });
-
-      getRecentPosition().then(recentPositions => {
-        this.recentPositions = recentPositions;
-      });
-
-      getTrend(this.stock.shortName, 30).then(trendBullBear => {
-        this.trendBullBear = trendBullBear;
-      });
+      this.fetchData();
     },
 
     updateTimelineBabble() {
-      getStock(this.stock.shortName).then(stock => {
-        this.stock = stock;
-      });
-      getStockBabbles(this.stock.shortName, this.filterBy).then(
-        babbles => (this.babbles = babbles)
-      );
+      this.fetchData();
     },
 
     changeSort(filterBy) {
@@ -99,9 +70,7 @@ export default {
       getStockBabbles(this.stock.shortName, this.filterBy).then(
         babbles => (this.babbles = babbles)
       );
-      getStock(this.stock.shortName).then(stock => {
-        this.stock = stock;
-      });
+      this.fetchData();
     },
 
     fetchData() {
@@ -143,18 +112,14 @@ export default {
       getTrend(this.stock.shortName, 7).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
-      getStock(this.stock.shortName).then(stock => {
-        this.stock = stock;
-      });
+      this.fetchData();
     },
 
     getTrend1() {
       getTrend(this.stock.shortName, 1).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
-      getStock(this.stock.shortName).then(stock => {
-        this.stock = stock;
-      });
+      this.fetchData();
     }
   },
   created() {
@@ -177,7 +142,8 @@ export default {
     padding: 7rem 1.5rem;
 }
 .primordial{
-  width:100%
+  width:100%;
+  justify-content:space-evenly
 }
 .container{
   display: flex;
