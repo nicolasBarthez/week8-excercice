@@ -17,7 +17,7 @@
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
-                              <p class="stock-see-desc is-6 has-text-grey-light">See description</p>
+                              <p @click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">More info...</p>
                             </div>
                             <div class="add-to-watchlist" >
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to watchlist</button>
@@ -36,7 +36,7 @@
                                     <span class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
-                                                    
+
                            </div>
                         </div>
                            <nav id="bandB" class="level media">
@@ -73,6 +73,24 @@
                  <b-modal :active.sync="isChartStockActive" :width="640">
           <chart-stock :stock="stock"></chart-stock>
         </b-modal>
+        <b-modal :active.sync="isStockDescriptionModalActive">
+            <div class="mediaModal">
+                <nav id="bandB" class="level media">
+                  <div id="bullsAndBearsPic">
+                      <img src="/static/images/logoeuronext.png" alt="stock image">
+                  </div>
+                    <h1 class="modalTitle">
+                        More info about {{stock.longName}} !
+                    </h1>
+
+                </nav>
+                <div id="bullsAndBears2">
+                    <div id="stock-desc" class="div is-outlined  ">{{stock.description}}</div>
+
+                    <button id="close-desc" @click="isStockDescriptionModalActive = false"  class="button is-small is-outlined is-primary">Close</button>
+                </div>
+            </div>
+        </b-modal>
             </div>
        </div>
 </section>
@@ -80,7 +98,7 @@
 
 
 <script>
-import ChartStock from "@/components/ChartStock"
+import ChartStock from "@/components/ChartStock";
 import { addWatchItem } from "@/api/api";
 import { removeWatchItem } from "@/api/api";
 import { beBear } from "@/api/api";
@@ -98,15 +116,20 @@ export default {
   data() {
     return {
       activeItem: "thirty",
-      isChartStockActive:false,
+      isChartStockActive: false,
+      isStockDescriptionModalActive: false
     };
   },
   components: {
-      ChartStock
+    ChartStock
   },
   methods: {
-    ChartStock(){
-        this.isChartStockActive=true;
+    ChartStock() {
+      this.isChartStockActive = true;
+    },
+
+    descriptionStock() {
+      this.isStockDescriptionModalActive = true;
     },
 
     addWatchList() {
