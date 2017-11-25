@@ -68,7 +68,9 @@ export default {
 </script>
 
 <style scoped>
-
+.card-content {
+    padding: 1rem;
+}
 .mainSCI{
     position:sticky
 }
