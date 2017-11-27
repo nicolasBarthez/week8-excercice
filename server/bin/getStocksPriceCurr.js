@@ -65,4 +65,19 @@ function getCryptoUpdate(index) {
 // Update crypto
 getCryptoUpdate("crypto");
 
+// timestampsfunction getCryptoUpdate(index) {
+// Stock.find({ index: "crypto" }).exec((err, stockArray) => {
+//   if (err) console.err(err);
+//   stockArray.forEach(stock => {
+//     let imageUpdate = {
+//       stockImg: "/static/images/crypto.png"
+//     };
+//
+//     Stock.findByIdAndUpdate(stock._id, imageUpdate).exec((err, resp) => {
+//       console.log(resp);
+//       mongoose.connection.close();
+//     });
+//   });
+// });
+
 // module.exports = getCryptoUpdate;

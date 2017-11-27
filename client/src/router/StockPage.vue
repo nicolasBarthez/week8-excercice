@@ -1,5 +1,5 @@
 <template>
-<not-found v-if="!stock"></not-found>
+<not-found v-if="stock==='error'"></not-found>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="container primordial">
@@ -13,7 +13,7 @@
       </div>
     </div>
   </section>
-  
+
 </template>
 
 <script>
@@ -30,8 +30,7 @@ import TimelineBabble from "../components/TimelineBabble";
 import PublishBabble from "../components/PublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
 import ChartStock from "../components/ChartStock";
-import NotFound from "../router/NotFound"
-
+import NotFound from "../router/NotFound";
 
 export default {
   data() {
@@ -53,14 +52,13 @@ export default {
     PublishBabble,
     SideRecentActivity,
     ChartStock,
-    NotFound,
+    NotFound
   },
 
   methods: {
     updateWatchList() {
       this.fetchData();
     },
-
     updateTimelineBabble() {
       this.fetchData();
     },
@@ -122,6 +120,7 @@ export default {
       this.fetchData();
     }
   },
+
   mounted() {
     this.fetchData();
   },
