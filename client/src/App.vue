@@ -29,4 +29,12 @@ export default {
 </script>
 
 <style>
+.container {
+    max-width: 95%;
+}
+@media screen and (min-width: 1408px){
+  .container {
+    max-width: 95%;
+  }
+}
 </style>
