@@ -17,18 +17,20 @@ function calculateScore(position, initialPrice, currentPrice) {
   let score;
   initialPrice = parseFloat(initialPrice);
   currentPrice = parseFloat(currentPrice);
+  console.log("Donnee d'entree", position, initialPrice, currentPrice);
 
   switch (position) {
     case "bull":
+      score = (currentPrice - initialPrice) / initialPrice * 1000;
       break;
-      score = Math.floor((currentPrice - initialPrice) / initialPrice * 1000);
     case "bear":
-      score = Math.floor((currentPrice - initialPrice) / initialPrice * -1000);
+      score = (currentPrice - initialPrice) / initialPrice * -1000;
       break;
     default:
       score = 0;
   }
-  return score;
+
+  return parseFloat(score);
 }
 
 // Set today & thirtyDaysAgo dates
@@ -50,7 +52,6 @@ WatchItem.find({
       WatchItem.findById(item._id)
         .populate("stockId")
         .exec((err, watchItem) => {
-          console.log("watchItem =>", watchItem);
           let updateScore = 0;
           let newStatus = watchItem.status;
           if (watchItem.position === "bull") {
@@ -59,7 +60,9 @@ WatchItem.find({
 
             // Update score of the user
             updateScore = Math.floor(
-              (watchItem.stockId.price - watchItem.initialPrice) * 10
+              (watchItem.stockId.price - watchItem.initialPrice) /
+                watchItem.initialPrice *
+                1000
             );
           } else if (watchItem.position === "bear") {
             newStatus =
@@ -67,7 +70,9 @@ WatchItem.find({
 
             // Update score of the user
             updateScore = Math.floor(
-              (watchItem.stockId.price - watchItem.initialPrice) * -10
+              (watchItem.stockId.price - watchItem.initialPrice) /
+                watchItem.initialPrice *
+                -1000
             );
           }
 
@@ -98,17 +103,13 @@ WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
   .exec((err, watchList) => {
     // calculate score
     watchList.forEach(watchItem => {
+      console.log("watchItem", watchItem);
       let updateScore = calculateScore(
         watchItem.position,
         watchItem.initialPrice,
         watchItem.stockId.price
       );
-      console.log("watchItem", watchItem);
-      console.log(
-        watchItem.position,
-        watchItem.initialPrice,
-        watchItem.stockId.price
-      );
+
       console.log("additional points", updateScore);
       WatchItem.findByIdAndUpdate(watchItem._id, {
         $inc: { performancePoints: updateScore }
