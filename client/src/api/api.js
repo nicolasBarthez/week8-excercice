@@ -102,6 +102,7 @@ export function beBear(stockName, inWatchList) {
   })
     .then(response => {
       return response.data;
+      console.log("BE BEAR, resp", response.data);
     })
     .catch(err => {
       return err;
