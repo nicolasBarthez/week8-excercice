@@ -1,6 +1,11 @@
 <template>
     <section class="main">
-      <stock-index-filter></stock-index-filter>
+       <button id="adWL" @click="cryptocurrencies()" class="button is-small is-outlined is-primary">Crypto Currencies</button>
+       <button id="adWL" @click="euronext()" class="button is-small is-outlined is-primary">EuroNext Paris</button>
+       <button id="adWL" @click="cac()" class="button is-small is-outlined is-primary">CAC 40</button>
+       <button id="adWL" @click="sbf()" class="button is-small is-outlined is-primary">SBF 120</button>
+       
+
         <b-table
             :data="stocks"
             :loading="loading"
@@ -67,8 +72,8 @@
 </template>
 
 <script>
-import { getStocksTrending, getStocksTrendingByIndex } from "@/api/apiTrending";
-import StockIndexFilter from "../components/StockIndexFilter"
+import { getStocksTrending} from "@/api/apiTrending";
+
 
 const sortParams = {
   longName: "name",
@@ -97,13 +102,47 @@ export default {
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "desc"
+      defaultSortDirection: "desc",
     };
   },
-   components: {
-  StockIndexFilter,
- },
+
   methods: {
+    cryptocurrencies(){
+            this.indexSelected= "crypto";
+            getStocksTrending({
+      index:this.indexSelected,
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
+    },
+    euronext(){
+            this.indexSelected= "EURONEXT PARIS";
+            getStocksTrending({
+      index:this.indexSelected,
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
+    },
+    cac(){
+            this.indexSelected= "CAC40";
+            getStocksTrending({
+      index:this.indexSelected,
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
+    },
+    sbf(){
+            this.indexSelected= "SBF120";
+            getStocksTrending({
+      index:this.indexSelected,
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
+    },
     /*
              * Handle page-change event
              */
@@ -116,7 +155,8 @@ export default {
              */
     onSort(field, order) {
       this.loading = true;
-      getStocksTrending({
+       getStocksTrending({
+        index:this.indexSelected,
         sort: makeSortParam(field, order)
       }).then(stocks => {
         this.stocks = stocks;
@@ -146,7 +186,8 @@ export default {
     }
   },
   mounted() {
-    getStocksTrending({
+     getStocksTrending({
+      index:this.indexSelected,
       sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
     }).then(stocks => {
       this.stocks = stocks;
