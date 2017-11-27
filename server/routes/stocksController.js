@@ -307,7 +307,9 @@ stocksController.patch(
 
           // Update score of the user
           var updateScore = Math.floor(
-            (watchItem.stockId.price - watchItem.initialPrice) * 10
+            (watchItem.stockId.price - watchItem.initialPrice) /
+              watchItem.initialPrice *
+              1000
           );
           User.findByIdAndUpdate(user._id, {
             $inc: { score: updateScore }
@@ -318,7 +320,9 @@ stocksController.patch(
 
           // Update score of the user
           var updateScore = Math.floor(
-            (watchItem.stockId.price - watchItem.initialPrice) * -10
+            (watchItem.stockId.price - watchItem.initialPrice) /
+              watchItem.initialPrice *
+              -1000
           );
         }
         // Update status of watchList
