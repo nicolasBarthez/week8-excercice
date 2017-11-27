@@ -1,6 +1,6 @@
 <template>
   <nav class="nav has-shadow" id="top">
-        <div class="container" id="top2">
+        <div id="top2">
             <div class="nav">
                 <router-link to="/trending" class="nav-item"> 
                     <img id="logo2" src="/static/images//logoReduct.png" alt="Description">
@@ -136,7 +136,15 @@ a{
     color:#192b41
 }
 #nav-toggle-state {
-  display: none;
+    display: none;
+}
+#top{
+    justify-content: center;
+}
+#top2{
+    display: flex;
+    justify-content: space-evenly;
+    width: 95%;
 }
 .menu1{
     font-size:1.3rem

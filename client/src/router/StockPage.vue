@@ -2,8 +2,8 @@
 <not-found v-if="stock==='error'"></not-found>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
-    <div class="container primordial">
-      <div class="columns sct1">
+    <div class="primordial">
+      <div class="sct1">
         <side-recent-activity  class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
@@ -136,6 +136,9 @@ export default {
 .is-sticky{
    position:sticky
  }
+ div{
+   font-size:1.2rem !important
+}
 .section.main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
@@ -143,25 +146,17 @@ export default {
 .primordial{
   width:100%;
   justify-content: center;
-}
-.container{
   display: flex;
-  max-width: 95%;
 }
-
 .babblesField{
   margin-right: 2.5%;
   margin-left: 2.5%;
 }
 .sct1{
-  margin-left: -0.75rem;
-  margin-right: -0.75rem;
-  width:100%
-}
-@media screen and (min-width: 1408px){
-  .container {
-    max-width: 95%;
-  }
+  width:100%;
+  justify-content: center;
+  display: flex;
+  max-width: 95%;
 }
 @media screen and (min-width: 769px){
   .babblesField {

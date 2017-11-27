@@ -25,7 +25,7 @@
                                <p class="position" v-else>
                                 <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
                                  <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
-                                      {{watchItem.position}} @ {{watchItem.initialPrice}}</strong>
+                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
@@ -62,13 +62,11 @@
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
                                     <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
-                                &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
-
-                                <div class="level-item has-text-centered">
+                                &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
+                            
                                     <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
-                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp</div>
+                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
 
-                                <div class="level-item has-text-centered">
                                     <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
                                 </div>
                             </div>
@@ -195,6 +193,11 @@ export default {
 .title, .subtitle {
     word-break: initial;
 }
+.level-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
 .stock-banner {
     display: flex;
     flex-direction: row;
@@ -307,8 +310,8 @@ a {
     width: 100%;
    }
 
-.title.is-5 {
-    font-size: 1.5REM;
+.stVar {
+    font-size: 1.5REM!important;
 }
 
 #stockInfo {
@@ -380,6 +383,9 @@ a {
     .fa-line-chart{
         font-size:0.65rem
     }
+    small{
+        font-size:0.65rem
+    }
     .card-content {
         padding: 0.7REM;
         padding-top: 1REM;
@@ -390,6 +396,7 @@ a {
     }
     .stVar{
         text-align:end;
+        font-size:0.75rem!important
     }
     .longNameTitle{
         font-size: 0.8REM !important;

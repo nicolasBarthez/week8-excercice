@@ -141,7 +141,7 @@ body {
     width:15%
 }
 .add-to-watchlist{
-      display: flex;
+    display: flex;
     justify-content: flex-end;
     width:25%
 }
