@@ -38,7 +38,7 @@
                                  <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2.toFixed(2)}} %</small>
                                 
                                 </div>
-                                    <span class="icon chartIcon">
+                                    <span v-if="stock.index[0]==='nasdaq'" class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
 
@@ -390,7 +390,6 @@ a {
     }
     .stVar{
         text-align:end;
-        font-size:1rem;
     }
     .longNameTitle{
         font-size: 0.8REM !important;

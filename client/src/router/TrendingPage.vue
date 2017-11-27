@@ -1,15 +1,17 @@
 <template>
     <section class="main">
-       <button id="adWL" @click="cryptocurrencies()" class="button is-small is-outlined is-primary">Crypto Currencies</button>
-       <button id="adWL" @click="euronext()" class="button is-small is-outlined is-primary">EuroNext Paris</button>
-       <button id="adWL" @click="cac()" class="button is-small is-outlined is-primary">CAC 40</button>
-       <button id="adWL" @click="sbf()" class="button is-small is-outlined is-primary">SBF 120</button>
-       
-
+<nav class="navbar is-dark">
+      <div class="babblesMenu">
+            <a  @click="all()" :class="{'is-active':indexSelected ==='all' }" class="navbar-item is-tab babMenu">All</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='crypto' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
+            <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
+            <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
+      </div>  
+    </nav>
         <b-table
             :data="stocks"
             :loading="loading"
-
             :paginated="isPaginated"
             :per-page="perPage"
             :pagination-simple="isPaginationSimple"
@@ -25,7 +27,7 @@
             @sort="onSort">
 
             <template slot-scope="props">
-                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName is-6" data-replace="Symbol">
+                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName has-text-centered is-6" data-replace="Symbol">
                     {{ props.row.longName }}</router-link>
                 </b-table-column>
 
@@ -99,7 +101,7 @@ export default {
       defaultSortField: "trending.percentage",
       defaultSortOrder: "desc",
       page: 1,
-      perPage: 20,
+      perPage: 40,
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: "desc",
@@ -107,6 +109,15 @@ export default {
   },
 
   methods: {
+    all(){
+            this.indexSelected= "all";
+            getStocksTrending({
+      index:this.indexSelected,
+      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+    }).then(stocks => {
+      this.stocks = stocks;
+    });
+    },
     cryptocurrencies(){
             this.indexSelected= "crypto";
             getStocksTrending({
@@ -198,7 +209,12 @@ export default {
 
 
 <style scoped>
-
+div{
+   font-size:1.2rem !important
+}
+.has-text-centered{
+  font-size:1.2rem !important
+}
 .main {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
@@ -206,9 +222,11 @@ export default {
 .container{
   display: flex;
 }
-a {
-  color: #192b41 !important;
+.crypto{
+color:#f7931a!important
 }
+
+
 @media (max-width: 768px) {
   .main {
     background-color: #f9f9f9;

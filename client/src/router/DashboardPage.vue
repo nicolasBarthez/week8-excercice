@@ -1,5 +1,5 @@
 <template >
-<section v-else class="section main">
+<section class="section main">
 <insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
  
   <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-current-insights>
@@ -77,7 +77,12 @@ export default {
 .container {
   display: flex;
 }
-
+div{
+   font-size:1.2rem !important
+}
+.has-text-centered{
+  font-size:1.2rem !important
+}
 .navbar.is-dark {
   background-color: #192b41;
   color: #f9f9f9;

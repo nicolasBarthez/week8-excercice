@@ -109,17 +109,17 @@ export default {
     },
 
     getTrend7() {
+      this.fetchData();
       getTrend(this.stock.shortName, 7).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
-      this.fetchData();
     },
 
     getTrend1() {
+      this.fetchData();
       getTrend(this.stock.shortName, 1).then(trendBullBear => {
         this.trendBullBear = trendBullBear;
       });
-      this.fetchData();
     }
   },
   mounted() {

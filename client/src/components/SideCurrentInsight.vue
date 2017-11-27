@@ -68,6 +68,9 @@ export default {
 </script>
 
 <style scoped>
+.is-6{
+    font-size:1.2rem
+}
 .card-content {
     padding: 1rem;
 }
@@ -130,10 +133,11 @@ export default {
 .btn-red.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
-    font-weight: bolder;
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
+    font-weight: bolder;
+    FONT-SIZE: 1REM;
 }
 .btn-red.is-outlined:focus,
 .btn-red.is-outlined:hover {
@@ -144,10 +148,11 @@ export default {
 .btn-green.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
-    font-weight: bolder;
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
+    font-weight: bolder;
+    FONT-SIZE: 1REM;
 }
 
 .btn-green.is-outlined:focus,
@@ -159,10 +164,11 @@ export default {
 .btn.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
-    font-weight: bolder;
     color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
+    font-weight: bolder;
+    FONT-SIZE: 1REM;
 }
 
 .btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {

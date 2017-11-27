@@ -141,6 +141,8 @@ body {
     width:15%
 }
 .add-to-watchlist{
+      display: flex;
+    justify-content: flex-end;
     width:25%
 }
 #perf{

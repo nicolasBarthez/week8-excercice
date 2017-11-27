@@ -36,6 +36,9 @@
                 <button v-if="!followed" @click="follow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
             <button v-else @click="unfollow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">Unfollow</button>
           </div>
+          <div v-else class="add-to-watchlist">
+             <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">My DashBoard</button>
+          </div>
             </div>
              <div id="refAndSkills">
               <div class="preferedTrades level-item has-text-centered column is-3">
@@ -131,6 +134,9 @@ export default {
       });
   },
   methods: {
+    editMyProfile() {
+      this.$router.push("/mydashboard");
+    },
     follow() {
       followInsider(this.profileInfo.userId).then(resp => {
         this.followed = true;

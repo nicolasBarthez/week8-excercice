@@ -79,8 +79,12 @@ methods: {
     background-color: #192b41;
     color: #f9f9f9;
 }
-
-
+div{
+   font-size:1.2rem !important
+}
+.has-text-centered{
+  font-size:1.2rem !important
+}
 .navbar-item.is-tab.is-active {
     background-color: transparent;
     border-bottom-color: #f9f9f9;

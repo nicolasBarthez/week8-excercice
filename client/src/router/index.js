@@ -17,44 +17,44 @@ const router = new Router({
             path: "/",
             component: LandingPage,
             beforeEnter: (to, from, next) => {
-                if (router.app.$root.user) next("/trending");
+                if (this.$root.user) next("/trending");
                 else next();
             }
         },
         {
             path: "/stocks/:stockName",
             component: StockPage,
-            
+
         },
         {
             path: "/trending",
             component: TrendingPage,
-           
+
         },
         {
             path: "/mydashboard",
             component: MyDashBoard,
-            
+
         },
         {
             path: "/dashboard/:id",
             component: DashboardPage,
-           
+
         },
         {
             path: "/stream",
             component: StreamPage,
-            
+
         },
         {
             path: "/leaderboard",
             component: LeaderBoard,
-            
+
         },
         {
             path: "*",
             component: NotFound,
-           
+
         }
     ],
 

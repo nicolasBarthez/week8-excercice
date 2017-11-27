@@ -256,7 +256,7 @@ a.nav-item:not(.button).is-tab:hover {
 }
 #formNav {
     min-width: 30%!important;
-    margin-left: 20%;
+    margin-left: 19%;
 }
 #formNav1 {
     width: 100%;
