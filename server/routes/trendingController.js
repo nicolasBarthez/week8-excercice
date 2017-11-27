@@ -66,6 +66,7 @@ trendingController.get("/", function(req, res, next) {
         longName: stock.longName,
         shortName: stock.shortName,
         currentPrice: stock.price,
+        currency: stock.currency,
         variation: stock.variation,
         volume: stock.volume
       };

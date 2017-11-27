@@ -283,6 +283,7 @@ dashboardsController.get(
           const stockCurrentTrend = {
             longName: activeWatchItem.stockId.longName,
             currentPrice: activeWatchItem.stockId.price,
+            currency: activeWatchItem.stockId.currency,
             variation: activeWatchItem.stockId.variation,
             volume: activeWatchItem.stockId.volume
           };
@@ -411,115 +412,6 @@ dashboardsController.get(
   }
 );
 
-// **********************************************************
-// Send users connected info of the insiders followed
-// **********************************************************
-//
-// dashboardsController.get(
-//   "/insidersfollowed",
-//   passport.authenticate("jwt", config.jwtSession),
-//   (req, res, next) => {
-//     const user = req.user;
-//     const insidersFollowed = [];
-//
-//     console.log("ARE YOU THERE ***********************?");
-//
-//     User.findById(user._id)
-//       .populate("following")
-//       .exec((err, followed) => {
-//         if (err) res.json(null);
-//
-//         followed.following.forEach(usFollowed => {
-//           let userInfo = {
-//             username: usFollowed.username,
-//             picProfile: usFollowed.picProfile,
-//             location: usFollowed.location,
-//             following: usFollowed.following.length
-//           };
-//
-//           Babble.find({
-//             user: usFollowed._id
-//           }).then(babbles => {
-//             userInfo.nbBabbles = 0 + babbles.length;
-//
-//             userInfo.nbOfLikes =
-//               0 +
-//               babbles.map(item => item.like).reduce((sum, next) => {
-//                 return sum + next.length;
-//               }, 0);
-//
-//             // Calculate prefered stocks
-//             WatchItem.find({
-//               userId: usFollowed._id,
-//               status: "won"
-//             })
-//               .populate("stockId")
-//               .exec((err, wi) => {
-//                 if (err) res.json(null);
-//
-//                 if (wi) {
-//                   // first, convert data into a Map with reduce
-//                   function reduceArrayByStockPoints(array) {
-//                     let counts = array.reduce((prev, curr) => {
-//                       const stockId = curr.stockId.toString();
-//                       let count = prev.get(stockId) || 0;
-//                       prev.set(stockId, curr.performancePoints + count);
-//                       return prev;
-//                     }, new Map());
-//
-//                     // then, map your counts object back to an array
-//                     return Array.from(
-//                       counts
-//                     ).map(([stockId, performancePoints]) => {
-//                       return {
-//                         stockId,
-//                         performancePoints
-//                       };
-//                     });
-//                   }
-//
-//                   userInfo.preferedStocks = reduceArrayByStockPoints(wi);
-//                 }
-//
-//                 WatchItem.find({
-//                   userId: usFollowed._id,
-//                   status: {
-//                     $in: ["won", "lost"]
-//                   }
-//                 }).exec((err, wiClosed) => {
-//                   if (wiClosed.length > 0) {
-//                     // Calculate performance points
-//                     userInfo.performancePoints = wiClosed
-//                       .map(item => item.performancePoints)
-//                       .reduce((prev, next) => prev + next);
-//
-//                     userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-//                       return item.status == "won";
-//                     }, 0).length;
-//                   }
-//
-//                   User.find({
-//                     following: usFollowed._id
-//                   }).exec((err, us) => {
-//                     userInfo.followers = us.length ? us.length : 0;
-//
-//                     insidersFollowed.push(userInfo);
-//
-//                     if (insidersFollowed.length === followed.length) {
-//                       if (followed.length === 0) {
-//                         return res.json(null);
-//                       }
-//                       return res.json(insidersFollowed);
-//                     }
-//                   });
-//                 });
-//               });
-//           });
-//         });
-//       });
-//   }
-// );
-
 // ***********************************************************
 // ***********************************************************
 
@@ -636,34 +528,6 @@ dashboardsController.get(
 );
 
 // **********************************************************
-// Send Insider Current insights
-// **********************************************************
-//
-// dashboardsController.get(
-//   "/currentinsights",
-//   passport.authenticate("jwt", config.jwtSession),
-//   (req, res, next) => {
-//     const user = req.params.id;
-//     // if(!user) {user= req.user.id}
-//     console.log("HERE WE ARE ****************************");
-//
-//     WatchItem.find({
-//       userId: user,
-//       status: "active",
-//       position: {
-//         $in: ["bull", "bear"]
-//       }
-//     })
-//       .populate("stockId")
-//       .exec((err, wi) => {
-//         if (err) res.json(null);
-//
-//         return res.json(wi);
-//       });
-//   }
-// );
-
-// **********************************************************
 // Send insider Watch list
 // **********************************************************
 
@@ -688,6 +552,7 @@ dashboardsController.get(
             longName: activeWatchItem.stockId.longName,
             currentPrice: activeWatchItem.stockId.price,
             variation: activeWatchItem.stockId.variation,
+            currency: activeWatchItem.stockId.currency,
             volume: activeWatchItem.stockId.volume
           };
           // looking for insider trending
@@ -826,8 +691,6 @@ dashboardsController.get(
     const id = req.params.id;
     const insidersFollowed = [];
 
-    console.log("BOUCLE INSIDER FOLLOWED");
-
     User.findById(id)
       .populate("following")
       .exec((err, followed) => {
@@ -911,14 +774,7 @@ dashboardsController.get(
                     userInfo.followers = us.length ? us.length : 0;
 
                     insidersFollowed.push(userInfo);
-                    console.log(
-                      "insidersFollowed.length",
-                      insidersFollowed.length
-                    );
-                    console.log(
-                      "followed.following.length",
-                      followed.following.length
-                    );
+
                     if (insidersFollowed.length === followed.following.length) {
                       if (followed.length === 0) {
                         return res.json(null);
