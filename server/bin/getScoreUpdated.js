@@ -14,7 +14,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 function calculateScore(position, initialPrice, currentPrice) {
-  var score;
+  let score;
+  initialPrice = parseFloat(initialPrice);
+  currentPrice = parseFloat(currentPrice);
+
   switch (position) {
     case "bull":
       break;
@@ -91,7 +94,6 @@ WatchItem.find({
 
 // Update score
 WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
-  .populate("userId")
   .populate("stockId")
   .exec((err, watchList) => {
     // calculate score
@@ -101,12 +103,13 @@ WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
         watchItem.initialPrice,
         watchItem.stockId.price
       );
+      console.log("watchItem", watchItem);
       console.log(
         watchItem.position,
         watchItem.initialPrice,
         watchItem.stockId.price
       );
-      console.log(updateScore);
+      console.log("additional points", updateScore);
       WatchItem.findByIdAndUpdate(watchItem._id, {
         $inc: { performancePoints: updateScore }
       }).exec();
