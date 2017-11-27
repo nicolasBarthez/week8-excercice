@@ -21,6 +21,9 @@ const watchItemSchema = new Schema(
       type: Number,
       default: 0
     },
+    currency: {
+      type: Number
+    },
     performancePoints: {
       type: Number,
       default: 0

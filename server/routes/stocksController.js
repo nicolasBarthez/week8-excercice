@@ -223,6 +223,7 @@ stocksController.post(
             username: user.username,
             stockId: stock._id,
             initialPrice: stock.price,
+            currency: stock.currency,
             position: "bull"
           });
 
@@ -261,6 +262,7 @@ stocksController.post(
               username: user.username,
               stockId: stock._id,
               initialPrice: stock.price,
+              currency: stock.currency,
               position: "bear"
             });
 
@@ -362,6 +364,7 @@ stocksController.post(
             username: user.username,
             stockId: stock._id,
             initialPrice: stock.price,
+            currency: stock.currency,
             position: "bear"
           });
 
@@ -396,6 +399,7 @@ stocksController.post(
               username: user.username,
               stockId: stock._id,
               initialPrice: stock.price,
+              currency: stock.currency,
               position: "bear"
             });
 

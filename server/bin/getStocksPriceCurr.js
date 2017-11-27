@@ -5,9 +5,8 @@ const Stock = require("../models/stock");
 const axios = require("axios");
 const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
-const urlStart = "https://min-api.cryptocompare.com/data/generateAvg?fsym=";
-const urlMid = "&tsym=";
-const urlEnd = "&e=Coinbase,Kraken,Bitstamp,Bitfinex";
+const urlStart = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=";
+const urlEnd = "&tsyms=USD,EUR";
 
 // mongoose
 //   .connect(
@@ -31,51 +30,25 @@ mongoose
     console.log(err);
   });
 
-function getCryptoUpdateEUR(index) {
-  Stock.find({ index: index }).exec((err, stockArray) => {
-    if (err) console.err(err);
-    stockArray.forEach(stock => {
-      console.log("here");
-      axios
-        .get(urlStart + stock.symbolPrice + urlMid + "EUR" + urlEnd)
-        .then(resp => {
-          let price2 = resp.data.RAW.PRICE;
-          let volume = resp.data.RAW.VOLUME24HOUR;
-          let variation2 = resp.data.RAW.CHANGEPCT24HOUR;
-
-          let newStock = {
-            price2: price2,
-            volume: volume,
-            variation2: variation2
-          };
-
-          Stock.findByIdAndUpdate(stock._id, newStock).exec((err, resp) => {
-            console.log(resp);
-            mongoose.connection.close();
-          });
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    });
-  });
-}
-function getCryptoUpdateUSD(index) {
+function getCryptoUpdate(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
     if (err) console.err(err);
     stockArray.forEach(stock => {
       axios
-        .get(urlStart + stock.symbolPrice + urlMid + "USD" + urlEnd)
+        .get(urlStart + stock.symbolPrice + urlEnd)
         .then(resp => {
-          let price = resp.data.RAW.PRICE;
-          let volume = resp.data.RAW.VOLUME24HOUR;
-          let variation = resp.data.RAW.CHANGEPCT24HOUR;
-          // let price = resp.data.USD;
+          let price = resp.data.RAW[stock.symbolPrice].USD.PRICE;
+          let volume = resp.data.RAW[stock.symbolPrice].USD.TOTALVOLUME24H;
+          let variation = resp.data.RAW[stock.symbolPrice].USD.CHANGEPCT24HOUR;
+          let price2 = resp.data.RAW[stock.symbolPrice].EUR.PRICE;
+          let variation2 = resp.data.RAW[stock.symbolPrice].EUR.CHANGEPCT24HOUR;
 
           let newStock = {
-            price: price2,
-            volume: volume,
-            variation: variation2
+            price: price.toFixed(2),
+            volume: volume.toFixed(2),
+            variation: variation.toFixed(2),
+            price2: price2.toFixed(2),
+            variation2: variation2.toFixed(2)
           };
 
           Stock.findByIdAndUpdate(stock._id, newStock).exec((err, resp) => {
@@ -90,7 +63,6 @@ function getCryptoUpdateUSD(index) {
   });
 }
 // Update crypto
-getCryptoUpdateEUR("crypto");
-// getCryptoUpdateUSD("crypto");
+getCryptoUpdate("crypto");
 
 // module.exports = getCryptoUpdate;
