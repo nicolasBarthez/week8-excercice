@@ -181,7 +181,7 @@ export default {
         padding: 5px
     }
     .icon{
-        font-size:15px;
+        font-size:0.8rem;
     }
     .chartIcon{
         justify-content:baseline !important;

@@ -383,8 +383,8 @@ word-break: break-word;
     .card-content{
         padding: 10px
     }
-    .icon{
-        font-size:15px;
+   .icon{
+        font-size:0.8rem;
     }
     .level-left + .level-right{
         margin-top: 0px !important;

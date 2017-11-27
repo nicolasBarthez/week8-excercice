@@ -145,7 +145,13 @@ a{
     display: flex;
     justify-content: space-evenly;
     width: 95%;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: -ms-flexbox;
+    min-height: 3.25rem;
+    position: relative;
 }
+
 .menu1{
     font-size:1.3rem
 }
@@ -315,6 +321,9 @@ a.nav-item:not(.button).is-tab:hover {
     }
     #top {
         position: static;
+    }
+    #top2{
+        max-width: 100%
     }
     .is-32x32 {
         width: 24px !important;

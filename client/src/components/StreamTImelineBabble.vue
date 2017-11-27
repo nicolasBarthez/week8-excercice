@@ -101,7 +101,7 @@
                     </div>
                 </article>
             </div>
-            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="modal tweets card-content p-x-1">
+            <div v-if="modalBabble.reply" v-for="(reply, index) in modalBabble.reply" :key="index" class="tweets card-content p-x-1">
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -368,17 +368,10 @@ word-break: break-word;
     }
 
 @media screen and (max-width: 768px) {
-
-    .modal-background {
-    text-align:center;
-}
-.modal-background {
-    display: inline-block;
-    width: auto;
-}
-.modal-background  {
-    max-height: calc(100vh - 225px);
-}
+    .modal{
+        position: absolute;
+        
+    }
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;
@@ -411,7 +404,7 @@ word-break: break-word;
         padding: 10px
     }
     .icon{
-        font-size:15px;
+        font-size:0.8rem;
     }
      .level-left + .level-right{
         margin-top: 0px !important;

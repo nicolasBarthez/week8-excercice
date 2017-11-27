@@ -124,6 +124,9 @@ div{
     padding-left: 0px !important;
     padding-right:0px !important
   }
+  .sct1{
+    flex-direction: column
+  }
   .columns{
     margin-left:0px !important;
     margin-right: 0px !important;
@@ -140,17 +143,10 @@ div{
 @media screen and (min-width: 769px){
   .babblesField {
     -webkit-box-flex: 0;
-    -ms-flex: none;
-    flex: none;
     width: 45%;
   }
-  .sci{
-    display: none
+  .columns {
+    margin-top: -0.75rem;
   }
-   .sct1{
-    margin-left:0px;
-    margin-right:0px;
-  }
-
 }
 </style>

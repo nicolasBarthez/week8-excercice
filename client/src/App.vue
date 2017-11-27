@@ -45,10 +45,10 @@ div{
 }
 @media (max-width: 768px) {
   div{
-    font-size:1.2rem !important
+    font-size:0.8rem !important
   }
   .has-text-centered{
-    font-size:1.2rem !important
+    font-size:0.8rem !important
   }
 }
 </style>

@@ -183,5 +183,20 @@ export default {
     .card-content {
         padding: 0.5rem;
     }
+    .stockName {
+        font-size: 0.8rem;
+    }
+    .is-6{
+        font-size:0.8rem
+    }
+    .btn-red.button.is-small.is-outlined.is-primary {
+        FONT-SIZE: 0.7rem;
+    }
+    .btn-green.button.is-small.is-outlined.is-primary {
+        FONT-SIZE: 0.7rem;    
+    }
+    .btn.button.is-small.is-outlined.is-primary {
+        FONT-SIZE: 0.7rem;
+    }
 }
 </style>
