@@ -31,11 +31,11 @@
                             <div class="stock-price title is-5">
                                 <div class="stock-priceVar title is-5">
                                <strong class="stVar">{{stock.price}} {{stock.currency}}</strong>
-                               <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation}} %</small>
+                               <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation.toFixed(2)}} %</small>
                                 </div>
                                 <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
                                 <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
-                                 <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2}} %</small>
+                                 <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2.toFixed(2)}} %</small>
                                 
                                 </div>
                                     <span class="icon chartIcon">
