@@ -25,7 +25,7 @@
                 </b-table-column>
 
                 <b-table-column  field='currentPrice' sortable numeric centered label="Current price">
-                    {{ props.row.currentPrice }}
+                    {{ props.row.currentPrice }}  &nbsp {{props.row.currency}}
                 </b-table-column>
 
                 <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="variation">
