@@ -18,9 +18,11 @@ stocksController.get("/:stockName", function(req, res, next) {
 
   Stock.findOne({ shortName: stock }, (err, stock) => {
     if (err) return next(err);
-    if (!stock) return next(err);
-    if (stock.index.indexOf("EURONEXT PARIS") > -1) {
+    if (!stock) {
+      res.json("error");
+    } else if (stock.index.indexOf("EURONEXT PARIS") > -1) {
       scrapPrice(stock.scrapKey).then(resp => {
+        console.log("EHHHHLO  2 resp", resp);
         stock = resp;
         res.json(stock);
       });

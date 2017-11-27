@@ -8,27 +8,27 @@ const mongoose = require("mongoose");
 const urlStart = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=";
 const urlEnd = "&tsyms=USD,EUR";
 
-// mongoose
-//   .connect(
-//     "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
-//     {
-//       useMongoClient: true
-//     }
-//   )
-//   .then(() => {
-//     console.info("The magic happens on port " + port);
-//   });
-
 mongoose
-  .connect(process.env.MONGODB_URI, {
-    useMongoClient: true
-  })
+  .connect(
+    "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
+    {
+      useMongoClient: true
+    }
+  )
   .then(() => {
     console.info("The magic happens on port " + port);
-  })
-  .catch(err => {
-    console.log(err);
   });
+
+// mongoose
+//   .connect(process.env.MONGODB_URI, {
+//     useMongoClient: true
+//   })
+//   .then(() => {
+//     console.info("The magic happens on port " + port);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
 
 function getCryptoUpdate(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
@@ -64,5 +64,20 @@ function getCryptoUpdate(index) {
 }
 // Update crypto
 getCryptoUpdate("crypto");
+
+// timestampsfunction getCryptoUpdate(index) {
+// Stock.find({ index: "crypto" }).exec((err, stockArray) => {
+//   if (err) console.err(err);
+//   stockArray.forEach(stock => {
+//     let imageUpdate = {
+//       stockImg: "/static/images/crypto.png"
+//     };
+//
+//     Stock.findByIdAndUpdate(stock._id, imageUpdate).exec((err, resp) => {
+//       console.log(resp);
+//       mongoose.connection.close();
+//     });
+//   });
+// });
 
 // module.exports = getCryptoUpdate;
