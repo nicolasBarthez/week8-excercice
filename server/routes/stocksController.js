@@ -363,6 +363,7 @@ stocksController.post(
               error: req.app.get("env") === "development" ? err : {}
             });
           }
+
           const newWatchItem = new WatchItem({
             userId: user._id,
             username: user.username,
