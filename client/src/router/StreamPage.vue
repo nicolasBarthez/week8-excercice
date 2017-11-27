@@ -1,8 +1,8 @@
 <template>
 
   <section v-else class="section main sideRecent">
-    <div class="container primordial">
-      <div class="columns">
+    <div class="primordial">
+      <div class="sct1">
         <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
@@ -90,7 +90,9 @@ export default {
 </script>
 
 <style scoped>
-
+div{
+   font-size:1.2rem !important
+}
 .is-sticky{
    position:sticky
  }
@@ -98,16 +100,20 @@ export default {
     background-color: #f9f9f9;
     padding: 7rem 1.5rem;
 }
-.container{
+.primordial{
+  width:100%;
+  justify-content: center;
   display: flex;
 }
-.primordial{
-  width:100%
-}
-
 .babblesField{
   margin-right: 2.5%;
   margin-left: 2.5%;
+}
+.sct1{
+  width:100%;
+  justify-content: center;
+  display: flex;
+  max-width: 95%;
 }
 @media (max-width: 768px) {
   .main {
