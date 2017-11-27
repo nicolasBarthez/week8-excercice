@@ -168,7 +168,11 @@ export default {
   }
 }
 @media (max-width: 768px) {
-  @media (max-width: 768px) {
+  .sct1{
+    margin-left:0px;
+    margin-right:0px;
+    flex-direction: column!important
+  }
   .main {
     background-color: #f9f9f9;
     padding-top:0.5rem  !important;
@@ -189,15 +193,8 @@ export default {
     padding-left: 0px !important;
     padding-right:0px !important
   }
-}
-
   .sci{
     display: none
   }
-  .sct1{
-    margin-left:0px;
-    margin-right:0px;
-  }
-
 }
 </style>

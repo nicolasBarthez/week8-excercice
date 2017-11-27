@@ -124,7 +124,8 @@ body {
   color: #192b41!important;
 }
 .rank{
-  margin-left:35%!important
+    font-size:0.8rem !important;
+    margin-left: 20%!important;
 }
 .is-96x96{
     width: 96px!important;

@@ -232,5 +232,11 @@ color:#f7931a!important
     background-color: #f9f9f9;
     padding-top:0.5rem  !important;
   }
+  div{
+   font-size:0.8rem !important
+}
+.has-text-centered{
+  font-size:0.8rem !important
+}
 }
 </style>

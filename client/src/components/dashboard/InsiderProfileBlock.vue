@@ -281,7 +281,8 @@ a {
 }
 @media (max-width: 768px) {
   .rank{
-    margin-left: 30%!important;
+    font-size:0.8rem !important;
+    margin-left: 20%!important;
 }
   .sock-info {
   width: 25%;
