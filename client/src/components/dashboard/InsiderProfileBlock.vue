@@ -22,7 +22,7 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong"> {{profileInfo.performancePoints}} P$</strong>
+                    <strong class="follOwStrong"> {{profileInfo.performancePoints}} &nbsp P$</strong>
                   </p>
                 </div>
               <div class="wonTrade"id="follOw">

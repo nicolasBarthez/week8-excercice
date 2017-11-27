@@ -35,6 +35,8 @@
                                 </div>
                                 <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
                                 <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
+                                 <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2}} %</small>
+                                
                                 </div>
                                     <span class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>

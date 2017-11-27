@@ -51,7 +51,7 @@
                 <b-table-column v-if=" props.row.position==='bull'" field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="variation">
                     {{100*((props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(4)}} %
                 </b-table-column>
-                <b-table-column v-else field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) < 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)>0}" label="variation">
+                <b-table-column v-else field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) < 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)>0}" label="Variation">
                     {{100*(-(props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(4)}} %
                 </b-table-column>
 

@@ -112,8 +112,8 @@ export default {
     display: flex;
 }
 .stockName {
-    font-size: 100%;
-    font-weight: 400;
+    font-size: 1.2rem;
+    font-weight: bolder;
     color:#192b41
 }
 
