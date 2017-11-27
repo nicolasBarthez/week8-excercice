@@ -1,5 +1,6 @@
 <template>
-<section class="hero is-fullheight">
+<trending-page v-if="this.$root.user"></trending-page>
+<section v-else class="hero is-fullheight">
   <div class="hero-body mainLanding">
     <div class="container loggiin">
       <div >
@@ -68,6 +69,7 @@
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
+import TrendingPage from "@/router/TrendingPage"
 
 export default {
   
@@ -80,7 +82,8 @@ export default {
   },
   components: {
     SignupModal, 
-    LoginModal
+    LoginModal,
+    TrendingPage
     },
 
   methods: {

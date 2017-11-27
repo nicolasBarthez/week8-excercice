@@ -138,7 +138,9 @@ a{
 #nav-toggle-state {
   display: none;
 }
-
+.menu1{
+    font-size:1.3rem
+}
 #nav-toggle-state:checked ~ .nav-menu {
   display: flex;
 }
@@ -253,8 +255,8 @@ a.nav-item:not(.button).is-tab:hover {
     padding-right: 5%;
 }
 #formNav {
-    min-width: 25%!important;
-    margin-left: 15%;
+    min-width: 30%!important;
+    margin-left: 20%;
 }
 #formNav1 {
     width: 100%;
