@@ -9,13 +9,13 @@ const Babble = require("../models/babble");
 const WatchItem = require("../models/watchitem");
 const moment = require("moment");
 
-// mongoose.connect(
-//   "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
-// );
+mongoose.connect(
+  "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
+);
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useMongoClient: true
-});
+// mongoose.connect(process.env.MONGODB_URI, {
+//   useMongoClient: true
+// });
 
 function calculateScore(position, initialPrice, currentPrice) {
   let score;

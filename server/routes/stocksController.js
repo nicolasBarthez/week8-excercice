@@ -15,22 +15,23 @@ const scrapPriceCurrency = require("../config/scrapPriceCurrency");
 // **********************************************************
 stocksController.get("/:stockName", function(req, res, next) {
   const stock = req.params.stockName.toUpperCase();
+  const ONE_MIN = 60 * 1000;
 
   Stock.findOne({ shortName: stock }, (err, stock) => {
+    console.log("time", new Date() - stock.updated_at.getTime());
     if (err) return next(err);
     if (!stock) {
       res.json("error");
-    } else if (stock.index.indexOf("EURONEXT PARIS") > -1) {
-      scrapPrice(stock.scrapKey).then(resp => {
-        console.log("EHHHHLO  2 resp", resp);
-        stock = resp;
-        res.json(stock);
-      });
-    } else if (stock.index.indexOf("crypto") > -1) {
-      scrapPriceCurrency(stock.shortName).then(resp => {
-        stock = resp;
-        res.json(stock);
-      });
+    } else if (
+      stock.index.indexOf("EURONEXT PARIS") > -1 &&
+      new Date() - stock.updated_at.getTime() > ONE_MIN
+    ) {
+      scrapPrice(stock.scrapKey);
+    } else if (
+      stock.index.indexOf("crypto") > -1 &&
+      new Date() - stock.updated_at.getTime() > ONE_MIN
+    ) {
+      scrapPriceCurrency(stock.shortName);
     }
     res.json(stock);
   });
