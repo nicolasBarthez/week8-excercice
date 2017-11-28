@@ -243,11 +243,11 @@ body {
 }
 .level-right .rightchartIcon{
     width:50%;
-    margin:0px;
+    margin:0px!important;
 }
 .level-left .leftchartIcon{
     width:50%;
-    margin:0px;
+    margin:0px!important;
 }
 .level .levelchartIcon{
     display:flex;

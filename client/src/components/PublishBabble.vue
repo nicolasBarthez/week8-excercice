@@ -126,11 +126,11 @@ export default {
 }
 .level-right{
     width:50%;
-    margin:0px;
+    margin:0px!important
 }
 .level-left{
     width:50%;
-    margin:0px;
+    margin:0px!important;
 }
 .level{
     display:flex;
