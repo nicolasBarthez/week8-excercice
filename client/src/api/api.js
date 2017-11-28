@@ -146,11 +146,12 @@ export function getWatchInsight(userId) {
     });
 }
 
-export function sendBabble(babble, stockId) {
+export function sendBabble(babble, stockId,babbleUrl) {
   let url = `/babbles?stock=${stockId}`;
   return insiders
     .post(url, {
-      babble: babble
+      babble: babble,
+      babbleImg:babbleUrl
     })
     .then(response => {
       return response.data;
