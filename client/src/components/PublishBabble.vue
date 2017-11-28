@@ -17,7 +17,7 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span class="icon chartIcon">
+                                    <span @click="shareChart()" class="icon chartIcon">
                                          <i class="fa fa-line-chart"></i>&nbsp Share a chart
                                     </span>
                                 </a>
@@ -48,6 +48,53 @@
                 </div>
             </div>
         </b-modal>
+
+        <b-modal :active.sync="isShareChartActive">
+            <div class="mediaModal">
+            <div>
+                 <label> <span class="icon chartIcon">
+                    <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
+                <croppa v-model="babbleImage"
+                  :width="510"
+                  :height="300"
+                  :quality="1"
+                  :placeholder-font-size="18"
+                  :prevent-white-space="true">
+                </croppa>
+  
+       
+    </label><br/>
+                <div class="card-content bg-light">
+            <div class="media">
+                <div class="media-left">
+                    <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="field1">
+                            <div class="control">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea1">
+                                </textarea>
+                            </div>
+
+                        </div>
+                        <div class="level">
+                            <div class="level-left">
+                        
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item has-text-grey">{{charactersLeft}}</div>
+                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary">Babble</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+        </b-modal>
+
     </div>
 </template>
 
@@ -62,7 +109,10 @@ export default {
     return {
       babble: "",
       prefix: "",
-      isCardModalActive: false
+      isCardModalActive: false,
+      isShareChartActive: false,
+      babbleImage: "",
+      babbleUrl: "",
     };
   },
   props: {
@@ -73,13 +123,30 @@ export default {
 
   components: {},
   methods: {
+    shareChart(){
+        this.isShareChartActive =true
+    },
+    generateImage: function() {
+    	let babbleUrl = this.babbleImage.generateDataUrl()
+      if (!babbleUrl) {
+      	alert('no image')
+        return
+      }
+      this.babbleUrl = babbleUrl
+    },
+    postChartBabble(){
+        this.generateImage(),
+        this.postBabble()
+    },
+
     postBabble() {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
 
-      sendBabble(this.babble, this.stock._id).then(() => {
+      sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
         this.babble = "";
+        this.babbleUrl=""
         this.$emit("changeBabbles");
       });
     },
@@ -117,6 +184,30 @@ export default {
 </script>
 
 <style scoped>
+.textarea1 {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0.625em;
+    resize: vertical;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 1rem;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    background-color: white;
+    border-color: #dbdbdb;
+    color: #363636;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    width: 100%;
+    height:10vh
+}
 .fa-line-chart{
     font-size: 15px;
 }
@@ -270,7 +361,8 @@ export default {
 }
 .field1 {
         margin-bottom: 0.75rem!important;
-    }
+}
+
 @media screen and (max-width: 768px) {
     .field1 {
         margin-bottom: 0.75rem!important;
