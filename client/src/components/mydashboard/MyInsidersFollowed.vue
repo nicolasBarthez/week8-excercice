@@ -54,7 +54,7 @@
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }} P$
+                    {{ props.row.performancePoints.toFixed(0) }} P$
                 </b-table-column>
 
             </template>

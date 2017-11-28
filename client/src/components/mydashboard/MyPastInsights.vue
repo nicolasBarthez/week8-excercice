@@ -53,9 +53,9 @@
                 <b-table-column v-else field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) < 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)>0}" label="Variation">
                     {{(100*-(props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
-                
-                </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }} P$
+
+              </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints.toFixed(0) }} P$
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">
                     {{ moment(props.row.updated_at).format('DD-MM-YYYY') }}

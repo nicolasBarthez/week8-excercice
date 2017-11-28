@@ -76,7 +76,7 @@ export default {
       getUser().then(connectedUser => {
         this.connectedUser = connectedUser;
       });
-
+      console.log("GET STOCK FETCH");
       getStock(stockName).then(stock => {
         this.stock = stock;
       });
@@ -121,8 +121,14 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
     this.fetchData();
+    setTimeout(() => {
+      getStock(this.$route.params.stockName).then(stock => {
+        console.log("GET STOCK READY");
+        this.stock = stock;
+      });
+    }, 1000);
   },
   watch: {
     $route() {

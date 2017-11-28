@@ -22,6 +22,7 @@ export function getStock(stockName) {
   return insiders
     .get(url)
     .then(response => {
+      console.log("GETSTOCK CALL BACK", response.data);
       return response.data;
     })
     .catch(err => {

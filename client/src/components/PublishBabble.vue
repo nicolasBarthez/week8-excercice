@@ -10,7 +10,9 @@
                         <div class="field1">
                             <div class="control">
                                 <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
-                                    </textarea></div>
+                                </textarea>
+                            </div>
+
                         </div>
                         <div class="level">
                             <div class="level-left">
@@ -53,6 +55,7 @@
 import { sendBabble } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
+import { Picker } from "emoji-mart-vue";
 
 export default {
   data() {
@@ -94,7 +97,7 @@ export default {
         this.isCardModalActive = false;
       });
     },
-    
+
     putHashtag(e) {
       return this.babble.length !== 1
         ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`

@@ -55,8 +55,8 @@
                     {{(100*-(props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
-                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0}" numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }} P$
+                <b-table-column field='performancePoints':class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints.toFixed(0) }} P$
                 </b-table-column>
 
             </template>
