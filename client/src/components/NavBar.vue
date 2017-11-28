@@ -100,6 +100,11 @@ export default {
         this.name = "";
         this.selected = null;
       }
+    },
+    $route() {
+        getUser().then(data => {
+            this.connectedUser = data;
+        });
     }
   },
   computed: {
