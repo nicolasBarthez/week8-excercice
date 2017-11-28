@@ -18,7 +18,7 @@ const babbleSchema = new Schema(
     like: {
       type: [String]
     },
-    babble_img: String,
+    babbleImg: String,
     reply: Array
   },
   {

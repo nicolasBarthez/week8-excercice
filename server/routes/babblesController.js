@@ -150,11 +150,13 @@ babblesController.post(
   function(req, res, next) {
     const stock = req.query.stock ? req.query.stock : "";
     const babble = req.body.babble;
+    const babbleImg = req.body.babbleImg ? req.body.babble_img : "";
     const user = req.user;
 
     const newBabble = new Babble({
       user: user._id,
       babble: babble,
+      babbleImg: babbleImg,
       stockLink: stock
     });
 
