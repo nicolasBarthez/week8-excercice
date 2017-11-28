@@ -192,15 +192,17 @@ a.nav-item:not(.button).is-tab:hover {
     .main {
         background-color: #f9f9f9;
         padding-top: 4.2rem !important;
+        padding-left: 0.5px !important;
+        padding-right: 0.5px !important
     }
     .is-64x64 {
         width: 32px !important;
         height: 32px !important;
     }
     .has-text-grey-light {
-        font-size: 0.7em;
+        font-size: 0.7rem;
     }
     small {
-        font-size: 0.875rem !important;
+        font-size: 0.7rem!important
     }
 }
