@@ -24,7 +24,7 @@
                              <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
                              </b-field>
                              <b-field label="Confirm Password">
-                             <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password, Again" data-vv-as="password"></b-input>
+                             <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
                              </b-field>
                         
                         <div class="alert alert-danger" v-show="errors.any()">

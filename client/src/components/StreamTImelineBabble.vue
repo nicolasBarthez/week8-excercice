@@ -16,9 +16,9 @@
         <div class="babbles-box" id="babble-container">
            <div v-if="babbles" v-for="(babble, index) in babbles" :key="index" class="tweets card-content p-x-1">
                  
-    <div v-if = "babbles.babble_img" class="card-image">
-    <figure class="image is-4by3">
-      <img src="babbles.babble_img" alt="Placeholder image">
+    <div v-if = "babble.babbleImg" class="card-image imageChart">
+    <figure class="image is-2by1">
+      <img :src="babble.babbleImg" alt="Placeholder image">
     </figure>
   </div>
                 
@@ -67,6 +67,11 @@
                 <b-modal :active.sync="isCardModalActive" >
         <div class="card">
            <div class="tweets card-content p-x-1">
+               <div v-if = "modalBabble.babbleImg" class="card-image imageChart">
+                    <figure class="image is-2by1">
+                    <img :src="modalBabble.babbleImg" alt="Placeholder image">
+                    </figure>
+                </div>
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -238,6 +243,9 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+}
+.imageChart{
+    margin-bottom: 1rem;
 }
 .reply{
     height: 1.4rem;

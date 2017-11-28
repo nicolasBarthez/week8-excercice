@@ -150,7 +150,7 @@ babblesController.post(
   function(req, res, next) {
     const stock = req.query.stock ? req.query.stock : "";
     const babble = req.body.babble;
-    const babbleImg = req.body.babbleImg ? req.body.babble_img : "";
+    const babbleImg = req.body.babbleImg ? req.body.babbleImg : "";
     const user = req.user;
 
     const newBabble = new Babble({
@@ -159,7 +159,7 @@ babblesController.post(
       babbleImg: babbleImg,
       stockLink: stock
     });
-
+    
     newBabble.save(err => {
       if (err) {
         res.json(err);
