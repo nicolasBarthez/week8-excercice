@@ -325,7 +325,7 @@ a {
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
-    font-size:1vw
+    font-size:1rem
 }
 
 #Bbull.is-outlined:focus,
@@ -347,7 +347,7 @@ a {
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
-    font-size:1vw
+    font-size:1rem
 }
 
 #Bbear.is-outlined:focus,
@@ -372,7 +372,7 @@ a {
     color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
-    font-size:1vw !important
+    font-size:1rem !important
 }
 
 .position{
