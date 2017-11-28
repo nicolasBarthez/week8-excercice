@@ -101,11 +101,6 @@ export default {
 </script>
 
 <style scoped>
-.main {
-    background-color: #f9f9f9;
-    padding: 7rem 1.5rem;
-}
-
 .insider{
   display:flex;
   align-items:center;
@@ -148,5 +143,11 @@ a{
 
 .image{
   margin-right: 20px !important;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding-top:0.5rem  !important;
+  }
 }
 </style>

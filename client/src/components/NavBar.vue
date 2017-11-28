@@ -28,22 +28,22 @@
                     </div>
                 </div>
             </div>
-            <label class="nav-toggle" for="nav-toggle-state">
+            <label class="nav-toggle" for="nav-toggle-state" @click="closetoggle()">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
 
-             <!-- This checkbox is hidden -->
-             <input type="checkbox" id="nav-toggle-state" />
+            
 
-            <div class="nav-right nav-menu">
-                <div id="menu">
-                 <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
+            <div :class="{'closedToggle':closedState ===false}" class="nav-right nav-menu" >
+                
+                <div id="menu"@click="closetoggle()">
+                 <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location" 
                     class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
                 </router-link>
                 </div>
-                <div class="nav-profile" v-if="$root.user">
+                <div @click="closetoggle()" class="nav-profile" v-if="$root.user">
                     <router-link to="/mydashboard" >
                         <div class="image is-32x32 is-circle">
                         <img class ="imgProfile" v-if="connectedUser" :src="connectedUser.picProfile" alt="">
@@ -78,7 +78,8 @@ export default {
       connectedUser: null,
       data: null,
       name: "",
-      selected: null
+      selected: null,
+      closedState:false,
     };
   },
   methods: {
@@ -91,6 +92,9 @@ export default {
         this.selected = stock;
         this.$router.push("/stocks/" + stock.shortName.toLowerCase());
       }
+    },
+    closetoggle(){
+        this.closedState=!this.closedState
     }
   },
   watch: {
@@ -179,6 +183,7 @@ a{
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end!important;
+    display:flex
 }
 
 .nav-user-name {
@@ -310,6 +315,12 @@ a.nav-item:not(.button).is-tab:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .icon {
+        height: 3em!important;
+    }
+    .closedToggle{
+        display:none!important
+    }
     #logo{
         display:none
     }
