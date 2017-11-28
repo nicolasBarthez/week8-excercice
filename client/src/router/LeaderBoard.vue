@@ -41,11 +41,11 @@
                 </b-table-column>
 
                 <b-table-column field='preferedStocks'centered label="Prefered stocks">
-                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>                                
+                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
                 </b-table-column>
 
                 <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
-                    {{ props.row.performancePoints }} P$
+                    {{ props.row.performancePoints.toFixed(0)  }} P$
                 </b-table-column>
 
             </template>
@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { getLeaderBoard } from "@/api/api"
+import { getLeaderBoard } from "@/api/api";
 export default {
   data() {
     return {
@@ -87,17 +87,16 @@ export default {
   },
   created() {
     getLeaderBoard().then(leaderBoard => {
-      this.leaderBoard =leaderBoard;
+      this.leaderBoard = leaderBoard;
     });
   },
 
   methods: {
     onPageChange(page) {
       this.page = page;
-    },
+    }
   }
-}
-    
+};
 </script>
 
 <style scoped>
