@@ -317,6 +317,7 @@ a.nav-item:not(.button).is-tab:hover {
 @media screen and (max-width: 768px) {
     .icon {
         height: 3em!important;
+        width: 3em!important;
     }
     .closedToggle{
         display:none!important
