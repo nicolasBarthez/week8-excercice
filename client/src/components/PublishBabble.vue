@@ -57,9 +57,10 @@
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
-                  :quality="1"
+                  :quality="0.7"
                   :placeholder-font-size="18"
-                  :prevent-white-space="true">
+                  :prevent-white-space="true"
+                  >
                 </croppa>
   
        
@@ -111,14 +112,15 @@ export default {
       prefix: "",
       isCardModalActive: false,
       isShareChartActive: false,
-      babbleImage: "",
+      babbleImage: null,
       babbleUrl: "",
     };
   },
   props: {
     stock: Object,
     connectedUser: Object,
-    watchItem: Object
+    watchItem: Object,
+    fileSizeLimit:4096
   },
 
   components: {},
@@ -127,8 +129,8 @@ export default {
         this.isShareChartActive =true
     },
     generateImage: function() {
-    	let babbleUrl = this.babbleImage.generateDataUrl()
-      if (!babbleUrl) {
+        let babbleUrl = this.babbleImage.generateDataUrl()
+        if (!babbleUrl) {
       	alert('no image')
         return
       }
@@ -136,18 +138,18 @@ export default {
     },
     postChartBabble(){
         this.generateImage(),
-        this.postBabble()
+        this.postBabble(),
+        this.isShareChartActive =false;
     },
 
     postBabble() {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-
       sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
         this.babble = "";
-        this.babbleUrl=""
-        this.$emit("changeBabbles");
+        this.babbleUrl="";
+        this.$emit("changeBabbles");      
       });
     },
     imBull() {

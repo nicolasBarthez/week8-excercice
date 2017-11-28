@@ -29,6 +29,49 @@
                 </div>
             </div>
         </div>
+        <b-modal :active.sync="isShareChartActive">
+            <div class="mediaModal">
+            <div>
+                 <label> <span class="icon chartIcon">
+                    <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
+                <croppa v-model="babbleImage"
+                  :width="510"
+                  :height="300"
+                  :quality="0.7"
+                  :placeholder-font-size="18"
+                  :prevent-white-space="true"
+                  >
+                </croppa>
+  
+       
+    </label><br/>
+               <div class="card-content bg-light">
+            <div class="media">
+                <div class="media-left">
+                    <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
+                </div>
+                <div class="media-content">
+                    <div>
+                        <div class="field1">
+                            <div class="control">
+                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="500" rows="3" placeholder="Write here the interresting news you want to share, and use # to link to a stock..." class="textarea">
+                                    </textarea></div>
+                        </div>
+                        <div class="level">
+                            <div class="level-left">
+                            </div>
+                            <div class="level-right">
+                                <div class="level-item has-text-grey">{{charactersLeft}}</div>
+                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+        </b-modal>
     </div>
 </template>
 
@@ -38,16 +81,38 @@ import { sendBabble } from "@/api/api";
 export default {
   data() {
     return {
-      babble: ""
+      babble: "",
+      isShareChartActive: false,
+      babbleImage: null,
+      babbleUrl: "",
     };
   },
   props: {
     stock: Object,
-    connectedUser: Object
+    connectedUser: Object,
+    fileSizeLimit:4096
   },
 
   components: {},
   methods: {
+    shareChart(){
+        this.isShareChartActive =true
+    },
+    generateImage: function() {
+        let babbleUrl = this.babbleImage.generateDataUrl()
+        console.log("$$$$$$$$$$$$$$$$$$$URLBABBLE",babbleUrl)
+      if (!babbleUrl) {
+      	alert('no image')
+        return
+      }
+      this.babbleUrl = babbleUrl
+      console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùURLBABBLE",this.babbleUrl)
+    },
+    postChartBabble(){
+        this.generateImage(),
+        this.postBabble(),
+        this.isShareChartActive =false
+    },
     postBabble() {
       sendBabble(this.babble, null).then(() => {
         this.babble = "";
@@ -66,6 +131,30 @@ export default {
 </script>
 
 <style scoped>
+.textarea1 {
+    display: block;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 0.625em;
+    resize: vertical;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 1rem;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    background-color: white;
+    border-color: #dbdbdb;
+    color: #363636;
+    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+    width: 100%;
+    height:10vh
+}
 .fa-line-chart{
     font-size: 15px;
 }
