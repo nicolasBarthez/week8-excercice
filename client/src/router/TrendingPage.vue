@@ -7,7 +7,7 @@
             <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
             <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
             <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
-      </div>  
+      </div>
     </nav>
         <b-table
             :data="stocks"
@@ -35,7 +35,7 @@
                     {{ props.row.currentPrice }}  &nbsp {{props.row.currency}}
                 </b-table-column>
 
-                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="variation">
+                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="Variation">
                     {{ props.row.variation }} %
                 </b-table-column>
 
@@ -43,7 +43,7 @@
                     {{ props.row.volume.toLocaleString() }}
                 </b-table-column>
 
-                <b-table-column field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Insiders trending">
+                <b-table-column field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Sentiment">
                     <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.percentage}}%</strong> <small>({{props.row.trending.trend}})</small>
                 </b-table-column>
 
@@ -52,7 +52,7 @@
                 </b-table-column>
 
                 <b-table-column field='bestInsiders[0].perf' sortable centered label="Best insider on it">
-                    <router-link v-if="props.row.bestInsiders[0]" :to="'/dashboard/'+props.row.bestInsiders[0].id"><strong >@{{props.row.bestInsiders[0].username}}</strong></router-link><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf}} points)</small>
+                    <router-link v-if="props.row.bestInsiders[0]" :to="'/dashboard/'+props.row.bestInsiders[0].id"><strong >@{{props.row.bestInsiders[0].username}}</strong></router-link><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf.toFixed(0)}} P$)</small>
                 </b-table-column>
             </template>
             <template slot="empty">
@@ -74,8 +74,7 @@
 </template>
 
 <script>
-import { getStocksTrending} from "@/api/apiTrending";
-
+import { getStocksTrending } from "@/api/apiTrending";
 
 const sortParams = {
   longName: "name",
@@ -104,55 +103,55 @@ export default {
       perPage: 40,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "desc",
+      defaultSortDirection: "desc"
     };
   },
 
   methods: {
-    all(){
-            this.indexSelected= "all";
-            getStocksTrending({
-      index:this.indexSelected,
-      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-    }).then(stocks => {
-      this.stocks = stocks;
-    });
+    all() {
+      this.indexSelected = "all";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
     },
-    cryptocurrencies(){
-            this.indexSelected= "crypto";
-            getStocksTrending({
-      index:this.indexSelected,
-      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-    }).then(stocks => {
-      this.stocks = stocks;
-    });
+    cryptocurrencies() {
+      this.indexSelected = "crypto";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
     },
-    euronext(){
-            this.indexSelected= "EURONEXT PARIS";
-            getStocksTrending({
-      index:this.indexSelected,
-      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-    }).then(stocks => {
-      this.stocks = stocks;
-    });
+    euronext() {
+      this.indexSelected = "EURONEXT PARIS";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
     },
-    cac(){
-            this.indexSelected= "CAC40";
-            getStocksTrending({
-      index:this.indexSelected,
-      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-    }).then(stocks => {
-      this.stocks = stocks;
-    });
+    cac() {
+      this.indexSelected = "CAC40";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
     },
-    sbf(){
-            this.indexSelected= "SBF120";
-            getStocksTrending({
-      index:this.indexSelected,
-      sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
-    }).then(stocks => {
-      this.stocks = stocks;
-    });
+    sbf() {
+      this.indexSelected = "SBF120";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
     },
     /*
              * Handle page-change event
@@ -166,8 +165,8 @@ export default {
              */
     onSort(field, order) {
       this.loading = true;
-       getStocksTrending({
-        index:this.indexSelected,
+      getStocksTrending({
+        index: this.indexSelected,
         sort: makeSortParam(field, order)
       }).then(stocks => {
         this.stocks = stocks;
@@ -197,8 +196,8 @@ export default {
     }
   },
   mounted() {
-     getStocksTrending({
-      index:this.indexSelected,
+    getStocksTrending({
+      index: this.indexSelected,
       sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
     }).then(stocks => {
       this.stocks = stocks;
