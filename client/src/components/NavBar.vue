@@ -369,6 +369,7 @@ a.nav-item:not(.button).is-tab:hover {
     .nav-right {
     justify-content: space-around !important;
     z-index: 5;
+    display:flex
     }
 }
 </style>
