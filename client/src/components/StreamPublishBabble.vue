@@ -7,7 +7,7 @@
                 </div>
                 <div class="media-content">
                     <div>
-                        <div class="field">
+                        <div class="field1">
                             <div class="control">
                                 <textarea v-model="babble" id="babble-text"  name="babble" maxlength="500" rows="3" placeholder="Write here the interresting news you want to share, and use # to link to a stock..." class="textarea">
                                     </textarea></div>
@@ -75,11 +75,11 @@ export default {
 }
 .level-right{
     width:50%;
-    margin:0px;
+    margin:0px!important;
 }
 .level-left{
     width:50%;
-    margin:0px;
+    margin:0px!important;
 }
 .level{
     display:flex;
@@ -147,9 +147,11 @@ export default {
 .button.is-primary {
     background-color: #192b41;
 }
-
+.field1 {
+        margin-bottom: 0.75rem!important;
+    }
 @media screen and (max-width: 768px) {
-    .field:not(:last-child) {
+    .field1 {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;
         padding-right: 5px;

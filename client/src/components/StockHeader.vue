@@ -17,7 +17,7 @@
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
-                              <p @click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">More info...</p>
+                              <a v-if="stock.index[0]==='EURONEXT PARIS'"@click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">More info...</a>
                             </div>
                             <div class="add-to-watchlist" >
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to watchlist</button>
@@ -79,19 +79,13 @@
         <b-modal :active.sync="isStockDescriptionModalActive">
             <div class="mediaModal">
                 <nav id="bandB" class="level media">
-                  <div id="bullsAndBearsPic">
-                      <img src="/static/images/logoeuronext.png" alt="stock image">
-                  </div>
                     <h1 class="modalTitle">
                         More info about {{stock.longName}} !
                     </h1>
-
                 </nav>
                 <div id="bullsAndBears2">
                     <div id="stock-desc" class="div is-outlined  ">{{stock.description}}</div>
-
-                    <button id="close-desc" @click="isStockDescriptionModalActive = false"  class="button is-small is-outlined is-primary">Close</button>
-                </div>
+               </div>
             </div>
         </b-modal>
             </div>
@@ -215,6 +209,9 @@ export default {
      justify-content:flex-end;
      margin-top: 5%!important;
  }
+ .stock-see-desc{
+     cursor: pointer;
+ }
  .fa-line-chart{
      font-size:0.85REM;
      font-weight:bold;
@@ -325,7 +322,7 @@ a {
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
-    font-size:1vw
+    font-size:1rem
 }
 
 #Bbull.is-outlined:focus,
@@ -347,7 +344,7 @@ a {
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
-    font-size:1vw
+    font-size:1rem
 }
 
 #Bbear.is-outlined:focus,
@@ -372,12 +369,16 @@ a {
     color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
-    font-size:1vw !important
+    font-size:1rem !important
 }
 
 .position{
     display:flex;
     flex-direction: column;
+}
+.mediaModal{
+    background-color: #f9f9f9;
+    padding: 1rem;
 }
 @media (max-width: 768px) {
     .fa-line-chart{

@@ -69,7 +69,7 @@ export default {
 
 <style scoped>
 .is-6{
-    font-size:1.2rem
+    font-size:1rem
 }
 .card-content {
     padding: 1rem;
@@ -115,7 +115,7 @@ export default {
     display: flex;
 }
 .stockName {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bolder;
     color:#192b41
 }

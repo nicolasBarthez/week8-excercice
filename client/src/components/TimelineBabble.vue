@@ -348,10 +348,6 @@ word-break: break-word;
 
 
 @media screen and (max-width: 768px) {
-    .modal{
-        position: absolute;
-        
-    }
     .field:not(:last-child) {
         margin-bottom: 0.75rem;
         margin-top: 0.75rem !important;

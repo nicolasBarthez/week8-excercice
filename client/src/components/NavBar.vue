@@ -100,6 +100,11 @@ export default {
         this.name = "";
         this.selected = null;
       }
+    },
+    $route() {
+        getUser().then(data => {
+            this.connectedUser = data;
+        });
     }
   },
   computed: {
@@ -135,23 +140,17 @@ export default {
 a{
     color:#192b41
 }
+.icon {
+    color: #dbdbdb;
+    height: 2em!important;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 2em!important;
+}
 #nav-toggle-state {
     display: none;
 }
-#top{
-    justify-content: center;
-}
-#top2{
-    display: flex;
-    justify-content: space-evenly;
-    width: 95%;
-    -webkit-box-align: stretch;
-    align-items: stretch;
-    display: -ms-flexbox;
-    min-height: 3.25rem;
-    position: relative;
-}
-
 .menu1{
     font-size:1.3rem
 }
@@ -170,7 +169,6 @@ a{
 .nav-profile {
     display: flex;
     align-items: center;
-    display: flex;
     justify-content: flex-end;
 }
 .nav-photo-profil{
@@ -224,11 +222,18 @@ a{
     left: 0;
     right: 0;
     top: 0;
+    justify-content: center;
 }
 
 #top2 {
     display: flex;
     justify-content: space-between;
+    display: flex;
+    width: 95%;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    min-height: 3.25rem;
+    position: relative;
 }
 
 .nav-item .button+.button {
@@ -270,7 +275,7 @@ a.nav-item:not(.button).is-tab:hover {
 }
 #formNav {
     min-width: 30%!important;
-    margin-left: 19%;
+    margin-left: 15%;
 }
 #formNav1 {
     width: 100%;
@@ -296,7 +301,7 @@ a.nav-item:not(.button).is-tab:hover {
 }
 
 .field{
-    margin-bottom: 0px;
+    margin-bottom: 0px!important;
 }
 @media screen and (min-width: 769px) {
     .nav-toggle {
@@ -323,7 +328,7 @@ a.nav-item:not(.button).is-tab:hover {
         position: static;
     }
     #top2{
-        max-width: 100%
+       width: 100%
     }
     .is-32x32 {
         width: 24px !important;

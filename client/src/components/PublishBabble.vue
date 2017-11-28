@@ -7,7 +7,7 @@
                 </div>
                 <div class="media-content">
                     <div>
-                        <div class="field">
+                        <div class="field1">
                             <div class="control">
                                 <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
                                 </textarea>
@@ -268,10 +268,12 @@ export default {
     border-color: #192b41;
     color: #fff;
 }
-
+.field1 {
+        margin-bottom: 0.75rem!important;
+    }
 @media screen and (max-width: 768px) {
-    .field:not(:last-child) {
-        margin-bottom: 0.75rem;
+    .field1 {
+        margin-bottom: 0.75rem!important;
         margin-top: 0.75rem !important;
         padding-right: 5px;
     }

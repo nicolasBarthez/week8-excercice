@@ -33,10 +33,10 @@ export default {
     max-width: 95%;
 }
 div{
-   font-size:1.2rem !important
+   font-size:1rem !important
 }
 .has-text-centered{
-  font-size:1.2rem !important
+  font-size:1rem !important
 }
 @media screen and (min-width: 1408px){
   .container {
