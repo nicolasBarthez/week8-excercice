@@ -37,8 +37,8 @@
                   :placeholder-font-size="18"
                   :prevent-white-space="true">
  </croppa>
-  
-       
+
+
     </label><br/>
                                   <!-- <b-upload v-model="files" @change="image = $event.target.files[0]">
                     <a class="button is-primary">
@@ -51,7 +51,7 @@
                     {{ files[0].name }}
         </span>
                   </div> -->
-                
+
                 <button @click="saveMyProfile">Save modifications</button>
               </form>
             </div>
@@ -84,7 +84,6 @@ export default {
         "Technical analysis",
         "Equity trading",
         "Long term investing",
-        "Forex trading",
         "Crypto currency",
         "Small caps",
         "Bio tech",
@@ -103,11 +102,11 @@ export default {
       url: "",
       files: [],
       okMessage: false,
-      location:''
+      location: ""
     };
   },
 
-  methods: {   
+  methods: {
     userProfileUpdate() {
       const userId = this.$root.user._id;
       if (this.url === "") this.url = profileInfo.url;
@@ -119,7 +118,7 @@ export default {
           console.log(err);
         });
     },
-    
+
     displayPicturePreview() {
       getUserProfileInfo().then(profileInfo => {
         this.profileInfo = profileInfo;
@@ -137,27 +136,27 @@ export default {
           console.log(err);
         });
     },
-    
+
     saveMyProfile() {
-      this.image.imageSet === true ? this.generateImage() : '';
-      this.userProfileUpdate()
+      this.image.imageSet === true ? this.generateImage() : "";
+      this.userProfileUpdate();
       this.$emit("saveprofile");
     },
     generateImage: function() {
-    	let url = this.image.generateDataUrl()
+      let url = this.image.generateDataUrl();
       if (!url) {
-      	alert('no image')
-        return
+        alert("no image");
+        return;
       }
-      this.url = url
+      this.url = url;
     }
-},
+  },
   created() {
     getUserProfileInfo().then(profileInfo => {
       this.profileInfo = profileInfo;
-      this.location= profileInfo.location;
-      this.skills= profileInfo.skills;
-      this.url=profileInfo.picProfile;
+      this.location = profileInfo.location;
+      this.skills = profileInfo.skills;
+      this.url = profileInfo.picProfile;
     });
   }
 };

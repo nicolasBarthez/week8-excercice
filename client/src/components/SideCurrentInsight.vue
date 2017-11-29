@@ -19,14 +19,14 @@
                 </div>
                 <div class="Symbol2" id="position">
                    <a class="stockName is-6">Performance</a>
-                   <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'has-text-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0}">{{(100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b>
-                   <b v-else class="price is-6" :class="{'has-text-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'has-text-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0}">{{(-100*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice).toFixed(2)}}&nbsp;%</b>
+                   <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : watchItem.performancePoints>0, 'has-text-red' : watchItem.performancePoints<0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
+                   <b v-else class="price is-6" :class="{'has-text-green' : watchItem.performancePoints<0, 'has-text-red' : watchItem.performancePoints>0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
                    </br><div id="close" action="/" method="post">
                       <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'btn-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'btn' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice===0}">Close</button>
+                      :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
                       <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice<0, 'btn-red' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice>0, 'btn' : (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice===0}">Close</button>
-                   
+                      :class="{'btn-green' : watchItem.performancePoints<0, 'btn-red' : watchItem.performancePoints>0, 'btn' : watchItem.performancePoints===0}">Close</button>
+
                    </div>
                 </div>
             </div>
@@ -193,7 +193,7 @@ export default {
         FONT-SIZE: 0.7rem;
     }
     .btn-green.button.is-small.is-outlined.is-primary {
-        FONT-SIZE: 0.7rem;    
+        FONT-SIZE: 0.7rem;
     }
     .btn.button.is-small.is-outlined.is-primary {
         FONT-SIZE: 0.7rem;
