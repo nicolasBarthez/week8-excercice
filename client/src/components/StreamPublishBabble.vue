@@ -104,7 +104,7 @@ export default {
       this.isShareChartActive = true;
     },
     generateImage: function() {
-      let babbleUrl = this.babbleImage.generateDataUrl();
+      let babbleUrl = this.babbleImage.generateDataUrl("image/jpeg", 0.8);
       if (!babbleUrl) {
         alert("no image");
         return;

@@ -146,11 +146,6 @@
                         </div>
                         <div class="level levelchartIcon">
                             <div class="level-left leftchartIcon">
-                                <a class="has-text-grey-light">
-                                    <span class="icon chartIcon">
-                                         <i class="fa fa-line-chart"></i>&nbsp Share a chart
-                                    </span>
-                                </a>
                             </div>
                         <div class="level-right rightchartIcon">
                             <div class="level-item has-text-grey">{{charactersLeft}}</div>
