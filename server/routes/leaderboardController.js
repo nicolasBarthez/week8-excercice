@@ -52,7 +52,7 @@ leaderboardController.get(
 
           // Calculate prefered stocks
           WatchItem.find({
-            userId: insider._id,
+            userId: insider._id
             status: "won"
           })
             .populate("stockId")
@@ -95,9 +95,9 @@ leaderboardController.get(
 
               WatchItem.find({
                 userId: insider._id,
-                status: {
-                  $in: ["won", "lost"]
-                }
+                // status: {
+                //   $in: ["won", "lost"]
+                // }
               }).exec((err, wiClosed) => {
                 console.log("wiClosed", wiClosed);
                 // Calculate performance points
