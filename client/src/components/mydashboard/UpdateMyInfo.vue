@@ -17,9 +17,7 @@
               <p v-if="okMessage">Your profile has been updated successfully!</p>
               <h2>Could you talk about yourself, your followers would like to know you a little better.</h2>
               <br>
-              <form @submit.prevent="userProfileUpdate();">
-
-                <br/>
+             
                 <span>Your magic skills</span>
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
                 <br>
@@ -28,7 +26,7 @@
                 </label>
                 <br>
 
-                <label><span>Update your photo</span>
+              <label><span>Update your photo</span>
                 <croppa v-model="image"
                   initial-image=""
                   :width="150"
@@ -36,24 +34,11 @@
                   :quality="1"
                   :placeholder-font-size="18"
                   :prevent-white-space="true">
- </croppa>
+                </croppa>
 
 
-    </label><br/>
-                                  <!-- <b-upload v-model="files" @change="image = $event.target.files[0]">
-                    <a class="button is-primary">
-                    <b-icon icon="file_upload"></b-icon>
-                    <span>Update your picture</span>
-                </a>
-                  </b-upload @change="image = $event.target.files[0]; saveImage()"> -->
-                  <!-- <div v-if="files && files.length">
-                    <span class="file-name"  >
-                    {{ files[0].name }}
-        </span>
-                  </div> -->
-
+              </label><br>
                 <button @click="saveMyProfile">Save modifications</button>
-              </form>
             </div>
           </div>
         </div>
@@ -95,10 +80,10 @@ export default {
         "Tech"
       ],
       //end multi select
-      profileInfo: Object,
+      profileInfo: null,
       bio: "",
       skills: "",
-      image: "",
+      image: null,
       url: "",
       files: [],
       okMessage: false,
@@ -112,35 +97,15 @@ export default {
       if (this.url === "") this.url = profileInfo.url;
       userUpdate(this.location, this.bio, this.skills, this.url)
         .then(data => {
-          setTimeout(() => (this.okMessage = false), 5000);
+          this.$emit("saveprofile");
         })
         .catch(err => {
           console.log(err);
         });
     },
-
-    displayPicturePreview() {
-      getUserProfileInfo().then(profileInfo => {
-        this.profileInfo = profileInfo;
-      });
-    },
-    saveImage() {
-      uploadPicture(this.image)
-        .then(response => {
-          // change the image when the user uploads a new image
-          this.profileInfo.picProfile = response.secure_url;
-          // prepare image to be saved
-          this.url = response.secure_url;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
-
     saveMyProfile() {
       this.image.imageSet === true ? this.generateImage() : "";
       this.userProfileUpdate();
-      this.$emit("saveprofile");
     },
     generateImage: function() {
       let url = this.image.generateDataUrl();

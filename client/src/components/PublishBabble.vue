@@ -158,6 +158,7 @@ export default {
       }
       this.babble = emojify.replace(this.babble)
       sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
+
         this.babble = "";
         this.babbleUrl = "";
         this.$emit("changeBabbles");
