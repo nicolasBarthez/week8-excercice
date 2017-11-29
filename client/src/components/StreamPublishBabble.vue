@@ -81,6 +81,7 @@
 
 <script>
 import { sendBabble } from "@/api/api";
+import emojify from 'emojify.js'
 
 export default {
   data() {
@@ -120,6 +121,7 @@ export default {
         (this.isShareChartActive = false);
     },
     postBabble() {
+      this.babble = emojify.replace(this.babble)
       sendBabble(this.babble, null, this.babbleUrl).then(() => {
         this.babble = "";
         this.babbleUrl = "";
@@ -133,6 +135,9 @@ export default {
         limit = 500;
       return limit - char;
     }
+  },
+  created() {
+            emojify.setConfig({img_dir: "/static/images/basic"})
   }
 };
 </script>

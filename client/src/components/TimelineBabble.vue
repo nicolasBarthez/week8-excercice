@@ -81,8 +81,8 @@
                                    <small class="media-right has-text-grey-light">{{moment(modalBabble.created_at.toString()).format('DD-MM-YYYY HH:mm')}}</small>
 
                             </p>
-                            <p class="tweet-body has-text-grey babble-body">
-                                {{modalBabble.babble}}
+                            <p v-html="modalBabble.babble" class="tweet-body has-text-grey babble-body">
+                                
                            </p>
                         </div>
                         <nav class="media-right">
@@ -115,8 +115,8 @@
                                    <strong>{{reply.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
-                            <p class="tweet-body has-text-grey babble-body">
-                                {{reply.babble}}
+                            <p v-html="reply.babble" class="tweet-body has-text-grey babble-body">
+                                
                            </p>
                         </div>
                     </div>
@@ -162,6 +162,7 @@
 import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
+import emojify from 'emojify.js'
 
 export default {
   data() {
@@ -211,6 +212,7 @@ export default {
     },
 
     postBabble(modalBabble) {
+      this.babbleText = emojify.replace(this.babbleText)
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
         this.babbleText = "";
         this.isCardModalActive = false;
@@ -259,6 +261,9 @@ export default {
 
       return replacedText;
     }
+  },
+  created() {
+            emojify.setConfig({img_dir: "/static/images/basic"})
   }
 };
 </script>
