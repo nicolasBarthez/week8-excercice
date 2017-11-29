@@ -106,7 +106,9 @@
 import { sendBabble } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
-import { Picker } from "emoji-mart-vue";
+import emojify from 'emojify.js'
+
+
 
 export default {
   data() {
@@ -126,7 +128,7 @@ export default {
     watchItem: Object
   },
 
-  components: {},
+
   methods: {
     shareChart() {
       this.isShareChartActive = true;
@@ -140,6 +142,7 @@ export default {
       this.babbleUrl = babbleUrl;
     },
     onDraw(ctx) {
+
       if (this.noSticker) return;
       ctx.drawImage(document.querySelector(".sticker"), 305, 188, 50, 20);
     },
@@ -153,7 +156,9 @@ export default {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-      sendBabble(this.babble, this.stock._id, this.babbleUrl).then(() => {
+      this.babble = emojify.replace(this.babble)
+      sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
+
         this.babble = "";
         this.babbleUrl = "";
         this.$emit("changeBabbles");
@@ -188,6 +193,9 @@ export default {
         limit = 500;
       return limit - char;
     }
+  },
+  created() {
+            emojify.setConfig({img_dir: "/static/images/basic"})
   }
 };
 </script>

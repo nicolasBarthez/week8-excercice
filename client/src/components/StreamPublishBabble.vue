@@ -34,6 +34,7 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
+
                 <img src="/static/images/stickerPicture2.svg" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
@@ -80,6 +81,7 @@
 
 <script>
 import { sendBabble } from "@/api/api";
+import emojify from 'emojify.js'
 
 export default {
   data() {
@@ -119,6 +121,7 @@ export default {
         (this.isShareChartActive = false);
     },
     postBabble() {
+      this.babble = emojify.replace(this.babble)
       sendBabble(this.babble, null, this.babbleUrl).then(() => {
         this.babble = "";
         this.babbleUrl = "";
@@ -132,6 +135,9 @@ export default {
         limit = 500;
       return limit - char;
     }
+  },
+  created() {
+            emojify.setConfig({img_dir: "/static/images/basic"})
   }
 };
 </script>
