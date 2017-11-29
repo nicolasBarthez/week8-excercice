@@ -2,7 +2,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
-
+.emoji{
+    width:1.5rem !important
+}
 .textarea[rows] {
     height: 15VH!important;
 }
@@ -209,3 +211,4 @@ a.nav-item:not(.button).is-tab:hover {
         font-size: 0.7rem!important
     }
 }
+

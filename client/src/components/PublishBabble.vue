@@ -54,7 +54,7 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
-                <img src="/static/images/logo.png" class ="sticker">
+                <img src="/static/images/stickerPicture.jpg" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
@@ -106,7 +106,9 @@
 import { sendBabble } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
-import { Picker } from "emoji-mart-vue";
+import emojify from 'emojify.js'
+
+
 
 export default {
   data() {
@@ -126,7 +128,7 @@ export default {
     watchItem: Object,
   },
 
-  components: {},
+
   methods: {
     shareChart(){
         this.isShareChartActive =true
@@ -141,7 +143,7 @@ export default {
     },
     onDraw(ctx) {
       if (this.noSticker) return
-      ctx.drawImage(document.querySelector('.sticker'), 275, 150, 70, 50)
+      ctx.drawImage(document.querySelector('.sticker'), 275, 150, 80, 60)
     },
     postChartBabble(){
         this.generateImage(),
@@ -153,6 +155,7 @@ export default {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
+      this.babble = emojify.replace(this.babble)
       sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
         this.babble = "";
         this.babbleUrl="";
@@ -188,6 +191,9 @@ export default {
         limit = 500;
       return limit - char;
     }
+  },
+  created() {
+            emojify.setConfig({img_dir: "/static/images/basic"})
   }
 };
 </script>

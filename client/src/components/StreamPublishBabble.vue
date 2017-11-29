@@ -34,7 +34,7 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
-                <img src="/static/images/logo.png" class ="sticker">
+                <img src="/static/images/stickerPicture.jpg" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
