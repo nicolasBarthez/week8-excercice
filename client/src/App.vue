@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <landing-page v-if="!this.$root.user"></landing-page>
+    
     <nav-bar v-if="this.$root.user"></nav-bar>
-
-        <router-view class="wrapper"></router-view>
+    <landing-page v-if="!this.$root.user"></landing-page>
+    <router-view v-else class="wrapper"></router-view>
 
   </div>
 </template>
