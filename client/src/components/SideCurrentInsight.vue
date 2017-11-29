@@ -141,8 +141,8 @@ export default {
 }
 .btn-red.is-outlined:focus,
 .btn-red.is-outlined:hover {
-    background-color: #ff6026;
-    border-color: #ff6026;
+    background-color: #ff6026!important;
+    border-color: #ff6026!important;
     color: #fff!important;
 }
 .btn-green.button.is-small.is-outlined.is-primary {
@@ -157,8 +157,8 @@ export default {
 
 .btn-green.is-outlined:focus,
 .btn-green.is-outlined:hover {
-    background-color: #21ce99;
-    border-color: #21ce99;
+    background-color: #21ce99!important;
+    border-color: #21ce99!important;
     color: #fff!important;
 }
 .btn.button.is-small.is-outlined.is-primary {
@@ -172,9 +172,9 @@ export default {
 }
 
 .btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {
-    background-color: #192b41;
-    border-color: #192b41;
-    color: #fff;
+    background-color: #192b41!important;
+    border-color: #192b41!important;
+    color: #fff!important;
 }
 @media screen and (max-width: 768px) {
     #currentInsight {

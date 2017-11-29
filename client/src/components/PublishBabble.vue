@@ -54,12 +54,15 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
+                <img src="/static/images/logo.png" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
                   :quality="0.7"
                   :placeholder-font-size="18"
-                  :prevent-white-space="true"
+                  :prevent-white-space="false"
+                  :reverse-scroll-to-zoom="true"
+                  @draw="onDraw"
                   >
                 </croppa>
   
@@ -114,13 +117,13 @@ export default {
       isShareChartActive: false,
       babbleImage: null,
       babbleUrl: "",
+      noSticker: false,
     };
   },
   props: {
     stock: Object,
     connectedUser: Object,
     watchItem: Object,
-    fileSizeLimit:4096
   },
 
   components: {},
@@ -129,12 +132,16 @@ export default {
         this.isShareChartActive =true
     },
     generateImage: function() {
-        let babbleUrl = this.babbleImage.generateDataUrl()
+        let babbleUrl = this.babbleImage.generateDataUrl('image/jpeg', 0.8)
         if (!babbleUrl) {
       	alert('no image')
         return
       }
       this.babbleUrl = babbleUrl
+    },
+    onDraw(ctx) {
+      if (this.noSticker) return
+      ctx.drawImage(document.querySelector('.sticker'), 275, 150, 70, 50)
     },
     postChartBabble(){
         this.generateImage(),
@@ -186,6 +193,14 @@ export default {
 </script>
 
 <style scoped>
+.sticker{
+      height: 0;
+      width: 0;
+      line-height: 1;
+      font-size: 0;
+      visibility: 0;
+      border: 0;
+}
 .fa-line-chart{
     font-size: 15px;
 }
