@@ -37,7 +37,7 @@
                 </croppa>
 
 
-              </label><br>
+                  </label><br>
                 <button @click="saveMyProfile">Save modifications</button>
             </div>
           </div>
