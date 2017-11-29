@@ -34,7 +34,8 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
-                <img src="/static/images/stickerPicture.jpg" class ="sticker">
+
+                <img src="/static/images/stickerPicture2.svg" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
@@ -45,8 +46,8 @@
                   @draw="onDraw"
                   >
                 </croppa>
-  
-       
+
+
     </label><br/>
                <div class="card-content bg-light">
             <div class="media">
@@ -88,40 +89,40 @@ export default {
       isShareChartActive: false,
       babbleImage: null,
       babbleUrl: "",
-      noSticker: false,
+      noSticker: false
     };
   },
   props: {
     stock: Object,
-    connectedUser: Object,
+    connectedUser: Object
   },
 
   components: {},
   methods: {
-    shareChart(){
-        this.isShareChartActive =true
+    shareChart() {
+      this.isShareChartActive = true;
     },
     generateImage: function() {
-        let babbleUrl = this.babbleImage.generateDataUrl()
+      let babbleUrl = this.babbleImage.generateDataUrl();
       if (!babbleUrl) {
-      	alert('no image')
-        return
+        alert("no image");
+        return;
       }
-      this.babbleUrl = babbleUrl
-   },
-   onDraw(ctx) {
-      if (this.noSticker) return
-      ctx.drawImage(document.querySelector('.sticker'), 275, 150, 70, 50)
+      this.babbleUrl = babbleUrl;
     },
-    postChartBabble(){
-        this.generateImage(),
+    onDraw(ctx) {
+      if (this.noSticker) return;
+      ctx.drawImage(document.querySelector(".sticker"), 305, 188, 50, 20);
+    },
+    postChartBabble() {
+      this.generateImage(),
         this.postBabble(),
-        this.isShareChartActive =false;
+        (this.isShareChartActive = false);
     },
     postBabble() {
-      sendBabble(this.babble, null,this.babbleUrl).then(() => {
+      sendBabble(this.babble, null, this.babbleUrl).then(() => {
         this.babble = "";
-        this.babbleUrl="";
+        this.babbleUrl = "";
         this.$emit("changeBabbles");
       });
     }
