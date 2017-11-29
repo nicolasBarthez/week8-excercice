@@ -15,7 +15,7 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span class="icon chartIcon">
+                                    <span @click="shareChart()" class="icon chartIcon">
                                          <i class="fa fa-line-chart"></i>&nbsp Share a chart
                                     </span>
                                 </a>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,6 @@ export default {
   props: {
     stock: Object,
     connectedUser: Object,
-    fileSizeLimit:4096
   },
 
   components: {},
@@ -100,22 +99,21 @@ export default {
     },
     generateImage: function() {
         let babbleUrl = this.babbleImage.generateDataUrl()
-        console.log("$$$$$$$$$$$$$$$$$$$URLBABBLE",babbleUrl)
       if (!babbleUrl) {
       	alert('no image')
         return
       }
       this.babbleUrl = babbleUrl
-      console.log("ùùùùùùùùùùùùùùùùùùùùùùùùùùùùùURLBABBLE",this.babbleUrl)
-    },
+   },
     postChartBabble(){
         this.generateImage(),
         this.postBabble(),
-        this.isShareChartActive =false
+        this.isShareChartActive =false;
     },
     postBabble() {
-      sendBabble(this.babble, null).then(() => {
+      sendBabble(this.babble, null,this.babbleUrl).then(() => {
         this.babble = "";
+        this.babbleUrl="";
         this.$emit("changeBabbles");
       });
     }
@@ -131,29 +129,20 @@ export default {
 </script>
 
 <style scoped>
-.textarea1 {
-    display: block;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 0.625em;
-    resize: vertical;
-    -webkit-appearance: none;
-    -webkit-box-align: center;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    font-size: 1rem;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    line-height: 1.5;
-    position: relative;
-    vertical-align: top;
-    background-color: white;
-    border-color: #dbdbdb;
-    color: #363636;
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-    width: 100%;
-    height:10vh
+
+.modalTitle{
+    margin-top: -2%;
+    margin-top: -2%;
+    font-weight: bolder;
+    margin-bottom: 3%;
+    color:#192b41;
+}
+.mediaModal{
+    background-color:#fff;
+    padding: 5%;
+    margin: 5%;
+    border-radius: 3%;
+    border: solid,#192b41;
 }
 .fa-line-chart{
     font-size: 15px;
