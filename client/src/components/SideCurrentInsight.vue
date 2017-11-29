@@ -25,7 +25,7 @@
                       <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
                       :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
                       <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : watchItem.performancePoints<0, 'btn-red' : watchItem.performancePoints>0, 'btn' : watchItem.performancePoints===0}">Close</button>
+                      :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
 
                    </div>
                 </div>
