@@ -3,6 +3,10 @@ body {
     /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
 }
 
+.textarea[rows] {
+    height: 15VH!important;
+}
+
 .babMenu {
     color: lightgrey ! important
 }

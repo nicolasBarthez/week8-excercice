@@ -94,10 +94,10 @@ leaderboardController.get(
               }
 
               WatchItem.find({
-                userId: insider._id,
-                status: {
-                  $in: ["won", "lost"]
-                }
+                userId: insider._id
+                // status: {
+                //   $in: ["won", "lost"]
+                // }
               }).exec((err, wiClosed) => {
                 console.log("wiClosed", wiClosed);
                 // Calculate performance points

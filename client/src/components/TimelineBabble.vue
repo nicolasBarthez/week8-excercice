@@ -31,8 +31,8 @@
                                    <strong>{{babble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
-                            <p class="tweet-body has-text-grey babble-body">
-                                {{babble.babble}}
+                            <p class="tweet-body has-text-grey babble-body" v-html=" addLinksToHttp(babble.babble) ">
+                                <!-- {{babble.babble}} -->
                            </p>
                         </div>
                         <nav class="media-right">
@@ -142,7 +142,7 @@
                         </div>
                         <div class="level levelchartIcon">
                             <div class="level-left leftchartIcon">
-                                
+
                             </div>
                         <div class="level-right rightchartIcon">
                             <div class="level-item has-text-grey">{{charactersLeft}}</div>
@@ -178,8 +178,8 @@ export default {
     stock: Object,
     connectedUser: Object
   },
-  
-   computed: {
+
+  computed: {
     charactersLeft() {
       var char = this.babbleText.length,
         limit = 500;
@@ -205,9 +205,9 @@ export default {
           console.log("something is wrong");
         });
     },
-     sortBabbles(activeItem) {
+    sortBabbles(activeItem) {
       this.$emit("sort", activeItem);
-      this.activeItem=activeItem
+      this.activeItem = activeItem;
     },
 
     postBabble(modalBabble) {
@@ -217,7 +217,49 @@ export default {
         this.$emit("changeBabbles");
       });
     },
-  },
+    // Take into parameter a string and return the same string with HTML links
+    // Ex: "Hello #axa" => "Hello <a href='/stock/axa'>#axas</a>"
+    // Optimisation => rajouter un event listener qui sera appeler au click et fera un push
+    // ou regarder doc dynamic compile router link
+    // addLinksToBabble(babbleString) {
+    //   return babbleString.replace(
+    //     /#(\w+)(\W|$)/g,
+    //     '<a href="/stocks/$1">#$1$2</a>'
+    //   );
+    // },
+    addLinksToHttp(inputText) {
+      var replacedText, replacePattern1, replacePattern2, replacePattern3;
+      // Take into parameter a string and return the same string with HTML links
+      // Ex: "Hello #axa" => "Hello <a href='/stock/axa'>#axas</a>"
+      inputText = inputText.replace(
+        /#(\w+)(\W|$)/g,
+        '<a href="/stocks/$1">#$1$2</a>'
+      );
+
+      //URLs starting with http://, https://, or ftp://
+      replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+      replacedText = inputText.replace(
+        replacePattern1,
+        '<a href="$1" target="_blank">$1</a>'
+      );
+
+      //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+      replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+      replacedText = replacedText.replace(
+        replacePattern2,
+        '$1<a href="http://$2" target="_blank">$2</a>'
+      );
+
+      //Change email addresses to mailto:: links.
+      replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+      replacedText = replacedText.replace(
+        replacePattern3,
+        '<a href="mailto:$1">$1</a>'
+      );
+
+      return replacedText;
+    }
+  }
 };
 </script>
 

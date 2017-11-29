@@ -53,7 +53,7 @@
                   <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
                 </b-table-column>
 
-                <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
+                <b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Performance Points">
                     {{ props.row.performancePoints.toFixed(0) }} P$
                 </b-table-column>
 
