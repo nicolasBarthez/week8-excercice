@@ -54,7 +54,7 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
-                <img src="/static/images/logo.png" class ="sticker">
+                <img src="/static/images/stickerPicture2.svg" class ="sticker">
                 <croppa v-model="babbleImage"
                   :width="510"
                   :height="300"
@@ -65,8 +65,8 @@
                   @draw="onDraw"
                   >
                 </croppa>
-  
-       
+
+
     </label><br/>
                 <div class="card-content bg-light">
             <div class="media">
@@ -84,7 +84,7 @@
                         </div>
                         <div class="level">
                             <div class="level-left">
-                        
+
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
@@ -117,46 +117,46 @@ export default {
       isShareChartActive: false,
       babbleImage: null,
       babbleUrl: "",
-      noSticker: false,
+      noSticker: false
     };
   },
   props: {
     stock: Object,
     connectedUser: Object,
-    watchItem: Object,
+    watchItem: Object
   },
 
   components: {},
   methods: {
-    shareChart(){
-        this.isShareChartActive =true
+    shareChart() {
+      this.isShareChartActive = true;
     },
     generateImage: function() {
-        let babbleUrl = this.babbleImage.generateDataUrl('image/jpeg', 0.8)
-        if (!babbleUrl) {
-      	alert('no image')
-        return
+      let babbleUrl = this.babbleImage.generateDataUrl("image/jpeg", 0.8);
+      if (!babbleUrl) {
+        alert("no image");
+        return;
       }
-      this.babbleUrl = babbleUrl
+      this.babbleUrl = babbleUrl;
     },
     onDraw(ctx) {
-      if (this.noSticker) return
-      ctx.drawImage(document.querySelector('.sticker'), 275, 150, 70, 50)
+      if (this.noSticker) return;
+      ctx.drawImage(document.querySelector(".sticker"), 305, 188, 50, 20);
     },
-    postChartBabble(){
-        this.generateImage(),
+    postChartBabble() {
+      this.generateImage(),
         this.postBabble(),
-        this.isShareChartActive =false;
+        (this.isShareChartActive = false);
     },
 
     postBabble() {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-      sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
+      sendBabble(this.babble, this.stock._id, this.babbleUrl).then(() => {
         this.babble = "";
-        this.babbleUrl="";
-        this.$emit("changeBabbles");      
+        this.babbleUrl = "";
+        this.$emit("changeBabbles");
       });
     },
     imBull() {
@@ -359,7 +359,7 @@ export default {
 @media screen and (max-width: 768px) {
     .croppa-container{
         max-width:-webkit-fill-available!important
-    }     
+    }
     .field1 {
         margin-bottom: 0.75rem!important;
         margin-top: 0.75rem !important;
