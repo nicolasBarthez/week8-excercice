@@ -129,30 +129,7 @@ export default {
 </script>
 
 <style scoped>
-.textarea1 {
-    display: block;
-    max-width: 100%;
-    min-width: 100%;
-    padding: 0.625em;
-    resize: vertical;
-    -webkit-appearance: none;
-    -webkit-box-align: center;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    font-size: 1rem;
-    -webkit-box-pack: start;
-    justify-content: flex-start;
-    line-height: 1.5;
-    position: relative;
-    vertical-align: top;
-    background-color: white;
-    border-color: #dbdbdb;
-    color: #363636;
-    box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-    width: 100%;
-    height:10vh
-}
+
 .modalTitle{
     margin-top: -2%;
     margin-top: -2%;

@@ -79,7 +79,7 @@ export default {
       data: null,
       name: "",
       selected: null,
-      closedState:false,
+      closedState:true,
     };
   },
   methods: {
@@ -146,11 +146,11 @@ a{
 }
 .icon {
     color: #dbdbdb;
-    height: 2em!important;
+    height: 2.25em!important;
     pointer-events: none;
     position: absolute;
     top: 0;
-    width: 2em!important;
+    width: 2.25em!important;
 }
 #nav-toggle-state {
     display: none;
@@ -183,7 +183,7 @@ a{
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end!important;
-    display:flex
+    
 }
 
 .nav-user-name {
@@ -320,7 +320,7 @@ a.nav-item:not(.button).is-tab:hover {
         width: 3em!important;
     }
     .closedToggle{
-        display:none!important
+        display:flex!important
     }
     #logo{
         display:none
@@ -369,7 +369,6 @@ a.nav-item:not(.button).is-tab:hover {
     .nav-right {
         justify-content: space-around !important;
         z-index: 5;
-        display:flex
     }
 }
 </style>
