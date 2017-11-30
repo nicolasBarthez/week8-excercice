@@ -2,9 +2,13 @@
 <trending-page v-if="this.$root.user"></trending-page>
 
 <section v-else class="hero is-fullheight">
+  <div class="flag">
+    <img src="/static/images/landing/ukFlag.png">
+    <img src="/static/images/landing/France-Flag.png">
+  </div>
   <div>
     <div class="container-logo">
-      <img src="/static/images/logo-landing.svg">
+      <img src="/static/images/landing/logo-landing.svg">
     </div>
   </div>
   <div class="hero-body mainLanding">
@@ -15,7 +19,49 @@
  </div>
     </div>
   </div>
+  <div class="hero-body">
+    <div class="container">
+      <h2>Join the best community of investors you can trust.</h2>
+    </div>
+    <div class="container">
+      <p>Share your insights about the pulse of the market, learn from others and have fun.</p>
+    </div>
+  </div>
+  <div class="hero-body">
+    <img src="/static/images/landing/roundBullArrow.png">
+    <img src="/static/images/landing/roundBearArrow.png">
+  </div>
+<section class="hero separator">
+  <img src="/static/images/landing/sentiment.png">
+  <div class="container">
+    <h2>Gauge the real time sentiment of the market.</h2>
+  </div>
+  <div class="container">
+    <p>Check the level of bullishness and bearishness around a stock before you make your next investment.</p>
+  </div>
+</section>
+<section class="hero separator">
+  <div class="container">
+    <h2>Real time insights.</h2>
+  </div>
+  <div class="container">
+    <p>Quickly catch up on what is happening with the stocks you own and which companies everyone is talking about today.</p>
+  </div>
+  <img src="/static/images/landing/give-insight.gif">
 
+</section>
+<section class="hero separator">
+  <img src="/static/images/landing/Financial-tips.png">
+  <div class="container">
+    <h2>Get great financial tips. For free.</h2>
+  </div>
+  <div class="container">
+    <p>We believe that the financial system should help the rest of us, not just the wealthy.
+The future of investing is social. Connect with other active investors before making your next trade. Find and follow the pros.</p>
+  </div>
+
+
+</section>
 
   <section class="hero separator">
     <div class="hero-body testimonials-section">
@@ -28,19 +74,19 @@
         </h3>
         <div class="columns separator2">
           <div class="column is-one-third testi">
-                <img class="img" src="/static/images/Georges.jpg">
-              <h4 class="separator nametesti subtitle"> Nicolas</h4>
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. </p>
+                <img class="img" src="/static/images/landing/stuart.png">
+              <h4 class="separator nametesti subtitle"> @stuart</h4>
+              <p>”I doubled my stocks income since I joined Insiders. Thx so much!”</p>
           </div>
           <div class="column is-one-third testi">
-                <img class="img" src="/static/images/testeur-profile.jpeg">
-              <h4 class="separator nametesti subtitle"> Stuart</h4>
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  </p>
+                <img class="img" src="/static/images/landing/emmanuel.png">
+              <h4 class="separator nametesti subtitle"> @emmanuel</h4>
+              <p>” We need young Frenchmen who want to become billionaires.” (Taking about Insiders)</p>
           </div>
           <div class="column is-one-third testi">
-                <img class="img" src="/static/images/Warren.jpg">
-              <h4 class="separator nametesti subtitle"> Thomas</h4>
-              <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  </p>
+                <img class="img" src="/static/images/landing/daniel.png">
+              <h4 class="separator nametesti subtitle"> @daniel</h4>
+              <p>"Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight."</p>
 
           </div>
         </div>
@@ -116,6 +162,14 @@ export default {
 body{
   font-family:roboto
 }
+.flag{
+  display: flex;
+  justify-content:flex-start;
+  width: 10%;
+  height:60px;
+
+}
+
 .buttonSignin{
   margin-left:2.5%;
   min-width:20%;
@@ -151,12 +205,12 @@ body{
 .container-logo {
   margin-left:  3%;
   margin-right: 3%;
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 .loggiin{
       margin-left: 35%;
-    margin-bottom: 75%;
+    margin-bottom: 85%;
 }
 
 .mainLanding{
