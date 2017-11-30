@@ -13,7 +13,7 @@
                         <div class="stock-banner">
                            <div class="sock-info">
                               <p class="longNameTitle title is-5">{{stock.longName}}</p>
-                              <p class="subtitle is-6">
+                              <p class="subtitleIsin is-6">
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
@@ -53,7 +53,7 @@
                                         <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     </div>
                                     <div id="bullsAndBearsPic">
-                                        <img src="/static/images/bull-bear-arrow.png" alt="bull and bear">
+                                        <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
                                     </div>
                                     
                                     <div class="mobileBandB">
@@ -192,6 +192,18 @@ export default {
 .title, .subtitle {
     word-break: initial;
 }
+.mobileBandB1{
+        width:25%;
+        display:flex;
+        justify-content:space-around;
+        align-items:center
+}
+.mobileBandB{
+        width:25%;
+        display:flex;
+        justify-content:space-around;
+        align-items:center
+    }
 .level-item {
     display: flex;
     justify-content: space-evenly;
@@ -202,7 +214,6 @@ export default {
     flex-direction: row;
     justify-content: space-between;
 }
-
 .stock-price{
     font-size:1.3rem;
     display: flex;
@@ -244,7 +255,6 @@ export default {
     display: flex;
     align-items: center;
 }
-
 .longNameTitle{
     margin-bottom:12% !important
 }
@@ -257,69 +267,55 @@ a {
     cursor: inherit;
     text-decoration: none;
 }
-
 #cardAction {
     margin-bottom: 2.5% !important;
 }
-
 .stock-banner .subtitle {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 #descr {
     margin-top: -1.5rem;
     font-size: 0.7rem;
 }
-
 #bullsAndBearsPic {
-    width: 20%;
+    width: 25%;
 }
-
 #bullsAndBears {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width:100%!important
 }
-
 #bandB {
     justify-content: center;
 }
-
 #Last {
     display: flex;
     justify-content: center;
 }
-
 #bandbdigit1 {
     font-size: 2.5vw;
     color: #21ce99;
 }
-
 #bandbdigit2 {
     font-size: 2.5vw;
     color: #ff6026;
 }
-
 #priceStock {
     display: flex;
     font-size: 2REM;
     align-items: center;
 }
-
 #ActionCard {
     width: 100%;
-   }
-
-.stVar {
-    font-size: 1.5REM!important;
 }
-
+.stVar {
+    font-size: 1.3REM!important;
+}
 #stockInfo {
     display: flex;
 }
-
 #Bbull {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -327,21 +323,20 @@ a {
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
-    font-size:1rem
+    font-size:1.2rem
 }
-
 #Bbull.is-outlined:focus,
 #Bbull.is-outlined:hover {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
-
 }
-
 .trend-b-b{
   cursor:pointer;
 }
-
+small{
+    font-size:1.1rem !important
+}
 #Bbear {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -349,24 +344,20 @@ a {
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
-    font-size:1rem
+    font-size:1.2rem
 }
-
 #Bbear.is-outlined:focus,
 #Bbear.is-outlined:hover {
     background-color: #ff6026;
     border-color: #ff6026;
     color: #fff;
 }
-
 #adWL.is-outlined:focus,
 #adWL.is-outlined:hover {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
-
 }
-
 #adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -374,7 +365,7 @@ a {
     color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
-    font-size:1rem !important
+    font-size:1.2rem !important
 }
 
 .position{
@@ -408,7 +399,7 @@ a {
         font-size:0.65rem
     }
     small{
-        font-size:0.65rem
+        font-size:0.85rem!important;
     }
     .card-content {
         padding: 0.7REM;
@@ -428,7 +419,6 @@ a {
 
     .stock-banner{
         display: flex;
-        margin-bottom:4%;
     }
     .level-item {
         margin-bottom: 0px!important;
@@ -444,9 +434,6 @@ a {
         font-size:1rem!important;
         text-align:center;
     }
-    .title.is-5{
-        font-size:0.8rem!important;
-    }
     .stock-priceVar{
         display: flex;
         flex-direction: column;
@@ -459,7 +446,7 @@ a {
     .stock-see-desc{
         font-size:0.6rem;
     }
-    .subtitle {
+    .subtitleIsin {
         font-size:0.6rem;
     }
     #BBull{
