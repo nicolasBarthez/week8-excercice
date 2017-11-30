@@ -197,7 +197,7 @@ export default {
         display:flex;
         justify-content:space-around;
         align-items:center
-    }
+}
 .mobileBandB{
         width:25%;
         display:flex;
@@ -214,7 +214,6 @@ export default {
     flex-direction: row;
     justify-content: space-between;
 }
-
 .stock-price{
     font-size:1.3rem;
     display: flex;
@@ -256,7 +255,6 @@ export default {
     display: flex;
     align-items: center;
 }
-
 .longNameTitle{
     margin-bottom:12% !important
 }
@@ -269,69 +267,55 @@ a {
     cursor: inherit;
     text-decoration: none;
 }
-
 #cardAction {
     margin-bottom: 2.5% !important;
 }
-
 .stock-banner .subtitle {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 #descr {
     margin-top: -1.5rem;
     font-size: 0.7rem;
 }
-
 #bullsAndBearsPic {
     width: 25%;
 }
-
 #bullsAndBears {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width:100%!important
 }
-
 #bandB {
     justify-content: center;
 }
-
 #Last {
     display: flex;
     justify-content: center;
 }
-
 #bandbdigit1 {
     font-size: 2.5vw;
     color: #21ce99;
 }
-
 #bandbdigit2 {
     font-size: 2.5vw;
     color: #ff6026;
 }
-
 #priceStock {
     display: flex;
     font-size: 2REM;
     align-items: center;
 }
-
 #ActionCard {
     width: 100%;
-   }
-
-.stVar {
-    font-size: 1.5REM!important;
 }
-
+.stVar {
+    font-size: 1.3REM!important;
+}
 #stockInfo {
     display: flex;
 }
-
 #Bbull {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -341,22 +325,18 @@ a {
     border-color: #21ce99;
     font-size:1.2rem
 }
-
 #Bbull.is-outlined:focus,
 #Bbull.is-outlined:hover {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
-
 }
-
 .trend-b-b{
   cursor:pointer;
 }
 small{
     font-size:1.1rem !important
 }
-
 #Bbear {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -366,22 +346,18 @@ small{
     border-color: #ff6026;
     font-size:1.2rem
 }
-
 #Bbear.is-outlined:focus,
 #Bbear.is-outlined:hover {
     background-color: #ff6026;
     border-color: #ff6026;
     color: #fff;
 }
-
 #adWL.is-outlined:focus,
 #adWL.is-outlined:hover {
     background-color: #192b41;
     border-color: #192b41;
     color: #fff;
-
 }
-
 #adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
