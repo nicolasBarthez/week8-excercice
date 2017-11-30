@@ -13,7 +13,7 @@
                         <div class="stock-banner">
                            <div class="sock-info">
                               <p class="longNameTitle title is-5">{{stock.longName}}</p>
-                              <p class="subtitle is-6">
+                              <p class="subtitleIsin is-6">
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
@@ -440,7 +440,6 @@ a {
 
     .stock-banner{
         display: flex;
-        margin-bottom:4%;
     }
     .level-item {
         margin-bottom: 0px!important;
@@ -456,9 +455,6 @@ a {
         font-size:1rem!important;
         text-align:center;
     }
-    .title.is-5{
-        font-size:0.8rem!important;
-    }
     .stock-priceVar{
         display: flex;
         flex-direction: column;
@@ -471,7 +467,7 @@ a {
     .stock-see-desc{
         font-size:0.6rem;
     }
-    .subtitle {
+    .subtitleIsin {
         font-size:0.6rem;
     }
     #BBull{
