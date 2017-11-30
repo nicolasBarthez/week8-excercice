@@ -133,10 +133,10 @@ dashboardsController.get(
             }
 
             WatchItem.find({
-              userId: user._id
-              // status: {
-              //   $in: ["won", "lost"]
-              // }
+              userId: user._id,
+              status: {
+                $in: ["won", "lost"]
+              }
             }).exec((err, wiClosed) => {
               if (wiClosed.length > 0) {
                 // Calculate performance points
@@ -176,14 +176,11 @@ dashboardsController.get(
   (req, res, next) => {
     const userId = req.params.id;
 
-    WatchItem
-      .find
-      // {
-      // status: {
-      //   $in: ["won", "lost"]
-      // }
-      // }
-      ()
+    WatchItem.find({
+      status: {
+        $in: ["won", "lost"]
+      }
+    })
       .populate("userId")
       .exec((err, wis) => {
         // first, convert data into a Map with reduce
@@ -495,10 +492,10 @@ dashboardsController.get(
             }
 
             WatchItem.find({
-              userId: userId
-              // status: {
-              //   $in: ["won", "lost"]
-              // }
+              userId: userId,
+              status: {
+                $in: ["won", "lost"]
+              }
             }).exec((err, wiClosed) => {
               console.log("wiClosed", wiClosed);
               // Calculate performance points
@@ -757,10 +754,10 @@ dashboardsController.get(
                 }
 
                 WatchItem.find({
-                  userId: usFollowed._id
-                  // status: {
-                  //   $in: ["won", "lost"]
-                  // }
+                  userId: usFollowed._id,
+                  status: {
+                    $in: ["won", "lost"]
+                  }
                 }).exec((err, wiClosed) => {
                   // Calculate performance points
                   userInfo.performancePoints = wiClosed

@@ -102,22 +102,22 @@ WatchItem.find({
   });
 
 // Update score
-WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
-  .populate("stockId")
-  .exec((err, watchList) => {
-    // calculate score
-    watchList.forEach(watchItem => {
-      console.log("watchItem", watchItem);
-      let updateScore = calculateScore(
-        watchItem.position,
-        watchItem.initialPrice,
-        watchItem.stockId.price
-      );
-
-      console.log("additional points", updateScore);
-      WatchItem.findByIdAndUpdate(watchItem._id, {
-        $inc: { performancePoints: updateScore }
-      }).exec();
-    });
-    mongoose.connection.close();
-  });
+// WatchItem.find({ status: "active", position: { $in: ["bull", "bear"] } })
+//   .populate("stockId")
+//   .exec((err, watchList) => {
+//     // calculate score
+//     watchList.forEach(watchItem => {
+//       console.log("watchItem", watchItem);
+//       let updateScore = calculateScore(
+//         watchItem.position,
+//         watchItem.initialPrice,
+//         watchItem.stockId.price
+//       );
+//
+//       console.log("additional points", updateScore);
+//       WatchItem.findByIdAndUpdate(watchItem._id, {
+//         $inc: { performancePoints: updateScore }
+//       }).exec();
+//     });
+//     mongoose.connection.close();
+//   });
