@@ -440,10 +440,10 @@ a {
         font-size:0.6rem;
     }
     #bullsAndBearsPic{
-        display:none;
+        width: 50%;
     }
     #BBull{
-        width:20%
+        width:50%
     }
     #BBear{
         width:20%
