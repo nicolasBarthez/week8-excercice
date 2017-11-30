@@ -192,6 +192,18 @@ export default {
 .title, .subtitle {
     word-break: initial;
 }
+.mobileBandB1{
+        width:25%;
+        display:flex;
+        justify-content:space-around;
+        align-items:center
+    }
+    .mobileBandB{
+        width:25%;
+        display:flex;
+        justify-content:space-around;
+        align-items:center
+    }
 .level-item {
     display: flex;
     justify-content: space-evenly;
@@ -327,7 +339,7 @@ a {
     color: #21ce99;
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
-    font-size:1rem
+    font-size:1.2rem
 }
 
 #Bbull.is-outlined:focus,
@@ -349,7 +361,7 @@ a {
     color: #ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
-    font-size:1rem
+    font-size:1.2rem
 }
 
 #Bbear.is-outlined:focus,
@@ -374,7 +386,7 @@ a {
     color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
-    font-size:1rem !important
+    font-size:1.2rem !important
 }
 
 .position{
