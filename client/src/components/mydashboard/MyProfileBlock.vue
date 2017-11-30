@@ -318,5 +318,11 @@ a {
       PADDING-LEFT: 0PX;
       PADDING-RIGHT: 0PX;
     }
+    .subtitle {
+    margin-bottom: 0.5rem!important
+    }
+    .card-content {
+    padding: 1rem!important;
+  }
 }
 </style>
