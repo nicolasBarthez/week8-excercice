@@ -46,16 +46,21 @@
                         </div>
                            <nav id="bandB" class="level media">
                                <div id="bullsAndBears">
-                                    <div v-if="!watchItem || watchItem.position==='none'" id="BBull">
-                                        <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
+                                   <div class="mobileBandB1">
+                                        <div v-if="!watchItem || watchItem.position==='none'" id="BBull">
+                                            <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
+                                        </div>
+                                        <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     </div>
-                                    <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     <div id="bullsAndBearsPic">
                                         <img src="/static/images/bull-bear-arrow.png" alt="bull and bear">
                                     </div>
-                                    <span id="bandbdigit2">{{trendBullBear[1]}}  %</span>
-                                    <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
-                                        <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
+                                    
+                                    <div class="mobileBandB">
+                                        <span id="bandbdigit2">{{trendBullBear[1]}}  %</span>
+                                        <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
+                                            <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
+                                        </div>
                                     </div>
                                 </div>
                             </nav>
@@ -381,6 +386,24 @@ a {
     padding: 1rem;
 }
 @media (max-width: 768px) {
+    .mobileBandB1{
+        width:25%;
+        display:flex;
+        flex-direction:column-reverse;
+        align-items:center
+    }
+    .mobileBandB{
+        width:25%;
+        display:flex;
+        flex-direction:column;
+        align-items:center
+    }
+    #bullsAndBearsPic{
+        width: 40%;
+    }
+    #bullsAndBears {
+    justify-content: space-between!important;
+    }
     .fa-line-chart{
         font-size:0.65rem
     }
@@ -412,12 +435,12 @@ a {
         font-size:0.6rem;
     }
     #bandbdigit1{
-        width:50%;
+        width:90%;
         font-size:1rem!important;
         text-align:center
     }
      #bandbdigit2{
-         width:50%;
+         width:90%;
         font-size:1rem!important;
         text-align:center;
     }
@@ -434,19 +457,18 @@ a {
         display:none;
     }
     .stock-see-desc{
-        display:none;
+        font-size:0.6rem;
     }
     .subtitle {
-        display:none;
-    }
-    #bullsAndBearsPic{
-        display:none;
+        font-size:0.6rem;
     }
     #BBull{
-        width:20%
+        width:80%;
+        padding-top: 0.7rem;
     }
     #BBear{
-        width:20%
+        width:80%;
+        padding-top: 0.7rem;
     }
     #Bbull{
         PADDING-TOP:2PX;
