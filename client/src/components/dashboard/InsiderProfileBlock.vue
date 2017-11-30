@@ -283,20 +283,23 @@ a {
   .rank{
     font-size:0.8rem !important;
     margin-left: 20%!important;
-}
+  }
   .sock-info {
   width: 25%;
-}
-   #follOw{
-     display:none
-   }
-   .add-to-watchlist{
+  }
+  .subtitle {
+    margin-bottom: 1rem!important
+  }
+  .add-to-watchlist{
         display: flex;
         justify-content: flex-end
-    }
-    .stVar{
+  }
+  .stVar{
         text-align:end;
-    }
+  }
+  .card-content {
+    padding: 1rem!important;
+}
     .title.is-5{
         font-size: 0.8REM !important;
     }
