@@ -1,6 +1,12 @@
 <template>
 <trending-page v-if="this.$root.user"></trending-page>
+
 <section v-else class="hero is-fullheight">
+  <div>
+    <div class="container-logo">
+      <img src="/static/images/logo-landing.svg">
+    </div>
+  </div>
   <div class="hero-body mainLanding">
     <div class="container loggiin">
       <div >
@@ -9,6 +15,8 @@
  </div>
     </div>
   </div>
+
+
   <section class="hero separator">
     <div class="hero-body testimonials-section">
       <div class="container">
@@ -33,22 +41,26 @@
                 <img class="img" src="/static/images/Warren.jpg">
               <h4 class="separator nametesti subtitle"> Thomas</h4>
               <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  </p>
-    
+
           </div>
         </div>
       </div>
 </div>
-      <footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p>
-        "Anybody who plays the stock market not as an <strong>Insider</strong> is like a man buying cows in the moonlight." - Daniel Drew
-      </p>
-    </div>
-  </div>
+<footer>
+  <ul class="footer-list">
+      <li class="list">About Us</li>
+      <li class="list">Support</li>
+      <li class="list">Blog</li>
+      <li class="list">Press</li>
+      <li class="list">API</li>
+      <li class="list">Jobs</li>
+      <li class="list">Privacy</li>
+      <li class="list">Terms</li>
+  </ul>
+  <span>&copy; 2017 Insiders</span>
 </footer>
   </section>
-  
+
 
 
         <!-- SIGN UP MODAL -->
@@ -69,22 +81,21 @@
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
-import TrendingPage from "@/router/TrendingPage"
+import TrendingPage from "@/router/TrendingPage";
 
 export default {
-  
-  data(){
+  data() {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
-      autenticate:''
-    }
+      autenticate: ""
+    };
   },
   components: {
-    SignupModal, 
+    SignupModal,
     LoginModal,
     TrendingPage
-    },
+  },
 
   methods: {
     SignupModal() {
@@ -95,9 +106,9 @@ export default {
       this.isSignupModalActive = false;
       this.autenticate = autenticate;
       this.isLoginModalActive = true;
-    },
+    }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -137,23 +148,42 @@ body{
     background-color:#192b41!important;
 }
 
+.container-logo {
+  margin-left:  3%;
+  margin-right: 3%;
+  margin-top: 5%;
+}
+
 .loggiin{
       margin-left: 35%;
-    margin-bottom: 35%;
+    margin-bottom: 75%;
 }
 
 .mainLanding{
   background-size:cover;
   height:0;
   padding-top:50%;
-  background-image: url('/static/images/Landing-photo.jpg')
+  /*background-image: url('/static/images/Landing-photo.jpg')*/
 
 }
-.footer{
- background-color:#f9f9f9 !important;
- color:#192b41 !important;
- padding: 2rem !important;
- font-size: 1.5rem
+footer {
+  margin-top: 400px;
+  text-align: center;
+  background-color: #F9F9F9;
+}
+
+.footer-list {
+  display: inline-block;
+}
+.list {
+  display: inline-block;
+  font-weight: bold;
+  margin: 0 10px;
+  color: #1c5380;
+}
+span{
+  color: grey;
+  font-weight: 400;
 }
 .nametesti{
   margin-top:5%;
@@ -201,7 +231,7 @@ body{
   margin-right:2.5%;
   min-width:40% !important;
 }
-.loggiin{    
+.loggiin{
     margin-left: 15%!important;;
     margin-bottom: 20%;
 }
