@@ -53,7 +53,7 @@
                                         <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     </div>
                                     <div id="bullsAndBearsPic">
-                                        <img src="/static/images/bull-bear-arrow.png" alt="bull and bear">
+                                        <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
                                     </div>
                                     
                                     <div class="mobileBandB">
@@ -198,7 +198,7 @@ export default {
         justify-content:space-around;
         align-items:center
     }
-    .mobileBandB{
+.mobileBandB{
         width:25%;
         display:flex;
         justify-content:space-around;
@@ -285,7 +285,7 @@ a {
 }
 
 #bullsAndBearsPic {
-    width: 20%;
+    width: 25%;
 }
 
 #bullsAndBears {
@@ -352,6 +352,9 @@ a {
 
 .trend-b-b{
   cursor:pointer;
+}
+small{
+    font-size:1.1rem !important
 }
 
 #Bbear {
@@ -420,7 +423,7 @@ a {
         font-size:0.65rem
     }
     small{
-        font-size:0.65rem
+        font-size:0.85rem!important;
     }
     .card-content {
         padding: 0.7REM;

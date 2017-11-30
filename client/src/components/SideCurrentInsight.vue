@@ -13,9 +13,9 @@
                        <span class= "indice">{{watchItem.stockId.variation}} %</span>
                    </b>
                 </div>
-                <div  class="Symbol" id="bullAndBear">
-                <img v-if="watchItem.position ==='bull'" src="/static/images/bulls.png" alt="bulls-and-bears">
-                <img  v-else src="/static/images/bears.png" alt="bulls-and-bears">
+                <div  class="SymbolImage" id="bullAndBear">
+                <img v-if="watchItem.position ==='bull'" src="/static/images/roundBullArrow.png" alt="bulls-and-bears">
+                <img  v-else src="/static/images/roundBearArrow.png" alt="bulls-and-bears">
                 </div>
                 <div class="Symbol2" id="position">
                    <a class="stockName is-6">Performance</a>
@@ -94,7 +94,9 @@ export default {
     align-items: flex-end;
     padding-top: 5%;
 }
-
+.SymbolImage{
+    width:50%
+}
 .navbar.is-dark {
     background-color: #192b41;
     color: #f9f9f9;
