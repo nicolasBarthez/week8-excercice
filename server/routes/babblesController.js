@@ -95,8 +95,9 @@ babblesController.get(
     if (sort === "all") {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
-        if (!stock) return next(err);
-
+        if (!stock) {
+          return res.json("stock doesn't exist");
+        }
         Babble.find({ stockLink: stock._id })
           .sort({ updated_at: -1 })
           .populate("user")
@@ -109,7 +110,7 @@ babblesController.get(
     } else if (sort === "me") {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
-        if (!stock) return next(err);
+        if (!stock) return res.json("stock doesn't exist");
 
         Babble.find({ stockLink: stock._id, user: user._id })
           .sort({ updated_at: -1 })
@@ -123,7 +124,7 @@ babblesController.get(
     } else if (sort === "insidermates") {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
-        if (!stock) return next(err);
+        if (!stock) return res.json("stock doesn't exist");
 
         User.findById(user._id).then(us => {
           Babble.find({ stockLink: stock._id, user: { $in: us.following } })
@@ -159,7 +160,7 @@ babblesController.post(
       babbleImg: babbleImg,
       stockLink: stock
     });
-    
+
     newBabble.save(err => {
       if (err) {
         res.json(err);

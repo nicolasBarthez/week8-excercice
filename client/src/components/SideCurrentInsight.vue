@@ -20,7 +20,7 @@
                 <div class="Symbol2" id="position">
                    <a class="stockName is-6">Performance</a>
                    <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : watchItem.performancePoints>0, 'has-text-red' : watchItem.performancePoints<0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
-                   <b v-else class="price is-6" :class="{'has-text-green' : watchItem.performancePoints<0, 'has-text-red' : watchItem.performancePoints>0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
+                   <b v-else class="price is-6" :class="{'has-text-green' : watchItem.performancePoints>0, 'has-text-red' : watchItem.performancePoints<0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
                    </br><div id="close" action="/" method="post">
                       <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
                       :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
