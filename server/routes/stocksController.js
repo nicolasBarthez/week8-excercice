@@ -18,10 +18,10 @@ stocksController.get("/:stockName", function(req, res, next) {
   const ONE_MIN = 60 * 1000;
 
   Stock.findOne({ shortName: stock }, (err, stock) => {
-    console.log("time", new Date() - stock.updated_at.getTime());
     if (err) return next(err);
-    if (!stock) {
-      res.json("error");
+
+    if (!stock || stock == null) {
+      stock = "stock doesn't exist";
     } else if (
       stock.index.indexOf("EURONEXT PARIS") > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
