@@ -43,6 +43,9 @@
                   :placeholder-font-size="18"
                   :prevent-white-space="false"
                   :reverse-scroll-to-zoom="true"
+                  :show-loading="true"
+                  :loading-size="50"
+                  :accept="'image/*'"
                   @draw="onDraw"
                   >
                 </croppa>

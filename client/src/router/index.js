@@ -16,10 +16,7 @@ const router = new Router({
     routes: [{
             path: "/",
             component: LandingPage,
-            beforeEnter: (to, from, next) => {
-                if (this.$root.user) next("/trending");
-                else next();
-            }
+            
         },
         {
             path: "/stocks/:stockName",

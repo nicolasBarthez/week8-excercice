@@ -434,10 +434,10 @@ a {
         display:none;
     }
     .stock-see-desc{
-        display:none;
+        font-size:0.6rem;
     }
     .subtitle {
-        display:none;
+        font-size:0.6rem;
     }
     #bullsAndBearsPic{
         display:none;
