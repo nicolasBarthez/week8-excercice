@@ -96,10 +96,9 @@ The future of investing is social. Connect with other active investors before ma
   <ul class="footer-list">
       <li class="list">About Us</li>
       <li class="list">Support</li>
-      <li class="list">Blog</li>
       <li class="list">Press</li>
       <li class="list">API</li>
-      <li class="list">Jobs</li>
+      <li class="list">FAQ</li>
       <li class="list">Privacy</li>
       <li class="list">Terms</li>
   </ul>
