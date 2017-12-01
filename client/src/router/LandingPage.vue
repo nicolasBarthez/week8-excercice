@@ -25,8 +25,8 @@
     </div>
 
 
-    
-    
+
+
   <div class="sentimentLand">
   <div class="sentimentLandImage" >
     <img src="/static/images/landing/sentiment.png">
@@ -44,8 +44,8 @@
     </div>
   </div>
   </div>
-  
- 
+
+
 
   <div class="sentimentLand">
     <div class="sentimentLandText2">
@@ -90,8 +90,8 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/emmanuel.png">
               <h4 class="separator nametesti subtitle"> @emmanuel</h4>
-              <p v-if="langSelected==='EN'">” We need young Frenchmen who want to become billionaires.” (Taking about Insiders)</p>
-              <p v-else>” Il faut des jeunes Français qui aient envie de devenir milliardaires.” (en parlant des Insiders)</p>
+              <p v-if="langSelected==='EN'">” We need young Frenchmen who want to become billionaires.” </p>
+              <p v-else>” Il faut des jeunes Français qui aient envie de devenir milliardaires.” </p>
           </div>
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/daniel.png">
@@ -116,7 +116,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
   <span>&copy; 2017 Insiders</span>
 </footer>
   </section>
-  
+
 
 
 
