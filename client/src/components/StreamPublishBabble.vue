@@ -34,24 +34,21 @@
             <div>
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
-
-                <img src="/static/images/stickerPicture2.svg" class ="sticker">
-                <croppa v-model="babbleImage"
-                  :width="510"
-                  :height="300"
-                  :quality="0.7"
-                  :placeholder-font-size="18"
-                  :prevent-white-space="false"
-                  :reverse-scroll-to-zoom="true"
-                  :show-loading="true"
-                  :loading-size="50"
-                  :accept="'image/*'"
-                  @draw="onDraw"
-                  >
-                </croppa>
-
-
-    </label><br/>
+                    <img src="/static/images/stickerPicture2.svg" class ="sticker">
+                    <croppa v-model="babbleImage" 
+                        :width="width" 
+                        :height="height" 
+                        :quality="quality" 
+                        :placeholder-font-size="18" 
+                        :prevent-white-space="false"
+                        :reverse-scroll-to-zoom="true"
+                        :show-loading="true"
+                        :loading-size="50"
+                        :accept="'image/*'"
+                        @draw="onDraw"
+                        class="column"> 
+                    </croppa>
+                </label><br>
                <div class="card-content bg-light">
             <div class="media">
                 <div class="media-left">
@@ -93,17 +90,28 @@ export default {
       isShareChartActive: false,
       babbleImage: null,
       babbleUrl: "",
-      noSticker: false
+      noSticker: false,
+      width: 0,
+      height: 0,
+      quality: 0
     };
   },
   props: {
-    stock: Object,
+    stock: {
+        type: Object,
+        default: function() {
+        return { shortName: '' }
+        }
+    },
     connectedUser: Object
   },
 
   components: {},
   methods: {
     shareChart() {
+      this.width = window.visualViewport.width >= 640 ? 640 * 0.75 : window.visualViewport.width * 0.6
+      this.height = window.visualViewport.width >= 640 ? 640 * 0.75 * 0.5 : window.visualViewport.width * 0.6 * 0.5
+      this.quality = window.visualViewport.width >= 640 ? 0.7 : 640 * 0.7 / this.width
       this.isShareChartActive = true;
     },
     generateImage: function() {
@@ -121,7 +129,7 @@ export default {
     postChartBabble() {
       this.generateImage(),
         this.postBabble(),
-        (this.isShareChartActive = false);
+        this.isShareChartActive = false;
     },
     postBabble() {
       this.babble = emojify.replace(this.babble)
@@ -130,6 +138,17 @@ export default {
         this.babbleUrl = "";
         this.$emit("changeBabbles");
       });
+    },
+    putHashtag(e) {
+       if (e.data === "#" && e.target.value[e.target.value.lastIndexOf("#") - 1] === " ") {
+                console.log('Autocomplete launched')
+
+            }
+      return this.babble.length !== 1
+        ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
+          ? this.babble
+          : "#" + this.stock.shortName + "- " + this.babble
+        : (this.babble = `#${this.stock.shortName}-` + this.babble);
     }
   },
   computed: {
@@ -171,7 +190,12 @@ export default {
 .fa-line-chart{
     font-size: 15px;
 }
-
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto
+}
 .chartIcon{
     width:100%
 }

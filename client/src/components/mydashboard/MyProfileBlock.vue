@@ -123,6 +123,9 @@ export default {
 body {
   color: #192b41!important;
 }
+div {
+    font-size: 1REM!important;
+}
 .rank{
     font-size:0.8rem !important;
     margin-left: 20%!important;

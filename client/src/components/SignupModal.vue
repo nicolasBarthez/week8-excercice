@@ -74,7 +74,6 @@ export default {
         let pass = this.password;
         let authenticate = {mail, pass};
         this.$emit('loginModal', authenticate);
-        console.log('emiting the username...', authenticate);
       })
       .catch(err => {
           this.error = "error";
