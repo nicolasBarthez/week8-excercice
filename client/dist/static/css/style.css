@@ -108,11 +108,6 @@ span>a {
     display: flex;
 }
 
-#bullsAndBears {
-    justify-content: space-evenly !important;
-    width: 70% !important
-}
-
 .input.is-active,
 .input.is-focused,
 .input:active,
