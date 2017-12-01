@@ -7,56 +7,57 @@
     <img class="flag-img" @click="changeLang('FR')" src="/static/images/landing/franceFlag.png">
   </div>
   <div>
-    <div class="container-logo">
+    <div class="logo">
       <img src="/static/images/landing/logo-landing.svg">
     </div>
   </div>
-  <div class="hero-body mainLanding">
-      <div class="container">
-        <h2 v-if="langSelected==='EN'">Join the best community of investors you can trust.</h2>
-        <h2 v-else>Rejoignez la communauté des investisseurs de confiance.</h2>
-      </div>
-      <div class="container">
-        <p v-if="langSelected==='EN'">Share your insights about the pulse of the market, learn from others and have fun.</p>
-        <p v-else>Partager vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous.</p>
-      </div>
+    <div class="accroche">
+        <h1 class="accrocheH1" v-if="langSelected==='EN'">Join the best community of investors you can trust.</h1>
+        <h1 class="accrocheH1" v-else>Rejoignez la communauté des investisseurs de confiance.</h1>
+        <p class="accrocheP" v-if="langSelected==='EN'">Share your insights about the pulse of the market, learn from others and have fun.</p>
+        <p class="accrocheP" v-else>Partager vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous.</p>
     </div>
-    <div class="container loggiin">
-      <div >
-<p v-if="langSelected==='EN'" class="button is-large buttonLogin" type="button" @click="LoginModal">Login</p>
-<p v-else class="button is-large buttonLogin" type="button" @click="LoginModal">Connexion</p>
-<p v-if="langSelected==='EN'" class="button is-large buttonSignin" type="button" @click="SignupModal">Join</p>
-<p v-else class="button is-large buttonSignin" type="button" @click="SignupModal">Rejoindre</p>
- </div>
+    <div class="loggiin">
+        <p v-if="langSelected==='EN'" class="button is-large buttonLogin" type="button" @click="LoginModal">Login</p>
+        <p v-else class="button is-large buttonLogin" type="button" @click="LoginModal">Connexion</p>
+        <p v-if="langSelected==='EN'" class="button is-large buttonSignin" type="button" @click="SignupModal">Join</p>
+        <p v-else class="button is-large buttonSignin" type="button" @click="SignupModal">Rejoindre</p>
     </div>
-  </div>
-  <div class="hero-body">
-    <img src="/static/images/landing/roundBullArrow.png">
-    <img src="/static/images/landing/roundBearArrow.png">
-  </div>
-<section class="hero separator">
-  <img src="/static/images/landing/sentiment.png">
-  <div class="container">
-    <h2 v-if="langSelected==='EN'">Gauge the real time sentiment of the market.</h2>
-    <h2 v-else>Évaluer le sentiment en temps réel du marché.</h2>
-  </div>
-  <div class="container">
-    <p v-if="langSelected==='EN'">Check the level of bullishness and bearishness around a stock before you make your next investment.</p>
-    <p v-else>Vérifiez le niveau de tendance haussière et baissière d'une action avant de faire votre prochain investissement.</p>
-  </div>
-</section>
-<section class="hero separator">
-  <div class="container">
-    <h2 v-if="langSelected==='EN'">Real time insights.</h2>
-    <h2 v-else>Des infos en temps réel</h2>
-  </div>
-  <div class="container">
-    <p v-if="langSelected==='EN'">Quickly catch up on what is happening with the stocks you own and which companies everyone is talking about today.</p>
-    <p v-else>Retrouver rapidement ce qui se passe avec les actions que vous possédez et dont tout le monde parle aujourd'hui.</p>
-  </div>
-  <img src="/static/images/landing/give-insight.gif">
 
-</section>
+
+    
+    
+  <div class="sentimentLand">
+  <div class="sentimentLandImage" >
+    <img src="/static/images/landing/sentiment.png">
+  </div>
+  <div class="sentimentLandText">
+    <div class="sentimentLandBull">
+      <img src="/static/images/landing/roundBullArrow.png">
+    </div>
+    <h1 class="accrocheH1" v-if="langSelected==='EN'">Gauge the real time sentiment of the market.</h1>
+    <h1 class="accrocheH1" v-else>Évaluer le sentiment en temps réel du marché.</h1>
+    <p class="accrocheP" v-if="langSelected==='EN'">Check the level of bullishness and bearishness around a stock before you make your next investment.</p>
+    <p class="accrocheP" v-else>Vérifiez le niveau de tendance haussière et baissière d'une action avant de faire votre prochain investissement.</p>
+    <div class="sentimentLandBear">
+      <img src="/static/images/landing/roundBearArrow.png">
+    </div>
+  </div>
+  </div>
+  
+ 
+
+  <div class="sentimentLand">
+    <div class="sentimentLandText2">
+      <h1 class="accrocheH1" v-if="langSelected==='EN'">Real time insights.</h1>
+      <h1 class="accrocheH1" v-else>Des infos en temps réel</h1>
+      <p class="accrocheP" v-if="langSelected==='EN'">Quickly catch up on what is happening with the stocks you own and which companies everyone is talking about today.</p>
+      <p class="accrocheP" v-else>Retrouver rapidement ce qui se passe avec les actions que vous possédez et dont tout le monde parle aujourd'hui.</p>
+    </div>
+    <div class="sentimentLandImage2" >
+      <img src="/static/images/landing/give-insight.gif">
+    </div>
+</div>
 <section class="hero separator">
   <img src="/static/images/landing/Financial-tips.png">
   <div class="container">
@@ -115,6 +116,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
   <span>&copy; 2017 Insiders</span>
 </footer>
   </section>
+  
 
 
 
@@ -174,8 +176,66 @@ export default {
 
 <style scoped>
 
-body{
-  font-family:roboto
+body
+.sentimentLand{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2.5rem
+}
+.sentimentLandImage{
+  width:100%;
+  DISPLAY: flex;
+  align-items: center;
+  margin-right: 1.5rem
+}
+.sentimentLandText{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sentimentLandBull{
+  width:100%;
+  padding-bottom: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.sentimentLandBear{
+  padding-top: 1.5rem;
+  width:80%;
+  display: flex;
+  justify-content: flex-start;
+}
+.sentimentLandImage2{
+  width:100%;
+  DISPLAY: flex;
+  align-items: center;
+  margin-right: 1.5rem
+}
+.sentimentLandText2{
+  width:50%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.accroche{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5REM;
+  PADDING-TOP: 5REM;
+}
+.accrocheH1{
+  font-size: 2rem;
+  color:#192b41;
+  text-align: center
+}
+.accrocheP{
+  font-size:1.5rem;
+  color:#192b41;
+  text-align: center;
+  font-style: italic
 }
 .flag{
   display: flex;
@@ -188,18 +248,17 @@ body{
   padding: 5px;
 }
 
-
 .buttonSignin{
   margin-left:2.5%;
   min-width:20%;
-   border-color: #f9f9f9 !important;
-    background-color:#f9f9f9 !important;
- color:#192b41 !important;
+  border-color: #192b41 !important;
+  background-color:#f9f9f9 !important;
+  color:#192b41 !important;
 }
 .buttonLogin{
   margin-right:2.5%;
   min-width:20%;
-   border-color: #f9f9f9 !important;
+   border-color: #192b41 !important;
     background-color:#f9f9f9 !important;
  color:#192b41 !important;
 }
@@ -221,16 +280,13 @@ body{
     background-color:#192b41!important;
 }
 
-.container-logo {
-  margin-left:  auto;
-  margin-right: auto;
-  margin-top: 3%;
+.logo{
+  margin: auto;
   width: 70%;
 }
-
 .loggiin{
-      margin-left: 35%;
-    margin-bottom: 85%;
+  display: flex;
+    justify-content: center;
 }
 
 .mainLanding{
