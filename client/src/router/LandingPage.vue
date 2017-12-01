@@ -260,6 +260,7 @@ body
   width:10vh;
   height: 10vh;
   padding: 5px;
+  cursor: pointer;
 }
 
 .buttonSignin{
@@ -362,5 +363,55 @@ span{
   text-align: center !important;
 }
 @media screen and (max-width: 768px) {
+  .accrocheH1{
+    font-size: 1.5rem;
+  }
+  .accrocheP{
+    font-size:1rem;
+  }
+  .accroche{
+    PADDING-TOP: 2.5REM;
+  }
+  .sentimentLand{
+    flex-direction: column;
+    padding: 0rem !important;
+    padding-top: 2.5rem !important;
+  }
+  .sentimentLandImage{
+    margin-right: 0rem;
+    padding-bottom: 1.5REM;
+  }
+  .sentimentLandBear{
+    width:100%
+  }
+  .sentimentLandText2 {
+    width: 100%;
+  }
+  .sentimentLandImage2{
+    width: 100%;
+    margin-right: 0rem;
+    justify-content: center;
+    padding-top:2.5rem
+  }
+  .sentimentLandImage2 > img{
+    width:50%
+  }
+  .sentimentLand3{
+    flex-direction: column-reverse;
+    padding: 0rem !important;
+    padding-top: 2.5rem !important;
+  }
+  .sentimentLandImage3 {
+    width: 100%;
+    margin-right: 0rem;
+  }
+  .hero-body {
+    padding: 2rem 1rem!important
+  }
+  .nametesti{
+    margin-top: 5%;
+    margin-bottom:5%!important
+  }
+
 }
 </style>
