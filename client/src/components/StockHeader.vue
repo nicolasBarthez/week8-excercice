@@ -56,7 +56,7 @@
                                         <small class="trendingDigitMobileSmall"> Insiders are&nbsp;<strong class ="has-text-green">Bullish: </strong>&nbsp;<strong><span id="bandbdigit1"> {{trendBullBear[0]}} %</span></strong></small>
                                     </div>
                                     <div class="trenDingDigitMobile" v-else>
-                                        <small> Insiders are <strong class ="has-text-red">Bearish </strong>: </small><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong>
+                                        <small class="trendingDigitMobileSmall"> Insiders are <strong class ="has-text-red">Bearish </strong>: </small><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong>
                                     </div>
                                <div id="bullsAndBears">
                                    <div class="mobileBandB1">
@@ -86,13 +86,13 @@
                             </nav>
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >{{connectedUser.lang==='EN'?'Last 24 hours':'24h dernières heures'}}</small></a>
+                                    <a @click="trend1()" :class="{'has-text-blue':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >{{connectedUser.lang==='EN'?'Last 24 hours':'24h dernières heures'}}</small></a>
                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
 
-                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >{{connectedUser.lang==='EN'?'Last week':'7 derniers jours'}}</small></a>
+                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-blue':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >{{connectedUser.lang==='EN'?'Last week':'7 derniers jours'}}</small></a>
                                  &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
 
-                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >{{connectedUser.lang==='EN'?'Last month':'30 derniers jours'}}</small></a>
+                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-blue':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >{{connectedUser.lang==='EN'?'Last month':'30 derniers jours'}}</small></a>
                                 </div>
                             </div>
                         </div>
@@ -456,8 +456,8 @@ small{
     padding: 1rem;
 }
 @media (max-width: 768px) {
-    .trendingDigitMobileSmall{
-    display: flex;
+    .trendingDigitMobile{
+    display: flex!important;
     align-items: baseline;
     }
     #bandB{
