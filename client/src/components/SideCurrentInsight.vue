@@ -1,10 +1,11 @@
 <template>
-  <div  v-if="watchInsight" class="column is-3 sideRecent mainSCI">
+  <div  v-if="connectedUser" class="column is-3 sideRecent mainSCI">
     <div class="is-sticky">
         <nav class="navbar is-dark">
-               <p id="currentInsight" class="babMenu navbar-item whiteci">Current Insights</p>
+               <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
+               <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
         </nav>
-        <div v-if="watchInsight" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
+        <div v-if="watchInsight.length>0" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <router-link :to="'/stocks/'+watchItem.stockId.shortName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.shortName.length<7 ? watchItem.stockId.shortName : watchItem.stockId.shortName }}</router-link><br>
@@ -18,14 +19,14 @@
                 <img  v-else src="/static/images/roundBearArrow.png" alt="bulls-and-bears">
                 </div>
                 <div class="Symbol2" id="position">
-                   <a class="stockName is-6">Potential P$</a>
+                   <a class="stockName is-6">{{connectedUser.lang==='EN'?'Potential':'Potentiel'}} P$</a>
                    <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : Math.floor(1000*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
                    <b v-else class="price is-6" :class="{'has-text-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
                    <br><div id="close">
                       <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close</button>
+                      :class="{'btn-green' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
                       <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close</button>
+                      :class="{'btn-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
                    </div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                <p id="currentInsight" class="babMenu navbar-item is-tab is-active"> Current Insights</p>
         </nav>
         <div class="card profile-card">
-            <p>Take position on a stock to share your insights !!!</p>
+            <p v-if="connectedUser.lang==='EN'">Take position on a stock to share your insights !!!</p>
+            <p v-else >Prenez position et partager vos intuitions sur le marché !!!</p>
         </div>
     </div>
   </div>
@@ -53,7 +55,8 @@ export default {
   },
 
   props: {
-    watchInsight: null
+    watchInsight: null,
+    connectedUser: Object
   },
 
   methods: {

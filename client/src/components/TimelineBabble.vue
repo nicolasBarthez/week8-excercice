@@ -3,9 +3,9 @@
      <div>
     <nav class="navbar is-dark">
       <div class="babblesMenu">
-            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="babMenu navbar-item is-tab ">All</a>
-            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="babMenu navbar-item is-tab">Insider Mates</a>
-            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="babMenu navbar-item is-tab ">My Posts</a>
+            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="babMenu navbar-item is-tab "> {{connectedUser.lang==="EN"?"All":"Tous"}}</a>
+            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="babMenu navbar-item is-tab">{{connectedUser.lang==="EN"?"Insider Mates":"Amis insiders"}}</a>
+            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="babMenu navbar-item is-tab ">{{connectedUser.lang==="EN"?"My Babbles":"Mes babbles"}}</a>
       </div>
   </nav>
     <div class="card">
@@ -82,7 +82,7 @@
 
                             </p>
                             <p v-html="modalBabble.babble" class="tweet-body has-text-grey babble-body">
-                                
+
                            </p>
                         </div>
                         <nav class="media-right">
@@ -116,7 +116,7 @@
                                    <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
                             <p v-html="reply.babble" class="tweet-body has-text-grey babble-body">
-                                
+
                            </p>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
 import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
-import emojify from 'emojify.js'
+import emojify from "emojify.js";
 
 export default {
   data() {
@@ -212,7 +212,7 @@ export default {
     },
 
     postBabble(modalBabble) {
-      this.babbleText = emojify.replace(this.babbleText)
+      this.babbleText = emojify.replace(this.babbleText);
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
         this.babbleText = "";
         this.isCardModalActive = false;
@@ -263,7 +263,7 @@ export default {
     }
   },
   created() {
-            emojify.setConfig({img_dir: "/static/images/basic"})
+    emojify.setConfig({ img_dir: "/static/images/basic" });
   }
 };
 </script>

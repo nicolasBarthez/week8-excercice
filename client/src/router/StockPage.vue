@@ -1,15 +1,15 @@
 <template>
 <not-found v-if="stock==='no stock'"></not-found>
   <section v-else class="section main">
-    <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
+    <stock-header v-if="stock" :connectedUser="connectedUser" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="primordial">
       <div class="sct1">
-        <side-recent-activity  class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  :connectedUser="connectedUser" class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
         </div>
-        <side-current-insight  class="is-sticky sci" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <side-current-insight  :connectedUser="connectedUser" class="is-sticky sci" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
       </div>
     </div>
   </section>

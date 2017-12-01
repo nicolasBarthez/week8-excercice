@@ -3,10 +3,10 @@
         <div>
    <nav class="navbar is-dark">
       <div class="babblesMenu">
-            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="navbar-item is-tab babMenu">All</a>
-            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="navbar-item is-tab babMenu">Insider Mates</a>
-            <a  @click="sortBabbles('watchlist')" :class="{'is-active':activeItem ==='watchlist'}" class="navbar-item is-tab babMenu">Watch List</a>
-            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="navbar-item is-tab babMenu">My Posts</a>
+            <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"All":"Tous"}}</a>
+            <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"Insider Mates":"Amis insiders"}}</a>
+            <a  @click="sortBabbles('watchlist')" :class="{'is-active':activeItem ==='watchlist'}" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"Watch List":"Liste de suivi"}}</a>
+            <a  @click="sortBabbles('me')" :class="{'is-active':activeItem ==='me'}" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"My babbles":"Mes babbles"}}</a>
       </div>
   </nav>
 
@@ -87,7 +87,7 @@
 
                             </p>
                             <p v-html="modalBabble.babble" class="tweet-body has-text-grey modalBabble babble-body">
-                                
+
                            </p>
                         </div>
                         <nav class="media-right">
@@ -121,7 +121,7 @@
                                    <small class="media-right has-text-grey-light">{{moment(reply.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>
                             <p v-html="reply.babble" class="tweet-body has-text-grey babble-body">
-                               
+
                            </p>
                         </div>
                     </div>
@@ -166,7 +166,7 @@
 import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
-import emojify from 'emojify.js'
+import emojify from "emojify.js";
 
 export default {
   data() {
@@ -213,7 +213,7 @@ export default {
       this.activeItem = activeItem;
     },
     postBabble(modalBabble) {
-      this.babbleText = emojify.replace(this.babbleText)
+      this.babbleText = emojify.replace(this.babbleText);
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
         this.babbleText = "";
         this.isCardModalActive = false;
@@ -264,9 +264,8 @@ export default {
     }
   },
   created() {
-            emojify.setConfig({img_dir: "/static/images/basic"})
+    emojify.setConfig({ img_dir: "/static/images/basic" });
   }
-
 };
 </script>
 

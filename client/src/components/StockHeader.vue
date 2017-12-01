@@ -17,17 +17,17 @@
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
-                              <a v-if="stock.index[0]==='EURONEXT PARIS'"@click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">More info...</a>
+                              <a v-if="stock.index[0]==='EURONEXT PARIS'"@click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">{{connectedUser.lang==="EN"?"More info...":"Plus d'info..."}}</a>
                             </div>
                             <div class="add-to-watchlist" >
-                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to watchlist</button>
-                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove</button>
+                               <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Add to watchlist':'Je veux suivre'}}</button>
+                               <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Remove':'Ne plus suivre'}}</button>
                                <p class="position" v-else>
                                    <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close Position</button>
+                      :class="{'btn-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
                       <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close Position</button>
-                  
+                      :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
+
                                  <strong v-if="watchItem.position ==='bull'" class="pos" :class="{'has-text-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
                                       {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
                                 <strong v-else class="pos" :class="{'has-text-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
@@ -42,7 +42,7 @@
                                 <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
                                 <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
                                  <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2.toFixed(2)}} %</small>
-                                
+
                                 </div>
                                     <span v-if="stock.index[0]==='nasdaq'" class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
@@ -61,7 +61,7 @@
                                     <div id="bullsAndBearsPic">
                                         <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
                                     </div>
-                                    
+
                                     <div class="mobileBandB">
                                         <span id="bandbdigit2">{{trendBullBear[1]}}  %</span>
                                         <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
@@ -72,13 +72,13 @@
                             </nav>
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
+                                    <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >{{connectedUser.lang==='EN'?'Last 24 hours':'24h dernières heures'}}</small></a>
                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
-                            
-                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
+
+                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >{{connectedUser.lang==='EN'?'Last week':'7 derniers jours'}}</small></a>
                                  &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
 
-                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
+                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >{{connectedUser.lang==='EN'?'Last month':'30 derniers jours'}}</small></a>
                                 </div>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
             <div class="mediaModal">
                 <nav id="bandB" class="level media">
                     <h1 class="modalTitle">
-                        More info about {{stock.longName}} !
+                        {{connectedUser.lang==="EN"?"More info about ":"Plus d'info sur "}}{{stock.longName}} !
                     </h1>
                 </nav>
                 <div id="bullsAndBears2">
@@ -119,7 +119,8 @@ export default {
   props: {
     stock: Object,
     watchItem: Object,
-    trendBullBear: Array
+    trendBullBear: Array,
+    connectedUser: Object
   },
   data() {
     return {

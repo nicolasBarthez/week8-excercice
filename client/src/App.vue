@@ -3,7 +3,7 @@
 
     <nav-bar v-if="this.$root.user"></nav-bar>
     <landing-page v-if="!this.$root.user"></landing-page>
-    <router-view v-else class="wrapper"></router-view>
+    <router-view :connectedUser="connectedUser" v-else class="wrapper"></router-view>
 
   </div>
 </template>
@@ -19,11 +19,21 @@ export default {
     NavBar,
     LandingPage
   },
+  data() {
+    return {
+      connectedUser: null
+    };
+  },
   methods: {
     logout() {
       logout(this.$root);
       this.$router.push("/");
     }
+  },
+  created() {
+    getUser().then(user => {
+      this.connectedUser = user;
+    });
   }
 };
 </script>

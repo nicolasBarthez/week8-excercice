@@ -3,12 +3,12 @@
   <section class="section main sideRecent">
     <div class="primordial">
       <div class="sct1">
-        <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  :connectedUser="connectedUser" class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <stream-publish-babble :connectedUser="connectedUser" @changeBabbles="updateTimelineBabble($event)"></stream-publish-babble>
          <stream-timeline-babble :connectedUser="connectedUser" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></stream-timeline-babble>
         </div>
-        <side-current-insight  class="is-sticky" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
+        <side-current-insight  :connectedUser="connectedUser" class="is-sticky" :watchInsight ="watchInsight" @changeWatchlist="updateWatchList($event)"></side-current-insight>
       </div>
     </div>
   </section>
@@ -31,9 +31,11 @@ export default {
       watchItem: null,
       watchInsight: null,
       babbles: null,
-      recentPositions: null,
-      connectedUser: null
+      recentPositions: null
     };
+  },
+  props: {
+    connectedUser: Object
   },
   components: {
     SideCurrentInsight,
@@ -73,11 +75,11 @@ export default {
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;
       });
-      getUser().then(connectedUser => {
-        this.connectedUser = connectedUser;
-      });
+      // getUser().then(connectedUser => {
+      //   this.connectedUser = connectedUser;
+      // });
     }
-},
+  },
   created() {
     this.fetchData();
   },

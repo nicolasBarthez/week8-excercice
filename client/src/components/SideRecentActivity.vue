@@ -1,7 +1,8 @@
 <template>
   <div class="column is-3">
-    <div class="box">
-        <p><span class="title is-5">Recent position</span></p>
+    <div v-if="connectedUser"class="box">
+        <p v-if="connectedUser.lang==='EN'"><span class="title is-5">Recent position</span></p>
+        <p v-else><span class="title is-5">Dernières positions prises</span></p>
         <hr>
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
             <div class="picss column is-12 is-marginless">
@@ -16,9 +17,10 @@
                     <router-link :to="'/dashboard/'+recentPosition.userId._id" >
                         <strong>&commat;{{recentPosition.userId.username}}</strong>
                     </router-link>
-                    <span>is <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> on <br> <router-link :to="'/stocks/'+recentPosition.stockId.shortName" >#{{recentPosition.stockId.longName}}</router-link>
+                    <span>{{connectedUser.lang==='EN'?"is":"est"}} <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> {{connectedUser.lang==='EN'?"on":"sur"}} <br> <router-link :to="'/stocks/'+recentPosition.stockId.shortName" >#{{recentPosition.stockId.longName}}</router-link>
                     </span><br>
-                    <span class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} Insiders</span><br>
+                    <span v-if="connectedUser.lang==='EN'" class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} Insiders</span>
+                    <span v-else class = "seeDash">Suivi par {{recentPosition.userId.nbFollower}} Insiders</span><br>
                     </p>
             </div>
         </div>
@@ -29,7 +31,8 @@
 <script>
 export default {
   props: {
-    recentPositions: null
+    recentPositions: null,
+    connectedUser: Object
   }
 };
 </script>

@@ -9,7 +9,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -18,7 +18,7 @@
                             <div class="level-left">
                                 <a class="has-text-grey-light">
                                     <span @click="shareChart()" class="icon chartIcon">
-                                         <i class="fa fa-line-chart"></i>&nbsp Share a chart
+                                         <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}
                                     </span>
                                 </a>
                             </div>
@@ -53,21 +53,21 @@
             <div class="mediaModal">
             <div>
                  <label> <span class="icon chartIcon">
-                    <i class="fa fa-line-chart"></i>&nbsp Share your chart</span>
+                    <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}</span>
                     <img src="/static/images/stickerPicture2.svg" class ="sticker">
-                    <croppa v-model="babbleImage" 
-                        :width="width" 
-                        :height="height" 
-                        :quality="quality" 
-                        :placeholder-font-size="18" 
+                    <croppa v-model="babbleImage"
+                        :width="width"
+                        :height="height"
+                        :quality="quality"
+                        :placeholder-font-size="18"
                         :prevent-white-space="false"
                         :reverse-scroll-to-zoom="true"
                         :show-loading="true"
                         :loading-size="50"
                         :accept="'image/*'"
                         @draw="onDraw"
-                        class="column"> 
-                    </croppa> 
+                        class="column">
+                    </croppa>
                 </label><br>
                 <div class="card-content bg-light">
                 <div class="media">
@@ -78,7 +78,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="'Write here your info about '+'#'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -107,9 +107,7 @@
 import { sendBabble } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
-import emojify from 'emojify.js'
-
-
+import emojify from "emojify.js";
 
 export default {
   data() {
@@ -128,21 +126,27 @@ export default {
   },
   props: {
     stock: {
-        type: Object,
-        default: function() {
-        return { shortName: '' }
-        }
+      type: Object,
+      default: function() {
+        return { shortName: "" };
+      }
     },
     connectedUser: Object,
     watchItem: Object
   },
 
-
   methods: {
     shareChart() {
-      this.width = window.visualViewport.width >= 640 ? 640 * 0.75 : window.visualViewport.width * 0.6
-      this.height = window.visualViewport.width >= 640 ? 640 * 0.75 * 0.5 : window.visualViewport.width * 0.6 * 0.5
-      this.quality = window.visualViewport.width >= 640 ? 0.7 : 640 * 0.7 / this.width
+      this.width =
+        window.visualViewport.width >= 640
+          ? 640 * 0.75
+          : window.visualViewport.width * 0.6;
+      this.height =
+        window.visualViewport.width >= 640
+          ? 640 * 0.75 * 0.5
+          : window.visualViewport.width * 0.6 * 0.5;
+      this.quality =
+        window.visualViewport.width >= 640 ? 0.7 : 640 * 0.7 / this.width;
       this.isShareChartActive = true;
     },
     generateImage: function() {
@@ -159,16 +163,16 @@ export default {
     },
     postChartBabble() {
       this.generateImage(),
-      this.postBabble(),
-      this.isShareChartActive = false;
+        this.postBabble(),
+        (this.isShareChartActive = false);
     },
 
     postBabble() {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
-      this.babble = emojify.replace(this.babble)
-      sendBabble(this.babble, this.stock._id,this.babbleUrl).then(() => {
+      this.babble = emojify.replace(this.babble);
+      sendBabble(this.babble, this.stock._id, this.babbleUrl).then(() => {
         this.babble = "";
         this.babbleUrl = "";
         this.$emit("changeBabbles");
@@ -190,10 +194,12 @@ export default {
     },
 
     putHashtag(e) {
-       if (e.data === "#" && e.target.value[e.target.value.lastIndexOf("#") - 1] === " ") {
-                console.log('Autocomplete launched')
-
-            }
+      if (
+        e.data === "#" &&
+        e.target.value[e.target.value.lastIndexOf("#") - 1] === " "
+      ) {
+        console.log("Autocomplete launched");
+      }
       return this.babble.length !== 1
         ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
           ? this.babble
@@ -209,7 +215,7 @@ export default {
     }
   },
   created() {
-            emojify.setConfig({img_dir: "/static/images/basic"})
+    emojify.setConfig({ img_dir: "/static/images/basic" });
   }
 };
 </script>

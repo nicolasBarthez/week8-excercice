@@ -2,7 +2,7 @@
   <nav class="nav has-shadow" id="top">
         <div id="top2">
             <div class="nav">
-                <router-link to="/trending" class="nav-item"> 
+                <router-link to="/trending" class="nav-item">
                     <img id="logo2" src="/static/images//logoReduct.png" alt="Description">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
@@ -14,7 +14,7 @@
                         <b-field>
                             <b-autocomplete
                                 v-model="name"
-                                placeholder="Find a stock"
+                                :placeholder="connectedUser.lang==='EN' ?'Find a stock / crypto':'Retrouver une action / crypto'"
                                 :data="filteredDataObj"
                                 field="longName"
                                 @select="onSelect($event)"
@@ -34,13 +34,13 @@
                 <span></span>
             </label>
 
-            
+
 
             <div :class="{'closedToggle':closedState ===false}" class="nav-right nav-menu" >
-                
+
                 <div id="menu"@click="closetoggle()">
-                 <router-link v-for="(link, index) in navbarLinks" :key="index" :to="link.location" 
-                    class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ link.text }}
+                 <router-link  v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
+                    class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ connectedUser.lang==="EN" ? link.text : link.textfr }}
                 </router-link>
                 </div>
                 <div @click="closetoggle()" class="nav-profile" v-if="$root.user">
@@ -54,7 +54,7 @@
                         <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
                        </router-link>
                         <div class="nav-status">
-                            <a class="navbar-item" @click.prevent="logout" v-if="$root.user">Logout</a>
+                            <a class="navbar-item" @click.prevent="logout" v-if="$root.user">{{connectedUser.lang==="EN" ? "Logout" : "Déconnexion"}}</a>
                         </div>
                     </div>
                 </div>
@@ -71,15 +71,15 @@ export default {
   data() {
     return {
       navbarLinks: [
-        { location: "/stream", text: "Stream" },
-        { location: "/trending", text: "Trending" },
-        { location: "/leaderboard", text: "Leaderboard" }
+        { location: "/stream", text: "Stream", textfr: "Flux d'actualités" },
+        { location: "/trending", text: "Trending", textfr: "Tendance" },
+        { location: "/leaderboard", text: "Leaderboard", textfr: "Leaderboard" }
       ],
       connectedUser: null,
       data: null,
       name: "",
       selected: null,
-      closedState:true,
+      closedState: true
     };
   },
   methods: {
@@ -93,8 +93,8 @@ export default {
         this.$router.push("/stocks/" + stock.shortName.toLowerCase());
       }
     },
-    closetoggle(){
-        this.closedState=!this.closedState
+    closetoggle() {
+      this.closedState = !this.closedState;
     }
   },
   watch: {
@@ -106,9 +106,9 @@ export default {
       }
     },
     $route() {
-        getUser().then(data => {
-            this.connectedUser = data;
-        });
+      getUser().then(data => {
+        this.connectedUser = data;
+      });
     }
   },
   computed: {
@@ -184,7 +184,7 @@ a{
     -ms-flex-pack: end;
     justify-content: flex-end!important;
     overflow: hidden!important;
-    
+
 }
 
 .nav-user-name {
