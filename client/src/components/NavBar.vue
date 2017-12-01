@@ -156,7 +156,7 @@ a{
     display: none;
 }
 .menu1{
-    font-size:1.3rem
+    font-size:1.2rem;
 }
 #nav-toggle-state:checked ~ .nav-menu {
   display: flex;
@@ -183,6 +183,7 @@ a{
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     justify-content: flex-end!important;
+    overflow: hidden!important;
     
 }
 

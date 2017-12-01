@@ -23,8 +23,14 @@
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">Add to watchlist</button>
                                <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">Remove</button>
                                <p class="position" v-else>
-                                <button id="adWL" @click="closePosition()"class="button is-small is-outlined is-primary">Close Position</button>
-                                 <strong class="pos" :class="{'has-text-green' : watchItem.position==='bull', 'has-text-red' : watchItem.position==='bear'}">
+                                   <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
+                      :class="{'btn-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close Position</button>
+                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
+                      :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close Position</button>
+                  
+                                 <strong v-if="watchItem.position ==='bull'" class="pos" :class="{'has-text-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
+                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
+                                <strong v-else class="pos" :class="{'has-text-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
                                       {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
                               </p>
                             </div>
@@ -189,6 +195,52 @@ export default {
 </script>
 
 <style scoped>
+.btn-red.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    font-size:1.2rem !important;
+    color: #ff6026;
+    box-shadow: 0 0 0 0.125em #ff6026;
+    border-color: #ff6026;
+}
+.btn-red.is-outlined:focus,
+.btn-red.is-outlined:hover {
+    background-color: #ff6026!important;
+    border-color: #ff6026!important;
+    color: #fff!important;
+}
+.btn-green.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    font-size:1.2rem !important;
+    color: #21ce99;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+}
+
+.btn-green.is-outlined:focus,
+.btn-green.is-outlined:hover {
+    background-color: #21ce99!important;
+    border-color: #21ce99!important;
+    color: #fff!important;
+}
+.btn.button.is-small.is-outlined.is-primary {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    font-size:1.2rem !important;
+    color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+}
+
+.btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {
+    background-color: #192b41!important;
+    border-color: #192b41!important;
+    color: #fff!important;
+}
 .title, .subtitle {
     word-break: initial;
 }

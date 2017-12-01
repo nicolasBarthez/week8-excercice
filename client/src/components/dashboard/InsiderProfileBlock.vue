@@ -165,6 +165,9 @@ export default {
 body {
   color: #192b41!important;
 }
+div {
+    font-size: 1REM!important;
+}
 .rank{
   margin-left:35%!important
 }

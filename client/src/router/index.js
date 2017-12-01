@@ -16,7 +16,7 @@ const router = new Router({
     routes: [{
             path: "/",
             component: LandingPage,
-            
+
         },
         {
             path: "/stocks/:stockName",

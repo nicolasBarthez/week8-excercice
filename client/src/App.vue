@@ -32,9 +32,6 @@ export default {
 .container {
     max-width: 95%;
 }
-div{
-   font-size:1rem !important
-}
 .has-text-centered{
   font-size:1rem !important
 }

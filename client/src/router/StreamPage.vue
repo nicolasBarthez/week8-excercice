@@ -1,6 +1,6 @@
 <template>
 
-  <section v-else class="section main sideRecent">
+  <section class="section main sideRecent">
     <div class="primordial">
       <div class="sct1">
         <side-recent-activity  class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>

@@ -19,14 +19,13 @@
                 </div>
                 <div class="Symbol2" id="position">
                    <a class="stockName is-6">Potential P$</a>
-                   <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : watchItem.performancePoints>0, 'has-text-red' : watchItem.performancePoints<0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
-                   <b v-else class="price is-6" :class="{'has-text-green' : watchItem.performancePoints>0, 'has-text-red' : watchItem.performancePoints<0}">{{watchItem.performancePoints.toFixed(0)}}&nbsp;P$</b>
-                   </br><div id="close" action="/" method="post">
+                   <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : Math.floor(1000*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
+                   <b v-else class="price is-6" :class="{'has-text-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
+                   <br><div id="close">
                       <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
+                      :class="{'btn-green' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close</button>
                       <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : watchItem.performancePoints>0, 'btn-red' : watchItem.performancePoints<0, 'btn' : watchItem.performancePoints===0}">Close</button>
-
+                      :class="{'btn-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">Close</button>
                    </div>
                 </div>
             </div>
@@ -80,14 +79,14 @@ export default {
 
 .Symbol {
     color: #192b41 !important;
-    width: 40%;
+    width: 35%;
     DISPLAY: FLEX;
     FLEX-DIRECTION: column;
     justify-content: center;
 }
 .Symbol2 {
     color: #192b41 !important;
-    width: 40%;
+    width: 30%;
     DISPLAY: FLEX;
     FLEX-DIRECTION: column;
     justify-content: center;
@@ -95,7 +94,9 @@ export default {
     padding-top: 5%;
 }
 .SymbolImage{
-    width:50%
+    width:40%;
+    DISPLAY: flex;
+    align-items: center;
 }
 .navbar.is-dark {
     background-color: #192b41;
@@ -117,7 +118,7 @@ export default {
     display: flex;
 }
 .stockName {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: bolder;
     color:#192b41
 }
@@ -139,7 +140,7 @@ export default {
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
     font-weight: bolder;
-    FONT-SIZE: 1REM;
+    FONT-SIZE: 0.8REM;
 }
 .btn-red.is-outlined:focus,
 .btn-red.is-outlined:hover {
@@ -154,7 +155,7 @@ export default {
     box-shadow: 0 0 0 0.125em #21ce99;
     border-color: #21ce99;
     font-weight: bolder;
-    FONT-SIZE: 1REM;
+    FONT-SIZE: 0.8REM;
 }
 
 .btn-green.is-outlined:focus,
@@ -170,7 +171,7 @@ export default {
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
     font-weight: bolder;
-    FONT-SIZE: 1REM;
+    FONT-SIZE: 0.8REM;
 }
 
 .btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {

@@ -53,8 +53,11 @@
                     {{(100*-(props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
 
-                <b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Potential P$">
-                    {{ props.row.performancePoints.toFixed(0) }} P$
+                <b-table-column v-if=" props.row.position==='bull'" field='performancePoints' :class="{'has-text-green': Math.floor(1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice)>0, 'has-text-red' : Math.floor(1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice)<0 }" numeric sortable centered label="Potential P$">
+                    {{  Math.floor(1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice) }} P$
+                </b-table-column>
+                <b-table-column v-else field='performancePoints' :class="{'has-text-green': Math.floor(-1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice)>0, 'has-text-red' : Math.floor(-1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice)<0 }" numeric sortable centered label="Potential P$">
+                    {{  Math.floor(-1000* (props.row.stockId.price-props.row.initialPrice)/props.row.initialPrice) }} P$
                 </b-table-column>
 
             </template>
