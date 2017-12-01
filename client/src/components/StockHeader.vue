@@ -50,20 +50,33 @@
 
                            </div>
                         </div>
+                        
                            <nav id="bandB" class="level media">
+                               <div id='Last' class="trenDingDigitMobile" v-if="trendBullBear[0]>=trendBullBear[1]">
+                                        <small class="trendingDigitMobileSmall"> Insiders are&nbsp;<strong class ="has-text-green">Bullish: </strong>&nbsp;<strong><span id="bandbdigit1"> {{trendBullBear[0]}} %</span></strong></small>
+                                    </div>
+                                    <div class="trenDingDigitMobile" v-else>
+                                        <small> Insiders are <strong class ="has-text-red">Bearish </strong>: </small><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong>
+                                    </div>
                                <div id="bullsAndBears">
                                    <div class="mobileBandB1">
                                         <div v-if="!watchItem || watchItem.position==='none'" id="BBull">
                                             <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                                         </div>
-                                        <span id="bandbdigit1">{{trendBullBear[0]}}  %</span>
                                     </div>
                                     <div id="bullsAndBearsPic">
-                                        <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
+                                        <img src="/static/images/roundBullArrow.png" alt="bull and bear">
                                     </div>
-                                    
+                                    <div class="trenDingDigit" v-if="trendBullBear[0]>=trendBullBear[1]">
+                                        <small> Insiders are <strong class ="has-text-green">Bullish </strong>: </small><strong><span id="bandbdigit1"> {{trendBullBear[0]}} %</span></strong>
+                                    </div>
+                                    <div class="trenDingDigit" v-else>
+                                        <small> Insiders are <strong class ="has-text-red">Bearish </strong>: </small><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong>
+                                    </div>
+                                    <div id="bullsAndBearsPic">
+                                        <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                                    </div>
                                     <div class="mobileBandB">
-                                        <span id="bandbdigit2">{{trendBullBear[1]}}  %</span>
                                         <div v-if="!watchItem ||watchItem.position==='none'" id="BBear">
                                             <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
                                         </div>
@@ -72,13 +85,13 @@
                             </nav>
                             <div id='Last'>
                                 <div class="level-item has-text-centered">
-                                    <a @click="trend1()" :class="{'has-text-green':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
+                                    <a @click="trend1()" :class="{'has-text-blue':activeItem ==='one',' has-text-grey-light':activeItem!='one' }" class="is-6 trend-b-b"><small >Last 24 hours</small></a>
                                 &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
                             
-                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
+                                    <a @click="trend7()"class="is-6 trend-b-b" :class="{'has-text-blue':activeItem ==='seven',' has-text-grey-light':activeItem!='seven'}"><small >Last week</small></a>
                                  &nbsp &nbsp <small class="is-6 has-text-grey-light trend-b-b">|</small> &nbsp &nbsp
 
-                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-green':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
+                                    <a @click="trend30()"class="is-6 trend-b-b" :class="{'has-text-blue':activeItem ==='thirty',' has-text-grey-light':activeItem!='thirty'}"><small >Last month</small></a>
                                 </div>
                             </div>
                         </div>
@@ -195,6 +208,14 @@ export default {
 </script>
 
 <style scoped>
+.trenDingDigitMobile{
+    display:none !important;
+}
+.trenDingDigit{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 .btn-red.button.is-small.is-outlined.is-primary {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -331,13 +352,13 @@ a {
     font-size: 0.7rem;
 }
 #bullsAndBearsPic {
-    width: 25%;
+    width: 12%;
 }
 #bullsAndBears {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width:100%!important
+    width:100%!important;
 }
 #bandB {
     justify-content: center;
@@ -345,6 +366,10 @@ a {
 #Last {
     display: flex;
     justify-content: center;
+    align-items: center
+}
+.has-text-blue{
+    font-weight:bold
 }
 #bandbdigit1 {
     font-size: 2.5vw;
@@ -429,6 +454,18 @@ small{
     padding: 1rem;
 }
 @media (max-width: 768px) {
+    .trendingDigitMobileSmall{
+    display: flex;
+    align-items: baseline;
+    }
+    #bandB{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .trenDingDigit{
+    display: none
+    }
     .mobileBandB1{
         width:25%;
         display:flex;
@@ -534,6 +571,33 @@ small{
         width:80%;
         font-size:0.7rem !important;
     }
+    .btn-red.button.is-small.is-outlined.is-primary {
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        width:80%;
+        font-size:0.7rem !important;
+}
+
+.btn-green.button.is-small.is-outlined.is-primary {
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        width:80%;
+        font-size:0.7rem !important;
+}
+
+.btn.button.is-small.is-outlined.is-primary {
+        PADDING-TOP:2PX;
+        PADDING-BOTTOM:2PX;
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        width:80%;
+        font-size:0.7rem !important;
+}
+
 
 }
 </style>
