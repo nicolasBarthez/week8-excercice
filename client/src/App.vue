@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+
     <nav-bar v-if="this.$root.user"></nav-bar>
     <landing-page v-if="!this.$root.user"></landing-page>
     <router-view v-else class="wrapper"></router-view>
@@ -12,7 +12,7 @@
 import { getUser } from "@/api/api";
 import { logout } from "@/api/auth";
 import NavBar from "./components/NavBar";
-import LandingPage from "./router/LandingPage"
+import LandingPage from "./router/LandingPage";
 export default {
   name: "app",
   components: {

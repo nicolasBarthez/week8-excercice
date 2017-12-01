@@ -21,7 +21,7 @@ stocksController.get("/:stockName", function(req, res, next) {
     if (err) return next(err);
 
     if (!stock || stock == null) {
-      stock = "stock doesn't exist";
+      stock = "no stock";
     } else if (
       stock.index.indexOf("EURONEXT PARIS") > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN

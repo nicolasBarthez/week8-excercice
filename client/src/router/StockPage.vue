@@ -1,5 +1,5 @@
 <template>
-<not-found v-if="stock==='error'"></not-found>
+<not-found v-if="stock==='no stock'"></not-found>
   <section v-else class="section main">
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="primordial">
