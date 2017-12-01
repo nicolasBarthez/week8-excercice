@@ -25,8 +25,8 @@
     </div>
 
 
-    
-    
+
+
   <div class="sentimentLand">
   <div class="sentimentLandImage" >
     <img src="/static/images/landing/sentiment.png">
@@ -44,8 +44,8 @@
     </div>
   </div>
   </div>
-  
- 
+
+
 
   <div class="sentimentLand">
     <div class="sentimentLandText2">
@@ -118,7 +118,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
   <span>&copy; 2017 Insiders</span>
 </footer>
   </section>
-  
+
 
 
 
