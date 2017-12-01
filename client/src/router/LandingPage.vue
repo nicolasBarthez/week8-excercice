@@ -180,7 +180,7 @@ body
 .sentimentLand{
   display: flex;
   justify-content: space-evenly;
-  padding: 5rem
+  padding: 2.5rem
 }
 .sentimentLandImage{
   width:100%;
