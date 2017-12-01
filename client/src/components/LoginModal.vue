@@ -2,12 +2,12 @@
      <section id="modalAuth" class="hero is-fullheight">
                 <div class="hero-heading">
                     <div class="section has-text-centered">
-                        <img src="/static/images/logo.png" alt="Insiders logo" width="150px">
+                        <img src="/static/images/landing/logo-landing.svg" alt="Insiders logo" width="350px">
                     </div>
                 </div>
                 <div class="hero-body">
-                   
-                       
+
+
                             <div class="column is-8 is-offset-2">
                             <b-notification v-if="error" type="is-danger" has-icon>
                                 {{ error }}
@@ -17,15 +17,20 @@
                                         <b-input v-model="email" placeholder="wbuffet@insiders.finance" type="email" icon-pack="fa" icon="envelope">
                                         </b-input>
                                     </b-field>
-                                    <b-field label="Password">
+                                    <b-field v-if="langSelected==='EN'" label="Password">
+                                        <b-input type="password" v-model="password" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
+                                        </b-input>
+                                    </b-field>
+                                    <b-field v-else label="Mot de passe">
                                         <b-input type="password" v-model="password" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
                                         </b-input>
                                     </b-field>
                                     <p class="control login">
-                                        <button class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Login</button>
+                                        <button v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Login</button>
+                                        <button v-else class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Connexion</button>
                                     </p>
                                 </form>
-                            
+
                    </div>
                 </div>
             </section>
@@ -38,16 +43,17 @@ import { login } from "@/api/auth";
 export default {
   data() {
     return {
-      email: this.autenticate ? this.autenticate.mail : '',
-      password: this.autenticate ? this.autenticate.pass : '',
-      error: null,
+      email: this.autenticate ? this.autenticate.mail : "",
+      password: this.autenticate ? this.autenticate.pass : "",
+      error: null
     };
   },
   props: {
     autenticate: {
-        type: Object,
-        default: null
+      type: Object,
+      default: null
     },
+    langSelected: String
   },
   methods: {
     login() {
@@ -57,7 +63,7 @@ export default {
         })
         .catch(err => {
           this.error = "error";
-        });              
+        });
     }
   },
   created() {

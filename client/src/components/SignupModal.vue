@@ -1,32 +1,40 @@
 <template>
     <section id="modalAuth" class="hero is-fullheight is-dark is-bold">
         <div class="hero-body">
-            
+
                 <div class="columns is-vcentered">
                     <div class="column is-8 is-offset-2">
-                        <h1 class="title">
-                            Register an Account
-                        </h1>
+                        <h1 v-if="langSelected==='EN'" class="title">Become an insider</h1>
+                        <h1 v-else class="title">Devenir un insider</h1>
                         <b-notification v-if="error" type="is-danger" has-icon>
                         {{ error.message }}
                         </b-notification>
                         <form @submit.prevent="signup">
                           <div class="box">
-                            <b-field label="Username" maxlength="10">
+                            <b-field v-if="langSelected==='EN'"  label="Username" maxlength="10">
+                             <b-input v-model="username" ></b-input>
+                            </b-field>
+                            <b-field v-else label="Nom d'utilisateur" maxlength="10">
                              <b-input v-model="username" ></b-input>
                             </b-field>
                             <b-field label="Email">
                              <b-input v-model="email" type="email"></b-input>
                             </b-field>
                             <hr>
-                        
-                             <b-field label="Password">
+
+                             <b-field v-if="langSelected==='EN'" label="Password">
                              <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
                              </b-field>
-                             <b-field label="Confirm Password">
+                             <b-field v-else label="Mot de passe">
+                             <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
+                             </b-field>
+                             <b-field v-if="langSelected==='EN'" label="Confirm Password">
                              <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
                              </b-field>
-                        
+                             <b-field v-else label="Confirmez votre mot de passe">
+                             <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
+                             </b-field>
+
                         <div class="alert alert-danger" v-show="errors.any()">
                             <div v-if="errors.has('password')">
                              {{ errors.first('password') }}
@@ -38,49 +46,56 @@
 
                             <hr>
                             <p class="control">
-                             <button class="button is-primary"@click="$parent.close()">Register</button>
-                             <button class="button is-default"@click="$parent.close()"><a href="/">Cancel</a></button>
+                             <button v-if="langSelected==='EN'" class="button is-primary"@click="$parent.close()">Register</button>
+                             <button v-else class="button is-primary"@click="$parent.close()">Inscription</button>
+                             <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()"><a href="/">Cancel</a></button>
+                             <button v-else class="button is-default"@click="$parent.close()"><a href="/">Annuler</a></button>
                             </p>
                           </div>
                         </form>
                     </div>
                 </div>
-            
+
         </div>
     </section>
 </template>
 
 <script>
-import { signup } from '@/api/auth'
+import { signup } from "@/api/auth";
 
 export default {
-  data () {
+  data() {
     return {
-      username: '',
-      password: '',
-      email: '',
+      username: "",
+      password: "",
+      email: "",
       error: null
-    }
+    };
+  },
+  props: {
+    langSelected: String
   },
   methods: {
-    signup () {
-      this.error = null
+    signup() {
+      this.error = null;
       signup({
         email: this.email,
         username: this.username,
-        password: this.password
-      }).then(r => {
-        let mail = this.email;
-        let pass = this.password;
-        let authenticate = {mail, pass};
-        this.$emit('loginModal', authenticate);
+        password: this.password,
+        lang: this.langSelected
       })
-      .catch(err => {
+        .then(r => {
+          let mail = this.email;
+          let pass = this.password;
+          let authenticate = { mail, pass };
+          this.$emit("loginModal", authenticate);
+        })
+        .catch(err => {
           this.error = "error";
-        }); 
+        });
     }
   }
-}
+};
 </script>
 
 <style scoped>
