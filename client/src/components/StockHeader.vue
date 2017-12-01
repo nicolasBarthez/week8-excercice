@@ -390,7 +390,7 @@ a {
     width: 100%;
 }
 .stVar {
-    font-size: 1.3REM!important;
+    font-size: 1.5REM!important;
 }
 #stockInfo {
     display: flex;
