@@ -58,21 +58,23 @@
       <img src="/static/images/landing/give-insight.gif">
     </div>
 </div>
-<section class="hero separator">
-  <img src="/static/images/landing/Financial-tips.png">
-  <div class="container">
-    <h2 v-if="langSelected==='EN'">Get great financial tips. For free.</h2>
-    <h2 v-else>Obtenez les meilleurs conseils financiers. Gratuitement.</h2>
-  </div>
-  <div class="container">
-    <p v-if="langSelected==='EN'">We believe that the financial system should help the rest of us, not just the wealthy.
+
+
+ <div class="sentimentLand3">
+   <div class="sentimentLandImage3" >
+    <img src="/static/images/landing/Financial-tips.png">
+   </div>
+  <div class="sentimentLandText2">
+    <h1 class="accrocheH1" v-if="langSelected==='EN'">Get great financial tips. For free.</h1>
+    <h1 class="accrocheH1" v-else>Obtenez les meilleurs conseils financiers. Gratuitement.</h1>
+    <p class="accrocheP" v-if="langSelected==='EN'">We believe that the financial system should help the rest of us, not just the wealthy.
 The future of investing is social. Connect with other active investors before making your next trade. Find and follow the pros.</p>
-    <p v-else>Nous croyons que le système financier se doivent de profiter à tous, pas seulement aux riches.
+    <p class="accrocheP" v-else>Nous croyons que le système financier se doivent de profiter à tous, pas seulement aux riches.
 L'avenir de l'investissement est social. Connectez-vous avec d'autres investisseurs actifs avant de faire votre prochain trade. Trouvez et suivez les meilleurs.</p>
   </div>
+ </div>
 
 
-</section>
 
   <section class="hero separator">
     <div class="hero-body testimonials-section">
@@ -84,20 +86,20 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/stuart.png">
               <h4 class="separator nametesti subtitle"> @stuart</h4>
-              <p v-if="langSelected==='EN'">”I doubled my stocks income since I joined Insiders. Thx so much!”</p>
-              <p v-else>” J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !"</p>
+              <p class="testiP" v-if="langSelected==='EN'">”I doubled my stocks income since I joined Insiders. Thx so much!”</p>
+              <p class="testiP" v-else>” J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !"</p>
           </div>
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/emmanuel.png">
               <h4 class="separator nametesti subtitle"> @emmanuel</h4>
-              <p v-if="langSelected==='EN'">” We need young Frenchmen who want to become billionaires.” </p>
-              <p v-else>” Il faut des jeunes Français qui aient envie de devenir milliardaires.” </p>
+              <p class="testiP" v-if="langSelected==='EN'">” We need young Frenchmen who want to become billionaires.” (Taking about Insiders)</p>
+              <p class="testiP" v-else>” Il faut des jeunes Français qui aient envie de devenir milliardaires.” (en parlant des Insiders)</p>
           </div>
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/daniel.png">
               <h4 class="separator nametesti subtitle"> @daniel</h4>
-              <p v-if="langSelected==='EN'">"Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight."</p>
-              <p v-else>" Quiconque joue à la Bourse sans être un Insider, est comme un homme qui achète des vaches au clair de lune."</p>
+              <p class="testiP" v-if="langSelected==='EN'">"Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight."</p>
+              <p class="testiP" v-else>" Quiconque joue à la Bourse sans être un Insider, est comme un homme qui achète des vaches au clair de lune."</p>
 
           </div>
         </div>
@@ -207,7 +209,7 @@ body
   justify-content: flex-start;
 }
 .sentimentLandImage2{
-  width:100%;
+  width:25%;
   DISPLAY: flex;
   align-items: center;
   margin-right: 1.5rem
@@ -218,6 +220,18 @@ body
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.sentimentLand3{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 2.5rem;
+  background-color: #fff
+}
+.sentimentLandImage3{
+  width:50%;
+  DISPLAY: flex;
+  align-items: center;
+  margin-right: 1.5rem
 }
 .accroche{
   display: flex;
@@ -246,6 +260,7 @@ body
   width:10vh;
   height: 10vh;
   padding: 5px;
+  cursor: pointer;
 }
 
 .buttonSignin{
@@ -279,25 +294,19 @@ body
     border-color: #f9f9f9!important;
     background-color:#192b41!important;
 }
-
+.testiP{
+ text-align:center
+}
 .logo{
   margin: auto;
-  width: 70%;
+  width: 60%;
 }
 .loggiin{
   display: flex;
     justify-content: center;
 }
 
-.mainLanding{
-  background-size:cover;
-  height:0;
-  padding-top:50%;
-  /*background-image: url('/static/images/Landing-photo.jpg')*/
-
-}
 footer {
-  margin-top: 400px;
   text-align: center;
   background-color: #F9F9F9;
 }
@@ -348,22 +357,61 @@ span{
   width: 150px;
   border: 0px solid;
   border-radius: 50%;
+  height:150px
 }
 .testimonials {
   text-align: center !important;
 }
 @media screen and (max-width: 768px) {
-    .buttonSignin{
-  margin-left:2.5%;
-  min-width:40% !important;
-}
-.buttonLogin{
-  margin-right:2.5%;
-  min-width:40% !important;
-}
-.loggiin{
-    margin-left: 15%!important;;
-    margin-bottom: 20%;
-}
+  .accrocheH1{
+    font-size: 1.5rem;
+  }
+  .accrocheP{
+    font-size:1rem;
+  }
+  .accroche{
+    PADDING-TOP: 2.5REM;
+  }
+  .sentimentLand{
+    flex-direction: column;
+    padding: 0rem !important;
+    padding-top: 2.5rem !important;
+  }
+  .sentimentLandImage{
+    margin-right: 0rem;
+    padding-bottom: 1.5REM;
+  }
+  .sentimentLandBear{
+    width:100%
+  }
+  .sentimentLandText2 {
+    width: 100%;
+  }
+  .sentimentLandImage2{
+    width: 100%;
+    margin-right: 0rem;
+    justify-content: center;
+    padding-top:2.5rem
+  }
+  .sentimentLandImage2 > img{
+    width:50%
+  }
+  .sentimentLand3{
+    flex-direction: column-reverse;
+    padding: 0rem !important;
+    padding-top: 2.5rem !important;
+  }
+  .sentimentLandImage3 {
+    width: 100%;
+    margin-right: 0rem;
+  }
+  .hero-body {
+    padding: 2rem 1rem!important
+  }
+  .nametesti{
+    margin-top: 5%;
+    margin-bottom:5%!important
+  }
+
 }
 </style>
