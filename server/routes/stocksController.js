@@ -8,14 +8,15 @@ const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
 const scrapPrice = require("../config/scrapPrice");
-const updateBourso = require("../bin/getStocksPriceBourso");
-const getCryptoUpdate = require("../bin/getStocksPriceCurr");
+// const updateBourso = require("../bin/getStocksPriceBourso");
+// const getCryptoUpdate = require("../bin/getStocksPriceCurr");
 const scrapPriceCurrency = require("../config/scrapPriceCurrency");
 
 // **********************************************************
 // Send info about a stock  =================================
 // **********************************************************
 stocksController.get("/:stockName", function(req, res, next) {
+  console.log("called GET INFO on A STOCK", req.params.stockName.toUpperCase());
   const stock = req.params.stockName.toUpperCase();
   const FIVE_MIN = 300 * 1000;
   const ONE_MIN = 60 * 1000;

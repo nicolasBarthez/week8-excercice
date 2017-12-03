@@ -18,46 +18,45 @@ mongoose.connect(
 //   .then(() => {
 //     console.info("The magic happens on port " + port);
 //   });
-function updateBourso() {
-  Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
-    if (err) console.log(err);
 
-    const stockArraySymbolePrice = stocksSymbolePrice.map(el => {
-      return el.shortName;
-    });
+Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
+  if (err) console.log(err);
 
-    console.log("stockArraySymbolePrice", stockArraySymbolePrice);
+  const stockArraySymbolePrice = stocksSymbolePrice.map(el => {
+    return el.shortName;
+  });
 
-    stockArraySymbolePrice.forEach(symbol => {
-      superagent.get(url + "P" + symbol).end(function(err, res) {
-        if (err) {
-          console.log("ERROR", err);
-          return;
-        }
-        $ = cheerio.load(res.text);
+  console.log("stockArraySymbolePrice", stockArraySymbolePrice);
 
-        $("#profil_content").each(function() {
-          let stUpdate = {};
-          stUpdate.description = $(this)
-            .find(".txt02")
-            .text();
-          // console.log("DESCRIPTION", stUpdate);
-          Stock.findOneAndUpdate(
-            { shortName: symbol },
-            stUpdate,
-            { new: true },
-            function(err, doc) {
-              if (err) {
-                console.log("Something wrong when updating data!");
-              }
+  stockArraySymbolePrice.forEach(symbol => {
+    superagent.get(url + "P" + symbol).end(function(err, res) {
+      if (err) {
+        console.log("ERROR", err);
+        return;
+      }
+      $ = cheerio.load(res.text);
 
-              console.log(doc);
+      $("#profil_content").each(function() {
+        let stUpdate = {};
+        stUpdate.description = $(this)
+          .find(".txt02")
+          .text();
+        // console.log("DESCRIPTION", stUpdate);
+        Stock.findOneAndUpdate(
+          { shortName: symbol },
+          stUpdate,
+          { new: true },
+          function(err, doc) {
+            if (err) {
+              console.log("Something wrong when updating data!");
             }
-          );
-        });
+
+            console.log(doc);
+          }
+        );
       });
     });
   });
-}
+});
 
 module.exports = updateBourso;

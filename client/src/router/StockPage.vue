@@ -1,7 +1,7 @@
 <template>
 <not-found v-if="stock==='no stock'"></not-found>
   <section v-else class="section main">
-    <stock-header v-if="stock" :connectedUser="connectedUser" :stock="stock" :watchItem ="watchItem" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
+    <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :connectedUser="connectedUser" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="primordial">
       <div class="sct1">
         <side-recent-activity  :connectedUser="connectedUser" class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
