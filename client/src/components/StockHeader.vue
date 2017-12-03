@@ -29,9 +29,9 @@
                       :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
 
                                  <strong v-if="watchItem.position ==='bull'" class="pos" :class="{'has-text-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
-                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
+                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} ({{Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$)</strong>
                                 <strong v-else class="pos" :class="{'has-text-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
-                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}}</strong>
+                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} ({{Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$)</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
@@ -218,52 +218,6 @@ export default {
     align-items: center;
     flex-direction: column;
 }
-.btn-red.button.is-small.is-outlined.is-primary {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    font-size:1.2rem !important;
-    color: #ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
-}
-.btn-red.is-outlined:focus,
-.btn-red.is-outlined:hover {
-    background-color: #ff6026!important;
-    border-color: #ff6026!important;
-    color: #fff!important;
-}
-.btn-green.button.is-small.is-outlined.is-primary {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    font-size:1.2rem !important;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-}
-
-.btn-green.is-outlined:focus,
-.btn-green.is-outlined:hover {
-    background-color: #21ce99!important;
-    border-color: #21ce99!important;
-    color: #fff!important;
-}
-.btn.button.is-small.is-outlined.is-primary {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    font-size:1.2rem !important;
-    color: #192b41;
-    box-shadow: 0 0 0 0.125em #192b41;
-    border-color: #192b41;
-}
-
-.btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {
-    background-color: #192b41!important;
-    border-color: #192b41!important;
-    color: #fff!important;
-}
 .title, .subtitle {
     word-break: initial;
 }
@@ -395,58 +349,77 @@ a {
 #stockInfo {
     display: flex;
 }
-#Bbull {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-    font-size:1.2rem
-}
-#Bbull.is-outlined:focus,
-#Bbull.is-outlined:hover {
-    background-color: #21ce99;
-    border-color: #21ce99;
-    color: #fff;
-}
 .trend-b-b{
   cursor:pointer;
 }
 small{
     font-size:1.1rem !important
 }
+#Bbull {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    background-color: #21ce99;
+    border-color: #21ce99;
+    color: #fff;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+    font-size:1.2rem
+}
+#Bbull.is-outlined:focus,
+#Bbull.is-outlined:hover {
+    background-color: #fff;
+    border-color: #21ce99;
+    color: #21ce99;
+}
 #Bbear {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #ff6026;
+    color: #fff;
+    background-color:#ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
     font-size:1.2rem
 }
 #Bbear.is-outlined:focus,
 #Bbear.is-outlined:hover {
-    background-color: #ff6026;
+    background-color: #fff;
     border-color: #ff6026;
-    color: #fff;
+    color: #ff6026;
 }
 #adWL.is-outlined:focus,
 #adWL.is-outlined:hover {
-    background-color: #192b41;
-    border-color: #192b41;
-    color: #fff;
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 #adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #192b41;
+    color: #fff;
+    background-color: #192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
     font-size:1.2rem !important
 }
+.btn {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #fff!important;
+    background-color: #192b41!important;
+    box-shadow: 0 0 0 0.125em #192b41 !important;
+    border-color: #192b41 !important;
+    font-size:1.2rem !important
+}
 
+.btn:hover, .btn:focus {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
+}
 .position{
     display:flex;
     flex-direction: column;

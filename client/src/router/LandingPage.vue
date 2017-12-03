@@ -303,7 +303,8 @@ body
 }
 .loggiin{
   display: flex;
-    justify-content: center;
+  justify-content: center;
+  padding-bottom: 2.5rem
 }
 
 footer {

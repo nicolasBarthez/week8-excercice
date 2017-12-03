@@ -1,11 +1,11 @@
 <template>
   <div  v-if="connectedUser" class="column is-3 sideRecent mainSCI">
-    <div class="is-sticky">
+    <div v-if="watchInsight.length>0" class="is-sticky">
         <nav class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
                <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
         </nav>
-        <div v-if="watchInsight.length>0" v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
+        <div v-for="(watchItem, index) in watchInsight" :key="index"class="card profile-card">
               <div id="watchList" class="card-content">
                 <div class="Symbol">
                    <router-link :to="'/stocks/'+watchItem.stockId.shortName"class="stockName is-6" data-replace="Symbol">#{{watchItem.stockId.shortName.length<7 ? watchItem.stockId.shortName : watchItem.stockId.shortName }}</router-link><br>
@@ -32,11 +32,10 @@
             </div>
         </div>
     </div>
-  </div>
-  <div  v-else class="column is-3 sideRecent">
-    <div class="is-sticky">
+    <div v-else class="is-sticky">
         <nav class="navbar is-dark">
-               <p id="currentInsight" class="babMenu navbar-item is-tab is-active"> Current Insights</p>
+               <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
+               <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
         </nav>
         <div class="card profile-card">
             <p v-if="connectedUser.lang==='EN'">Take position on a stock to share your insights !!!</p>
@@ -44,6 +43,7 @@
         </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -136,51 +136,54 @@ export default {
 #close {
     padding-top: 10px;
 }
-.btn-red.button.is-small.is-outlined.is-primary {
+.btn-red {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
-    color: #ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
-    font-weight: bolder;
-    FONT-SIZE: 0.8REM;
-}
-.btn-red.is-outlined:focus,
-.btn-red.is-outlined:hover {
+    color: #fff!important;
     background-color: #ff6026!important;
+    box-shadow: 0 0 0 0.125em #ff6026!important;;
+    border-color: #ff6026!important;;
+    font-weight: bolder;
+    FONT-SIZE: 0.8REM;
+}
+.btn-red:focus,
+.btn-red:hover {
+    background-color: #fff!important;
     border-color: #ff6026!important;
-    color: #fff!important;
+    color: #ff6026!important;
 }
-.btn-green.button.is-small.is-outlined.is-primary {
+.btn-green {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-    font-weight: bolder;
-    FONT-SIZE: 0.8REM;
-}
-
-.btn-green.is-outlined:focus,
-.btn-green.is-outlined:hover {
-    background-color: #21ce99!important;
+    background-color:#21ce99!important;;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #21ce99!important;
     border-color: #21ce99!important;
-    color: #fff!important;
-}
-.btn.button.is-small.is-outlined.is-primary {
-    PADDING-LEFT: 20PX;
-    PADDING-RIGHT: 20PX;
-    color: #192b41;
-    box-shadow: 0 0 0 0.125em #192b41;
-    border-color: #192b41;
     font-weight: bolder;
     FONT-SIZE: 0.8REM;
 }
 
-.btn.button.is-primary.is-outlined:hover, .button.is-primary.is-outlined:focus {
-    background-color: #192b41!important;
-    border-color: #192b41!important;
+.btn-green:focus,
+.btn-green:hover {
+    background-color: #fff!important;
+    border-color: #21ce99!important;
+    color: #21ce99!important;
+}
+.btn {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    background-color:#192b41!important;
     color: #fff!important;
+    box-shadow: 0 0 0 0.125em #192b41!important;
+    border-color: #192b41!important;
+    font-weight: bolder;
+    FONT-SIZE: 0.8REM;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 @media screen and (max-width: 768px) {
     #currentInsight {
