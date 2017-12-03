@@ -9,9 +9,9 @@ let url =
   "http://www.boursorama.com/bourse/actions/cours_az.phtml?MARCHE=1rPPX5&page=";
 const stockUpdateInfo = [];
 
-mongoose.connect(
-  "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
-);
+// mongoose.connect(
+//   "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
+// );
 
 // mongoose
 //   .connect(process.env.MONGODB_URI, {
@@ -20,84 +20,85 @@ mongoose.connect(
 //   .then(() => {
 //     console.info("The magic happens on port " + port);
 //   });
+function updateBourso() {
+  Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
+    if (err) console.log(err);
 
-Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
-  if (err) console.log(err);
-
-  const stockArraySymbolePrice = stocksSymbolePrice.map(el => {
-    return el.symbolPrice;
-  });
-
-  console.log("stockArraySymbolePrice", stockArraySymbolePrice);
-
-  for (nbPage = 1; nbPage < 9; nbPage++) {
-    let urlFull = url + nbPage;
-    // Scrap data from boursorama
-    superagent.get(urlFull).end(function(err, res) {
-      if (err) {
-        console.log("ERROR", err);
-        return;
-      }
-      $ = cheerio.load(res.text);
-
-      $("tbody tr").each(function() {
-        if (
-          stockArraySymbolePrice.indexOf(
-            $(this)
-              .find("td:nth-child(2)")
-              .text()
-          ) > -1
-        ) {
-          let stUpdate = {};
-          stUpdate.symbolPrice = $(this)
-            .find("td:nth-child(2)")
-            .text();
-
-          // stUpdate.symbolPrice = $(this)
-          //   .find("td:nth-child(2) a")
-          //   .attr("href")
-          //   .substring(
-          //     $(this)
-          //       .find("td:nth-child(2) a")
-          //       .attr("href")
-          //       .indexOf("=") + 3
-          //   );
-          stUpdate.price = parseFloat(
-            $(this)
-              .find("td:nth-child(4)")
-              .text()
-          );
-
-          stUpdate.variation = parseFloat(
-            $(this)
-              .find("td:nth-child(5)")
-              .text()
-          );
-
-          stUpdate.volume = parseFloat(
-            $(this)
-              .find("td:nth-child(10)")
-              .text()
-              .replace(/ /g, "")
-          );
-
-          Stock.findOneAndUpdate(
-            { symbolPrice: stUpdate.symbolPrice },
-            stUpdate,
-            { new: true },
-            function(err, doc) {
-              if (err) {
-                console.log("Something wrong when updating data!");
-              }
-
-              console.log(doc);
-            }
-          );
-        }
-      });
+    const stockArraySymbolePrice = stocksSymbolePrice.map(el => {
+      return el.symbolPrice;
     });
-  }
-});
+
+    console.log("stockArraySymbolePrice", stockArraySymbolePrice);
+
+    for (nbPage = 1; nbPage < 9; nbPage++) {
+      let urlFull = url + nbPage;
+      // Scrap data from boursorama
+      superagent.get(urlFull).end(function(err, res) {
+        if (err) {
+          console.log("ERROR", err);
+          return;
+        }
+        $ = cheerio.load(res.text);
+
+        $("tbody tr").each(function() {
+          if (
+            stockArraySymbolePrice.indexOf(
+              $(this)
+                .find("td:nth-child(2)")
+                .text()
+            ) > -1
+          ) {
+            let stUpdate = {};
+            stUpdate.symbolPrice = $(this)
+              .find("td:nth-child(2)")
+              .text();
+
+            // stUpdate.symbolPrice = $(this)
+            //   .find("td:nth-child(2) a")
+            //   .attr("href")
+            //   .substring(
+            //     $(this)
+            //       .find("td:nth-child(2) a")
+            //       .attr("href")
+            //       .indexOf("=") + 3
+            //   );
+            stUpdate.price = parseFloat(
+              $(this)
+                .find("td:nth-child(4)")
+                .text()
+            );
+
+            stUpdate.variation = parseFloat(
+              $(this)
+                .find("td:nth-child(5)")
+                .text()
+            );
+
+            stUpdate.volume = parseFloat(
+              $(this)
+                .find("td:nth-child(10)")
+                .text()
+                .replace(/ /g, "")
+            );
+
+            Stock.findOneAndUpdate(
+              { symbolPrice: stUpdate.symbolPrice },
+              stUpdate,
+              { new: true },
+              function(err, doc) {
+                if (err) {
+                  console.log("Something wrong when updating data!");
+                }
+
+                console.log(doc);
+              }
+            );
+          }
+        });
+      });
+    }
+  });
+}
 
 // function getstockUpdate(index) {
 //   Stock.find({ index: index }).exec((err, stockArray) => {

@@ -1,12 +1,18 @@
 <template>
 <div>
 <nav class="navbar is-dark">
-      <div>
-      <div class="babblesMenu">
+      <div v-if="connectedUser">
+      <div v-if="connectedUser.lang==='EN'" class="babblesMenu">
             <a  @click="curInsights()" class="babMenu navbar-item is-tab">My current insights</a>
             <a  @click="WatchList()" class="babMenu navbar-item is-tab is-active">My watch list</a>
             <a  @click="PastInsights()"class="babMenu navbar-item is-tab">My past insights</a>
             <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders I follow</a>
+      </div>
+      <div v-else class="babblesMenu">
+            <a  @click="curInsights()" class="babMenu navbar-item is-tab ">Mes positions ouvertes</a>
+            <a  @click="WatchList()" class="babMenu navbar-item is-tab is-active">Ma liste de suivi</a>
+            <a  @click="PastInsights()"class="babMenu navbar-item is-tab ">Mes positions passées</a>
+            <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders suivis</a>
       </div>
       </div>
   </nav>
@@ -99,6 +105,9 @@ export default {
     getMyWatchList().then(watchList => {
       this.watchList = watchList;
     });
+  },
+  props: {
+    connectedUser: Object
   },
   methods: {
     curInsights() {

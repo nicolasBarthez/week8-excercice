@@ -38,7 +38,7 @@ usersController.get(
     const user = req.user;
 
     User.findById(user._id).exec((err, resp) => {
-      if (err) res.json(null);
+      if (err) res.json(err);
       return res.json(resp);
     });
   }

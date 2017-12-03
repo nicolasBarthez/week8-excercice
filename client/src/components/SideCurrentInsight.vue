@@ -1,7 +1,7 @@
 <template>
   <div  v-if="connectedUser" class="column is-3 sideRecent mainSCI">
     <div v-if="watchInsight.length>0" class="is-sticky">
-        <nav class="navbar is-dark">
+        <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
                <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
         </nav>
@@ -18,7 +18,7 @@
                 <img v-if="watchItem.position ==='bull'" src="/static/images/roundBullArrow.png" alt="bulls-and-bears">
                 <img  v-else src="/static/images/roundBearArrow.png" alt="bulls-and-bears">
                 </div>
-                <div class="Symbol2" id="position">
+                <div v-if="connectedUser" class="Symbol2" id="position">
                    <a class="stockName is-6">{{connectedUser.lang==='EN'?'Potential':'Potentiel'}} P$</a>
                    <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : Math.floor(1000*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
                    <b v-else class="price is-6" :class="{'has-text-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
@@ -33,17 +33,17 @@
         </div>
     </div>
     <div v-else class="is-sticky">
-        <nav class="navbar is-dark">
+        <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
                <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
         </nav>
-        <div class="card profile-card">
+        <div v-if="connectedUser" class="card profile-card">
             <p v-if="connectedUser.lang==='EN'">Take position on a stock to share your insights !!!</p>
             <p v-else >Prenez position et partager vos intuitions sur le marché !!!</p>
         </div>
     </div>
   </div>
-  
+
 </template>
 
 <script>

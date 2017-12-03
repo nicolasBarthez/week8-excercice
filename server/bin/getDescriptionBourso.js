@@ -58,3 +58,5 @@ Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
     });
   });
 });
+
+module.exports = updateBourso;
