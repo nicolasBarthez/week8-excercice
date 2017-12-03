@@ -394,6 +394,16 @@ small{
     border-color: #192b41!important;
     color: #192b41!important;
 }
+.button{
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #fff;
+    background-color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+    font-size:1.2rem !important
+}
 #adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;

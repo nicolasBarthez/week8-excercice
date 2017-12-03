@@ -6,8 +6,6 @@
                     </div>
                 </div>
                 <div class="hero-body">
-
-
                             <div class="column is-8 is-offset-2">
                             <b-notification v-if="error" type="is-danger" has-icon>
                                 {{ error }}
