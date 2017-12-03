@@ -1,11 +1,11 @@
 <template >
 <section class="section main">
-<insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo"></insider-profile-block>
- 
-  <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-current-insights>
-  <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-watch-list>
-  <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-past-insights>
-  <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-followed>
+<insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo" :connectedUser="connectedUser"></insider-profile-block>
+
+  <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights":connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-current-insights>
+  <board-insiders-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" :connectedUser="connectedUser" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-watch-list>
+  <board-insiders-past-insights v-else-if="activeItem==='pastinsights'"@Watch=" myWatchList($event)" :connectedUser="connectedUser" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)"></board-insiders-past-insights>
+  <board-insiders-followed  v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" :connectedUser="connectedUser" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-followed>
 
 </section>
 </template>
@@ -22,9 +22,9 @@ import { getInsiderProfileInfo } from "@/api/apiDashboard";
 export default {
   data() {
     return {
-    currentInsights:[],  
-    profileInfo: null,
-    activeItem: 'curinsights'
+      currentInsights: [],
+      profileInfo: null,
+      activeItem: "curinsights"
     };
   },
   components: {
@@ -34,26 +34,29 @@ export default {
     BoardInsidersPastInsights,
     BoardInsidersFollowed
   },
+  props: {
+    connectedUser: Object
+  },
   methods: {
-    myWatchList(){
-            this.activeItem= "watchlist"
-        },
-    myInsidersFollowed(){
-            this.activeItem= "insfollowed"
+    myWatchList() {
+      this.activeItem = "watchlist";
     },
-    myPastInsights(){
-            this.activeItem= "pastinsights"
+    myInsidersFollowed() {
+      this.activeItem = "insfollowed";
+    },
+    myPastInsights() {
+      this.activeItem = "pastinsights";
     },
     updateInsiderProfile() {
       getInsiderProfileInfo(this.$route.params.id).then(profileInfo => {
         this.profileInfo = profileInfo;
       });
-      this.activeItem= "curinsights";
+      this.activeItem = "curinsights";
       const insiderId = this.$route.params.id;
       getInsiderCurrentInsights(insiderId).then(currentInsights => {
-      this.currentInsights = currentInsights;
-    });
-    },
+        this.currentInsights = currentInsights;
+      });
+    }
   },
   created() {
     const insiderId = this.$route.params.id;
@@ -63,8 +66,7 @@ export default {
     getInsiderCurrentInsights(insiderId).then(currentInsights => {
       this.currentInsights = currentInsights;
     });
-  },
-  
+  }
 };
 </script>
 

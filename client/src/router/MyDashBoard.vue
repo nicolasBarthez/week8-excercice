@@ -1,12 +1,12 @@
 <template>
     <section class="main">
-  <my-profile-block v-if="!isEditing" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
-  
-  <my-current-insights v-if="activeItem==='curinsights'" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-current-insights>
-  <my-watch-list v-else-if="activeItem==='watchlist'"@Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-watch-list>
-  <my-insiders-followed v-else-if="activeItem==='insfollowed'" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-insiders-followed>
-  <my-past-insights v-else @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-past-insights>
+  <my-profile-block v-if="!isEditing" :connectedUser="connectedUser" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
+  <update-my-info v-if="isEditing" :connectedUser="connectedUser" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
+
+  <my-current-insights v-if="activeItem==='curinsights'" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-current-insights>
+  <my-watch-list v-else-if="activeItem==='watchlist'" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-watch-list>
+  <my-insiders-followed v-else-if="activeItem==='insfollowed'" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-insiders-followed>
+  <my-past-insights v-else @Watch=" myWatchList($event)" :connectedUser="connectedUser" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-past-insights>
 
 </section>
 
@@ -26,8 +26,11 @@ export default {
     return {
       isEditing: false,
       profileInfo: null,
-      activeItem: 'curinsights'
-    }
+      activeItem: "curinsights"
+    };
+  },
+  props: {
+    connectedUser: Object
   },
   components: {
     MyProfileBlock,
@@ -37,33 +40,32 @@ export default {
     MyCurrentInsights,
     MyInsidersFollowed
   },
-methods: {
+  methods: {
     changeToEdit() {
       this.isEditing = !this.isEditing;
       getUserProfileInfo().then(profileInfo => {
-      this.profileInfo = profileInfo;
-    });
-    }, 
-    currentInsights(){ 
-            this.activeItem= "curinsights"
-        },
-    myWatchList(){
-            this.activeItem= "watchlist"
-        },
-    myInsidersFollowed(){
-            this.activeItem= "insfollowed"
+        this.profileInfo = profileInfo;
+      });
     },
-    myPastInsights(){
-            this.activeItem= "pastinsights"
-    }, 
-},
+    currentInsights() {
+      this.activeItem = "curinsights";
+    },
+    myWatchList() {
+      this.activeItem = "watchlist";
+    },
+    myInsidersFollowed() {
+      this.activeItem = "insfollowed";
+    },
+    myPastInsights() {
+      this.activeItem = "pastinsights";
+    }
+  },
   created() {
     getUserProfileInfo().then(profileInfo => {
       this.profileInfo = profileInfo;
     });
- }
-}
-
+  }
+};
 </script>
 
 <style scoped>

@@ -7,7 +7,7 @@
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
             </div>
-            <div v-if="data" class="nav" id="formNav">
+            <div v-if="data && connectedUser" class="nav" id="formNav">
                 <div class="nav-item field" id="formNav1">
                     <div class="control has-icons-left" id="formNav2">
 
@@ -38,7 +38,7 @@
 
             <div :class="{'closedToggle':closedState ===false}" class="nav-right nav-menu" >
 
-                <div id="menu"@click="closetoggle()">
+                <div v-if="connectedUser" id="menu"@click="closetoggle()">
                  <router-link  v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
                     class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ connectedUser.lang==="EN" ? link.text : link.textfr }}
                 </router-link>
@@ -49,7 +49,7 @@
                         <img class ="imgProfile" v-if="connectedUser" :src="connectedUser.picProfile" alt="">
                         </div>
                     </router-link>
-                    <div class="nav-user-profile">
+                    <div v-if="connectedUser" class="nav-user-profile">
                        <router-link to="/mydashboard" >
                         <div id="nav-username" class="nav-user-name">@{{$root.user.username}}</div>
                        </router-link>
@@ -82,6 +82,9 @@ export default {
       closedState: true
     };
   },
+  // props: {
+  //   connectedUser: Object
+  // },
   methods: {
     logout() {
       logout(this.$root);

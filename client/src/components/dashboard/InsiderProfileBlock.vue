@@ -26,23 +26,23 @@
                   </p>
                 </div>
               <div class="wonTrade"id="follOw">
-                  <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
+                  <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Won Trades":"Trades gagnants"}}</strong></p>
                   <p class="title is-5 follOwStrong">
                     <strong class="follOwStrong">{{profileInfo.nbOfInsightsWon}}</strong>
                   </p>
                 </div>
               </div>
             <div class="add-to-watchlist" v-if="!($route.params.id===$root.user._id)">
-                <button v-if="!followed" @click="follow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">Follow</button>
-            <button v-else @click="unfollow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">Unfollow</button>
+                <button v-if="!followed" @click="follow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "Follow":"Suivre"}}</button>
+            <button v-else @click="unfollow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "Unfollow":"Ne plus suivre"}}</button>
           </div>
           <div v-else class="add-to-watchlist">
-             <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">My DashBoard</button>
+             <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "My DashBoard":"Mon tableau de suivi"}}</button>
           </div>
             </div>
              <div id="refAndSkills">
               <div class="preferedTrades level-item has-text-centered column is-3">
-                <p class="title is-6">Prefered trades</p>
+                <p class="title is-6">{{connectedUser.lang ==="EN"? "Prefered trades":"Positions préférées"}}</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints.toFixed(0) : "-" }} P$
                 </router-link></p>
@@ -84,7 +84,7 @@
                 <b-tag class="is-4" v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
                 <b-tag class="is-4" v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
                 </div>
-                <div v-else >No special skills for this Insiders !</div>
+                <div v-else >{{connectedUser.lang ==="EN"? "No special skills for this Insiders!":"Pas d'expertise renseignée pour cet Insider !"}}</div>
                 <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
               </div>
                <!--  <div  v-if="profileInfo.skills[0]" class="preferedTrades level-item has-text-centered column is-3">
@@ -99,9 +99,9 @@
         </div>
       </div>
  <nav class="level media follOwNav">
-        <p class="subtitle is-6 follOw"> <small>Following</small><strong class="follOwStrong title is-5"> {{profileInfo.following}}</strong>
-        </p>
         <p class="subtitle is-6 follOw"> <small>Followers</small><strong class="follOwStrong title is-5"> {{profileInfo.followers}}</strong>
+        </p>
+        <p class="subtitle is-6 follOw"> <small>Following</small><strong class="follOwStrong title is-5"> {{profileInfo.following}}</strong>
         </p>
         <p class="subtitle is-6 follOw"> <small>Babbles</small><strong class="follOwStrong title is-5"> {{profileInfo.nbBabbles}}</strong>
         </p>
@@ -122,7 +122,8 @@ export default {
     };
   },
   props: {
-    profileInfo: Object
+    profileInfo: Object,
+    connectedUser: Object
   },
   created() {
     const id = this.$route.params.id;

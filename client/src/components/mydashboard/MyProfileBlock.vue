@@ -1,5 +1,5 @@
 <template >
-  <div v-if="profileInfo "  class="column is-3" id="ActionCard">
+  <div v-if="profileInfo && connectedUser "  class="column is-3" id="ActionCard">
     <div id="cardAction" class="card profile-card">
       <div class="card-content">
         <div class="media" id="stockInfo">
@@ -20,24 +20,24 @@
               </div>
               <div id="perf">
                 <div>
-                  <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
+                  <p class="is-6 has-text-grey-light"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Performance":"Performance"}}</strong></p>
                   <p class="title is-5 follOwStrong">
                     <strong class="follOwStrong"> {{profileInfo.performancePoints.toFixed(0) }}  &nbsp P$</strong></p>
                 </div>
                 <div class="wonTrade"id="follOw">
-                  <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">Won Trades</strong></p>
+                  <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Won Trades":"Trades gagnants"}}</strong></p>
                   <p class="title is-5 follOwStrong">
                     <strong class="follOwStrong">{{profileInfo.nbOfInsightsWon}}</strong>
                   </p>
                 </div>
               </div>
               <div class="add-to-watchlist">
-                <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">Update my profile</button>
+                <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "Update my profile":"Mettre à jour mon profil"}}</button>
               </div>
             </div>
             <div id="refAndSkills">
               <div class="preferedTrades level-item has-text-centered column is-3">
-                <p class="title is-6">Prefered trades</p>
+                <p class="title is-6">{{connectedUser.lang ==="EN"? "Prefered trades":"Positions préférées"}}</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }}</router-link> - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints.toFixed(0) : "-" }} P$</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[1]" :to="'/stocks/'+profileInfo.preferedStocks[1].shortName"class="stockName is-6" data-replace="Symbol">
@@ -67,13 +67,13 @@
                 </figure>
               </nav>
               <div  class="preferedTrades level-item has-text-centered column is-3">
-                <p class="title is-6"><strong>Skills</strong></p>
+                <p class="title is-6"><strong>{{connectedUser.lang ==="EN"? "Skills":"Expertise"}}</strong></p>
                 <div   class="preferedTrades level-item has-text-centered column is-3" v-if="profileInfo.skills[0]">
                 <b-tag class="is-4">{{profileInfo.skills[0]}}</b-tag>
                 <b-tag class="is-4" v-if="profileInfo.skills[1]">{{profileInfo.skills[1]}}</b-tag>
                 <b-tag class="is-4" v-if="profileInfo.skills[2]">{{profileInfo.skills[2]}}</b-tag>
                 </div>
-                <div v-else >Update your profile to share your skills !</div>
+                <div v-else >{{connectedUser.lang ==="EN"? "Update your profile to display your skills!":"Mettez à jour votre profil et affichez vos domaines d'expertise !"}}</div>
                 <!-- <div v-if="profileInfo.skills" v-for="profileInfo.skill in profileInfo.skills"> -->
               </div>
             </div>
@@ -104,7 +104,8 @@ export default {
     };
   },
   props: {
-    profileInfo: Object
+    profileInfo: Object,
+    connectedUser: Object
   },
   methods: {
     editMyProfile() {

@@ -126,7 +126,7 @@ export default {
       getStock(this.$route.params.stockName).then(stock => {
         this.stock = stock;
       });
-    }, 1000);
+    }, 5000);
   },
   watch: {
     $route() {

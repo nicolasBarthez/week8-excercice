@@ -5,7 +5,7 @@
                 <div class="media-left">
                     <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
                 </div>
-                <div class="media-content">
+                <div v-if="connectedUser" class="media-content">
                     <div>
                         <div class="field1">
                             <div class="control">
@@ -31,7 +31,7 @@
         </div>
         <b-modal :active.sync="isShareChartActive">
             <div class="mediaModal">
-            <div>
+            <div v-if="connectedUser">
                  <label> <span class="icon chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share your image':'Partager votre image'}}</span>
                     <img src="/static/images/stickerPicture2.svg" class ="sticker">

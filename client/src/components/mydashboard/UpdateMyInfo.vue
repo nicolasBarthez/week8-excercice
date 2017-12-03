@@ -17,7 +17,7 @@
               <p v-if="okMessage">Your profile has been updated successfully!</p>
               <h2>Could you talk about yourself, your followers would like to know you a little better.</h2>
               <br>
-             
+
                 <span>Your magic skills</span>
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
                 <br>
@@ -90,7 +90,9 @@ export default {
       location: ""
     };
   },
-
+  props: {
+    connectedUser: Object
+  },
   methods: {
     userProfileUpdate() {
       const userId = this.$root.user._id;

@@ -1,8 +1,15 @@
 <template>
     <section class="main">
-<nav class="navbar is-dark">
-      <div class="babblesMenu">
+<nav v-if="connectedUser" class="navbar is-dark">
+      <div v-if="connectedUser.lang==='EN'" class="babblesMenu">
             <a  @click="all()" :class="{'is-active':indexSelected ==='all' }" class="navbar-item is-tab babMenu">All</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='crypto' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
+            <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
+            <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
+      </div>
+      <div v-else class="babblesMenu">
+            <a  @click="all()" :class="{'is-active':indexSelected ==='all' }" class="navbar-item is-tab babMenu">Toutes les actions</a>
             <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='crypto' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
             <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
             <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
@@ -106,7 +113,9 @@ export default {
       defaultSortDirection: "desc"
     };
   },
-
+  props: {
+    connectedUser: Object
+  },
   methods: {
     all() {
       this.indexSelected = "all";

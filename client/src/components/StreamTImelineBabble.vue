@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-   <nav class="navbar is-dark">
+   <nav v-if="connectedUser" class="navbar is-dark">
       <div class="babblesMenu">
             <a  @click="sortBabbles('all')":class="{'is-active':activeItem ==='all' }" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"All":"Tous"}}</a>
             <a  @click="sortBabbles('insidermates')" :class="{'is-active':activeItem ==='insidermates'}" class="navbar-item is-tab babMenu">{{connectedUser.lang==="EN"?"Insider Mates":"Amis insiders"}}</a>
@@ -23,7 +23,7 @@
   </div>
 
 
-                <article class="media tweet">
+                <article v-if="connectedUser" class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
                           <router-link :to="'/dashboard/'+babble.user._id" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>

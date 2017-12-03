@@ -1,12 +1,18 @@
 <template>
 <div>
 <nav class="navbar is-dark">
-      <div>
-      <div class="babblesMenu">
+      <div v-if="connectedUser">
+      <div v-if="connectedUser.lang==='EN'" class="babblesMenu">
             <a  @click="curInsights()" class="babMenu navbar-item is-tab">Current insights</a>
             <a  @click="WatchList()" class="babMenu navbar-item is-tab">Watch list</a>
             <a  @click="PastInsights()"class="babMenu navbar-item is-tab is-active">Past insights</a>
             <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab">Insiders followed</a>
+      </div>
+      <div v-else class="babblesMenu">
+        <a  @click="curInsights()" class="babMenu navbar-item is-tab ">Positions ouvertes</a>
+        <a  @click="WatchList()" class="babMenu navbar-item is-tab ">Liste de suivi</a>
+        <a  @click="PastInsights()"class="babMenu navbar-item is-tab is-active">Positions passées</a>
+        <a  @click="InsidersFollowed()" class="babMenu navbar-item is-tab ">Insiders suivis</a>
       </div>
       </div>
     </nav>
@@ -101,7 +107,9 @@ export default {
       defaultSortDirection: "asc"
     };
   },
-
+  props: {
+    connectedUser: Object
+  },
   created() {
     const insiderId = this.$route.params.id;
     getInsiderPastInsights(insiderId).then(pastInsights => {

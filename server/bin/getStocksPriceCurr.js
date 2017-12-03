@@ -63,7 +63,7 @@ function getCryptoUpdate(index) {
   });
 }
 // Update crypto
-getCryptoUpdate("crypto");
+// getCryptoUpdate("crypto");
 
 // timestampsfunction getCryptoUpdate(index) {
 // Stock.find({ index: "crypto" }).exec((err, stockArray) => {
@@ -80,4 +80,4 @@ getCryptoUpdate("crypto");
 //   });
 // });
 
-// module.exports = getCryptoUpdate;
+module.exports = getCryptoUpdate;
