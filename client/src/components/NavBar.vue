@@ -150,11 +150,11 @@ a{
 }
 .icon {
     color: #dbdbdb;
-    height: 2.25em!important;
+    height: 2em!important;
     pointer-events: none;
     position: absolute;
     top: 0;
-    width: 2.25em!important;
+    width: 2em!important;
 }
 #nav-toggle-state {
     display: none;

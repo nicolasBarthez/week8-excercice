@@ -177,12 +177,16 @@ export default {
 </script>
 
 <style scoped>
-
-body
+.control.has-icons-left .icon, .control.has-icons-right .icon{
+  width:2em!important;
+  height:2em!important
+}
 .sentimentLand{
   display: flex;
   justify-content: space-evenly;
-  padding: 2.5rem
+  padding: 2rem;
+  padding-top:7rem;
+  padding-bottom: 4rem;
 }
 .sentimentLandImage{
   width:100%;
@@ -224,7 +228,7 @@ body
 .sentimentLand3{
   display: flex;
   justify-content: space-evenly;
-  padding: 2.5rem;
+  padding: 2rem;
   background-color: #fff
 }
 .sentimentLandImage3{
