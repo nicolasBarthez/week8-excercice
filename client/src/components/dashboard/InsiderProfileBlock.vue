@@ -22,7 +22,7 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong"> {{profileInfo.performancePoints.toFixed(0) }} &nbsp P$</strong>
+                    <strong class="follOwStrong" :class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}"> {{profileInfo.performancePoints.toFixed(0) }} &nbsp P$</strong>
                   </p>
                 </div>
               <div class="wonTrade"id="follOw">
@@ -261,23 +261,21 @@ a {
 .title.is-5 {
   font-size: 1.5REM;
 }
+#adWLT {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #fff;
+    background-color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+    font-size:1rem !important
+}
 #adWLT.is-outlined:focus,
 #adWLT.is-outlined:hover {
-  PADDING-LEFT: 30PX;
-  PADDING-RIGHT: 30PX;
-  font-weight: bolder;
-  color: #fff;
-  box-shadow: 0 0 0 0.125em #192b41;
-  border-color: #192b41;
-}
-#adWLT {
-  background-color: #192b41;
-  border-color: #192b41;
-  color: #fff;
-  PADDING-LEFT: 30PX;
-  PADDING-RIGHT: 30PX;
-  font-weight: bolder;
-  font-size:  0.75rem;
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 .position {
   display: flex;
