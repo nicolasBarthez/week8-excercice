@@ -178,11 +178,11 @@ export default {
 
 <style scoped>
 
-body
 .sentimentLand{
   display: flex;
   justify-content: space-evenly;
-  padding: 2.5rem
+  padding: 7rem 2.5rem 4rem;
+
 }
 .sentimentLandImage{
   width:100%;
