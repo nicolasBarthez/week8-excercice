@@ -1,5 +1,5 @@
 <template>
-  <div  v-if="connectedUser" class="column is-3 sideRecent mainSCI">
+  <div  v-if="connectedUser && watchInsight" class="column is-3 sideRecent mainSCI">
     <div v-if="watchInsight.length>0" class="is-sticky">
         <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>

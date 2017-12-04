@@ -22,7 +22,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary btn">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary btn">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -174,6 +174,22 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    background-color:#192b41!important;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #192b41!important;
+    border-color: #192b41!important;
+    font-weight: bolder;
+    FONT-SIZE: 0.8REM;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
+}
 .sticker{
       height: 0;
       width: 0;
@@ -197,7 +213,7 @@ export default {
     border: solid,#192b41;
 }
 .fa-line-chart{
-    font-size: 15px;
+    font-size: 21px;
 }
 .center {
     display: flex;
@@ -246,42 +262,11 @@ export default {
     vertical-align: top;
     color: #192b41;
 }
-.button.is-primary.is-outlined {
-    background-color: transparent;
-    border-color: #192b41;
-    color: #192b41;
-}
-
-.button.is-primary.is-outlined:focus,
-.button.is-primary.is-outlined:hover {
-    background-color: #192b41;
-    border-color: #192b41;
-    color: #fff;
-}
-
-.button.is-primary.is-hovered,
-.button.is-primary:hover,
-.button.is-primary.is-active,
-.button.is-primary:active {
-    background-color: #21ce99;
-    border-color: transparent;
-    color: #fff;
-}
-
-.button.is-primary {
-    background-color: #21ce99;
-    border-color: transparent;
-    color: #fff;
-}
-
 .x {
     padding-top: 1%;
     font-size: 21px;
 }
 
-.button.is-primary {
-    background-color: #192b41;
-}
 .field1 {
         margin-bottom: 0.75rem!important;
     }
