@@ -80,12 +80,6 @@ span>a {
     color: #192b41 !important
 }
 
-.navbar-item.is-tab:hover {
-    background-color: transparent;
-    border-bottom-color: #f9f9f9!important;
-    color: #f9f9f9!important
-}
-
 .columns {
     width: 100%!important
 }
@@ -102,6 +96,12 @@ span>a {
     border-bottom-width: 3px!important;
     color: #f9f9f9!important;
     padding-bottom: calc(0.5rem - 3px)!important;
+}
+
+.navbar-item.is-tab:hover {
+    background-color: #f9f9f9!important;
+    border-bottom-color: #f9f9f9!important;
+    color: #192b41!important
 }
 
 .babblesMenu {

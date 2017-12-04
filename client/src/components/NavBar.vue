@@ -38,12 +38,12 @@
 
             <div :class="{'closedToggle':closedState ===false}" class="nav-right nav-menu" >
 
-                <div v-if="connectedUser" id="menu"@click="closetoggle()">
+                <div v-if="connectedUser" id="menu">
                  <router-link  v-for="(link, index) in navbarLinks" :key="index" :to="link.location"
                     class='menu1':class="{'is-active': $route.path === link.location, 'nav-item': true, 'is-tab': true }"> {{ connectedUser.lang==="EN" ? link.text : link.textfr }}
                 </router-link>
                 </div>
-                <div @click="closetoggle()" class="nav-profile" v-if="$root.user">
+                <div class="nav-profile" v-if="$root.user">
                     <router-link to="/mydashboard" >
                         <div class="image is-32x32 is-circle">
                         <img class ="imgProfile" v-if="connectedUser" :src="connectedUser.picProfile" alt="">
@@ -112,6 +112,7 @@ export default {
       getUser().then(data => {
         this.connectedUser = data;
       });
+      this.closedState = true
     }
   },
   computed: {

@@ -1,5 +1,5 @@
 <template>
-  <div  v-if="connectedUser" class="column is-3 sideRecent mainSCI">
+  <div  v-if="connectedUser && watchInsight" class="column is-3 sideRecent mainSCI">
     <div v-if="watchInsight.length>0" class="is-sticky">
         <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
@@ -23,10 +23,10 @@
                    <b v-if="watchItem.position ==='bull'" class="price is-6" :class="{'has-text-green' : Math.floor(1000*(watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
                    <b v-else class="price is-6" :class="{'has-text-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)}}&nbsp;P$</b>
                    <br><div id="close">
-                      <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
-                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
+                      <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary btn"
+                      :class="{'btn-green' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
+                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary btn"
+                      :class="{'btn-green' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (watchItem.stockId.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{connectedUser.lang==='EN'?'Close':'Clôturer'}}</button>
                    </div>
                 </div>
             </div>
@@ -136,6 +136,22 @@ export default {
 #close {
     padding-top: 10px;
 }
+.btn {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    background-color:#192b41!important;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #192b41!important;
+    border-color: #192b41!important;
+    font-weight: bolder;
+    FONT-SIZE: 0.8REM;
+}
+
+.btn:hover, .btn:focus {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
+}
 .btn-red {
     PADDING-LEFT: 20PX;
     PADDING-RIGHT: 20PX;
@@ -169,22 +185,7 @@ export default {
     border-color: #21ce99!important;
     color: #21ce99!important;
 }
-.btn {
-    PADDING-LEFT: 20PX;
-    PADDING-RIGHT: 20PX;
-    background-color:#192b41!important;
-    color: #fff!important;
-    box-shadow: 0 0 0 0.125em #192b41!important;
-    border-color: #192b41!important;
-    font-weight: bolder;
-    FONT-SIZE: 0.8REM;
-}
 
-.btn:hover, .btn:focus {
-    background-color: #fff!important;
-    border-color: #192b41!important;
-    color: #192b41!important;
-}
 @media screen and (max-width: 768px) {
     #currentInsight {
         padding-top: 15px;

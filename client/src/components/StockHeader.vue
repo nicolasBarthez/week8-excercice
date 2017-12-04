@@ -23,15 +23,15 @@
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Add to watchlist':'Je veux suivre'}}</button>
                                <button v-else-if="watchItem.position ==='none'" id="adWL" @click="removeWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Remove':'Ne plus suivre'}}</button>
                                <p class="position" v-else>
-                                   <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
-                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary"
-                      :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0, 'btn' :  Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)===0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
+                                   <button v-if="watchItem.position ==='bull'" @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary btn"
+                      :class="{'btn-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
+                      <button v-else @click="closePosition(watchItem)" type="submit" class="button is-small is-outlined is-primary btn"
+                      :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
 
                                  <strong v-if="watchItem.position ==='bull'" class="pos" :class="{'has-text-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
-                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} ({{Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$)</strong>
+                                     {{Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$ ({{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} )</strong>
                                 <strong v-else class="pos" :class="{'has-text-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
-                                      {{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} ({{Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$)</strong>
+                                     {{Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$ ({{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}})</strong>
                               </p>
                             </div>
                             <div class="stock-price title is-5">
@@ -355,45 +355,6 @@ a {
 small{
     font-size:1.1rem !important
 }
-#Bbull {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    background-color: #21ce99;
-    border-color: #21ce99;
-    color: #fff;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-    font-size:1.2rem
-}
-#Bbull.is-outlined:focus,
-#Bbull.is-outlined:hover {
-    background-color: #fff;
-    border-color: #21ce99;
-    color: #21ce99;
-}
-#Bbear {
-    PADDING-LEFT: 30PX;
-    PADDING-RIGHT: 30PX;
-    font-weight: bolder;
-    color: #fff;
-    background-color:#ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
-    font-size:1.2rem
-}
-#Bbear.is-outlined:focus,
-#Bbear.is-outlined:hover {
-    background-color: #fff;
-    border-color: #ff6026;
-    color: #ff6026;
-}
-#adWL.is-outlined:focus,
-#adWL.is-outlined:hover {
-    background-color: #fff!important;
-    border-color: #192b41!important;
-    color: #192b41!important;
-}
 #adWL {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
@@ -403,6 +364,12 @@ small{
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
     font-size:1.2rem !important
+}
+#adWL.is-outlined:focus,
+#adWL.is-outlined:hover {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 .btn {
     PADDING-LEFT: 30PX;
@@ -419,6 +386,72 @@ small{
     background-color: #fff!important;
     border-color: #192b41!important;
     color: #192b41!important;
+}
+.btn-red {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    color: #fff!important;
+    background-color: #ff6026!important;
+    box-shadow: 0 0 0 0.125em #ff6026!important;;
+    border-color: #ff6026!important;;
+    font-weight: bolder;
+    FONT-SIZE: 1.2REM;
+}
+.btn-red:focus,
+.btn-red:hover {
+    background-color: #fff!important;
+    border-color: #ff6026!important;
+    color: #ff6026!important;
+}
+.btn-green {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    background-color:#21ce99!important;;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #21ce99!important;
+    border-color: #21ce99!important;
+    font-weight: bolder;
+    FONT-SIZE: 1.2REM;
+}
+
+.btn-green:focus,
+.btn-green:hover {
+    background-color: #fff!important;
+    border-color: #21ce99!important;
+    color: #21ce99!important;
+}
+#Bbull {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    background-color: #21ce99;
+    border-color: #21ce99;
+    color: #fff;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+    font-size:1.2rem
+}
+#Bbull.is-outlined:focus,
+#Bbull.is-outlined:hover {
+    background-color: #fff!important;
+    border-color: #21ce99!important;
+    color: #21ce99!important;
+}
+#Bbear {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #fff;
+    background-color:#ff6026;
+    box-shadow: 0 0 0 0.125em #ff6026;
+    border-color: #ff6026;
+    font-size:1.2rem
+}
+#Bbear.is-outlined:focus,
+#Bbear.is-outlined:hover {
+    background-color: #fff!important;
+    border-color: #ff6026!important;
+    color: #ff6026!important;
 }
 .position{
     display:flex;

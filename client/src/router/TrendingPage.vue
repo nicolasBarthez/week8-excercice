@@ -34,31 +34,31 @@
             @sort="onSort">
 
             <template slot-scope="props">
-                <b-table-column label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName has-text-centered is-6" data-replace="Symbol">
+                <b-table-column v-if="props.row.currentPrice>0" label="Stock" field='longName' sortable centered><router-link :to="'/stocks/'+props.row.shortName"class="stockName has-text-centered is-6" data-replace="Symbol">
                     {{ props.row.longName }}</router-link>
                 </b-table-column>
 
-                <b-table-column  field='currentPrice' sortable numeric centered label="Current price">
+                <b-table-column v-if="props.row.currentPrice>0"  field='currentPrice' sortable numeric centered label="Current price">
                     {{ props.row.currentPrice }}  &nbsp {{props.row.currency}}
                 </b-table-column>
 
-                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="Variation">
+                <b-table-column v-if="props.row.currentPrice>0" field='variation' numeric sortable centered :class="{'has-text-green' : props.row.variation > 0, 'has-text-red': props.row.variation<0}" label="Variation">
                     {{ props.row.variation }} %
                 </b-table-column>
 
-                <b-table-column field='volume' numeric sortable centered label="Volume">
+                <b-table-column v-if="props.row.currentPrice>0" field='volume' numeric sortable centered label="Volume">
                     {{ props.row.volume.toLocaleString() }}
                 </b-table-column>
 
-                <b-table-column field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Sentiment">
+                <b-table-column v-if="props.row.currentPrice>0" field='trending.percentage' numeric sortable centered :class="{'has-text-green' : props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}" label="Sentiment">
                     <strong :class="{'has-text-green' :props.row.trending.trend==='bull', 'has-text-red' : props.row.trending.trend==='bear'}">{{props.row.trending.percentage}}%</strong> <small>({{props.row.trending.trend}})</small>
                 </b-table-column>
 
-                <b-table-column field='hotInsights' numeric sortable centered label="Social trending">
+                <b-table-column v-if="props.row.currentPrice>0" field='hotInsights' numeric sortable centered label="Social trending">
                     {{ props.row.hotInsights }}
                 </b-table-column>
 
-                <b-table-column field='bestInsiders[0].perf' sortable centered label="Best insider on it">
+                <b-table-column v-if="props.row.currentPrice>0" field='bestInsiders[0].perf' sortable centered label="Best insider on it">
                     <router-link v-if="props.row.bestInsiders[0]" :to="'/dashboard/'+props.row.bestInsiders[0].id"><strong >@{{props.row.bestInsiders[0].username}}</strong></router-link><small v-if="props.row.bestInsiders[0]"> ({{props.row.bestInsiders[0].perf.toFixed(0)}} P$)</small>
                 </b-table-column>
             </template>

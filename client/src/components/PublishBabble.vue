@@ -24,7 +24,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary btn">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postChartBabble()" class="button is-outlined is-primary btn">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -230,7 +230,7 @@ export default {
       border: 0;
 }
 .fa-line-chart{
-    font-size: 15px;
+    font-size: 21px;
 }
 .center {
     display: flex;
@@ -303,87 +303,76 @@ export default {
     vertical-align: top;
     color: #192b41;
 }
-.button.is-primary.is-outlined {
-    background-color: transparent;
-    border-color: #192b41;
-    color: #192b41;
-}
-
-.button.is-primary.is-outlined:focus,
-.button.is-primary.is-outlined:hover {
-    background-color: #192b41;
-    border-color: #192b41;
-    color: #fff;
-}
-
-.button.is-primary.is-hovered,
-.button.is-primary:hover,
-.button.is-primary.is-active,
-.button.is-primary:active {
-    background-color: #21ce99;
-    border-color: transparent;
-    color: #fff;
-}
-
-.button.is-primary {
-    background-color: #21ce99;
-    border-color: transparent;
-    color: #fff;
-}
-
 .x {
     padding-top: 1%;
     font-size: 21px;
 }
-
-.button.is-primary {
-    background-color: #192b41;
+.trend-b-b{
+  cursor:pointer;
+}
+.btn {
+    PADDING-LEFT: 20PX;
+    PADDING-RIGHT: 20PX;
+    background-color:#192b41!important;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #192b41!important;
+    border-color: #192b41!important;
+    font-weight: bolder;
+    FONT-SIZE: 0.8REM;
+}
+.btn:hover, .btn:focus {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 #Bbull {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
-}
-#Bbull.is-outlined:focus,
-#Bbull.is-outlined:hover {
     background-color: #21ce99;
     border-color: #21ce99;
     color: #fff;
+    box-shadow: 0 0 0 0.125em #21ce99;
+    border-color: #21ce99;
+    font-size:1.2rem
 }
-.trend-b-b{
-  cursor:pointer;
+#Bbull.is-outlined:focus,
+#Bbull.is-outlined:hover {
+    background-color: #fff!important;
+    border-color: #21ce99!important;
+    color: #21ce99!important;
 }
 #Bbear {
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #ff6026;
+    color: #fff;
+    background-color:#ff6026;
     box-shadow: 0 0 0 0.125em #ff6026;
     border-color: #ff6026;
+    font-size:1.2rem
 }
 #Bbear.is-outlined:focus,
 #Bbear.is-outlined:hover {
-    background-color: #ff6026;
-    border-color: #ff6026;
-    color: #fff;
+    background-color: #fff!important;
+    border-color: #ff6026!important;
+    color: #ff6026!important;
 }
 #NotNow {
     MARGIN-TOP: -25%;
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #192b41;
+    color: #fff;
+    background-color:#192b41;
     box-shadow: 0 0 0 0.125em #192b41;
     border-color: #192b41;
 }
 #NotNow.is-outlined:focus,
 #NotNow.is-outlined:hover {
-    background-color: #192b41;
-    border-color: #192b41;
-    color: #fff;
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
 }
 .field1 {
         margin-bottom: 0.75rem!important;
