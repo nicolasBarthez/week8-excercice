@@ -368,6 +368,10 @@ span{
   text-align: center !important;
 }
 @media screen and (max-width: 768px) {
+  .control.has-icons-left .icon, .control.has-icons-right .icon{
+  width:2.75em!important;
+  height:2.75em!important
+}
   .accrocheH1{
     font-size: 1.5rem;
   }
