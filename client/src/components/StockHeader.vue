@@ -29,7 +29,7 @@
                       :class="{'btn-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'btn-red' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">{{connectedUser.lang==='EN'?'Close Position':'Clôturer position'}}</button>
 
                                  <strong v-if="watchItem.position ==='bull'" class="pos" :class="{'has-text-green' : Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
-                                     {{Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$ ({{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}} )</strong>
+                                     {{Math.floor(1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$ ({{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}})</strong>
                                 <strong v-else class="pos" :class="{'has-text-green' : Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)>0, 'has-text-red' :Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)<0}">
                                      {{Math.floor(-1000* (stock.price-watchItem.initialPrice)/watchItem.initialPrice)}} P$ ({{watchItem.position}} @ {{watchItem.initialPrice}} {{stock.currency}})</strong>
                               </p>
@@ -42,7 +42,9 @@
                                 <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
                                 <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
                                  <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2.toFixed(2)}} %</small>
-
+                                </div>
+                                 <div class="stock-priceVar title is-5">
+                               <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
                                     <span v-if="stock.index[0]==='nasdaq'" class="icon chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
@@ -285,7 +287,7 @@ export default {
     align-items: center;
 }
 .longNameTitle{
-    margin-bottom:12% !important
+    margin-bottom:0% !important
 }
 .pos{
     text-align: center;
@@ -543,10 +545,10 @@ small{
         display:none;
     }
     .stock-see-desc{
-        font-size:0.6rem;
+        font-size:1rem!important;
     }
     .subtitleIsin {
-        font-size:0.6rem;
+        font-size:1rem!important;
     }
     #BBull{
         width:80%;

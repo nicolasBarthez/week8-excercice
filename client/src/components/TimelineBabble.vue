@@ -146,7 +146,7 @@
                             </div>
                         <div class="level-right rightchartIcon">
                             <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                            <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary btn">Babble</button></div>
+                            <div class="level-item"><button id="babble-submit"  @click="postBabble(modalBabble)" class="button is-outlined is-primary">Babble</button></div>
                         </div>
                         </div>
                     </div>
@@ -354,17 +354,13 @@ word-break: break-word;
     vertical-align: top;
     color: #192b41;
 }
-.btn {
-    PADDING-LEFT: 20PX;
-    PADDING-RIGHT: 20PX;
+.button {
     background-color:#192b41!important;
     color: #fff!important;
     box-shadow: 0 0 0 0.125em #192b41!important;
     border-color: #192b41!important;
-    font-weight: bolder;
-    FONT-SIZE: 0.8REM;
 }
-.btn:hover, .btn:focus {
+.button:hover, .button:focus {
     background-color: #fff!important;
     border-color: #192b41!important;
     color: #192b41!important;

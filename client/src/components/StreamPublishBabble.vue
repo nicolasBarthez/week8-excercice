@@ -22,7 +22,7 @@
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
-                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary btn">Babble</button></div>
+                                <div class="level-item"><button id="babble-submit"  @click="postBabble()" class="button is-outlined is-primary">Babble</button></div>
                             </div>
                         </div>
                     </div>
@@ -174,18 +174,13 @@ export default {
 </script>
 
 <style scoped>
-.btn {
-    PADDING-LEFT: 20PX;
-    PADDING-RIGHT: 20PX;
+.button {
     background-color:#192b41!important;
     color: #fff!important;
     box-shadow: 0 0 0 0.125em #192b41!important;
     border-color: #192b41!important;
-    font-weight: bolder;
-    FONT-SIZE: 0.8REM;
 }
-
-.btn:hover, .btn:focus {
+.button:hover, .button:focus {
     background-color: #fff!important;
     border-color: #192b41!important;
     color: #192b41!important;
@@ -234,6 +229,9 @@ export default {
 }
 .level{
     display:flex;
+     height:2em;
+     align-items: center;
+    justify-content: space-between;
 }
 
 .card-content {

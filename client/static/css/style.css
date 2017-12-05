@@ -101,7 +101,8 @@ span>a {
 .navbar-item.is-tab:hover {
     background-color: #f9f9f9!important;
     border-bottom-color: #f9f9f9!important;
-    color: #192b41!important
+    color: #192b41!important;
+    font-weight: 400
 }
 
 .babblesMenu {
