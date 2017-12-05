@@ -37,7 +37,7 @@
             <button v-else @click="unfollow" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "Unfollow":"Ne plus suivre"}}</button>
           </div>
           <div v-else class="add-to-watchlist">
-             <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "My DashBoard":"Mon tableau de suivi"}}</button>
+             <button @click="editMyProfile" id="adWLT" class="button is-small is-outlined is-primary" type="button" name="button">{{connectedUser.lang ==="EN"? "My DashBoard":"Mon profil"}}</button>
           </div>
             </div>
              <div id="refAndSkills">
