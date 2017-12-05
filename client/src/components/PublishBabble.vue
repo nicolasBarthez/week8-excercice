@@ -17,7 +17,7 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span @click="shareChart()" class="icon chartIcon">
+                                    <span @click="shareChart()" class="chartIcon">
                                          <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}
                                     </span>
                                 </a>
@@ -52,7 +52,7 @@
         <b-modal :active.sync="isShareChartActive">
             <div class="mediaModal">
             <div>
-                 <label> <span class="icon chartIcon">
+                 <label> <span class="chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}</span>
                     <img src="/static/images/stickerPicture2.svg" class ="sticker">
                     <croppa v-model="babbleImage"

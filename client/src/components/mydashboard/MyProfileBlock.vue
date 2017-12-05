@@ -315,7 +315,7 @@ a {
       border-color: #192b41;
       color: #fff;
       font-weight: bolder;
-      font-size: 0.4rem;
+      font-size: 0.6rem!important;
       PADDING-LEFT: 0PX;
       PADDING-RIGHT: 0PX;
     }

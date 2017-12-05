@@ -46,7 +46,7 @@
                                  <div class="stock-priceVar title is-5">
                                <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
-                                    <span v-if="stock.index[0]==='nasdaq'" class="icon chartIcon">
+                                    <span v-if="stock.index[0]==='nasdaq'" class="chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
 
@@ -540,15 +540,16 @@ small{
         flex-direction: column;
         align-items: flex-end;
         justify-content: flex-start;
+        TEXT-ALIGN: end;
     }
     .media-left {
         display:none;
     }
     .stock-see-desc{
-        font-size:1rem!important;
+        font-size:0.75rem!important;
     }
     .subtitleIsin {
-        font-size:1rem!important;
+        font-size:0.75rem!important;
     }
     #BBull{
         width:80%;
