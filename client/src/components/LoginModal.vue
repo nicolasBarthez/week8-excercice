@@ -77,6 +77,10 @@ export default {
 #modalAuth{
     border-radius:5px;
 }
+.icon{
+  width:2em!important;
+  height:2em!important
+}
 .section {
     padding:0px!important;
     padding-top: 4rem!important;
@@ -136,9 +140,13 @@ a{
     color: #192b41;
 }
 @media (max-width: 768px) {
-  .section.main {
-    background-color: #f9f9f9;
-    padding-top:3.5rem  !important;
-  }
+    .section.main {
+        background-color: #f9f9f9;
+        padding-top:3.5rem  !important;
+    }
+    .icon{
+        width:2.75em!important;
+        height:2.75em!important
+    }
 }
 </style>
