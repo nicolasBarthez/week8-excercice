@@ -3,7 +3,7 @@
         <div id="top2">
             <div class="nav">
                 <router-link to="/trending" class="nav-item">
-                    <img id="logo2" src="/static/images//logoReduct.png" alt="Description">
+                    <img id="logo2" src="/static/images/logoReduct.png" alt="Description">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
             </div>
