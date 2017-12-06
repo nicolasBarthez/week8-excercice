@@ -122,7 +122,7 @@
                     </div>
                     <div>
                         Vous venez de prendre une position <strong class="has-text-green">Bull @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-green">{{stock.longName}}</strong>.<br>
-                        Cette position a une durée de 30 jours.<br>
+                        Cette position a une durée de <strong class="has-text-blue">30 jours</strong>.<br>
                         Vous pouvez la clôturer à tout moment.<br>
                         Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                     </div>
@@ -135,7 +135,7 @@
                     </div>
                     <div>
                         Vous venez de prendre une position <strong class="has-text-red">Bear @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-red">{{stock.longName}}</strong>.<br>
-                        Cette position a une durée de 30 jours.<br>
+                        Cette position a une durée de <strong class="has-text-blue">30 jours</strong>.<br>
                         Vous pouvez la clôturer à tout moment.<br>
                         Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                     </div>
@@ -326,9 +326,10 @@ export default {
     width: 25%
 }
  .chartIcon{
-     width:100%;
-     justify-content:flex-end;
-     margin-top: 5%!important;
+    width:100%;
+    justify-content:flex-end;
+    margin-top: 5%!important;
+    display: flex;
  }
  .stock-see-desc{
      cursor: pointer;

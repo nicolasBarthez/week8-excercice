@@ -97,7 +97,32 @@
             </div>
             </div>
         </b-modal>
-
+        <b-modal :active.sync='imBullModal' :width="640">
+                <div class="bullbearPos">     
+                    <div class="bullsAndBearsPic2">
+                        <img src="/static/images/roundBullArrow.png" alt="bull and bear">
+                    </div>
+                    <div>
+                        Vous venez de prendre une position <strong class="has-text-green">Bull @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-green">{{stock.longName}}</strong>.<br>
+                        Cette position a une durée de <strong class="has-text-blue">30 jours</strong>.<br>
+                        Vous pouvez la clôturer à tout moment.<br>
+                        Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                    </div>
+                </div>
+            </b-modal>
+            <b-modal :active.sync='imBearModal' :width="640">
+                <div class="bullbearPos">     
+                    <div class="bullsAndBearsPic2">
+                        <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                    </div>
+                    <div>
+                        Vous venez de prendre une position <strong class="has-text-red">Bear @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-red">{{stock.longName}}</strong>.<br>
+                        Cette position a une durée de <strong class="has-text-blue">30 jours</strong>.<br>
+                        Vous pouvez la clôturer à tout moment.<br>
+                        Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                    </div>
+                </div>
+            </b-modal>
     </div>
 </template>
 
@@ -114,6 +139,8 @@ export default {
       prefix: "",
       isCardModalActive: false,
       isShareChartActive: false,
+      imBullModal:false,
+      imBearModal: false,
       babbleImage: null,
       babbleUrl: "",
       noSticker: false,
@@ -181,6 +208,7 @@ export default {
       beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
+        this.imBullModal = true
       });
     },
     imBear() {
@@ -188,6 +216,7 @@ export default {
       beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
+        this.imBearModal = true
       });
     },
 
@@ -219,6 +248,24 @@ export default {
 </script>
 
 <style scoped>
+.bullsAndBearsPic2{
+    width:40%;
+    padding: 1REM
+}
+.bullbearPos {
+    display: flex;
+    align-items: center;
+    border-radius: 3%;
+    justify-content: space-evenly;
+    background-color: #f9f9f9;
+    padding: 1rem;
+}
+.has-text-blue{
+    font-weight:bold
+}
+a{
+    color: #192b41 !important; 
+}
 .sticker{
       height: 0;
       width: 0;
