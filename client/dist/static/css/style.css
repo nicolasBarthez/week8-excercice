@@ -1,0 +1,224 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+}
+
+div {
+    font-size: 1.2REM!important;
+}
+
+.icon {
+    width: 2em!important;
+    height: 2em!important
+}
+
+.emoji {
+    width: 1.5rem !important
+}
+
+.textarea[rows] {
+    height: 15VH!important;
+}
+
+.babMenu {
+    color: lightgrey ! important
+}
+
+.babblesMenu {
+    display: flex;
+    overflow: auto;
+}
+
+.tweet-meta {
+    align-items: center
+}
+
+a strong {
+    color: #192b41 !important
+}
+
+span>a {
+    color: #192b41!important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.select select:focus,
+.select select.is-focused,
+.select select:active,
+.select select.is-active {
+    border-color: #192b41!important;
+    box-shadow: 0 0 0 0.125em #192b41!important;
+}
+
+.select:not(.is-multiple)::after {
+    border: 1px solid #192b41 !important;
+    border-right: 0;
+    border-top: 0;
+    content: " ";
+    display: block;
+    height: 0.5em;
+    pointer-events: none;
+    position: absolute;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    width: 0.5em;
+    margin-top: -0.375em;
+    right: 1.125em;
+    top: 50%;
+    z-index: 4;
+}
+
+.button.is-primary:active .button.is-primary.is-active .button.is-primary .button.is-primary:hover .button.is-primary.is-hovered {
+    background-color: #192b41!important;
+    border-color: transparent;
+    color: #f9f9f9!important;
+}
+
+.babble-body>a {
+    color: #192b41!important;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.chartIcon {
+    color: #192b41 !important
+}
+
+.columns {
+    width: 100%!important
+}
+
+.navbar.is-dark {
+    background-color: #192b41!important;
+    color: #f9f9f9!important;
+}
+
+.navbar-item.is-tab.is-active {
+    background-color: transparent;
+    border-bottom-color: #f9f9f9!important;
+    border-bottom-style: solid!important;
+    border-bottom-width: 3px!important;
+    color: #f9f9f9!important;
+    padding-bottom: calc(0.5rem - 3px)!important;
+}
+
+.navbar-item.is-tab:hover {
+    background-color: #f9f9f9!important;
+    border-bottom-color: #f9f9f9!important;
+    color: #192b41!important;
+    font-weight: 400
+}
+
+.babblesMenu {
+    display: flex;
+}
+
+.input.is-active,
+.input.is-focused,
+.input:active,
+.input:focus,
+.textarea.is-active,
+.textarea.is-focused,
+.textarea:active,
+.textarea:focus {
+    border-color: #192b41 !important;
+    box-shadow: 0 0 0 0.125em #192b41 !important;
+}
+
+.icon .mdi {
+    color: #192b41;
+}
+
+.has-text-green {
+    color: #21ce99 !important;
+}
+
+.has-text-red {
+    color: #ff6026 !important;
+}
+
+.pagination-link {
+    color: #192b41 !important;
+}
+
+.pagination-link.is-current {
+    background-color: #192b41 !important;
+    border-color: #192b41 !important;
+    color: #f9f9f9!important;
+}
+
+.pagination-previous:focus,
+.pagination-next:focus,
+.pagination-link:focus {
+    border-color: #192b41 !important;
+}
+
+.navbar-item .navbar-link .poi {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+    cursor: pointer;
+}
+
+a.nav-item:not(.button).is-tab:hover {
+    border-bottom-color: #192b41 !important;
+    border-top-color: transparent;
+    background-color: #f9f9f9 !important;
+    ;
+}
+
+.navbar-item.is-tab .poi {
+    border-bottom: 1px solid transparent;
+    min-height: 3.25rem;
+}
+
+.navbar-item,
+.navbar-link .poi {
+    display: block;
+    line-height: 1.5;
+    padding: .5rem 1rem;
+    position: relative;
+}
+
+.profile-card .image.is-circle {
+    margin-top: -2rem;
+    border: none;
+    width: 64px;
+    height: 64px;
+    background-color: transparent;
+}
+
+.imgProfile {
+    width: auto!important;
+    border: 1px solid black!important;
+    border-radius: 50% !important;
+}
+
+.field.has-addons .control:last-child .button {
+    background-color: #f9f9f9 !important;
+    color: #f9f9f9 !important
+}
+
+@media (max-width: 768px) {
+    .icon {
+        width: 2.75em!important;
+        height: 2.75em!important
+    }
+    .main {
+        background-color: #f9f9f9;
+        padding-left: 0.1px !important;
+        padding-right: 0.1px !important
+    }
+    .is-64x64 {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    .has-text-grey-light {
+        font-size: 0.7rem;
+    }
+    small {
+        font-size: 0.7rem!important
+    }
+}
