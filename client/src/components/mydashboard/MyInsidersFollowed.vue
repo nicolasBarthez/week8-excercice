@@ -177,4 +177,10 @@ a{
 .image{
   margin-right: 20px !important;
 }
+@media (max-width: 768px) {
+    .button .icon.is-small {
+    height: 1.5em!important;
+    width: 1.5em!important;
+  }
+}
 </style>
