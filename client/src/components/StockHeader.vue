@@ -596,7 +596,7 @@ small{
         font-size:0.65rem
     }
     small{
-        font-size:0.85rem!important;
+        font-size:0.7rem!important;
     }
     .card-content {
         padding: 0.7REM;
@@ -608,7 +608,7 @@ small{
     }
     .stVar{
         text-align:end;
-        font-size:0.9rem!important
+        font-size:0.95rem!important
     }
     .longNameTitle{
         font-size: 0.8REM !important;
