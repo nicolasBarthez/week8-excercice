@@ -608,7 +608,7 @@ small{
     }
     .stVar{
         text-align:end;
-        font-size:0.95rem!important
+        font-size:0.8rem!important
     }
     .longNameTitle{
         font-size: 0.8REM !important;
