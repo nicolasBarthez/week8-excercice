@@ -8,16 +8,16 @@ const mongoose = require("mongoose");
 const urlStart = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=";
 const urlEnd = "&tsyms=USD,EUR";
 
-mongoose
-  .connect(
-    "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
-    {
-      useMongoClient: true
-    }
-  )
-  .then(() => {
-    console.info("The magic happens on port " + port);
-  });
+// mongoose
+//   .connect(
+//     "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c",
+//     {
+//       useMongoClient: true
+//     }
+//   )
+//   .then(() => {
+//     console.info("The magic happens on port " + port);
+//   });
 
 // mongoose
 //   .connect(process.env.MONGODB_URI, {
@@ -44,10 +44,10 @@ function getCryptoUpdate(index) {
           let variation2 = resp.data.RAW[stock.symbolPrice].EUR.CHANGEPCT24HOUR;
 
           let newStock = {
-            price: price.toFixed(2),
+            price: price.toFixed(4),
             volume: volume.toFixed(2),
             variation: variation.toFixed(2),
-            price2: price2.toFixed(2),
+            price2: price2.toFixed(4),
             variation2: variation2.toFixed(2)
           };
 

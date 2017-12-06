@@ -21,10 +21,10 @@ function scrapPriceCurrency(symbole) {
     let variation2 = resp.data.RAW[symbole].EUR.CHANGEPCT24HOUR;
 
     let newStock = {
-      price: price.toFixed(2),
+      price: price.toFixed(4),
       volume: volume.toFixed(2),
       variation: variation.toFixed(2),
-      price2: price2.toFixed(2),
+      price2: price2.toFixed(4),
       variation2: variation2.toFixed(2)
     };
 
