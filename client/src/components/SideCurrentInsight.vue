@@ -42,8 +42,37 @@
             <p v-else >Prenez position et partager vos intuitions sur le marché !!!</p>
         </div>
     </div>
-  </div>
-
+    <div v-if="modalClosePosition">
+        <b-modal :active.sync='closePositionModal' :width="640">
+            <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
+                <div class="bullsAndBearsPic2">
+                    <img src="/static/images/roundBullArrow.png" alt="bull and bear">
+                </div>
+                <div>
+                    Vous venez de clôturer votre position <strong class='has-text-green'>Bull</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
+                    <strong class="pos has-text-green" v-if="Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                    Cette position vous a rapporté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    <strong v-else class="pos has-text-red">
+                    Cette position vous a couté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                </div>
+            </div>
+            <div v-else class="mediaModal bullbearPos">     
+                <div class="bullsAndBearsPic2">
+                    <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                </div>
+                <div>
+                    Vous venez de clôturer votre position <strong class='has-text-red'>Bear</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
+                    <strong class="pos has-text-green" v-if="Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                    Cette position vous a rapporté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    <strong v-else class="pos has-text-red">
+                    Cette position vous a couté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                </div>
+            </div>
+        </b-modal>
+    </div>
+</div>
 </template>
 
 <script>
@@ -51,7 +80,10 @@ import { removePosition } from "@/api/api";
 
 export default {
   data() {
-    return {};
+    return {
+        closePositionModal:false,
+        modalClosePosition:""
+    };
   },
 
   props: {
@@ -64,12 +96,40 @@ export default {
       removePosition(watchItem.stockId.shortName, watchItem._id).then(() => {
         this.$emit("changeWatchlist");
       });
+      this.modalClosePosition= watchItem,
+      this.closePositionModal = true
     }
   }
 };
 </script>
 
 <style scoped>
+.has-text-green{
+    font-weight: bold;
+}
+.has-text-red{
+    font-weight: bold
+}
+.bullsAndBearsPic2{
+    width:40%;
+    padding: 1REM
+}
+.bullbearPos {
+    display: flex;
+    align-items: center;
+    border-radius: 3%;
+    justify-content: space-evenly
+}
+.mediaModal{
+    background-color: #f9f9f9;
+    padding: 1rem;
+}
+.has-text-blue{
+    font-weight:bold
+}
+a{
+    color: #192b41 !important; 
+}
 .is-6{
     font-size:1rem
 }
@@ -187,6 +247,18 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+.has-text-green{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
+.has-text-red{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
+    .bullsAndBearsPic2{
+        width: 100%;
+        padding-left:0;
+    }
     #currentInsight {
         padding-top: 15px;
     }
