@@ -245,6 +245,10 @@ color:#f7931a!important
 }
 .has-text-centered{
   font-size:0.8rem !important
-}
+  }
+.button .icon.is-small {
+    height: 1.5em!important;
+    width: 1.5em!important;
+  }
 }
 </style>
