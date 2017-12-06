@@ -507,7 +507,10 @@ a{
     #bullsAndBears2{
         margin: 1REM;
     }
-
+    .bullsAndBearsPic2{
+    width: 100%;
+    padding-left:0;
+    }
 }
 
 </style>

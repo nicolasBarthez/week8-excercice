@@ -539,6 +539,10 @@ small{
     padding: 1rem;
 }
 @media (max-width: 768px) {
+    .bullsAndBearsPic2{
+        width: 100%;
+        padding-left:0;
+    }
     .trenDingDigitMobile{
         display: flex!important;
         align-items: baseline;

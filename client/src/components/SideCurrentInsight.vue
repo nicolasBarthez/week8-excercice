@@ -242,6 +242,10 @@ a{
 }
 
 @media screen and (max-width: 768px) {
+    .bullsAndBearsPic2{
+        width: 100%;
+        padding-left:0;
+    }
     #currentInsight {
         padding-top: 15px;
     }
