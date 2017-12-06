@@ -286,6 +286,9 @@ export default {
     width:40%;
     padding: 1REM
 }
+.subtitleIsin{
+    font-size: 1REM!important
+}
 .bullbearPos {
     display: flex;
     align-items: center;
