@@ -100,22 +100,78 @@
                         </div>
                     </div>
                 </div>
-                 <b-modal :active.sync="isChartStockActive" :width="640">
-          <chart-stock :stock="stock"></chart-stock>
-        </b-modal>
-        <b-modal :active.sync="isStockDescriptionModalActive">
-            <div class="mediaModal">
-                <nav id="bandB" class="level media">
-                    <h1 class="modalTitle">
-                        {{connectedUser.lang==="EN"?"More info about ":"Plus d'info sur "}}{{stock.longName}} !
-                    </h1>
-                </nav>
-                <div id="bullsAndBears2">
-                    <div id="stock-desc" class="div is-outlined  ">{{stock.description}}</div>
-               </div>
+            <b-modal :active.sync="isChartStockActive" :width="640">
+                <chart-stock :stock="stock"></chart-stock>
+            </b-modal>
+            <b-modal :active.sync="isStockDescriptionModalActive">
+                <div class="mediaModal">
+                    <nav id="bandB" class="level media">
+                        <h1 class="modalTitle">
+                            {{connectedUser.lang==="EN"?"More info about ":"Plus d'info sur "}}{{stock.longName}} !
+                        </h1>
+                    </nav>
+                    <div id="bullsAndBears2">
+                        <div id="stock-desc" class="div is-outlined  ">{{stock.description}}</div>
+                </div>
+                </div>
+            </b-modal>
+            <b-modal :active.sync='imBullModal' :width="640">
+                <div class="mediaModal bullbearPos">     
+                    <div class="bullsAndBearsPic2">
+                        <img src="/static/images/roundBullArrow.png" alt="bull and bear">
+                    </div>
+                    <div>
+                        Vous venez de prendre une position <strong class="has-text-green">Bull @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-green">{{stock.longName}}</strong>.<br>
+                        Cette position a une durée de 30 jours.<br>
+                        Vous pouvez la clôturer à tout moment.<br>
+                        Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                    </div>
+                </div>
+            </b-modal>
+            <b-modal :active.sync='imBearModal' :width="640">
+                <div class="mediaModal bullbearPos">     
+                    <div class="bullsAndBearsPic2">
+                        <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                    </div>
+                    <div>
+                        Vous venez de prendre une position <strong class="has-text-red">Bear @ {{stock.price}} {{stock.currency}}</strong> sur <strong class="has-text-red">{{stock.longName}}</strong>.<br>
+                        Cette position a une durée de 30 jours.<br>
+                        Vous pouvez la clôturer à tout moment.<br>
+                        Retouvez vos positions en cours en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                    </div>
+                </div>
+            </b-modal>
+            <div v-if="modalClosePosition">
+                <b-modal :active.sync='closePositionModal' :width="640">
+                    <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
+                        <div class="bullsAndBearsPic2">
+                            <img src="/static/images/roundBullArrow.png" alt="bull and bear">
+                        </div>
+                        <div>
+                            Vous venez de clôturer votre position <strong class='has-text-green'>Bull</strong> sur <strong class="has-text-blue">{{stock.longName}}</strong> prise <strong class="has-text-blue">@ {{stock.price}} {{stock.currency}}</strong>.<br>
+                            <strong class="pos has-text-green" v-if="Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                            Cette position vous a rapporté {{Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                            <strong v-else class="pos has-text-red">
+                            Cette position vous a couté {{Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                            Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                        </div>
+                    </div>
+                    <div v-else class="mediaModal bullbearPos">     
+                        <div class="bullsAndBearsPic2">
+                            <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                        </div>
+                        <div>
+                            Vous venez de clôturer votre position <strong class='has-text-red'>Bear</strong> sur <strong class="has-text-blue">{{stock.longName}}</strong> prise <strong class="has-text-blue">@ {{stock.price}} {{stock.currency}}</strong>.<br>
+                            <strong class="pos has-text-green" v-if="Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                            Cette position vous a rapporté {{Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                            <strong v-else class="pos has-text-red">
+                            Cette position vous a couté {{Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                            Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                        </div>
+                    </div>
+                </b-modal>
             </div>
-        </b-modal>
-            </div>
+        </div>
        </div>
 </section>
 </template>
@@ -141,8 +197,12 @@ export default {
   data() {
     return {
       activeItem: "thirty",
+      modalClosePosition:"",
       isChartStockActive: false,
-      isStockDescriptionModalActive: false
+      isStockDescriptionModalActive: false,
+      imBullModal:false,
+      imBearModal: false,
+      closePositionModal: false
     };
   },
   components: {
@@ -173,10 +233,12 @@ export default {
       });
     },
 
-    closePosition() {
+    closePosition(watchItem) {
       removePosition(this.stock.shortName, this.watchItem._id).then(() => {
         this.$emit("changeWatchlist", null);
       });
+      this.modalClosePosition= watchItem,
+      this.closePositionModal = true
     },
 
     imBull() {
@@ -184,6 +246,7 @@ export default {
       beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
+      this.imBullModal = true
     },
 
     imBear() {
@@ -191,6 +254,7 @@ export default {
       beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
+      this.imBearModal = true
     },
 
     trend30() {
@@ -212,6 +276,16 @@ export default {
 </script>
 
 <style scoped>
+.bullsAndBearsPic2{
+    width:40%;
+    padding: 1REM
+}
+.bullbearPos {
+    display: flex;
+    align-items: center;
+    border-radius: 3%;
+    justify-content: space-evenly
+}
 .trenDingDigitMobile{
     display:none;
 }
@@ -346,7 +420,7 @@ a {
     width: 100%;
 }
 .stVar {
-    font-size: 1.5REM!important;
+    font-size: 1.3REM!important;
 }
 #stockInfo {
     display: flex;

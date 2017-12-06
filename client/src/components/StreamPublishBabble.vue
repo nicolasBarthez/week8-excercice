@@ -217,7 +217,10 @@ export default {
     margin: auto
 }
 .chartIcon{
-    width:100%
+    width:100%;
+    display: flex;
+    align-items: baseline;
+    font-size: 0.85REM;
 }
 .level-right{
     width:50%;

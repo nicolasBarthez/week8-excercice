@@ -32,15 +32,13 @@
             </div>
         </div>
         <b-modal :active.sync="isCardModalActive">
-            <div class="mediaModal">
-                <nav id="bandB" class="level media">
-                    <h1 class="modalTitle">
-                        Take position on {{stock.longName}} !
-                    </h1>
-                    <div id="bullsAndBearsPic">
-                        <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
-                    </div>
-                </nav>
+            <div id="bandB" class="level media">
+                <h1 class="modalTitle">
+                    Take position on {{stock.longName}} !
+                </h1>
+                <div id="bullsAndBearsPic">
+                    <img src="/static/images/roundBullBearArrow.png" alt="bull and bear">
+                </div>
                 <div id="bullsAndBears2">
                     <button id="Bbull" @click="imBull()" class="button is-small is-outlined is-primary">Be Bull</button>
                     <button id="NotNow" @click="isCardModalActive = false" class="button is-small is-outlined is-primary">Not Now</button>
@@ -239,7 +237,10 @@ export default {
     margin: auto
 }
 .chartIcon{
-    width:100%
+    width:100%;
+    display: flex;
+    align-items: baseline;
+    font-size: 0.85REM;
 }
 .level-right{
     width:50%;
@@ -259,10 +260,13 @@ export default {
     background-color:#fff;
     display: flex;
     flex-direction: column;
+    height: fit-content;
+    padding: 2REM;
+    border-radius: 3%;
 }
 #bullsAndBears2{
     display: flex;
-    justify-content: space-around;
+    margin: 1.5REM;
 }
 .modalTitle{
     margin-top: -2%;
@@ -311,7 +315,7 @@ export default {
     font-size: 21px;
 }
 .trend-b-b{
-  cursor:pointer;
+    cursor:pointer;
 }
 .button {
     background-color:#192b41!important;
@@ -325,14 +329,14 @@ export default {
     color: #192b41!important;
 }
 #Bbull {
+    margin-left: -15%;
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    background-color: #21ce99;
-    border-color: #21ce99;
-    color: #fff;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
+    background-color: #21ce99!important;
+    border-color: #21ce99!important;
+    color: #fff!important;
+    box-shadow: 0 0 0 0.125em #21ce99!important;
     font-size:1.2rem
 }
 #Bbull.is-outlined:focus,
@@ -342,13 +346,14 @@ export default {
     color: #21ce99!important;
 }
 #Bbear {
+    margin-left: 15%;
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
-    color: #fff;
-    background-color:#ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
+    color: #fff!important;
+    background-color:#ff6026!important;
+    box-shadow: 0 0 0 0.125em #ff6026!important;
+    border-color: #ff6026!important;
     font-size:1.2rem
 }
 #Bbear.is-outlined:focus,
@@ -358,7 +363,8 @@ export default {
     color: #ff6026!important;
 }
 #NotNow {
-    MARGIN-TOP: -25%;
+    margin-left: 15%;
+    MARGIN-TOP: -35%;
     PADDING-LEFT: 30PX;
     PADDING-RIGHT: 30PX;
     font-weight: bolder;
@@ -374,7 +380,7 @@ export default {
     color: #192b41!important;
 }
 .field1 {
-        margin-bottom: 0.75rem!important;
+    margin-bottom: 0.75rem!important;
 }
 
 @media screen and (max-width: 768px) {
@@ -422,31 +428,37 @@ export default {
         margin-bottom: 3% !important
     }
     #Bbear {
-    PADDING-LEFT: 10PX;
-    PADDING-RIGHT: 10PX;
-    font-weight: bolder;
-    color: #ff6026;
-    box-shadow: 0 0 0 0.125em #ff6026;
-    border-color: #ff6026;
+        margin-left: 10%;
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        font-weight: bolder;
+        color: #ff6026;
+        box-shadow: 0 0 0 0.125em #ff6026;
+        border-color: #ff6026;
     }
 
     #NotNow {
-    MARGIN-TOP: -25%;
-    PADDING-LEFT: 1PX;
-    PADDING-RIGHT: 1PX;
-    font-weight: bolder;
-    color: #192b41;
-    box-shadow: 0 0 0 0.125em #192b41;
-    border-color: #192b41;
+        margin-left: 10%;
+        MARGIN-TOP: -25%;
+        PADDING-LEFT: 1PX;
+        PADDING-RIGHT: 1PX;
+        font-weight: bolder;
+        color: #192b41;
+        box-shadow: 0 0 0 0.125em #192b41;
+        border-color: #192b41;
     }
 
     #Bbull {
-    PADDING-LEFT: 10PX;
-    PADDING-RIGHT: 10PX;
-    font-weight: bolder;
-    color: #21ce99;
-    box-shadow: 0 0 0 0.125em #21ce99;
-    border-color: #21ce99;
+        margin-left: -10%;
+        PADDING-LEFT: 10PX;
+        PADDING-RIGHT: 10PX;
+        font-weight: bolder;
+        color: #21ce99;
+        box-shadow: 0 0 0 0.125em #21ce99;
+        border-color: #21ce99;
+    }
+    #bullsAndBears2{
+        margin: 1REM;
     }
 
 }

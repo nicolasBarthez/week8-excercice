@@ -98,7 +98,7 @@
                                 </a>
                                 <a class="likeModal level-item has-text-grey-light">
                                    <span class="icon is-medium"><i
-                                     @click="iLike(babble)" class="like-btn">🚀</i></span><small>{{modalBabble.like.length}}</small>
+                                     class="like-btn">🚀</i></span><small>{{modalBabble.like.length}}</small>
                                 </a>
                                 </a>
                             </div>
@@ -290,7 +290,10 @@ body {
     justify-content: space-between
 }
 .chartIcon{
-    width:100%
+    width:100%;
+    display: flex;
+    align-items: baseline;
+    font-size: 0.85REM;
 }
 .level-right .rightchartIcon{
     width:50%;
