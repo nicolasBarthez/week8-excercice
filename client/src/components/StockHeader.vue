@@ -55,10 +55,10 @@
 
                            <nav id="bandB" class="level media">
                                <div class="trenDingDigitMobile" v-if="trendBullBear[0]>=trendBullBear[1]">
-                                        <small class="trendingDigitMobileSmall"> Insiders are&nbsp;<strong class ="has-text-green">Bullish: </strong><strong><span id="bandbdigit1"> {{trendBullBear[0]}} %</span></strong></small>
+                                        <small class="trendingDigitMobileSmall"> Insiders are&nbsp;<strong class ="has-text-green strongGRED">Bullish: </strong><strong><span id="bandbdigit1"> {{trendBullBear[0]}} %</span></strong></small>
                                     </div>
                                     <div class="trenDingDigitMobile" v-else>
-                                        <small class="trendingDigitMobileSmall"> Insiders are&nbsp; <strong class ="has-text-red">Bearish: </strong><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong></small>
+                                        <small class="trendingDigitMobileSmall"> Insiders are&nbsp; <strong class ="has-text-red strongGRED">Bearish: </strong><strong><span id="bandbdigit2"> {{trendBullBear[1]}} % </span></strong></small>
                                     </div>
                                <div id="bullsAndBears">
                                    <div class="mobileBandB1">
@@ -603,7 +603,7 @@ small{
         padding-top: 1REM;
     }
     .pos{
-        font-size:0.6rem;
+        font-size:0.7rem!important;
         padding:5%;
     }
     .stVar{
@@ -631,6 +631,9 @@ small{
         font-size:1rem!important;
         text-align:center;
     }
+    .strongGRED{
+        font-size:1rem!important;
+    }
     .stock-priceVar{
         display: flex;
         flex-direction: column;
@@ -645,7 +648,7 @@ small{
         font-size:0.75rem!important;
     }
     .subtitleIsin {
-        font-size:0.75rem!important;
+        font-size:0.7rem!important;
     }
     #BBull{
         width:80%;

@@ -43,37 +43,36 @@
         </div>
     </div>
     <div v-if="modalClosePosition">
-                <b-modal :active.sync='closePositionModal' :width="640">
-                    <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
-                        <div class="bullsAndBearsPic2">
-                            <img src="/static/images/roundBullArrow.png" alt="bull and bear">
-                        </div>
-                        <div>
-                            Vous venez de clôturer votre position <strong class='has-text-green'>Bull</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
-                            <strong class="pos has-text-green" v-if="Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
-                            Cette position vous a rapporté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            <strong v-else class="pos has-text-red">
-                            Cette position vous a couté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
-                        </div>
-                    </div>
-                    <div v-else class="mediaModal bullbearPos">     
-                        <div class="bullsAndBearsPic2">
-                            <img src="/static/images/roundBearArrow.png" alt="bull and bear">
-                        </div>
-                        <div>
-                            Vous venez de clôturer votre position <strong class='has-text-red'>Bear</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
-                            <strong class="pos has-text-green" v-if="Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
-                            Cette position vous a rapporté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            <strong v-else class="pos has-text-red">
-                            Cette position vous a couté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
-                        </div>
-                    </div>
-                </b-modal>
+        <b-modal :active.sync='closePositionModal' :width="640">
+            <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
+                <div class="bullsAndBearsPic2">
+                    <img src="/static/images/roundBullArrow.png" alt="bull and bear">
+                </div>
+                <div>
+                    Vous venez de clôturer votre position <strong class='has-text-green'>Bull</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
+                    <strong class="pos has-text-green" v-if="Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                    Cette position vous a rapporté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    <strong v-else class="pos has-text-red">
+                    Cette position vous a couté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                </div>
             </div>
-  </div>
-
+            <div v-else class="mediaModal bullbearPos">     
+                <div class="bullsAndBearsPic2">
+                    <img src="/static/images/roundBearArrow.png" alt="bull and bear">
+                </div>
+                <div>
+                    Vous venez de clôturer votre position <strong class='has-text-red'>Bear</strong> sur <strong class="has-text-blue">{{modalClosePosition.stockId.longName}}</strong> prise <strong class="has-text-blue">@ {{modalClosePosition.stockId.price}} {{modalClosePosition.stockId.currency}}</strong>.<br>
+                    <strong class="pos has-text-green" v-if="Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                    Cette position vous a rapporté {{Math.floor(-1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    <strong v-else class="pos has-text-red">
+                    Cette position vous a couté {{Math.floor(1000* (modalClosePosition.stockId.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
+                    Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
+                </div>
+            </div>
+        </b-modal>
+    </div>
+</div>
 </template>
 
 <script>
