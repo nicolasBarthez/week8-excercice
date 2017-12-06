@@ -105,6 +105,12 @@ export default {
 </script>
 
 <style scoped>
+.has-text-green{
+    font-weight: bold;
+}
+.has-text-red{
+    font-weight: bold
+}
 .bullsAndBearsPic2{
     width:40%;
     padding: 1REM
@@ -242,6 +248,14 @@ a{
 }
 
 @media screen and (max-width: 768px) {
+.has-text-green{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
+.has-text-red{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
     .bullsAndBearsPic2{
         width: 100%;
         padding-left:0;

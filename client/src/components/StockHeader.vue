@@ -149,9 +149,9 @@
                         </div>
                         <div>
                             Vous venez de clôturer votre position <strong class='has-text-green'>Bull</strong> sur <strong class="has-text-blue">{{stock.longName}}</strong> prise <strong class="has-text-blue">@ {{stock.price}} {{stock.currency}}</strong>.<br>
-                            <strong class="pos has-text-green" v-if="Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                            <strong class="has-text-green" v-if="Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
                             Cette position vous a rapporté {{Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            <strong v-else class="pos has-text-red">
+                            <strong v-else class="has-text-red">
                             Cette position vous a couté {{Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
                             Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                         </div>
@@ -162,9 +162,9 @@
                         </div>
                         <div>
                             Vous venez de clôturer votre position <strong class='has-text-red'>Bear</strong> sur <strong class="has-text-blue">{{stock.longName}}</strong> prise <strong class="has-text-blue">@ {{stock.price}} {{stock.currency}}</strong>.<br>
-                            <strong class="pos has-text-green" v-if="Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
+                            <strong class="has-text-green" v-if="Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)>0">
                             Cette position vous a rapporté {{Math.floor(-1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
-                            <strong v-else class="pos has-text-red">
+                            <strong v-else class="has-text-red">
                             Cette position vous a couté {{Math.floor(1000* (stock.price-modalClosePosition.initialPrice)/modalClosePosition.initialPrice)}} P$.<br></strong>
                             Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                         </div>
@@ -276,6 +276,12 @@ export default {
 </script>
 
 <style scoped>
+.has-text-green{
+    font-weight: bold
+}
+.has-text-red{
+    font-weight: bold
+}
 .bullsAndBearsPic2{
     width:40%;
     padding: 1REM
@@ -539,6 +545,14 @@ small{
     padding: 1rem;
 }
 @media (max-width: 768px) {
+.has-text-green{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
+.has-text-red{
+    font-weight: bold;
+    font-size: 0.7rem !important;
+}
     .bullsAndBearsPic2{
         width: 100%;
         padding-left:0;
