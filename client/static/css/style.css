@@ -37,7 +37,10 @@ span>a {
     cursor: pointer;
     text-decoration: none;
 }
-
+.is-left{
+    width:2em!important;
+    height:2em!important
+}
 .select select:focus,
 .select select.is-focused,
 .select select:active,
@@ -216,4 +219,12 @@ a.nav-item:not(.button).is-tab:hover {
     small {
         font-size: 0.7rem!important
     }
+    .is-left{
+        width:2.75em!important;
+        height:2.75em!important
+    }
+    .control{
+        height: 30px!important;
+    }
+    
 }

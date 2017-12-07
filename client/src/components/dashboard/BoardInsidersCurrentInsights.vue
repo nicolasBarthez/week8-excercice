@@ -171,6 +171,12 @@ export default {
     height: 1.5em!important;
     width: 1.5em!important;
   }
+  .control{
+        height: 30px!important;
+    }
+    .navbar.is-dark{
+        margin-bottom:3%!important
+    }
 }
 
 </style>

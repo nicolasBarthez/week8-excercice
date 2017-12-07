@@ -73,7 +73,7 @@ export default {
 #modalAuth{
     border-radius:5px;
 }
-.icon{
+span{
   width:2em!important;
   height:2em!important
 }
@@ -143,7 +143,7 @@ a{
         background-color: #f9f9f9;
         padding-top:3.5rem  !important;
     }
-    .icon{
+    span{
         width:2.75em!important;
         height:2.75em!important
     }
