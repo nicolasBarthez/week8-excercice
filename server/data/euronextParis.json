@@ -2,7 +2,7 @@
   {
     "longName": "AB SCIENCE",
     "isin": "FR0010557264",
-    "shortName": "AB",
+    "shortName": "AB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AB SCIENCE",
@@ -18,7 +18,7 @@
   {
     "longName": "ABC ARBITRAGE",
     "isin": "FR0004040608",
-    "shortName": "ABCA",
+    "shortName": "ABCA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ABC ARBITRAGE",
@@ -34,7 +34,7 @@
   {
     "longName": "ABEO",
     "isin": "FR0013185857",
-    "shortName": "ABEO",
+    "shortName": "ABEO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ABEO",
@@ -50,7 +50,7 @@
   {
     "longName": "ABIVAX",
     "isin": "FR0012333284",
-    "shortName": "ABVX",
+    "shortName": "ABVX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ABIVAX",
@@ -66,7 +66,7 @@
   {
     "longName": "ACANTHE DEV.",
     "isin": "FR0000064602",
-    "shortName": "ACAN",
+    "shortName": "ACAN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ACANTHE DEVLP",
@@ -82,7 +82,7 @@
   {
     "longName": "ACCOR HOTELS",
     "isin": "FR0000120404",
-    "shortName": "AC",
+    "shortName": "AC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ACCOR",
@@ -98,7 +98,7 @@
   {
     "longName": "ACTEOS",
     "isin": "FR0000076861",
-    "shortName": "EOS",
+    "shortName": "EOS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ACTEOS (EX DATATRONIC)",
@@ -114,7 +114,7 @@
   {
     "longName": "ACTIA GROUP",
     "isin": "FR0000076655",
-    "shortName": "ATI",
+    "shortName": "ATI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ACTIA GROUP",
@@ -130,7 +130,7 @@
   {
     "longName": "ADL PARTNER",
     "isin": "FR0000062978",
-    "shortName": "ALP",
+    "shortName": "ALP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ADLPARTNER",
@@ -146,7 +146,7 @@
   {
     "longName": "ADOCIA",
     "isin": "FR0011184241",
-    "shortName": "ADOC",
+    "shortName": "ADOC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ADOCIA",
@@ -162,7 +162,7 @@
   {
     "longName": "ADP",
     "isin": "FR0010340141",
-    "shortName": "ADP",
+    "shortName": "ADP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ADP",
@@ -178,7 +178,7 @@
   {
     "longName": "ADUX",
     "isin": "FR0012821890",
-    "shortName": "ADUX",
+    "shortName": "ADUX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ADUX",
@@ -194,7 +194,7 @@
   {
     "longName": "ADVENIS",
     "isin": "FR0004152874",
-    "shortName": "ADV",
+    "shortName": "ADV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ADVENIS",
@@ -210,7 +210,7 @@
   {
     "longName": "AFFINE RE.",
     "isin": "FR0000036105",
-    "shortName": "IML",
+    "shortName": "IML-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AFFINE R.E.",
@@ -226,7 +226,7 @@
   {
     "longName": "AIR FRANCE - KLM",
     "isin": "FR0000031122",
-    "shortName": "AF",
+    "shortName": "AF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AIR FRANCE - KLM",
@@ -242,7 +242,7 @@
   {
     "longName": "AIR LIQUIDE",
     "isin": "FR0000120073",
-    "shortName": "AI",
+    "shortName": "AI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AIR LIQUIDE",
@@ -258,7 +258,7 @@
   {
     "longName": "AIRBUS",
     "isin": "NL0000235190",
-    "shortName": "AIR",
+    "shortName": "AIR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AIRBUS",
@@ -274,7 +274,7 @@
   {
     "longName": "AKKA TECHNOLOGIES",
     "isin": "FR0004180537",
-    "shortName": "AKA",
+    "shortName": "AKA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AKKA TECHNOLOGIES",
@@ -290,7 +290,7 @@
   {
     "longName": "ALBIOMA",
     "isin": "FR0000060402",
-    "shortName": "ABIO",
+    "shortName": "ABIO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALBIOMA",
@@ -306,7 +306,7 @@
   {
     "longName": "ALD",
     "isin": "FR0013258662",
-    "shortName": "ALD",
+    "shortName": "ALD-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALD",
@@ -322,7 +322,7 @@
   {
     "longName": "ALPES (COMPAGNIE)",
     "isin": "FR0000053324",
-    "shortName": "CDA",
+    "shortName": "CDA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CIE DES ALPES",
@@ -338,7 +338,7 @@
   {
     "longName": "ALSTOM",
     "isin": "FR0010220475",
-    "shortName": "ALO",
+    "shortName": "ALO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALSTOM",
@@ -354,7 +354,7 @@
   {
     "longName": "ALTAMIR",
     "isin": "FR0000053837",
-    "shortName": "LTA",
+    "shortName": "LTA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALTAMIR",
@@ -370,7 +370,7 @@
   {
     "longName": "ALTAREA",
     "isin": "FR0000033219",
-    "shortName": "ALTA",
+    "shortName": "ALTA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALTAREA",
@@ -386,7 +386,7 @@
   {
     "longName": "ALTEN",
     "isin": "FR0000071946",
-    "shortName": "ATE",
+    "shortName": "ATE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALTEN",
@@ -402,7 +402,7 @@
   {
     "longName": "ALTRAN TECHN.",
     "isin": "FR0000034639",
-    "shortName": "ALT",
+    "shortName": "ALT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALTRAN TECHNO.",
@@ -418,7 +418,7 @@
   {
     "longName": "ALTUR INVESTISSEMENT",
     "isin": "FR0010395681",
-    "shortName": "ALTUR",
+    "shortName": "ALTUR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ALTUR INVESTISSEM.",
@@ -434,7 +434,7 @@
   {
     "longName": "AMOEBA BIOCIDE",
     "isin": "FR0011051598",
-    "shortName": "AMEBA",
+    "shortName": "AMEBA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AMOEBA",
@@ -450,7 +450,7 @@
   {
     "longName": "AMPLITUDE SURGICAL",
     "isin": "FR0012789667",
-    "shortName": "AMPLI",
+    "shortName": "AMPLI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AMPLITUDE SURG.",
@@ -466,7 +466,7 @@
   {
     "longName": "AMUNDI",
     "isin": "FR0004125920",
-    "shortName": "AMUN",
+    "shortName": "AMUN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AMUNDI",
@@ -482,7 +482,7 @@
   {
     "longName": "ANF IMMOBILIER",
     "isin": "FR0000063091",
-    "shortName": "ANF",
+    "shortName": "ANF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ANF IMMOBILIER",
@@ -498,7 +498,7 @@
   {
     "longName": "APERAM",
     "isin": "LU0569974404",
-    "shortName": "APAM",
+    "shortName": "APAM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "APERAM",
@@ -514,7 +514,7 @@
   {
     "longName": "ARCELOR MITTAL",
     "isin": "LU1598757687",
-    "shortName": "MT",
+    "shortName": "MT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ARCELORMITTAL",
@@ -530,7 +530,7 @@
   {
     "longName": "ARCHOS",
     "isin": "FR0000182479",
-    "shortName": "JXR",
+    "shortName": "JXR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ARCHOS",
@@ -546,7 +546,7 @@
   {
     "longName": "ARKEMA",
     "isin": "FR0010313833",
-    "shortName": "AKE",
+    "shortName": "AKE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ARKEMA",
@@ -562,7 +562,7 @@
   {
     "longName": "ARTPRICE COM",
     "isin": "FR0000074783",
-    "shortName": "PRC",
+    "shortName": "PRC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ARTPRICE COM",
@@ -578,7 +578,7 @@
   {
     "longName": "ASK",
     "isin": "FR0011980077",
-    "shortName": "ASK",
+    "shortName": "ASK-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ASK",
@@ -594,7 +594,7 @@
   {
     "longName": "ASSYSTEM",
     "isin": "FR0000074148",
-    "shortName": "ASY",
+    "shortName": "ASY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ASSYSTEM (EX ASSYSTEM BRIME)",
@@ -610,7 +610,7 @@
   {
     "longName": "AST GROUPE",
     "isin": "FR0000076887",
-    "shortName": "ASP",
+    "shortName": "ASP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AST GROUPE (EX AST PROMOTION)",
@@ -626,7 +626,7 @@
   {
     "longName": "ATARI",
     "isin": "FR0010478248",
-    "shortName": "ATA",
+    "shortName": "ATA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ATARI",
@@ -642,7 +642,7 @@
   {
     "longName": "ATEME",
     "isin": "FR0011992700",
-    "shortName": "ATEME",
+    "shortName": "ATEME-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ATEME",
@@ -658,7 +658,7 @@
   {
     "longName": "ATOS",
     "isin": "FR0000051732",
-    "shortName": "ATO",
+    "shortName": "ATO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ATOS",
@@ -674,7 +674,7 @@
   {
     "longName": "AUBAY",
     "isin": "FR0000063737",
-    "shortName": "AUB",
+    "shortName": "AUB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AUBAY",
@@ -690,7 +690,7 @@
   {
     "longName": "AUFEMININ",
     "isin": "FR0004042083",
-    "shortName": "FEM",
+    "shortName": "FEM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AUFEMININ",
@@ -706,7 +706,7 @@
   {
     "longName": "AUREA",
     "isin": "FR0000039232",
-    "shortName": "AURE",
+    "shortName": "AURE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AUREA",
@@ -722,7 +722,7 @@
   {
     "longName": "AURES TECHNOLOGIES",
     "isin": "FR0013183589",
-    "shortName": "AURS",
+    "shortName": "AURS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AURES TECHNO.",
@@ -738,7 +738,7 @@
   {
     "longName": "AVENIR TELECOM",
     "isin": "FR0000066052",
-    "shortName": "AVT",
+    "shortName": "AVT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AVENIR TELECOM",
@@ -754,7 +754,7 @@
   {
     "longName": "AVIATION LATECOERE",
     "isin": "FR0000032278",
-    "shortName": "LAT",
+    "shortName": "LAT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LATECOERE",
@@ -770,7 +770,7 @@
   {
     "longName": "AWOX",
     "isin": "FR0011800218",
-    "shortName": "AWOX",
+    "shortName": "AWOX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AWOX",
@@ -786,7 +786,7 @@
   {
     "longName": "AXA",
     "isin": "FR0000120628",
-    "shortName": "CS",
+    "shortName": "CS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AXA",
@@ -802,7 +802,7 @@
   {
     "longName": "AXWAY SOFTWARE",
     "isin": "FR0011040500",
-    "shortName": "AXW",
+    "shortName": "AXW-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "AXWAY SOFTWARE",
@@ -818,7 +818,7 @@
   {
     "longName": "BALYO",
     "isin": "FR0013258399",
-    "shortName": "BALYO",
+    "shortName": "BALYO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BALYO",
@@ -834,7 +834,7 @@
   {
     "longName": "BASTIDE LE CONFORT",
     "isin": "FR0000035370",
-    "shortName": "BLC",
+    "shortName": "BLC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BASTIDE LE CONFOR",
@@ -850,7 +850,7 @@
   {
     "longName": "BELIER",
     "isin": "FR0000072399",
-    "shortName": "BELI",
+    "shortName": "BELI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LE BELIER",
@@ -866,7 +866,7 @@
   {
     "longName": "BENETEAU",
     "isin": "FR0000035164",
-    "shortName": "BEN",
+    "shortName": "BEN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BENETEAU",
@@ -882,7 +882,7 @@
   {
     "longName": "BIC",
     "isin": "FR0000120966",
-    "shortName": "BB",
+    "shortName": "BB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BIC(SOCIETE)",
@@ -898,7 +898,7 @@
   {
     "longName": "BIGBEN INTERACTIVE",
     "isin": "FR0000074072",
-    "shortName": "BIG",
+    "shortName": "BIG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BIGBEN INTERACTIV",
@@ -914,7 +914,7 @@
   {
     "longName": "BIOMERIEUX",
     "isin": "FR0013280286",
-    "shortName": "BIM",
+    "shortName": "BIM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BIOMERIEUX",
@@ -930,7 +930,7 @@
   {
     "longName": "BNP PARIBAS",
     "isin": "FR0000131104",
-    "shortName": "BNP",
+    "shortName": "BNP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BNP PARIBAS P-A",
@@ -946,7 +946,7 @@
   {
     "longName": "BOIRON",
     "isin": "FR0000061129",
-    "shortName": "BOI",
+    "shortName": "BOI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BOIRON",
@@ -962,7 +962,7 @@
   {
     "longName": "BOLLORE",
     "isin": "FR0000039299",
-    "shortName": "BOL",
+    "shortName": "BOL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BOLLORE",
@@ -978,7 +978,7 @@
   {
     "longName": "BONDUELLE",
     "isin": "FR0000063935",
-    "shortName": "BON",
+    "shortName": "BON-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BONDUELLE",
@@ -994,7 +994,7 @@
   {
     "longName": "BOURBON CORPORATION",
     "isin": "FR0004548873",
-    "shortName": "GBB",
+    "shortName": "GBB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BOURBON CORP.",
@@ -1010,7 +1010,7 @@
   {
     "longName": "BOURSE DIRECT",
     "isin": "FR0000074254",
-    "shortName": "BSD",
+    "shortName": "BSD-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BOURSE DIRECT",
@@ -1026,7 +1026,7 @@
   {
     "longName": "BOUYGUES",
     "isin": "FR0000120503",
-    "shortName": "EN",
+    "shortName": "EN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BOUYGUES",
@@ -1042,7 +1042,7 @@
   {
     "longName": "BUREAU VERITAS",
     "isin": "FR0006174348",
-    "shortName": "BVI",
+    "shortName": "BVI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BUREAU VERITAS",
@@ -1058,7 +1058,7 @@
   {
     "longName": "BUSINESS ET DECIS.",
     "isin": "FR0000078958",
-    "shortName": "BND",
+    "shortName": "BND-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BUSINESS ET DECIS",
@@ -1074,7 +1074,7 @@
   {
     "longName": "CAP GEMINI",
     "isin": "FR0000125338",
-    "shortName": "CAP",
+    "shortName": "CAP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CAPGEMINI",
@@ -1090,7 +1090,7 @@
   {
     "longName": "CAPELLI",
     "isin": "FR0012969095",
-    "shortName": "CAPLI",
+    "shortName": "CAPLI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CAPELLI",
@@ -1106,7 +1106,7 @@
   {
     "longName": "CARREFOUR",
     "isin": "FR0000120172",
-    "shortName": "CA",
+    "shortName": "CA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CARREFOUR",
@@ -1122,7 +1122,7 @@
   {
     "longName": "CASINO GUICHARD",
     "isin": "FR0000125585",
-    "shortName": "CO",
+    "shortName": "CO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CASINO GUI",
@@ -1138,7 +1138,7 @@
   {
     "longName": "CAST",
     "isin": "FR0000072894",
-    "shortName": "CAS",
+    "shortName": "CAS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CAST",
@@ -1154,7 +1154,7 @@
   {
     "longName": "CATANA GROUP",
     "isin": "FR0010193052",
-    "shortName": "CATG",
+    "shortName": "CATG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CATANA GROUP",
@@ -1170,7 +1170,7 @@
   {
     "longName": "CATERING INTL SCES",
     "isin": "FR0000064446",
-    "shortName": "CTRG",
+    "shortName": "CTRG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CATERING INTL CIS",
@@ -1186,7 +1186,7 @@
   {
     "longName": "CELLNOVO GROUP",
     "isin": "FR0012633360",
-    "shortName": "CLNV",
+    "shortName": "CLNV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CELLNOVO GROUP",
@@ -1202,7 +1202,7 @@
   {
     "longName": "CERENIS THERAPEUTICS",
     "isin": "FR0012616852",
-    "shortName": "CEREN",
+    "shortName": "CEREN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CERENIS THERA.",
@@ -1218,7 +1218,7 @@
   {
     "longName": "CGG",
     "isin": "FR0013181864",
-    "shortName": "CGG",
+    "shortName": "CGG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CGG",
@@ -1234,7 +1234,7 @@
   {
     "longName": "CHARGEURS",
     "isin": "FR0000130692",
-    "shortName": "CRI",
+    "shortName": "CRI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CHARGEURS",
@@ -1250,7 +1250,7 @@
   {
     "longName": "CIBOX INTER A CTIV",
     "isin": "FR0000054322",
-    "shortName": "CIB",
+    "shortName": "CIB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CIBOX INTER ACTIVE",
@@ -1266,7 +1266,7 @@
   {
     "longName": "CLARANOVA",
     "isin": "FR0004026714",
-    "shortName": "CLA",
+    "shortName": "CLA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CLARANOVA",
@@ -1282,7 +1282,7 @@
   {
     "longName": "CNP ASSURANCES",
     "isin": "FR0000120222",
-    "shortName": "CNP",
+    "shortName": "CNP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CNP ASSURANCES",
@@ -1298,7 +1298,7 @@
   {
     "longName": "COFACE",
     "isin": "FR0010667147",
-    "shortName": "COFA",
+    "shortName": "COFA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "COFACE",
@@ -1314,7 +1314,7 @@
   {
     "longName": "COHERIS",
     "isin": "FR0004031763",
-    "shortName": "COH",
+    "shortName": "COH-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "COHERIS",
@@ -1330,7 +1330,7 @@
   {
     "longName": "CREDIT AGRICOLE",
     "isin": "FR0000045072",
-    "shortName": "ACA",
+    "shortName": "ACA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CREDIT AGRICOLE SA",
@@ -1346,7 +1346,7 @@
   {
     "longName": "CS (COM. ET SYSTEMES)",
     "isin": "FR0007317813",
-    "shortName": "SX",
+    "shortName": "SX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CS COMMUNICAT SYS",
@@ -1362,7 +1362,7 @@
   {
     "longName": "DALET",
     "isin": "FR0011026749",
-    "shortName": "DLT",
+    "shortName": "DLT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DALET REV.SPLIT",
@@ -1378,7 +1378,7 @@
   {
     "longName": "DANONE",
     "isin": "FR0000120644",
-    "shortName": "BN",
+    "shortName": "BN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DANONE",
@@ -1394,7 +1394,7 @@
   {
     "longName": "DASSAULT AVIATION",
     "isin": "FR0000121725",
-    "shortName": "AM",
+    "shortName": "AM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DASSAULT AVIA.",
@@ -1410,7 +1410,7 @@
   {
     "longName": "DASSAULT SYSTEMES",
     "isin": "FR0000130650",
-    "shortName": "DSY",
+    "shortName": "DSY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DASSAULT SYSTEMES",
@@ -1426,7 +1426,7 @@
   {
     "longName": "DBV TECHNOLOGIES",
     "isin": "FR0010417345",
-    "shortName": "DBV",
+    "shortName": "DBV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DBV TECHNO",
@@ -1442,7 +1442,7 @@
   {
     "longName": "DELTA PLUS GROUP",
     "isin": "FR0013283108",
-    "shortName": "DLTA",
+    "shortName": "DLTA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DELTA PLUS GRP",
@@ -1458,7 +1458,7 @@
   {
     "longName": "DERICHEBOURG",
     "isin": "FR0000053381",
-    "shortName": "DBG",
+    "shortName": "DBG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DERICHEBOURG",
@@ -1474,7 +1474,7 @@
   {
     "longName": "DEVOTEAM",
     "isin": "FR0000073793",
-    "shortName": "DVT",
+    "shortName": "DVT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DEVOTEAM",
@@ -1490,7 +1490,7 @@
   {
     "longName": "DIAGNOSTIC MEDICAL",
     "isin": "FR0012202497",
-    "shortName": "DGM",
+    "shortName": "DGM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DMS",
@@ -1506,7 +1506,7 @@
   {
     "longName": "DIRECT ENERGIE",
     "isin": "FR0004191674",
-    "shortName": "DIREN",
+    "shortName": "DIREN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DIRECT ENERGIE",
@@ -1522,7 +1522,7 @@
   {
     "longName": "DNXCORP",
     "isin": "FR0010436584",
-    "shortName": "DNX",
+    "shortName": "DNX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DNXCORP",
@@ -1538,7 +1538,7 @@
   {
     "longName": "DOM SECURITY",
     "isin": "FR0000052839",
-    "shortName": "DOMS",
+    "shortName": "DOMS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DOM SECURITY",
@@ -1554,7 +1554,7 @@
   {
     "longName": "ECA",
     "isin": "FR0010099515",
-    "shortName": "ECASA",
+    "shortName": "ECASA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ECA",
@@ -1570,7 +1570,7 @@
   {
     "longName": "EDENRED",
     "isin": "FR0010908533",
-    "shortName": "EDEN",
+    "shortName": "EDEN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EDENRED",
@@ -1586,7 +1586,7 @@
   {
     "longName": "EDF",
     "isin": "FR0010242511",
-    "shortName": "EDF",
+    "shortName": "EDF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EDF",
@@ -1602,7 +1602,7 @@
   {
     "longName": "EGIDE",
     "isin": "FR0000072373",
-    "shortName": "GID",
+    "shortName": "GID-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EGIDE",
@@ -1618,7 +1618,7 @@
   {
     "longName": "EIFFAGE",
     "isin": "FR0000130452",
-    "shortName": "FGR",
+    "shortName": "FGR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EIFFAGE",
@@ -1634,7 +1634,7 @@
   {
     "longName": "EKINOPS",
     "isin": "FR0011466069",
-    "shortName": "EKI",
+    "shortName": "EKI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EKINOPS",
@@ -1650,7 +1650,7 @@
   {
     "longName": "ELECTRO POWER SYSTEMS",
     "isin": "FR0012650166",
-    "shortName": "EPS",
+    "shortName": "EPS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ELECTRO POWER",
@@ -1666,7 +1666,7 @@
   {
     "longName": "ELIOR GROUP",
     "isin": "FR0011950732",
-    "shortName": "ELIOR",
+    "shortName": "ELIOR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ELIOR GROUP",
@@ -1682,7 +1682,7 @@
   {
     "longName": "ELIS",
     "isin": "FR0012435121",
-    "shortName": "ELIS",
+    "shortName": "ELIS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ELIS",
@@ -1698,7 +1698,7 @@
   {
     "longName": "ENCRES DUBUIT",
     "isin": "FR0004030708",
-    "shortName": "DBT",
+    "shortName": "DBT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ENCRES DUBUIT",
@@ -1714,7 +1714,7 @@
   {
     "longName": "ENGIE",
     "isin": "FR0010208488",
-    "shortName": "ENGI",
+    "shortName": "ENGI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ENGIE",
@@ -1730,7 +1730,7 @@
   {
     "longName": "EOS IMAGING",
     "isin": "FR0011191766",
-    "shortName": "EOSI",
+    "shortName": "EOSI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EOS IMAGING",
@@ -1746,7 +1746,7 @@
   {
     "longName": "ERAMET",
     "isin": "FR0000131757",
-    "shortName": "ERA",
+    "shortName": "ERA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ERAMET",
@@ -1762,7 +1762,7 @@
   {
     "longName": "ERYTECH PHARMA",
     "isin": "FR0011471135",
-    "shortName": "ERYP",
+    "shortName": "ERYP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ERYTECH PHARMA",
@@ -1778,7 +1778,7 @@
   {
     "longName": "ESI GROUP",
     "isin": "FR0004110310",
-    "shortName": "ESI",
+    "shortName": "ESI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ESI GROUP",
@@ -1794,7 +1794,7 @@
   {
     "longName": "ESSILOR INTL",
     "isin": "FR0000121667",
-    "shortName": "EI",
+    "shortName": "EI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ESSILOR INTL",
@@ -1810,7 +1810,7 @@
   {
     "longName": "ESSO",
     "isin": "FR0000120669",
-    "shortName": "ES",
+    "shortName": "ES-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ESSO",
@@ -1826,7 +1826,7 @@
   {
     "longName": "EULER HERMES GROUP",
     "isin": "FR0004254035",
-    "shortName": "ELE",
+    "shortName": "ELE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EULER HERMES",
@@ -1842,7 +1842,7 @@
   {
     "longName": "EURAZEO",
     "isin": "FR0000121121",
-    "shortName": "RF",
+    "shortName": "RF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EURAZEO",
@@ -1858,7 +1858,7 @@
   {
     "longName": "EUROFINS SCIENT.",
     "isin": "FR0000038259",
-    "shortName": "ERF",
+    "shortName": "ERF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EUROFINS SCIENTIF",
@@ -1874,7 +1874,7 @@
   {
     "longName": "EURONEXT",
     "isin": "NL0006294274",
-    "shortName": "ENX",
+    "shortName": "ENX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EURONEXT",
@@ -1890,7 +1890,7 @@
   {
     "longName": "EUROPACORP",
     "isin": "FR0010490920",
-    "shortName": "ECP",
+    "shortName": "ECP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EUROPACORP",
@@ -1906,7 +1906,7 @@
   {
     "longName": "EUROPCAR GROUPE",
     "isin": "FR0012789949",
-    "shortName": "EUCAR",
+    "shortName": "EUCAR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EUROPCAR GRP",
@@ -1922,7 +1922,7 @@
   {
     "longName": "EUTELSAT COM.",
     "isin": "FR0010221234",
-    "shortName": "ETL",
+    "shortName": "ETL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EUTELSAT COMMUNIC.",
@@ -1938,7 +1938,7 @@
   {
     "longName": "EXEL INDUSTRIES A",
     "isin": "FR0004527638",
-    "shortName": "EXE",
+    "shortName": "EXE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "EXEL INDUSTRIES A",
@@ -1954,7 +1954,7 @@
   {
     "longName": "FAURECIA",
     "isin": "FR0000121147",
-    "shortName": "EO",
+    "shortName": "EO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FAURECIA",
@@ -1970,7 +1970,7 @@
   {
     "longName": "FERMENTALG",
     "isin": "FR0011271600",
-    "shortName": "FALG",
+    "shortName": "FALG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FERMENTALG",
@@ -1986,7 +1986,7 @@
   {
     "longName": "FFP",
     "isin": "FR0000064784",
-    "shortName": "FFP",
+    "shortName": "FFP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FFP",
@@ -2002,7 +2002,7 @@
   {
     "longName": "FIGEAC AERO",
     "isin": "FR0011665280",
-    "shortName": "FGA",
+    "shortName": "FGA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FIGEAC AERO",
@@ -2018,7 +2018,7 @@
   {
     "longName": "FLEURY MICHON",
     "isin": "FR0000074759",
-    "shortName": "FLE",
+    "shortName": "FLE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FLEURY MICHON",
@@ -2034,7 +2034,7 @@
   {
     "longName": "FONCIERE DES REGIONS",
     "isin": "FR0000064578",
-    "shortName": "FDR",
+    "shortName": "FDR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FNAC DARTY",
@@ -2050,7 +2050,7 @@
   {
     "longName": "FONCIERE LYONNAISE",
     "isin": "FR0000033409",
-    "shortName": "FLY",
+    "shortName": "FLY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FONC. DES REGIONS",
@@ -2066,7 +2066,7 @@
   {
     "longName": "FONCIERE PARIS NORD",
     "isin": "FR0011277391",
-    "shortName": "FPN",
+    "shortName": "FPN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FONCIERE PARIS",
@@ -2082,7 +2082,7 @@
   {
     "longName": "FRANCAISE DE LÂ€™ENERGIE",
     "isin": "FR0013030152",
-    "shortName": "LFDE",
+    "shortName": "LFDE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FRANCAISE ENER.",
@@ -2098,7 +2098,7 @@
   {
     "longName": "GAUMONT",
     "isin": "FR0000034894",
-    "shortName": "GAM",
+    "shortName": "GAM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GAUMONT",
@@ -2114,7 +2114,7 @@
   {
     "longName": "GEA GRENOBL.ELECT.",
     "isin": "FR0000053035",
-    "shortName": "GEA",
+    "shortName": "GEA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GEA",
@@ -2130,7 +2130,7 @@
   {
     "longName": "GECI INTL",
     "isin": "FR0000079634",
-    "shortName": "GECP",
+    "shortName": "GECP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GECI INTL",
@@ -2146,7 +2146,7 @@
   {
     "longName": "GECINA NOM.",
     "isin": "FR0010040865",
-    "shortName": "GFC",
+    "shortName": "GFC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GECINA NOMINATIF",
@@ -2162,7 +2162,7 @@
   {
     "longName": "GEMALTO",
     "isin": "NL0000400653",
-    "shortName": "GTO",
+    "shortName": "GTO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GEMALTO",
@@ -2178,7 +2178,7 @@
   {
     "longName": "GENERIX",
     "isin": "FR0010501692",
-    "shortName": "GENX",
+    "shortName": "GENX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENERIX",
@@ -2194,7 +2194,7 @@
   {
     "longName": "GENEURO",
     "isin": "CH0308403085",
-    "shortName": "GNRO",
+    "shortName": "GNRO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENEURO",
@@ -2210,7 +2210,7 @@
   {
     "longName": "GENFIT",
     "isin": "FR0004163111",
-    "shortName": "GNFT",
+    "shortName": "GNFT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENFIT",
@@ -2226,7 +2226,7 @@
   {
     "longName": "GENKYOTEX",
     "isin": "FR0011790542",
-    "shortName": "GKTX",
+    "shortName": "GKTX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENKYOTEX",
@@ -2242,7 +2242,7 @@
   {
     "longName": "GENOMIC VISION",
     "isin": "FR0011799907",
-    "shortName": "GV",
+    "shortName": "GV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENOMIC VISION N",
@@ -2258,7 +2258,7 @@
   {
     "longName": "GENSIGHT BIOLOGICS",
     "isin": "FR0013183985",
-    "shortName": "SIGHT",
+    "shortName": "SIGHT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GENSIGHT BIOLO.",
@@ -2274,7 +2274,7 @@
   {
     "longName": "GETLINK (EX: EUROTUNNEL)",
     "isin": "FR0010533075",
-    "shortName": "GET",
+    "shortName": "GET-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GRP EUROTUNNEL",
@@ -2290,7 +2290,7 @@
   {
     "longName": "GL EVENTS",
     "isin": "FR0000066672",
-    "shortName": "GLO",
+    "shortName": "GLO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GL EVENTS",
@@ -2306,7 +2306,7 @@
   {
     "longName": "GROUPE CRIT",
     "isin": "FR0000036675",
-    "shortName": "CEN",
+    "shortName": "CEN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CRIT",
@@ -2322,7 +2322,7 @@
   {
     "longName": "GROUPE FLO",
     "isin": "FR0004076891",
-    "shortName": "FLO",
+    "shortName": "FLO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GROUPE FLO",
@@ -2338,7 +2338,7 @@
   {
     "longName": "GROUPE FNAC",
     "isin": "FR0011476928",
-    "shortName": "FNAC",
+    "shortName": "FNAC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "FNAC DARTY",
@@ -2354,7 +2354,7 @@
   {
     "longName": "GROUPE GORGE",
     "isin": "FR0000062671",
-    "shortName": "GOE",
+    "shortName": "GOE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GROUPE GORGE",
@@ -2370,7 +2370,7 @@
   {
     "longName": "GROUPE LDLC",
     "isin": "FR0000075442",
-    "shortName": "LDL",
+    "shortName": "LDL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GROUPE LDLC",
@@ -2386,7 +2386,7 @@
   {
     "longName": "GROUPE OPEN",
     "isin": "FR0004050300",
-    "shortName": "OPN",
+    "shortName": "OPN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GROUPE OPEN",
@@ -2402,7 +2402,7 @@
   {
     "longName": "GROUPE PIZZORNO ENVIRONNEMENT",
     "isin": "FR0010214064",
-    "shortName": "GPE",
+    "shortName": "GPE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GPE PIZZORNO ENVI",
@@ -2418,7 +2418,7 @@
   {
     "longName": "GTT",
     "isin": "FR0011726835",
-    "shortName": "GTT",
+    "shortName": "GTT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GAZTRANS.TECHN.",
@@ -2434,7 +2434,7 @@
   {
     "longName": "GUERBET",
     "isin": "FR0000032526",
-    "shortName": "GBT",
+    "shortName": "GBT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GUERBET",
@@ -2450,7 +2450,7 @@
   {
     "longName": "GUILLEMOT",
     "isin": "FR0000066722",
-    "shortName": "GUI",
+    "shortName": "GUI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GUILLEMOT CORP.",
@@ -2466,7 +2466,7 @@
   {
     "longName": "HAULOTTE GROUP",
     "isin": "FR0000066755",
-    "shortName": "PIG",
+    "shortName": "PIG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HAULOTTE GROUP",
@@ -2482,7 +2482,7 @@
   {
     "longName": "HAVAS",
     "isin": "FR0000121881",
-    "shortName": "HAV",
+    "shortName": "HAV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HAVAS",
@@ -2498,7 +2498,7 @@
   {
     "longName": "HERIGE",
     "isin": "FR0000066540",
-    "shortName": "HERIG",
+    "shortName": "HERIG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HERIGE",
@@ -2514,7 +2514,7 @@
   {
     "longName": "HERMES",
     "isin": "FR0000052292",
-    "shortName": "RMS",
+    "shortName": "RMS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HERMES INTL",
@@ -2530,7 +2530,7 @@
   {
     "longName": "HF",
     "isin": "FR0000038531",
-    "shortName": "HF",
+    "shortName": "HF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HF COMPANY",
@@ -2546,7 +2546,7 @@
   {
     "longName": "HIGH CO",
     "isin": "FR0000054231",
-    "shortName": "HCO",
+    "shortName": "HCO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HIGH CO",
@@ -2562,7 +2562,7 @@
   {
     "longName": "HIPAY GROUP",
     "isin": "FR0012821916",
-    "shortName": "HIPAY",
+    "shortName": "HIPAY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HIPAY GROUP",
@@ -2578,7 +2578,7 @@
   {
     "longName": "HOPSCOTCH GROUPE",
     "isin": "FR0000065278",
-    "shortName": "HOP",
+    "shortName": "HOP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HOPSCOTCH GRP",
@@ -2594,7 +2594,7 @@
   {
     "longName": "HUBWOO",
     "isin": "FR0004052561",
-    "shortName": "HBW",
+    "shortName": "HBW-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HUBWOO.COM",
@@ -2610,7 +2610,7 @@
   {
     "longName": "ICADE",
     "isin": "FR0000035081",
-    "shortName": "ICAD",
+    "shortName": "ICAD-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ICADE",
@@ -2626,7 +2626,7 @@
   {
     "longName": "IGE + XAO",
     "isin": "FR0000030827",
-    "shortName": "IGE",
+    "shortName": "IGE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "IGE PLUS XAO",
@@ -2642,7 +2642,7 @@
   {
     "longName": "ILIAD",
     "isin": "FR0004035913",
-    "shortName": "ILD",
+    "shortName": "ILD-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ILIAD",
@@ -2658,7 +2658,7 @@
   {
     "longName": "IMERYS",
     "isin": "FR0000120859",
-    "shortName": "NK",
+    "shortName": "NK-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "IMERYS",
@@ -2674,7 +2674,7 @@
   {
     "longName": "INFOTEL",
     "isin": "FR0000071797",
-    "shortName": "INF",
+    "shortName": "INF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INFOTEL",
@@ -2690,7 +2690,7 @@
   {
     "longName": "INGENICO GROUP",
     "isin": "FR0000125346",
-    "shortName": "ING",
+    "shortName": "ING-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INGENICO GROUP",
@@ -2706,7 +2706,7 @@
   {
     "longName": "INNATE PHARMA",
     "isin": "FR0010331421",
-    "shortName": "IPH",
+    "shortName": "IPH-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INNATE PHARMA",
@@ -2722,7 +2722,7 @@
   {
     "longName": "INNELEC MULTIMEDIA",
     "isin": "FR0000064297",
-    "shortName": "INN",
+    "shortName": "INN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INNELEC MULTIMEDI",
@@ -2738,7 +2738,7 @@
   {
     "longName": "INSIDE SECURE",
     "isin": "FR0010291245",
-    "shortName": "INSD",
+    "shortName": "INSD-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INSIDE SECURE",
@@ -2754,7 +2754,7 @@
   {
     "longName": "INTERPARFUMS",
     "isin": "FR0004024222",
-    "shortName": "ITP",
+    "shortName": "ITP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INTERPARFUMS",
@@ -2770,7 +2770,7 @@
   {
     "longName": "INVENTIVA",
     "isin": "FR0013233012",
-    "shortName": "IVA",
+    "shortName": "IVA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "INVENTIVA",
@@ -2786,7 +2786,7 @@
   {
     "longName": "IPSEN",
     "isin": "FR0010259150",
-    "shortName": "IPN",
+    "shortName": "IPN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "IPSEN",
@@ -2802,7 +2802,7 @@
   {
     "longName": "IPSOS",
     "isin": "FR0000073298",
-    "shortName": "IPS",
+    "shortName": "IPS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "IPSOS",
@@ -2818,7 +2818,7 @@
   {
     "longName": "IT LINK",
     "isin": "FR0000072597",
-    "shortName": "ITL",
+    "shortName": "ITL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "IT LINK",
@@ -2834,7 +2834,7 @@
   {
     "longName": "ITESOFT",
     "isin": "FR0004026151",
-    "shortName": "ITE",
+    "shortName": "ITE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ITESOFT",
@@ -2850,7 +2850,7 @@
   {
     "longName": "ITS GROUP",
     "isin": "FR0000073843",
-    "shortName": "ITS",
+    "shortName": "ITS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ITS GROUP",
@@ -2866,7 +2866,7 @@
   {
     "longName": "JACQUES BOGART",
     "isin": "FR0012872141",
-    "shortName": "JBOG",
+    "shortName": "JBOG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "JACQUES BOGART",
@@ -2882,7 +2882,7 @@
   {
     "longName": "JACQUET METALS",
     "isin": "FR0000033904",
-    "shortName": "JCQ",
+    "shortName": "JCQ-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "JACQUET METAL SCE",
@@ -2898,7 +2898,7 @@
   {
     "longName": "JC DECAUX SA.",
     "isin": "FR0000077919",
-    "shortName": "DEC",
+    "shortName": "DEC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "JCDECAUX SA.",
@@ -2914,7 +2914,7 @@
   {
     "longName": "KAUFMAN ET BROAD",
     "isin": "FR0004007813",
-    "shortName": "KOF",
+    "shortName": "KOF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KAUFMAN ET BROAD",
@@ -2930,7 +2930,7 @@
   {
     "longName": "KERING",
     "isin": "FR0000121485",
-    "shortName": "KER",
+    "shortName": "KER-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KERING (Ex: PPR)",
@@ -2946,7 +2946,7 @@
   {
     "longName": "KEYRUS",
     "isin": "FR0004029411",
-    "shortName": "KEY",
+    "shortName": "KEY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KEYRUS",
@@ -2962,7 +2962,7 @@
   {
     "longName": "KLEPIERRE",
     "isin": "FR0000121964",
-    "shortName": "LI",
+    "shortName": "LI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KLEPIERRE",
@@ -2978,7 +2978,7 @@
   {
     "longName": "KORIAN",
     "isin": "FR0010386334",
-    "shortName": "KORI",
+    "shortName": "KORI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KORIAN",
@@ -2994,7 +2994,7 @@
   {
     "longName": "L'OREAL",
     "isin": "FR0000120321",
-    "shortName": "OR",
+    "shortName": "OR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "L'OREAL",
@@ -3010,7 +3010,7 @@
   {
     "longName": "LACROIX INDUSTRIES",
     "isin": "FR0000066607",
-    "shortName": "LACR",
+    "shortName": "LACR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LACROIX",
@@ -3026,7 +3026,7 @@
   {
     "longName": "LAFARGEHOLCIM",
     "isin": "CH0012214059",
-    "shortName": "LHN",
+    "shortName": "LHN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LAFARGEHOLCIM N",
@@ -3042,7 +3042,7 @@
   {
     "longName": "LAGARDERE",
     "isin": "FR0000130213",
-    "shortName": "MMB",
+    "shortName": "MMB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LAGARDERE",
@@ -3058,7 +3058,7 @@
   {
     "longName": "LE NOBLE AGE",
     "isin": "FR0004170017",
-    "shortName": "LNA",
+    "shortName": "LNA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LE NOBLE-AGE",
@@ -3074,7 +3074,7 @@
   {
     "longName": "LECTRA",
     "isin": "FR0000065484",
-    "shortName": "LSS",
+    "shortName": "LSS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LECTRA",
@@ -3090,7 +3090,7 @@
   {
     "longName": "LEGRAND SA",
     "isin": "FR0010307819",
-    "shortName": "LR",
+    "shortName": "LR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LEGRAND",
@@ -3106,7 +3106,7 @@
   {
     "longName": "LINEDATA SERVICES",
     "isin": "FR0004156297",
-    "shortName": "LIN",
+    "shortName": "LIN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LINEDATA SERVICES",
@@ -3122,7 +3122,7 @@
   {
     "longName": "LISI",
     "isin": "FR0000050353",
-    "shortName": "FII",
+    "shortName": "FII-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LISI",
@@ -3138,7 +3138,7 @@
   {
     "longName": "LVMH",
     "isin": "FR0000121014",
-    "shortName": "MC",
+    "shortName": "MC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LVMH MOET VUITTON",
@@ -3154,7 +3154,7 @@
   {
     "longName": "MAISONS DU MONDE",
     "isin": "FR0013153541",
-    "shortName": "MDM",
+    "shortName": "MDM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MAISONS DU MONDE",
@@ -3170,7 +3170,7 @@
   {
     "longName": "MAISONS FRANCE",
     "isin": "FR0004159473",
-    "shortName": "MFC",
+    "shortName": "MFC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MAISONS FRA CONF",
@@ -3186,7 +3186,7 @@
   {
     "longName": "MANITOU BF",
     "isin": "FR0000038606",
-    "shortName": "MTU",
+    "shortName": "MTU-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MANITOU BF",
@@ -3202,7 +3202,7 @@
   {
     "longName": "MANUTAN INTL",
     "isin": "FR0000032302",
-    "shortName": "MAN",
+    "shortName": "MAN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MANUTAN INTL",
@@ -3218,7 +3218,7 @@
   {
     "longName": "MARIE BRIZARD WINE AND SPIRITS",
     "isin": "FR0000060873",
-    "shortName": "MBWS",
+    "shortName": "MBWS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MARIE BRIZARD",
@@ -3234,7 +3234,7 @@
   {
     "longName": "MAUNA KEA",
     "isin": "FR0010609263",
-    "shortName": "MKEA",
+    "shortName": "MKEA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MAUNA KEA TECH",
@@ -3250,7 +3250,7 @@
   {
     "longName": "MCPHY ENERGY",
     "isin": "FR0011742329",
-    "shortName": "MCPHY",
+    "shortName": "MCPHY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MCPHY ENERGY",
@@ -3266,7 +3266,7 @@
   {
     "longName": "MEDASYS",
     "isin": "FR0000052623",
-    "shortName": "MED",
+    "shortName": "MED-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MEDASYS",
@@ -3282,7 +3282,7 @@
   {
     "longName": "MEDIA 6",
     "isin": "FR0000064404",
-    "shortName": "EDI",
+    "shortName": "EDI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MEDIA",
@@ -3298,7 +3298,7 @@
   {
     "longName": "MEDIAWAN",
     "isin": "FR0013247137",
-    "shortName": "MDW",
+    "shortName": "MDW-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MEDIAWAN",
@@ -3314,7 +3314,7 @@
   {
     "longName": "MEMSCAP",
     "isin": "FR0010298620",
-    "shortName": "MEMS",
+    "shortName": "MEMS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MEMSCAP REGPT",
@@ -3330,7 +3330,7 @@
   {
     "longName": "MERCIALYS",
     "isin": "FR0010241638",
-    "shortName": "MERY",
+    "shortName": "MERY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MERCIALYS",
@@ -3346,7 +3346,7 @@
   {
     "longName": "MERSEN",
     "isin": "FR0000039620",
-    "shortName": "MRN",
+    "shortName": "MRN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MERSEN",
@@ -3362,7 +3362,7 @@
   {
     "longName": "METABOLIC EXPLORER",
     "isin": "FR0004177046",
-    "shortName": "METEX",
+    "shortName": "METEX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "METABOLIC EXPL.",
@@ -3378,7 +3378,7 @@
   {
     "longName": "METROPOLE TV",
     "isin": "FR0000053225",
-    "shortName": "MMT",
+    "shortName": "MMT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "METROPOLE TELE.",
@@ -3394,7 +3394,7 @@
   {
     "longName": "MGI COUTIER",
     "isin": "FR0000053027",
-    "shortName": "MGIC",
+    "shortName": "MGIC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MGI COUTIER",
@@ -3410,7 +3410,7 @@
   {
     "longName": "MICHELIN",
     "isin": "FR0000121261",
-    "shortName": "ML",
+    "shortName": "ML-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MICHELIN N",
@@ -3426,7 +3426,7 @@
   {
     "longName": "MICROPOLE",
     "isin": "FR0000077570",
-    "shortName": "MUN",
+    "shortName": "MUN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MICROP.",
@@ -3442,7 +3442,7 @@
   {
     "longName": "MND",
     "isin": "FR0011584549",
-    "shortName": "MND",
+    "shortName": "MND-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MND",
@@ -3458,7 +3458,7 @@
   {
     "longName": "NANOBIOTIX",
     "isin": "FR0011341205",
-    "shortName": "NANO",
+    "shortName": "NANO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NANOBIOTIX",
@@ -3474,7 +3474,7 @@
   {
     "longName": "NATIXIS",
     "isin": "FR0000120685",
-    "shortName": "KN",
+    "shortName": "KN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NATIXIS",
@@ -3490,7 +3490,7 @@
   {
     "longName": "NATUREX",
     "isin": "FR0000054694",
-    "shortName": "NRX",
+    "shortName": "NRX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NATUREX",
@@ -3506,7 +3506,7 @@
   {
     "longName": "NEOPOST",
     "isin": "FR0000120560",
-    "shortName": "NEO",
+    "shortName": "NEO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NEOPOST",
@@ -3522,7 +3522,7 @@
   {
     "longName": "NETGEM",
     "isin": "FR0004154060",
-    "shortName": "NTG",
+    "shortName": "NTG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NETGEM",
@@ -3538,7 +3538,7 @@
   {
     "longName": "NEXANS",
     "isin": "FR0000044448",
-    "shortName": "NEX",
+    "shortName": "NEX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NEXANS",
@@ -3554,7 +3554,7 @@
   {
     "longName": "NEXITY",
     "isin": "FR0010112524",
-    "shortName": "NXI",
+    "shortName": "NXI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NEXITY",
@@ -3570,7 +3570,7 @@
   {
     "longName": "NICOX",
     "isin": "FR0013018124",
-    "shortName": "COX",
+    "shortName": "COX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NICOX",
@@ -3586,7 +3586,7 @@
   {
     "longName": "OENEO",
     "isin": "FR0000052680",
-    "shortName": "SBT",
+    "shortName": "SBT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "OENEO",
@@ -3602,7 +3602,7 @@
   {
     "longName": "OLYMPIQUE LYONNAIS (GROUPE)",
     "isin": "FR0010428771",
-    "shortName": "OLG",
+    "shortName": "OLG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "OL GROUPE",
@@ -3618,7 +3618,7 @@
   {
     "longName": "ONXEO",
     "isin": "FR0010095596",
-    "shortName": "ONXEO",
+    "shortName": "ONXEO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ONXEO",
@@ -3634,7 +3634,7 @@
   {
     "longName": "ORANGE",
     "isin": "FR0000133308",
-    "shortName": "ORA",
+    "shortName": "ORA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ORANGE (ex: FRANCE TELECOM)",
@@ -3650,7 +3650,7 @@
   {
     "longName": "ORAPI",
     "isin": "FR0000075392",
-    "shortName": "ORAP",
+    "shortName": "ORAP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ORAPI",
@@ -3666,7 +3666,7 @@
   {
     "longName": "ORCHESTRA-PREMAMAN",
     "isin": "FR0013190410",
-    "shortName": "KAZI",
+    "shortName": "KAZI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ORCHESTRA-PREMAMAN",
@@ -3682,7 +3682,7 @@
   {
     "longName": "OREGE",
     "isin": "FR0010609206",
-    "shortName": "OREGE",
+    "shortName": "OREGE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "OREGE",
@@ -3698,7 +3698,7 @@
   {
     "longName": "ORPEA",
     "isin": "FR0000184798",
-    "shortName": "ORP",
+    "shortName": "ORP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ORPEA",
@@ -3714,7 +3714,7 @@
   {
     "longName": "OSE IMMUNOTHERAPEUTICS",
     "isin": "FR0012127173",
-    "shortName": "OSE",
+    "shortName": "OSE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "OSE IMMUNO",
@@ -3730,7 +3730,7 @@
   {
     "longName": "PARROT",
     "isin": "FR0004038263",
-    "shortName": "PARRO",
+    "shortName": "PARRO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PARROT",
@@ -3746,7 +3746,7 @@
   {
     "longName": "PERNOD RICARD",
     "isin": "FR0000120693",
-    "shortName": "RI",
+    "shortName": "RI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PERNOD RICARD",
@@ -3762,7 +3762,7 @@
   {
     "longName": "PEUGEOT",
     "isin": "FR0000121501",
-    "shortName": "UG",
+    "shortName": "UG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PEUGEOT",
@@ -3778,7 +3778,7 @@
   {
     "longName": "PHARMAGEST INTER.",
     "isin": "FR0012882389",
-    "shortName": "PHA",
+    "shortName": "PHA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PHARMAGEST INTERACT",
@@ -3794,7 +3794,7 @@
   {
     "longName": "PIERRE VACANCES",
     "isin": "FR0000073041",
-    "shortName": "VAC",
+    "shortName": "VAC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PIERRE ET VACANCES",
@@ -3810,7 +3810,7 @@
   {
     "longName": "PIXIUM VISION",
     "isin": "FR0011950641",
-    "shortName": "PIX",
+    "shortName": "PIX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PIXIUM VISION",
@@ -3826,7 +3826,7 @@
   {
     "longName": "PLAST. VAL DE LOIRE",
     "isin": "FR0013252186",
-    "shortName": "PVL",
+    "shortName": "PVL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PLAST VAL DE LOIRE",
@@ -3842,7 +3842,7 @@
   {
     "longName": "PLASTIC OMNIUM",
     "isin": "FR0000124570",
-    "shortName": "POM",
+    "shortName": "POM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PLASTIC OMNIUM",
@@ -3858,7 +3858,7 @@
   {
     "longName": "POXEL",
     "isin": "FR0012432516",
-    "shortName": "POXEL",
+    "shortName": "POXEL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "POXEL",
@@ -3874,7 +3874,7 @@
   {
     "longName": "PRECIA",
     "isin": "FR0000060832",
-    "shortName": "PREC",
+    "shortName": "PREC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PRECIA",
@@ -3890,7 +3890,7 @@
   {
     "longName": "PRODWAYS GROUP",
     "isin": "FR0012613610",
-    "shortName": "PWG",
+    "shortName": "PWG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PRODWAYS",
@@ -3906,7 +3906,7 @@
   {
     "longName": "PROLOGUE",
     "isin": "FR0010380626",
-    "shortName": "PROL",
+    "shortName": "PROL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PROLOGUE",
@@ -3922,7 +3922,7 @@
   {
     "longName": "PSB INDUSTRIES",
     "isin": "FR0000060329",
-    "shortName": "PSB",
+    "shortName": "PSB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PSB INDUSTRIES",
@@ -3938,7 +3938,7 @@
   {
     "longName": "PUBLICIS GROUPE",
     "isin": "FR0000130577",
-    "shortName": "PUB",
+    "shortName": "PUB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PUBLICIS GRP",
@@ -3954,7 +3954,7 @@
   {
     "longName": "QUANTEL",
     "isin": "FR0000038242",
-    "shortName": "QUA",
+    "shortName": "QUA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "QUANTEL",
@@ -3970,7 +3970,7 @@
   {
     "longName": "RECYLEX",
     "isin": "FR0000120388",
-    "shortName": "RX",
+    "shortName": "RX-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "RECYLEX",
@@ -3986,7 +3986,7 @@
   {
     "longName": "REMY COINTREAU",
     "isin": "FR0000130395",
-    "shortName": "RCO",
+    "shortName": "RCO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "REMY COINTREAU",
@@ -4002,7 +4002,7 @@
   {
     "longName": "RENAULT",
     "isin": "FR0000131906",
-    "shortName": "RNO",
+    "shortName": "RNO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "RENAULT",
@@ -4018,7 +4018,7 @@
   {
     "longName": "REXEL",
     "isin": "FR0010451203",
-    "shortName": "RXL",
+    "shortName": "RXL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "REXEL",
@@ -4034,7 +4034,7 @@
   {
     "longName": "RIBER",
     "isin": "FR0000075954",
-    "shortName": "RIB",
+    "shortName": "RIB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "RIBER",
@@ -4050,7 +4050,7 @@
   {
     "longName": "RUBIS",
     "isin": "FR0013269123",
-    "shortName": "RUI",
+    "shortName": "RUI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "RUBIS",
@@ -4066,7 +4066,7 @@
   {
     "longName": "SAFE ORTHOPAEDICS",
     "isin": "FR0012452746",
-    "shortName": "SAFOR",
+    "shortName": "SAFOR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SAFE ORTHOPAED.",
@@ -4082,7 +4082,7 @@
   {
     "longName": "SAFRAN",
     "isin": "FR0000073272",
-    "shortName": "SAF",
+    "shortName": "SAF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SAFRAN",
@@ -4098,7 +4098,7 @@
   {
     "longName": "SAINT GOBAIN",
     "isin": "FR0000125007",
-    "shortName": "SGO",
+    "shortName": "SGO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SAINT-GOBAIN",
@@ -4114,7 +4114,7 @@
   {
     "longName": "SANOFI",
     "isin": "FR0000120578",
-    "shortName": "SAN",
+    "shortName": "SAN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SANOFI",
@@ -4130,7 +4130,7 @@
   {
     "longName": "SARTORIUS STEDIM BIOTECH",
     "isin": "FR0013154002",
-    "shortName": "DIM",
+    "shortName": "DIM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SARTORIUS STED",
@@ -4146,7 +4146,7 @@
   {
     "longName": "SCBSM",
     "isin": "FR0006239109",
-    "shortName": "CBSM",
+    "shortName": "CBSM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SCBSM",
@@ -4162,7 +4162,7 @@
   {
     "longName": "SCHNEIDER ELECTRIC",
     "isin": "FR0000121972",
-    "shortName": "SU",
+    "shortName": "SU-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SCHNEIDER E.SE",
@@ -4178,7 +4178,7 @@
   {
     "longName": "SCOR",
     "isin": "FR0010411983",
-    "shortName": "SCR",
+    "shortName": "SCR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SCOR SE",
@@ -4194,7 +4194,7 @@
   {
     "longName": "SEB",
     "isin": "FR0000121709",
-    "shortName": "SK",
+    "shortName": "SK-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SEB",
@@ -4210,7 +4210,7 @@
   {
     "longName": "SECHE ENVIRONNEMENT",
     "isin": "FR0000039109",
-    "shortName": "SCHP",
+    "shortName": "SCHP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SECHE ENVIRON",
@@ -4226,7 +4226,7 @@
   {
     "longName": "SEQUANA",
     "isin": "FR0011352590",
-    "shortName": "SEQ",
+    "shortName": "SEQ-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SEQUANA REGPT",
@@ -4242,7 +4242,7 @@
   {
     "longName": "SERGEFERRARI GROUP",
     "isin": "FR0011950682",
-    "shortName": "SEFER",
+    "shortName": "SEFER-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SERGEFERRARI",
@@ -4258,7 +4258,7 @@
   {
     "longName": "SES IMAGOTAG",
     "isin": "FR0010282822",
-    "shortName": "SESL",
+    "shortName": "SESL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SES GLOBAL FDR",
@@ -4274,7 +4274,7 @@
   {
     "longName": "SES SA",
     "isin": "LU0088087324",
-    "shortName": "SESG",
+    "shortName": "SESG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SES IMAGOTAG",
@@ -4290,7 +4290,7 @@
   {
     "longName": "SHOWROOMPRIVE",
     "isin": "FR0013006558",
-    "shortName": "SRP",
+    "shortName": "SRP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SHOWROOMPRIVE",
@@ -4306,7 +4306,7 @@
   {
     "longName": "SOCIETE GENERALE",
     "isin": "FR0000130809",
-    "shortName": "GLE",
+    "shortName": "GLE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SOCIETE GENERALE",
@@ -4322,7 +4322,7 @@
   {
     "longName": "SODEXO",
     "isin": "FR0000121220",
-    "shortName": "SW",
+    "shortName": "SW-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SODEXO",
@@ -4338,7 +4338,7 @@
   {
     "longName": "SOGECLAIR",
     "isin": "FR0000065864",
-    "shortName": "SOG",
+    "shortName": "SOG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SOGECLAIR",
@@ -4354,7 +4354,7 @@
   {
     "longName": "SOITEC SILICON",
     "isin": "FR0013227113",
-    "shortName": "SOI",
+    "shortName": "SOI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SOITEC",
@@ -4370,7 +4370,7 @@
   {
     "longName": "SOLOCAL GROUP",
     "isin": "FR0012938884",
-    "shortName": "LOCAL",
+    "shortName": "LOCAL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SOLOCAL",
@@ -4386,7 +4386,7 @@
   {
     "longName": "SOPRA STERIA GROUP",
     "isin": "FR0000050809",
-    "shortName": "SOP",
+    "shortName": "SOP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SOPRA STERIA",
@@ -4402,7 +4402,7 @@
   {
     "longName": "SPIE",
     "isin": "FR0012757854",
-    "shortName": "SPIE",
+    "shortName": "SPIE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SPIE",
@@ -4418,7 +4418,7 @@
   {
     "longName": "SQLI REGR.",
     "isin": "FR0011289040",
-    "shortName": "SQI",
+    "shortName": "SQI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SQLI REGPT",
@@ -4434,7 +4434,7 @@
   {
     "longName": "ST DUPONT",
     "isin": "FR0000054199",
-    "shortName": "DPT",
+    "shortName": "DPT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ST DUPONT",
@@ -4450,7 +4450,7 @@
   {
     "longName": "STEF",
     "isin": "FR0000064271",
-    "shortName": "STF",
+    "shortName": "STF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "STEF",
@@ -4466,7 +4466,7 @@
   {
     "longName": "STENTYS",
     "isin": "FR0010949404",
-    "shortName": "STNT",
+    "shortName": "STNT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "STENTYS",
@@ -4482,7 +4482,7 @@
   {
     "longName": "STMICROELECTRONICS",
     "isin": "NL0000226223",
-    "shortName": "STM",
+    "shortName": "STM-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "STMICROELECTR",
@@ -4498,7 +4498,7 @@
   {
     "longName": "SUEZ ENVIRONNEMENT",
     "isin": "FR0010613471",
-    "shortName": "SEV",
+    "shortName": "SEV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SUEZ",
@@ -4514,7 +4514,7 @@
   {
     "longName": "SUPERSONIC IMAGINE",
     "isin": "FR0010526814",
-    "shortName": "SSI",
+    "shortName": "SSI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SUPERSONIC IMA.",
@@ -4530,7 +4530,7 @@
   {
     "longName": "SWORD GROUP",
     "isin": "FR0004180578",
-    "shortName": "SWP",
+    "shortName": "SWP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SWORD GROUP",
@@ -4546,7 +4546,7 @@
   {
     "longName": "SYNERGIE",
     "isin": "FR0000032658",
-    "shortName": "SDG",
+    "shortName": "SDG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SYNERGIE",
@@ -4562,7 +4562,7 @@
   {
     "longName": "TARKETT",
     "isin": "FR0004188670",
-    "shortName": "TKTT",
+    "shortName": "TKTT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TARKETT",
@@ -4578,7 +4578,7 @@
   {
     "longName": "TECHNICOLOR",
     "isin": "FR0010918292",
-    "shortName": "TCH",
+    "shortName": "TCH-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TECHNICOLOR",
@@ -4594,7 +4594,7 @@
   {
     "longName": "TECHNIPFMC",
     "isin": "GB00BDSFG982",
-    "shortName": "FTI",
+    "shortName": "FTI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TECHNIPFMC",
@@ -4610,7 +4610,7 @@
   {
     "longName": "TELEPERFORMANCE",
     "isin": "FR0000051807",
-    "shortName": "RCF",
+    "shortName": "RCF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TELEPERFORM.SE",
@@ -4626,7 +4626,7 @@
   {
     "longName": "TF1",
     "isin": "FR0000054900",
-    "shortName": "TFI",
+    "shortName": "TFI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TF1",
@@ -4642,7 +4642,7 @@
   {
     "longName": "THALES",
     "isin": "FR0000121329",
-    "shortName": "HO",
+    "shortName": "HO-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "THALES",
@@ -4658,7 +4658,7 @@
   {
     "longName": "TIVOLY",
     "isin": "FR0000060949",
-    "shortName": "TVLY",
+    "shortName": "TVLY-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TIVOLY",
@@ -4674,7 +4674,7 @@
   {
     "longName": "TOTAL",
     "isin": "FR0000120271",
-    "shortName": "FP",
+    "shortName": "FP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TOTAL",
@@ -4690,7 +4690,7 @@
   {
     "longName": "TOUAX",
     "isin": "FR0000033003",
-    "shortName": "TOUP",
+    "shortName": "TOUP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TOUAX",
@@ -4706,7 +4706,7 @@
   {
     "longName": "TRANSGENE",
     "isin": "FR0005175080",
-    "shortName": "TNG",
+    "shortName": "TNG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TRANSGENE",
@@ -4722,7 +4722,7 @@
   {
     "longName": "TRIGANO",
     "isin": "FR0005691656",
-    "shortName": "TRI",
+    "shortName": "TRI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TRIGANO",
@@ -4738,7 +4738,7 @@
   {
     "longName": "TXCELL",
     "isin": "FR0010127662",
-    "shortName": "TXCL",
+    "shortName": "TXCL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TXCELL",
@@ -4754,7 +4754,7 @@
   {
     "longName": "U10",
     "isin": "FR0000079147",
-    "shortName": "UDIS",
+    "shortName": "UDIS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "U10 SA",
@@ -4770,7 +4770,7 @@
   {
     "longName": "UBI SOFT ENTERTAIN",
     "isin": "FR0000054470",
-    "shortName": "UBI",
+    "shortName": "UBI-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "UBISOFT ENTERTAIN.",
@@ -4786,7 +4786,7 @@
   {
     "longName": "UNIBAIL-RODAMCO",
     "isin": "FR0000124711",
-    "shortName": "UL",
+    "shortName": "UL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "UNIBAIL-RODAMCO",
@@ -4802,7 +4802,7 @@
   {
     "longName": "UNION TECH.INFOR.",
     "isin": "FR0000074197",
-    "shortName": "FPG",
+    "shortName": "FPG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "UNI.TECHNO.",
@@ -4818,7 +4818,7 @@
   {
     "longName": "VALEO",
     "isin": "FR0013176526",
-    "shortName": "FR",
+    "shortName": "FR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VALEO",
@@ -4834,7 +4834,7 @@
   {
     "longName": "VALLOUREC",
     "isin": "FR0000120354",
-    "shortName": "VK",
+    "shortName": "VK-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VALLOUREC",
@@ -4850,7 +4850,7 @@
   {
     "longName": "VALNEVA",
     "isin": "FR0004056851",
-    "shortName": "VLA",
+    "shortName": "VLA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VALNEVA",
@@ -4866,7 +4866,7 @@
   {
     "longName": "VEOLIA ENVIRON.",
     "isin": "FR0000124141",
-    "shortName": "VIE",
+    "shortName": "VIE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VEOLIA ENVIRONNEM.",
@@ -4882,7 +4882,7 @@
   {
     "longName": "VICAT",
     "isin": "FR0000031775",
-    "shortName": "VCT",
+    "shortName": "VCT-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VICAT",
@@ -4898,7 +4898,7 @@
   {
     "longName": "VILMORIN CIE",
     "isin": "FR0000052516",
-    "shortName": "RIN",
+    "shortName": "RIN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VILMORIN & CIE",
@@ -4914,7 +4914,7 @@
   {
     "longName": "VINCI",
     "isin": "FR0000125486",
-    "shortName": "DG",
+    "shortName": "DG-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VINCI",
@@ -4930,7 +4930,7 @@
   {
     "longName": "VIRBAC",
     "isin": "FR0000031577",
-    "shortName": "VIRP",
+    "shortName": "VIRP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VIRBAC",
@@ -4946,7 +4946,7 @@
   {
     "longName": "VIVENDI",
     "isin": "FR0000127771",
-    "shortName": "VIV",
+    "shortName": "VIV-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VIVENDI",
@@ -4962,7 +4962,7 @@
   {
     "longName": "VOLTALIA",
     "isin": "FR0011995588",
-    "shortName": "VLTSA",
+    "shortName": "VLTSA-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VOLTALIA",
@@ -4978,7 +4978,7 @@
   {
     "longName": "VRANKEN MONOPOLE",
     "isin": "FR0000062796",
-    "shortName": "VRAP",
+    "shortName": "VRAP-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VRANKEN-POMMERY MONOPOLE",
@@ -4994,7 +4994,7 @@
   {
     "longName": "WAVESTONE",
     "isin": "FR0004036036",
-    "shortName": "WAVE",
+    "shortName": "WAVE-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "WAVESTONE",
@@ -5010,7 +5010,7 @@
   {
     "longName": "WENDEL INVEST.",
     "isin": "FR0000121204",
-    "shortName": "MF",
+    "shortName": "MF-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "WENDEL",
@@ -5026,7 +5026,7 @@
   {
     "longName": "WORLDLINE",
     "isin": "FR0011981968",
-    "shortName": "WLN",
+    "shortName": "WLN-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "WORLDLINE",
@@ -5042,7 +5042,7 @@
   {
     "longName": "X-FAB",
     "isin": "BE0974310428",
-    "shortName": "XFAB",
+    "shortName": "XFAB-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "X-FAB SILICON",
@@ -5058,7 +5058,7 @@
   {
     "longName": "XILAM ANIMATION",
     "isin": "FR0004034072",
-    "shortName": "XIL",
+    "shortName": "XIL-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "XILAM ANIMATION",
@@ -5074,7 +5074,7 @@
   {
     "longName": "YMAGIS",
     "isin": "FR0011471291",
-    "shortName": "MAGIS",
+    "shortName": "MAGIS-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "YMAGIS",
@@ -5090,7 +5090,7 @@
   {
     "longName": "ZODIAC AEROSPACE",
     "isin": "FR0000125684",
-    "shortName": "ZC",
+    "shortName": "ZC-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ZODIAC AERO",
@@ -5106,7 +5106,7 @@
   {
     "longName": "PERRIER INDUSTRIE",
     "isin": "FR0000061459",
-    "shortName": "PERR",
+    "shortName": "PERR-EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PERRIER INDUSTRIE",

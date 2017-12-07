@@ -47,16 +47,16 @@ const {
 // Send info about Stocks (with specified index)  ===========
 // **********************************************************
 trendingController.get("/", function(req, res, next) {
-  console.log(req.query);
-  let indexSelected = req.query.index || "all";
+  console.log("REQ QUERY", req.query);
+  let indexSelected = req.query.index || "SELECTED";
   let sortBy = req.query.sort;
   const stockTrendBoard = [];
 
   const queryObject = {};
-  if (indexSelected !== "all") {
+  if (indexSelected !== "SELECTED") {
     queryObject.index = indexSelected;
   }
-
+  console.log("STOCK RECUPERE", queryObject);
   // retrieve all stocks
   Stock.find(queryObject).exec((err, stocks) => {
     if (err) return res.json(null);

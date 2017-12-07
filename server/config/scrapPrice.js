@@ -23,6 +23,7 @@ function scrapPrice(url) {
         $("#fiche_cours_details tr")
           .find("td:nth-child(2) .cotation")
           .text()
+          .replace(/ /g, "")
       );
 
       stUpdate.variation = parseFloat(

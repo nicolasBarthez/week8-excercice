@@ -11,6 +11,7 @@ const scrapPrice = require("../config/scrapPrice");
 const updateBourso = require("../bin/getStocksPriceBourso");
 const getCryptoUpdate = require("../bin/getStocksPriceCurr");
 const scrapPriceCurrency = require("../config/scrapPriceCurrency");
+const updateIex = require("../bin/getStocksPriceIex");
 
 // **********************************************************
 // Send info about a stock  =================================
@@ -33,11 +34,26 @@ stocksController.get("/:stockName", function(req, res, next) {
       // scrapPrice(stock.scrapKey);
       updateBourso();
     } else if (
-      stock.index.indexOf("crypto") > -1 &&
+      stock.index.indexOf("CRYPTO") > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
     ) {
-      scrapPriceCurrency(stock.shortName);
-      // getCryptoUpdate("crypto");
+      scrapPriceCurrency(stock.symbolPrice);
+      // getCryptoUpdate("CRYPTO");
+    } else if (
+      stock.index.indexOf("NASDAQ") > -1 &&
+      new Date() - stock.updated_at.getTime() > ONE_MIN
+    ) {
+      updateIex("NASDAQ");
+    } else if (
+      stock.index.indexOf("INDEX") > -1 &&
+      new Date() - stock.updated_at.getTime() > ONE_MIN
+    ) {
+      scrapPrice(stock.scrapKey);
+    } else if (
+      stock.index.indexOf("AUTRES") > -1 &&
+      new Date() - stock.updated_at.getTime() > ONE_MIN
+    ) {
+      scrapPrice(stock.scrapKey);
     }
     res.json(stock);
   });

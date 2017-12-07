@@ -18,15 +18,15 @@ const port = process.env.PORT || 3000;
 //     console.info("The magic happens on port " + port);
 //   });
 
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useMongoClient: true
-  })
-  .then(() => {
-    console.info("The magic happens on port " + port);
-  });
+// mongoose
+//   .connect(process.env.MONGODB_URI, {
+//     useMongoClient: true
+//   })
+//   .then(() => {
+//     console.info("The magic happens on port " + port);
+//   });
 
-function getstockUpdate(index) {
+function getstockUpdateIex(index) {
   Stock.find({ index: index }).exec((err, stockArray) => {
     console.log(stockArray);
     if (err) console.err(err);
@@ -43,7 +43,7 @@ function getstockUpdate(index) {
           console.log(newStock);
           Stock.findByIdAndUpdate(stock._id, newStock).exec((err, resp) => {
             console.log(resp);
-            mongoose.connection.close();
+            // mongoose.connection.close();
           });
         })
         .catch(err => {
@@ -54,7 +54,7 @@ function getstockUpdate(index) {
 }
 
 // Update nasdaq
-getstockUpdate("nasdaq");
+// getstockUpdate("nasdaq");
 
 // function getPrice(ticker) {
 //   axios.get(urlStart + ticker + urlEnd).then(response => {
@@ -71,4 +71,4 @@ getstockUpdate("nasdaq");
 
 // getPrice("GOOGL");
 
-module.exports = getstockUpdate;
+module.exports = getstockUpdateIex;

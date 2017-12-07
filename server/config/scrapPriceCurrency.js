@@ -30,7 +30,7 @@ function scrapPriceCurrency(symbole) {
 
     console.log("newStock", newStock);
     Stock.findOneAndUpdate(
-      { shortName: symbole },
+      { shortName: symbole + "-CRYPTO" },
       newStock,
       { new: true },
       function(err, doc) {

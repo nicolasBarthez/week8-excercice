@@ -52,8 +52,9 @@ function getCryptoUpdate(index) {
           };
 
           Stock.findByIdAndUpdate(stock._id, newStock).exec((err, resp) => {
+            if (err) next(err);
             console.log(resp);
-            mongoose.connection.close();
+            // mongoose.connection.close();
           });
         })
         .catch(err => {

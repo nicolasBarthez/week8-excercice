@@ -2,15 +2,17 @@
     <section class="main">
 <nav v-if="connectedUser" class="navbar is-dark">
       <div v-if="connectedUser.lang==='EN'" class="babblesMenu">
-            <a  @click="all()" :class="{'is-active':indexSelected ==='all' }" class="navbar-item is-tab babMenu">All</a>
-            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='crypto' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="selected()" :class="{'is-active':indexSelected ==='SELECTED' }" class="navbar-item is-tab babMenu">Selected</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='CRYPTO' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="nasdaq()" :class="{'is-active':indexSelected ==='NASDAQ' }" class="navbar-item is-tab babMenu">Nasdaq</a>
             <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
             <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
             <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
       </div>
       <div v-else class="babblesMenu">
-            <a  @click="all()" :class="{'is-active':indexSelected ==='all' }" class="navbar-item is-tab babMenu">Toutes les actions</a>
-            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='crypto' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="selected()" :class="{'is-active':indexSelected ==='SELECTED' }" class="navbar-item is-tab babMenu">Sélection</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='CRYPTO' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="nasdaq()" :class="{'is-active':indexSelected ==='NASDAQ' }" class="navbar-item is-tab babMenu">Nasdaq</a>
             <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
             <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
             <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
@@ -101,7 +103,7 @@ export default {
   data() {
     return {
       stocks: [],
-      indexSelected: "all",
+      indexSelected: "SELECTED",
       total: 0,
       loading: false,
       defaultSortField: "trending.percentage",
@@ -117,8 +119,17 @@ export default {
     connectedUser: Object
   },
   methods: {
-    all() {
-      this.indexSelected = "all";
+    selected() {
+      this.indexSelected = "SELECTED";
+      getStocksTrending({
+        index: this.indexSelected,
+        sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
+      }).then(stocks => {
+        this.stocks = stocks;
+      });
+    },
+    nasdaq() {
+      this.indexSelected = "NASDAQ";
       getStocksTrending({
         index: this.indexSelected,
         sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
@@ -127,7 +138,7 @@ export default {
       });
     },
     cryptocurrencies() {
-      this.indexSelected = "crypto";
+      this.indexSelected = "CRYPTO";
       getStocksTrending({
         index: this.indexSelected,
         sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
