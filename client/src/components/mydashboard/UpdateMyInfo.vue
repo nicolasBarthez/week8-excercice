@@ -1,14 +1,11 @@
 <template>
-<section v-if="profileInfo" class="section main">
-  <div class="column is-6" id="ActionCard">
+  <div v-if="profileInfo">
     <div class="card profile-card">
-      <div class="card-content">
+      <div class="card-content column is-6 is-center"id="ActionCard">
         <div class="media">
           <div class="media-left">
-            <figure class="image is-64x64 is-circle">
-              <img :src="profileInfo.picProfile" alt="my picture">
-            </figure>
-          </div>
+                    <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class ="imgProfile" :src="profileInfo.picProfile" alt="Image"></figure>
+                </div>
           <div class="media-content">
             <p class="title is-5">
               @{{profileInfo.username}}
@@ -18,16 +15,15 @@
               <h2>Could you talk about yourself, your followers would like to know you a little better.</h2>
               <br>
 
-                <span>Your magic skills</span>
+                <span>Your magic skills:</span><br>
                 <v-select multiple :closeOnSelect='false' v-model="skills" :options="options"></v-select>
-                <br>
-                <label>Location
-                  <input type="text" v-model="location" >
-                </label>
-                <br>
+                <br><hr>
+                <span>Location:</span><br>
+                  <input class="location" type="text" v-model="location"/>
+                <br><hr>
 
-              <label><span>Update your photo</span>
-                <croppa v-model="image"
+              <label><span>Update your photo:</span><br>
+                <croppa v-model="image" 
                   initial-image=""
                   :width="150"
                   :height="150"
@@ -35,17 +31,16 @@
                   :placeholder-font-size="18"
                   :prevent-white-space="true">
                 </croppa>
-
-
-                  </label><br>
-                <button @click="saveMyProfile">Save modifications</button>
+              </label>
+              <br><hr>
+              <div class ="centerButton"><button id="adWL" class="button is-small is-outlined is-primary" @click="saveMyProfile">Save modifications</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 </template>
 
 <script>
@@ -130,12 +125,61 @@ export default {
 </script>
 
 <style scoped>
-.section.main {
-  background-color: #f9f9f9;
-  padding: 7rem 1.5rem;
+.card{
+  margin-left: 15%;
+  margin-right:15%
+}
+.centerButton{
+  DISPLAY: FLEX;
+  JUSTIFY-CONTENT: center;
+  TEXT-ALIGN: center;
+}
+#ActionCard {
+  width: 100%;
+}
+hr {
+    background-color: #192b41;
+    border: none;
+    display: block;
+    height: 1px;
+    margin: 1.5rem 0;
+    font-weight:400;
+}
+.location{
+    line-height: 1.42857143;
+    font-size: 1em;
+    height: 34px;
+    display: inline-block;
+    margin: 0;
+    padding: 0 .5em;
+    max-width: 100%;
+    background: none;
+    position: relative;
+    box-shadow: none;
+    float: left;
+    clear: none;
 }
 
-.container {
-  display: flex;
+#adWL {
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    font-weight: bolder;
+    color: #fff;
+    background-color: #192b41;
+    box-shadow: 0 0 0 0.125em #192b41;
+    border-color: #192b41;
+    font-size:1.2rem !important
+}
+#adWL.is-outlined:focus,
+#adWL.is-outlined:hover {
+    background-color: #fff!important;
+    border-color: #192b41!important;
+    color: #192b41!important;
+}
+@media (max-width: 768px) {
+  .card{
+    max-width:90%;
+    margin: 5%;
+  }
 }
 </style>

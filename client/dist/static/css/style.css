@@ -7,11 +7,6 @@ div {
     font-size: 1.2REM!important;
 }
 
-.icon {
-    width: 2em!important;
-    height: 2em!important
-}
-
 .emoji {
     width: 1.5rem !important
 }
@@ -42,7 +37,10 @@ span>a {
     cursor: pointer;
     text-decoration: none;
 }
-
+.is-left{
+    width:2em!important;
+    height:2em!important
+}
 .select select:focus,
 .select select.is-focused,
 .select select:active,
@@ -206,10 +204,6 @@ a.nav-item:not(.button).is-tab:hover {
 }
 
 @media (max-width: 768px) {
-    .icon {
-        width: 2.75em!important;
-        height: 2.75em!important
-    }
     .main {
         background-color: #f9f9f9;
         padding-left: 0.1px !important;
@@ -225,4 +219,9 @@ a.nav-item:not(.button).is-tab:hover {
     small {
         font-size: 0.7rem!important
     }
+    .is-left{
+        width:2.75em!important;
+        height:2.75em!important
+    }
+    
 }

@@ -169,6 +169,12 @@ a{
 #logo2{
     display:none
 }
+.control{
+    width:100%!important
+}
+.is-clearfix{
+    width:100%!important
+}
 .image.is-32x32 {
     height: 45px;
     width: 45px;
@@ -288,10 +294,10 @@ a.nav-item:not(.button).is-tab:hover {
     margin-left: 15%;
 }
 #formNav1 {
-    width: 100%;
+    width: 100%!important;
 }
 #formNav2 {
-    width: 100%;
+    width: 100%!important;
 }
 .button:focus:not(:active),
 .button.is-active,
