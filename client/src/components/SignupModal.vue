@@ -180,4 +180,12 @@ p {
 .column.is-offset-2, .column.is-offset-2-tablet {
     margin-left: 10% !important;
 }
+@media (max-width: 768px) {
+    .column.is-8{
+        width:110% !important
+    }
+    .column.is-offset-2, .column.is-offset-2-tablet {
+        margin-left: 0% !important;
+    }
+}
 </style>

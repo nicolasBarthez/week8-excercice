@@ -139,13 +139,17 @@ a{
     color: #192b41;
 }
 @media (max-width: 768px) {
-    .section.main {
+    section {
         background-color: #f9f9f9;
-        padding-top:3.5rem  !important;
+        padding-top:0rem  !important;
     }
     span{
         width:2.75em!important;
         height:2.75em!important
+    }
+    .section {
+    padding:5px!important;
+    padding-top: 1.5rem!important;
     }
 }
 </style>

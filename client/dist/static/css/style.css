@@ -223,8 +223,5 @@ a.nav-item:not(.button).is-tab:hover {
         width:2.75em!important;
         height:2.75em!important
     }
-    .control{
-        height: 30px!important;
-    }
     
 }
