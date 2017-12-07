@@ -3,10 +3,10 @@ const Stock = require("../models/stock");
 const WatchItem = require("../models/watchitem");
 const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGODB_URI);
-// mongoose.connect(
-//   "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
-// );
+// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(
+  "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
+);
 
 const euronextParis = require("../data/euronextParis");
 const crypto = require("../data/crypto");
