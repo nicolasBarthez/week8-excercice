@@ -120,4 +120,4 @@ function updateBourso() {
 // // Update CAC40
 // getstockUpdate("CAC40");
 //
-// module.exports = getstockUpdate;
+module.exports = updateBourso;

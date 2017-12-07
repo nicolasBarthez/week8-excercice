@@ -8,8 +8,8 @@ const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
 const scrapPrice = require("../config/scrapPrice");
-// const updateBourso = require("../bin/getStocksPriceBourso");
-// const getCryptoUpdate = require("../bin/getStocksPriceCurr");
+const updateBourso = require("../bin/getStocksPriceBourso");
+const getCryptoUpdate = require("../bin/getStocksPriceCurr");
 const scrapPriceCurrency = require("../config/scrapPriceCurrency");
 
 // **********************************************************
@@ -28,10 +28,10 @@ stocksController.get("/:stockName", function(req, res, next) {
       stock = "no stock";
     } else if (
       stock.index.indexOf("EURONEXT PARIS") > -1 &&
-      new Date() - stock.updated_at.getTime() > FIVE_MIN
+      new Date() - stock.updated_at.getTime() > ONE_MIN
     ) {
-      scrapPrice(stock.scrapKey);
-      // updateBourso();
+      // scrapPrice(stock.scrapKey);
+      updateBourso();
     } else if (
       stock.index.indexOf("crypto") > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
