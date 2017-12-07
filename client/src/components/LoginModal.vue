@@ -7,10 +7,9 @@
                 </div>
                 <div class="hero-body">
                             <div class="column is-8 is-offset-2">
-                            <b-notification v-if="error" type="is-danger" has-icon>
-                                {{ error }}
-                            </b-notification>
-                                <form @submit.prevent="login">
+                                <b-notification  v-if="error" type="is-danger" has-icon>
+                                    {{error}}
+                                </b-notification>
                                     <b-field label="Email">
                                         <b-input v-model="email" placeholder="wbuffet@insiders.finance" type="email" icon-pack="fa" icon="envelope">
                                         </b-input>
@@ -24,11 +23,9 @@
                                         </b-input>
                                     </b-field>
                                     <p class="control login">
-                                        <button v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Login</button>
-                                        <button v-else class="button is-success is-outlined is-large is-fullwidth" @click="$parent.close()">Connexion</button>
+                                        <button @click="login()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Login</button>
+                                        <button @click="login()" v-else class="button is-success is-outlined is-large is-fullwidth">Connexion</button>
                                     </p>
-                                </form>
-
                    </div>
                 </div>
             </section>
@@ -55,21 +52,20 @@ export default {
   },
   methods: {
     login() {
+        this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
+          this.$parent.close();
           this.$router.push("/trending");
         })
+        .then(() => {
+        document.getElementsById("html").removeAttribute("is-clipped")
+        })
         .catch(err => {
-          this.error = "error";
+          this.error = "Password or username is incorrect";
         });
     }
   },
-  created() {
-    this.$root.hideNav();
-  },
-  destroyed() {
-    this.$root.showNav = true;
-  }
 };
 </script>
 
@@ -131,7 +127,10 @@ form {
     border-color: #192b41;
     color: #192b41;
 }
-
+.button:focus, .button.is-focused {
+    border-color: #192b41;
+    color: #192b41;
+}
 
 .fa {
     color: #192b41 !important;

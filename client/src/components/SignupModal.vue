@@ -7,10 +7,9 @@
                         <h1 v-if="langSelected==='EN'" class="title">Become an insider</h1>
                         <h1 v-else class="title">Devenir un insider</h1>
                         <b-notification v-if="error" type="is-danger" has-icon>
-                        {{ error.message }}
+                            {{error}}
                         </b-notification>
-                        <form @submit.prevent="signup">
-                          <div class="box">
+                         <div class="box">
                             <b-field v-if="langSelected==='EN'"  label="Username" maxlength="10">
                              <b-input v-model="username" ></b-input>
                             </b-field>
@@ -29,13 +28,13 @@
                              <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
                              </b-field>
                              <b-field v-if="langSelected==='EN'" label="Confirm Password">
-                             <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
+                             <b-input  v-validate="'confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
                              </b-field>
                              <b-field v-else label="Confirmez votre mot de passe">
-                             <b-input  v-validate="'required|confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
+                             <b-input  v-validate="'confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
                              </b-field>
 
-                        <div class="alert alert-danger" v-show="errors.any()">
+                        <div class="error-message" v-show="errors.any()">
                             <div v-if="errors.has('password')">
                              {{ errors.first('password') }}
                             </div>
@@ -46,16 +45,14 @@
 
                             <hr>
                             <p class="control">
-                             <button v-if="langSelected==='EN'" class="button is-primary"@click="$parent.close()">Register</button>
-                             <button v-else class="button is-primary"@click="$parent.close()">Inscription</button>
-                             <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()"><a href="/">Cancel</a></button>
-                             <button v-else class="button is-default"@click="$parent.close()"><a href="/">Annuler</a></button>
+                             <button v-if="langSelected==='EN'" class="button is-primary"@click="signup()">Register</button>
+                             <button v-else class="button is-primary"@click="signup()">Inscription</button>
+                             <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()">Cancel</button>
+                             <button v-else class="button is-default"@click="$parent.close()">Annuler</button>
                             </p>
                           </div>
-                        </form>
                     </div>
                 </div>
-
         </div>
     </section>
 </template>
@@ -89,9 +86,13 @@ export default {
           let pass = this.password;
           let authenticate = { mail, pass };
           this.$emit("loginModal", authenticate);
+          this.$parent.close();
+        })
+        .then(() => {
+        document.getElementsById("html").removeAttribute("is-clipped")
         })
         .catch(err => {
-          this.error = "error";
+          this.error = "Cette adresse e-mail est deja enregistrée. Veuillez vous connecter pour acceder à votre compte.";
         });
     }
   }
@@ -99,6 +100,9 @@ export default {
 </script>
 
 <style scoped>
+.error-message {
+     color: #ff3860;
+    }
   form {
     max-width: 400px;
     margin: auto;
@@ -108,6 +112,9 @@ export default {
 }
 .hero.is-fullheight {
     min-height: 70vh!important;
+}
+.hero-body{
+    padding: 1rem 1.5rem!important;
 }
   .hero.is-dark.is-bold {
     background-image: linear-gradient( 141deg, #f9f9f9 0, #f9f9f9 71%, #f9f9f9 100%) !important;
@@ -121,7 +128,10 @@ export default {
     border-color: transparent;
     color: #fff;
 }
-
+.button:focus, .button.is-focused {
+    border-color: #192b41;
+    color: #192b41;
+}
 .button.is-success.is-outlined {
     background-color: transparent;
     border-color: #192b41;
@@ -163,5 +173,11 @@ h1 {
 
 p {
     color: #192b41 !important;
+}
+.column.is-8{
+    width:85% !important
+}
+.column.is-offset-2, .column.is-offset-2-tablet {
+    margin-left: 10% !important;
 }
 </style>

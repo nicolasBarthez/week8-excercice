@@ -148,7 +148,7 @@ a{
   .main {
     padding-top:0.5rem  !important;
   }
-    .button .icon.is-small {
+    .icon {
     height: 1.5em!important;
     width: 1.5em!important;
   }
