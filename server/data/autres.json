@@ -2,7 +2,7 @@
   {
     "longName": "ABLYNX",
     "isin": "BE0003877942",
-    "shortName": "ABLX-EU",
+    "shortName": "ABLX@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ABLYNX",
@@ -18,7 +18,7 @@
   {
     "longName": "ARGEN-X",
     "isin": "NL0010832176",
-    "shortName": "ARGX-EU",
+    "shortName": "ARGX@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ARGEN-X",
@@ -34,7 +34,7 @@
   {
     "longName": "ASIT BIOT",
     "isin": "BE0974289218",
-    "shortName": "ASIT-EU",
+    "shortName": "ASIT@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ASIT BIOT",
@@ -50,7 +50,7 @@
   {
     "longName": "BIOM'UP REG",
     "isin": "FR0013284080",
-    "shortName": "BUP-EU",
+    "shortName": "BUP@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BIOM'UP REG",
@@ -66,7 +66,7 @@
   {
     "longName": "BIOPHYTIS",
     "isin": "FR0012816825",
-    "shortName": "ALBPS-EU",
+    "shortName": "ALBPS@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BIOPHYTIS",
@@ -82,7 +82,7 @@
   {
     "longName": "BONE THERAPEUTIC",
     "isin": "BE0974280126",
-    "shortName": "BOTHE-EU",
+    "shortName": "BOTHE@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "BONE THERAPEUTIC",
@@ -98,7 +98,7 @@
   {
     "longName": "CELLECTIS",
     "isin": "FR0010425595",
-    "shortName": "ALCLS-EU",
+    "shortName": "ALCLS@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CELLECTIS",
@@ -114,7 +114,7 @@
   {
     "longName": "CELYAD",
     "isin": "BE0974260896",
-    "shortName": "CYAD-EU",
+    "shortName": "CYAD@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CELYAD",
@@ -130,7 +130,7 @@
   {
     "longName": "CROSSJECT",
     "isin": "FR0011716265",
-    "shortName": "ALCJS-EU",
+    "shortName": "ALCJS@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "CROSSJECT",
@@ -146,7 +146,7 @@
   {
     "longName": "DIAXONHIT",
     "isin": "FR0013240934",
-    "shortName": "ALEHT-EU",
+    "shortName": "ALEHT@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "DIAXONHIT",
@@ -162,7 +162,7 @@
   {
     "longName": "ESPERITE",
     "isin": "NL0009272137",
-    "shortName": "ESP-EU",
+    "shortName": "ESP@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ESPERITE",
@@ -178,7 +178,7 @@
   {
     "longName": "GALAPAGOS",
     "isin": "BE0003818359",
-    "shortName": "GLPG-EU",
+    "shortName": "GLPG@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "GALAPAGOS",
@@ -194,7 +194,7 @@
   {
     "longName": "HYBRIGENICS",
     "isin": "FR0004153930",
-    "shortName": "ALHYG-EU",
+    "shortName": "ALHYG@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "HYBRIGENICS",
@@ -210,7 +210,7 @@
   {
     "longName": "INTEGRAGEN",
     "isin": "FR0010908723",
-    "shortName": "ALINT-EU",
+    "shortName": "ALINT@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "",
@@ -226,7 +226,7 @@
   {
     "longName": "KIADIS PHARMA",
     "isin": "NL0011323407",
-    "shortName": "KDS-EU",
+    "shortName": "KDS@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "KIADIS PHARMA",
@@ -242,7 +242,7 @@
   {
     "longName": "LYSOGENE",
     "isin": "FR0013233475",
-    "shortName": "LYS-EU",
+    "shortName": "LYS@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "LYSOGENE",
@@ -258,7 +258,7 @@
   {
     "longName": "MDXH",
     "isin": "BE0003844611",
-    "shortName": "MDXH-EU",
+    "shortName": "MDXH@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "MDXH",
@@ -274,7 +274,7 @@
   {
     "longName": "NEOVACS",
     "isin": "FR0004032746",
-    "shortName": "ALNEV-EU",
+    "shortName": "ALNEV@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NEOVACS",
@@ -290,7 +290,7 @@
   {
     "longName": "NOXXON PHARMA",
     "isin": "NL0012044762",
-    "shortName": "ALNOX-EU",
+    "shortName": "ALNOX@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "NOXXON PHARMA",
@@ -306,7 +306,7 @@
   {
     "longName": "ONCODESIGN",
     "isin": "FR0011766229",
-    "shortName": "ALONC-EU",
+    "shortName": "ALONC@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "ONCODESIGN",
@@ -322,7 +322,7 @@
   {
     "longName": "PHARMING GROUP",
     "isin": "NL0010391025",
-    "shortName": "PHARM-EU",
+    "shortName": "PHARM@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PHARMING GROUP",
@@ -338,7 +338,7 @@
   {
     "longName": "PHARNEXT",
     "isin": "FR0011191287",
-    "shortName": "ALPHA-EU",
+    "shortName": "ALPHA@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PHARNEXT",
@@ -354,7 +354,7 @@
   {
     "longName": "PLANT ADVANCED",
     "isin": "FR0010785790",
-    "shortName": "ALPAT-EU",
+    "shortName": "ALPAT@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PLANT ADVANCED",
@@ -370,7 +370,7 @@
   {
     "longName": "PROBIODRUG",
     "isin": "DE0007921835",
-    "shortName": "PBD-EU",
+    "shortName": "PBD@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "PROBIODRUG",
@@ -386,7 +386,7 @@
   {
     "longName": "QUANTUM GENOMICS",
     "isin": "FR0011648971",
-    "shortName": "ALQGC-EU",
+    "shortName": "ALQGC@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "QUANTUM GENOMICS",
@@ -402,7 +402,7 @@
   {
     "longName": "SENSORION",
     "isin": "FR0012596468",
-    "shortName": "ALSEN-EU",
+    "shortName": "ALSEN@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "SENSORION",
@@ -418,7 +418,7 @@
   {
     "longName": "THERADIAG",
     "isin": "FR0004197747",
-    "shortName": "ALTER-EU",
+    "shortName": "ALTER@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "THERADIAG",
@@ -434,7 +434,7 @@
   {
     "longName": "THERANEXUS",
     "isin": "FR0013286259",
-    "shortName": "ALTHX-EU",
+    "shortName": "ALTHX@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "THERANEXUS",
@@ -450,7 +450,7 @@
   {
     "longName": "THROMBOGENICS",
     "isin": "BE0003846632",
-    "shortName": "THR-EU",
+    "shortName": "THR@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "THROMBOGENICS",
@@ -466,7 +466,7 @@
   {
     "longName": "TIGENIX",
     "isin": "BE0003864817",
-    "shortName": "TIG-EU",
+    "shortName": "TIG@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "TIGENIX",
@@ -482,7 +482,7 @@
   {
     "longName": "VALBIOTIS",
     "isin": "FR0013254851",
-    "shortName": "ALVAL-EU",
+    "shortName": "ALVAL@EU",
     "description": "Description",
     "stockImg": "/static/images/logoeuronext.png",
     "symbolPrice": "VALBIOTIS",

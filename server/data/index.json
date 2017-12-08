@@ -2,7 +2,7 @@
   {
     "longName": "CAC40",
     "isin": "FR0003500008",
-    "shortName": "CAC40",
+    "shortName": "CAC40@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "CAC40",
@@ -18,7 +18,7 @@
   {
     "longName": "CAC PME",
     "isin": "FR0011710375",
-    "shortName": "CAPME",
+    "shortName": "CAPME@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "CAC PME",
@@ -34,7 +34,7 @@
   {
     "longName": "ENT PEA PME 150",
     "isin": "FR0012246023 ",
-    "shortName": "ENPME",
+    "shortName": "ENPME@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "ENT PEA PME 150",
@@ -50,7 +50,7 @@
   {
     "longName": "SBF 120",
     "isin": "FR0003999481 ",
-    "shortName": "SBF120",
+    "shortName": "SBF120@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "SBF 120",
@@ -66,7 +66,7 @@
   {
     "longName": "CAC Mid & Small",
     "isin": "QS0010989133 ",
-    "shortName": "MS190",
+    "shortName": "MS190@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "CAC Mid & Small",
@@ -82,7 +82,7 @@
   {
     "longName": "DOW JONES",
     "isin": "US2605661048",
-    "shortName": "DJI",
+    "shortName": "DJI@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "DOW JONES",
@@ -98,7 +98,7 @@
   {
     "longName": "NASDAQ Composite",
     "isin": "XC0009694271 ",
-    "shortName": "NASDAQ",
+    "shortName": "NASDAQ@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "NASDAQ Composite",
@@ -114,7 +114,7 @@
   {
     "longName": "NASDAQ 100 INDEX",
     "isin": "US6311011026",
-    "shortName": "NDX",
+    "shortName": "NDX@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "NASDAQ 100 INDEX",
@@ -130,7 +130,7 @@
   {
     "longName": "DAX",
     "isin": "DE0008469008",
-    "shortName": "DAX",
+    "shortName": "DAX@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "DAX",
@@ -146,7 +146,7 @@
   {
     "longName": "BEL 20",
     "isin": "BE0389555039",
-    "shortName": "BEL20",
+    "shortName": "BEL20@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "BEL 20",
@@ -162,7 +162,7 @@
   {
     "longName": "FTSE MIB",
     "isin": "IT0003465736",
-    "shortName": "I945",
+    "shortName": "I945@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "FTSE MIB",
@@ -178,7 +178,7 @@
   {
     "longName": "AEX",
     "isin": "NL0000000107",
-    "shortName": "AEX",
+    "shortName": "AEX@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "AEX",
@@ -194,7 +194,7 @@
   {
     "longName": "SMI",
     "isin": "CH0009980894",
-    "shortName": "SMI",
+    "shortName": "SMI@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "SMI",
@@ -210,7 +210,7 @@
   {
     "longName": "FTSE 100",
     "isin": "GB0001383545",
-    "shortName": "UKX",
+    "shortName": "UKX@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "FTSE 100",
@@ -226,7 +226,7 @@
   {
     "longName": "FTSEuroFirst 80",
     "isin": "NL0000255438",
-    "shortName": "EF80",
+    "shortName": "EF80@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "FTSEuroFirst 80",
@@ -242,7 +242,7 @@
   {
     "longName": "SHANGHAI COMPOSITE",
     "isin": "CNM000000019",
-    "shortName": "SHANGHAI",
+    "shortName": "SHANGHAI@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "SHANGHAI COMPOSITE",
@@ -258,7 +258,7 @@
   {
     "longName": "Nikkei 225",
     "isin": "XC0009692440",
-    "shortName": "NK225",
+    "shortName": "NK225@INDEX",
     "description": "Description",
     "stockImg": null,
     "symbolPrice": "Nikkei 225",
