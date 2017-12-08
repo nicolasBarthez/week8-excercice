@@ -235,8 +235,10 @@ export default {
       // Take into parameter a string and return the same string with HTML links
       // Ex: "Hello #axa" => "Hello <a href='/stock/axa'>#axas</a>"
       inputText = inputText.replace(
-        /#(\w+)(\W|$)/g,
-        '<a href="/stocks/$1">#$1$2</a>'
+        /#(([a-zA-Z0-9\.])+@[a-zA-Z\_]+)(\W|$)/g,
+        // /#(\w+)(\W|$)/g,
+        // '<a href="/stocks/$1">#$1$2</a>'
+        '<a href="/stocks/$1">#$1 -</a>'
       );
 
       //URLs starting with http://, https://, or ftp://
@@ -382,7 +384,7 @@ word-break: break-word;
 .x {
     padding-top: 1%;
     font-size: 21px;
-} 
+}
 .level-item{
     cursor: pointer;
 }

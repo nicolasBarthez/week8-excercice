@@ -2,7 +2,7 @@
   {
     "longName": "FIRSTBLOOD",
     "isin": "Cryptocurrency",
-    "shortName": "1ST-CRYPTO",
+    "shortName": "1ST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "1ST",
@@ -17,7 +17,7 @@
   {
     "longName": "GIVECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "2GIVE-CRYPTO",
+    "shortName": "2GIVE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "2GIVE",
@@ -32,7 +32,7 @@
   {
     "longName": "808COIN",
     "isin": "Cryptocurrency",
-    "shortName": "808-CRYPTO",
+    "shortName": "808@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "808",
@@ -47,7 +47,7 @@
   {
     "longName": "ASIACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "AC-CRYPTO",
+    "shortName": "AC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AC",
@@ -62,7 +62,7 @@
   {
     "longName": "ACHAIN",
     "isin": "Cryptocurrency",
-    "shortName": "ACT-CRYPTO",
+    "shortName": "ACT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ACT",
@@ -77,7 +77,7 @@
   {
     "longName": "CARDANO",
     "isin": "Cryptocurrency",
-    "shortName": "ADA-CRYPTO",
+    "shortName": "ADA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ADA",
@@ -92,7 +92,7 @@
   {
     "longName": "AIDOS-KUNEEN",
     "isin": "Cryptocurrency",
-    "shortName": "ADK-CRYPTO",
+    "shortName": "ADK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ADK",
@@ -107,7 +107,7 @@
   {
     "longName": "ADELPHOI",
     "isin": "Cryptocurrency",
-    "shortName": "ADL-CRYPTO",
+    "shortName": "ADL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ADL",
@@ -122,7 +122,7 @@
   {
     "longName": "ADTOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "ADT-CRYPTO",
+    "shortName": "ADT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ADT",
@@ -137,7 +137,7 @@
   {
     "longName": "ADEX",
     "isin": "Cryptocurrency",
-    "shortName": "ADX-CRYPTO",
+    "shortName": "ADX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ADX",
@@ -152,7 +152,7 @@
   {
     "longName": "AETERNITY",
     "isin": "Cryptocurrency",
-    "shortName": "AE-CRYPTO",
+    "shortName": "AE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AE",
@@ -167,7 +167,7 @@
   {
     "longName": "AEON",
     "isin": "Cryptocurrency",
-    "shortName": "AEON-CRYPTO",
+    "shortName": "AEON@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AEON",
@@ -182,7 +182,7 @@
   {
     "longName": "IDNI-AGORAS",
     "isin": "Cryptocurrency",
-    "shortName": "AGRS-CRYPTO",
+    "shortName": "AGRS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AGRS",
@@ -197,7 +197,7 @@
   {
     "longName": "AMBERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "AMBER-CRYPTO",
+    "shortName": "AMBER@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AMBER",
@@ -212,7 +212,7 @@
   {
     "longName": "SYNEREO",
     "isin": "Cryptocurrency",
-    "shortName": "AMP-CRYPTO",
+    "shortName": "AMP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AMP",
@@ -227,7 +227,7 @@
   {
     "longName": "ANONCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "ANC-CRYPTO",
+    "shortName": "ANC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ANC",
@@ -242,7 +242,7 @@
   {
     "longName": "NEO",
     "isin": "Cryptocurrency",
-    "shortName": "ANS-CRYPTO",
+    "shortName": "ANS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ANS",
@@ -257,7 +257,7 @@
   {
     "longName": "ARAGON",
     "isin": "Cryptocurrency",
-    "shortName": "ANT-CRYPTO",
+    "shortName": "ANT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ANT",
@@ -272,7 +272,7 @@
   {
     "longName": "APX-VENTURES",
     "isin": "Cryptocurrency",
-    "shortName": "APX-CRYPTO",
+    "shortName": "APX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "APX",
@@ -287,7 +287,7 @@
   {
     "longName": "ARDOR",
     "isin": "Cryptocurrency",
-    "shortName": "ARDR-CRYPTO",
+    "shortName": "ARDR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ARDR",
@@ -302,7 +302,7 @@
   {
     "longName": "ARK",
     "isin": "Cryptocurrency",
-    "shortName": "ARK-CRYPTO",
+    "shortName": "ARK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ARK",
@@ -317,7 +317,7 @@
   {
     "longName": "ATBCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "ATB-CRYPTO",
+    "shortName": "ATB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ATB",
@@ -332,7 +332,7 @@
   {
     "longName": "ATC-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "ATCC-CRYPTO",
+    "shortName": "ATCC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ATCC",
@@ -347,7 +347,7 @@
   {
     "longName": "AURORACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "AUR-CRYPTO",
+    "shortName": "AUR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AUR",
@@ -362,7 +362,7 @@
   {
     "longName": "AVENTUS",
     "isin": "Cryptocurrency",
-    "shortName": "AVT-CRYPTO",
+    "shortName": "AVT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "AVT",
@@ -377,7 +377,7 @@
   {
     "longName": "B3COIN",
     "isin": "Cryptocurrency",
-    "shortName": "B3-CRYPTO",
+    "shortName": "B3@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "B3",
@@ -392,7 +392,7 @@
   {
     "longName": "BASIC-ATTENTION-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "BAT-CRYPTO",
+    "shortName": "BAT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BAT",
@@ -407,7 +407,7 @@
   {
     "longName": "BITBAY",
     "isin": "Cryptocurrency",
-    "shortName": "BAY-CRYPTO",
+    "shortName": "BAY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BAY",
@@ -422,7 +422,7 @@
   {
     "longName": "BCAP",
     "isin": "Cryptocurrency",
-    "shortName": "BCAP-CRYPTO",
+    "shortName": "BCAP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BCAP",
@@ -437,7 +437,7 @@
   {
     "longName": "BITCONNECT",
     "isin": "Cryptocurrency",
-    "shortName": "BCC-CRYPTO",
+    "shortName": "BCC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BCC",
@@ -452,7 +452,7 @@
   {
     "longName": "BITCOIN-CASH",
     "isin": "Cryptocurrency",
-    "shortName": "BCH-CRYPTO",
+    "shortName": "BCH@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BCH",
@@ -467,7 +467,7 @@
   {
     "longName": "BYTECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BCN-CRYPTO",
+    "shortName": "BCN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BCN",
@@ -482,7 +482,7 @@
   {
     "longName": "BITCRYSTALS",
     "isin": "Cryptocurrency",
-    "shortName": "BCY-CRYPTO",
+    "shortName": "BCY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BCY",
@@ -497,7 +497,7 @@
   {
     "longName": "BITDEAL",
     "isin": "Cryptocurrency",
-    "shortName": "BDL-CRYPTO",
+    "shortName": "BDL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BDL",
@@ -512,7 +512,7 @@
   {
     "longName": "BELACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BELA-CRYPTO",
+    "shortName": "BELA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BELA",
@@ -527,7 +527,7 @@
   {
     "longName": "DAO-CASINO",
     "isin": "Cryptocurrency",
-    "shortName": "BET-CRYPTO",
+    "shortName": "BET@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BET",
@@ -542,7 +542,7 @@
   {
     "longName": "BISMUTH",
     "isin": "Cryptocurrency",
-    "shortName": "BIS-CRYPTO",
+    "shortName": "BIS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BIS",
@@ -557,7 +557,7 @@
   {
     "longName": "FIRST-BITCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BIT-CRYPTO",
+    "shortName": "BIT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BIT",
@@ -572,7 +572,7 @@
   {
     "longName": "BITBEAN",
     "isin": "Cryptocurrency",
-    "shortName": "BITB-CRYPTO",
+    "shortName": "BITB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITB",
@@ -587,7 +587,7 @@
   {
     "longName": "BITBTC",
     "isin": "Cryptocurrency",
-    "shortName": "BITBTC-CRYPTO",
+    "shortName": "BITBTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITBTC",
@@ -602,7 +602,7 @@
   {
     "longName": "BITCNY",
     "isin": "Cryptocurrency",
-    "shortName": "BITCNY-CRYPTO",
+    "shortName": "BITCNY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITCNY",
@@ -617,7 +617,7 @@
   {
     "longName": "BITEUR",
     "isin": "Cryptocurrency",
-    "shortName": "BITEUR-CRYPTO",
+    "shortName": "BITEUR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITEUR",
@@ -632,7 +632,7 @@
   {
     "longName": "BITGBP",
     "isin": "Cryptocurrency",
-    "shortName": "BITGBP-CRYPTO",
+    "shortName": "BITGBP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITGBP",
@@ -647,7 +647,7 @@
   {
     "longName": "BITOK",
     "isin": "Cryptocurrency",
-    "shortName": "BITOK-CRYPTO",
+    "shortName": "BITOK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITOK",
@@ -662,7 +662,7 @@
   {
     "longName": "BITSILVER",
     "isin": "Cryptocurrency",
-    "shortName": "BITSILVER-CRYPTO",
+    "shortName": "BITSILVER@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITSILVER",
@@ -677,7 +677,7 @@
   {
     "longName": "BITUSD",
     "isin": "Cryptocurrency",
-    "shortName": "BITUSD-CRYPTO",
+    "shortName": "BITUSD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BITUSD",
@@ -692,7 +692,7 @@
   {
     "longName": "BLAKESTAR",
     "isin": "Cryptocurrency",
-    "shortName": "BLAS-CRYPTO",
+    "shortName": "BLAS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BLAS",
@@ -707,7 +707,7 @@
   {
     "longName": "BLACKCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BLK-CRYPTO",
+    "shortName": "BLK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BLK",
@@ -722,7 +722,7 @@
   {
     "longName": "BOLENUM",
     "isin": "Cryptocurrency",
-    "shortName": "BLN-CRYPTO",
+    "shortName": "BLN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BLN",
@@ -737,7 +737,7 @@
   {
     "longName": "BLOCKNET",
     "isin": "Cryptocurrency",
-    "shortName": "BLOCK-CRYPTO",
+    "shortName": "BLOCK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BLOCK",
@@ -752,7 +752,7 @@
   {
     "longName": "BLOCKPAY",
     "isin": "Cryptocurrency",
-    "shortName": "BLOCKPAY-CRYPTO",
+    "shortName": "BLOCKPAY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BLOCKPAY",
@@ -765,9 +765,9 @@
     "currency2": "EUR"
   },
   {
-    "longName": "BLACKMOON-CRYPTO",
+    "longName": "BLACKMOON@CRYPTO",
     "isin": "Cryptocurrency",
-    "shortName": "BMC-CRYPTO",
+    "shortName": "BMC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BMC",
@@ -782,7 +782,7 @@
   {
     "longName": "BINANCE-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "BNB-CRYPTO",
+    "shortName": "BNB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BNB",
@@ -797,7 +797,7 @@
   {
     "longName": "BANCOR-NETWORK-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "BNT-CRYPTO",
+    "shortName": "BNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BNT",
@@ -812,7 +812,7 @@
   {
     "longName": "BOOSTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BOST-CRYPTO",
+    "shortName": "BOST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BOST",
@@ -827,7 +827,7 @@
   {
     "longName": "BITQY",
     "isin": "Cryptocurrency",
-    "shortName": "BQ-CRYPTO",
+    "shortName": "BQ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BQ",
@@ -842,7 +842,7 @@
   {
     "longName": "BITQUENCE",
     "isin": "Cryptocurrency",
-    "shortName": "BQX-CRYPTO",
+    "shortName": "BQX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BQX",
@@ -857,7 +857,7 @@
   {
     "longName": "BATA",
     "isin": "Cryptocurrency",
-    "shortName": "BTA-CRYPTO",
+    "shortName": "BTA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTA",
@@ -872,7 +872,7 @@
   {
     "longName": "BITCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BTC-CRYPTO",
+    "shortName": "BTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTC",
@@ -887,7 +887,7 @@
   {
     "longName": "BITCOINDARK",
     "isin": "Cryptocurrency",
-    "shortName": "BTCD-CRYPTO",
+    "shortName": "BTCD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTCD",
@@ -902,7 +902,7 @@
   {
     "longName": "BITMARK",
     "isin": "Cryptocurrency",
-    "shortName": "BTM-CRYPTO",
+    "shortName": "BTM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTM",
@@ -917,7 +917,7 @@
   {
     "longName": "BITSHARES",
     "isin": "Cryptocurrency",
-    "shortName": "BTS-CRYPTO",
+    "shortName": "BTS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTS",
@@ -932,7 +932,7 @@
   {
     "longName": "BTSR",
     "isin": "Cryptocurrency",
-    "shortName": "BTSR-CRYPTO",
+    "shortName": "BTSR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTSR",
@@ -947,7 +947,7 @@
   {
     "longName": "BITCORE",
     "isin": "Cryptocurrency",
-    "shortName": "BTX-CRYPTO",
+    "shortName": "BTX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BTX",
@@ -962,7 +962,7 @@
   {
     "longName": "BURSTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BURST-CRYPTO",
+    "shortName": "BURST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BURST",
@@ -977,7 +977,7 @@
   {
     "longName": "BUZZCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "BUZZ-CRYPTO",
+    "shortName": "BUZZ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BUZZ",
@@ -992,7 +992,7 @@
   {
     "longName": "BYTECENT",
     "isin": "Cryptocurrency",
-    "shortName": "BYC-CRYPTO",
+    "shortName": "BYC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BYC",
@@ -1007,7 +1007,7 @@
   {
     "longName": "BYTOM",
     "isin": "Cryptocurrency",
-    "shortName": "BYTOM-CRYPTO",
+    "shortName": "BYTOM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "BYTOM",
@@ -1022,7 +1022,7 @@
   {
     "longName": "CANNABISCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "CANN-CRYPTO",
+    "shortName": "CANN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CANN",
@@ -1037,7 +1037,7 @@
   {
     "longName": "BLOCKCAT",
     "isin": "Cryptocurrency",
-    "shortName": "CAT-CRYPTO",
+    "shortName": "CAT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CAT",
@@ -1052,7 +1052,7 @@
   {
     "longName": "CRYPTOCARBON",
     "isin": "Cryptocurrency",
-    "shortName": "CCRB-CRYPTO",
+    "shortName": "CCRB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CCRB",
@@ -1067,7 +1067,7 @@
   {
     "longName": "COINDASH",
     "isin": "Cryptocurrency",
-    "shortName": "CDT-CRYPTO",
+    "shortName": "CDT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CDT",
@@ -1082,7 +1082,7 @@
   {
     "longName": "COFOUND.IT",
     "isin": "Cryptocurrency",
-    "shortName": "CFI-CRYPTO",
+    "shortName": "CFI@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CFI",
@@ -1097,7 +1097,7 @@
   {
     "longName": "CHIPS",
     "isin": "Cryptocurrency",
-    "shortName": "CHIPS-CRYPTO",
+    "shortName": "CHIPS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CHIPS",
@@ -1112,7 +1112,7 @@
   {
     "longName": "CLAMS",
     "isin": "Cryptocurrency",
-    "shortName": "CLAM-CRYPTO",
+    "shortName": "CLAM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CLAM",
@@ -1127,7 +1127,7 @@
   {
     "longName": "CLOAKCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "CLOAK-CRYPTO",
+    "shortName": "CLOAK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CLOAK",
@@ -1142,7 +1142,7 @@
   {
     "longName": "COMPCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "CMP-CRYPTO",
+    "shortName": "CMP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CMP",
@@ -1157,7 +1157,7 @@
   {
     "longName": "COSS",
     "isin": "Cryptocurrency",
-    "shortName": "COSS-CRYPTO",
+    "shortName": "COSS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "COSS",
@@ -1172,7 +1172,7 @@
   {
     "longName": "CIRCUITS-OF-VALUE",
     "isin": "Cryptocurrency",
-    "shortName": "COVAL-CRYPTO",
+    "shortName": "COVAL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "COVAL",
@@ -1187,7 +1187,7 @@
   {
     "longName": "CREDITBIT",
     "isin": "Cryptocurrency",
-    "shortName": "CRBIT-CRYPTO",
+    "shortName": "CRBIT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CRBIT",
@@ -1202,7 +1202,7 @@
   {
     "longName": "CREATIVECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "CREA-CRYPTO",
+    "shortName": "CREA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CREA",
@@ -1217,7 +1217,7 @@
   {
     "longName": "CREDO",
     "isin": "Cryptocurrency",
-    "shortName": "CREDO-CRYPTO",
+    "shortName": "CREDO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CREDO",
@@ -1232,7 +1232,7 @@
   {
     "longName": "CROWN",
     "isin": "Cryptocurrency",
-    "shortName": "CRW-CRYPTO",
+    "shortName": "CRW@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CRW",
@@ -1247,7 +1247,7 @@
   {
     "longName": "CENTRA",
     "isin": "Cryptocurrency",
-    "shortName": "CTR-CRYPTO",
+    "shortName": "CTR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CTR",
@@ -1262,7 +1262,7 @@
   {
     "longName": "CURECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "CURE-CRYPTO",
+    "shortName": "CURE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CURE",
@@ -1277,7 +1277,7 @@
   {
     "longName": "CIVIC",
     "isin": "Cryptocurrency",
-    "shortName": "CVC-CRYPTO",
+    "shortName": "CVC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "CVC",
@@ -1292,7 +1292,7 @@
   {
     "longName": "DARCRUS",
     "isin": "Cryptocurrency",
-    "shortName": "DAR-CRYPTO",
+    "shortName": "DAR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DAR",
@@ -1307,7 +1307,7 @@
   {
     "longName": "DASH",
     "isin": "Cryptocurrency",
-    "shortName": "DASH-CRYPTO",
+    "shortName": "DASH@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DASH",
@@ -1322,7 +1322,7 @@
   {
     "longName": "CHRONOLOGIC",
     "isin": "Cryptocurrency",
-    "shortName": "DAY-CRYPTO",
+    "shortName": "DAY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DAY",
@@ -1337,7 +1337,7 @@
   {
     "longName": "DENTACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "DCN-CRYPTO",
+    "shortName": "DCN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DCN",
@@ -1352,7 +1352,7 @@
   {
     "longName": "DECRED",
     "isin": "Cryptocurrency",
-    "shortName": "DCR-CRYPTO",
+    "shortName": "DCR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DCR",
@@ -1367,7 +1367,7 @@
   {
     "longName": "DECENT",
     "isin": "Cryptocurrency",
-    "shortName": "DCT-CRYPTO",
+    "shortName": "DCT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DCT",
@@ -1382,7 +1382,7 @@
   {
     "longName": "DIGITAL-DEVELOPERS-FUND",
     "isin": "Cryptocurrency",
-    "shortName": "DDF-CRYPTO",
+    "shortName": "DDF@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DDF",
@@ -1397,7 +1397,7 @@
   {
     "longName": "DENT",
     "isin": "Cryptocurrency",
-    "shortName": "DENT-CRYPTO",
+    "shortName": "DENT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DENT",
@@ -1412,7 +1412,7 @@
   {
     "longName": "DFSCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "DFS-CRYPTO",
+    "shortName": "DFS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DFS",
@@ -1427,7 +1427,7 @@
   {
     "longName": "DIGIBYTE",
     "isin": "Cryptocurrency",
-    "shortName": "DGB-CRYPTO",
+    "shortName": "DGB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DGB",
@@ -1442,7 +1442,7 @@
   {
     "longName": "DIGITALCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "DGC-CRYPTO",
+    "shortName": "DGC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DGC",
@@ -1457,7 +1457,7 @@
   {
     "longName": "DIGIXDAO",
     "isin": "Cryptocurrency",
-    "shortName": "DGD-CRYPTO",
+    "shortName": "DGD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DGD",
@@ -1472,7 +1472,7 @@
   {
     "longName": "ETHEROLL",
     "isin": "Cryptocurrency",
-    "shortName": "DICE-CRYPTO",
+    "shortName": "DICE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DICE",
@@ -1487,7 +1487,7 @@
   {
     "longName": "DISTRICT0X",
     "isin": "Cryptocurrency",
-    "shortName": "DNT-CRYPTO",
+    "shortName": "DNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DNT",
@@ -1502,7 +1502,7 @@
   {
     "longName": "DOGECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "DOGE-CRYPTO",
+    "shortName": "DOGE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DOGE",
@@ -1517,7 +1517,7 @@
   {
     "longName": "DOPECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "DOPE-CRYPTO",
+    "shortName": "DOPE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DOPE",
@@ -1532,7 +1532,7 @@
   {
     "longName": "DATABITS",
     "isin": "Cryptocurrency",
-    "shortName": "DTB-CRYPTO",
+    "shortName": "DTB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DTB",
@@ -1547,7 +1547,7 @@
   {
     "longName": "DYNAMIC",
     "isin": "Cryptocurrency",
-    "shortName": "DYN-CRYPTO",
+    "shortName": "DYN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "DYN",
@@ -1562,7 +1562,7 @@
   {
     "longName": "EARTHCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "EAC-CRYPTO",
+    "shortName": "EAC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EAC",
@@ -1577,7 +1577,7 @@
   {
     "longName": "EBOOST",
     "isin": "Cryptocurrency",
-    "shortName": "EBST-CRYPTO",
+    "shortName": "EBST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EBST",
@@ -1592,7 +1592,7 @@
   {
     "longName": "EBTC",
     "isin": "Cryptocurrency",
-    "shortName": "EBTC-CRYPTO",
+    "shortName": "EBTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EBTC",
@@ -1607,7 +1607,7 @@
   {
     "longName": "E-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "ECN-CRYPTO",
+    "shortName": "ECN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ECN",
@@ -1622,7 +1622,7 @@
   {
     "longName": "EDGELESS",
     "isin": "Cryptocurrency",
-    "shortName": "EDG-CRYPTO",
+    "shortName": "EDG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EDG",
@@ -1637,7 +1637,7 @@
   {
     "longName": "ELIXIR",
     "isin": "Cryptocurrency",
-    "shortName": "ELIX-CRYPTO",
+    "shortName": "ELIX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ELIX",
@@ -1652,7 +1652,7 @@
   {
     "longName": "EMBERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "EMB-CRYPTO",
+    "shortName": "EMB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EMB",
@@ -1667,7 +1667,7 @@
   {
     "longName": "EMERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "EMC-CRYPTO",
+    "shortName": "EMC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EMC",
@@ -1682,7 +1682,7 @@
   {
     "longName": "EINSTEINIUM",
     "isin": "Cryptocurrency",
-    "shortName": "EMC2-CRYPTO",
+    "shortName": "EMC2@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EMC2",
@@ -1697,7 +1697,7 @@
   {
     "longName": "EOS",
     "isin": "Cryptocurrency",
-    "shortName": "EOS-CRYPTO",
+    "shortName": "EOS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EOS",
@@ -1712,7 +1712,7 @@
   {
     "longName": "EOT-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "EOT-CRYPTO",
+    "shortName": "EOT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EOT",
@@ -1727,7 +1727,7 @@
   {
     "longName": "EQUITRADER",
     "isin": "Cryptocurrency",
-    "shortName": "EQT-CRYPTO",
+    "shortName": "EQT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EQT",
@@ -1742,7 +1742,7 @@
   {
     "longName": "ETHEREUM-CLASSIC",
     "isin": "Cryptocurrency",
-    "shortName": "ETC-CRYPTO",
+    "shortName": "ETC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ETC",
@@ -1757,7 +1757,7 @@
   {
     "longName": "ETHEREUM",
     "isin": "Cryptocurrency",
-    "shortName": "ETH-CRYPTO",
+    "shortName": "ETH@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ETH",
@@ -1772,7 +1772,7 @@
   {
     "longName": "ETHEREUM-DARK",
     "isin": "Cryptocurrency",
-    "shortName": "ETHD-CRYPTO",
+    "shortName": "ETHD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ETHD",
@@ -1787,7 +1787,7 @@
   {
     "longName": "METAVERSE-ENTROPY",
     "isin": "Cryptocurrency",
-    "shortName": "ETP-CRYPTO",
+    "shortName": "ETP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ETP",
@@ -1802,7 +1802,7 @@
   {
     "longName": "ENCRYPTOTEL",
     "isin": "Cryptocurrency",
-    "shortName": "ETT-CRYPTO",
+    "shortName": "ETT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ETT",
@@ -1817,7 +1817,7 @@
   {
     "longName": "EXPANSE",
     "isin": "Cryptocurrency",
-    "shortName": "EXP-CRYPTO",
+    "shortName": "EXP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "EXP",
@@ -1832,7 +1832,7 @@
   {
     "longName": "FIBOCOINS",
     "isin": "Cryptocurrency",
-    "shortName": "FBC-CRYPTO",
+    "shortName": "FBC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FBC",
@@ -1847,7 +1847,7 @@
   {
     "longName": "FACTOM",
     "isin": "Cryptocurrency",
-    "shortName": "FCT-CRYPTO",
+    "shortName": "FCT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FCT",
@@ -1862,7 +1862,7 @@
   {
     "longName": "BITFID",
     "isin": "Cryptocurrency",
-    "shortName": "FID-CRYPTO",
+    "shortName": "FID@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FID",
@@ -1877,7 +1877,7 @@
   {
     "longName": "FOLDINGCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "FLDC-CRYPTO",
+    "shortName": "FLDC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FLDC",
@@ -1892,7 +1892,7 @@
   {
     "longName": "FLORINCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "FLO-CRYPTO",
+    "shortName": "FLO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FLO",
@@ -1907,7 +1907,7 @@
   {
     "longName": "FLUTTERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "FLT-CRYPTO",
+    "shortName": "FLT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FLT",
@@ -1922,7 +1922,7 @@
   {
     "longName": "FIRSTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "FRST-CRYPTO",
+    "shortName": "FRST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FRST",
@@ -1937,7 +1937,7 @@
   {
     "longName": "FEATHERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "FTC-CRYPTO",
+    "shortName": "FTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FTC",
@@ -1952,7 +1952,7 @@
   {
     "longName": "FUNFAIR",
     "isin": "Cryptocurrency",
-    "shortName": "FUN-CRYPTO",
+    "shortName": "FUN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "FUN",
@@ -1967,7 +1967,7 @@
   {
     "longName": "GAMBIT",
     "isin": "Cryptocurrency",
-    "shortName": "GAM-CRYPTO",
+    "shortName": "GAM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GAM",
@@ -1982,7 +1982,7 @@
   {
     "longName": "GAMECREDITS",
     "isin": "Cryptocurrency",
-    "shortName": "GAME-CRYPTO",
+    "shortName": "GAME@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GAME",
@@ -1997,7 +1997,7 @@
   {
     "longName": "GAS",
     "isin": "Cryptocurrency",
-    "shortName": "GAS-CRYPTO",
+    "shortName": "GAS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GAS",
@@ -2012,7 +2012,7 @@
   {
     "longName": "GOLOS GOLD",
     "isin": "Cryptocurrency",
-    "shortName": "GBG-CRYPTO",
+    "shortName": "GBG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GBG",
@@ -2027,7 +2027,7 @@
   {
     "longName": "BYTEBALL",
     "isin": "Cryptocurrency",
-    "shortName": "GBYTE-CRYPTO",
+    "shortName": "GBYTE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GBYTE",
@@ -2042,7 +2042,7 @@
   {
     "longName": "GCRCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "GCR-CRYPTO",
+    "shortName": "GCR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GCR",
@@ -2057,7 +2057,7 @@
   {
     "longName": "GOLDCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "GLD-CRYPTO",
+    "shortName": "GLD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GLD",
@@ -2072,7 +2072,7 @@
   {
     "longName": "GNOSIS-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "GNO-CRYPTO",
+    "shortName": "GNO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GNO",
@@ -2087,7 +2087,7 @@
   {
     "longName": "GOLEM-TOKENS",
     "isin": "Cryptocurrency",
-    "shortName": "GNT-CRYPTO",
+    "shortName": "GNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GNT",
@@ -2102,7 +2102,7 @@
   {
     "longName": "GOLOS",
     "isin": "Cryptocurrency",
-    "shortName": "GOLOS-CRYPTO",
+    "shortName": "GOLOS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GOLOS",
@@ -2117,7 +2117,7 @@
   {
     "longName": "GRIDCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "GRC-CRYPTO",
+    "shortName": "GRC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GRC",
@@ -2132,7 +2132,7 @@
   {
     "longName": "GROWERS-INTERNATIONAL",
     "isin": "Cryptocurrency",
-    "shortName": "GRWI-CRYPTO",
+    "shortName": "GRWI@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GRWI",
@@ -2147,7 +2147,7 @@
   {
     "longName": "GUPPY",
     "isin": "Cryptocurrency",
-    "shortName": "GUP-CRYPTO",
+    "shortName": "GUP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GUP",
@@ -2162,7 +2162,7 @@
   {
     "longName": "GXSHARES",
     "isin": "Cryptocurrency",
-    "shortName": "GXS-CRYPTO",
+    "shortName": "GXS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "GXS",
@@ -2177,7 +2177,7 @@
   {
     "longName": "HOBONICKELS",
     "isin": "Cryptocurrency",
-    "shortName": "HBN-CRYPTO",
+    "shortName": "HBN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HBN",
@@ -2192,7 +2192,7 @@
   {
     "longName": "HEAT",
     "isin": "Cryptocurrency",
-    "shortName": "HEAT-CRYPTO",
+    "shortName": "HEAT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HEAT",
@@ -2207,7 +2207,7 @@
   {
     "longName": "HUMANIQ",
     "isin": "Cryptocurrency",
-    "shortName": "HMQ-CRYPTO",
+    "shortName": "HMQ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HMQ",
@@ -2222,7 +2222,7 @@
   {
     "longName": "HSHARE",
     "isin": "Cryptocurrency",
-    "shortName": "HSR-CRYPTO",
+    "shortName": "HSR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HSR",
@@ -2237,7 +2237,7 @@
   {
     "longName": "HUSH",
     "isin": "Cryptocurrency",
-    "shortName": "HUSH-CRYPTO",
+    "shortName": "HUSH@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HUSH",
@@ -2252,7 +2252,7 @@
   {
     "longName": "HIVE",
     "isin": "Cryptocurrency",
-    "shortName": "HVN-CRYPTO",
+    "shortName": "HVN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "HVN",
@@ -2267,7 +2267,7 @@
   {
     "longName": "ICONOMI",
     "isin": "Cryptocurrency",
-    "shortName": "ICN-CRYPTO",
+    "shortName": "ICN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ICN",
@@ -2282,7 +2282,7 @@
   {
     "longName": "ICOCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "ICO-CRYPTO",
+    "shortName": "ICO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ICO",
@@ -2297,7 +2297,7 @@
   {
     "longName": "INFINITECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "IFC-CRYPTO",
+    "shortName": "IFC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IFC",
@@ -2312,7 +2312,7 @@
   {
     "longName": "INVESTFEED",
     "isin": "Cryptocurrency",
-    "shortName": "IFT-CRYPTO",
+    "shortName": "IFT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IFT",
@@ -2327,7 +2327,7 @@
   {
     "longName": "INCENT",
     "isin": "Cryptocurrency",
-    "shortName": "INCNT-CRYPTO",
+    "shortName": "INCNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "INCNT",
@@ -2342,7 +2342,7 @@
   {
     "longName": "INDORSE-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "IND-CRYPTO",
+    "shortName": "IND@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IND",
@@ -2357,7 +2357,7 @@
   {
     "longName": "INFCHAIN",
     "isin": "Cryptocurrency",
-    "shortName": "INF-CRYPTO",
+    "shortName": "INF@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "INF",
@@ -2372,7 +2372,7 @@
   {
     "longName": "INPAY",
     "isin": "Cryptocurrency",
-    "shortName": "INPAY-CRYPTO",
+    "shortName": "INPAY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "INPAY",
@@ -2387,7 +2387,7 @@
   {
     "longName": "INTERNXT",
     "isin": "Cryptocurrency",
-    "shortName": "INXT-CRYPTO",
+    "shortName": "INXT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "INXT",
@@ -2402,7 +2402,7 @@
   {
     "longName": "IOCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "IOC-CRYPTO",
+    "shortName": "IOC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IOC",
@@ -2417,7 +2417,7 @@
   {
     "longName": "ION",
     "isin": "Cryptocurrency",
-    "shortName": "ION-CRYPTO",
+    "shortName": "ION@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ION",
@@ -2432,7 +2432,7 @@
   {
     "longName": "INTERNET-OF-PEOPLE",
     "isin": "Cryptocurrency",
-    "shortName": "IOP-CRYPTO",
+    "shortName": "IOP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IOP",
@@ -2447,7 +2447,7 @@
   {
     "longName": "IOTA",
     "isin": "Cryptocurrency",
-    "shortName": "IOT-CRYPTO",
+    "shortName": "IOT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IOT",
@@ -2462,7 +2462,7 @@
   {
     "longName": "IQUANT-CHAIN",
     "isin": "Cryptocurrency",
-    "shortName": "IQT-CRYPTO",
+    "shortName": "IQT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IQT",
@@ -2477,7 +2477,7 @@
   {
     "longName": "IXCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "IXC-CRYPTO",
+    "shortName": "IXC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IXC",
@@ -2492,7 +2492,7 @@
   {
     "longName": "INSUREX",
     "isin": "Cryptocurrency",
-    "shortName": "IXT-CRYPTO",
+    "shortName": "IXT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "IXT",
@@ -2507,7 +2507,7 @@
   {
     "longName": "KEXCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "KEXCOIN-CRYPTO",
+    "shortName": "KEXCOIN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KEXCOIN",
@@ -2522,7 +2522,7 @@
   {
     "longName": "KICKCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "KICK-CRYPTO",
+    "shortName": "KICK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KICK",
@@ -2537,7 +2537,7 @@
   {
     "longName": "KIN",
     "isin": "Cryptocurrency",
-    "shortName": "KIN-CRYPTO",
+    "shortName": "KIN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KIN",
@@ -2552,7 +2552,7 @@
   {
     "longName": "KOMODO",
     "isin": "Cryptocurrency",
-    "shortName": "KMD-CRYPTO",
+    "shortName": "KMD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KMD",
@@ -2567,7 +2567,7 @@
   {
     "longName": "KYBER-NETWORK",
     "isin": "Cryptocurrency",
-    "shortName": "KNC-CRYPTO",
+    "shortName": "KNC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KNC",
@@ -2582,7 +2582,7 @@
   {
     "longName": "KORECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "KORE-CRYPTO",
+    "shortName": "KORE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KORE",
@@ -2597,7 +2597,7 @@
   {
     "longName": "KRYPSTAL",
     "isin": "Cryptocurrency",
-    "shortName": "KRS-CRYPTO",
+    "shortName": "KRS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "KRS",
@@ -2612,7 +2612,7 @@
   {
     "longName": "LBRY-CREDITS",
     "isin": "Cryptocurrency",
-    "shortName": "LBC-CRYPTO",
+    "shortName": "LBC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LBC",
@@ -2627,7 +2627,7 @@
   {
     "longName": "LEGENDS-ROOM",
     "isin": "Cryptocurrency",
-    "shortName": "LGD-CRYPTO",
+    "shortName": "LGD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LGD",
@@ -2642,7 +2642,7 @@
   {
     "longName": "LINDA",
     "isin": "Cryptocurrency",
-    "shortName": "LINDA-CRYPTO",
+    "shortName": "LINDA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LINDA",
@@ -2657,7 +2657,7 @@
   {
     "longName": "CHAINLINK",
     "isin": "Cryptocurrency",
-    "shortName": "LINK-CRYPTO",
+    "shortName": "LINK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LINK",
@@ -2672,7 +2672,7 @@
   {
     "longName": "LYKKE",
     "isin": "Cryptocurrency",
-    "shortName": "LKK-CRYPTO",
+    "shortName": "LKK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LKK",
@@ -2687,7 +2687,7 @@
   {
     "longName": "LOMOCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "LMC-CRYPTO",
+    "shortName": "LMC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LMC",
@@ -2702,7 +2702,7 @@
   {
     "longName": "LOOPRING",
     "isin": "Cryptocurrency",
-    "shortName": "LRC-CRYPTO",
+    "shortName": "LRC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LRC",
@@ -2717,7 +2717,7 @@
   {
     "longName": "LISK",
     "isin": "Cryptocurrency",
-    "shortName": "LSK-CRYPTO",
+    "shortName": "LSK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LSK",
@@ -2732,7 +2732,7 @@
   {
     "longName": "LITECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "LTC-CRYPTO",
+    "shortName": "LTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LTC",
@@ -2747,7 +2747,7 @@
   {
     "longName": "LUNYR",
     "isin": "Cryptocurrency",
-    "shortName": "LUN-CRYPTO",
+    "shortName": "LUN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "LUN",
@@ -2762,7 +2762,7 @@
   {
     "longName": "MAGNETCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MAGN-CRYPTO",
+    "shortName": "MAGN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MAGN",
@@ -2777,7 +2777,7 @@
   {
     "longName": "MAIDSAFECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MAID-CRYPTO",
+    "shortName": "MAID@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MAID",
@@ -2792,7 +2792,7 @@
   {
     "longName": "DECENTRALAND",
     "isin": "Cryptocurrency",
-    "shortName": "MANA-CRYPTO",
+    "shortName": "MANA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MANA",
@@ -2807,7 +2807,7 @@
   {
     "longName": "MAXCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MAX-CRYPTO",
+    "shortName": "MAX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MAX",
@@ -2822,7 +2822,7 @@
   {
     "longName": "EMBERS",
     "isin": "Cryptocurrency",
-    "shortName": "MBRS-CRYPTO",
+    "shortName": "MBRS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MBRS",
@@ -2837,7 +2837,7 @@
   {
     "longName": "MCAP",
     "isin": "Cryptocurrency",
-    "shortName": "MCAP-CRYPTO",
+    "shortName": "MCAP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MCAP",
@@ -2852,7 +2852,7 @@
   {
     "longName": "MONACO",
     "isin": "Cryptocurrency",
-    "shortName": "MCO-CRYPTO",
+    "shortName": "MCO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MCO",
@@ -2867,7 +2867,7 @@
   {
     "longName": "MOEDA-LOYALTY-POINTS",
     "isin": "Cryptocurrency",
-    "shortName": "MDA-CRYPTO",
+    "shortName": "MDA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MDA",
@@ -2882,7 +2882,7 @@
   {
     "longName": "MEGACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MEC-CRYPTO",
+    "shortName": "MEC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MEC",
@@ -2897,7 +2897,7 @@
   {
     "longName": "MEMETIC",
     "isin": "Cryptocurrency",
-    "shortName": "MEME-CRYPTO",
+    "shortName": "MEME@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MEME",
@@ -2912,7 +2912,7 @@
   {
     "longName": "MERGECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MGC-CRYPTO",
+    "shortName": "MGC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MGC",
@@ -2927,7 +2927,7 @@
   {
     "longName": "MOBILEGO",
     "isin": "Cryptocurrency",
-    "shortName": "MGO-CRYPTO",
+    "shortName": "MGO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MGO",
@@ -2942,7 +2942,7 @@
   {
     "longName": "MINEX",
     "isin": "Cryptocurrency",
-    "shortName": "MINEX-CRYPTO",
+    "shortName": "MINEX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MINEX",
@@ -2957,7 +2957,7 @@
   {
     "longName": "MINTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MINT-CRYPTO",
+    "shortName": "MINT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MINT",
@@ -2972,7 +2972,7 @@
   {
     "longName": "MELON",
     "isin": "Cryptocurrency",
-    "shortName": "MLN-CRYPTO",
+    "shortName": "MLN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MLN",
@@ -2987,7 +2987,7 @@
   {
     "longName": "MINEREUM",
     "isin": "Cryptocurrency",
-    "shortName": "MNE-CRYPTO",
+    "shortName": "MNE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MNE",
@@ -3002,7 +3002,7 @@
   {
     "longName": "MONACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MONA-CRYPTO",
+    "shortName": "MONA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MONA",
@@ -3017,7 +3017,7 @@
   {
     "longName": "MINERS-REWARD-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "MRT-CRYPTO",
+    "shortName": "MRT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MRT",
@@ -3032,7 +3032,7 @@
   {
     "longName": "MOTHERSHIP",
     "isin": "Cryptocurrency",
-    "shortName": "MSP-CRYPTO",
+    "shortName": "MSP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MSP",
@@ -3047,7 +3047,7 @@
   {
     "longName": "MONETHA",
     "isin": "Cryptocurrency",
-    "shortName": "MTH-CRYPTO",
+    "shortName": "MTH@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MTH",
@@ -3062,7 +3062,7 @@
   {
     "longName": "MONETARYUNIT",
     "isin": "Cryptocurrency",
-    "shortName": "MUE-CRYPTO",
+    "shortName": "MUE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MUE",
@@ -3077,7 +3077,7 @@
   {
     "longName": "MUSICOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MUSIC-CRYPTO",
+    "shortName": "MUSIC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MUSIC",
@@ -3092,7 +3092,7 @@
   {
     "longName": "MYBIT-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "MYB-CRYPTO",
+    "shortName": "MYB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MYB",
@@ -3107,7 +3107,7 @@
   {
     "longName": "MYRIADCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MYR-CRYPTO",
+    "shortName": "MYR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MYR",
@@ -3122,7 +3122,7 @@
   {
     "longName": "MYSTERIUM",
     "isin": "Cryptocurrency",
-    "shortName": "MYST-CRYPTO",
+    "shortName": "MYST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MYST",
@@ -3137,7 +3137,7 @@
   {
     "longName": "MAZACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "MZC-CRYPTO",
+    "shortName": "MZC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "MZC",
@@ -3152,7 +3152,7 @@
   {
     "longName": "NAMOCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NAMO-CRYPTO",
+    "shortName": "NAMO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NAMO",
@@ -3167,7 +3167,7 @@
   {
     "longName": "NAUTILUSCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NAUT-CRYPTO",
+    "shortName": "NAUT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NAUT",
@@ -3182,7 +3182,7 @@
   {
     "longName": "NAV-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "NAV-CRYPTO",
+    "shortName": "NAV@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NAV",
@@ -3197,7 +3197,7 @@
   {
     "longName": "NUBITS",
     "isin": "Cryptocurrency",
-    "shortName": "NBT-CRYPTO",
+    "shortName": "NBT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NBT",
@@ -3212,7 +3212,7 @@
   {
     "longName": "NEURODAO",
     "isin": "Cryptocurrency",
-    "shortName": "NDAO-CRYPTO",
+    "shortName": "NDAO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NDAO",
@@ -3227,7 +3227,7 @@
   {
     "longName": "NEVERDIE-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "NDC-CRYPTO",
+    "shortName": "NDC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NDC",
@@ -3242,7 +3242,7 @@
   {
     "longName": "NEBLIO",
     "isin": "Cryptocurrency",
-    "shortName": "NEBL-CRYPTO",
+    "shortName": "NEBL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NEBL",
@@ -3257,7 +3257,7 @@
   {
     "longName": "NEOSCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NEOS-CRYPTO",
+    "shortName": "NEOS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NEOS",
@@ -3272,7 +3272,7 @@
   {
     "longName": "NIMIQ",
     "isin": "Cryptocurrency",
-    "shortName": "NET-CRYPTO",
+    "shortName": "NET@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NET",
@@ -3287,7 +3287,7 @@
   {
     "longName": "NOLIMITCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NLC2-CRYPTO",
+    "shortName": "NLC2@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NLC2",
@@ -3302,7 +3302,7 @@
   {
     "longName": "GULDEN",
     "isin": "Cryptocurrency",
-    "shortName": "NLG-CRYPTO",
+    "shortName": "NLG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NLG",
@@ -3317,7 +3317,7 @@
   {
     "longName": "NAMECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NMC-CRYPTO",
+    "shortName": "NMC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NMC",
@@ -3332,7 +3332,7 @@
   {
     "longName": "NUMERAIRE",
     "isin": "Cryptocurrency",
-    "shortName": "NMR-CRYPTO",
+    "shortName": "NMR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NMR",
@@ -3347,7 +3347,7 @@
   {
     "longName": "NOBLECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NOBL-CRYPTO",
+    "shortName": "NOBL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NOBL",
@@ -3362,7 +3362,7 @@
   {
     "longName": "DNOTES",
     "isin": "Cryptocurrency",
-    "shortName": "NOTE-CRYPTO",
+    "shortName": "NOTE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NOTE",
@@ -3377,7 +3377,7 @@
   {
     "longName": "NUSHARES",
     "isin": "Cryptocurrency",
-    "shortName": "NSR-CRYPTO",
+    "shortName": "NSR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NSR",
@@ -3392,7 +3392,7 @@
   {
     "longName": "FUJINTO",
     "isin": "Cryptocurrency",
-    "shortName": "NTO-CRYPTO",
+    "shortName": "NTO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NTO",
@@ -3407,7 +3407,7 @@
   {
     "longName": "NOVACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "NVC-CRYPTO",
+    "shortName": "NVC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NVC",
@@ -3422,7 +3422,7 @@
   {
     "longName": "NEXIUM",
     "isin": "Cryptocurrency",
-    "shortName": "NXC-CRYPTO",
+    "shortName": "NXC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NXC",
@@ -3437,7 +3437,7 @@
   {
     "longName": "NEXUS",
     "isin": "Cryptocurrency",
-    "shortName": "NXS-CRYPTO",
+    "shortName": "NXS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NXS",
@@ -3452,7 +3452,7 @@
   {
     "longName": "NXT",
     "isin": "Cryptocurrency",
-    "shortName": "NXT-CRYPTO",
+    "shortName": "NXT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "NXT",
@@ -3467,7 +3467,7 @@
   {
     "longName": "OPENANX",
     "isin": "Cryptocurrency",
-    "shortName": "OAX-CRYPTO",
+    "shortName": "OAX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OAX",
@@ -3482,7 +3482,7 @@
   {
     "longName": "OBITS",
     "isin": "Cryptocurrency",
-    "shortName": "OBITS-CRYPTO",
+    "shortName": "OBITS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OBITS",
@@ -3497,7 +3497,7 @@
   {
     "longName": "OCEANLAB",
     "isin": "Cryptocurrency",
-    "shortName": "OCL-CRYPTO",
+    "shortName": "OCL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OCL",
@@ -3512,7 +3512,7 @@
   {
     "longName": "OBSIDIAN",
     "isin": "Cryptocurrency",
-    "shortName": "ODN-CRYPTO",
+    "shortName": "ODN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ODN",
@@ -3527,7 +3527,7 @@
   {
     "longName": "OKCASH",
     "isin": "Cryptocurrency",
-    "shortName": "OK-CRYPTO",
+    "shortName": "OK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OK",
@@ -3542,7 +3542,7 @@
   {
     "longName": "OMISEGO",
     "isin": "Cryptocurrency",
-    "shortName": "OMG-CRYPTO",
+    "shortName": "OMG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OMG",
@@ -3557,7 +3557,7 @@
   {
     "longName": "OMNI",
     "isin": "Cryptocurrency",
-    "shortName": "OMNI-CRYPTO",
+    "shortName": "OMNI@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OMNI",
@@ -3572,7 +3572,7 @@
   {
     "longName": "DEEPONION",
     "isin": "Cryptocurrency",
-    "shortName": "ONION-CRYPTO",
+    "shortName": "ONION@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ONION",
@@ -3587,7 +3587,7 @@
   {
     "longName": "OPUS",
     "isin": "Cryptocurrency",
-    "shortName": "OPT-CRYPTO",
+    "shortName": "OPT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "OPT",
@@ -3602,7 +3602,7 @@
   {
     "longName": "PARTICL",
     "isin": "Cryptocurrency",
-    "shortName": "PART-CRYPTO",
+    "shortName": "PART@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PART",
@@ -3617,7 +3617,7 @@
   {
     "longName": "PASCALCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "PASC-CRYPTO",
+    "shortName": "PASC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PASC",
@@ -3632,7 +3632,7 @@
   {
     "longName": "TENX",
     "isin": "Cryptocurrency",
-    "shortName": "PAY-CRYPTO",
+    "shortName": "PAY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PAY",
@@ -3647,7 +3647,7 @@
   {
     "longName": "PRIMALBASE-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "PBT-CRYPTO",
+    "shortName": "PBT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PBT",
@@ -3662,7 +3662,7 @@
   {
     "longName": "CRYPTOPING",
     "isin": "Cryptocurrency",
-    "shortName": "PING-CRYPTO",
+    "shortName": "PING@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PING",
@@ -3677,7 +3677,7 @@
   {
     "longName": "PINKCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "PINK-CRYPTO",
+    "shortName": "PINK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PINK",
@@ -3692,7 +3692,7 @@
   {
     "longName": "PIVX",
     "isin": "Cryptocurrency",
-    "shortName": "PIVX-CRYPTO",
+    "shortName": "PIVX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PIVX",
@@ -3707,7 +3707,7 @@
   {
     "longName": "LAMPIX",
     "isin": "Cryptocurrency",
-    "shortName": "PIX-CRYPTO",
+    "shortName": "PIX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PIX",
@@ -3722,7 +3722,7 @@
   {
     "longName": "POLYBIUS",
     "isin": "Cryptocurrency",
-    "shortName": "PLBT-CRYPTO",
+    "shortName": "PLBT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PLBT",
@@ -3737,7 +3737,7 @@
   {
     "longName": "PILLAR",
     "isin": "Cryptocurrency",
-    "shortName": "PLR-CRYPTO",
+    "shortName": "PLR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PLR",
@@ -3752,7 +3752,7 @@
   {
     "longName": "PLUTON",
     "isin": "Cryptocurrency",
-    "shortName": "PLU-CRYPTO",
+    "shortName": "PLU@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PLU",
@@ -3767,7 +3767,7 @@
   {
     "longName": "POET",
     "isin": "Cryptocurrency",
-    "shortName": "POE-CRYPTO",
+    "shortName": "POE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "POE",
@@ -3782,7 +3782,7 @@
   {
     "longName": "POSW-COIN",
     "isin": "Cryptocurrency",
-    "shortName": "POSW-CRYPTO",
+    "shortName": "POSW@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "POSW",
@@ -3797,7 +3797,7 @@
   {
     "longName": "POTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "POT-CRYPTO",
+    "shortName": "POT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "POT",
@@ -3812,7 +3812,7 @@
   {
     "longName": "PEERCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "PPC-CRYPTO",
+    "shortName": "PPC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PPC",
@@ -3827,7 +3827,7 @@
   {
     "longName": "POPULOUS",
     "isin": "Cryptocurrency",
-    "shortName": "PPT-CRYPTO",
+    "shortName": "PPT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PPT",
@@ -3842,7 +3842,7 @@
   {
     "longName": "PEERPLAYS",
     "isin": "Cryptocurrency",
-    "shortName": "PPY-CRYPTO",
+    "shortName": "PPY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PPY",
@@ -3857,7 +3857,7 @@
   {
     "longName": "PROPY",
     "isin": "Cryptocurrency",
-    "shortName": "PRO-CRYPTO",
+    "shortName": "PRO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PRO",
@@ -3872,7 +3872,7 @@
   {
     "longName": "PRIMAS",
     "isin": "Cryptocurrency",
-    "shortName": "PST-CRYPTO",
+    "shortName": "PST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PST",
@@ -3887,7 +3887,7 @@
   {
     "longName": "PESETACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "PTC-CRYPTO",
+    "shortName": "PTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PTC",
@@ -3902,7 +3902,7 @@
   {
     "longName": "PATIENTORY",
     "isin": "Cryptocurrency",
-    "shortName": "PTOY-CRYPTO",
+    "shortName": "PTOY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PTOY",
@@ -3917,7 +3917,7 @@
   {
     "longName": "PURA",
     "isin": "Cryptocurrency",
-    "shortName": "PURA-CRYPTO",
+    "shortName": "PURA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "PURA",
@@ -3932,7 +3932,7 @@
   {
     "longName": "QUANTUM",
     "isin": "Cryptocurrency",
-    "shortName": "QAU-CRYPTO",
+    "shortName": "QAU@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QAU",
@@ -3947,7 +3947,7 @@
   {
     "longName": "QUARK",
     "isin": "Cryptocurrency",
-    "shortName": "QRK-CRYPTO",
+    "shortName": "QRK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QRK",
@@ -3962,7 +3962,7 @@
   {
     "longName": "QUANTUM-RESISTANT-LEDGER",
     "isin": "Cryptocurrency",
-    "shortName": "QRL-CRYPTO",
+    "shortName": "QRL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QRL",
@@ -3977,7 +3977,7 @@
   {
     "longName": "QUATLOO",
     "isin": "Cryptocurrency",
-    "shortName": "QTL-CRYPTO",
+    "shortName": "QTL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QTL",
@@ -3992,7 +3992,7 @@
   {
     "longName": "QTUM",
     "isin": "Cryptocurrency",
-    "shortName": "QTUM-CRYPTO",
+    "shortName": "QTUM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QTUM",
@@ -4007,7 +4007,7 @@
   {
     "longName": "QWARK",
     "isin": "Cryptocurrency",
-    "shortName": "QWARK-CRYPTO",
+    "shortName": "QWARK@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "QWARK",
@@ -4022,7 +4022,7 @@
   {
     "longName": "RADIUM",
     "isin": "Cryptocurrency",
-    "shortName": "RADS-CRYPTO",
+    "shortName": "RADS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RADS",
@@ -4037,7 +4037,7 @@
   {
     "longName": "CONDENSATE",
     "isin": "Cryptocurrency",
-    "shortName": "RAIN-CRYPTO",
+    "shortName": "RAIN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RAIN",
@@ -4052,7 +4052,7 @@
   {
     "longName": "RUBIES",
     "isin": "Cryptocurrency",
-    "shortName": "RBIES-CRYPTO",
+    "shortName": "RBIES@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RBIES",
@@ -4067,7 +4067,7 @@
   {
     "longName": "RIPTO-BUX",
     "isin": "Cryptocurrency",
-    "shortName": "RBX-CRYPTO",
+    "shortName": "RBX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RBX",
@@ -4082,7 +4082,7 @@
   {
     "longName": "RUBYCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "RBY-CRYPTO",
+    "shortName": "RBY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RBY",
@@ -4097,7 +4097,7 @@
   {
     "longName": "REDDCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "RDD-CRYPTO",
+    "shortName": "RDD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RDD",
@@ -4112,7 +4112,7 @@
   {
     "longName": "REGALCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "REC-CRYPTO",
+    "shortName": "REC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "REC",
@@ -4127,7 +4127,7 @@
   {
     "longName": "REDCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "RED-CRYPTO",
+    "shortName": "RED@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RED",
@@ -4142,7 +4142,7 @@
   {
     "longName": "AUGUR",
     "isin": "Cryptocurrency",
-    "shortName": "REP-CRYPTO",
+    "shortName": "REP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "REP",
@@ -4157,7 +4157,7 @@
   {
     "longName": "RIECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "RIC-CRYPTO",
+    "shortName": "RIC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RIC",
@@ -4172,7 +4172,7 @@
   {
     "longName": "RISE",
     "isin": "Cryptocurrency",
-    "shortName": "RISE-CRYPTO",
+    "shortName": "RISE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RISE",
@@ -4187,7 +4187,7 @@
   {
     "longName": "RLC-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "RLC-CRYPTO",
+    "shortName": "RLC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RLC",
@@ -4202,7 +4202,7 @@
   {
     "longName": "ROULETTETOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "RLT-CRYPTO",
+    "shortName": "RLT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RLT",
@@ -4217,7 +4217,7 @@
   {
     "longName": "ROUND",
     "isin": "Cryptocurrency",
-    "shortName": "ROUND-CRYPTO",
+    "shortName": "ROUND@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ROUND",
@@ -4232,7 +4232,7 @@
   {
     "longName": "RECOVERY-RIGHT-TOKENS",
     "isin": "Cryptocurrency",
-    "shortName": "RRT-CRYPTO",
+    "shortName": "RRT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RRT",
@@ -4247,7 +4247,7 @@
   {
     "longName": "RUPEE",
     "isin": "Cryptocurrency",
-    "shortName": "RUP-CRYPTO",
+    "shortName": "RUP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RUP",
@@ -4262,7 +4262,7 @@
   {
     "longName": "RIVETZ",
     "isin": "Cryptocurrency",
-    "shortName": "RVT-CRYPTO",
+    "shortName": "RVT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "RVT",
@@ -4277,7 +4277,7 @@
   {
     "longName": "SALT",
     "isin": "Cryptocurrency",
-    "shortName": "SALT-CRYPTO",
+    "shortName": "SALT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SALT",
@@ -4292,7 +4292,7 @@
   {
     "longName": "SANTIMENT-NETWORK-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "SAN-CRYPTO",
+    "shortName": "SAN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SAN",
@@ -4307,7 +4307,7 @@
   {
     "longName": "STEEM-DOLLARS",
     "isin": "Cryptocurrency",
-    "shortName": "SBD-CRYPTO",
+    "shortName": "SBD@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SBD",
@@ -4322,7 +4322,7 @@
   {
     "longName": "SIACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SC-CRYPTO",
+    "shortName": "SC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SC",
@@ -4337,7 +4337,7 @@
   {
     "longName": "SHADOWCASH",
     "isin": "Cryptocurrency",
-    "shortName": "SDC-CRYPTO",
+    "shortName": "SDC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SDC",
@@ -4352,7 +4352,7 @@
   {
     "longName": "SAFEEXCHANGECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SEC-CRYPTO",
+    "shortName": "SEC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SEC",
@@ -4367,7 +4367,7 @@
   {
     "longName": "SEQUENCE",
     "isin": "Cryptocurrency",
-    "shortName": "SEQ-CRYPTO",
+    "shortName": "SEQ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SEQ",
@@ -4382,7 +4382,7 @@
   {
     "longName": "SHIFT",
     "isin": "Cryptocurrency",
-    "shortName": "SHIFT-CRYPTO",
+    "shortName": "SHIFT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SHIFT",
@@ -4397,7 +4397,7 @@
   {
     "longName": "SIGMACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SIGMA-CRYPTO",
+    "shortName": "SIGMA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SIGMA",
@@ -4412,7 +4412,7 @@
   {
     "longName": "SIGNATUM",
     "isin": "Cryptocurrency",
-    "shortName": "SIGT-CRYPTO",
+    "shortName": "SIGT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SIGT",
@@ -4427,7 +4427,7 @@
   {
     "longName": "STORJCOIN-X",
     "isin": "Cryptocurrency",
-    "shortName": "SJCX-CRYPTO",
+    "shortName": "SJCX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SJCX",
@@ -4442,7 +4442,7 @@
   {
     "longName": "SKINCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SKIN-CRYPTO",
+    "shortName": "SKIN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SKIN",
@@ -4457,7 +4457,7 @@
   {
     "longName": "SKYCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SKY-CRYPTO",
+    "shortName": "SKY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SKY",
@@ -4472,7 +4472,7 @@
   {
     "longName": "SALUS",
     "isin": "Cryptocurrency",
-    "shortName": "SLS-CRYPTO",
+    "shortName": "SLS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SLS",
@@ -4487,7 +4487,7 @@
   {
     "longName": "SMARTCASH",
     "isin": "Cryptocurrency",
-    "shortName": "SMART-CRYPTO",
+    "shortName": "SMART@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SMART",
@@ -4502,7 +4502,7 @@
   {
     "longName": "SUNCONTRACT",
     "isin": "Cryptocurrency",
-    "shortName": "SNC-CRYPTO",
+    "shortName": "SNC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SNC",
@@ -4517,7 +4517,7 @@
   {
     "longName": "SINGULARDTV",
     "isin": "Cryptocurrency",
-    "shortName": "SNGLS-CRYPTO",
+    "shortName": "SNGLS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SNGLS",
@@ -4532,7 +4532,7 @@
   {
     "longName": "SONM",
     "isin": "Cryptocurrency",
-    "shortName": "SNM-CRYPTO",
+    "shortName": "SNM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SNM",
@@ -4547,7 +4547,7 @@
   {
     "longName": "SYNERGY",
     "isin": "Cryptocurrency",
-    "shortName": "SNRG-CRYPTO",
+    "shortName": "SNRG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SNRG",
@@ -4562,7 +4562,7 @@
   {
     "longName": "STATUS-NETWORK-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "SNT-CRYPTO",
+    "shortName": "SNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SNT",
@@ -4577,7 +4577,7 @@
   {
     "longName": "SPREADCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SPR-CRYPTO",
+    "shortName": "SPR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SPR",
@@ -4592,7 +4592,7 @@
   {
     "longName": "STARTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "START-CRYPTO",
+    "shortName": "START@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "START",
@@ -4607,7 +4607,7 @@
   {
     "longName": "STEEM",
     "isin": "Cryptocurrency",
-    "shortName": "STEEM-CRYPTO",
+    "shortName": "STEEM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "STEEM",
@@ -4622,7 +4622,7 @@
   {
     "longName": "STORJ",
     "isin": "Cryptocurrency",
-    "shortName": "STORJ-CRYPTO",
+    "shortName": "STORJ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "STORJ",
@@ -4637,7 +4637,7 @@
   {
     "longName": "STRATIS",
     "isin": "Cryptocurrency",
-    "shortName": "STRAT-CRYPTO",
+    "shortName": "STRAT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "STRAT",
@@ -4652,7 +4652,7 @@
   {
     "longName": "STARCREDITS",
     "isin": "Cryptocurrency",
-    "shortName": "STRC-CRYPTO",
+    "shortName": "STRC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "STRC",
@@ -4667,7 +4667,7 @@
   {
     "longName": "STOX",
     "isin": "Cryptocurrency",
-    "shortName": "STX-CRYPTO",
+    "shortName": "STX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "STX",
@@ -4682,7 +4682,7 @@
   {
     "longName": "SUBSTRATUM",
     "isin": "Cryptocurrency",
-    "shortName": "SUB-CRYPTO",
+    "shortName": "SUB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SUB",
@@ -4697,7 +4697,7 @@
   {
     "longName": "SWARM-CITY",
     "isin": "Cryptocurrency",
-    "shortName": "SWT-CRYPTO",
+    "shortName": "SWT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SWT",
@@ -4712,7 +4712,7 @@
   {
     "longName": "SYSCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "SYS-CRYPTO",
+    "shortName": "SYS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "SYS",
@@ -4727,7 +4727,7 @@
   {
     "longName": "TAAS",
     "isin": "Cryptocurrency",
-    "shortName": "TAAS-CRYPTO",
+    "shortName": "TAAS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TAAS",
@@ -4742,7 +4742,7 @@
   {
     "longName": "THE-CHAMPCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "TCC-CRYPTO",
+    "shortName": "TCC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TCC",
@@ -4757,7 +4757,7 @@
   {
     "longName": "TRUE-FLIP",
     "isin": "Cryptocurrency",
-    "shortName": "TFL-CRYPTO",
+    "shortName": "TFL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TFL",
@@ -4772,7 +4772,7 @@
   {
     "longName": "TIME",
     "isin": "Cryptocurrency",
-    "shortName": "TIME-CRYPTO",
+    "shortName": "TIME@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TIME",
@@ -4787,7 +4787,7 @@
   {
     "longName": "BLOCKTIX",
     "isin": "Cryptocurrency",
-    "shortName": "TIX-CRYPTO",
+    "shortName": "TIX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TIX",
@@ -4802,7 +4802,7 @@
   {
     "longName": "TOKENCARD",
     "isin": "Cryptocurrency",
-    "shortName": "TKN-CRYPTO",
+    "shortName": "TKN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TKN",
@@ -4817,7 +4817,7 @@
   {
     "longName": "TRACKR",
     "isin": "Cryptocurrency",
-    "shortName": "TKR-CRYPTO",
+    "shortName": "TKR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TKR",
@@ -4832,7 +4832,7 @@
   {
     "longName": "TOKES",
     "isin": "Cryptocurrency",
-    "shortName": "TKS-CRYPTO",
+    "shortName": "TKS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TKS",
@@ -4847,7 +4847,7 @@
   {
     "longName": "TIERION",
     "isin": "Cryptocurrency",
-    "shortName": "TNT-CRYPTO",
+    "shortName": "TNT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TNT",
@@ -4862,7 +4862,7 @@
   {
     "longName": "TOACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "TOA-CRYPTO",
+    "shortName": "TOA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TOA",
@@ -4877,7 +4877,7 @@
   {
     "longName": "TERRACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "TRC-CRYPTO",
+    "shortName": "TRC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TRC",
@@ -4892,7 +4892,7 @@
   {
     "longName": "TRIGGERS",
     "isin": "Cryptocurrency",
-    "shortName": "TRIG-CRYPTO",
+    "shortName": "TRIG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TRIG",
@@ -4907,7 +4907,7 @@
   {
     "longName": "TRUSTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "TRST-CRYPTO",
+    "shortName": "TRST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TRST",
@@ -4922,7 +4922,7 @@
   {
     "longName": "TRONIX",
     "isin": "Cryptocurrency",
-    "shortName": "TRX-CRYPTO",
+    "shortName": "TRX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "TRX",
@@ -4937,7 +4937,7 @@
   {
     "longName": "UBIQ",
     "isin": "Cryptocurrency",
-    "shortName": "UBQ-CRYPTO",
+    "shortName": "UBQ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "UBQ",
@@ -4952,7 +4952,7 @@
   {
     "longName": "ULATECH",
     "isin": "Cryptocurrency",
-    "shortName": "ULA-CRYPTO",
+    "shortName": "ULA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ULA",
@@ -4967,7 +4967,7 @@
   {
     "longName": "SUPERNET",
     "isin": "Cryptocurrency",
-    "shortName": "UNITY-CRYPTO",
+    "shortName": "UNITY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "UNITY",
@@ -4982,7 +4982,7 @@
   {
     "longName": "UNOBTANIUM",
     "isin": "Cryptocurrency",
-    "shortName": "UNO-CRYPTO",
+    "shortName": "UNO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "UNO",
@@ -4997,7 +4997,7 @@
   {
     "longName": "UNITY-INGOT",
     "isin": "Cryptocurrency",
-    "shortName": "UNY-CRYPTO",
+    "shortName": "UNY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "UNY",
@@ -5012,7 +5012,7 @@
   {
     "longName": "URO",
     "isin": "Cryptocurrency",
-    "shortName": "URO-CRYPTO",
+    "shortName": "URO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "URO",
@@ -5027,7 +5027,7 @@
   {
     "longName": "TETHER",
     "isin": "Cryptocurrency",
-    "shortName": "USDT-CRYPTO",
+    "shortName": "USDT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "USDT",
@@ -5042,7 +5042,7 @@
   {
     "longName": "VECHAIN",
     "isin": "Cryptocurrency",
-    "shortName": "VEN-CRYPTO",
+    "shortName": "VEN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VEN",
@@ -5057,7 +5057,7 @@
   {
     "longName": "VERITASEUM",
     "isin": "Cryptocurrency",
-    "shortName": "VERI-CRYPTO",
+    "shortName": "VERI@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VERI",
@@ -5072,7 +5072,7 @@
   {
     "longName": "VIACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "VIA-CRYPTO",
+    "shortName": "VIA@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VIA",
@@ -5087,7 +5087,7 @@
   {
     "longName": "VIBERATE",
     "isin": "Cryptocurrency",
-    "shortName": "VIB-CRYPTO",
+    "shortName": "VIB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VIB",
@@ -5102,7 +5102,7 @@
   {
     "longName": "VIVO",
     "isin": "Cryptocurrency",
-    "shortName": "VIVO-CRYPTO",
+    "shortName": "VIVO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VIVO",
@@ -5117,7 +5117,7 @@
   {
     "longName": "VOISE",
     "isin": "Cryptocurrency",
-    "shortName": "VOISE-CRYPTO",
+    "shortName": "VOISE@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VOISE",
@@ -5132,7 +5132,7 @@
   {
     "longName": "VOXELS",
     "isin": "Cryptocurrency",
-    "shortName": "VOX-CRYPTO",
+    "shortName": "VOX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VOX",
@@ -5147,7 +5147,7 @@
   {
     "longName": "VPNCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "VPN-CRYPTO",
+    "shortName": "VPN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VPN",
@@ -5162,7 +5162,7 @@
   {
     "longName": "VERICOIN",
     "isin": "Cryptocurrency",
-    "shortName": "VRC-CRYPTO",
+    "shortName": "VRC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VRC",
@@ -5177,7 +5177,7 @@
   {
     "longName": "VERIUM",
     "isin": "Cryptocurrency",
-    "shortName": "VRM-CRYPTO",
+    "shortName": "VRM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VRM",
@@ -5192,7 +5192,7 @@
   {
     "longName": "VEROS",
     "isin": "Cryptocurrency",
-    "shortName": "VRS-CRYPTO",
+    "shortName": "VRS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VRS",
@@ -5207,7 +5207,7 @@
   {
     "longName": "VSLICE",
     "isin": "Cryptocurrency",
-    "shortName": "VSL-CRYPTO",
+    "shortName": "VSL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VSL",
@@ -5222,7 +5222,7 @@
   {
     "longName": "VERTCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "VTC-CRYPTO",
+    "shortName": "VTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VTC",
@@ -5237,7 +5237,7 @@
   {
     "longName": "VTORRENT",
     "isin": "Cryptocurrency",
-    "shortName": "VTR-CRYPTO",
+    "shortName": "VTR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "VTR",
@@ -5252,7 +5252,7 @@
   {
     "longName": "WAVES",
     "isin": "Cryptocurrency",
-    "shortName": "WAVES-CRYPTO",
+    "shortName": "WAVES@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WAVES",
@@ -5267,7 +5267,7 @@
   {
     "longName": "WAVES-COMMUNITY",
     "isin": "Cryptocurrency",
-    "shortName": "WCT-CRYPTO",
+    "shortName": "WCT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WCT",
@@ -5282,7 +5282,7 @@
   {
     "longName": "WORLDCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "WDC-CRYPTO",
+    "shortName": "WDC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WDC",
@@ -5297,7 +5297,7 @@
   {
     "longName": "WAVESGO",
     "isin": "Cryptocurrency",
-    "shortName": "WGO-CRYPTO",
+    "shortName": "WGO@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WGO",
@@ -5312,7 +5312,7 @@
   {
     "longName": "WAGERR",
     "isin": "Cryptocurrency",
-    "shortName": "WGR-CRYPTO",
+    "shortName": "WGR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WGR",
@@ -5327,7 +5327,7 @@
   {
     "longName": "WINGS",
     "isin": "Cryptocurrency",
-    "shortName": "WINGS-CRYPTO",
+    "shortName": "WINGS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WINGS",
@@ -5342,7 +5342,7 @@
   {
     "longName": "WALTON",
     "isin": "Cryptocurrency",
-    "shortName": "WTC-CRYPTO",
+    "shortName": "WTC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WTC",
@@ -5357,7 +5357,7 @@
   {
     "longName": "GIGA-WATT-TOKEN",
     "isin": "Cryptocurrency",
-    "shortName": "WTT-CRYPTO",
+    "shortName": "WTT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "WTT",
@@ -5372,7 +5372,7 @@
   {
     "longName": "ASCH",
     "isin": "Cryptocurrency",
-    "shortName": "XAS-CRYPTO",
+    "shortName": "XAS@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XAS",
@@ -5387,7 +5387,7 @@
   {
     "longName": "XAURUM",
     "isin": "Cryptocurrency",
-    "shortName": "XAUR-CRYPTO",
+    "shortName": "XAUR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XAUR",
@@ -5402,7 +5402,7 @@
   {
     "longName": "BITCOIN-PLUS",
     "isin": "Cryptocurrency",
-    "shortName": "XBC-CRYPTO",
+    "shortName": "XBC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XBC",
@@ -5417,7 +5417,7 @@
   {
     "longName": "XTRABYTES",
     "isin": "Cryptocurrency",
-    "shortName": "XBY-CRYPTO",
+    "shortName": "XBY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XBY",
@@ -5432,7 +5432,7 @@
   {
     "longName": "CRYPTONITE",
     "isin": "Cryptocurrency",
-    "shortName": "XCN-CRYPTO",
+    "shortName": "XCN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XCN",
@@ -5447,7 +5447,7 @@
   {
     "longName": "COUNTERPARTY",
     "isin": "Cryptocurrency",
-    "shortName": "XCP-CRYPTO",
+    "shortName": "XCP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XCP",
@@ -5462,7 +5462,7 @@
   {
     "longName": "DIGITALNOTE",
     "isin": "Cryptocurrency",
-    "shortName": "XDN-CRYPTO",
+    "shortName": "XDN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XDN",
@@ -5477,7 +5477,7 @@
   {
     "longName": "ELASTIC",
     "isin": "Cryptocurrency",
-    "shortName": "XEL-CRYPTO",
+    "shortName": "XEL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XEL",
@@ -5492,7 +5492,7 @@
   {
     "longName": "NEM",
     "isin": "Cryptocurrency",
-    "shortName": "XEM-CRYPTO",
+    "shortName": "XEM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XEM",
@@ -5507,7 +5507,7 @@
   {
     "longName": "AIR",
     "isin": "Cryptocurrency",
-    "shortName": "XID-CRYPTO",
+    "shortName": "XID@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XID",
@@ -5522,7 +5522,7 @@
   {
     "longName": "STELLAR",
     "isin": "Cryptocurrency",
-    "shortName": "XLM-CRYPTO",
+    "shortName": "XLM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XLM",
@@ -5537,7 +5537,7 @@
   {
     "longName": "MONERO",
     "isin": "Cryptocurrency",
-    "shortName": "XMR-CRYPTO",
+    "shortName": "XMR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XMR",
@@ -5552,7 +5552,7 @@
   {
     "longName": "METAL",
     "isin": "Cryptocurrency",
-    "shortName": "XMT-CRYPTO",
+    "shortName": "XMT@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XMT",
@@ -5567,7 +5567,7 @@
   {
     "longName": "PRIMECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XPM-CRYPTO",
+    "shortName": "XPM@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XPM",
@@ -5582,7 +5582,7 @@
   {
     "longName": "PAYCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XPY-CRYPTO",
+    "shortName": "XPY@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XPY",
@@ -5597,7 +5597,7 @@
   {
     "longName": "RAIBLOCKS",
     "isin": "Cryptocurrency",
-    "shortName": "XRB-CRYPTO",
+    "shortName": "XRB@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XRB",
@@ -5612,7 +5612,7 @@
   {
     "longName": "RIALTO",
     "isin": "Cryptocurrency",
-    "shortName": "XRL-CRYPTO",
+    "shortName": "XRL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XRL",
@@ -5627,7 +5627,7 @@
   {
     "longName": "RIPPLES",
     "isin": "Cryptocurrency",
-    "shortName": "XRP-CRYPTO",
+    "shortName": "XRP@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XRP",
@@ -5642,7 +5642,7 @@
   {
     "longName": "SPECTRECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XSPEC-CRYPTO",
+    "shortName": "XSPEC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XSPEC",
@@ -5657,7 +5657,7 @@
   {
     "longName": "STEALTHCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XST-CRYPTO",
+    "shortName": "XST@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XST",
@@ -5672,7 +5672,7 @@
   {
     "longName": "TEZOS",
     "isin": "Cryptocurrency",
-    "shortName": "XTZ-CRYPTO",
+    "shortName": "XTZ@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XTZ",
@@ -5687,7 +5687,7 @@
   {
     "longName": "VCASH",
     "isin": "Cryptocurrency",
-    "shortName": "XVC-CRYPTO",
+    "shortName": "XVC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XVC",
@@ -5702,7 +5702,7 @@
   {
     "longName": "VERGE",
     "isin": "Cryptocurrency",
-    "shortName": "XVG-CRYPTO",
+    "shortName": "XVG@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XVG",
@@ -5717,7 +5717,7 @@
   {
     "longName": "WHITECOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XWC-CRYPTO",
+    "shortName": "XWC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XWC",
@@ -5732,7 +5732,7 @@
   {
     "longName": "ZCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XZC-CRYPTO",
+    "shortName": "XZC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XZC",
@@ -5747,7 +5747,7 @@
   {
     "longName": "ZRCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "XZR-CRYPTO",
+    "shortName": "XZR@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "XZR",
@@ -5762,7 +5762,7 @@
   {
     "longName": "YBCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "YBC-CRYPTO",
+    "shortName": "YBC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "YBC",
@@ -5777,7 +5777,7 @@
   {
     "longName": "YOYOW",
     "isin": "Cryptocurrency",
-    "shortName": "YOYOW-CRYPTO",
+    "shortName": "YOYOW@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "YOYOW",
@@ -5792,7 +5792,7 @@
   {
     "longName": "ZCCOIN",
     "isin": "Cryptocurrency",
-    "shortName": "ZCC-CRYPTO",
+    "shortName": "ZCC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZCC",
@@ -5807,7 +5807,7 @@
   {
     "longName": "ZCLASSIC",
     "isin": "Cryptocurrency",
-    "shortName": "ZCL-CRYPTO",
+    "shortName": "ZCL@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZCL",
@@ -5822,7 +5822,7 @@
   {
     "longName": "ZCASH",
     "isin": "Cryptocurrency",
-    "shortName": "ZEC-CRYPTO",
+    "shortName": "ZEC@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZEC",
@@ -5837,7 +5837,7 @@
   {
     "longName": "ZENCASH",
     "isin": "Cryptocurrency",
-    "shortName": "ZEN-CRYPTO",
+    "shortName": "ZEN@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZEN",
@@ -5852,7 +5852,7 @@
   {
     "longName": "ZETACOIN",
     "isin": "Cryptocurrency",
-    "shortName": "ZET-CRYPTO",
+    "shortName": "ZET@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZET",
@@ -5867,7 +5867,7 @@
   {
     "longName": "0X",
     "isin": "Cryptocurrency",
-    "shortName": "ZRX-CRYPTO",
+    "shortName": "ZRX@CRYPTO",
     "description": "Description",
     "stockImg": "/static/images/crypto.png",
     "symbolPrice": "ZRX",

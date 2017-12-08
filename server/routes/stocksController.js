@@ -38,7 +38,7 @@ stocksController.get("/:stockName", function(req, res, next) {
       new Date() - stock.updated_at.getTime() > ONE_MIN
     ) {
       scrapPriceCurrency(stock.symbolPrice);
-      // getCryptoUpdate("CRYPTO");
+      getCryptoUpdate("CRYPTO");
     } else if (
       stock.index.indexOf("NASDAQ") > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
