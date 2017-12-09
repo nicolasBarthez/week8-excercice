@@ -17,7 +17,7 @@
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
-                              <a v-if="stock.index[0]==='EURONEXT PARIS'"@click="descriptionStock" class="stock-see-desc is-6 has-text-grey-light">{{connectedUser.lang==="EN"?"More info...":"Plus d'info..."}}</a>
+                              <a v-if="stock.index[0]==='EURONEXT PARIS'|| 'CRYPTO'"@click="descriptionStock(), wikiDescription(stock.longName)" class="stock-see-desc is-6 has-text-grey-light">{{connectedUser.lang==="EN"?"More info...":"Plus d'info..."}}</a>
                             </div>
                             <div class="add-to-watchlist" >
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Add to watchlist':'Je veux suivre'}}</button>
@@ -111,12 +111,12 @@
                         </h1>
                     </nav>
                     <div id="bullsAndBears2">
-                        <div id="stock-desc" class="div is-outlined  ">{{stock.description}}</div>
+                        <div id="stock-desc" class="div is-outlined" v-html="this.description"></div>
                 </div>
                 </div>
             </b-modal>
             <b-modal :active.sync='imBullModal' :width="640">
-                <div class="mediaModal bullbearPos">     
+                <div class="mediaModal bullbearPos">
                     <div class="bullsAndBearsPic2">
                         <img src="/static/images/roundBullArrow.png" alt="bull and bear">
                     </div>
@@ -129,7 +129,7 @@
                 </div>
             </b-modal>
             <b-modal :active.sync='imBearModal' :width="640">
-                <div class="mediaModal bullbearPos">     
+                <div class="mediaModal bullbearPos">
                     <div class="bullsAndBearsPic2">
                         <img src="/static/images/roundBearArrow.png" alt="bull and bear">
                     </div>
@@ -143,7 +143,7 @@
             </b-modal>
             <div v-if="modalClosePosition">
                 <b-modal :active.sync='closePositionModal' :width="640">
-                    <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
+                    <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">
                         <div class="bullsAndBearsPic2">
                             <img src="/static/images/roundBullArrow.png" alt="bull and bear">
                         </div>
@@ -156,7 +156,7 @@
                             Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                         </div>
                     </div>
-                    <div v-else class="mediaModal bullbearPos">     
+                    <div v-else class="mediaModal bullbearPos">
                         <div class="bullsAndBearsPic2">
                             <img src="/static/images/roundBearArrow.png" alt="bull and bear">
                         </div>
@@ -185,6 +185,7 @@ import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
 import { getTrend } from "@/api/api";
+import { getDescription } from "@/api/api";
 
 export default {
   name: "StockHeader",
@@ -197,12 +198,13 @@ export default {
   data() {
     return {
       activeItem: "thirty",
-      modalClosePosition:"",
+      modalClosePosition: "",
       isChartStockActive: false,
       isStockDescriptionModalActive: false,
-      imBullModal:false,
+      imBullModal: false,
       imBearModal: false,
-      closePositionModal: false
+      closePositionModal: false,
+      description: "Description"
     };
   },
   components: {
@@ -237,8 +239,7 @@ export default {
       removePosition(this.stock.shortName, this.watchItem._id).then(() => {
         this.$emit("changeWatchlist", null);
       });
-      this.modalClosePosition= watchItem,
-      this.closePositionModal = true
+      (this.modalClosePosition = watchItem), (this.closePositionModal = true);
     },
 
     imBull() {
@@ -246,7 +247,7 @@ export default {
       beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
-      this.imBullModal = true
+      this.imBullModal = true;
     },
 
     imBear() {
@@ -254,7 +255,7 @@ export default {
       beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
       });
-      this.imBearModal = true
+      this.imBearModal = true;
     },
 
     trend30() {
@@ -270,6 +271,13 @@ export default {
     trend1() {
       this.$emit("trendBullBearOne");
       this.activeItem = "one";
+    },
+    wikiDescription(stockLongName) {
+      const stockName = this.$route.params.stockName;
+      return getDescription(stockName, stockLongName).then(description => {
+        console.log("Description", description);
+        this.description = description;
+      });
     }
   }
 };
