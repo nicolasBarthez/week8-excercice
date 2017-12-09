@@ -7,7 +7,10 @@ const userSchema = new Schema(
     // the email and password are added by passportLocalMongoose
     // we can add any extra information like facebooktokens (or
     // others) as well as a picture, etc
-    username: String,
+    username: {
+      type: String,
+      unique: true
+    },
     role: {
       type: String,
       enum: ["user", "admin"],
