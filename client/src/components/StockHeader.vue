@@ -348,7 +348,7 @@ export default {
  .chartIcon{
     width:100%;
     justify-content:flex-end;
-    margin-top: 5%!important;
+    margin-top: 1%!important;
     display: flex;
  }
  .stock-see-desc{

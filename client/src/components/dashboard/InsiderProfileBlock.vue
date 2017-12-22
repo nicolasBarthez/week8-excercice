@@ -341,7 +341,7 @@ a {
       border-color: #192b41;
       color: #fff;
       font-weight: bolder;
-      font-size: 0.6rem;
+      font-size: 0.6rem!important;
       PADDING-LEFT: 10PX;
       PADDING-RIGHT: 10PX;
       width: 100%;

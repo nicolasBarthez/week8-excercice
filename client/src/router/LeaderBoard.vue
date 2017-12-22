@@ -1,6 +1,9 @@
 <template>
   <section class="main">
-
+    <h1 class= "title">
+      Classement des meilleurs Insiders :
+      Suivez leurs conseils et gagnez de l'argent !
+    </h1>
         <b-table v-if="leaderBoard"
             :data="leaderBoard"
             :loading="loading"
@@ -100,6 +103,11 @@ export default {
 </script>
 
 <style scoped>
+.title{
+  font-size: 100%;
+  font-weight: bold;
+  FONT-STYLE: ITALIC
+}
 .insider{
   display:flex;
   align-items:center;

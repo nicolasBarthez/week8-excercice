@@ -52,7 +52,7 @@
             <div>
                  <label> <span class="chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}</span>
-                    <img src="/static/images/stickerPicture2.svg" class ="sticker">
+                    
                     <croppa v-model="babbleImage"
                         :width="width"
                         :height="height"

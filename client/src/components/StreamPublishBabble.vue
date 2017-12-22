@@ -34,7 +34,7 @@
             <div v-if="connectedUser">
                  <label> <span class="chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share your image':'Partager votre image'}}</span>
-                    <img src="/static/images/stickerPicture2.svg" class ="sticker">
+                    
                     <croppa v-model="babbleImage"
                         :width="width"
                         :height="height"
