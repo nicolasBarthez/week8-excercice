@@ -39,14 +39,17 @@
                                <strong class="stVar">{{stock.price}} {{stock.currency}}</strong>
                                <small class="stVar":class="{'has-text-green' : stock.variation > 0, 'has-text-red' : stock.variation<0}">&nbsp &nbsp {{stock.variation.toFixed(2)}} %</small>
                                 </div>
-                                <div v-if="stock.isin==='Cryptocurrency'"  class="stock-priceVar title is-5">
+                                <div v-if="stock.isin==='CRYPTO'"  class="stock-priceVar title is-5">
                                 <strong class="stVar">{{stock.price2}} {{stock.currency2}}</strong>
                                  <small class="stVar":class="{'has-text-green' : stock.variation2 > 0, 'has-text-red' : stock.variation2<0}">&nbsp &nbsp {{stock.variation2.toFixed(2)}} %</small>
                                 </div>
                                  <div class="stock-priceVar title is-5">
                                <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
-                                    <span v-if="stock.index[0]==='nasdaq'" class="chartIcon">
+                                    <span v-if="stock.index[0]==='NASDAQ'" class="chartIcon">
+                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
+                                    </span>
+                                    <span v-if="stock.index[0]==='EURONEXT PARIS'" class="chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
 
