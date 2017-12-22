@@ -140,7 +140,7 @@
                     <div>
                         <div class="field">
                             <div class="control">
-                                <textarea v-model="babbleText" id="babble-text" name="babble" maxlength="500" rows="3" placeholder="Whats happening?" class="textarea">
+                                <textarea v-model="babbleText" id="babble-text" name="babble" maxlength="1618" rows="3" placeholder="Whats happening?" class="textarea">
                                 </textarea>
                             </div>
                         </div>
@@ -185,7 +185,7 @@ export default {
   computed: {
     charactersLeft() {
       var char = this.babbleText.length,
-        limit = 500;
+        limit = 1618;
       return limit - char;
     }
   },

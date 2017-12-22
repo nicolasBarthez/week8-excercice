@@ -76,7 +76,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
+                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="1618" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -237,7 +237,7 @@ export default {
   computed: {
     charactersLeft() {
       var char = this.babble.length,
-        limit = 500;
+        limit = 1618;
       return limit - char;
     }
   },
