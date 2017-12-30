@@ -29,7 +29,6 @@ import SideCurrentInsight from "../components/SideCurrentInsight";
 import TimelineBabble from "../components/TimelineBabble";
 import PublishBabble from "../components/PublishBabble";
 import SideRecentActivity from "../components/SideRecentActivity";
-import ChartStock from "../components/ChartStock";
 import NotFound from "../router/NotFound";
 
 export default {
@@ -51,7 +50,6 @@ export default {
     TimelineBabble,
     PublishBabble,
     SideRecentActivity,
-    ChartStock,
     NotFound
   },
 

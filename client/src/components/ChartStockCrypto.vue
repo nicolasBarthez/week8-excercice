@@ -29,8 +29,8 @@ export default {
   created() {
     getChart(this.$route.params.stockName, stock.index).then(response => {
       this.history = response;
-      let prices = response.map(day => day[4]);
-      let dates = response.map(day => day[0]);
+      let prices = response.data.map(day => day[4]);
+      let dates = response.data.map(day => day[0]);
       let ctx = document.getElementById("myChart");
       Chart.defaults.global.defaultFontColor = "#192b41";
       let myChart = new Chart(ctx, {

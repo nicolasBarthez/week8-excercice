@@ -22,7 +22,6 @@ babblesController.get(
     const user = req.user;
     // sort by people who wrote the babble
     const sort = req.query.sort;
-    console.log(sort);
     const page = req.query.page;
     const group = page * 50;
 

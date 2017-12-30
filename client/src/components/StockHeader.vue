@@ -46,14 +46,10 @@
                                  <div class="stock-priceVar title is-5">
                                <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
-                                    <span v-if="stock.index[0]==='NASDAQ'" class="chartIcon">
+                                    <span v-if="stock.index[0]==='NASDAQ'||'EURONEXT PARIS'||'CRYPTO'" class="chartIcon">
                                          <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
                                     </span>
-                                    <span v-if="stock.index[0]==='EURONEXT PARIS'" class="chartIcon">
-                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
-                                    </span>
-
-                           </div>
+                             </div>
                         </div>
 
                            <nav id="bandB" class="level media">
@@ -104,7 +100,9 @@
                     </div>
                 </div>
             <b-modal :active.sync="isChartStockActive" :width="640">
-                <chart-stock :stock="stock"></chart-stock>
+                <chart-stock-iex v-if="stock.index[0] ==='NASDAQ'" :stock="stock"></chart-stock-iex>
+                <chart-stock-euro-next v-if="stock.index[0] ==='EURONEXT PARIS'" :stock="stock"></chart-stock-euro-next>
+                <chart-stock-crypto v-if="stock.index[0] ==='CRYPTO'" :stock="stock"></chart-stock-crypto>
             </b-modal>
             <b-modal :active.sync="isStockDescriptionModalActive">
                 <div class="mediaModal">
@@ -181,7 +179,9 @@
 
 
 <script>
-import ChartStock from "@/components/ChartStock";
+import ChartStockIex from "@/components/ChartStockIex";
+import ChartStockEuroNext from "@/components/ChartStockEuroNext";
+import ChartStockCrypto from "@/components/ChartStockCrypto";
 import { addWatchItem } from "@/api/api";
 import { removeWatchItem } from "@/api/api";
 import { beBear } from "@/api/api";
@@ -211,7 +211,9 @@ export default {
     };
   },
   components: {
-    ChartStock
+    ChartStockIex,
+    ChartStockEuroNext,
+    ChartStockCrypto
   },
   methods: {
     ChartStock() {

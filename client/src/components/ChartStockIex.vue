@@ -15,11 +15,11 @@ export default {
 
   data() {
     return {
-      history: null,
+      history: null
     };
   },
   props: {
-    stock: Object,
+    stock: Object
   },
   computed: {
     latestUpdate: function() {
@@ -27,7 +27,10 @@ export default {
     }
   },
   created() {
-    getChart(this.$route.params.stockName).then(response => {
+    getChart(
+      this.$route.params.stockName,
+      this.stock.index[0]
+    ).then(response => {
       this.history = response;
       let prices = response.map(day => day.close);
       let dates = response.map(day => day.date);
