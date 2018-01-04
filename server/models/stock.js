@@ -10,6 +10,7 @@ const stockSchema = new Schema(
     isin: String,
     shortName: String,
     description: String,
+    descriptionEng: String,
     stockImg: String,
     symbolPrice: String,
     index: [String],

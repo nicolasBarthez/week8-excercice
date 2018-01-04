@@ -248,7 +248,7 @@ export function getLeaderBoard() {
 
 export function getChart(stockName, index) {
   console.log("GETCHART", stockName, index);
-  let url = `/chart/${stockName}?index=${index}`;
+  let url = `/chart/${stockName}`;
   return insiders
     .get(url, {
       index: index

@@ -9,7 +9,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="1618" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news, and use # to link to a stock...':'Partager une info intéressante et utiliser le # pour lié votre message à une action...'" class="textarea">
+                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="1618" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news, and use # to link to a stock...':'Partager une info intéressante et utiliser le # pour lier votre message à une action...'" class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
@@ -34,7 +34,7 @@
             <div v-if="connectedUser">
                  <label> <span class="chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share your image':'Partager votre image'}}</span>
-                    
+
                     <croppa v-model="babbleImage"
                         :width="width"
                         :height="height"
@@ -58,7 +58,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="500" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news, and use # to link to a stock...':'Partager une info intéressante et utiliser le # pour lié votre message à une action...'" class="textarea">
+                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="500" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news, and use # to link to a stock...':'Partager une info intéressante et utiliser le # pour lier votre message à une action...'" class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">
