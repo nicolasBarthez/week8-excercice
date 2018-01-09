@@ -17,10 +17,10 @@ const moment = require("moment");
 chartController.get("/:id", (req, res, next) => {
   const user = req.user;
   // const index = req.query.index;
-  var stockName = req.params.id;
+  var stockName = req.params.id.toLowerCase();
 
-  if (stockName.indexOf("NASDAQ") > -1) {
-    var shortName = stockName.replace("@NASDAQ", "");
+  if (stockName.indexOf("nasdaq") > -1) {
+    var shortName = stockName.replace("@nasdaq", "");
     let url = `https://api.iextrading.com/1.0/stock/${shortName}/chart/1y`;
     axios
       .get(url)
@@ -31,8 +31,8 @@ chartController.get("/:id", (req, res, next) => {
       .catch(err => {
         res.json(err);
       });
-  } else if (stockName.indexOf("EURO") > -1) {
-    var shortName = stockName.replace("@EURO", "");
+  } else if (stockName.indexOf("euro") > -1) {
+    var shortName = stockName.replace("@euro", "");
     let url = `https://www.quandl.com/api/v3/datasets/EURONEXT/${shortName}.json?api_key=Czjt1Yy1zoFwSApYYGPF`;
     axios
       .get(url)
@@ -43,9 +43,9 @@ chartController.get("/:id", (req, res, next) => {
       .catch(err => {
         res.json(err);
       });
-  } else if (stockName.indexOf("CRYPTO") > -1) {
-    var shortName = stockName.replace("@CRYPTO", "");
-    let url = `https://min-api.cryptocompare.com/data/histoday?fsym=${shortName}&tsym=USD&limit=60&aggregate=3&e=CCCAGG`;
+  } else if (stockName.indexOf("crypto") > -1) {
+    var shortName = stockName.replace("@crypto", "");
+    let url = `https://min-api.cryptocompare.com/data/histoday?fsym=${shortName.toUpperCase()}&tsym=USD&limit=60&aggregate=3&e=CCCAGG`;
     axios
       .get(url)
       .then(response => {

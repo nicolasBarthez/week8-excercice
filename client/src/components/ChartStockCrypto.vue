@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import { getChart } from "@/api/api";
 import Chart from "chart.js";
 export default {
@@ -21,16 +22,27 @@ export default {
   props: {
     stock: Object
   },
+  methods: {
+    moment: function(time) {
+      return moment(time);
+    }
+  },
   computed: {
     latestUpdate: function() {
       return new Date(parseInt(this.price.latestUpdate));
     }
   },
   created() {
-    getChart(this.$route.params.stockName, stock.index).then(response => {
-      this.history = response;
-      let prices = response.data.map(day => day[4]);
-      let dates = response.data.map(day => day[0]);
+    getChart(
+      this.$route.params.stockName,
+      this.stock.index[0]
+    ).then(response => {
+      this.history = response.Data;
+      console.log("history", this.history);
+      let prices = response.Data.map(day => day.close);
+      let dates = response.Data.map(day =>
+        moment(new Date(day.time * 1000).toString()).format("DD-MM-YYYY")
+      );
       let ctx = document.getElementById("myChart");
       Chart.defaults.global.defaultFontColor = "#192b41";
       let myChart = new Chart(ctx, {
