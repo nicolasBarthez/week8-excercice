@@ -289,7 +289,7 @@ stocksController.post(
               stockId: stock._id,
               initialPrice: stock.price,
               currency: stock.currency,
-              position: "bear"
+              position: "bull"
             });
 
             newWatchItem.save().then(newItem => {
