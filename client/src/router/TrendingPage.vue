@@ -84,6 +84,7 @@
 
 <script>
 import { getStocksTrending } from "@/api/apiTrending";
+import { getUser } from "@/api/api";
 
 const sortParams = {
   longName: "name",
@@ -112,12 +113,11 @@ export default {
       perPage: 40,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "desc"
+      defaultSortDirection: "desc",
+      connectedUser: null
     };
   },
-  props: {
-    connectedUser: Object
-  },
+  props: {},
   methods: {
     selected() {
       this.indexSelected = "SELECTED";
@@ -216,6 +216,9 @@ export default {
     }
   },
   mounted() {
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
     getStocksTrending({
       index: this.indexSelected,
       sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)

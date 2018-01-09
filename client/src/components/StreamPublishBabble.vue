@@ -9,7 +9,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="1618" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news, and use # to link to a stock...':'Partager une info intéressante et utiliser le # pour lier votre message à une action...'" class="textarea">
+                                <textarea v-model="babble" id="babble-text"  name="babble" maxlength="1618" rows="3" :placeholder="connectedUser.lang==='EN'?'Share an interresting news...':'Partager une info intéressante...'" class="textarea">
                                     </textarea></div>
                         </div>
                         <div class="level">

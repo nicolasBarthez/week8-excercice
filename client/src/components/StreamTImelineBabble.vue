@@ -238,7 +238,7 @@ export default {
         /#(([a-zA-Z0-9\.])+@[a-zA-Z\_]+)(\W|$)/g,
         // /#(\w+)(\W|$)/g,
         // '<a href="/stocks/$1">#$1$2</a>'
-        '<a href="/stocks/$1">#$1$2 -</a>'
+        '<a href="/stocks/$1">#$1 -</a>'
       );
 
       //URLs starting with http://, https://, or ftp://

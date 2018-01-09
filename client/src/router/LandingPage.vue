@@ -1,5 +1,5 @@
 <template>
-<trending-page v-if="this.$root.user"></trending-page>
+<stream-page v-if="this.$root.user"></stream-page>
 
 <section v-else class="hero is-fullheight">
   <div class="flag">
@@ -115,7 +115,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
       <li class="list">Privacy</li>
       <li class="list">Terms</li>
   </ul>
-  <span>&copy; 2017 Insiders</span>
+  <span>&copy; 2018 Insiders</span>
 </footer>
   </section>
 
@@ -140,7 +140,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
-import TrendingPage from "@/router/TrendingPage";
+import StreamPage from "@/router/StreamPage";
 
 export default {
   data() {
@@ -154,7 +154,7 @@ export default {
   components: {
     SignupModal,
     LoginModal,
-    TrendingPage
+    StreamPage
   },
 
   methods: {

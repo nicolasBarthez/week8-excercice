@@ -3,7 +3,7 @@
     <h1 class= "title">
       Page admin : Suivi des utilisateurs enregistrés
     </h1>
-    <p>Il y a actuellement {{leaderBoard.length}} utilisateurs enregistrés</p>
+    <p>Il y a actuellement {{userList.length}} utilisateurs enregistrés</p>
 
 
 </section>
@@ -12,10 +12,11 @@
 
 <script>
 import { getLeaderBoard } from "@/api/api";
+import { getUsersList } from "@/api/apiAdmin";
 export default {
   data() {
     return {
-      leaderBoard: [],
+      userList: [],
       indexSelected: "all",
       total: 0,
       loading: false,
@@ -29,8 +30,8 @@ export default {
     };
   },
   created() {
-    getLeaderBoard().then(leaderBoard => {
-      this.leaderBoard = leaderBoard;
+    getUsersList().then(userList => {
+      this.userList = userList;
     });
   },
 

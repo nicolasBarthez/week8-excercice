@@ -1,6 +1,6 @@
 <template>
 
-  <section class="section main sideRecent">
+  <section v-if="connectedUser" class="section main sideRecent">
     <div class="primordial">
       <div class="sct1">
         <side-recent-activity  :connectedUser="connectedUser" class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
@@ -31,12 +31,11 @@ export default {
       watchItem: null,
       watchInsight: null,
       babbles: null,
-      recentPositions: null
+      recentPositions: null,
+      connectedUser: null
     };
   },
-  props: {
-    connectedUser: Object
-  },
+  props: {},
   components: {
     SideCurrentInsight,
     StreamTimelineBabble,
@@ -75,9 +74,9 @@ export default {
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;
       });
-      // getUser().then(connectedUser => {
-      //   this.connectedUser = connectedUser;
-      // });
+      getUser().then(connectedUser => {
+        this.connectedUser = connectedUser;
+      });
     }
   },
   created() {
