@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div v-if="connectedUser" >
      <div>
     <nav class="navbar is-dark">
       <div class="babblesMenu">
@@ -160,6 +160,7 @@
 
 <script>
 import { sendBabbleReply } from "@/api/api";
+import { getUser } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
 import emojify from "emojify.js";
@@ -171,13 +172,13 @@ export default {
       babbleText: "",
       modalBabble: "",
       userReply: "",
-      activeItem: "all"
+      activeItem: "all",
+      connectedUser: null
     };
   },
   props: {
     babbles: Array,
-    stock: Object,
-    connectedUser: Object
+    stock: Object
   },
 
   computed: {
@@ -266,6 +267,9 @@ export default {
   },
   created() {
     emojify.setConfig({ img_dir: "/static/images/basic" });
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
   }
 };
 </script>

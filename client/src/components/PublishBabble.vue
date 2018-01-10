@@ -9,7 +9,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
+                                <textarea v-if="connectedUser" v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="500" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -17,7 +17,7 @@
                         <div class="level">
                             <div class="level-left">
                                 <a class="has-text-grey-light">
-                                    <span @click="shareChart()" class="chartIcon">
+                                    <span v-if="connectedUser"  @click="shareChart()" class="chartIcon">
                                          <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}
                                     </span>
                                 </a>
@@ -50,9 +50,9 @@
         <b-modal :active.sync="isShareChartActive">
             <div class="mediaModal">
             <div>
-                 <label> <span class="chartIcon">
+                 <label> <span v-if="connectedUser" class="chartIcon">
                     <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}</span>
-                    
+
                     <croppa v-model="babbleImage"
                         :width="width"
                         :height="height"
@@ -76,7 +76,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="1618" rows="3"  class="textarea">
+                                <textarea v-if="connectedUser" v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="1618" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -98,7 +98,7 @@
             </div>
         </b-modal>
         <b-modal :active.sync='imBullModal' :width="640">
-                <div class="bullbearPos">     
+                <div class="bullbearPos">
                     <div class="bullsAndBearsPic2">
                         <img src="/static/images/roundBullArrow.png" alt="bull and bear">
                     </div>
@@ -111,7 +111,7 @@
                 </div>
             </b-modal>
             <b-modal :active.sync='imBearModal' :width="640">
-                <div class="bullbearPos">     
+                <div class="bullbearPos">
                     <div class="bullsAndBearsPic2">
                         <img src="/static/images/roundBearArrow.png" alt="bull and bear">
                     </div>
@@ -139,7 +139,7 @@ export default {
       prefix: "",
       isCardModalActive: false,
       isShareChartActive: false,
-      imBullModal:false,
+      imBullModal: false,
       imBearModal: false,
       babbleImage: null,
       babbleUrl: "",
@@ -208,7 +208,7 @@ export default {
       beBull(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
-        this.imBullModal = true
+        this.imBullModal = true;
       });
     },
     imBear() {
@@ -216,7 +216,7 @@ export default {
       beBear(this.stock.shortName, inWatchList).then(item => {
         this.$emit("changeWatchlist", item);
         this.isCardModalActive = false;
-        this.imBearModal = true
+        this.imBearModal = true;
       });
     },
 
@@ -264,7 +264,7 @@ export default {
     font-weight:bold
 }
 a{
-    color: #192b41 !important; 
+    color: #192b41 !important;
 }
 .sticker{
       height: 0;
