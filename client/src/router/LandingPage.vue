@@ -3,8 +3,8 @@
 
 <section v-else class="hero is-fullheight">
   <div class="flag">
-    <img class="flag-img" @click="changeLang('EN')" src="/static/images/landing/usaFlag.png">
-    <img class="flag-img" @click="changeLang('FR')" src="/static/images/landing/franceFlag.png">
+    <img class="flag-img" @click="changeLang('EN')" src="/static/images/landing/usflag.jpg">
+    <img class="flag-img" @click="changeLang('FR')" src="/static/images/landing/frenchflag.jpg">
   </div>
   <div>
     <div class="logo">
@@ -84,8 +84,8 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 
         <div class="columns separator2">
           <div class="column is-one-third testi">
-                <img class="img" src="/static/images/landing/stuart.png">
-              <h4 class="separator nametesti subtitle"> @stuart</h4>
+                <img class="img" src="/static/images/landing/emily.jpg">
+              <h4 class="separator nametesti subtitle"> @emily</h4>
               <p class="testiP" v-if="langSelected==='EN'">”I doubled my stocks income since I joined Insiders. Thx so much!”</p>
               <p class="testiP" v-else>” J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !"</p>
           </div>
