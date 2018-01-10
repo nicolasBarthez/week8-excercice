@@ -31,7 +31,7 @@ export function getCurrentInsights() {
 }
 
 export function getMyWatchList() {
-  let url = "dashboards/watchlist";
+  let url = "dashboards/mywatchlist";
   return insiders
     .get(url)
     .then(response => {

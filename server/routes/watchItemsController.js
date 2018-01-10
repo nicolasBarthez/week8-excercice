@@ -41,7 +41,7 @@ watchItemsController.get(
 // **********************************************************
 
 watchItemsController.get(
-  "/positions/user",
+  "/positions",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
@@ -58,6 +58,29 @@ watchItemsController.get(
         if (!watchitem) {
           res.json(null);
         } else {
+          // WatchItem.find({
+          //   userId: userId,
+          //   status: {
+          //     $in: ["won", "lost"]
+          //   }
+          // }).exec((err, wiClosed) => {
+          //   // console.log("wiClosed", wiClosed);
+          //   // Calculate performance points
+          //   if (wiClosed.length > 0) {
+          //     userInfo.performancePoints = wiClosed
+          //       .map(item => item.performancePoints)
+          //       .reduce((prev, next) => prev + next);
+          //
+          //     userInfo.nbOfInsightsWon = wiClosed.filter(item => {
+          //       // console.log("item.status", item.status);
+          //       return item.status == "won";
+          //     }, 0).length;
+          //   } else {
+          //     userInfo.performancePoints = 0;
+          //     userInfo.nbOfInsightsWon = 0;
+          //   }
+          // });
+
           res.json(watchitem);
         }
       });
@@ -69,7 +92,7 @@ watchItemsController.get(
 // **********************************************************
 
 watchItemsController.get(
-  "/positions",
+  "/positions/",
   passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;

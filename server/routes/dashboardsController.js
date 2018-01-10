@@ -264,7 +264,7 @@ dashboardsController.get(
 // **********************************************************
 
 dashboardsController.get(
-  "/watchlist",
+  "/mywatchlist",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
@@ -282,6 +282,7 @@ dashboardsController.get(
         activeWi.forEach(activeWatchItem => {
           const stockCurrentTrend = {
             longName: activeWatchItem.stockId.longName,
+            shortName: activeWatchItem.stockId.shortName,
             currentPrice: activeWatchItem.stockId.price,
             currency: activeWatchItem.stockId.currency,
             variation: activeWatchItem.stockId.variation,
@@ -497,7 +498,7 @@ dashboardsController.get(
                 $in: ["won", "lost"]
               }
             }).exec((err, wiClosed) => {
-              console.log("wiClosed", wiClosed);
+              // console.log("wiClosed", wiClosed);
               // Calculate performance points
               if (wiClosed.length > 0) {
                 userInfo.performancePoints = wiClosed
@@ -505,7 +506,7 @@ dashboardsController.get(
                   .reduce((prev, next) => prev + next);
 
                 userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                  console.log("item.status", item.status);
+                  // console.log("item.status", item.status);
                   return item.status == "won";
                 }, 0).length;
               } else {
@@ -535,11 +536,11 @@ dashboardsController.get(
   "/watchlist",
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
-    const user = req.params.id;
+    const user = req.query.id;
     const stockTrendBoard = [];
 
     WatchItem.find({
-      userId: user._id,
+      userId: user,
       status: "active",
       position: "none"
     })
@@ -550,6 +551,7 @@ dashboardsController.get(
         activeWi.forEach(activeWatchItem => {
           const stockCurrentTrend = {
             longName: activeWatchItem.stockId.longName,
+            shortName: activeWatchItem.stockId.shortName,
             currentPrice: activeWatchItem.stockId.price,
             variation: activeWatchItem.stockId.variation,
             currency: activeWatchItem.stockId.currency,
