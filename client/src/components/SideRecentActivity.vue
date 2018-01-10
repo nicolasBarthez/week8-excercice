@@ -18,7 +18,7 @@
                         <strong>&commat;{{recentPosition._doc.userId.username}}</strong>
                     </router-link><br>
                     <span v-if="connectedUser.lang==='EN'" class = "seeDash">({{recentPosition.nbOfInsightsWon}} <span v-if = "recentPosition.nbOfInsightsWon>1"> won trades)</span><span v-else> won trade)</span></span>
-                    <span v-else class = "seeDash">({{recentPosition.nbOfInsightsWon}}<span v-if = "recentPosition.nbOfInsightsWon>1"> trades gagnants)</span><span v-else></span> trade gagnant) </span><br>
+                    <span v-else class = "seeDash">({{recentPosition.nbOfInsightsWon}}<span v-if = "recentPosition.nbOfInsightsWon>1"> trades gagnants)</span><span v-else> trade gagnant)</span>  </span><br>
                     <span>{{connectedUser.lang==='EN'?"is":"est"}} <strong :class="{'has-text-green' : recentPosition._doc.position==='bull', 'has-text-red' :recentPosition._doc.position==='bear'}">{{recentPosition._doc.position}}</strong> {{connectedUser.lang==='EN'?"on":"sur"}}  <router-link :to="'/stocks/'+recentPosition._doc.stockId.shortName" >#{{recentPosition._doc.stockId.longName}}</router-link>
                     </span><br>
 
