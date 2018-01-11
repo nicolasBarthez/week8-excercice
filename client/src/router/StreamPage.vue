@@ -1,7 +1,7 @@
 <template>
 
   <section v-if="connectedUser" class="section main sideRecent">
-    <div class="primordial">
+    <div  v-if="babbles"class="primordial">
       <div class="sct1">
         <side-recent-activity  :connectedUser="connectedUser" class="is-sticky" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
