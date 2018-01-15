@@ -44,7 +44,7 @@
     </div>
     <div v-if="modalClosePosition">
         <b-modal :active.sync='closePositionModal' :width="640">
-            <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">     
+            <div v-if="modalClosePosition.position ==='bull'"class="mediaModal bullbearPos">
                 <div class="bullsAndBearsPic2">
                     <img src="/static/images/roundBullArrow.png" alt="bull and bear">
                 </div>
@@ -57,7 +57,7 @@
                     Retouvez vos positions en cours et passée(s) en cliquant <strong class="has-text-blue"><router-link to="/mydashboard">ici</router-link></strong>.
                 </div>
             </div>
-            <div v-else class="mediaModal bullbearPos">     
+            <div v-else class="mediaModal bullbearPos">
                 <div class="bullsAndBearsPic2">
                     <img src="/static/images/roundBearArrow.png" alt="bull and bear">
                 </div>
@@ -77,18 +77,19 @@
 
 <script>
 import { removePosition } from "@/api/api";
+import { getUser } from "@/api/api";
 
 export default {
   data() {
     return {
-        closePositionModal:false,
-        modalClosePosition:""
+      closePositionModal: false,
+      modalClosePosition: "",
+      connectedUser: null
     };
   },
 
   props: {
-    watchInsight: null,
-    connectedUser: Object
+    watchInsight: null
   },
 
   methods: {
@@ -96,9 +97,13 @@ export default {
       removePosition(watchItem.stockId.shortName, watchItem._id).then(() => {
         this.$emit("changeWatchlist");
       });
-      this.modalClosePosition= watchItem,
-      this.closePositionModal = true
+      (this.modalClosePosition = watchItem), (this.closePositionModal = true);
     }
+  },
+  created() {
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
   }
 };
 </script>
@@ -128,7 +133,7 @@ export default {
     font-weight:bold
 }
 a{
-    color: #192b41 !important; 
+    color: #192b41 !important;
 }
 .is-6{
     font-size:1rem

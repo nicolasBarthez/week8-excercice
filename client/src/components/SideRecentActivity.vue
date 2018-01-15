@@ -8,19 +8,20 @@
             <div class="picss column is-12 is-marginless">
                 <div class="media-left">
                     <figure class="image is-48x48 is-circle">
-                        <router-link :to="'/dashboard/'+recentPosition.userId._id" class=""><img class="imgProfile" :src="recentPosition.userId.picProfile">
+                        <router-link :to="'/dashboard/'+recentPosition._doc.userId._id" class=""><img class="imgProfile" :src="recentPosition._doc.userId.picProfile">
                         </router-link>
                     </figure>
                 </div>
 
                 <p>
-                    <router-link :to="'/dashboard/'+recentPosition.userId._id" >
-                        <strong>&commat;{{recentPosition.userId.username}}</strong>
-                    </router-link>
-                    <span>{{connectedUser.lang==='EN'?"is":"est"}} <strong :class="{'has-text-green' : recentPosition.position==='bull', 'has-text-red' :recentPosition.position==='bear'}">{{recentPosition.position}}</strong> {{connectedUser.lang==='EN'?"on":"sur"}} <br> <router-link :to="'/stocks/'+recentPosition.stockId.shortName" >#{{recentPosition.stockId.longName}}</router-link>
+                    <router-link :to="'/dashboard/'+recentPosition._doc.userId._id" >
+                        <strong>&commat;{{recentPosition._doc.userId.username}}</strong>
+                    </router-link><br>
+                    <span v-if="connectedUser.lang==='EN'" class = "seeDash">({{recentPosition.nbOfInsightsWon}} <span v-if = "recentPosition.nbOfInsightsWon>1"> won trades)</span><span v-else> won trade)</span></span>
+                    <span v-else class = "seeDash">({{recentPosition.nbOfInsightsWon}}<span v-if = "recentPosition.nbOfInsightsWon>1"> trades gagnants)</span><span v-else> trade gagnant)</span>  </span><br>
+                    <span>{{connectedUser.lang==='EN'?"is":"est"}} <strong :class="{'has-text-green' : recentPosition._doc.position==='bull', 'has-text-red' :recentPosition._doc.position==='bear'}">{{recentPosition._doc.position}}</strong> {{connectedUser.lang==='EN'?"on":"sur"}}  <router-link :to="'/stocks/'+recentPosition._doc.stockId.shortName" >#{{recentPosition._doc.stockId.longName}}</router-link>
                     </span><br>
-                    <span v-if="connectedUser.lang==='EN'" class = "seeDash">Followed by {{recentPosition.userId.nbFollower}} Insiders</span>
-                    <span v-else class = "seeDash">Suivi par {{recentPosition.userId.nbFollower}} Insiders</span><br>
+
                     </p>
             </div>
         </div>
@@ -29,10 +30,20 @@
 </template>
 
 <script>
+import { getUser } from "@/api/api";
 export default {
+  data() {
+    return {
+      connectedUser: null
+    };
+  },
   props: {
-    recentPositions: null,
-    connectedUser: Object
+    recentPositions: null
+  },
+  created() {
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
   }
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-<section>
+<section v-if="connectedUser">
     <div class="column is-6" id="ActionCard">
         <div id="cardAction" class="card profile-card">
             <div class="card-content">
@@ -189,14 +189,14 @@ import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
 import { getTrend } from "@/api/api";
 import { getDescription } from "@/api/api";
+import { getUser } from "@/api/api";
 
 export default {
   name: "StockHeader",
   props: {
     stock: Object,
     watchItem: Object,
-    trendBullBear: Array,
-    connectedUser: Object
+    trendBullBear: Array
   },
   data() {
     return {
@@ -207,13 +207,19 @@ export default {
       imBullModal: false,
       imBearModal: false,
       closePositionModal: false,
-      description: "Description"
+      description: "Description",
+      connectedUser: null
     };
   },
   components: {
     ChartStockIex,
     ChartStockEuroNext,
     ChartStockCrypto
+  },
+  created() {
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
   },
   methods: {
     ChartStock() {

@@ -58,30 +58,41 @@ watchItemsController.get(
         if (!watchitem) {
           res.json(null);
         } else {
-          // WatchItem.find({
-          //   userId: userId,
-          //   status: {
-          //     $in: ["won", "lost"]
-          //   }
-          // }).exec((err, wiClosed) => {
-          //   // console.log("wiClosed", wiClosed);
-          //   // Calculate performance points
-          //   if (wiClosed.length > 0) {
-          //     userInfo.performancePoints = wiClosed
-          //       .map(item => item.performancePoints)
-          //       .reduce((prev, next) => prev + next);
-          //
-          //     userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-          //       // console.log("item.status", item.status);
-          //       return item.status == "won";
-          //     }, 0).length;
-          //   } else {
-          //     userInfo.performancePoints = 0;
-          //     userInfo.nbOfInsightsWon = 0;
-          //   }
-          // });
+          const lastPositionsList = [];
+          watchitem.forEach(el => {
+            const wi = { ...el };
+            WatchItem.find({
+              userId: el.userId,
+              status: {
+                $in: ["won", "lost"]
+              }
+            }).exec((err, wiClosed) => {
+              // console.log("wiClosed", wiClosed);
+              // Calculate performance points
+              if (wiClosed.length > 0) {
+                wi.perfPoints = wiClosed
+                  .map(item => item.performancePoints)
+                  .reduce((prev, next) => prev + next);
 
-          res.json(watchitem);
+                wi.nbOfInsightsWon = wiClosed.filter(item => {
+                  // console.log("item.status", item.status);
+                  return item.status == "won";
+                }, 0).length;
+                lastPositionsList.push(wi);
+                console.log("Insights WON =>", wi.nbOfInsightsWon);
+              } else {
+                wi.perfPoints = 0;
+                wi.nbOfInsightsWon = 0;
+                console.log("WI", wi);
+                lastPositionsList.push(wi);
+              }
+              if (lastPositionsList.length === watchitem.length) {
+                res.json(lastPositionsList);
+              }
+            });
+          });
+
+          // res.json(watchitem);
         }
       });
   }

@@ -1,8 +1,7 @@
 <template>
-  <section class="main">
+  <section v-if="connectedUser" class="main">
     <h1 class= "title">
-      Classement des meilleurs Insiders :
-      Suivez leurs conseils et gagnez de l'argent !
+      {{connectedUser.lang==="EN"?"Best insiders: Follow their advice and earn money":"Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !"}}
     </h1>
         <b-table v-if="leaderBoard"
             :data="leaderBoard"
@@ -72,6 +71,7 @@
 
 <script>
 import { getLeaderBoard } from "@/api/api";
+import { getUser } from "@/api/api";
 export default {
   data() {
     return {
@@ -85,10 +85,14 @@ export default {
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "asc"
+      defaultSortDirection: "asc",
+      connectedUser: null
     };
   },
   created() {
+    getUser().then(connectedUser => {
+      this.connectedUser = connectedUser;
+    });
     getLeaderBoard().then(leaderBoard => {
       this.leaderBoard = leaderBoard;
     });
