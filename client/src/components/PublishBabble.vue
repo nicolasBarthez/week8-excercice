@@ -131,7 +131,6 @@ import { sendBabble } from "@/api/api";
 import { beBear } from "@/api/api";
 import { beBull } from "@/api/api";
 import emojify from "emojify.js";
-import { getUser } from "@/api/api";
 
 export default {
   data() {
@@ -147,11 +146,11 @@ export default {
       noSticker: false,
       width: 0,
       height: 0,
-      quality: 0,
-      connectedUser: null
+      quality: 0
     };
   },
   props: {
+    connectedUser: Object,
     stock: {
       type: Object,
       default: function() {
@@ -244,9 +243,6 @@ export default {
   },
   created() {
     emojify.setConfig({ img_dir: "/static/images/basic" });
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
   }
 };
 </script>

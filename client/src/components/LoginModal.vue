@@ -53,13 +53,15 @@ export default {
   methods: {
     login() {
       this.error = null;
-      login(this.email, this.password, this.$root)
+      login(
+        this.email,
+        this.password,
+        this.$root,
+        this.$emit("closeLoginModal")
+      )
         .then(data => {
-          this.$parent.close();
+          // this.$parent.close();
           this.$router.push("/stream");
-        })
-        .then(() => {
-          document.getElementsById("html").removeAttribute("is-clipped");
         })
         .catch(err => {
           this.error = "Password or username is incorrect";

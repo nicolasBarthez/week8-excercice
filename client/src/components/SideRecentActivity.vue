@@ -30,20 +30,13 @@
 </template>
 
 <script>
-import { getUser } from "@/api/api";
 export default {
   data() {
-    return {
-      connectedUser: null
-    };
+    return {};
   },
   props: {
-    recentPositions: null
-  },
-  created() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
+    recentPositions: null,
+    connectedUser: Object
   }
 };
 </script>
