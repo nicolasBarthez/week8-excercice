@@ -56,15 +56,21 @@ export default {
       login(
         this.email,
         this.password,
-        this.$root,
-        this.$emit("closeLoginModal")
+        this.$root
+        // this.$emit("closeLoginModal")
       )
         .then(data => {
-          // this.$parent.close();
           this.$router.push("/stream");
+          document.documentElement.className = document.documentElement.className.replace(
+            "is-clipped",
+            ""
+          );
         })
         .catch(err => {
-          this.error = "Password or username is incorrect";
+          this.error =
+            this.langSelected === "EN"
+              ? "Password or email is incorrect"
+              : "Mot de passe ou email incorrect";
         });
     }
   }
