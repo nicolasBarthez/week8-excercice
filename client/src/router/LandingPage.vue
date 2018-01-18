@@ -1,5 +1,5 @@
 <template>
-<stream-page v-if="this.$root.user"></stream-page>
+<stream-page :connectedUser="connectedUser" v-if="this.$root.user"></stream-page>
 
 <section v-else class="hero is-fullheight">
   <div class="flag">
@@ -150,6 +150,9 @@ export default {
       autenticate: "",
       langSelected: "FR"
     };
+  },
+  props: {
+    connectedUser: Object
   },
   components: {
     SignupModal,

@@ -2,7 +2,7 @@
   <div id="app">
 
     <nav-bar :connectedUser="connectedUser" v-if="this.$root.user"></nav-bar>
-    <landing-page v-if="!this.$root.user"></landing-page>
+    <landing-page :connectedUser="connectedUser" v-if="!this.$root.user"></landing-page>
     <router-view :connectedUser="connectedUser" v-else class="wrapper"></router-view>
 
   </div>

@@ -53,12 +53,7 @@ export default {
   methods: {
     login() {
       this.error = null;
-      login(
-        this.email,
-        this.password,
-        this.$root
-        // this.$emit("closeLoginModal")
-      )
+      login(this.email, this.password, this.$root)
         .then(data => {
           this.$router.push("/stream");
           document.documentElement.className = document.documentElement.className.replace(
