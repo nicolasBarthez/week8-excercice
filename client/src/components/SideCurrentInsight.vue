@@ -77,19 +77,18 @@
 
 <script>
 import { removePosition } from "@/api/api";
-import { getUser } from "@/api/api";
 
 export default {
   data() {
     return {
       closePositionModal: false,
-      modalClosePosition: "",
-      connectedUser: null
+      modalClosePosition: ""
     };
   },
 
   props: {
-    watchInsight: null
+    watchInsight: null,
+    connectedUser: Object
   },
 
   methods: {
@@ -100,11 +99,7 @@ export default {
       (this.modalClosePosition = watchItem), (this.closePositionModal = true);
     }
   },
-  created() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
-  }
+  created() {}
 };
 </script>
 

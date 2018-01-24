@@ -1,8 +1,8 @@
 <template>
   <div id="app">
 
-    <nav-bar v-if="this.$root.user"></nav-bar>
-    <landing-page v-if="!this.$root.user"></landing-page>
+    <nav-bar :connectedUser="connectedUser" v-if="this.$root.user"></nav-bar>
+    <landing-page :connectedUser="connectedUser" v-if="!this.$root.user"></landing-page>
     <router-view :connectedUser="connectedUser" v-else class="wrapper"></router-view>
 
   </div>
@@ -34,6 +34,13 @@ export default {
     getUser().then(user => {
       this.connectedUser = user;
     });
+  },
+  watch: {
+    $route() {
+      getUser().then(data => {
+        this.connectedUser = data;
+      });
+    }
   }
 };
 </script>

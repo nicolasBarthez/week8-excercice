@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import { getUser } from "@/api/api";
 import { getRecentPosition } from "@/api/api";
 import { getWatchInsight } from "@/api/api";
 import { getAllBabbles } from "@/api/api";
@@ -31,11 +30,12 @@ export default {
       watchItem: null,
       watchInsight: null,
       babbles: null,
-      recentPositions: null,
-      connectedUser: null
+      recentPositions: null
     };
   },
-  props: {},
+  props: {
+    connectedUser: Object
+  },
   components: {
     SideCurrentInsight,
     StreamTimelineBabble,
@@ -74,9 +74,6 @@ export default {
       getRecentPosition().then(recentPositions => {
         this.recentPositions = recentPositions;
       });
-      getUser().then(connectedUser => {
-        this.connectedUser = connectedUser;
-      });
     }
   },
   created() {
@@ -91,6 +88,7 @@ export default {
 </script>
 
 <style scoped>
+
 div{
    font-size:1.2rem !important
 }

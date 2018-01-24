@@ -8,12 +8,12 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 const urlStart = "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=";
 const urlEnd = "&tsyms=USD,EUR";
-// Find date of today midnight
 
 function scrapPriceCurrency(symbole) {
   let url = urlStart + symbole + urlEnd;
   console.log("url", url);
   return axios.get(url).then(resp => {
+    console.log("RESP", resp.data.RAW[symbole].USD.PRICE);
     let price = resp.data.RAW[symbole].USD.PRICE;
     let volume = resp.data.RAW[symbole].USD.TOTALVOLUME24H;
     let variation = resp.data.RAW[symbole].USD.CHANGEPCT24HOUR;

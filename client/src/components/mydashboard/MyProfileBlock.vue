@@ -97,6 +97,7 @@
 
 <script>
 import { getLeaderboard } from "@/api/apiDashboard";
+
 export default {
   data() {
     return {

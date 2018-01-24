@@ -31,7 +31,11 @@ export default {
   },
   created() {
     getUsersList().then(userList => {
-      this.userList = userList;
+      if (userList === "unauthorized") {
+        this.$router.push("/stream");
+      } else {
+        this.userList = userList;
+      }
     });
   },
 

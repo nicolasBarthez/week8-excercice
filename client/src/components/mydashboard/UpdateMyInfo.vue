@@ -23,7 +23,7 @@
                 <br><hr>
 
               <label><span>Update your photo:</span><br>
-                <croppa v-model="image" 
+                <croppa v-model="image"
                   initial-image=""
                   :width="150"
                   :height="150"

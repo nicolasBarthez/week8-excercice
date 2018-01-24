@@ -1,5 +1,5 @@
 <template>
-<stream-page v-if="this.$root.user"></stream-page>
+<stream-page :connectedUser="connectedUser" v-if="this.$root.user"></stream-page>
 
 <section v-else class="hero is-fullheight">
   <div class="flag">
@@ -129,7 +129,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 
         <!-- LOG IN MODAL -->
         <b-modal :active.sync="isLoginModalActive" :width="640">
-          <login-modal :langSelected="langSelected" :autenticate="autenticate"></login-modal>
+          <login-modal :langSelected="langSelected" :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
         </b-modal>
       </div>
     </div>
@@ -151,6 +151,9 @@ export default {
       langSelected: "FR"
     };
   },
+  props: {
+    connectedUser: Object
+  },
   components: {
     SignupModal,
     LoginModal,
@@ -171,6 +174,9 @@ export default {
       console.log("HELLO", lang);
       this.langSelected = lang;
       console.log("this.langSelected=>", this.langSelected);
+    },
+    closeLoginModal() {
+      this.isLoginModalActive = false;
     }
   }
 };

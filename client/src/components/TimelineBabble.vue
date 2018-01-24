@@ -160,7 +160,6 @@
 
 <script>
 import { sendBabbleReply } from "@/api/api";
-import { getUser } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
 import emojify from "emojify.js";
@@ -172,13 +171,13 @@ export default {
       babbleText: "",
       modalBabble: "",
       userReply: "",
-      activeItem: "all",
-      connectedUser: null
+      activeItem: "all"
     };
   },
   props: {
     babbles: Array,
-    stock: Object
+    stock: Object,
+    connectedUser: Object
   },
 
   computed: {
@@ -267,9 +266,6 @@ export default {
   },
   created() {
     emojify.setConfig({ img_dir: "/static/images/basic" });
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
   }
 };
 </script>

@@ -55,14 +55,17 @@ export default {
       this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
-          this.$parent.close();
           this.$router.push("/stream");
-        })
-        .then(() => {
-          document.getElementsById("html").removeAttribute("is-clipped");
+          document.documentElement.className = document.documentElement.className.replace(
+            "is-clipped",
+            ""
+          );
         })
         .catch(err => {
-          this.error = "Password or username is incorrect";
+          this.error =
+            this.langSelected === "EN"
+              ? "Password or email is incorrect"
+              : "Mot de passe ou email incorrect";
         });
     }
   }

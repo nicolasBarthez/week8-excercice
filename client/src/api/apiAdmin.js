@@ -28,3 +28,83 @@ export function getStock(stockName) {
       throw err;
     });
 }
+
+export function getAllStocks() {
+  let url = `admin/stocks/`;
+  return insiders
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
+
+export function stockDelete(stockId) {
+  let url = `admin/stocks/delete/` + stockId;
+  return insiders
+    .delete(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
+
+export function stockCreate(newstock) {
+  let url = `admin/stocks/create/`;
+  return insiders
+    .post(url, newstock)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
+
+export function stockUpdate(
+  _id,
+  longName,
+  shortName,
+  index,
+  isin,
+  currency,
+  currency2,
+  symbolPrice,
+  price,
+  price2,
+  volume,
+  description,
+  descriptionEng,
+  stockImg,
+  scrapKey
+) {
+  let url = `admin/stocks/edit`;
+  return insiders
+    .patch(url, {
+      _id,
+      longName,
+      shortName,
+      index,
+      isin,
+      currency,
+      currency2,
+      symbolPrice,
+      price,
+      price2,
+      volume,
+      description,
+      descriptionEng,
+      stockImg,
+      scrapKey
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}

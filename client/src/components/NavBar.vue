@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import { getAllStocks, getUser } from "@/api/api";
+import { getAllStocks } from "@/api/api";
 import { logout } from "@/api/auth";
 export default {
   name: "NavBar",
@@ -75,16 +75,16 @@ export default {
         { location: "/trending", text: "Trending", textfr: "Tendance" },
         { location: "/leaderboard", text: "Leaderboard", textfr: "Leaderboard" }
       ],
-      connectedUser: null,
+
       data: null,
       name: "",
       selected: null,
       closedState: true
     };
   },
-  // props: {
-  //   connectedUser: Object
-  // },
+  props: {
+    connectedUser: Object
+  },
   methods: {
     logout() {
       logout(this.$root);
@@ -109,10 +109,7 @@ export default {
       }
     },
     $route() {
-      getUser().then(data => {
-        this.connectedUser = data;
-      });
-      this.closedState = true
+      this.closedState = true;
     }
   },
   computed: {
@@ -135,9 +132,6 @@ export default {
   mounted() {
     getAllStocks().then(data => {
       this.data = data;
-    });
-    getUser().then(data => {
-      this.connectedUser = data;
     });
   }
 };

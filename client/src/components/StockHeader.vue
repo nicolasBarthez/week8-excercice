@@ -189,14 +189,14 @@ import { beBull } from "@/api/api";
 import { removePosition } from "@/api/api";
 import { getTrend } from "@/api/api";
 import { getDescription } from "@/api/api";
-import { getUser } from "@/api/api";
 
 export default {
   name: "StockHeader",
   props: {
     stock: Object,
     watchItem: Object,
-    trendBullBear: Array
+    trendBullBear: Array,
+    connectedUser: Object
   },
   data() {
     return {
@@ -207,20 +207,16 @@ export default {
       imBullModal: false,
       imBearModal: false,
       closePositionModal: false,
-      description: "Description",
-      connectedUser: null
+      description: "Description"
     };
   },
+
   components: {
     ChartStockIex,
     ChartStockEuroNext,
     ChartStockCrypto
   },
-  created() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
-  },
+
   methods: {
     ChartStock() {
       this.isChartStockActive = true;
