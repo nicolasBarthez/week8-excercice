@@ -18,7 +18,6 @@ const wikipedia = require("wikipedia-js");
 // Send info about a stock  =================================
 // **********************************************************
 stocksController.get("/:stockName", function(req, res, next) {
-  console.log("called GET INFO on A STOCK", req.params.stockName.toUpperCase());
   const stock = req.params.stockName.toUpperCase();
   const FIVE_MIN = 300 * 1000;
   const ONE_MIN = 60 * 1000;

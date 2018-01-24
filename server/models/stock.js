@@ -14,12 +14,30 @@ const stockSchema = new Schema(
     stockImg: String,
     symbolPrice: String,
     index: [String],
-    price: Number,
-    price2: Number,
-    variation: Number,
-    variation2: Number,
-    volume: Number,
-    currency: String,
+    price: {
+      type: Number,
+      default: 1
+    },
+    price2: {
+      type: Number,
+      default: 1
+    },
+    variation: {
+      type: Number,
+      default: 1
+    },
+    variation2: {
+      type: Number,
+      default: 1
+    },
+    volume: {
+      type: Number,
+      default: 1
+    },
+    currency: {
+      type: String,
+      default: "EUR"
+    },
     currency2: String,
     scrapKey: String
   },
