@@ -1,5 +1,5 @@
 <template>
-  <section class="main">
+  <section v-if="connectedUser.role==='admin'" class="main">
     <h1 class= "title">
       Stock administration : {{stocks.length}} stocks registered.
     </h1>
@@ -253,7 +253,9 @@ export default {
       }
     });
   },
-
+  props: {
+    connectedUser: Object
+  },
   methods: {
     addNewStock() {
       this.isStockCreatingActive = true;

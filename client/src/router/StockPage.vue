@@ -17,7 +17,6 @@
 </template>
 
 <script>
-import { getUser } from "@/api/api";
 import { getRecentPosition } from "@/api/api";
 import { getWatchInsight } from "@/api/api";
 import { getStock } from "@/api/api";
@@ -40,7 +39,6 @@ export default {
       watchInsight: null,
       babbles: null,
       recentPositions: null,
-      connectedUser: null,
       trendBullBear: [50, 50]
     };
   },
@@ -51,6 +49,9 @@ export default {
     PublishBabble,
     SideRecentActivity,
     NotFound
+  },
+  props: {
+    connectedUser: Object
   },
 
   methods: {
@@ -71,9 +72,6 @@ export default {
 
     fetchData() {
       const stockName = this.$route.params.stockName;
-      getUser().then(connectedUser => {
-        this.connectedUser = connectedUser;
-      });
       getStock(stockName).then(stock => {
         this.stock = stock;
       });
