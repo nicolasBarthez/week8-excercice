@@ -30,6 +30,44 @@ adminController.get(
   }
 );
 
+adminController.patch(
+  "/users/edit",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+
+    const changeUser = {
+      username: req.body.username,
+      location: req.body.location,
+      lang: req.body.lang,
+      role: req.body.role,
+      picProfile: req.body.picProfile
+    };
+
+    const userId = req.body._id;
+
+    User.findByIdAndUpdate(userId, changeUser, {
+      new: true
+    }).exec((err, resp) => {
+      if (err) res.json(err);
+      return res.json(resp);
+    });
+  }
+);
+
+adminController.delete(
+  "/users/delete/:id",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    const user = req.user;
+    const userId = req.params.id;
+
+    User.findByIdAndRemove(userId).exec((err, resp) => {
+      if (err) res.json(err);
+      return res.json(resp);
+    });
+  }
+);
 // **********************************************************
 // Send stocks list
 // **********************************************************
@@ -108,10 +146,9 @@ adminController.delete(
   (req, res, next) => {
     const user = req.user;
     const stockId = req.params.id;
-    console.log("stockId", stockId);
+
     Stock.findByIdAndRemove(stockId).exec((err, resp) => {
       if (err) res.json(err);
-      console.log("RESP", resp);
       return res.json(resp);
     });
   }

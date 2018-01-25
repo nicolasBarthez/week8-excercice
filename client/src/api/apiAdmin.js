@@ -108,3 +108,34 @@ export function stockUpdate(
       return null;
     });
 }
+
+export function userUpdate(_id, username, location, lang, role, picProfile) {
+  let url = "admin/users/edit";
+  return insiders
+    .patch(url, {
+      _id,
+      username,
+      location,
+      lang,
+      role,
+      picProfile
+    })
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return err;
+    });
+}
+
+export function userDelete(userId) {
+  let url = `admin/users/delete/` + userId;
+  return insiders
+    .delete(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
