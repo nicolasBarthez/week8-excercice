@@ -17,7 +17,7 @@ const moment = require("moment");
 
 babblesController.get(
   "/",
-  passport.authenticate("jwt", config.jwtSession),
+  // passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
     // sort by people who wrote the babble
@@ -34,7 +34,7 @@ babblesController.get(
           if (err) return res.json(null);
           res.json(timeline);
         });
-    } else if (sort === "me") {
+    } else if (sort === "me" && user) {
       Babble.find({ user: user._id })
         .sort({ updated_at: -1 })
         .populate("user")
@@ -43,7 +43,7 @@ babblesController.get(
           if (err) return res.json(null);
           res.json(timeline);
         });
-    } else if (sort === "insidermates") {
+    } else if (sort === "insidermates" && user) {
       User.findById(user._id).then(us => {
         Babble.find({ user: { $in: us.following } })
           .sort({ updated_at: -1 })
@@ -56,7 +56,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "watchlist") {
+    } else if (sort === "watchlist" && user) {
       User.findById(user._id)
         .populate("watchList")
         .exec((err, us) => {
