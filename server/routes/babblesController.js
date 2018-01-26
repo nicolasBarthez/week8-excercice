@@ -82,7 +82,7 @@ babblesController.get(
 
 babblesController.get(
   "/:name",
-  passport.authenticate("jwt", config.jwtSession),
+  // passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const stock = req.params.name.toUpperCase();
     const user = req.user;
@@ -106,7 +106,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "me") {
+    } else if (sort === "me" && user) {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return res.json("stock doesn't exist");
@@ -120,7 +120,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "insidermates") {
+    } else if (sort === "insidermates" && user) {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return res.json("stock doesn't exist");
