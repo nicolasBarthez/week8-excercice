@@ -150,6 +150,9 @@ export default {
       );
 
       return replacedText;
+    },
+    created() {
+      emojify.setConfig({ img_dir: "/static/images/basic" });
     }
   }
 };
