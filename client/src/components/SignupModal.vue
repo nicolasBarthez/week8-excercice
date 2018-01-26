@@ -46,16 +46,16 @@
                             <hr>
                             <p class="control">
                              <button v-if="langSelected==='EN'" class="button is-primary"@click="signup()">Register</button>
-                             <button v-else class="button is-primary"@click="signup()">Inscription</button>
+                             <button v-else class="button is-primary" @click="signup()">Inscription</button>
                              <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()">Cancel</button>
-                             <button v-else class="button is-default"@click="$parent.close()">Annuler</button>
+                             <button v-else class="button is-default" @click="$parent.close()">Annuler</button>
                             </p>
                             <hr>
                             <p class="control">
                                 <p class="has-text-blue" v-if="langSelected==='EN'" >Already an Insider ?</p>
-                                <p class="has-text-blue"v-else >Dejà Insider ?</p>
-                             <button v-if="langSelected==='EN'" class="button is-default"@click="loggin()">Login</button>
-                             <button v-else class="button is-default"@click="loggin()">Se connecter</button>
+                                <p class="has-text-blue" v-else >Dejà Insider ?</p>
+                             <button v-if="langSelected==='EN'" class="button is-default" @click="loggin()">Login</button>
+                             <button v-else class="button is-default" @click="loggin()">Se connecter</button>
                             </p>
                           </div>
                     </div>

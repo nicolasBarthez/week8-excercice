@@ -1,5 +1,6 @@
 <template>
     <section class="main">
+ <nav-bar-unconnect v-if="!this.$root.user" :langSelected="langSelected" @changeLang="changeLang($event)"></nav-bar-unconnect>
 <nav v-if="connectedUser" class="navbar is-dark">
       <div v-if="connectedUser.lang==='EN'" class="babblesMenu">
             <a  @click="selected()" :class="{'is-active':indexSelected ==='SELECTED' }" class="navbar-item is-tab babMenu">Selected</a>
@@ -102,6 +103,7 @@
 
 <script>
 import { getStocksTrending } from "@/api/apiTrending";
+import NavBarUnconnect from "@/components/NavBarUnconnect";
 
 const sortParams = {
   longName: "name",
@@ -118,6 +120,9 @@ function makeSortParam(field, order) {
 }
 
 export default {
+   components: {
+    NavBarUnconnect,
+   },
   data() {
     return {
       stocks: [],
@@ -138,6 +143,9 @@ export default {
     connectedUser: Object
   },
   methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
     selected() {
       this.indexSelected = "SELECTED";
       getStocksTrending({

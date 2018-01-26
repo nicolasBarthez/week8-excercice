@@ -1,5 +1,6 @@
 <template>
   <section class="section main sideRecent">
+    <nav-bar-unconnect v-if="!this.$root.user" :langSelected="langSelected" @changeLang="changeLang($event)"></nav-bar-unconnect>
     <div class="primordial">
       <div class="sct1">
 
@@ -22,6 +23,7 @@ import SideRecentActivityUnconnect from "@/components/unconnect/SideRecentActivi
 import PublishBabbleUnconnect from "@/components/unconnect/PublishBabbleUnconnect";
 import StreamTimelineBabbleUnconnect from "@/components/unconnect/StreamTimelineBabbleUnconnect";
 import SideCurrentInsightUnconnect from "@/components/unconnect/SideCurrentInsightUnconnect";
+import NavBarUnconnect from "@/components/NavBarUnconnect";
 
 export default {
   data() {
@@ -39,9 +41,13 @@ export default {
     StreamTimelineBabbleUnconnect,
     SideRecentActivityUnconnect,
     SideCurrentInsightUnconnect,
+    NavBarUnconnect
   },
 
   methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
     fetchData() {
       getAllBabbles(this.filterBy).then(babbles => {
         this.babbles = babbles;

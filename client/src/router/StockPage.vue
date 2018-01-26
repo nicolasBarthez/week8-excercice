@@ -3,7 +3,7 @@
 
     <Stock-Page-Connect v-if="connectedUser" :connectedUser="connectedUser"></Stock-Page-Connect>
     
-    <Stock-Page-Unconnect v-else :langSelected="langSelected"></Stock-Page-Unconnect>
+    <Stock-Page-Unconnect @changeLang="changeLang($event)" v-else :langSelected="langSelected"></Stock-Page-Unconnect>
 
   </div>
 </template>
@@ -22,6 +22,10 @@ export default {
     connectedUser: Object,
     langSelected:""
   },
-
+methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
+   }
 };
 </script>

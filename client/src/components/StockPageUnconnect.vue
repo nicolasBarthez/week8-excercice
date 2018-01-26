@@ -1,7 +1,9 @@
 <template>
+<div>
+<nav-bar-unconnect v-if="!this.$root.user" :langSelected="langSelected" @changeLang="changeLang($event)"></nav-bar-unconnect>
 <not-found v-if="stock==='no stock'"></not-found>
   <section v-else class="section main">
-       <div>
+       
 <stock-header-unconnect v-if="stock"  :langSelected="langSelected" :stock="stock" :trendBullBear="trendBullBear" @signup="fetchData()" @trendBullBearThirty="fetchData()" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)"></stock-header-unconnect>
      <div class="primordial">
       <div class="sct1">
@@ -14,8 +16,8 @@
       
       </div>
     </div>
-    </div>
-</section>
+    </section>
+</div>
 
 </template>
 
@@ -30,6 +32,7 @@ import SideRecentActivityUnconnect from "@/components/unconnect/SideRecentActivi
 import PublishBabbleUnconnect from "@/components/unconnect/PublishBabbleUnconnect";
 import TimelineBabbleUnconnect from "@/components/unconnect/TimelineBabbleUnconnect";
 import SideCurrentInsightUnconnect from "@/components/unconnect/SideCurrentInsightUnconnect";
+import NavBarUnconnect from "@/components/NavBarUnconnect";
 
 
 export default {
@@ -48,6 +51,7 @@ export default {
     TimelineBabbleUnconnect,
     SideRecentActivityUnconnect,
     SideCurrentInsightUnconnect,
+    NavBarUnconnect,
     NotFound
   },
   props: {
@@ -55,6 +59,9 @@ export default {
   },
 
   methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
     updateTimelineBabble() {
       this.fetchData();
     },

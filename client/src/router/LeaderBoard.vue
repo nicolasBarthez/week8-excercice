@@ -67,6 +67,8 @@
         </b-table>
 </section>
  <section v-else class="main">
+    <nav-bar-unconnect v-if="!this.$root.user" :langSelected="langSelected" @changeLang="changeLang($event)"></nav-bar-unconnect>
+
     <h1 class= "title">
       {{langSelected==="EN"?"Best insiders: Follow their advice and earn money":"Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !"}}
     </h1>
@@ -147,10 +149,13 @@
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
 import { getLeaderBoard } from "@/api/api";
+import NavBarUnconnect from "@/components/NavBarUnconnect";
+
 export default {
   components: {
     SignupModal,
     LoginModal,
+    NavBarUnconnect,
   },
   data() {
     return {
@@ -181,6 +186,9 @@ export default {
   },
 
   methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
     onPageChange(page) {
       this.page = page;
     },

@@ -3,7 +3,7 @@
 
     <Stream-Page-Connect v-if="connectedUser" :connectedUser="connectedUser"></Stream-Page-Connect>
     
-    <Stream-Page-Unconnect v-else :langSelected="langSelected"></Stream-Page-Unconnect>
+    <Stream-Page-Unconnect @changeLang="changeLang($event)" v-else :langSelected="langSelected"></Stream-Page-Unconnect>
 
   </div>
 </template>
@@ -22,6 +22,10 @@ export default {
     connectedUser: Object,
     langSelected:""
   },
-
+   methods: {
+    changeLang(lang) {
+       this.$emit("changeLang",lang);
+    },
+   }
 };
 </script>
