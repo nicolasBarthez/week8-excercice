@@ -75,6 +75,7 @@ export default {
 <style scoped>
 #modalAuth{
     border-radius:5px;
+    BACKGROUND-COLOR: #F9F9F9;
 }
 span{
   width:2em!important;

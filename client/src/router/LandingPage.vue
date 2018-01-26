@@ -148,11 +148,11 @@ export default {
       isSignupModalActive: false,
       isLoginModalActive: false,
       autenticate: "",
-      langSelected: "FR"
     };
   },
   props: {
-    connectedUser: Object
+    connectedUser: Object,
+    langSelected: ""
   },
   components: {
     SignupModal,
@@ -170,20 +170,27 @@ export default {
       this.autenticate = autenticate;
       this.isLoginModalActive = true;
     },
+    
     changeLang(lang) {
-      console.log("HELLO", lang);
-      this.langSelected = lang;
-      console.log("this.langSelected=>", this.langSelected);
+       this.$emit("changeLang",lang);
     },
     closeLoginModal() {
       this.isLoginModalActive = false;
     }
+  },
+  created(){
+    document.documentElement.className = document.documentElement.className.replace(
+            "has-shadow",
+            "navcach"
+          );
   }
 };
 </script>
 
 <style scoped>
-
+.navcach{
+  display: none
+}
 .sentimentLand{
   display: flex;
   justify-content: space-evenly;

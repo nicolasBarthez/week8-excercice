@@ -50,7 +50,6 @@
                                      @click="iLike(babble)" class="like-btn">🚀</i></span>
                                     <small>{{babble.like.length}}</small>
                                 </a>
-                                </a>
                             </div>
                         </nav>
                     </div>

@@ -50,6 +50,13 @@
                              <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()">Cancel</button>
                              <button v-else class="button is-default"@click="$parent.close()">Annuler</button>
                             </p>
+                            <hr>
+                            <p class="control">
+                                <p class="has-text-blue" v-if="langSelected==='EN'" >Already an Insider ?</p>
+                                <p class="has-text-blue"v-else >Dejà Insider ?</p>
+                             <button v-if="langSelected==='EN'" class="button is-default"@click="loggin()">Login</button>
+                             <button v-else class="button is-default"@click="loggin()">Se connecter</button>
+                            </p>
                           </div>
                     </div>
                 </div>
@@ -94,6 +101,10 @@ export default {
         .catch(err => {
           this.error = "Cette adresse e-mail est deja enregistrée. Veuillez vous connecter pour acceder à votre compte.";
         });
+    },
+    loggin(){
+        this.$emit("loginModal");
+          this.$parent.close();
     }
   }
 };

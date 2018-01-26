@@ -66,15 +66,97 @@
             </template>
         </b-table>
 </section>
+ <section v-else class="main">
+    <h1 class= "title">
+      {{langSelected==="EN"?"Best insiders: Follow their advice and earn money":"Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !"}}
+    </h1>
+        <b-table v-if="leaderBoard"
+            :data="leaderBoard"
+            :loading="loading"
+
+            :paginated="isPaginated"
+            :per-page="perPage"
+            :pagination-simple="isPaginationSimple"
+
+            :total="total"
+            @page-change="onPageChange"
+
+            :striped="true"
+
+            :default-sort-direction="defaultSortOrder"
+            :default-sort="defaultSortField"
+            >
+
+            <template slot-scope="props">
+                <b-table-column label="Insider" centered field='userId'>
+                  <div  @click="SignupModal" class="insider">
+                    <figure class="image is-32x32 is-circle">
+                    </figure>
+                    {{props.row.username}}
+                  </div>
+                </b-table-column>
+
+                <b-table-column field='followers' numeric sortable centered label="Followers">
+                    {{ props.row.followers }}
+                </b-table-column>
+                 <b-table-column field='nbBabbles' numeric sortable centered label="Babbles posted">
+                    {{ props.row.nbBabbles }}
+                </b-table-column>
+
+                <b-table-column  field='nbOfLikes' sortable numeric centered label="Likes">
+                    {{ props.row.nbOfLikes }}
+                </b-table-column>
+
+                <b-table-column field='preferedStocks'centered label="Prefered stocks">
+                  <router-link :to="'/stocks/'+props.row.preferedStocks.map(el => el.shortName)[0]"class="stockName is-6" data-replace="Symbol">   {{ props.row.preferedStocks.map(el => el.longName)[0]}}</router-link>
+                </b-table-column>
+
+                <b-table-column field='performancePoints' numeric sortable centered label="Performance Points">
+                    {{ props.row.performancePoints.toFixed(0)  }} P$
+                </b-table-column>
+
+            </template>
+            <template slot="empty">
+                <section class="section">
+                    <div class="content has-text-grey has-text-centered">
+                        <p>
+                            <b-icon
+                                icon="sentiment_very_satisfied"
+                                size="is-large">
+                            </b-icon>
+                        </p>
+                        <p>...loading</p>
+                    </div>
+                </section>
+            </template>
+        </b-table>
+        <!-- SIGN UP MODAL -->
+        <b-modal :active.sync="isSignupModalActive" :width="640">
+          <signup-modal @loginModal.capture="LoginModal($event)"></signup-modal>
+        </b-modal>
+
+        <!-- LOG IN MODAL -->
+        <b-modal :active.sync="isLoginModalActive" :width="640">
+          <login-modal :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
+        </b-modal>
+</section>
 
 </template>
 
 <script>
+import SignupModal from "@/components/SignupModal";
+import LoginModal from "@/components/LoginModal";
 import { getLeaderBoard } from "@/api/api";
-import { getUser } from "@/api/api";
 export default {
+  components: {
+    SignupModal,
+    LoginModal,
+  },
   data() {
     return {
+      isSignupModalActive: false,
+      isLoginModalActive: false,
+      autenticate: "",
       leaderBoard: [],
       indexSelected: "all",
       total: 0,
@@ -86,13 +168,13 @@ export default {
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: "asc",
-      connectedUser: null
     };
   },
+  props: {
+    langSelected:"",
+    connectedUser: Object
+  },
   created() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
     getLeaderBoard().then(leaderBoard => {
       this.leaderBoard = leaderBoard;
     });
@@ -101,6 +183,19 @@ export default {
   methods: {
     onPageChange(page) {
       this.page = page;
+    },
+    SignupModal() {
+      this.isLoginModalActive = false;
+      this.isSignupModalActive = true;
+      this.$emit("signup");
+    },
+    LoginModal(autenticate) {
+      this.isSignupModalActive = false;
+      this.autenticate = autenticate;
+      this.isLoginModalActive = true;
+    },
+    closeLoginModal() {
+      this.isLoginModalActive = false;
     }
   }
 };
@@ -116,6 +211,7 @@ export default {
   display:flex;
   align-items:center;
   justify-content:start;
+  cursor: pointer;
 }
 a{
   color:#192b41

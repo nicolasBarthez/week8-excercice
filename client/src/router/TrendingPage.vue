@@ -18,6 +18,24 @@
             <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
       </div>
     </nav>
+    <nav v-else class="navbar is-dark">
+      <div v-if="langSelected==='EN'" class="babblesMenu">
+            <a  @click="selected()" :class="{'is-active':indexSelected ==='SELECTED' }" class="navbar-item is-tab babMenu">Selected</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='CRYPTO' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="nasdaq()" :class="{'is-active':indexSelected ==='NASDAQ' }" class="navbar-item is-tab babMenu">Nasdaq</a>
+            <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
+            <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
+            <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
+      </div>
+      <div v-else class="babblesMenu">
+            <a  @click="selected()" :class="{'is-active':indexSelected ==='SELECTED' }" class="navbar-item is-tab babMenu">Sélection</a>
+            <a  @click="cryptocurrencies()" :class="{'is-active':indexSelected ==='CRYPTO' }" class="navbar-item is-tab babMenu">Crypto Currencies</a>
+            <a  @click="nasdaq()" :class="{'is-active':indexSelected ==='NASDAQ' }" class="navbar-item is-tab babMenu">Nasdaq</a>
+            <a  @click="euronext()" :class="{'is-active':indexSelected ==='EURONEXT PARIS' }"class="navbar-item is-tab babMenu">EuroNext Paris</a>
+            <a  @click="cac()" :class="{'is-active':indexSelected ==='CAC40' }" class="navbar-item is-tab babMenu">CAC 40</a>
+            <a  @click="sbf()" :class="{'is-active':indexSelected ==='SBF120' }" class="navbar-item is-tab babMenu">SBF 120</a>
+      </div>
+    </nav>
         <b-table
             :data="stocks"
             :loading="loading"
@@ -84,7 +102,6 @@
 
 <script>
 import { getStocksTrending } from "@/api/apiTrending";
-import { getUser } from "@/api/api";
 
 const sortParams = {
   longName: "name",
@@ -114,10 +131,12 @@ export default {
       isPaginated: true,
       isPaginationSimple: false,
       defaultSortDirection: "desc",
-      connectedUser: null
     };
   },
-  props: {},
+  props: {
+    langSelected:"",
+    connectedUser: Object
+  },
   methods: {
     selected() {
       this.indexSelected = "SELECTED";
@@ -216,9 +235,6 @@ export default {
     }
   },
   mounted() {
-    getUser().then(connectedUser => {
-      this.connectedUser = connectedUser;
-    });
     getStocksTrending({
       index: this.indexSelected,
       sort: makeSortParam(this.defaultSortField, this.defaultSortOrder)
