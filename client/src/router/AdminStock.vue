@@ -4,27 +4,47 @@
       Stock administration : {{stocks.length}} stocks registered.
     </h1>
 
-      <br>
+      <br class="page" ref="top">
       <button type="button" @click="addNewStock()"name="button">Add a stock</button>
       <button type="button" @click="exportToExcel()"name="button">Export</button>
       <br>
       <hr>
       <br>
-      <div v-for="(stock, index) in stocks" :key="index" class="columns">
-        <div class="media-left">
-                  <figure class="image is-64x64 is-circle"><img class ="imgProfile" :src="stock.stockImg" alt="Image"></figure>
-              </div>
-          <div class="picss column is-12 is-marginless">
-              <div class="media-left">
-                <strong>{{stock.longName}}</strong>
-                {{stock.shortName}}
-                <span class="has-text-green">{{stock.index}}</span>
-                <button type="button" @click="editStock(stock)" name="button">Edit</button>
-                <button type="button" @click="confirmDeleteStock(stock)"name="button">Delete</button>
-              </div>
-              <hr>
-          </div>
-      </div>
+      <button @click="goto('bottom')">Go to bottom</button>
+      <table >
+        <tr>
+          <th>IMAGE</th>
+          <th>STOCK NAME</th>
+          <th>SHORT NAME</th>
+          <th>INDEX</th>
+          <th>EDIT</th>
+          <th>DEL</th>
+        </tr>
+      <tr v-for="(stock, index) in stocks" :key="index" >
+
+            <td><figure class="image is-64x64 is-circle"><img class ="imgProfile" :src="stock.stockImg" alt="Image"></figure></td>
+
+        <td>
+          <router-link :to="'/stocks/'+stock.shortName" data-replace="Symbol"><strong>{{stock.longName}}</strong></router-link>
+        </td>
+        <td>
+          {{stock.shortName}}
+        </td>
+        <td>
+          <span class="has-text-green">{{stock.index}}</span>
+        </td>
+        <td>
+          <button type="button" @click="editStock(stock)" name="button">Edit</button>
+        </td>
+        <td>
+          <button type="button" @click="confirmDeleteStock(stock)"name="button">Delete</button>
+        </td>
+        </tr>
+
+      </table>
+      <button class="page" ref="bottom" @click="goto('top')">Go to top</button>
+
+
       <div v-if= "stockModal">
 
       <b-modal :active.sync="isStockEditingActive">
@@ -89,6 +109,9 @@
                                 <br><hr>
                                 <span>volume:</span><br>
                                   <input class="location" type="text" v-model="stockModal.volume"/>
+                                <br><hr>
+                                <span>scrapKey:</span><br>
+                                  <input class="location" type="text" v-model="stockModal.scrapKey"/>
                                 <br><hr>
                                 <span>description:</span><br>
                                   <textarea class="location" type="text" v-model="stockModal.description"></textarea>
@@ -167,6 +190,9 @@
                               <br><hr>
                               <span>symbolPrice:</span><br>
                                 <input class="location" type="text" v-model="stockModal.symbolPrice"/>
+                              <br><hr>
+                              <span>scrapKey:</span><br>
+                                <input class="location" type="text" v-model="stockModal.scrapKey"/>
                               <br><hr>
                               <span>description:</span><br>
                                 <textarea class="location" type="text" v-model="stockModal.description"></textarea>
@@ -257,6 +283,13 @@ export default {
     connectedUser: Object
   },
   methods: {
+    goto(refName) {
+      var element = this.$refs[refName];
+      console.log(element);
+      var top = element.offsetTop;
+
+      window.scrollTo(0, top);
+    },
     addNewStock() {
       this.isStockCreatingActive = true;
     },
@@ -344,7 +377,7 @@ export default {
         });
     },
     generateImage: function() {
-      let url = this.image.generateDataUrl();
+      let url = this.image.generateDataUrl("image/jpeg", 0.8);
       if (!url) {
         alert("no image");
         return;
@@ -356,6 +389,17 @@ export default {
 </script>
 
 <style scoped>
+tr {
+  margin: 25px;
+  padding: 10px 30px;
+}
+
+th {
+  margin: 25px 10px 25px 60px;
+  padding: 10px;
+  background-color: #BDBDBD;
+}
+
 .title{
   font-size: 100%;
   font-weight: bold;

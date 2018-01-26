@@ -112,7 +112,6 @@ adminController.patch(
     const user = req.user;
 
     const newStock = {
-      location: req.body.location,
       longName: req.body.longName,
       shortName: req.body.shortName,
       index: req.body.index,
@@ -159,9 +158,20 @@ adminController.post(
   passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     const user = req.user;
-    const stock = req.body;
 
-    const newStock = new Stock(stock);
+    const newStock = new Stock({
+      longName: req.body.longName,
+      shortName: req.body.shortName,
+      index: req.body.index,
+      isin: req.body.isin,
+      currency: req.body.currency,
+      currency2: req.body.currency2,
+      symbolPrice: req.body.symbolPrice,
+      description: req.body.description,
+      descriptionEng: req.body.descriptionEng,
+      stockImg: req.body.stockImg,
+      scrapKey: req.body.scrapKey
+    });
 
     newStock.save(err => {
       if (err) {
