@@ -1,0 +1,21716 @@
+webpackJsonp(
+  [1],
+  [
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a() {
+        return I.get("users/userconnected")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function i(t) {
+        var e = "/stocks/" + t;
+        return I.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function n(t) {
+        var e = "/stocks/" + t + "/watchitem";
+        return I.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function o(t) {
+        var e = "/stocks/" + t + "/watchitem/add";
+        return I.post(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw (console.error(t), t);
+          });
+      }
+      function r(t, e) {
+        var s = "/stocks/" + t + "/watchitem/" + e;
+        return I.delete(s)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return t;
+          });
+      }
+      function c(t, e) {
+        var s = "/stocks/" + t + "/watchitem/" + e;
+        return I.patch(s)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return t;
+          });
+      }
+      function l(t, e) {
+        var s = "/stocks/" + t + "/watchitem/bull",
+          a = {};
+        return (
+          e && (a.wi = e),
+          I({ method: "post", url: s, params: a }).catch(function(t) {
+            return t;
+          })
+        );
+      }
+      function d(t, e) {
+        var s = "/stocks/" + t + "/watchitem/bear",
+          a = {};
+        return (
+          e && (a.wi = e),
+          I({ method: "post", url: s, params: a })
+            .then(function(t) {
+              return t.data;
+            })
+            .catch(function(t) {
+              return t;
+            })
+        );
+      }
+      function u(t, e) {
+        var s = "/stocks/" + t + "/bull-bear-trend?history=" + e;
+        return I.get(s)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function v(t, e) {
+        var s = "/babbles/" + t + "?page=1&sort=" + e;
+        return I.get(s)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function b(t) {
+        var e = "/watchitems/positions/user/" + t;
+        return I.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function m(t, e, s) {
+        var a = "/babbles?stock=" + e;
+        return I.post(a, { babble: t, babbleImg: s })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function f(t) {
+        return I.post("/babbles/like", { babbleId: t })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function h() {
+        return I.get("/watchitems/positions")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function g(t, e) {
+        var s = "/babbles/resp?respto=" + e;
+        return I.post(s, { babble: t })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function p() {
+        return I.get("/stocks?index=all")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function _(t) {
+        var e = "/babbles/?page=1&sort=" + t;
+        return I.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function C() {
+        return I.get("/leaderboard/")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function k(t, e) {
+        console.log("GETCHART", t, e);
+        var s = "/chart/" + t;
+        return I.get(s, { index: e })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.error(t);
+          });
+      }
+      function w(t, e) {
+        var s = "/stocks/" + t + "/description",
+          a = {};
+        return (
+          e && (a.longName = e),
+          I({ method: "get", url: s, params: a })
+            .then(function(t) {
+              return t.data;
+            })
+            .catch(function(t) {
+              return t;
+            })
+        );
+      }
+      (e.m = a),
+        (e.j = i),
+        (e.o = n),
+        (e.a = o),
+        (e.r = r),
+        (e.q = c),
+        (e.c = l),
+        (e.b = d),
+        (e.l = u),
+        (e.k = v),
+        (e.n = b),
+        (e.s = m),
+        (e.p = f),
+        (e.i = h),
+        (e.t = g),
+        (e.e = p),
+        (e.d = _),
+        (e.h = C),
+        (e.f = k),
+        (e.g = w);
+      var P = s(14),
+        M = s.n(P),
+        I = M.a.create({ baseURL: "/api" });
+    },
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a() {
+        return C.get("dashboards/profile")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function i() {
+        return C.get("dashboards/currentinsights")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function n() {
+        return C.get("dashboards/mywatchlist")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function o() {
+        return C.get("dashboards/pastinsights/")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function r(t) {
+        var e = "dashboards/insidersfollowed/" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function c(t, e, s, a) {
+        return C.patch("dashboards/edit", {
+          location: t,
+          bio: e,
+          skills: s,
+          picture: a
+        })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function l(t) {
+        var e = "dashboards/insider/" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function d(t) {
+        var e = "dashboards/currentinsights/?id=" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function u(t) {
+        var e = "dashboards/watchlist/?id=" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function v(t) {
+        var e = "dashboards/pastinsights/" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function b(t) {
+        var e = "dashboards/insidersfollowed/" + t;
+        return (
+          console.log("URL", e),
+          C.get(e)
+            .then(function(t) {
+              return t.data;
+            })
+            .catch(function(t) {
+              console.log(t);
+            })
+        );
+      }
+      function m(t) {
+        var e = "/follow/" + t;
+        return C.post(e)
+          .then(function(t) {
+            return console.log("RETOUR API", t), t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function f(t) {
+        var e = "/follow/" + t;
+        return C.delete(e)
+          .then(function(t) {
+            return console.log("RETOUR DU UNFOLLOW", t.data), t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function h(t) {
+        var e = "/follow/" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      function g(t) {
+        var e = "/dashboards/leaderboard/" + t;
+        return C.get(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            console.log(t);
+          });
+      }
+      (e.l = a),
+        (e.b = i),
+        (e.k = n),
+        (e.j = o),
+        (e.i = r),
+        (e.o = c),
+        (e.f = l),
+        (e.c = d),
+        (e.g = u),
+        (e.e = v),
+        (e.d = b),
+        (e.a = m),
+        (e.n = f),
+        (e.m = h),
+        (e.h = g);
+      var p = s(14),
+        _ = s.n(p),
+        C = _.a.create({ baseURL: "/api" });
+    },
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(311);
+      }
+      var i = s(312),
+        n = s(313),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-1cf491e6", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(314);
+      }
+      var i = s(315),
+        n = s(316),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-40a676dc", null);
+      e.a = c.exports;
+    },
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        var e = t.token,
+          s = t.user;
+        (u.a.defaults.headers.common.Authorization = "Bearer " + e),
+          localStorage.setItem("token", e),
+          localStorage.setItem("user", l()(s));
+      }
+      function i(t) {
+        var e = localStorage.getItem("token"),
+          s = localStorage.getItem("user");
+        if (e && s) {
+          var i = JSON.parse(s);
+          a({ token: e, user: i }), (t.user = i);
+        }
+      }
+      function n(t, e, s) {
+        return v
+          .post("/login", { email: t, password: e })
+          .then(function(t) {
+            return a(t.data), (s.user = t.data.user), t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function o(t) {
+        localStorage.removeItem("token"),
+          (t.user = null),
+          delete u.a.defaults.headers.common.Authorization;
+      }
+      function r(t) {
+        return v.post("/signup", t).then(function(t) {
+          return t.data;
+        });
+      }
+      (e.a = i), (e.b = n), (e.c = o), (e.d = r);
+      var c = s(302),
+        l = s.n(c),
+        d = s(14),
+        u = s.n(d),
+        v = u.a.create({ baseURL: "/api" });
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(436);
+      }
+      var i = s(437),
+        n = s.n(i),
+        o = s(438),
+        r = s(2),
+        c = a,
+        l = r(n.a, o.a, !1, c, "data-v-4fb2af34", null);
+      e.a = l.exports;
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(309);
+      }
+      var i = s(310),
+        n = s(355),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-35dce3de", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = s(317),
+        i = s(354),
+        n = s(2),
+        o = n(a.a, i.a, !1, null, null, null);
+      e.a = o.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(321);
+      }
+      var i = s(322),
+        n = s(323),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-2669da2e", null);
+      e.a = c.exports;
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(333);
+      }
+      var i = s(334),
+        n = s(335),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-a936194e", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(340);
+      }
+      var i = s(341),
+        n = s(342),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-260250aa", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(343);
+      }
+      var i = s(344),
+        n = s(345),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-596d5180", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(350);
+      }
+      var i = s(351),
+        n = s(352),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-0c3b4975", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(371);
+      }
+      var i = s(372),
+        n = s(420),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-b5a0f608", null);
+      e.a = c.exports;
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(421);
+      }
+      var i = s(422),
+        n = s(423),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-3331e4e0", null);
+      e.a = c.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(424);
+      }
+      var i = s(425),
+        n = s(426),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-abe6f75e", null);
+      e.a = c.exports;
+    },
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a() {
+        return v
+          .get("admin/users/")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      function i() {
+        return v
+          .get("admin/stocks/")
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function n(t) {
+        var e = "admin/stocks/delete/" + t;
+        return v
+          .delete(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function o(t) {
+        return v
+          .post("admin/stocks/create/", t)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function r(t, e, s, a, i, n, o, r, c, l, d, u, b, m, f) {
+        return v
+          .patch("admin/stocks/edit", {
+            _id: t,
+            longName: e,
+            shortName: s,
+            index: a,
+            isin: i,
+            currency: n,
+            currency2: o,
+            symbolPrice: r,
+            price: c,
+            price2: l,
+            volume: d,
+            description: u,
+            descriptionEng: b,
+            stockImg: m,
+            scrapKey: f
+          })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      function c(t, e, s, a, i, n) {
+        return v
+          .patch("admin/users/edit", {
+            _id: t,
+            username: e,
+            location: s,
+            lang: a,
+            role: i,
+            picProfile: n
+          })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return t;
+          });
+      }
+      function l(t) {
+        var e = "admin/users/delete/" + t;
+        return v
+          .delete(e)
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            return null;
+          });
+      }
+      (e.b = a),
+        (e.a = i),
+        (e.d = n),
+        (e.c = o),
+        (e.e = r),
+        (e.g = c),
+        (e.f = l);
+      var d = s(14),
+        u = s.n(d),
+        v = u.a.create({ baseURL: "/api" });
+    },
+    function(t, e, s) {
+      "use strict";
+      Object.defineProperty(e, "__esModule", { value: !0 });
+      var a = s(22),
+        i = s(280),
+        n = s(361),
+        o = s(12),
+        r = s(522),
+        c = s.n(r),
+        l = s(523),
+        d = (s.n(l), s(524)),
+        u = s(525),
+        v = s.n(u),
+        b = s(526),
+        m = s.n(b),
+        f = s(527),
+        h = s.n(f),
+        g = s(528);
+      s.n(g);
+      a.a.use(m.a, v.a),
+        a.a.use(c.a),
+        a.a.use(d.a),
+        a.a.use(h.a),
+        (a.a.config.productionTip = !1),
+        new a.a({
+          el: "#app",
+          router: n.a,
+          render: function(t) {
+            return t(i.a);
+          },
+          data: { user: null, showNav: !0 },
+          methods: {
+            hideNav: function() {
+              this.showNav = !1;
+            }
+          },
+          created: function() {
+            Object(o.a)(this.$root);
+          }
+        });
+    },
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(281);
+      }
+      var i = s(283),
+        n = s(360),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, null, null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    ,
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(12),
+        n = s(305),
+        o = s(29),
+        r = s(356);
+      e.a = {
+        name: "app",
+        components: { NavBarUnconnect: r.a, NavBar: n.a, LandingPage: o.a },
+        data: function() {
+          return { connectedUser: null, langSelected: "FR" };
+        },
+        methods: {
+          logout: function() {
+            Object(i.c)(this.$root), this.$router.push("/");
+          },
+          changeLang: function(t) {
+            this.langSelected = t;
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(a.m)().then(function(e) {
+            t.connectedUser = e;
+          });
+        },
+        watch: {
+          $route: function() {
+            var t = this;
+            Object(a.m)().then(function(e) {
+              t.connectedUser = e;
+            });
+          }
+        }
+      };
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(306);
+      }
+      var i = s(307),
+        n = s(308),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-7e351008", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(12);
+      e.a = {
+        name: "NavBar",
+        data: function() {
+          return {
+            navbarLinks: [
+              {
+                location: "/stream",
+                text: "Stream",
+                textfr: "Flux d'actualités"
+              },
+              { location: "/trending", text: "Trending", textfr: "Tendance" },
+              {
+                location: "/leaderboard",
+                text: "Leaderboard",
+                textfr: "Leaderboard"
+              }
+            ],
+            data: null,
+            name: "",
+            selected: null,
+            closedState: !0
+          };
+        },
+        props: { connectedUser: Object },
+        methods: {
+          logout: function() {
+            Object(i.c)(this.$root), this.$router.push("/");
+          },
+          onSelect: function(t) {
+            t &&
+              ((this.selected = t),
+              this.$router.push("/stocks/" + t.shortName.toLowerCase()));
+          },
+          closetoggle: function() {
+            this.closedState = !this.closedState;
+          }
+        },
+        watch: {
+          name: function(t) {
+            this.selected &&
+              t === this.selected.longName &&
+              ((this.name = ""), (this.selected = null));
+          },
+          $route: function() {
+            this.closedState = !0;
+          }
+        },
+        computed: {
+          filteredDataObj: function() {
+            var t = this;
+            return this.data
+              ? this.data
+                  .filter(function(e) {
+                    return (
+                      0 ===
+                      e.longName
+                        .toString()
+                        .toUpperCase()
+                        .indexOf(t.name.toUpperCase())
+                    );
+                  })
+                  .sort()
+              : [];
+          }
+        },
+        mounted: function() {
+          var t = this;
+          Object(a.e)().then(function(e) {
+            t.data = e;
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "nav",
+            { staticClass: "nav has-shadow", attrs: { id: "top" } },
+            [
+              s("div", { attrs: { id: "top2" } }, [
+                s(
+                  "div",
+                  { staticClass: "nav" },
+                  [
+                    s(
+                      "router-link",
+                      { staticClass: "nav-item", attrs: { to: "/stream" } },
+                      [
+                        s("img", {
+                          attrs: {
+                            id: "logo2",
+                            src: "/static/images/logoReduct.png",
+                            alt: "Description"
+                          }
+                        }),
+                        t._v(" "),
+                        s("img", {
+                          attrs: {
+                            id: "logo",
+                            src: "/static/images/logo.png",
+                            alt: "Description"
+                          }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                t._v(" "),
+                t.data && t.connectedUser
+                  ? s("div", { staticClass: "nav", attrs: { id: "formNav" } }, [
+                      s(
+                        "div",
+                        {
+                          staticClass: "nav-item field",
+                          attrs: { id: "formNav1" }
+                        },
+                        [
+                          s(
+                            "div",
+                            {
+                              staticClass: "control has-icons-left",
+                              attrs: { id: "formNav2" }
+                            },
+                            [
+                              s(
+                                "b-field",
+                                [
+                                  s("b-autocomplete", {
+                                    attrs: {
+                                      placeholder:
+                                        "EN" === t.connectedUser.lang
+                                          ? "Find a stock / crypto"
+                                          : "Retrouver une action / crypto",
+                                      data: t.filteredDataObj,
+                                      field: "longName"
+                                    },
+                                    on: {
+                                      select: function(e) {
+                                        t.onSelect(e);
+                                      }
+                                    },
+                                    model: {
+                                      value: t.name,
+                                      callback: function(e) {
+                                        t.name = e;
+                                      },
+                                      expression: "name"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              t._m(0)
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ])
+                  : t._e(),
+                t._v(" "),
+                s(
+                  "label",
+                  {
+                    staticClass: "nav-toggle",
+                    attrs: { for: "nav-toggle-state" },
+                    on: {
+                      click: function(e) {
+                        t.closetoggle();
+                      }
+                    }
+                  },
+                  [s("span"), t._v(" "), s("span"), t._v(" "), s("span")]
+                ),
+                t._v(" "),
+                s(
+                  "div",
+                  {
+                    staticClass: "nav-right nav-menu",
+                    class: { closedToggle: !1 === t.closedState }
+                  },
+                  [
+                    t.connectedUser
+                      ? s(
+                          "div",
+                          { attrs: { id: "menu" } },
+                          t._l(t.navbarLinks, function(e, a) {
+                            return s(
+                              "router-link",
+                              {
+                                key: a,
+                                staticClass: "menu1",
+                                class: {
+                                  "is-active": t.$route.path === e.location,
+                                  "nav-item": !0,
+                                  "is-tab": !0
+                                },
+                                attrs: { to: e.location }
+                              },
+                              [
+                                t._v(
+                                  " " +
+                                    t._s(
+                                      "EN" === t.connectedUser.lang
+                                        ? e.text
+                                        : e.textfr
+                                    ) +
+                                    "\n              "
+                                )
+                              ]
+                            );
+                          })
+                        )
+                      : t._e(),
+                    t._v(" "),
+                    t.$root.user
+                      ? s(
+                          "div",
+                          { staticClass: "nav-profile" },
+                          [
+                            s(
+                              "router-link",
+                              { attrs: { to: "/mydashboard" } },
+                              [
+                                s(
+                                  "div",
+                                  { staticClass: "image is-32x32 is-circle" },
+                                  [
+                                    t.connectedUser
+                                      ? s("img", {
+                                          staticClass: "imgProfile",
+                                          attrs: {
+                                            src: t.connectedUser.picProfile,
+                                            alt: ""
+                                          }
+                                        })
+                                      : t._e()
+                                  ]
+                                )
+                              ]
+                            ),
+                            t._v(" "),
+                            t.connectedUser
+                              ? s(
+                                  "div",
+                                  { staticClass: "nav-user-profile" },
+                                  [
+                                    s(
+                                      "router-link",
+                                      { attrs: { to: "/mydashboard" } },
+                                      [
+                                        s(
+                                          "div",
+                                          {
+                                            staticClass: "nav-user-name",
+                                            attrs: { id: "nav-username" }
+                                          },
+                                          [
+                                            t._v(
+                                              "@" + t._s(t.$root.user.username)
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                    t._v(" "),
+                                    s("div", { staticClass: "nav-status" }, [
+                                      t.$root.user
+                                        ? s(
+                                            "a",
+                                            {
+                                              staticClass: "navbar-item",
+                                              on: {
+                                                click: function(e) {
+                                                  e.preventDefault(),
+                                                    t.logout(e);
+                                                }
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  "EN" === t.connectedUser.lang
+                                                    ? "Logout"
+                                                    : "Déconnexion"
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        : t._e()
+                                    ])
+                                  ],
+                                  1
+                                )
+                              : t._e()
+                          ],
+                          1
+                        )
+                      : t._e()
+                  ]
+                )
+              ])
+            ]
+          );
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s(
+              "span",
+              { staticClass: "icon is-small is-left", attrs: { id: "loupe" } },
+              [
+                s("i", {
+                  staticClass: "fa fa-search",
+                  attrs: { id: "quicksearch", type: "submit" }
+                })
+              ]
+            );
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10),
+        n = s(30);
+      e.a = {
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: ""
+          };
+        },
+        props: { connectedUser: Object, langSelected: "" },
+        components: { SignupModal: a.a, LoginModal: i.a, StreamPage: n.a },
+        methods: {
+          SignupModal: function() {
+            (this.isLoginModalActive = !1), (this.isSignupModalActive = !0);
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          changeLang: function(t) {
+            this.$emit("changeLang", t);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        },
+        created: function() {
+          document.documentElement.className = document.documentElement.className.replace(
+            "has-shadow",
+            "navcach"
+          );
+        }
+      };
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(12);
+      e.a = {
+        data: function() {
+          return { username: "", password: "", email: "", error: null };
+        },
+        props: { langSelected: String },
+        methods: {
+          signup: function() {
+            var t = this;
+            (this.error = null),
+              Object(a.d)({
+                email: this.email,
+                username: this.username,
+                password: this.password,
+                lang: this.langSelected
+              })
+                .then(function(e) {
+                  var s = t.email,
+                    a = t.password,
+                    i = { mail: s, pass: a };
+                  t.$emit("loginModal", i), t.$parent.close();
+                })
+                .then(function() {
+                  document
+                    .getElementsById("html")
+                    .removeAttribute("is-clipped");
+                })
+                .catch(function(e) {
+                  t.error =
+                    "Cette adresse e-mail est deja enregistrée. Veuillez vous connecter pour acceder à votre compte.";
+                });
+          },
+          loggin: function() {
+            this.$emit("loginModal"), this.$parent.close();
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "section",
+            {
+              staticClass: "hero is-fullheight is-dark is-bold",
+              attrs: { id: "modalAuth" }
+            },
+            [
+              s("div", { staticClass: "hero-body" }, [
+                s("div", { staticClass: "columns is-vcentered" }, [
+                  s(
+                    "div",
+                    { staticClass: "column is-8 is-offset-2" },
+                    [
+                      "EN" === t.langSelected
+                        ? s("h1", { staticClass: "title" }, [
+                            t._v("Become an insider")
+                          ])
+                        : s("h1", { staticClass: "title" }, [
+                            t._v("Devenir un insider")
+                          ]),
+                      t._v(" "),
+                      t.error
+                        ? s(
+                            "b-notification",
+                            { attrs: { type: "is-danger", "has-icon": "" } },
+                            [
+                              t._v(
+                                "\n                        " +
+                                  t._s(t.error) +
+                                  "\n                    "
+                              )
+                            ]
+                          )
+                        : t._e(),
+                      t._v(" "),
+                      s(
+                        "div",
+                        { staticClass: "box" },
+                        [
+                          "EN" === t.langSelected
+                            ? s(
+                                "b-field",
+                                {
+                                  attrs: { label: "Username", maxlength: "10" }
+                                },
+                                [
+                                  s("b-input", {
+                                    model: {
+                                      value: t.username,
+                                      callback: function(e) {
+                                        t.username = e;
+                                      },
+                                      expression: "username"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : s(
+                                "b-field",
+                                {
+                                  attrs: {
+                                    label: "Nom d'utilisateur",
+                                    maxlength: "10"
+                                  }
+                                },
+                                [
+                                  s("b-input", {
+                                    model: {
+                                      value: t.username,
+                                      callback: function(e) {
+                                        t.username = e;
+                                      },
+                                      expression: "username"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                          t._v(" "),
+                          s(
+                            "b-field",
+                            { attrs: { label: "Email" } },
+                            [
+                              s("b-input", {
+                                attrs: { type: "email" },
+                                model: {
+                                  value: t.email,
+                                  callback: function(e) {
+                                    t.email = e;
+                                  },
+                                  expression: "email"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          s("hr"),
+                          t._v(" "),
+                          "EN" === t.langSelected
+                            ? s(
+                                "b-field",
+                                { attrs: { label: "Password" } },
+                                [
+                                  s("b-input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    attrs: {
+                                      name: "password",
+                                      type: "password",
+                                      placeholder: "Password"
+                                    },
+                                    model: {
+                                      value: t.password,
+                                      callback: function(e) {
+                                        t.password = e;
+                                      },
+                                      expression: "password"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : s(
+                                "b-field",
+                                { attrs: { label: "Mot de passe" } },
+                                [
+                                  s("b-input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "required",
+                                        expression: "'required'"
+                                      }
+                                    ],
+                                    attrs: {
+                                      name: "password",
+                                      type: "password",
+                                      placeholder: "Password"
+                                    },
+                                    model: {
+                                      value: t.password,
+                                      callback: function(e) {
+                                        t.password = e;
+                                      },
+                                      expression: "password"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                          t._v(" "),
+                          "EN" === t.langSelected
+                            ? s(
+                                "b-field",
+                                { attrs: { label: "Confirm Password" } },
+                                [
+                                  s("b-input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "confirmed:password",
+                                        expression: "'confirmed:password'"
+                                      }
+                                    ],
+                                    attrs: {
+                                      name: "password_confirmation",
+                                      type: "password",
+                                      placeholder: "Password",
+                                      "data-vv-as": "password"
+                                    }
+                                  })
+                                ],
+                                1
+                              )
+                            : s(
+                                "b-field",
+                                {
+                                  attrs: {
+                                    label: "Confirmez votre mot de passe"
+                                  }
+                                },
+                                [
+                                  s("b-input", {
+                                    directives: [
+                                      {
+                                        name: "validate",
+                                        rawName: "v-validate",
+                                        value: "confirmed:password",
+                                        expression: "'confirmed:password'"
+                                      }
+                                    ],
+                                    attrs: {
+                                      name: "password_confirmation",
+                                      type: "password",
+                                      placeholder: "Password",
+                                      "data-vv-as": "password"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                          t._v(" "),
+                          s(
+                            "div",
+                            {
+                              directives: [
+                                {
+                                  name: "show",
+                                  rawName: "v-show",
+                                  value: t.errors.any(),
+                                  expression: "errors.any()"
+                                }
+                              ],
+                              staticClass: "error-message"
+                            },
+                            [
+                              t.errors.has("password")
+                                ? s("div", [
+                                    t._v(
+                                      "\n                         " +
+                                        t._s(t.errors.first("password")) +
+                                        "\n                        "
+                                    )
+                                  ])
+                                : t._e(),
+                              t._v(" "),
+                              t.errors.has("password_confirmation")
+                                ? s("div", [
+                                    t._v(
+                                      "\n                         " +
+                                        t._s(
+                                          t.errors.first(
+                                            "password_confirmation"
+                                          )
+                                        ) +
+                                        "\n                        "
+                                    )
+                                  ])
+                                : t._e()
+                            ]
+                          ),
+                          t._v(" "),
+                          s("hr"),
+                          t._v(" "),
+                          s("p", { staticClass: "control" }, [
+                            "EN" === t.langSelected
+                              ? s(
+                                  "button",
+                                  {
+                                    staticClass: "button is-primary",
+                                    on: {
+                                      click: function(e) {
+                                        t.signup();
+                                      }
+                                    }
+                                  },
+                                  [t._v("Register")]
+                                )
+                              : s(
+                                  "button",
+                                  {
+                                    staticClass: "button is-primary",
+                                    on: {
+                                      click: function(e) {
+                                        t.signup();
+                                      }
+                                    }
+                                  },
+                                  [t._v("Inscription")]
+                                ),
+                            t._v(" "),
+                            "EN" === t.langSelected
+                              ? s(
+                                  "button",
+                                  {
+                                    staticClass: "button is-default",
+                                    on: {
+                                      click: function(e) {
+                                        t.$parent.close();
+                                      }
+                                    }
+                                  },
+                                  [t._v("Cancel")]
+                                )
+                              : s(
+                                  "button",
+                                  {
+                                    staticClass: "button is-default",
+                                    on: {
+                                      click: function(e) {
+                                        t.$parent.close();
+                                      }
+                                    }
+                                  },
+                                  [t._v("Annuler")]
+                                )
+                          ]),
+                          t._v(" "),
+                          s("hr"),
+                          t._v(" "),
+                          s("p", { staticClass: "control" }),
+                          "EN" === t.langSelected
+                            ? s("p", { staticClass: "has-text-blue" }, [
+                                t._v("Already an Insider ?")
+                              ])
+                            : s("p", { staticClass: "has-text-blue" }, [
+                                t._v("Dejà Insider ?")
+                              ]),
+                          t._v(" "),
+                          "EN" === t.langSelected
+                            ? s(
+                                "button",
+                                {
+                                  staticClass: "button is-default",
+                                  on: {
+                                    click: function(e) {
+                                      t.loggin();
+                                    }
+                                  }
+                                },
+                                [t._v("Login")]
+                              )
+                            : s(
+                                "button",
+                                {
+                                  staticClass: "button is-default",
+                                  on: {
+                                    click: function(e) {
+                                      t.loggin();
+                                    }
+                                  }
+                                },
+                                [t._v("Se connecter")]
+                              ),
+                          t._v(" "),
+                          s("p")
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  )
+                ])
+              ])
+            ]
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(12);
+      e.a = {
+        data: function() {
+          return {
+            email: this.autenticate ? this.autenticate.mail : "",
+            password: this.autenticate ? this.autenticate.pass : "",
+            error: null
+          };
+        },
+        props: {
+          autenticate: { type: Object, default: null },
+          langSelected: String
+        },
+        methods: {
+          login: function() {
+            var t = this;
+            (this.error = null),
+              Object(a.b)(this.email, this.password, this.$root)
+                .then(function(e) {
+                  t.$router.push("/stream"),
+                    (document.documentElement.className = document.documentElement.className.replace(
+                      "is-clipped",
+                      ""
+                    ));
+                })
+                .catch(function(e) {
+                  t.error =
+                    "EN" === t.langSelected
+                      ? "Password or email is incorrect"
+                      : "Mot de passe ou email incorrect";
+                });
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "section",
+            { staticClass: "hero is-fullheight", attrs: { id: "modalAuth" } },
+            [
+              t._m(0),
+              t._v(" "),
+              s("div", { staticClass: "hero-body" }, [
+                s(
+                  "div",
+                  { staticClass: "column is-8 is-offset-2" },
+                  [
+                    t.error
+                      ? s(
+                          "b-notification",
+                          { attrs: { type: "is-danger", "has-icon": "" } },
+                          [
+                            t._v(
+                              "\n                               " +
+                                t._s(t.error) +
+                                "\n                           "
+                            )
+                          ]
+                        )
+                      : t._e(),
+                    t._v(" "),
+                    s(
+                      "b-field",
+                      { attrs: { label: "Email" } },
+                      [
+                        s("b-input", {
+                          attrs: {
+                            placeholder: "wbuffet@insiders.finance",
+                            type: "email",
+                            "icon-pack": "fa",
+                            icon: "envelope"
+                          },
+                          model: {
+                            value: t.email,
+                            callback: function(e) {
+                              t.email = e;
+                            },
+                            expression: "email"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    "EN" === t.langSelected
+                      ? s(
+                          "b-field",
+                          { attrs: { label: "Password" } },
+                          [
+                            s("b-input", {
+                              attrs: {
+                                type: "password",
+                                "password-reveal": "",
+                                value: "iwantmytreasure",
+                                placeholder: "●●●●●●●"
+                              },
+                              model: {
+                                value: t.password,
+                                callback: function(e) {
+                                  t.password = e;
+                                },
+                                expression: "password"
+                              }
+                            })
+                          ],
+                          1
+                        )
+                      : s(
+                          "b-field",
+                          { attrs: { label: "Mot de passe" } },
+                          [
+                            s("b-input", {
+                              attrs: {
+                                type: "password",
+                                "password-reveal": "",
+                                value: "iwantmytreasure",
+                                placeholder: "●●●●●●●"
+                              },
+                              model: {
+                                value: t.password,
+                                callback: function(e) {
+                                  t.password = e;
+                                },
+                                expression: "password"
+                              }
+                            })
+                          ],
+                          1
+                        ),
+                    t._v(" "),
+                    s("p", { staticClass: "control login" }, [
+                      "EN" === t.langSelected
+                        ? s(
+                            "button",
+                            {
+                              staticClass:
+                                "button is-success is-outlined is-large is-fullwidth",
+                              on: {
+                                click: function(e) {
+                                  t.login();
+                                }
+                              }
+                            },
+                            [t._v("Login")]
+                          )
+                        : s(
+                            "button",
+                            {
+                              staticClass:
+                                "button is-success is-outlined is-large is-fullwidth",
+                              on: {
+                                click: function(e) {
+                                  t.login();
+                                }
+                              }
+                            },
+                            [t._v("Connexion")]
+                          )
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ]
+          );
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { staticClass: "hero-heading" }, [
+              s("div", { staticClass: "section has-text-centered" }, [
+                s("img", {
+                  attrs: {
+                    src: "/static/images/landing/logo-landing.svg",
+                    alt: "Insiders logo",
+                    width: "350px"
+                  }
+                })
+              ])
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = s(318),
+        i = s(337);
+      e.a = {
+        components: { StreamPageConnect: a.a, StreamPageUnconnect: i.a },
+        props: { connectedUser: Object, langSelected: "" }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(319);
+      }
+      var i = s(320),
+        n = s(336),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-2edf6353", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(31),
+        n = s(324),
+        o = s(329),
+        r = s(150);
+      e.a = {
+        data: function() {
+          return {
+            filterBy: "all",
+            watchItem: null,
+            watchInsight: null,
+            babbles: null,
+            recentPositions: null
+          };
+        },
+        props: { connectedUser: Object },
+        components: {
+          SideCurrentInsight: i.a,
+          StreamTimelineBabble: n.a,
+          StreamPublishBabble: o.a,
+          SideRecentActivity: r.a
+        },
+        methods: {
+          updateWatchList: function() {
+            var t = this,
+              e = this.$root.user._id;
+            Object(a.n)(e).then(function(e) {
+              t.watchInsight = e;
+            }),
+              Object(a.i)().then(function(e) {
+                t.recentPositions = e;
+              });
+          },
+          updateTimelineBabble: function() {
+            var t = this;
+            Object(a.d)(this.filterBy).then(function(e) {
+              t.babbles = e;
+            });
+          },
+          changeSort: function(t) {
+            var e = this;
+            (this.filterBy = t),
+              Object(a.d)(this.filterBy).then(function(t) {
+                return (e.babbles = t);
+              });
+          },
+          fetchData: function() {
+            var t = this;
+            Object(a.d)(this.filterBy).then(function(e) {
+              t.babbles = e;
+            }),
+              Object(a.n)(this.$root.user._id).then(function(e) {
+                t.watchInsight = e;
+              }),
+              Object(a.i)().then(function(e) {
+                t.recentPositions = e;
+              });
+          }
+        },
+        created: function() {
+          this.fetchData();
+        },
+        watch: {
+          $route: function() {
+            this.fetchData();
+          }
+        }
+      };
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3);
+      e.a = {
+        data: function() {
+          return { closePositionModal: !1, modalClosePosition: "" };
+        },
+        props: { watchInsight: null, connectedUser: Object },
+        methods: {
+          closePosition: function(t) {
+            var e = this;
+            Object(a.q)(t.stockId.shortName, t._id).then(function() {
+              e.$emit("changeWatchlist");
+            }),
+              (this.modalClosePosition = t),
+              (this.closePositionModal = !0);
+          }
+        },
+        created: function() {}
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.connectedUser && t.watchInsight
+            ? s("div", { staticClass: "column is-3 sideRecent mainSCI" }, [
+                t.watchInsight.length > 0
+                  ? s(
+                      "div",
+                      { staticClass: "is-sticky" },
+                      [
+                        t.connectedUser
+                          ? s("nav", { staticClass: "navbar is-dark" }, [
+                              "EN" === t.connectedUser.lang
+                                ? s(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "babMenu navbar-item whiteci",
+                                      attrs: { id: "currentInsight" }
+                                    },
+                                    [t._v("Open Positions")]
+                                  )
+                                : s(
+                                    "p",
+                                    {
+                                      staticClass:
+                                        "babMenu navbar-item whiteci",
+                                      attrs: { id: "currentInsight" }
+                                    },
+                                    [t._v("Positions ouvertes")]
+                                  )
+                            ])
+                          : t._e(),
+                        t._v(" "),
+                        t._l(t.watchInsight, function(e, a) {
+                          return s(
+                            "div",
+                            { key: a, staticClass: "card profile-card" },
+                            [
+                              s(
+                                "div",
+                                {
+                                  staticClass: "card-content",
+                                  attrs: { id: "watchList" }
+                                },
+                                [
+                                  s(
+                                    "div",
+                                    { staticClass: "Symbol" },
+                                    [
+                                      s(
+                                        "router-link",
+                                        {
+                                          staticClass: "stockName is-6",
+                                          attrs: {
+                                            to:
+                                              "/stocks/" + e.stockId.shortName,
+                                            "data-replace": "Symbol"
+                                          }
+                                        },
+                                        [t._v("#" + t._s(e.stockId.longName))]
+                                      ),
+                                      s("br"),
+                                      t._v(" "),
+                                      s("b", { staticClass: "price is-6" }, [
+                                        t._v(
+                                          t._s(e.stockId.price) +
+                                            "  " +
+                                            t._s(e.stockId.currency)
+                                        )
+                                      ]),
+                                      t._v(" "),
+                                      s(
+                                        "b",
+                                        {
+                                          staticClass: "is-6",
+                                          class: {
+                                            "has-text-green":
+                                              e.stockId.variation > 0,
+                                            "has-text-red":
+                                              e.stockId.variation < 0
+                                          },
+                                          attrs: { id: "variation" }
+                                        },
+                                        [
+                                          s("span", { staticClass: "indice" }, [
+                                            t._v(
+                                              t._s(e.stockId.variation) + " %"
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass: "SymbolImage",
+                                      attrs: { id: "bullAndBear" }
+                                    },
+                                    [
+                                      "bull" === e.position
+                                        ? s("img", {
+                                            attrs: {
+                                              src:
+                                                "/static/images/roundBullArrow.png",
+                                              alt: "bulls-and-bears"
+                                            }
+                                          })
+                                        : s("img", {
+                                            attrs: {
+                                              src:
+                                                "/static/images/roundBearArrow.png",
+                                              alt: "bulls-and-bears"
+                                            }
+                                          })
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  t.connectedUser
+                                    ? s(
+                                        "div",
+                                        {
+                                          staticClass: "Symbol2",
+                                          attrs: { id: "position" }
+                                        },
+                                        [
+                                          s(
+                                            "a",
+                                            { staticClass: "stockName is-6" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  "EN" === t.connectedUser.lang
+                                                    ? "Potential"
+                                                    : "Potentiel"
+                                                ) + " P$"
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          "bull" === e.position
+                                            ? s(
+                                                "b",
+                                                {
+                                                  staticClass: "price is-6",
+                                                  class: {
+                                                    "has-text-green":
+                                                      Math.floor(
+                                                        1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      ) > 0,
+                                                    "has-text-red":
+                                                      Math.floor(
+                                                        1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      ) < 0
+                                                  }
+                                                },
+                                                [
+                                                  t._v(
+                                                    t._s(
+                                                      Math.floor(
+                                                        1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      )
+                                                    ) + " P$"
+                                                  )
+                                                ]
+                                              )
+                                            : s(
+                                                "b",
+                                                {
+                                                  staticClass: "price is-6",
+                                                  class: {
+                                                    "has-text-green":
+                                                      Math.floor(
+                                                        -1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      ) > 0,
+                                                    "has-text-red":
+                                                      Math.floor(
+                                                        -1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      ) < 0
+                                                  }
+                                                },
+                                                [
+                                                  t._v(
+                                                    t._s(
+                                                      Math.floor(
+                                                        -1e3 *
+                                                          (e.stockId.price -
+                                                            e.initialPrice) /
+                                                          e.initialPrice
+                                                      )
+                                                    ) + " P$"
+                                                  )
+                                                ]
+                                              ),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("div", { attrs: { id: "close" } }, [
+                                            "bull" === e.position
+                                              ? s(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "button is-small is-outlined is-primary btn",
+                                                    class: {
+                                                      "btn-green":
+                                                        Math.floor(
+                                                          1e3 *
+                                                            (e.stockId.price -
+                                                              e.initialPrice) /
+                                                            e.initialPrice
+                                                        ) > 0,
+                                                      "btn-red":
+                                                        Math.floor(
+                                                          1e3 *
+                                                            (e.stockId.price -
+                                                              e.initialPrice) /
+                                                            e.initialPrice
+                                                        ) < 0
+                                                    },
+                                                    attrs: { type: "submit" },
+                                                    on: {
+                                                      click: function(s) {
+                                                        t.closePosition(e);
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        "EN" ===
+                                                        t.connectedUser.lang
+                                                          ? "Close"
+                                                          : "Clôturer"
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              : s(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "button is-small is-outlined is-primary btn",
+                                                    class: {
+                                                      "btn-green":
+                                                        Math.floor(
+                                                          -1e3 *
+                                                            (e.stockId.price -
+                                                              e.initialPrice) /
+                                                            e.initialPrice
+                                                        ) > 0,
+                                                      "btn-red":
+                                                        Math.floor(
+                                                          -1e3 *
+                                                            (e.stockId.price -
+                                                              e.initialPrice) /
+                                                            e.initialPrice
+                                                        ) < 0
+                                                    },
+                                                    attrs: { type: "submit" },
+                                                    on: {
+                                                      click: function(s) {
+                                                        t.closePosition(e);
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        "EN" ===
+                                                        t.connectedUser.lang
+                                                          ? "Close"
+                                                          : "Clôturer"
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                          ])
+                                        ]
+                                      )
+                                    : t._e()
+                                ]
+                              )
+                            ]
+                          );
+                        })
+                      ],
+                      2
+                    )
+                  : s("div", { staticClass: "is-sticky" }, [
+                      t.connectedUser
+                        ? s("nav", { staticClass: "navbar is-dark" }, [
+                            "EN" === t.connectedUser.lang
+                              ? s(
+                                  "p",
+                                  {
+                                    staticClass: "babMenu navbar-item whiteci",
+                                    attrs: { id: "currentInsight" }
+                                  },
+                                  [t._v("Open Positions")]
+                                )
+                              : s(
+                                  "p",
+                                  {
+                                    staticClass: "babMenu navbar-item whiteci",
+                                    attrs: { id: "currentInsight" }
+                                  },
+                                  [t._v("Positions ouvertes")]
+                                )
+                          ])
+                        : t._e(),
+                      t._v(" "),
+                      t.connectedUser
+                        ? s("div", { staticClass: "card profile-card" }, [
+                            "EN" === t.connectedUser.lang
+                              ? s("p", [
+                                  t._v(
+                                    "Take position on a stock to share your insights !!!"
+                                  )
+                                ])
+                              : s("p", [
+                                  t._v(
+                                    "Prenez position et partager vos intuitions sur le marché !!!"
+                                  )
+                                ])
+                          ])
+                        : t._e()
+                    ]),
+                t._v(" "),
+                t.modalClosePosition
+                  ? s(
+                      "div",
+                      [
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.closePositionModal, width: 640 },
+                            on: {
+                              "update:active": function(e) {
+                                t.closePositionModal = e;
+                              }
+                            }
+                          },
+                          [
+                            "bull" === t.modalClosePosition.position
+                              ? s(
+                                  "div",
+                                  { staticClass: "mediaModal bullbearPos" },
+                                  [
+                                    s(
+                                      "div",
+                                      { staticClass: "bullsAndBearsPic2" },
+                                      [
+                                        s("img", {
+                                          attrs: {
+                                            src:
+                                              "/static/images/roundBullArrow.png",
+                                            alt: "bull and bear"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    t._v(" "),
+                                    s("div", [
+                                      t._v(
+                                        "\n                    Vous venez de clôturer votre position "
+                                      ),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-green" },
+                                        [t._v("Bull")]
+                                      ),
+                                      t._v(" sur "),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          t._v(
+                                            t._s(
+                                              t.modalClosePosition.stockId
+                                                .longName
+                                            )
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" prise "),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          t._v(
+                                            "@ " +
+                                              t._s(
+                                                t.modalClosePosition.stockId
+                                                  .price
+                                              ) +
+                                              " " +
+                                              t._s(
+                                                t.modalClosePosition.stockId
+                                                  .currency
+                                              )
+                                          )
+                                        ]
+                                      ),
+                                      t._v("."),
+                                      s("br"),
+                                      t._v(" "),
+                                      Math.floor(
+                                        1e3 *
+                                          (t.modalClosePosition.stockId.price -
+                                            t.modalClosePosition.initialPrice) /
+                                          t.modalClosePosition.initialPrice
+                                      ) > 0
+                                        ? s(
+                                            "strong",
+                                            {
+                                              staticClass: "pos has-text-green"
+                                            },
+                                            [
+                                              t._v(
+                                                "\n                    Cette position vous a rapporté " +
+                                                  t._s(
+                                                    Math.floor(
+                                                      1e3 *
+                                                        (t.modalClosePosition
+                                                          .stockId.price -
+                                                          t.modalClosePosition
+                                                            .initialPrice) /
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                    )
+                                                  ) +
+                                                  " P$."
+                                              ),
+                                              s("br")
+                                            ]
+                                          )
+                                        : s(
+                                            "strong",
+                                            { staticClass: "pos has-text-red" },
+                                            [
+                                              t._v(
+                                                "\n                    Cette position vous a couté " +
+                                                  t._s(
+                                                    Math.floor(
+                                                      -1e3 *
+                                                        (t.modalClosePosition
+                                                          .stockId.price -
+                                                          t.modalClosePosition
+                                                            .initialPrice) /
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                    )
+                                                  ) +
+                                                  " P$."
+                                              ),
+                                              s("br")
+                                            ]
+                                          ),
+                                      t._v(
+                                        "\n                    Retouvez vos positions en cours et passée(s) en cliquant "
+                                      ),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          s(
+                                            "router-link",
+                                            { attrs: { to: "/mydashboard" } },
+                                            [t._v("ici")]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(".\n                ")
+                                    ])
+                                  ]
+                                )
+                              : s(
+                                  "div",
+                                  { staticClass: "mediaModal bullbearPos" },
+                                  [
+                                    s(
+                                      "div",
+                                      { staticClass: "bullsAndBearsPic2" },
+                                      [
+                                        s("img", {
+                                          attrs: {
+                                            src:
+                                              "/static/images/roundBearArrow.png",
+                                            alt: "bull and bear"
+                                          }
+                                        })
+                                      ]
+                                    ),
+                                    t._v(" "),
+                                    s("div", [
+                                      t._v(
+                                        "\n                    Vous venez de clôturer votre position "
+                                      ),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-red" },
+                                        [t._v("Bear")]
+                                      ),
+                                      t._v(" sur "),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          t._v(
+                                            t._s(
+                                              t.modalClosePosition.stockId
+                                                .longName
+                                            )
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" prise "),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          t._v(
+                                            "@ " +
+                                              t._s(
+                                                t.modalClosePosition.stockId
+                                                  .price
+                                              ) +
+                                              " " +
+                                              t._s(
+                                                t.modalClosePosition.stockId
+                                                  .currency
+                                              )
+                                          )
+                                        ]
+                                      ),
+                                      t._v("."),
+                                      s("br"),
+                                      t._v(" "),
+                                      Math.floor(
+                                        -1e3 *
+                                          (t.modalClosePosition.stockId.price -
+                                            t.modalClosePosition.initialPrice) /
+                                          t.modalClosePosition.initialPrice
+                                      ) > 0
+                                        ? s(
+                                            "strong",
+                                            {
+                                              staticClass: "pos has-text-green"
+                                            },
+                                            [
+                                              t._v(
+                                                "\n                    Cette position vous a rapporté " +
+                                                  t._s(
+                                                    Math.floor(
+                                                      -1e3 *
+                                                        (t.modalClosePosition
+                                                          .stockId.price -
+                                                          t.modalClosePosition
+                                                            .initialPrice) /
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                    )
+                                                  ) +
+                                                  " P$."
+                                              ),
+                                              s("br")
+                                            ]
+                                          )
+                                        : s(
+                                            "strong",
+                                            { staticClass: "pos has-text-red" },
+                                            [
+                                              t._v(
+                                                "\n                    Cette position vous a couté " +
+                                                  t._s(
+                                                    Math.floor(
+                                                      1e3 *
+                                                        (t.modalClosePosition
+                                                          .stockId.price -
+                                                          t.modalClosePosition
+                                                            .initialPrice) /
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                    )
+                                                  ) +
+                                                  " P$."
+                                              ),
+                                              s("br")
+                                            ]
+                                          ),
+                                      t._v(
+                                        "\n                    Retouvez vos positions en cours et passée(s) en cliquant "
+                                      ),
+                                      s(
+                                        "strong",
+                                        { staticClass: "has-text-blue" },
+                                        [
+                                          s(
+                                            "router-link",
+                                            { attrs: { to: "/mydashboard" } },
+                                            [t._v("ici")]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(".\n                ")
+                                    ])
+                                  ]
+                                )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  : t._e()
+              ])
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(325);
+      }
+      var i = s(326),
+        n = s(328),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-aeb7355e", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(0),
+        n = s.n(i),
+        o = s(13),
+        r = s.n(o);
+      e.a = {
+        data: function() {
+          return {
+            isCardModalActive: !1,
+            babbleText: "",
+            modalBabble: "",
+            userReply: "",
+            activeItem: "all"
+          };
+        },
+        props: { babbles: Array, connectedUser: Object },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babbleText.length;
+          }
+        },
+        methods: {
+          moment: function(t) {
+            return n()(t);
+          },
+          showModal: function(t) {
+            (this.modalBabble = t), (this.isCardModalActive = !0);
+          },
+          iLike: function(t) {
+            var e = this;
+            Object(a.p)(t._id)
+              .then(function() {
+                e.$emit("changeBabbles"), (e.isCardModalActive = !1);
+              })
+              .catch(function(t) {
+                console.log("something is wrong");
+              });
+          },
+          sortBabbles: function(t) {
+            this.$emit("sort", t), (this.activeItem = t);
+          },
+          postBabble: function(t) {
+            var e = this;
+            (this.babbleText = r.a.replace(this.babbleText)),
+              Object(a.t)(this.babbleText, t._id).then(function() {
+                (e.babbleText = ""),
+                  (e.isCardModalActive = !1),
+                  e.$emit("changeBabbles");
+              });
+          },
+          addLinksToHttp: function(t) {
+            var e, s, a, i;
+            return (
+              (t = t.replace(
+                /#(([a-zA-Z0-9\.])+@[a-zA-Z\_]+)(\W|$)/g,
+                '<a href="/stocks/$1">#$1 -</a>'
+              )),
+              (s = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim),
+              (e = t.replace(s, '<a href="$1" target="_blank">$1</a>')),
+              (a = /(^|[^\/])(www\.[\S]+(\b|$))/gim),
+              (e = e.replace(
+                a,
+                '$1<a href="http://$2" target="_blank">$2</a>'
+              )),
+              (i = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim),
+              (e = e.replace(i, '<a href="mailto:$1">$1</a>'))
+            );
+          }
+        },
+        created: function() {
+          r.a.setConfig({ img_dir: "/static/images/basic" });
+        }
+      };
+    },
+    function(t, e, s) {
+      function a(t) {
+        return s(i(t));
+      }
+      function i(t) {
+        var e = n[t];
+        if (!(e + 1)) throw new Error("Cannot find module '" + t + "'.");
+        return e;
+      }
+      var n = {
+        "./af": 32,
+        "./af.js": 32,
+        "./ar": 33,
+        "./ar-dz": 34,
+        "./ar-dz.js": 34,
+        "./ar-kw": 35,
+        "./ar-kw.js": 35,
+        "./ar-ly": 36,
+        "./ar-ly.js": 36,
+        "./ar-ma": 37,
+        "./ar-ma.js": 37,
+        "./ar-sa": 38,
+        "./ar-sa.js": 38,
+        "./ar-tn": 39,
+        "./ar-tn.js": 39,
+        "./ar.js": 33,
+        "./az": 40,
+        "./az.js": 40,
+        "./be": 41,
+        "./be.js": 41,
+        "./bg": 42,
+        "./bg.js": 42,
+        "./bm": 43,
+        "./bm.js": 43,
+        "./bn": 44,
+        "./bn.js": 44,
+        "./bo": 45,
+        "./bo.js": 45,
+        "./br": 46,
+        "./br.js": 46,
+        "./bs": 47,
+        "./bs.js": 47,
+        "./ca": 48,
+        "./ca.js": 48,
+        "./cs": 49,
+        "./cs.js": 49,
+        "./cv": 50,
+        "./cv.js": 50,
+        "./cy": 51,
+        "./cy.js": 51,
+        "./da": 52,
+        "./da.js": 52,
+        "./de": 53,
+        "./de-at": 54,
+        "./de-at.js": 54,
+        "./de-ch": 55,
+        "./de-ch.js": 55,
+        "./de.js": 53,
+        "./dv": 56,
+        "./dv.js": 56,
+        "./el": 57,
+        "./el.js": 57,
+        "./en-au": 58,
+        "./en-au.js": 58,
+        "./en-ca": 59,
+        "./en-ca.js": 59,
+        "./en-gb": 60,
+        "./en-gb.js": 60,
+        "./en-ie": 61,
+        "./en-ie.js": 61,
+        "./en-nz": 62,
+        "./en-nz.js": 62,
+        "./eo": 63,
+        "./eo.js": 63,
+        "./es": 64,
+        "./es-do": 65,
+        "./es-do.js": 65,
+        "./es-us": 66,
+        "./es-us.js": 66,
+        "./es.js": 64,
+        "./et": 67,
+        "./et.js": 67,
+        "./eu": 68,
+        "./eu.js": 68,
+        "./fa": 69,
+        "./fa.js": 69,
+        "./fi": 70,
+        "./fi.js": 70,
+        "./fo": 71,
+        "./fo.js": 71,
+        "./fr": 72,
+        "./fr-ca": 73,
+        "./fr-ca.js": 73,
+        "./fr-ch": 74,
+        "./fr-ch.js": 74,
+        "./fr.js": 72,
+        "./fy": 75,
+        "./fy.js": 75,
+        "./gd": 76,
+        "./gd.js": 76,
+        "./gl": 77,
+        "./gl.js": 77,
+        "./gom-latn": 78,
+        "./gom-latn.js": 78,
+        "./gu": 79,
+        "./gu.js": 79,
+        "./he": 80,
+        "./he.js": 80,
+        "./hi": 81,
+        "./hi.js": 81,
+        "./hr": 82,
+        "./hr.js": 82,
+        "./hu": 83,
+        "./hu.js": 83,
+        "./hy-am": 84,
+        "./hy-am.js": 84,
+        "./id": 85,
+        "./id.js": 85,
+        "./is": 86,
+        "./is.js": 86,
+        "./it": 87,
+        "./it.js": 87,
+        "./ja": 88,
+        "./ja.js": 88,
+        "./jv": 89,
+        "./jv.js": 89,
+        "./ka": 90,
+        "./ka.js": 90,
+        "./kk": 91,
+        "./kk.js": 91,
+        "./km": 92,
+        "./km.js": 92,
+        "./kn": 93,
+        "./kn.js": 93,
+        "./ko": 94,
+        "./ko.js": 94,
+        "./ky": 95,
+        "./ky.js": 95,
+        "./lb": 96,
+        "./lb.js": 96,
+        "./lo": 97,
+        "./lo.js": 97,
+        "./lt": 98,
+        "./lt.js": 98,
+        "./lv": 99,
+        "./lv.js": 99,
+        "./me": 100,
+        "./me.js": 100,
+        "./mi": 101,
+        "./mi.js": 101,
+        "./mk": 102,
+        "./mk.js": 102,
+        "./ml": 103,
+        "./ml.js": 103,
+        "./mr": 104,
+        "./mr.js": 104,
+        "./ms": 105,
+        "./ms-my": 106,
+        "./ms-my.js": 106,
+        "./ms.js": 105,
+        "./my": 107,
+        "./my.js": 107,
+        "./nb": 108,
+        "./nb.js": 108,
+        "./ne": 109,
+        "./ne.js": 109,
+        "./nl": 110,
+        "./nl-be": 111,
+        "./nl-be.js": 111,
+        "./nl.js": 110,
+        "./nn": 112,
+        "./nn.js": 112,
+        "./pa-in": 113,
+        "./pa-in.js": 113,
+        "./pl": 114,
+        "./pl.js": 114,
+        "./pt": 115,
+        "./pt-br": 116,
+        "./pt-br.js": 116,
+        "./pt.js": 115,
+        "./ro": 117,
+        "./ro.js": 117,
+        "./ru": 118,
+        "./ru.js": 118,
+        "./sd": 119,
+        "./sd.js": 119,
+        "./se": 120,
+        "./se.js": 120,
+        "./si": 121,
+        "./si.js": 121,
+        "./sk": 122,
+        "./sk.js": 122,
+        "./sl": 123,
+        "./sl.js": 123,
+        "./sq": 124,
+        "./sq.js": 124,
+        "./sr": 125,
+        "./sr-cyrl": 126,
+        "./sr-cyrl.js": 126,
+        "./sr.js": 125,
+        "./ss": 127,
+        "./ss.js": 127,
+        "./sv": 128,
+        "./sv.js": 128,
+        "./sw": 129,
+        "./sw.js": 129,
+        "./ta": 130,
+        "./ta.js": 130,
+        "./te": 131,
+        "./te.js": 131,
+        "./tet": 132,
+        "./tet.js": 132,
+        "./th": 133,
+        "./th.js": 133,
+        "./tl-ph": 134,
+        "./tl-ph.js": 134,
+        "./tlh": 135,
+        "./tlh.js": 135,
+        "./tr": 136,
+        "./tr.js": 136,
+        "./tzl": 137,
+        "./tzl.js": 137,
+        "./tzm": 138,
+        "./tzm-latn": 139,
+        "./tzm-latn.js": 139,
+        "./tzm.js": 138,
+        "./uk": 140,
+        "./uk.js": 140,
+        "./ur": 141,
+        "./ur.js": 141,
+        "./uz": 142,
+        "./uz-latn": 143,
+        "./uz-latn.js": 143,
+        "./uz.js": 142,
+        "./vi": 144,
+        "./vi.js": 144,
+        "./x-pseudo": 145,
+        "./x-pseudo.js": 145,
+        "./yo": 146,
+        "./yo.js": 146,
+        "./zh-cn": 147,
+        "./zh-cn.js": 147,
+        "./zh-hk": 148,
+        "./zh-hk.js": 148,
+        "./zh-tw": 149,
+        "./zh-tw.js": 149
+      };
+      (a.keys = function() {
+        return Object.keys(n);
+      }),
+        (a.resolve = i),
+        (t.exports = a),
+        (a.id = 327);
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", [
+            s("div", [
+              t.connectedUser
+                ? s("nav", { staticClass: "navbar is-dark" }, [
+                    s("div", { staticClass: "babblesMenu" }, [
+                      s(
+                        "a",
+                        {
+                          staticClass: "navbar-item is-tab babMenu",
+                          class: { "is-active": "all" === t.activeItem },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("all");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s("EN" === t.connectedUser.lang ? "All" : "Tous")
+                          )
+                        ]
+                      ),
+                      t._v(" "),
+                      s(
+                        "a",
+                        {
+                          staticClass: "navbar-item is-tab babMenu",
+                          class: {
+                            "is-active": "insidermates" === t.activeItem
+                          },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("insidermates");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s(
+                              "EN" === t.connectedUser.lang
+                                ? "Insider Mates"
+                                : "Amis insiders"
+                            )
+                          )
+                        ]
+                      ),
+                      t._v(" "),
+                      s(
+                        "a",
+                        {
+                          staticClass: "navbar-item is-tab babMenu",
+                          class: { "is-active": "watchlist" === t.activeItem },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("watchlist");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s(
+                              "EN" === t.connectedUser.lang
+                                ? "Watch List"
+                                : "Liste de suivi"
+                            )
+                          )
+                        ]
+                      ),
+                      t._v(" "),
+                      s(
+                        "a",
+                        {
+                          staticClass: "navbar-item is-tab babMenu",
+                          class: { "is-active": "me" === t.activeItem },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("me");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s(
+                              "EN" === t.connectedUser.lang
+                                ? "My babbles"
+                                : "Mes babbles"
+                            )
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                : t._e(),
+              t._v(" "),
+              s("div", { staticClass: "card" }, [
+                s(
+                  "div",
+                  {
+                    staticClass: "babbles-box",
+                    attrs: { id: "babble-container" }
+                  },
+                  t._l(t.babbles, function(e, a) {
+                    return t.babbles
+                      ? s(
+                          "div",
+                          { key: a, staticClass: "tweets card-content p-x-1" },
+                          [
+                            e.babbleImg
+                              ? s(
+                                  "div",
+                                  { staticClass: "card-image imageChart" },
+                                  [
+                                    s(
+                                      "figure",
+                                      { staticClass: "image is-2by1" },
+                                      [
+                                        s("img", {
+                                          attrs: {
+                                            src: e.babbleImg,
+                                            alt: "Placeholder image"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  ]
+                                )
+                              : t._e(),
+                            t._v(" "),
+                            t.connectedUser
+                              ? s("article", { staticClass: "media tweet" }, [
+                                  s("figure", { staticClass: "media-left" }, [
+                                    s(
+                                      "p",
+                                      {
+                                        staticClass: "image is-64x64 is-circle"
+                                      },
+                                      [
+                                        s(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: "/dashboard/" + e.user._id
+                                            }
+                                          },
+                                          [
+                                            s("img", {
+                                              staticClass: "imgProfile",
+                                              attrs: { src: e.user.picProfile }
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s("div", { staticClass: "media-content" }, [
+                                    s("div", { staticClass: "content" }, [
+                                      s(
+                                        "p",
+                                        { staticClass: "tweet-meta" },
+                                        [
+                                          s(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: "/dashboard/" + e.user._id
+                                              }
+                                            },
+                                            [
+                                              s("strong", [
+                                                t._v(t._s(e.user.username))
+                                              ])
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "media-right has-text-grey-light"
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  t
+                                                    .moment(e.created_at)
+                                                    .format("DD-MM-YYYY HH:mm")
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      s("p", {
+                                        staticClass:
+                                          "tweet-body has-text-grey babble-body",
+                                        domProps: {
+                                          innerHTML: t._s(
+                                            t.addLinksToHttp(e.babble)
+                                          )
+                                        }
+                                      })
+                                    ]),
+                                    t._v(" "),
+                                    e.reply
+                                      ? s(
+                                          "nav",
+                                          { staticClass: "media-right" },
+                                          [
+                                            s(
+                                              "div",
+                                              { staticClass: "level-right" },
+                                              [
+                                                s(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "level-item has-text-grey-light",
+                                                    on: {
+                                                      click: function(s) {
+                                                        t.showModal(e);
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    t._m(0, !0),
+                                                    t._v(" "),
+                                                    s(
+                                                      "small",
+                                                      {
+                                                        staticClass: "favicon"
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          " " +
+                                                            t._s(e.reply.length)
+                                                        )
+                                                      ]
+                                                    )
+                                                  ]
+                                                ),
+                                                t._v(" "),
+                                                s(
+                                                  "a",
+                                                  {
+                                                    staticClass:
+                                                      "level-item has-text-grey-light"
+                                                  },
+                                                  [
+                                                    s(
+                                                      "span",
+                                                      {
+                                                        staticClass:
+                                                          "icon is-medium"
+                                                      },
+                                                      [
+                                                        s(
+                                                          "i",
+                                                          {
+                                                            staticClass:
+                                                              "like-btn",
+                                                            on: {
+                                                              click: function(
+                                                                s
+                                                              ) {
+                                                                t.iLike(e);
+                                                              }
+                                                            }
+                                                          },
+                                                          [t._v("🚀")]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    t._v(" "),
+                                                    s("small", [
+                                                      t._v(t._s(e.like.length))
+                                                    ])
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : t._e()
+                                  ])
+                                ])
+                              : t._e()
+                          ]
+                        )
+                      : s(
+                          "div",
+                          { staticClass: "babble-container no-babble" },
+                          [s("p", [t._v("The timeline is empty")])]
+                        );
+                  })
+                )
+              ])
+            ]),
+            t._v(" "),
+            t.modalBabble
+              ? s(
+                  "div",
+                  [
+                    s(
+                      "b-modal",
+                      {
+                        attrs: { active: t.isCardModalActive },
+                        on: {
+                          "update:active": function(e) {
+                            t.isCardModalActive = e;
+                          }
+                        }
+                      },
+                      [
+                        s(
+                          "div",
+                          { staticClass: "card" },
+                          [
+                            s(
+                              "div",
+                              { staticClass: "tweets card-content p-x-1" },
+                              [
+                                t.modalBabble.babbleImg
+                                  ? s(
+                                      "div",
+                                      { staticClass: "card-image imageChart" },
+                                      [
+                                        s(
+                                          "figure",
+                                          { staticClass: "image is-2by1" },
+                                          [
+                                            s("img", {
+                                              attrs: {
+                                                src: t.modalBabble.babbleImg,
+                                                alt: "Placeholder image"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : t._e(),
+                                t._v(" "),
+                                s("article", { staticClass: "media tweet" }, [
+                                  s("figure", { staticClass: "media-left" }, [
+                                    s(
+                                      "p",
+                                      {
+                                        staticClass: "image is-64x64 is-circle"
+                                      },
+                                      [
+                                        s(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to:
+                                                "/dashboard/" +
+                                                t.modalBabble.user._id
+                                            }
+                                          },
+                                          [
+                                            s("img", {
+                                              staticClass: "imgProfile",
+                                              attrs: {
+                                                src:
+                                                  t.modalBabble.user.picProfile,
+                                                alt: "Image"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s("div", { staticClass: "media-content" }, [
+                                    s("div", { staticClass: "content" }, [
+                                      s(
+                                        "p",
+                                        { staticClass: "tweet-meta" },
+                                        [
+                                          s(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to:
+                                                  "/dashboard/" +
+                                                  t.modalBabble.user._id
+                                              }
+                                            },
+                                            [
+                                              s("strong", [
+                                                t._v(
+                                                  t._s(
+                                                    t.modalBabble.user.username
+                                                  )
+                                                )
+                                              ])
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "media-right has-text-grey-light"
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  t
+                                                    .moment(
+                                                      t.modalBabble.created_at.toString()
+                                                    )
+                                                    .format("DD-MM-YYYY HH:mm")
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      s("p", {
+                                        staticClass:
+                                          "tweet-body has-text-grey modalBabble babble-body",
+                                        domProps: {
+                                          innerHTML: t._s(t.modalBabble.babble)
+                                        }
+                                      })
+                                    ]),
+                                    t._v(" "),
+                                    s("nav", { staticClass: "media-right" }, [
+                                      s("div", { staticClass: "level-right" }, [
+                                        s(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "level-item has-text-grey-light"
+                                          },
+                                          [
+                                            s(
+                                              "span",
+                                              { staticClass: "icon is-medium" },
+                                              [
+                                                s("img", {
+                                                  staticClass: "reply",
+                                                  attrs: {
+                                                    src:
+                                                      "/static/images/comments.png"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "small",
+                                              { staticClass: "favicon" },
+                                              [
+                                                t._v(
+                                                  " " +
+                                                    t._s(
+                                                      t.modalBabble.reply.length
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "likeModal level-item has-text-grey-light"
+                                          },
+                                          [
+                                            s(
+                                              "span",
+                                              { staticClass: "icon is-medium" },
+                                              [
+                                                s(
+                                                  "i",
+                                                  { staticClass: "like-btn" },
+                                                  [t._v("🚀")]
+                                                )
+                                              ]
+                                            ),
+                                            s("small", [
+                                              t._v(
+                                                t._s(t.modalBabble.like.length)
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            t._v(" "),
+                            t._l(t.modalBabble.reply, function(e, a) {
+                              return t.modalBabble.reply
+                                ? s(
+                                    "div",
+                                    {
+                                      key: a,
+                                      staticClass: "tweets card-content p-x-1"
+                                    },
+                                    [
+                                      s(
+                                        "article",
+                                        { staticClass: "media tweet" },
+                                        [
+                                          s(
+                                            "figure",
+                                            { staticClass: "media-left" },
+                                            [
+                                              s(
+                                                "p",
+                                                {
+                                                  staticClass:
+                                                    "image is-64x64 is-circle"
+                                                },
+                                                [
+                                                  s(
+                                                    "router-link",
+                                                    {
+                                                      attrs: {
+                                                        to:
+                                                          "/dashboard/" +
+                                                          e.user._id
+                                                      }
+                                                    },
+                                                    [
+                                                      s("img", {
+                                                        staticClass:
+                                                          "imgProfile",
+                                                        attrs: {
+                                                          src: e.picProfile
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ],
+                                                1
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "div",
+                                            { staticClass: "media-content" },
+                                            [
+                                              s(
+                                                "div",
+                                                { staticClass: "content" },
+                                                [
+                                                  s(
+                                                    "p",
+                                                    {
+                                                      staticClass: "tweet-meta"
+                                                    },
+                                                    [
+                                                      s(
+                                                        "router-link",
+                                                        {
+                                                          attrs: {
+                                                            to:
+                                                              "/dashboard/" +
+                                                              e.user._id
+                                                          }
+                                                        },
+                                                        [
+                                                          s("strong", [
+                                                            t._v(
+                                                              t._s(e.username)
+                                                            )
+                                                          ])
+                                                        ]
+                                                      ),
+                                                      t._v(" "),
+                                                      s(
+                                                        "small",
+                                                        {
+                                                          staticClass:
+                                                            "media-right has-text-grey-light"
+                                                        },
+                                                        [
+                                                          t._v(
+                                                            t._s(
+                                                              t
+                                                                .moment(
+                                                                  e.created_at
+                                                                )
+                                                                .format(
+                                                                  "DD-MM-YYYY HH:mm"
+                                                                )
+                                                            )
+                                                          )
+                                                        ]
+                                                      )
+                                                    ],
+                                                    1
+                                                  ),
+                                                  t._v(" "),
+                                                  s("p", {
+                                                    staticClass:
+                                                      "tweet-body has-text-grey babble-body",
+                                                    domProps: {
+                                                      innerHTML: t._s(e.babble)
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : t._e();
+                            })
+                          ],
+                          2
+                        ),
+                        t._v(" "),
+                        s("div", { staticClass: "card-content bg-light" }, [
+                          s("div", { staticClass: "media" }, [
+                            s("div", { staticClass: "media-left" }, [
+                              t.connectedUser
+                                ? s(
+                                    "figure",
+                                    {
+                                      staticClass:
+                                        "image imageModal is-64x64 is-circle"
+                                    },
+                                    [
+                                      s("img", {
+                                        staticClass: "imgProfile",
+                                        attrs: {
+                                          src: t.connectedUser.picProfile,
+                                          alt: "Image"
+                                        }
+                                      })
+                                    ]
+                                  )
+                                : t._e()
+                            ]),
+                            t._v(" "),
+                            s("div", { staticClass: "media-content" }, [
+                              s("div", [
+                                s("div", { staticClass: "field" }, [
+                                  s("div", { staticClass: "control" }, [
+                                    s("textarea", {
+                                      directives: [
+                                        {
+                                          name: "model",
+                                          rawName: "v-model",
+                                          value: t.babbleText,
+                                          expression: "babbleText"
+                                        }
+                                      ],
+                                      staticClass: "textarea",
+                                      attrs: {
+                                        id: "babble-text",
+                                        name: "babble",
+                                        maxlength: "1618",
+                                        rows: "3",
+                                        placeholder: "Whats happening?"
+                                      },
+                                      domProps: { value: t.babbleText },
+                                      on: {
+                                        input: function(e) {
+                                          e.target.composing ||
+                                            (t.babbleText = e.target.value);
+                                        }
+                                      }
+                                    })
+                                  ])
+                                ]),
+                                t._v(" "),
+                                s(
+                                  "div",
+                                  { staticClass: "level levelchartIcon" },
+                                  [
+                                    s("div", {
+                                      staticClass: "level-left leftchartIcon"
+                                    }),
+                                    t._v(" "),
+                                    s(
+                                      "div",
+                                      {
+                                        staticClass:
+                                          "level-right rightchartIcon"
+                                      },
+                                      [
+                                        s(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "level-item has-text-grey"
+                                          },
+                                          [t._v(t._s(t.charactersLeft))]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "div",
+                                          { staticClass: "level-item" },
+                                          [
+                                            s(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button is-outlined is-primary",
+                                                attrs: { id: "babble-submit" },
+                                                on: {
+                                                  click: function(e) {
+                                                    t.postBabble(t.modalBabble);
+                                                  }
+                                                }
+                                              },
+                                              [t._v("Babble")]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              : t._e()
+          ]);
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("span", { staticClass: "icon is-medium" }, [
+              s("img", {
+                staticClass: "reply",
+                attrs: { src: "/static/images/comments.png" }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(330);
+      }
+      var i = s(331),
+        n = s(332),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-0398665f", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(13),
+        n = s.n(i);
+      e.a = {
+        data: function() {
+          return {
+            babble: "",
+            isShareChartActive: !1,
+            babbleImage: null,
+            babbleUrl: "",
+            noSticker: !1,
+            width: 0,
+            height: 0,
+            quality: 0
+          };
+        },
+        props: {
+          connectedUser: Object,
+          stock: {
+            type: Object,
+            default: function() {
+              return { shortName: "" };
+            }
+          }
+        },
+        components: {},
+        methods: {
+          shareChart: function() {
+            (this.width =
+              window.visualViewport.width >= 640
+                ? 480
+                : 0.6 * window.visualViewport.width),
+              (this.height =
+                window.visualViewport.width >= 640
+                  ? 240
+                  : 0.6 * window.visualViewport.width * 0.5),
+              (this.quality =
+                window.visualViewport.width >= 640 ? 0.7 : 448 / this.width),
+              (this.isShareChartActive = !0);
+          },
+          generateImage: function() {
+            var t = this.babbleImage.generateDataUrl("image/jpeg", 0.8);
+            if (!t) return void alert("no image");
+            this.babbleUrl = t;
+          },
+          onDraw: function(t) {
+            this.noSticker ||
+              t.drawImage(document.querySelector(".sticker"), 305, 188, 50, 20);
+          },
+          postChartBabble: function() {
+            this.generateImage(),
+              this.postBabble(),
+              (this.isShareChartActive = !1);
+          },
+          postBabble: function() {
+            var t = this;
+            (this.babble = n.a.replace(this.babble)),
+              Object(a.s)(this.babble, null, this.babbleUrl).then(function() {
+                (t.babble = ""), (t.babbleUrl = ""), t.$emit("changeBabbles");
+              });
+          },
+          putHashtag: function(t) {
+            return (
+              "#" === t.data &&
+                " " === t.target.value[t.target.value.lastIndexOf("#") - 1] &&
+                console.log("Autocomplete launched"),
+              1 !== this.babble.length
+                ? t.target.value.split("-")[0] ===
+                  "#" + this.stock.shortName + "-"
+                  ? this.babble
+                  : "#" + this.stock.shortName + "- " + this.babble
+                : (this.babble = "#" + this.stock.shortName + "-" + this.babble)
+            );
+          }
+        },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babble.length;
+          }
+        },
+        created: function() {
+          n.a.setConfig({ img_dir: "/static/images/basic" });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { staticClass: "card" },
+            [
+              s("div", { staticClass: "card-content bg-light" }, [
+                s("div", { staticClass: "media" }, [
+                  s("div", { staticClass: "media-left" }, [
+                    t.connectedUser
+                      ? s(
+                          "figure",
+                          { staticClass: "image is-64x64 is-circle" },
+                          [
+                            s("img", {
+                              staticClass: "imgProfile",
+                              attrs: {
+                                src: t.connectedUser.picProfile,
+                                alt: "Image"
+                              }
+                            })
+                          ]
+                        )
+                      : t._e()
+                  ]),
+                  t._v(" "),
+                  t.connectedUser
+                    ? s("div", { staticClass: "media-content" }, [
+                        s("div", [
+                          s("div", { staticClass: "field1" }, [
+                            s("div", { staticClass: "control" }, [
+                              s("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: t.babble,
+                                    expression: "babble"
+                                  }
+                                ],
+                                staticClass: "textarea",
+                                attrs: {
+                                  id: "babble-text",
+                                  name: "babble",
+                                  maxlength: "1618",
+                                  rows: "3",
+                                  placeholder:
+                                    "EN" === t.connectedUser.lang
+                                      ? "Share an interresting news..."
+                                      : "Partager une info intéressante..."
+                                },
+                                domProps: { value: t.babble },
+                                on: {
+                                  input: function(e) {
+                                    e.target.composing ||
+                                      (t.babble = e.target.value);
+                                  }
+                                }
+                              })
+                            ])
+                          ]),
+                          t._v(" "),
+                          s("div", { staticClass: "level" }, [
+                            s("div", { staticClass: "level-left" }, [
+                              s("a", { staticClass: "has-text-grey-light" }, [
+                                s(
+                                  "span",
+                                  {
+                                    staticClass: "chartIcon",
+                                    on: {
+                                      click: function(e) {
+                                        t.shareChart();
+                                      }
+                                    }
+                                  },
+                                  [
+                                    s("i", { staticClass: "fa fa-line-chart" }),
+                                    t._v(
+                                      "  " +
+                                        t._s(
+                                          "EN" === t.connectedUser.lang
+                                            ? "Share an image"
+                                            : "Partager une image"
+                                        ) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                )
+                              ])
+                            ]),
+                            t._v(" "),
+                            s("div", { staticClass: "level-right" }, [
+                              s(
+                                "div",
+                                { staticClass: "level-item has-text-grey" },
+                                [t._v(t._s(t.charactersLeft))]
+                              ),
+                              t._v(" "),
+                              s("div", { staticClass: "level-item" }, [
+                                s(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "button is-outlined is-primary",
+                                    attrs: { id: "babble-submit" },
+                                    on: {
+                                      click: function(e) {
+                                        t.postBabble();
+                                      }
+                                    }
+                                  },
+                                  [t._v("Babble")]
+                                )
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    : t._e()
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isShareChartActive },
+                  on: {
+                    "update:active": function(e) {
+                      t.isShareChartActive = e;
+                    }
+                  }
+                },
+                [
+                  s("div", { staticClass: "mediaModal" }, [
+                    t.connectedUser
+                      ? s("div", [
+                          s(
+                            "label",
+                            [
+                              s("span", { staticClass: "chartIcon" }, [
+                                s("i", { staticClass: "fa fa-line-chart" }),
+                                t._v(
+                                  "  " +
+                                    t._s(
+                                      "EN" === t.connectedUser.lang
+                                        ? "Share your image"
+                                        : "Partager votre image"
+                                    )
+                                )
+                              ]),
+                              t._v(" "),
+                              s("croppa", {
+                                staticClass: "column",
+                                attrs: {
+                                  width: t.width,
+                                  height: t.height,
+                                  quality: t.quality,
+                                  "placeholder-font-size": 18,
+                                  "prevent-white-space": !1,
+                                  "reverse-scroll-to-zoom": !0,
+                                  "show-loading": !0,
+                                  "loading-size": 50,
+                                  accept: "image/*"
+                                },
+                                on: { draw: t.onDraw },
+                                model: {
+                                  value: t.babbleImage,
+                                  callback: function(e) {
+                                    t.babbleImage = e;
+                                  },
+                                  expression: "babbleImage"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          s("br"),
+                          t._v(" "),
+                          s("div", { staticClass: "card-content bg-light" }, [
+                            s("div", { staticClass: "media" }, [
+                              s("div", { staticClass: "media-left" }, [
+                                t.connectedUser
+                                  ? s(
+                                      "figure",
+                                      {
+                                        staticClass: "image is-64x64 is-circle"
+                                      },
+                                      [
+                                        s("img", {
+                                          staticClass: "imgProfile",
+                                          attrs: {
+                                            src: t.connectedUser.picProfile,
+                                            alt: "Image"
+                                          }
+                                        })
+                                      ]
+                                    )
+                                  : t._e()
+                              ]),
+                              t._v(" "),
+                              s("div", { staticClass: "media-content" }, [
+                                s("div", [
+                                  s("div", { staticClass: "field1" }, [
+                                    s("div", { staticClass: "control" }, [
+                                      s("textarea", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: t.babble,
+                                            expression: "babble"
+                                          }
+                                        ],
+                                        staticClass: "textarea",
+                                        attrs: {
+                                          id: "babble-text",
+                                          name: "babble",
+                                          maxlength: "1618",
+                                          rows: "3",
+                                          placeholder:
+                                            "EN" === t.connectedUser.lang
+                                              ? "Share an interresting news, and use # to link to a stock..."
+                                              : "Partager une info intéressante et utiliser le # pour lier votre message à une action..."
+                                        },
+                                        domProps: { value: t.babble },
+                                        on: {
+                                          input: function(e) {
+                                            e.target.composing ||
+                                              (t.babble = e.target.value);
+                                          }
+                                        }
+                                      })
+                                    ])
+                                  ]),
+                                  t._v(" "),
+                                  s("div", { staticClass: "level" }, [
+                                    s("div", { staticClass: "level-left" }),
+                                    t._v(" "),
+                                    s("div", { staticClass: "level-right" }, [
+                                      s(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "level-item has-text-grey"
+                                        },
+                                        [t._v(t._s(t.charactersLeft))]
+                                      ),
+                                      t._v(" "),
+                                      s("div", { staticClass: "level-item" }, [
+                                        s(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "button is-outlined is-primary btn",
+                                            attrs: { id: "babble-submit" },
+                                            on: {
+                                              click: function(e) {
+                                                t.postChartBabble();
+                                              }
+                                            }
+                                          },
+                                          [t._v("Babble")]
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      : t._e()
+                  ])
+                ]
+              )
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      e.a = {
+        data: function() {
+          return {};
+        },
+        props: { recentPositions: null, connectedUser: Object }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", { staticClass: "column is-3" }, [
+            t.connectedUser
+              ? s(
+                  "div",
+                  { staticClass: "box" },
+                  [
+                    "EN" === t.connectedUser.lang
+                      ? s("p", [
+                          s("span", { staticClass: "title is-5" }, [
+                            t._v("Recent position")
+                          ])
+                        ])
+                      : s("p", [
+                          s("span", { staticClass: "title is-5" }, [
+                            t._v("Dernières positions prises")
+                          ])
+                        ]),
+                    t._v(" "),
+                    s("hr"),
+                    t._v(" "),
+                    t._l(t.recentPositions, function(e, a) {
+                      return s("div", { key: a, staticClass: "columns" }, [
+                        s(
+                          "div",
+                          { staticClass: "picss column is-12 is-marginless" },
+                          [
+                            s("div", { staticClass: "media-left" }, [
+                              s(
+                                "figure",
+                                { staticClass: "image is-48x48 is-circle" },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      attrs: {
+                                        to: "/dashboard/" + e._doc.userId._id
+                                      }
+                                    },
+                                    [
+                                      s("img", {
+                                        staticClass: "imgProfile",
+                                        attrs: { src: e._doc.userId.picProfile }
+                                      })
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            ]),
+                            t._v(" "),
+                            s(
+                              "p",
+                              [
+                                s(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: "/dashboard/" + e._doc.userId._id
+                                    }
+                                  },
+                                  [
+                                    s("strong", [
+                                      t._v("@" + t._s(e._doc.userId.username))
+                                    ])
+                                  ]
+                                ),
+                                s("br"),
+                                t._v(" "),
+                                "EN" === t.connectedUser.lang
+                                  ? s("span", { staticClass: "seeDash" }, [
+                                      t._v("(" + t._s(e.nbOfInsightsWon) + " "),
+                                      e.nbOfInsightsWon > 1
+                                        ? s("span", [t._v(" won trades)")])
+                                        : s("span", [t._v(" won trade)")])
+                                    ])
+                                  : s("span", { staticClass: "seeDash" }, [
+                                      t._v("(" + t._s(e.nbOfInsightsWon)),
+                                      e.nbOfInsightsWon > 1
+                                        ? s("span", [t._v(" trades gagnants)")])
+                                        : s("span", [t._v(" trade gagnant)")])
+                                    ]),
+                                s("br"),
+                                t._v(" "),
+                                s(
+                                  "span",
+                                  [
+                                    t._v(
+                                      t._s(
+                                        "EN" === t.connectedUser.lang
+                                          ? "is"
+                                          : "est"
+                                      ) + " "
+                                    ),
+                                    s(
+                                      "strong",
+                                      {
+                                        class: {
+                                          "has-text-green":
+                                            "bull" === e._doc.position,
+                                          "has-text-red":
+                                            "bear" === e._doc.position
+                                        }
+                                      },
+                                      [t._v(t._s(e._doc.position))]
+                                    ),
+                                    t._v(
+                                      " " +
+                                        t._s(
+                                          "EN" === t.connectedUser.lang
+                                            ? "on"
+                                            : "sur"
+                                        ) +
+                                        "  "
+                                    ),
+                                    s(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to:
+                                            "/stocks/" +
+                                            e._doc.stockId.shortName
+                                        }
+                                      },
+                                      [
+                                        t._v(
+                                          "#" + t._s(e._doc.stockId.longName)
+                                        )
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                s("br")
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ]);
+                    })
+                  ],
+                  2
+                )
+              : t._e()
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.connectedUser
+            ? s("section", { staticClass: "section main sideRecent" }, [
+                t.babbles
+                  ? s("div", { staticClass: "primordial" }, [
+                      s(
+                        "div",
+                        { staticClass: "sct1" },
+                        [
+                          s("side-recent-activity", {
+                            staticClass: "is-sticky",
+                            attrs: {
+                              connectedUser: t.connectedUser,
+                              recentPositions: t.recentPositions
+                            }
+                          }),
+                          t._v(" "),
+                          s(
+                            "div",
+                            { staticClass: "babblesField column is-6" },
+                            [
+                              s("stream-publish-babble", {
+                                attrs: { connectedUser: t.connectedUser },
+                                on: {
+                                  changeBabbles: function(e) {
+                                    t.updateTimelineBabble(e);
+                                  }
+                                }
+                              }),
+                              t._v(" "),
+                              s("stream-timeline-babble", {
+                                attrs: {
+                                  connectedUser: t.connectedUser,
+                                  babbles: t.babbles
+                                },
+                                on: {
+                                  sort: t.changeSort,
+                                  changeBabbles: function(e) {
+                                    t.updateTimelineBabble(e);
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          s("side-current-insight", {
+                            staticClass: "sci",
+                            attrs: {
+                              connectedUser: t.connectedUser,
+                              watchInsight: t.watchInsight
+                            },
+                            on: {
+                              changeWatchlist: function(e) {
+                                t.updateWatchList(e);
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  : t._e()
+              ])
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(338);
+      }
+      var i = s(339),
+        n = s(353),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-2e5a7ada", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(151),
+        n = s(152),
+        o = s(346),
+        r = s(153);
+      e.a = {
+        data: function() {
+          return { filterBy: "all", babbles: null, recentPositions: null };
+        },
+        props: { langSelected: "" },
+        components: {
+          PublishBabbleUnconnect: n.a,
+          StreamTimelineBabbleUnconnect: o.a,
+          SideRecentActivityUnconnect: i.a,
+          SideCurrentInsightUnconnect: r.a
+        },
+        methods: {
+          fetchData: function() {
+            var t = this;
+            Object(a.d)(this.filterBy).then(function(e) {
+              t.babbles = e;
+            }),
+              Object(a.i)().then(function(e) {
+                t.recentPositions = e;
+              });
+          }
+        },
+        created: function() {
+          this.fetchData();
+        },
+        watch: {
+          $route: function() {
+            this.fetchData();
+          }
+        }
+      };
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      e.a = {
+        data: function() {
+          return {};
+        },
+        props: { recentPositions: null, langSelected: "" }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", { staticClass: "column is-3" }, [
+            s(
+              "div",
+              { staticClass: "box" },
+              [
+                "EN" === t.langSelected
+                  ? s("p", [
+                      s("span", { staticClass: "title is-5" }, [
+                        t._v("Recent position")
+                      ])
+                    ])
+                  : s("p", [
+                      s("span", { staticClass: "title is-5" }, [
+                        t._v("Dernières positions prises")
+                      ])
+                    ]),
+                t._v(" "),
+                s("hr"),
+                t._v(" "),
+                t._l(t.recentPositions, function(e, a) {
+                  return s("div", { key: a, staticClass: "columns" }, [
+                    s(
+                      "div",
+                      { staticClass: "picss column is-12 is-marginless" },
+                      [
+                        s("div", { staticClass: "media-left" }, [
+                          s(
+                            "figure",
+                            { staticClass: "image is-48x48 is-circle" },
+                            [
+                              s(
+                                "router-link",
+                                {
+                                  attrs: {
+                                    to: "/dashboard/" + e._doc.userId._id
+                                  }
+                                },
+                                [
+                                  s("img", {
+                                    staticClass: "imgProfile",
+                                    attrs: { src: e._doc.userId.picProfile }
+                                  })
+                                ]
+                              )
+                            ],
+                            1
+                          )
+                        ]),
+                        t._v(" "),
+                        s(
+                          "p",
+                          [
+                            s(
+                              "router-link",
+                              {
+                                attrs: { to: "/dashboard/" + e._doc.userId._id }
+                              },
+                              [
+                                s("strong", [
+                                  t._v("@" + t._s(e._doc.userId.username))
+                                ])
+                              ]
+                            ),
+                            s("br"),
+                            t._v(" "),
+                            "EN" === t.langSelected
+                              ? s("span", { staticClass: "seeDash" }, [
+                                  t._v("(" + t._s(e.nbOfInsightsWon) + " "),
+                                  e.nbOfInsightsWon > 1
+                                    ? s("span", [t._v(" won trades)")])
+                                    : s("span", [t._v(" won trade)")])
+                                ])
+                              : s("span", { staticClass: "seeDash" }, [
+                                  t._v("(" + t._s(e.nbOfInsightsWon)),
+                                  e.nbOfInsightsWon > 1
+                                    ? s("span", [t._v(" trades gagnants)")])
+                                    : s("span", [t._v(" trade gagnant)")])
+                                ]),
+                            s("br"),
+                            t._v(" "),
+                            s(
+                              "span",
+                              [
+                                t._v(
+                                  t._s("EN" === t.langSelected ? "is" : "est") +
+                                    " "
+                                ),
+                                s(
+                                  "strong",
+                                  {
+                                    class: {
+                                      "has-text-green":
+                                        "bull" === e._doc.position,
+                                      "has-text-red": "bear" === e._doc.position
+                                    }
+                                  },
+                                  [t._v(t._s(e._doc.position))]
+                                ),
+                                t._v(
+                                  " " +
+                                    t._s(
+                                      "EN" === t.langSelected ? "on" : "sur"
+                                    ) +
+                                    "  "
+                                ),
+                                s(
+                                  "router-link",
+                                  {
+                                    attrs: {
+                                      to: "/stocks/" + e._doc.stockId.shortName
+                                    }
+                                  },
+                                  [t._v("#" + t._s(e._doc.stockId.longName))]
+                                )
+                              ],
+                              1
+                            ),
+                            s("br")
+                          ],
+                          1
+                        )
+                      ]
+                    )
+                  ]);
+                })
+              ],
+              2
+            )
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10);
+      e.a = {
+        components: { SignupModal: a.a, LoginModal: i.a },
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: ""
+          };
+        },
+        props: {
+          langSelected: "",
+          stock: {
+            type: Object,
+            default: function() {
+              return { shortName: "" };
+            }
+          }
+        },
+        methods: {
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { staticClass: "card" },
+            [
+              s("div", { staticClass: "card-content bg-light" }, [
+                s("div", { staticClass: "media" }, [
+                  s("div", { staticClass: "media-left" }, [
+                    s(
+                      "figure",
+                      {
+                        staticClass: "image is-64x64 is-circle",
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        s("img", {
+                          staticClass: "imgProfile",
+                          attrs: {
+                            src: "/static/images/Georges.jpg",
+                            alt: "Image"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "media-content" }, [
+                    s("div", [
+                      s(
+                        "div",
+                        { staticClass: "field1", on: { click: t.SignupModal } },
+                        [
+                          s("div", { staticClass: "control" }, [
+                            s("textarea", {
+                              staticClass: "textarea",
+                              attrs: {
+                                id: "babble-text",
+                                name: "babble",
+                                maxlength: "1618",
+                                rows: "3",
+                                placeholder:
+                                  "EN" === t.langSelected
+                                    ? "Share an interresting news..."
+                                    : "Partager une info intéressante..."
+                              }
+                            })
+                          ])
+                        ]
+                      ),
+                      t._v(" "),
+                      s("div", { staticClass: "level" }, [
+                        s("div", { staticClass: "level-left" }, [
+                          s("a", { staticClass: "has-text-grey-light" }, [
+                            s(
+                              "span",
+                              {
+                                staticClass: "chartIcon",
+                                on: { click: t.SignupModal }
+                              },
+                              [
+                                s("i", { staticClass: "fa fa-line-chart" }),
+                                t._v(
+                                  "  " +
+                                    t._s(
+                                      "EN" === t.langSelected
+                                        ? "Share an image"
+                                        : "Partager une image"
+                                    ) +
+                                    "\n                                "
+                                )
+                              ]
+                            )
+                          ])
+                        ]),
+                        t._v(" "),
+                        s("div", { staticClass: "level-right" }, [
+                          s(
+                            "div",
+                            { staticClass: "level-item has-text-grey" },
+                            [t._v("1618")]
+                          ),
+                          t._v(" "),
+                          s("div", { staticClass: "level-item" }, [
+                            s(
+                              "button",
+                              {
+                                staticClass: "button is-outlined is-primary",
+                                attrs: { id: "babble-submit" },
+                                on: { click: t.SignupModal }
+                              },
+                              [t._v("Babble")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isSignupModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isSignupModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("signup-modal", {
+                    on: {
+                      "!loginModal": function(e) {
+                        t.LoginModal(e);
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isLoginModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isLoginModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("login-modal", {
+                    attrs: { autenticate: t.autenticate },
+                    on: {
+                      closeLoginModal: function(e) {
+                        t.closeLoginModal();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(347);
+      }
+      var i = s(348),
+        n = s(349),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-66859532", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10),
+        n = s(0),
+        o = s.n(n),
+        r = s(13);
+      s.n(r);
+      e.a = {
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: "",
+            activeItem: "all"
+          };
+        },
+        props: { babbles: Array, stock: Object, langSelected: "" },
+        components: { SignupModal: a.a, LoginModal: i.a },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babbleText.length;
+          }
+        },
+        methods: {
+          moment: function(t) {
+            return o()(t);
+          },
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("div", [
+                s("nav", { staticClass: "navbar is-dark" }, [
+                  s("div", { staticClass: "babblesMenu" }, [
+                    s(
+                      "a",
+                      {
+                        staticClass: "navbar-item is-tab babMenu",
+                        class: { "is-active": "all" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [t._v(t._s("EN" === t.langSelected ? "All" : "Tous"))]
+                    ),
+                    t._v(" "),
+                    s(
+                      "a",
+                      {
+                        staticClass: "navbar-item is-tab babMenu",
+                        class: { "is-active": "insidermates" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          t._s(
+                            "EN" === t.langSelected
+                              ? "Insider Mates"
+                              : "Amis insiders"
+                          )
+                        )
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "a",
+                      {
+                        staticClass: "navbar-item is-tab babMenu",
+                        class: { "is-active": "watchlist" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          t._s(
+                            "EN" === t.langSelected
+                              ? "Watch List"
+                              : "Liste de suivi"
+                          )
+                        )
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "a",
+                      {
+                        staticClass: "navbar-item is-tab babMenu",
+                        class: { "is-active": "me" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          t._s(
+                            "EN" === t.langSelected
+                              ? "My babbles"
+                              : "Mes babbles"
+                          )
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                t._v(" "),
+                s("div", { staticClass: "card" }, [
+                  s(
+                    "div",
+                    {
+                      staticClass: "babbles-box",
+                      attrs: { id: "babble-container" }
+                    },
+                    t._l(t.babbles, function(e, a) {
+                      return t.babbles
+                        ? s(
+                            "div",
+                            {
+                              key: a,
+                              staticClass: "tweets card-content p-x-1"
+                            },
+                            [
+                              e.babbleImg
+                                ? s(
+                                    "div",
+                                    { staticClass: "card-image imageChart" },
+                                    [
+                                      s(
+                                        "figure",
+                                        { staticClass: "image is-2by1" },
+                                        [
+                                          s("img", {
+                                            attrs: {
+                                              src: e.babbleImg,
+                                              alt: "Placeholder image"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : t._e(),
+                              t._v(" "),
+                              s("article", { staticClass: "media tweet" }, [
+                                s("figure", { staticClass: "media-left" }, [
+                                  s(
+                                    "p",
+                                    { staticClass: "image is-64x64 is-circle" },
+                                    [
+                                      s(
+                                        "router-link",
+                                        { attrs: { to: "'/leaderboard'" } },
+                                        [
+                                          s("img", {
+                                            staticClass: "imgProfile",
+                                            attrs: { src: e.user.picProfile }
+                                          })
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                t._v(" "),
+                                s("div", { staticClass: "media-content" }, [
+                                  s("div", { staticClass: "content" }, [
+                                    s(
+                                      "p",
+                                      { staticClass: "tweet-meta" },
+                                      [
+                                        s(
+                                          "router-link",
+                                          { attrs: { to: "'/leaderboard'" } },
+                                          [
+                                            s("strong", [
+                                              t._v(t._s(e.user.username))
+                                            ])
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "small",
+                                          {
+                                            staticClass:
+                                              "media-right has-text-grey-light"
+                                          },
+                                          [
+                                            t._v(
+                                              t._s(
+                                                t
+                                                  .moment(e.created_at)
+                                                  .format("DD-MM-YYYY HH:mm")
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s("p", {
+                                      staticClass:
+                                        "tweet-body has-text-grey babble-body",
+                                      domProps: {
+                                        innerHTML: t._s(
+                                          t.addLinksToHttp(e.babble)
+                                        )
+                                      }
+                                    })
+                                  ]),
+                                  t._v(" "),
+                                  e.reply
+                                    ? s("nav", { staticClass: "media-right" }, [
+                                        s(
+                                          "div",
+                                          { staticClass: "level-right" },
+                                          [
+                                            s(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "level-item has-text-grey-light",
+                                                on: { click: t.SignupModal }
+                                              },
+                                              [
+                                                t._m(0, !0),
+                                                t._v(" "),
+                                                s(
+                                                  "small",
+                                                  { staticClass: "favicon" },
+                                                  [
+                                                    t._v(
+                                                      " " + t._s(e.reply.length)
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "a",
+                                              {
+                                                staticClass:
+                                                  "level-item has-text-grey-light"
+                                              },
+                                              [
+                                                s(
+                                                  "span",
+                                                  {
+                                                    staticClass:
+                                                      "icon is-medium"
+                                                  },
+                                                  [
+                                                    s(
+                                                      "i",
+                                                      {
+                                                        staticClass: "like-btn",
+                                                        on: {
+                                                          click: t.SignupModal
+                                                        }
+                                                      },
+                                                      [t._v("🚀")]
+                                                    )
+                                                  ]
+                                                ),
+                                                t._v(" "),
+                                                s("small", [
+                                                  t._v(t._s(e.like.length))
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    : t._e()
+                                ])
+                              ])
+                            ]
+                          )
+                        : s(
+                            "div",
+                            { staticClass: "babble-container no-babble" },
+                            [s("p", [t._v("The timeline is empty")])]
+                          );
+                    })
+                  )
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isSignupModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isSignupModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("signup-modal", {
+                    on: {
+                      "!loginModal": function(e) {
+                        t.LoginModal(e);
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isLoginModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isLoginModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("login-modal", {
+                    attrs: { autenticate: t.autenticate },
+                    on: {
+                      closeLoginModal: function(e) {
+                        t.closeLoginModal();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          );
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("span", { staticClass: "icon is-medium" }, [
+              s("img", {
+                staticClass: "reply",
+                attrs: { src: "/static/images/comments.png" }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10);
+      e.a = {
+        components: { SignupModal: a.a, LoginModal: i.a },
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: ""
+          };
+        },
+        props: {
+          langSelected: "",
+          stock: {
+            type: Object,
+            default: function() {
+              return { shortName: "" };
+            }
+          }
+        },
+        methods: {
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0),
+              this.$emit("signup");
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { staticClass: "column is-3 sideRecent mainSCI" },
+            [
+              s("div", { staticClass: "is-sticky" }, [
+                s("nav", { staticClass: "navbar is-dark" }, [
+                  "EN" === t.langSelected
+                    ? s(
+                        "p",
+                        {
+                          staticClass: "babMenu navbar-item whiteci",
+                          attrs: { id: "currentInsight" }
+                        },
+                        [t._v("Open Positions")]
+                      )
+                    : s(
+                        "p",
+                        {
+                          staticClass: "babMenu navbar-item whiteci",
+                          attrs: { id: "currentInsight" }
+                        },
+                        [t._v("Positions ouvertes")]
+                      )
+                ]),
+                t._v(" "),
+                s("div", { staticClass: "card profile-card" }, [
+                  "EN" === t.langSelected
+                    ? s("p", { staticClass: "cardText" }, [
+                        t._v(
+                          "Become an Insider to take position on a stock and share your insights !!!"
+                        )
+                      ])
+                    : s("p", { staticClass: "cardText" }, [
+                        t._v(
+                          "Devenez un Insider pour prendre position et partager vos intuitions sur le marché !!!"
+                        )
+                      ]),
+                  t._v(" "),
+                  s("div", { staticClass: "login" }, [
+                    "EN" === t.langSelected
+                      ? s(
+                          "p",
+                          {
+                            staticClass: "button buttonLogin",
+                            attrs: { type: "button" },
+                            on: { click: t.SignupModal }
+                          },
+                          [t._v("Join")]
+                        )
+                      : s(
+                          "p",
+                          {
+                            staticClass: "button buttonLogin",
+                            attrs: { type: "button" },
+                            on: { click: t.SignupModal }
+                          },
+                          [t._v("Rejoindre")]
+                        )
+                  ])
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isSignupModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isSignupModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("signup-modal", {
+                    on: {
+                      "!loginModal": function(e) {
+                        t.LoginModal(e);
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isLoginModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isLoginModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("login-modal", {
+                    attrs: { autenticate: t.autenticate },
+                    on: {
+                      closeLoginModal: function(e) {
+                        t.closeLoginModal();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("section", { staticClass: "section main sideRecent" }, [
+            s("div", { staticClass: "primordial" }, [
+              s(
+                "div",
+                { staticClass: "sct1" },
+                [
+                  s("side-recent-activity-unconnect", {
+                    staticClass: "is-3 is-sticky sci",
+                    attrs: {
+                      langSelected: t.langSelected,
+                      recentPositions: t.recentPositions
+                    }
+                  }),
+                  t._v(" "),
+                  s(
+                    "div",
+                    { staticClass: "babblesField column is-6" },
+                    [
+                      s("publish-babble-unconnect", {
+                        attrs: { langSelected: t.langSelected },
+                        on: {
+                          signup: function(e) {
+                            t.fetchData();
+                          }
+                        }
+                      }),
+                      t._v(" "),
+                      s("stream-timeline-babble-unconnect", {
+                        attrs: {
+                          langSelected: t.langSelected,
+                          babbles: t.babbles
+                        },
+                        on: {
+                          signup: function(e) {
+                            t.fetchData();
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  t._v(" "),
+                  s("side-current-insight-unconnect", {
+                    staticClass: "sci",
+                    attrs: { langSelected: t.langSelected },
+                    on: {
+                      signup: function(e) {
+                        t.fetchData();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ])
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { attrs: { id: "app" } },
+            [
+              t.connectedUser
+                ? s("Stream-Page-Connect", {
+                    attrs: { connectedUser: t.connectedUser }
+                  })
+                : s("Stream-Page-Unconnect", {
+                    attrs: { langSelected: t.langSelected }
+                  })
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return this.$root.user
+            ? s("stream-page", { attrs: { connectedUser: t.connectedUser } })
+            : s(
+                "section",
+                { staticClass: "hero is-fullheight" },
+                [
+                  s("div", { staticClass: "flag" }, [
+                    s("img", {
+                      staticClass: "flag-img",
+                      attrs: { src: "/static/images/landing/usflag.jpg" },
+                      on: {
+                        click: function(e) {
+                          t.changeLang("EN");
+                        }
+                      }
+                    }),
+                    t._v(" "),
+                    s("img", {
+                      staticClass: "flag-img",
+                      attrs: { src: "/static/images/landing/frenchflag.jpg" },
+                      on: {
+                        click: function(e) {
+                          t.changeLang("FR");
+                        }
+                      }
+                    })
+                  ]),
+                  t._v(" "),
+                  s("div", [
+                    s("div", { staticClass: "logo" }, [
+                      s("img", {
+                        attrs: {
+                          src: "/static/images/landing/logo-landing.svg"
+                        }
+                      })
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "accroche" }, [
+                    "EN" === t.langSelected
+                      ? s("h1", { staticClass: "accrocheH1" }, [
+                          t._v(
+                            "Join the best community of investors you can trust."
+                          )
+                        ])
+                      : s("h1", { staticClass: "accrocheH1" }, [
+                          t._v(
+                            "Rejoignez la communauté des investisseurs de confiance."
+                          )
+                        ]),
+                    t._v(" "),
+                    "EN" === t.langSelected
+                      ? s("p", { staticClass: "accrocheP" }, [
+                          t._v(
+                            "Share your insights about the pulse of the market, learn from others and have fun."
+                          )
+                        ])
+                      : s("p", { staticClass: "accrocheP" }, [
+                          t._v(
+                            "Partager vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous."
+                          )
+                        ])
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "loggiin" }, [
+                    "EN" === t.langSelected
+                      ? s(
+                          "p",
+                          {
+                            staticClass: "button is-large buttonLogin",
+                            attrs: { type: "button" },
+                            on: { click: t.LoginModal }
+                          },
+                          [t._v("Login")]
+                        )
+                      : s(
+                          "p",
+                          {
+                            staticClass: "button is-large buttonLogin",
+                            attrs: { type: "button" },
+                            on: { click: t.LoginModal }
+                          },
+                          [t._v("Connexion")]
+                        ),
+                    t._v(" "),
+                    "EN" === t.langSelected
+                      ? s(
+                          "p",
+                          {
+                            staticClass: "button is-large buttonSignin",
+                            attrs: { type: "button" },
+                            on: { click: t.SignupModal }
+                          },
+                          [t._v("Join")]
+                        )
+                      : s(
+                          "p",
+                          {
+                            staticClass: "button is-large buttonSignin",
+                            attrs: { type: "button" },
+                            on: { click: t.SignupModal }
+                          },
+                          [t._v("Rejoindre")]
+                        )
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "sentimentLand" }, [
+                    s("div", { staticClass: "sentimentLandImage" }, [
+                      s("img", {
+                        attrs: { src: "/static/images/landing/sentiment.png" }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("div", { staticClass: "sentimentLandText" }, [
+                      s("div", { staticClass: "sentimentLandBull" }, [
+                        s("img", {
+                          attrs: {
+                            src: "/static/images/landing/roundBullArrow.png"
+                          }
+                        })
+                      ]),
+                      t._v(" "),
+                      "EN" === t.langSelected
+                        ? s("h1", { staticClass: "accrocheH1" }, [
+                            t._v("Gauge the real time sentiment of the market.")
+                          ])
+                        : s("h1", { staticClass: "accrocheH1" }, [
+                            t._v(
+                              "Évaluer le sentiment en temps réel du marché."
+                            )
+                          ]),
+                      t._v(" "),
+                      "EN" === t.langSelected
+                        ? s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "Check the level of bullishness and bearishness around a stock before you make your next investment."
+                            )
+                          ])
+                        : s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "Vérifiez le niveau de tendance haussière et baissière d'une action avant de faire votre prochain investissement."
+                            )
+                          ]),
+                      t._v(" "),
+                      s("div", { staticClass: "sentimentLandBear" }, [
+                        s("img", {
+                          attrs: {
+                            src: "/static/images/landing/roundBearArrow.png"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "sentimentLand" }, [
+                    s("div", { staticClass: "sentimentLandText2" }, [
+                      "EN" === t.langSelected
+                        ? s("h1", { staticClass: "accrocheH1" }, [
+                            t._v("Real time insights.")
+                          ])
+                        : s("h1", { staticClass: "accrocheH1" }, [
+                            t._v("Des infos en temps réel")
+                          ]),
+                      t._v(" "),
+                      "EN" === t.langSelected
+                        ? s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "Quickly catch up on what is happening with the stocks you own and which companies everyone is talking about today."
+                            )
+                          ])
+                        : s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "Retrouver rapidement ce qui se passe avec les actions que vous possédez et dont tout le monde parle aujourd'hui."
+                            )
+                          ])
+                    ]),
+                    t._v(" "),
+                    s("div", { staticClass: "sentimentLandImage2" }, [
+                      s("img", {
+                        attrs: {
+                          src: "/static/images/landing/give-insight.gif"
+                        }
+                      })
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "sentimentLand3" }, [
+                    s("div", { staticClass: "sentimentLandImage3" }, [
+                      s("img", {
+                        attrs: {
+                          src: "/static/images/landing/Financial-tips.png"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("div", { staticClass: "sentimentLandText2" }, [
+                      "EN" === t.langSelected
+                        ? s("h1", { staticClass: "accrocheH1" }, [
+                            t._v("Get great financial tips. For free.")
+                          ])
+                        : s("h1", { staticClass: "accrocheH1" }, [
+                            t._v(
+                              "Obtenez les meilleurs conseils financiers. Gratuitement."
+                            )
+                          ]),
+                      t._v(" "),
+                      "EN" === t.langSelected
+                        ? s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "We believe that the financial system should help the rest of us, not just the wealthy.\r\nThe future of investing is social. Connect with other active investors before making your next trade. Find and follow the pros."
+                            )
+                          ])
+                        : s("p", { staticClass: "accrocheP" }, [
+                            t._v(
+                              "Nous croyons que le système financier se doivent de profiter à tous, pas seulement aux riches.\r\nL'avenir de l'investissement est social. Connectez-vous avec d'autres investisseurs actifs avant de faire votre prochain trade. Trouvez et suivez les meilleurs."
+                            )
+                          ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("section", { staticClass: "hero separator" }, [
+                    s(
+                      "div",
+                      { staticClass: "hero-body testimonials-section" },
+                      [
+                        s("div", { staticClass: "container" }, [
+                          "EN" === t.langSelected
+                            ? s("h1", { staticClass: "title testimonials" }, [
+                                t._v("What Our Community is Saying...")
+                              ])
+                            : s("h1", { staticClass: "title testimonials" }, [
+                                t._v("Ce que notre communauté en pense...")
+                              ]),
+                          t._v(" "),
+                          s("div", { staticClass: "columns separator2" }, [
+                            s(
+                              "div",
+                              { staticClass: "column is-one-third testi" },
+                              [
+                                s("img", {
+                                  staticClass: "img",
+                                  attrs: {
+                                    src: "/static/images/landing/emily.jpg"
+                                  }
+                                }),
+                                t._v(" "),
+                                s(
+                                  "h4",
+                                  {
+                                    staticClass: "separator nametesti subtitle"
+                                  },
+                                  [t._v(" @emily")]
+                                ),
+                                t._v(" "),
+                                "EN" === t.langSelected
+                                  ? s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        "”I doubled my stocks income since I joined Insiders. Thx so much!”"
+                                      )
+                                    ])
+                                  : s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        "” J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !\""
+                                      )
+                                    ])
+                              ]
+                            ),
+                            t._v(" "),
+                            s(
+                              "div",
+                              { staticClass: "column is-one-third testi" },
+                              [
+                                s("img", {
+                                  staticClass: "img",
+                                  attrs: {
+                                    src: "/static/images/landing/emmanuel.png"
+                                  }
+                                }),
+                                t._v(" "),
+                                s(
+                                  "h4",
+                                  {
+                                    staticClass: "separator nametesti subtitle"
+                                  },
+                                  [t._v(" @emmanuel")]
+                                ),
+                                t._v(" "),
+                                "EN" === t.langSelected
+                                  ? s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        "” We need young Frenchmen who want to become billionaires.” (Taking about Insiders)"
+                                      )
+                                    ])
+                                  : s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        "” Il faut des jeunes Français qui aient envie de devenir milliardaires.” (en parlant des Insiders)"
+                                      )
+                                    ])
+                              ]
+                            ),
+                            t._v(" "),
+                            s(
+                              "div",
+                              { staticClass: "column is-one-third testi" },
+                              [
+                                s("img", {
+                                  staticClass: "img",
+                                  attrs: {
+                                    src: "/static/images/landing/daniel.png"
+                                  }
+                                }),
+                                t._v(" "),
+                                s(
+                                  "h4",
+                                  {
+                                    staticClass: "separator nametesti subtitle"
+                                  },
+                                  [t._v(" @daniel")]
+                                ),
+                                t._v(" "),
+                                "EN" === t.langSelected
+                                  ? s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        '"Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight."'
+                                      )
+                                    ])
+                                  : s("p", { staticClass: "testiP" }, [
+                                      t._v(
+                                        '" Quiconque joue à la Bourse sans être un Insider, est comme un homme qui achète des vaches au clair de lune."'
+                                      )
+                                    ])
+                              ]
+                            )
+                          ])
+                        ])
+                      ]
+                    ),
+                    t._v(" "),
+                    s("footer", [
+                      s("ul", { staticClass: "footer-list" }, [
+                        s("li", { staticClass: "list" }, [t._v("About Us")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("Support")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("Press")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("API")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("FAQ")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("Privacy")]),
+                        t._v(" "),
+                        s("li", { staticClass: "list" }, [t._v("Terms")])
+                      ]),
+                      t._v(" "),
+                      s("span", [t._v("© 2018 Insiders")])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s(
+                    "b-modal",
+                    {
+                      attrs: { active: t.isSignupModalActive, width: 640 },
+                      on: {
+                        "update:active": function(e) {
+                          t.isSignupModalActive = e;
+                        }
+                      }
+                    },
+                    [
+                      s("signup-modal", {
+                        attrs: { langSelected: t.langSelected },
+                        on: {
+                          "!loginModal": function(e) {
+                            t.LoginModal(e);
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  t._v(" "),
+                  s(
+                    "b-modal",
+                    {
+                      attrs: { active: t.isLoginModalActive, width: 640 },
+                      on: {
+                        "update:active": function(e) {
+                          t.isLoginModalActive = e;
+                        }
+                      }
+                    },
+                    [
+                      s("login-modal", {
+                        attrs: {
+                          langSelected: t.langSelected,
+                          autenticate: t.autenticate
+                        },
+                        on: {
+                          closeLoginModal: function(e) {
+                            t.closeLoginModal();
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(357);
+      }
+      var i = s(358),
+        n = s(359),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-0f3ac28e", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10),
+        n = s(3);
+      s(12);
+      e.a = {
+        components: { SignupModal: a.a, LoginModal: i.a },
+        data: function() {
+          return {
+            navbarLinks: [
+              {
+                location: "/stream",
+                text: "Stream",
+                textfr: "Flux d'actualités"
+              },
+              { location: "/trending", text: "Trending", textfr: "Tendance" },
+              {
+                location: "/leaderboard",
+                text: "Leaderboard",
+                textfr: "Leaderboard"
+              }
+            ],
+            data: null,
+            name: "",
+            selected: null,
+            closedState: !0,
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: ""
+          };
+        },
+        props: { langSelected: "" },
+        methods: {
+          SignupModal: function() {
+            (this.isLoginModalActive = !1), (this.isSignupModalActive = !0);
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          },
+          changeLang: function(t) {
+            this.$emit("changeLang", t);
+          },
+          onSelect: function(t) {
+            t &&
+              ((this.selected = t),
+              this.$router.push("/stocks/" + t.shortName.toLowerCase()));
+          },
+          closetoggle: function() {
+            this.closedState = !this.closedState;
+          }
+        },
+        watch: {
+          name: function(t) {
+            this.selected &&
+              t === this.selected.longName &&
+              ((this.name = ""), (this.selected = null));
+          },
+          $route: function() {
+            this.closedState = !0;
+          }
+        },
+        computed: {
+          filteredDataObj: function() {
+            var t = this;
+            return this.data
+              ? this.data
+                  .filter(function(e) {
+                    return (
+                      0 ===
+                      e.longName
+                        .toString()
+                        .toUpperCase()
+                        .indexOf(t.name.toUpperCase())
+                    );
+                  })
+                  .sort()
+              : [];
+          }
+        },
+        mounted: function() {
+          var t = this;
+          Object(n.e)().then(function(e) {
+            t.data = e;
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "nav",
+            { staticClass: "nav has-shadow", attrs: { id: "top" } },
+            [
+              s("div", { attrs: { id: "top2" } }, [
+                s(
+                  "div",
+                  { staticClass: "nav" },
+                  [
+                    s(
+                      "router-link",
+                      { staticClass: "nav-item", attrs: { to: "/stream" } },
+                      [
+                        s("img", {
+                          attrs: {
+                            id: "logo2",
+                            src: "/static/images/logoReduct.png",
+                            alt: "Description"
+                          }
+                        }),
+                        t._v(" "),
+                        s("img", {
+                          attrs: {
+                            id: "logo",
+                            src: "/static/images/logo.png",
+                            alt: "Description"
+                          }
+                        })
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                t._v(" "),
+                t.data
+                  ? s("div", { staticClass: "nav", attrs: { id: "formNav" } }, [
+                      s(
+                        "div",
+                        {
+                          staticClass: "nav-item field",
+                          attrs: { id: "formNav1" }
+                        },
+                        [
+                          s(
+                            "div",
+                            {
+                              staticClass: "control has-icons-left",
+                              attrs: { id: "formNav2" }
+                            },
+                            [
+                              s(
+                                "b-field",
+                                [
+                                  s("b-autocomplete", {
+                                    attrs: {
+                                      placeholder:
+                                        "EN" === t.langSelected
+                                          ? "Find a stock / crypto"
+                                          : "Retrouver une action / crypto",
+                                      data: t.filteredDataObj,
+                                      field: "longName"
+                                    },
+                                    on: {
+                                      select: function(e) {
+                                        t.onSelect(e);
+                                      }
+                                    },
+                                    model: {
+                                      value: t.name,
+                                      callback: function(e) {
+                                        t.name = e;
+                                      },
+                                      expression: "name"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              t._m(0)
+                            ],
+                            1
+                          )
+                        ]
+                      )
+                    ])
+                  : t._e(),
+                t._v(" "),
+                s(
+                  "label",
+                  {
+                    staticClass: "nav-toggle",
+                    attrs: { for: "nav-toggle-state" },
+                    on: {
+                      click: function(e) {
+                        t.closetoggle();
+                      }
+                    }
+                  },
+                  [s("span"), t._v(" "), s("span"), t._v(" "), s("span")]
+                ),
+                t._v(" "),
+                s(
+                  "div",
+                  {
+                    staticClass: "nav-right nav-menu",
+                    class: { closedToggle: !1 === t.closedState }
+                  },
+                  [
+                    s(
+                      "div",
+                      { attrs: { id: "menu" } },
+                      t._l(t.navbarLinks, function(e, a) {
+                        return s(
+                          "router-link",
+                          {
+                            key: a,
+                            staticClass: "menu1",
+                            class: {
+                              "is-active": t.$route.path === e.location,
+                              "nav-item": !0,
+                              "is-tab": !0
+                            },
+                            attrs: { to: e.location }
+                          },
+                          [
+                            t._v(
+                              " " +
+                                t._s(
+                                  "EN" === t.langSelected ? e.text : e.textfr
+                                ) +
+                                "\n              "
+                            )
+                          ]
+                        );
+                      })
+                    ),
+                    t._v(" "),
+                    s("div", { staticClass: "loggiin nav-profile" }, [
+                      s("div", { staticClass: "nav-user-profile logggin" }, [
+                        "EN" === t.langSelected
+                          ? s(
+                              "p",
+                              {
+                                staticClass: "button buttonLogin",
+                                attrs: { type: "button" },
+                                on: { click: t.LoginModal }
+                              },
+                              [t._v("Login")]
+                            )
+                          : s(
+                              "p",
+                              {
+                                staticClass: "button buttonLogin",
+                                attrs: { type: "button" },
+                                on: { click: t.LoginModal }
+                              },
+                              [t._v("Connexion")]
+                            ),
+                        t._v(" "),
+                        "EN" === t.langSelected
+                          ? s(
+                              "p",
+                              {
+                                staticClass: "button buttonLogin",
+                                attrs: { type: "button" },
+                                on: { click: t.SignupModal }
+                              },
+                              [t._v("Join")]
+                            )
+                          : s(
+                              "p",
+                              {
+                                staticClass: "button buttonLogin",
+                                attrs: { type: "button" },
+                                on: { click: t.SignupModal }
+                              },
+                              [t._v("Rejoindre")]
+                            )
+                      ]),
+                      t._v(" "),
+                      t.langSelected
+                        ? s("div", { staticClass: "image is-48x48" }, [
+                            "FR" === t.langSelected
+                              ? s("img", {
+                                  staticClass: "flag",
+                                  attrs: {
+                                    src: "/static/images/landing/usflag.jpg"
+                                  },
+                                  on: {
+                                    click: function(e) {
+                                      t.changeLang("EN");
+                                    }
+                                  }
+                                })
+                              : s("img", {
+                                  staticClass: "flag",
+                                  attrs: {
+                                    src: "/static/images/landing/frenchflag.jpg"
+                                  },
+                                  on: {
+                                    click: function(e) {
+                                      t.changeLang("FR");
+                                    }
+                                  }
+                                })
+                          ])
+                        : t._e()
+                    ])
+                  ]
+                )
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isSignupModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isSignupModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("signup-modal", {
+                    attrs: { langSelected: t.langSelected },
+                    on: {
+                      "!loginModal": function(e) {
+                        t.LoginModal(e);
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isLoginModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isLoginModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("login-modal", {
+                    attrs: {
+                      langSelected: t.langSelected,
+                      autenticate: t.autenticate
+                    },
+                    on: {
+                      closeLoginModal: function(e) {
+                        t.closeLoginModal();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          );
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s(
+              "span",
+              { staticClass: "icon is-small is-left", attrs: { id: "loupe" } },
+              [
+                s("i", {
+                  staticClass: "fa fa-search",
+                  attrs: { id: "quicksearch", type: "submit" }
+                })
+              ]
+            );
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { attrs: { id: "app" } },
+            [
+              this.$root.user
+                ? s("nav-bar", { attrs: { connectedUser: t.connectedUser } })
+                : s("nav-bar-unconnect", {
+                    attrs: { langSelected: t.langSelected },
+                    on: {
+                      changeLang: function(e) {
+                        t.changeLang(e);
+                      }
+                    }
+                  }),
+              t._v(" "),
+              s("router-view", {
+                staticClass: "wrapper",
+                attrs: {
+                  langSelected: t.langSelected,
+                  connectedUser: t.connectedUser
+                },
+                on: {
+                  changeLang: function(e) {
+                    t.changeLang(e);
+                  }
+                }
+              })
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = s(22),
+        i = s(362),
+        n = s(29),
+        o = s(363),
+        r = s(453),
+        c = s(458),
+        l = s(30),
+        d = s(482),
+        u = s(510),
+        v = s(21),
+        b = s(514),
+        m = s(518);
+      a.a.use(i.a);
+      var f = new i.a({
+        mode: "history",
+        routes: [
+          { path: "/", component: n.a },
+          { path: "/stocks/:stockName", component: o.a },
+          { path: "/trending", component: r.a },
+          { path: "/mydashboard", component: d.a },
+          { path: "/dashboard/:id", component: c.a },
+          { path: "/stream", component: l.a },
+          { path: "/leaderboard", component: u.a },
+          { path: "/admin/users", component: m.a },
+          { path: "/admin/stocks", component: b.a },
+          { path: "*", component: v.a }
+        ],
+        scrollBehavior: function(t, e, s) {
+          return { x: 0, y: 0 };
+        }
+      });
+      e.a = f;
+    },
+    ,
+    function(t, e, s) {
+      "use strict";
+      var a = s(364),
+        i = s(452),
+        n = s(2),
+        o = n(a.a, i.a, !1, null, null, null);
+      e.a = o.exports;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = s(365),
+        i = s(440);
+      e.a = {
+        components: { StockPageConnect: a.a, StockPageUnconnect: i.a },
+        props: { connectedUser: Object, langSelected: "" }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(366);
+      }
+      var i = s(367),
+        n = s(439),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-38d34ffd", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(368),
+        n = s(31),
+        o = s(428),
+        r = s(432),
+        c = s(150),
+        l = s(21);
+      e.a = {
+        data: function() {
+          return {
+            filterBy: "all",
+            stock: null,
+            watchItem: null,
+            watchInsight: null,
+            babbles: null,
+            recentPositions: null,
+            trendBullBear: [50, 50]
+          };
+        },
+        components: {
+          StockHeader: i.a,
+          SideCurrentInsight: n.a,
+          TimelineBabble: o.a,
+          PublishBabble: r.a,
+          SideRecentActivity: c.a,
+          NotFound: l.a
+        },
+        props: { connectedUser: Object },
+        methods: {
+          updateWatchList: function() {
+            this.fetchData();
+          },
+          updateTimelineBabble: function() {
+            this.fetchData();
+          },
+          changeSort: function(t) {
+            var e = this;
+            (this.filterBy = t),
+              Object(a.k)(this.stock.shortName, this.filterBy).then(function(
+                t
+              ) {
+                return (e.babbles = t);
+              }),
+              this.fetchData();
+          },
+          fetchData: function() {
+            var t = this,
+              e = this.$route.params.stockName;
+            Object(a.j)(e).then(function(e) {
+              t.stock = e;
+            }),
+              Object(a.o)(e)
+                .then(function(e) {
+                  t.watchItem = e;
+                })
+                .catch(function(t) {
+                  throw t;
+                }),
+              Object(a.n)(this.$root.user._id).then(function(e) {
+                t.watchInsight = e;
+              }),
+              Object(a.k)(e, "all").then(function(e) {
+                t.babbles = e;
+              }),
+              Object(a.i)().then(function(e) {
+                t.recentPositions = e;
+              }),
+              Object(a.l)(e, 30).then(function(e) {
+                t.trendBullBear = e;
+              });
+          },
+          getTrend7: function() {
+            var t = this;
+            this.fetchData(),
+              Object(a.l)(this.stock.shortName, 7).then(function(e) {
+                t.trendBullBear = e;
+              });
+          },
+          getTrend1: function() {
+            var t = this;
+            this.fetchData(),
+              Object(a.l)(this.stock.shortName, 1).then(function(e) {
+                t.trendBullBear = e;
+              });
+          }
+        },
+        created: function() {
+          var t = this;
+          this.fetchData(),
+            setTimeout(function() {
+              Object(a.j)(t.$route.params.stockName).then(function(e) {
+                t.stock = e;
+              });
+            }, 5e3);
+        },
+        watch: {
+          $route: function() {
+            this.fetchData();
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(369);
+      }
+      var i = s(370),
+        n = s(427),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-085cb4db", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(154),
+        i = s(273),
+        n = s(274),
+        o = s(3);
+      e.a = {
+        name: "StockHeader",
+        props: {
+          stock: Object,
+          watchItem: Object,
+          trendBullBear: Array,
+          connectedUser: Object
+        },
+        data: function() {
+          return {
+            activeItem: "thirty",
+            modalClosePosition: "",
+            isChartStockActive: !1,
+            isStockDescriptionModalActive: !1,
+            imBullModal: !1,
+            imBearModal: !1,
+            closePositionModal: !1,
+            description: "Description"
+          };
+        },
+        components: {
+          ChartStockIex: a.a,
+          ChartStockEuroNext: i.a,
+          ChartStockCrypto: n.a
+        },
+        methods: {
+          ChartStock: function() {
+            this.isChartStockActive = !0;
+          },
+          descriptionStock: function() {
+            this.isStockDescriptionModalActive = !0;
+          },
+          addWatchList: function() {
+            var t = this;
+            Object(o.a)(this.stock.shortName)
+              .then(function(e) {
+                t.$emit("changeWatchlist", e);
+              })
+              .catch(function(t) {
+                console.log("something is wrong");
+              });
+          },
+          removeWatchList: function() {
+            var t = this;
+            Object(o.r)(
+              this.stock.shortName,
+              this.watchItem._id
+            ).then(function() {
+              t.$emit("changeWatchlist", null);
+            });
+          },
+          closePosition: function(t) {
+            var e = this;
+            Object(o.q)(
+              this.stock.shortName,
+              this.watchItem._id
+            ).then(function() {
+              e.$emit("changeWatchlist", null);
+            }),
+              (this.modalClosePosition = t),
+              (this.closePositionModal = !0);
+          },
+          imBull: function() {
+            var t = this,
+              e = this.watchItem ? this.watchItem._id : void 0;
+            Object(o.c)(this.stock.shortName, e).then(function(e) {
+              t.$emit("changeWatchlist", e);
+            }),
+              (this.imBullModal = !0);
+          },
+          imBear: function() {
+            var t = this,
+              e = this.watchItem ? this.watchItem._id : void 0;
+            Object(o.b)(this.stock.shortName, e).then(function(e) {
+              t.$emit("changeWatchlist", e);
+            }),
+              (this.imBearModal = !0);
+          },
+          trend30: function() {
+            this.$emit("changeWatchlist"), (this.activeItem = "thirty");
+          },
+          trend7: function() {
+            this.$emit("trendBullBearSeven"), (this.activeItem = "seven");
+          },
+          trend1: function() {
+            this.$emit("trendBullBearOne"), (this.activeItem = "one");
+          },
+          wikiDescription: function(t) {
+            var e = this,
+              s = this.$route.params.stockName;
+            return Object(o.g)(s, t).then(function(t) {
+              console.log("Description", t), (e.description = t);
+            });
+          }
+        }
+      };
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(20),
+        n = s.n(i);
+      e.a = {
+        name: "Chart1Y",
+        data: function() {
+          return { history: null };
+        },
+        props: { stock: Object },
+        computed: {
+          latestUpdate: function() {
+            return new Date(parseInt(this.price.latestUpdate));
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(a.f)(
+            this.$route.params.stockName,
+            this.stock.index[0]
+          ).then(function(e) {
+            t.history = e;
+            var s = e.map(function(t) {
+                return t.close;
+              }),
+              a = e.map(function(t) {
+                return t.date;
+              }),
+              i = document.getElementById("myChart");
+            n.a.defaults.global.defaultFontColor = "#192b41";
+            new n.a(i, {
+              type: "line",
+              data: {
+                labels: a,
+                datasets: [
+                  {
+                    label: "closing price",
+                    data: s,
+                    backgroundColor: ["rgba(241, 252, 244, 0.72)"],
+                    borderColor: ["#192b41"],
+                    borderWidth: 2
+                  }
+                ]
+              },
+              options: {
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: { beginAtZero: !0 },
+                      gridLines: { display: !0, color: "#f9f9f9" }
+                    }
+                  ],
+                  xAxes: [{ gridLines: { display: !0, color: "#f9f9f9" } }]
+                },
+                tooltips: { enabled: !0 },
+                legend: { display: !1 },
+                elements: { point: { radius: 0, hitRadius: 3 } }
+              }
+            });
+          });
+        }
+      };
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      function a(t) {
+        return s(i(t));
+      }
+      function i(t) {
+        var e = n[t];
+        if (!(e + 1)) throw new Error("Cannot find module '" + t + "'.");
+        return e;
+      }
+      var n = {
+        "./af": 158,
+        "./af.js": 158,
+        "./ar": 159,
+        "./ar-dz": 160,
+        "./ar-dz.js": 160,
+        "./ar-kw": 161,
+        "./ar-kw.js": 161,
+        "./ar-ly": 162,
+        "./ar-ly.js": 162,
+        "./ar-ma": 163,
+        "./ar-ma.js": 163,
+        "./ar-sa": 164,
+        "./ar-sa.js": 164,
+        "./ar-tn": 165,
+        "./ar-tn.js": 165,
+        "./ar.js": 159,
+        "./az": 166,
+        "./az.js": 166,
+        "./be": 167,
+        "./be.js": 167,
+        "./bg": 168,
+        "./bg.js": 168,
+        "./bn": 169,
+        "./bn.js": 169,
+        "./bo": 170,
+        "./bo.js": 170,
+        "./br": 171,
+        "./br.js": 171,
+        "./bs": 172,
+        "./bs.js": 172,
+        "./ca": 173,
+        "./ca.js": 173,
+        "./cs": 174,
+        "./cs.js": 174,
+        "./cv": 175,
+        "./cv.js": 175,
+        "./cy": 176,
+        "./cy.js": 176,
+        "./da": 177,
+        "./da.js": 177,
+        "./de": 178,
+        "./de-at": 179,
+        "./de-at.js": 179,
+        "./de-ch": 180,
+        "./de-ch.js": 180,
+        "./de.js": 178,
+        "./dv": 181,
+        "./dv.js": 181,
+        "./el": 182,
+        "./el.js": 182,
+        "./en-au": 183,
+        "./en-au.js": 183,
+        "./en-ca": 184,
+        "./en-ca.js": 184,
+        "./en-gb": 185,
+        "./en-gb.js": 185,
+        "./en-ie": 186,
+        "./en-ie.js": 186,
+        "./en-nz": 187,
+        "./en-nz.js": 187,
+        "./eo": 188,
+        "./eo.js": 188,
+        "./es": 189,
+        "./es-do": 190,
+        "./es-do.js": 190,
+        "./es.js": 189,
+        "./et": 191,
+        "./et.js": 191,
+        "./eu": 192,
+        "./eu.js": 192,
+        "./fa": 193,
+        "./fa.js": 193,
+        "./fi": 194,
+        "./fi.js": 194,
+        "./fo": 195,
+        "./fo.js": 195,
+        "./fr": 196,
+        "./fr-ca": 197,
+        "./fr-ca.js": 197,
+        "./fr-ch": 198,
+        "./fr-ch.js": 198,
+        "./fr.js": 196,
+        "./fy": 199,
+        "./fy.js": 199,
+        "./gd": 200,
+        "./gd.js": 200,
+        "./gl": 201,
+        "./gl.js": 201,
+        "./gom-latn": 202,
+        "./gom-latn.js": 202,
+        "./he": 203,
+        "./he.js": 203,
+        "./hi": 204,
+        "./hi.js": 204,
+        "./hr": 205,
+        "./hr.js": 205,
+        "./hu": 206,
+        "./hu.js": 206,
+        "./hy-am": 207,
+        "./hy-am.js": 207,
+        "./id": 208,
+        "./id.js": 208,
+        "./is": 209,
+        "./is.js": 209,
+        "./it": 210,
+        "./it.js": 210,
+        "./ja": 211,
+        "./ja.js": 211,
+        "./jv": 212,
+        "./jv.js": 212,
+        "./ka": 213,
+        "./ka.js": 213,
+        "./kk": 214,
+        "./kk.js": 214,
+        "./km": 215,
+        "./km.js": 215,
+        "./kn": 216,
+        "./kn.js": 216,
+        "./ko": 217,
+        "./ko.js": 217,
+        "./ky": 218,
+        "./ky.js": 218,
+        "./lb": 219,
+        "./lb.js": 219,
+        "./lo": 220,
+        "./lo.js": 220,
+        "./lt": 221,
+        "./lt.js": 221,
+        "./lv": 222,
+        "./lv.js": 222,
+        "./me": 223,
+        "./me.js": 223,
+        "./mi": 224,
+        "./mi.js": 224,
+        "./mk": 225,
+        "./mk.js": 225,
+        "./ml": 226,
+        "./ml.js": 226,
+        "./mr": 227,
+        "./mr.js": 227,
+        "./ms": 228,
+        "./ms-my": 229,
+        "./ms-my.js": 229,
+        "./ms.js": 228,
+        "./my": 230,
+        "./my.js": 230,
+        "./nb": 231,
+        "./nb.js": 231,
+        "./ne": 232,
+        "./ne.js": 232,
+        "./nl": 233,
+        "./nl-be": 234,
+        "./nl-be.js": 234,
+        "./nl.js": 233,
+        "./nn": 235,
+        "./nn.js": 235,
+        "./pa-in": 236,
+        "./pa-in.js": 236,
+        "./pl": 237,
+        "./pl.js": 237,
+        "./pt": 238,
+        "./pt-br": 239,
+        "./pt-br.js": 239,
+        "./pt.js": 238,
+        "./ro": 240,
+        "./ro.js": 240,
+        "./ru": 241,
+        "./ru.js": 241,
+        "./sd": 242,
+        "./sd.js": 242,
+        "./se": 243,
+        "./se.js": 243,
+        "./si": 244,
+        "./si.js": 244,
+        "./sk": 245,
+        "./sk.js": 245,
+        "./sl": 246,
+        "./sl.js": 246,
+        "./sq": 247,
+        "./sq.js": 247,
+        "./sr": 248,
+        "./sr-cyrl": 249,
+        "./sr-cyrl.js": 249,
+        "./sr.js": 248,
+        "./ss": 250,
+        "./ss.js": 250,
+        "./sv": 251,
+        "./sv.js": 251,
+        "./sw": 252,
+        "./sw.js": 252,
+        "./ta": 253,
+        "./ta.js": 253,
+        "./te": 254,
+        "./te.js": 254,
+        "./tet": 255,
+        "./tet.js": 255,
+        "./th": 256,
+        "./th.js": 256,
+        "./tl-ph": 257,
+        "./tl-ph.js": 257,
+        "./tlh": 258,
+        "./tlh.js": 258,
+        "./tr": 259,
+        "./tr.js": 259,
+        "./tzl": 260,
+        "./tzl.js": 260,
+        "./tzm": 261,
+        "./tzm-latn": 262,
+        "./tzm-latn.js": 262,
+        "./tzm.js": 261,
+        "./uk": 263,
+        "./uk.js": 263,
+        "./ur": 264,
+        "./ur.js": 264,
+        "./uz": 265,
+        "./uz-latn": 266,
+        "./uz-latn.js": 266,
+        "./uz.js": 265,
+        "./vi": 267,
+        "./vi.js": 267,
+        "./x-pseudo": 268,
+        "./x-pseudo.js": 268,
+        "./yo": 269,
+        "./yo.js": 269,
+        "./zh-cn": 270,
+        "./zh-cn.js": 270,
+        "./zh-hk": 271,
+        "./zh-hk.js": 271,
+        "./zh-tw": 272,
+        "./zh-tw.js": 272
+      };
+      (a.keys = function() {
+        return Object.keys(n);
+      }),
+        (a.resolve = i),
+        (t.exports = a),
+        (a.id = 402);
+    },
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    ,
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", [
+            s("div", { staticClass: "chart" }, [
+              s("h1", [
+                t._v(" " + t._s(t.stock.longName) + " closing price evolution ")
+              ]),
+              t._v(" "),
+              s("canvas", {
+                attrs: { id: "myChart", width: "750", height: "450" }
+              })
+            ])
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(20),
+        n = s.n(i);
+      e.a = {
+        name: "Chart1Y",
+        data: function() {
+          return { history: null };
+        },
+        props: { stock: Object },
+        computed: {
+          latestUpdate: function() {
+            return new Date(parseInt(this.price.latestUpdate));
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(a.f)(
+            this.$route.params.stockName,
+            this.stock.index[0]
+          ).then(function(e) {
+            t.history = e.dataset.data.reverse();
+            var s = e.dataset.data.map(function(t) {
+                return t[4];
+              }),
+              a = e.dataset.data.map(function(t) {
+                return t[0];
+              }),
+              i = document.getElementById("myChart");
+            n.a.defaults.global.defaultFontColor = "#192b41";
+            new n.a(i, {
+              type: "line",
+              data: {
+                labels: a,
+                datasets: [
+                  {
+                    label: "closing price",
+                    data: s,
+                    backgroundColor: ["rgba(241, 252, 244, 0.72)"],
+                    borderColor: ["#192b41"],
+                    borderWidth: 2
+                  }
+                ]
+              },
+              options: {
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: { beginAtZero: !0 },
+                      gridLines: { display: !0, color: "#f9f9f9" }
+                    }
+                  ],
+                  xAxes: [{ gridLines: { display: !0, color: "#f9f9f9" } }]
+                },
+                tooltips: { enabled: !0 },
+                legend: { display: !1 },
+                elements: { point: { radius: 0, hitRadius: 3 } }
+              }
+            });
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", [
+            s("div", { staticClass: "chart" }, [
+              s("h1", [
+                t._v(" " + t._s(t.stock.longName) + " closing price evolution ")
+              ]),
+              t._v(" "),
+              s("canvas", {
+                attrs: { id: "myChart", width: "750", height: "450" }
+              })
+            ])
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(0),
+        i = s.n(a),
+        n = s(3),
+        o = s(20),
+        r = s.n(o);
+      e.a = {
+        name: "Chart1Y",
+        data: function() {
+          return { history: null };
+        },
+        props: { stock: Object },
+        methods: {
+          moment: function(t) {
+            return i()(t);
+          }
+        },
+        computed: {
+          latestUpdate: function() {
+            return new Date(parseInt(this.price.latestUpdate));
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(n.f)(
+            this.$route.params.stockName,
+            this.stock.index[0]
+          ).then(function(e) {
+            (t.history = e.Data), console.log("history", t.history);
+            var s = e.Data.map(function(t) {
+                return t.close;
+              }),
+              a = e.Data.map(function(t) {
+                return i()(new Date(1e3 * t.time).toString()).format(
+                  "DD-MM-YYYY"
+                );
+              }),
+              n = document.getElementById("myChart");
+            r.a.defaults.global.defaultFontColor = "#192b41";
+            new r.a(n, {
+              type: "line",
+              data: {
+                labels: a,
+                datasets: [
+                  {
+                    label: "closing price",
+                    data: s,
+                    backgroundColor: ["rgba(241, 252, 244, 0.72)"],
+                    borderColor: ["#192b41"],
+                    borderWidth: 2
+                  }
+                ]
+              },
+              options: {
+                scales: {
+                  yAxes: [
+                    {
+                      ticks: { beginAtZero: !0 },
+                      gridLines: { display: !0, color: "#f9f9f9" }
+                    }
+                  ],
+                  xAxes: [{ gridLines: { display: !0, color: "#f9f9f9" } }]
+                },
+                tooltips: { enabled: !0 },
+                legend: { display: !1 },
+                elements: { point: { radius: 0, hitRadius: 3 } }
+              }
+            });
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("div", [
+            s("div", { staticClass: "chart" }, [
+              s("h1", [
+                t._v(" " + t._s(t.stock.longName) + " closing price evolution ")
+              ]),
+              t._v(" "),
+              s("canvas", {
+                attrs: { id: "myChart", width: "750", height: "450" }
+              })
+            ])
+          ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.connectedUser
+            ? s("section", [
+                s(
+                  "div",
+                  { staticClass: "column is-6", attrs: { id: "ActionCard" } },
+                  [
+                    s(
+                      "div",
+                      {
+                        staticClass: "card profile-card",
+                        attrs: { id: "cardAction" }
+                      },
+                      [
+                        s("div", { staticClass: "card-content" }, [
+                          s(
+                            "div",
+                            {
+                              staticClass: "media",
+                              attrs: { id: "stockInfo" }
+                            },
+                            [
+                              s("div", { staticClass: "media-left" }, [
+                                s(
+                                  "figure",
+                                  { staticClass: "image is-64x64 is-circle" },
+                                  [
+                                    s("img", {
+                                      staticClass: "imgProfile",
+                                      attrs: {
+                                        src: t.stock.stockImg,
+                                        alt: "stockImg"
+                                      }
+                                    })
+                                  ]
+                                )
+                              ]),
+                              t._v(" "),
+                              s("div", { staticClass: "media-content" }, [
+                                s("div", { staticClass: "stock-banner" }, [
+                                  s("div", { staticClass: "sock-info" }, [
+                                    s(
+                                      "p",
+                                      {
+                                        staticClass: "longNameTitle title is-5"
+                                      },
+                                      [t._v(t._s(t.stock.longName))]
+                                    ),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      { staticClass: "subtitleIsin is-6" },
+                                      [
+                                        s("a", {}, [t._v(t._s(t.stock.isin))]),
+                                        t._v(" "),
+                                        s("a", {}, [
+                                          t._v(t._s(t.stock.shortName))
+                                        ])
+                                      ]
+                                    ),
+                                    t._v(" "),
+                                    (t.stock.index[0],
+                                    s(
+                                      "a",
+                                      {
+                                        staticClass:
+                                          "stock-see-desc is-6 has-text-grey-light",
+                                        on: {
+                                          click: function(e) {
+                                            t.descriptionStock(),
+                                              t.wikiDescription(
+                                                t.stock.longName
+                                              );
+                                          }
+                                        }
+                                      },
+                                      [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.connectedUser.lang
+                                              ? "More info..."
+                                              : "Plus d'info..."
+                                          )
+                                        )
+                                      ]
+                                    ))
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    { staticClass: "add-to-watchlist" },
+                                    [
+                                      t.watchItem
+                                        ? "none" === t.watchItem.position
+                                          ? s(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button is-small is-outlined is-primary",
+                                                attrs: { id: "adWL" },
+                                                on: {
+                                                  click: function(e) {
+                                                    t.removeWatchList();
+                                                  }
+                                                }
+                                              },
+                                              [
+                                                t._v(
+                                                  t._s(
+                                                    "EN" ===
+                                                    t.connectedUser.lang
+                                                      ? "Remove"
+                                                      : "Ne plus suivre"
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          : s(
+                                              "p",
+                                              { staticClass: "position" },
+                                              [
+                                                "bull" === t.watchItem.position
+                                                  ? s(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "button is-small is-outlined is-primary btn",
+                                                        class: {
+                                                          "btn-green":
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) > 0,
+                                                          "btn-red":
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) < 0
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(e) {
+                                                            t.closePosition(
+                                                              t.watchItem
+                                                            );
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          t._s(
+                                                            "EN" ===
+                                                            t.connectedUser.lang
+                                                              ? "Close Position"
+                                                              : "Clôturer position"
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  : s(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "button is-small is-outlined is-primary btn",
+                                                        class: {
+                                                          "btn-green":
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) > 0,
+                                                          "btn-red":
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) < 0
+                                                        },
+                                                        attrs: {
+                                                          type: "submit"
+                                                        },
+                                                        on: {
+                                                          click: function(e) {
+                                                            t.closePosition(
+                                                              t.watchItem
+                                                            );
+                                                          }
+                                                        }
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          t._s(
+                                                            "EN" ===
+                                                            t.connectedUser.lang
+                                                              ? "Close Position"
+                                                              : "Clôturer position"
+                                                          )
+                                                        )
+                                                      ]
+                                                    ),
+                                                t._v(" "),
+                                                "bull" === t.watchItem.position
+                                                  ? s(
+                                                      "strong",
+                                                      {
+                                                        staticClass: "pos",
+                                                        class: {
+                                                          "has-text-green":
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) > 0,
+                                                          "has-text-red":
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) < 0
+                                                        }
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          "\r\n                                     " +
+                                                            t._s(
+                                                              Math.floor(
+                                                                1e3 *
+                                                                  (t.stock
+                                                                    .price -
+                                                                    t.watchItem
+                                                                      .initialPrice) /
+                                                                  t.watchItem
+                                                                    .initialPrice
+                                                              )
+                                                            ) +
+                                                            " P$ (" +
+                                                            t._s(
+                                                              t.watchItem
+                                                                .position
+                                                            ) +
+                                                            " @ " +
+                                                            t._s(
+                                                              t.watchItem
+                                                                .initialPrice
+                                                            ) +
+                                                            " " +
+                                                            t._s(
+                                                              t.stock.currency
+                                                            ) +
+                                                            ")"
+                                                        )
+                                                      ]
+                                                    )
+                                                  : s(
+                                                      "strong",
+                                                      {
+                                                        staticClass: "pos",
+                                                        class: {
+                                                          "has-text-green":
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) > 0,
+                                                          "has-text-red":
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t.watchItem
+                                                                    .initialPrice) /
+                                                                t.watchItem
+                                                                  .initialPrice
+                                                            ) < 0
+                                                        }
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          "\r\n                                     " +
+                                                            t._s(
+                                                              Math.floor(
+                                                                -1e3 *
+                                                                  (t.stock
+                                                                    .price -
+                                                                    t.watchItem
+                                                                      .initialPrice) /
+                                                                  t.watchItem
+                                                                    .initialPrice
+                                                              )
+                                                            ) +
+                                                            " P$ (" +
+                                                            t._s(
+                                                              t.watchItem
+                                                                .position
+                                                            ) +
+                                                            " @ " +
+                                                            t._s(
+                                                              t.watchItem
+                                                                .initialPrice
+                                                            ) +
+                                                            " " +
+                                                            t._s(
+                                                              t.stock.currency
+                                                            ) +
+                                                            ")"
+                                                        )
+                                                      ]
+                                                    )
+                                              ]
+                                            )
+                                        : s(
+                                            "button",
+                                            {
+                                              staticClass:
+                                                "button is-small is-outlined is-primary",
+                                              attrs: { id: "adWL" },
+                                              on: {
+                                                click: function(e) {
+                                                  t.addWatchList();
+                                                }
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  "EN" === t.connectedUser.lang
+                                                    ? "Add to watchlist"
+                                                    : "Je veux suivre"
+                                                )
+                                              )
+                                            ]
+                                          )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    { staticClass: "stock-price title is-5" },
+                                    [
+                                      s(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "stock-priceVar title is-5"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "stVar" },
+                                            [
+                                              t._v(
+                                                t._s(t.stock.price) +
+                                                  " " +
+                                                  t._s(t.stock.currency)
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass: "stVar",
+                                              class: {
+                                                "has-text-green":
+                                                  t.stock.variation > 0,
+                                                "has-text-red":
+                                                  t.stock.variation < 0
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                "    " +
+                                                  t._s(
+                                                    t.stock.variation.toFixed(2)
+                                                  ) +
+                                                  " %"
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      "Cryptocurrency" === t.stock.isin
+                                        ? s(
+                                            "div",
+                                            {
+                                              staticClass:
+                                                "stock-priceVar title is-5"
+                                            },
+                                            [
+                                              s(
+                                                "strong",
+                                                { staticClass: "stVar" },
+                                                [
+                                                  t._v(
+                                                    t._s(t.stock.price2) +
+                                                      " " +
+                                                      t._s(t.stock.currency2)
+                                                  )
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              s(
+                                                "small",
+                                                {
+                                                  staticClass: "stVar",
+                                                  class: {
+                                                    "has-text-green":
+                                                      t.stock.variation2 > 0,
+                                                    "has-text-red":
+                                                      t.stock.variation2 < 0
+                                                  }
+                                                },
+                                                [
+                                                  t._v(
+                                                    "    " +
+                                                      t._s(
+                                                        t.stock.variation2.toFixed(
+                                                          2
+                                                        )
+                                                      ) +
+                                                      " %"
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        : t._e(),
+                                      t._v(" "),
+                                      s(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "stock-priceVar title is-5"
+                                        },
+                                        [
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "is-6 has-text-grey-light"
+                                            },
+                                            [
+                                              t._v(
+                                                "Volume: " +
+                                                  t._s(t.stock.volume)
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      (t.stock.index[0],
+                                      s("span", { staticClass: "chartIcon" }, [
+                                        s(
+                                          "i",
+                                          {
+                                            staticClass: "fa fa-line-chart",
+                                            on: { click: t.ChartStock }
+                                          },
+                                          [t._v("  see chart")]
+                                        )
+                                      ]))
+                                    ]
+                                  )
+                                ]),
+                                t._v(" "),
+                                s(
+                                  "nav",
+                                  {
+                                    staticClass: "level media",
+                                    attrs: { id: "bandB" }
+                                  },
+                                  [
+                                    t.trendBullBear[0] >= t.trendBullBear[1]
+                                      ? s(
+                                          "div",
+                                          {
+                                            staticClass: "trenDingDigitMobile"
+                                          },
+                                          [
+                                            s(
+                                              "small",
+                                              {
+                                                staticClass:
+                                                  "trendingDigitMobileSmall"
+                                              },
+                                              [
+                                                t._v(" Insiders are "),
+                                                s(
+                                                  "strong",
+                                                  {
+                                                    staticClass:
+                                                      "has-text-green strongGRED"
+                                                  },
+                                                  [t._v("Bullish: ")]
+                                                ),
+                                                s("strong", [
+                                                  s(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        id: "bandbdigit1"
+                                                      }
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        " " +
+                                                          t._s(
+                                                            t.trendBullBear[0]
+                                                          ) +
+                                                          " %"
+                                                      )
+                                                    ]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : s(
+                                          "div",
+                                          {
+                                            staticClass: "trenDingDigitMobile"
+                                          },
+                                          [
+                                            s(
+                                              "small",
+                                              {
+                                                staticClass:
+                                                  "trendingDigitMobileSmall"
+                                              },
+                                              [
+                                                t._v(" Insiders are  "),
+                                                s(
+                                                  "strong",
+                                                  {
+                                                    staticClass:
+                                                      "has-text-red strongGRED"
+                                                  },
+                                                  [t._v("Bearish: ")]
+                                                ),
+                                                s("strong", [
+                                                  s(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        id: "bandbdigit2"
+                                                      }
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        " " +
+                                                          t._s(
+                                                            t.trendBullBear[1]
+                                                          ) +
+                                                          " % "
+                                                      )
+                                                    ]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                    t._v(" "),
+                                    s(
+                                      "div",
+                                      { attrs: { id: "bullsAndBears" } },
+                                      [
+                                        s(
+                                          "div",
+                                          { staticClass: "mobileBandB1" },
+                                          [
+                                            t.watchItem &&
+                                            "none" !== t.watchItem.position
+                                              ? t._e()
+                                              : s(
+                                                  "div",
+                                                  { attrs: { id: "BBull" } },
+                                                  [
+                                                    s(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "button is-small is-outlined is-primary",
+                                                        attrs: { id: "Bbull" },
+                                                        on: {
+                                                          click: function(e) {
+                                                            t.imBull();
+                                                          }
+                                                        }
+                                                      },
+                                                      [t._v("Be Bull")]
+                                                    )
+                                                  ]
+                                                )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        t._m(0),
+                                        t._v(" "),
+                                        t.trendBullBear[0] >= t.trendBullBear[1]
+                                          ? s(
+                                              "div",
+                                              { staticClass: "trenDingDigit" },
+                                              [
+                                                t._m(1),
+                                                s("strong", [
+                                                  s(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        id: "bandbdigit1"
+                                                      }
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        " " +
+                                                          t._s(
+                                                            t.trendBullBear[0]
+                                                          ) +
+                                                          " %"
+                                                      )
+                                                    ]
+                                                  )
+                                                ])
+                                              ]
+                                            )
+                                          : s(
+                                              "div",
+                                              { staticClass: "trenDingDigit" },
+                                              [
+                                                t._m(2),
+                                                s("strong", [
+                                                  s(
+                                                    "span",
+                                                    {
+                                                      attrs: {
+                                                        id: "bandbdigit2"
+                                                      }
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        " " +
+                                                          t._s(
+                                                            t.trendBullBear[1]
+                                                          ) +
+                                                          " % "
+                                                      )
+                                                    ]
+                                                  )
+                                                ])
+                                              ]
+                                            ),
+                                        t._v(" "),
+                                        t._m(3),
+                                        t._v(" "),
+                                        s(
+                                          "div",
+                                          { staticClass: "mobileBandB" },
+                                          [
+                                            t.watchItem &&
+                                            "none" !== t.watchItem.position
+                                              ? t._e()
+                                              : s(
+                                                  "div",
+                                                  { attrs: { id: "BBear" } },
+                                                  [
+                                                    s(
+                                                      "button",
+                                                      {
+                                                        staticClass:
+                                                          "button is-small is-outlined is-primary",
+                                                        attrs: { id: "Bbear" },
+                                                        on: {
+                                                          click: function(e) {
+                                                            t.imBear();
+                                                          }
+                                                        }
+                                                      },
+                                                      [t._v("Be Bear")]
+                                                    )
+                                                  ]
+                                                )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                t._v(" "),
+                                s("div", { attrs: { id: "Last" } }, [
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "level-item has-text-centered"
+                                    },
+                                    [
+                                      s(
+                                        "a",
+                                        {
+                                          staticClass: "is-6 trend-b-b",
+                                          class: {
+                                            "has-text-blue":
+                                              "one" === t.activeItem,
+                                            " has-text-grey-light":
+                                              "one" != t.activeItem
+                                          },
+                                          on: {
+                                            click: function(e) {
+                                              t.trend1();
+                                            }
+                                          }
+                                        },
+                                        [
+                                          s("small", [
+                                            t._v(
+                                              t._s(
+                                                "EN" === t.connectedUser.lang
+                                                  ? "Last 24 hours"
+                                                  : "24 heures"
+                                              )
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      t._v(
+                                        "\r\n                                    "
+                                      ),
+                                      s(
+                                        "small",
+                                        {
+                                          staticClass:
+                                            "is-6 has-text-grey-light trend-b-b"
+                                        },
+                                        [t._v("|")]
+                                      ),
+                                      t._v(
+                                        "    \r\n\r\n                                    "
+                                      ),
+                                      s(
+                                        "a",
+                                        {
+                                          staticClass: "is-6 trend-b-b",
+                                          class: {
+                                            "has-text-blue":
+                                              "seven" === t.activeItem,
+                                            " has-text-grey-light":
+                                              "seven" != t.activeItem
+                                          },
+                                          on: {
+                                            click: function(e) {
+                                              t.trend7();
+                                            }
+                                          }
+                                        },
+                                        [
+                                          s("small", [
+                                            t._v(
+                                              t._s(
+                                                "EN" === t.connectedUser.lang
+                                                  ? "Last week"
+                                                  : "7 jours"
+                                              )
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                      t._v(
+                                        "\r\n                                     "
+                                      ),
+                                      s(
+                                        "small",
+                                        {
+                                          staticClass:
+                                            "is-6 has-text-grey-light trend-b-b"
+                                        },
+                                        [t._v("|")]
+                                      ),
+                                      t._v(
+                                        "    \r\n\r\n                                    "
+                                      ),
+                                      s(
+                                        "a",
+                                        {
+                                          staticClass: "is-6 trend-b-b",
+                                          class: {
+                                            "has-text-blue":
+                                              "thirty" === t.activeItem,
+                                            " has-text-grey-light":
+                                              "thirty" != t.activeItem
+                                          },
+                                          on: {
+                                            click: function(e) {
+                                              t.trend30();
+                                            }
+                                          }
+                                        },
+                                        [
+                                          s("small", [
+                                            t._v(
+                                              t._s(
+                                                "EN" === t.connectedUser.lang
+                                                  ? "Last month"
+                                                  : "30 jours"
+                                              )
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ]),
+                        t._v(" "),
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.isChartStockActive, width: 640 },
+                            on: {
+                              "update:active": function(e) {
+                                t.isChartStockActive = e;
+                              }
+                            }
+                          },
+                          [
+                            "NASDAQ" === t.stock.index[0]
+                              ? s("chart-stock-iex", {
+                                  attrs: { stock: t.stock }
+                                })
+                              : t._e(),
+                            t._v(" "),
+                            "EURONEXT PARIS" === t.stock.index[0]
+                              ? s("chart-stock-euro-next", {
+                                  attrs: { stock: t.stock }
+                                })
+                              : t._e(),
+                            t._v(" "),
+                            "CRYPTO" === t.stock.index[0]
+                              ? s("chart-stock-crypto", {
+                                  attrs: { stock: t.stock }
+                                })
+                              : t._e()
+                          ],
+                          1
+                        ),
+                        t._v(" "),
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.isStockDescriptionModalActive },
+                            on: {
+                              "update:active": function(e) {
+                                t.isStockDescriptionModalActive = e;
+                              }
+                            }
+                          },
+                          [
+                            s("div", { staticClass: "mediaModal" }, [
+                              s(
+                                "nav",
+                                {
+                                  staticClass: "level media",
+                                  attrs: { id: "bandB" }
+                                },
+                                [
+                                  s("h1", { staticClass: "modalTitle" }, [
+                                    t._v(
+                                      "\r\n                            " +
+                                        t._s(
+                                          "EN" === t.connectedUser.lang
+                                            ? "More info about "
+                                            : "Plus d'info sur "
+                                        ) +
+                                        t._s(t.stock.longName) +
+                                        " !\r\n                        "
+                                    )
+                                  ])
+                                ]
+                              ),
+                              t._v(" "),
+                              s("div", { attrs: { id: "bullsAndBears2" } }, [
+                                s("div", {
+                                  staticClass: "div is-outlined",
+                                  attrs: { id: "stock-desc" },
+                                  domProps: {
+                                    innerHTML: t._s(this.description)
+                                  }
+                                })
+                              ])
+                            ])
+                          ]
+                        ),
+                        t._v(" "),
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.imBullModal, width: 640 },
+                            on: {
+                              "update:active": function(e) {
+                                t.imBullModal = e;
+                              }
+                            }
+                          },
+                          [
+                            s(
+                              "div",
+                              { staticClass: "mediaModal bullbearPos" },
+                              [
+                                s("div", { staticClass: "bullsAndBearsPic2" }, [
+                                  s("img", {
+                                    attrs: {
+                                      src: "/static/images/roundBullArrow.png",
+                                      alt: "bull and bear"
+                                    }
+                                  })
+                                ]),
+                                t._v(" "),
+                                s("div", [
+                                  t._v(
+                                    "\r\n                        Vous venez de prendre une position "
+                                  ),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-green" },
+                                    [
+                                      t._v(
+                                        "Bull @ " +
+                                          t._s(t.stock.price) +
+                                          " " +
+                                          t._s(t.stock.currency)
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" sur "),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-green" },
+                                    [t._v(t._s(t.stock.longName))]
+                                  ),
+                                  t._v("."),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Cette position a une durée de "
+                                  ),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-blue" },
+                                    [t._v("30 jours")]
+                                  ),
+                                  t._v("."),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Vous pouvez la clôturer à tout moment."
+                                  ),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Retouvez vos positions en cours en cliquant "
+                                  ),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-blue" },
+                                    [
+                                      s(
+                                        "router-link",
+                                        { attrs: { to: "/mydashboard" } },
+                                        [t._v("ici")]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  t._v(".\r\n                    ")
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        t._v(" "),
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.imBearModal, width: 640 },
+                            on: {
+                              "update:active": function(e) {
+                                t.imBearModal = e;
+                              }
+                            }
+                          },
+                          [
+                            s(
+                              "div",
+                              { staticClass: "mediaModal bullbearPos" },
+                              [
+                                s("div", { staticClass: "bullsAndBearsPic2" }, [
+                                  s("img", {
+                                    attrs: {
+                                      src: "/static/images/roundBearArrow.png",
+                                      alt: "bull and bear"
+                                    }
+                                  })
+                                ]),
+                                t._v(" "),
+                                s("div", [
+                                  t._v(
+                                    "\r\n                        Vous venez de prendre une position "
+                                  ),
+                                  s("strong", { staticClass: "has-text-red" }, [
+                                    t._v(
+                                      "Bear @ " +
+                                        t._s(t.stock.price) +
+                                        " " +
+                                        t._s(t.stock.currency)
+                                    )
+                                  ]),
+                                  t._v(" sur "),
+                                  s("strong", { staticClass: "has-text-red" }, [
+                                    t._v(t._s(t.stock.longName))
+                                  ]),
+                                  t._v("."),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Cette position a une durée de "
+                                  ),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-blue" },
+                                    [t._v("30 jours")]
+                                  ),
+                                  t._v("."),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Vous pouvez la clôturer à tout moment."
+                                  ),
+                                  s("br"),
+                                  t._v(
+                                    "\r\n                        Retouvez vos positions en cours en cliquant "
+                                  ),
+                                  s(
+                                    "strong",
+                                    { staticClass: "has-text-blue" },
+                                    [
+                                      s(
+                                        "router-link",
+                                        { attrs: { to: "/mydashboard" } },
+                                        [t._v("ici")]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  t._v(".\r\n                    ")
+                                ])
+                              ]
+                            )
+                          ]
+                        ),
+                        t._v(" "),
+                        t.modalClosePosition
+                          ? s(
+                              "div",
+                              [
+                                s(
+                                  "b-modal",
+                                  {
+                                    attrs: {
+                                      active: t.closePositionModal,
+                                      width: 640
+                                    },
+                                    on: {
+                                      "update:active": function(e) {
+                                        t.closePositionModal = e;
+                                      }
+                                    }
+                                  },
+                                  [
+                                    "bull" === t.modalClosePosition.position
+                                      ? s(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "mediaModal bullbearPos"
+                                          },
+                                          [
+                                            s(
+                                              "div",
+                                              {
+                                                staticClass: "bullsAndBearsPic2"
+                                              },
+                                              [
+                                                s("img", {
+                                                  attrs: {
+                                                    src:
+                                                      "/static/images/roundBullArrow.png",
+                                                    alt: "bull and bear"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s("div", [
+                                              t._v(
+                                                "\r\n                            Vous venez de clôturer votre position "
+                                              ),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-green"
+                                                },
+                                                [t._v("Bull")]
+                                              ),
+                                              t._v(" sur "),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [t._v(t._s(t.stock.longName))]
+                                              ),
+                                              t._v(" prise "),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [
+                                                  t._v(
+                                                    "@ " +
+                                                      t._s(
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                      ) +
+                                                      " " +
+                                                      t._s(t.stock.currency)
+                                                  )
+                                                ]
+                                              ),
+                                              t._v("."),
+                                              s("br"),
+                                              t._v(" "),
+                                              Math.floor(
+                                                1e3 *
+                                                  (t.stock.price -
+                                                    t.modalClosePosition
+                                                      .initialPrice) /
+                                                  t.modalClosePosition
+                                                    .initialPrice
+                                              ) > 0
+                                                ? s(
+                                                    "strong",
+                                                    {
+                                                      staticClass:
+                                                        "has-text-green"
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        "\r\n                            Cette position vous a rapporté " +
+                                                          t._s(
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t
+                                                                    .modalClosePosition
+                                                                    .initialPrice) /
+                                                                t
+                                                                  .modalClosePosition
+                                                                  .initialPrice
+                                                            )
+                                                          ) +
+                                                          " P$."
+                                                      ),
+                                                      s("br")
+                                                    ]
+                                                  )
+                                                : s(
+                                                    "strong",
+                                                    {
+                                                      staticClass:
+                                                        "has-text-red"
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        "\r\n                            Cette position vous a couté " +
+                                                          t._s(
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t
+                                                                    .modalClosePosition
+                                                                    .initialPrice) /
+                                                                t
+                                                                  .modalClosePosition
+                                                                  .initialPrice
+                                                            )
+                                                          ) +
+                                                          " P$."
+                                                      ),
+                                                      s("br")
+                                                    ]
+                                                  ),
+                                              t._v(
+                                                "\r\n                            Retouvez vos positions en cours et passée(s) en cliquant "
+                                              ),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [
+                                                  s(
+                                                    "router-link",
+                                                    {
+                                                      attrs: {
+                                                        to: "/mydashboard"
+                                                      }
+                                                    },
+                                                    [t._v("ici")]
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              t._v(
+                                                ".\r\n                        "
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      : s(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "mediaModal bullbearPos"
+                                          },
+                                          [
+                                            s(
+                                              "div",
+                                              {
+                                                staticClass: "bullsAndBearsPic2"
+                                              },
+                                              [
+                                                s("img", {
+                                                  attrs: {
+                                                    src:
+                                                      "/static/images/roundBearArrow.png",
+                                                    alt: "bull and bear"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s("div", [
+                                              t._v(
+                                                "\r\n                            Vous venez de clôturer votre position "
+                                              ),
+                                              s(
+                                                "strong",
+                                                { staticClass: "has-text-red" },
+                                                [t._v("Bear")]
+                                              ),
+                                              t._v(" sur "),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [t._v(t._s(t.stock.longName))]
+                                              ),
+                                              t._v(" prise "),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [
+                                                  t._v(
+                                                    "@ " +
+                                                      t._s(
+                                                        t.modalClosePosition
+                                                          .initialPrice
+                                                      ) +
+                                                      " " +
+                                                      t._s(t.stock.currency)
+                                                  )
+                                                ]
+                                              ),
+                                              t._v("."),
+                                              s("br"),
+                                              t._v(" "),
+                                              Math.floor(
+                                                -1e3 *
+                                                  (t.stock.price -
+                                                    t.modalClosePosition
+                                                      .initialPrice) /
+                                                  t.modalClosePosition
+                                                    .initialPrice
+                                              ) > 0
+                                                ? s(
+                                                    "strong",
+                                                    {
+                                                      staticClass:
+                                                        "has-text-green"
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        "\r\n                            Cette position vous a rapporté " +
+                                                          t._s(
+                                                            Math.floor(
+                                                              -1e3 *
+                                                                (t.stock.price -
+                                                                  t
+                                                                    .modalClosePosition
+                                                                    .initialPrice) /
+                                                                t
+                                                                  .modalClosePosition
+                                                                  .initialPrice
+                                                            )
+                                                          ) +
+                                                          " P$."
+                                                      ),
+                                                      s("br")
+                                                    ]
+                                                  )
+                                                : s(
+                                                    "strong",
+                                                    {
+                                                      staticClass:
+                                                        "has-text-red"
+                                                    },
+                                                    [
+                                                      t._v(
+                                                        "\r\n                            Cette position vous a couté " +
+                                                          t._s(
+                                                            Math.floor(
+                                                              1e3 *
+                                                                (t.stock.price -
+                                                                  t
+                                                                    .modalClosePosition
+                                                                    .initialPrice) /
+                                                                t
+                                                                  .modalClosePosition
+                                                                  .initialPrice
+                                                            )
+                                                          ) +
+                                                          " P$."
+                                                      ),
+                                                      s("br")
+                                                    ]
+                                                  ),
+                                              t._v(
+                                                "\r\n                            Retouvez vos positions en cours et passée(s) en cliquant "
+                                              ),
+                                              s(
+                                                "strong",
+                                                {
+                                                  staticClass: "has-text-blue"
+                                                },
+                                                [
+                                                  s(
+                                                    "router-link",
+                                                    {
+                                                      attrs: {
+                                                        to: "/mydashboard"
+                                                      }
+                                                    },
+                                                    [t._v("ici")]
+                                                  )
+                                                ],
+                                                1
+                                              ),
+                                              t._v(
+                                                ".\r\n                        "
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                  ]
+                                )
+                              ],
+                              1
+                            )
+                          : t._e()
+                      ],
+                      1
+                    )
+                  ]
+                )
+              ])
+            : t._e();
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { attrs: { id: "bullsAndBearsPic" } }, [
+              s("img", {
+                attrs: {
+                  src: "/static/images/roundBullArrow.png",
+                  alt: "bull and bear"
+                }
+              })
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("small", [
+              t._v(" Insiders are "),
+              s("strong", { staticClass: "has-text-green" }, [
+                t._v("Bullish: ")
+              ])
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("small", [
+              t._v(" Insiders are "),
+              s("strong", { staticClass: "has-text-red" }, [t._v("Bearish: ")])
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { attrs: { id: "bullsAndBearsPic" } }, [
+              s("img", {
+                attrs: {
+                  src: "/static/images/roundBearArrow.png",
+                  alt: "bull and bear"
+                }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(429);
+      }
+      var i = s(430),
+        n = s(431),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-00c94c9e", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(0),
+        n = s.n(i),
+        o = s(13),
+        r = s.n(o);
+      e.a = {
+        data: function() {
+          return {
+            isCardModalActive: !1,
+            babbleText: "",
+            modalBabble: "",
+            userReply: "",
+            activeItem: "all"
+          };
+        },
+        props: { babbles: Array, stock: Object, connectedUser: Object },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babbleText.length;
+          }
+        },
+        methods: {
+          moment: function(t) {
+            return n()(t);
+          },
+          showModal: function(t) {
+            (this.modalBabble = t), (this.isCardModalActive = !0);
+          },
+          iLike: function(t) {
+            var e = this;
+            Object(a.p)(t._id)
+              .then(function() {
+                e.$emit("changeBabbles"), (e.isCardModalActive = !1);
+              })
+              .catch(function(t) {
+                console.log("something is wrong");
+              });
+          },
+          sortBabbles: function(t) {
+            this.$emit("sort", t), (this.activeItem = t);
+          },
+          postBabble: function(t) {
+            var e = this;
+            (this.babbleText = r.a.replace(this.babbleText)),
+              Object(a.t)(this.babbleText, t._id).then(function() {
+                (e.babbleText = ""),
+                  (e.isCardModalActive = !1),
+                  e.$emit("changeBabbles");
+              });
+          },
+          addLinksToHttp: function(t) {
+            var e, s, a, i;
+            return (
+              (t = t.replace(
+                /#(([a-zA-Z0-9\.])+@[a-zA-Z\_]+)(\W|$)/g,
+                '<a href="/stocks/$1">#$1 -</a>'
+              )),
+              (s = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim),
+              (e = t.replace(s, '<a href="$1" target="_blank">$1</a>')),
+              (a = /(^|[^\/])(www\.[\S]+(\b|$))/gim),
+              (e = e.replace(
+                a,
+                '$1<a href="http://$2" target="_blank">$2</a>'
+              )),
+              (i = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim),
+              (e = e.replace(i, '<a href="mailto:$1">$1</a>'))
+            );
+          }
+        },
+        created: function() {
+          r.a.setConfig({ img_dir: "/static/images/basic" });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.connectedUser
+            ? s("div", [
+                s("div", [
+                  s("nav", { staticClass: "navbar is-dark" }, [
+                    s("div", { staticClass: "babblesMenu" }, [
+                      s(
+                        "a",
+                        {
+                          staticClass: "babMenu navbar-item is-tab ",
+                          class: { "is-active": "all" === t.activeItem },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("all");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            " " +
+                              t._s(
+                                "EN" === t.connectedUser.lang ? "All" : "Tous"
+                              )
+                          )
+                        ]
+                      ),
+                      t._v(" "),
+                      s(
+                        "a",
+                        {
+                          staticClass: "babMenu navbar-item is-tab",
+                          class: {
+                            "is-active": "insidermates" === t.activeItem
+                          },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("insidermates");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s(
+                              "EN" === t.connectedUser.lang
+                                ? "Insider Mates"
+                                : "Amis insiders"
+                            )
+                          )
+                        ]
+                      ),
+                      t._v(" "),
+                      s(
+                        "a",
+                        {
+                          staticClass: "babMenu navbar-item is-tab ",
+                          class: { "is-active": "me" === t.activeItem },
+                          on: {
+                            click: function(e) {
+                              t.sortBabbles("me");
+                            }
+                          }
+                        },
+                        [
+                          t._v(
+                            t._s(
+                              "EN" === t.connectedUser.lang
+                                ? "My Babbles"
+                                : "Mes babbles"
+                            )
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "card" }, [
+                    s(
+                      "div",
+                      {
+                        staticClass: "babbles-box",
+                        attrs: { id: "babble-container" }
+                      },
+                      t._l(t.babbles, function(e, a) {
+                        return t.babbles
+                          ? s(
+                              "div",
+                              {
+                                key: a,
+                                staticClass: "tweets card-content p-x-1"
+                              },
+                              [
+                                e.babbleImg
+                                  ? s(
+                                      "div",
+                                      { staticClass: "card-image imageChart" },
+                                      [
+                                        s(
+                                          "figure",
+                                          { staticClass: "image is-2by1" },
+                                          [
+                                            s("img", {
+                                              attrs: {
+                                                src: e.babbleImg,
+                                                alt: "Placeholder image"
+                                              }
+                                            })
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : t._e(),
+                                t._v(" "),
+                                s("article", { staticClass: "media tweet" }, [
+                                  s("figure", { staticClass: "media-left" }, [
+                                    s(
+                                      "p",
+                                      {
+                                        staticClass: "image is-64x64 is-circle"
+                                      },
+                                      [
+                                        s(
+                                          "router-link",
+                                          {
+                                            attrs: {
+                                              to: "/dashboard/" + e.user._id
+                                            }
+                                          },
+                                          [
+                                            s("img", {
+                                              staticClass: "imgProfile",
+                                              attrs: { src: e.user.picProfile }
+                                            })
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s("div", { staticClass: "media-content" }, [
+                                    s("div", { staticClass: "content" }, [
+                                      s(
+                                        "p",
+                                        { staticClass: "tweet-meta" },
+                                        [
+                                          s(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: "/dashboard/" + e.user._id
+                                              }
+                                            },
+                                            [
+                                              s("strong", [
+                                                t._v(t._s(e.user.username))
+                                              ])
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass:
+                                                "media-right has-text-grey-light"
+                                            },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  t
+                                                    .moment(e.created_at)
+                                                    .format("DD-MM-YYYY HH:mm")
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      s("p", {
+                                        staticClass:
+                                          "tweet-body has-text-grey babble-body",
+                                        domProps: {
+                                          innerHTML: t._s(
+                                            t.addLinksToHttp(e.babble)
+                                          )
+                                        }
+                                      })
+                                    ]),
+                                    t._v(" "),
+                                    s("nav", { staticClass: "media-right" }, [
+                                      s("div", { staticClass: "level-right" }, [
+                                        s(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "level-item has-text-grey-light",
+                                            on: {
+                                              click: function(s) {
+                                                t.showModal(e);
+                                              }
+                                            }
+                                          },
+                                          [
+                                            t._m(0, !0),
+                                            t._v(" "),
+                                            s(
+                                              "small",
+                                              { staticClass: "favicon" },
+                                              [t._v(" " + t._s(e.reply.length))]
+                                            )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "a",
+                                          {
+                                            staticClass:
+                                              "level-item has-text-grey-light"
+                                          },
+                                          [
+                                            s(
+                                              "span",
+                                              { staticClass: "icon is-medium" },
+                                              [
+                                                s(
+                                                  "i",
+                                                  {
+                                                    staticClass: "like-btn",
+                                                    on: {
+                                                      click: function(s) {
+                                                        t.iLike(e);
+                                                      }
+                                                    }
+                                                  },
+                                                  [t._v("🚀")]
+                                                )
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s("small", [
+                                              t._v(t._s(e.like.length))
+                                            ])
+                                          ]
+                                        )
+                                      ])
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            )
+                          : s(
+                              "div",
+                              { staticClass: "babble-container no-babble" },
+                              [s("p", [t._v("The timeline is empty")])]
+                            );
+                      })
+                    )
+                  ])
+                ]),
+                t._v(" "),
+                t.modalBabble
+                  ? s(
+                      "div",
+                      [
+                        s(
+                          "b-modal",
+                          {
+                            attrs: { active: t.isCardModalActive, width: 640 },
+                            on: {
+                              "update:active": function(e) {
+                                t.isCardModalActive = e;
+                              }
+                            }
+                          },
+                          [
+                            s(
+                              "div",
+                              { staticClass: "card" },
+                              [
+                                s(
+                                  "div",
+                                  { staticClass: "tweets card-content p-x-1" },
+                                  [
+                                    t.modalBabble.babbleImg
+                                      ? s(
+                                          "div",
+                                          {
+                                            staticClass: "card-image imageChart"
+                                          },
+                                          [
+                                            s(
+                                              "figure",
+                                              { staticClass: "image is-2by1" },
+                                              [
+                                                s("img", {
+                                                  attrs: {
+                                                    src:
+                                                      t.modalBabble.babbleImg,
+                                                    alt: "Placeholder image"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      : t._e(),
+                                    t._v(" "),
+                                    s(
+                                      "article",
+                                      { staticClass: "media tweet" },
+                                      [
+                                        s(
+                                          "figure",
+                                          { staticClass: "media-left" },
+                                          [
+                                            s(
+                                              "p",
+                                              {
+                                                staticClass:
+                                                  "image is-64x64 is-circle"
+                                              },
+                                              [
+                                                s(
+                                                  "router-link",
+                                                  {
+                                                    attrs: {
+                                                      to:
+                                                        "/dashboard/" +
+                                                        t.modalBabble.user._id
+                                                    }
+                                                  },
+                                                  [
+                                                    s("img", {
+                                                      staticClass: "imgProfile",
+                                                      attrs: {
+                                                        src:
+                                                          t.modalBabble.user
+                                                            .picProfile,
+                                                        alt: "Image"
+                                                      }
+                                                    })
+                                                  ]
+                                                )
+                                              ],
+                                              1
+                                            )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "div",
+                                          { staticClass: "media-content" },
+                                          [
+                                            s(
+                                              "div",
+                                              { staticClass: "content" },
+                                              [
+                                                s(
+                                                  "p",
+                                                  { staticClass: "tweet-meta" },
+                                                  [
+                                                    s(
+                                                      "router-link",
+                                                      {
+                                                        attrs: {
+                                                          to:
+                                                            "/dashboard/" +
+                                                            t.modalBabble.user
+                                                              ._id
+                                                        }
+                                                      },
+                                                      [
+                                                        s("strong", [
+                                                          t._v(
+                                                            t._s(
+                                                              t.modalBabble.user
+                                                                .username
+                                                            )
+                                                          )
+                                                        ])
+                                                      ]
+                                                    ),
+                                                    t._v(" "),
+                                                    s(
+                                                      "small",
+                                                      {
+                                                        staticClass:
+                                                          "media-right has-text-grey-light"
+                                                      },
+                                                      [
+                                                        t._v(
+                                                          t._s(
+                                                            t
+                                                              .moment(
+                                                                t.modalBabble.created_at.toString()
+                                                              )
+                                                              .format(
+                                                                "DD-MM-YYYY HH:mm"
+                                                              )
+                                                          )
+                                                        )
+                                                      ]
+                                                    )
+                                                  ],
+                                                  1
+                                                ),
+                                                t._v(" "),
+                                                s("p", {
+                                                  staticClass:
+                                                    "tweet-body has-text-grey babble-body",
+                                                  domProps: {
+                                                    innerHTML: t._s(
+                                                      t.modalBabble.babble
+                                                    )
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "nav",
+                                              { staticClass: "media-right" },
+                                              [
+                                                s(
+                                                  "div",
+                                                  {
+                                                    staticClass: "level-right"
+                                                  },
+                                                  [
+                                                    s(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "likeModal level-item has-text-grey-light"
+                                                      },
+                                                      [
+                                                        s(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "icon is-medium"
+                                                          },
+                                                          [
+                                                            s("img", {
+                                                              staticClass:
+                                                                "reply",
+                                                              attrs: {
+                                                                src:
+                                                                  "/static/images/comments.png"
+                                                              }
+                                                            })
+                                                          ]
+                                                        ),
+                                                        t._v(" "),
+                                                        s(
+                                                          "small",
+                                                          {
+                                                            staticClass:
+                                                              "favicon"
+                                                          },
+                                                          [
+                                                            t._v(
+                                                              " " +
+                                                                t._s(
+                                                                  t.modalBabble
+                                                                    .reply
+                                                                    .length
+                                                                )
+                                                            )
+                                                          ]
+                                                        )
+                                                      ]
+                                                    ),
+                                                    t._v(" "),
+                                                    s(
+                                                      "a",
+                                                      {
+                                                        staticClass:
+                                                          "likeModal level-item has-text-grey-light"
+                                                      },
+                                                      [
+                                                        s(
+                                                          "span",
+                                                          {
+                                                            staticClass:
+                                                              "icon is-medium"
+                                                          },
+                                                          [
+                                                            s(
+                                                              "i",
+                                                              {
+                                                                staticClass:
+                                                                  "like-btn"
+                                                              },
+                                                              [t._v("🚀")]
+                                                            )
+                                                          ]
+                                                        ),
+                                                        t._v(" "),
+                                                        s("small", [
+                                                          t._v(
+                                                            t._s(
+                                                              t.modalBabble.like
+                                                                .length
+                                                            )
+                                                          )
+                                                        ])
+                                                      ]
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]
+                                ),
+                                t._v(" "),
+                                t._l(t.modalBabble.reply, function(e, a) {
+                                  return t.modalBabble.reply
+                                    ? s(
+                                        "div",
+                                        {
+                                          key: a,
+                                          staticClass:
+                                            "tweets card-content p-x-1"
+                                        },
+                                        [
+                                          s(
+                                            "article",
+                                            { staticClass: "media tweet" },
+                                            [
+                                              s(
+                                                "figure",
+                                                { staticClass: "media-left" },
+                                                [
+                                                  s(
+                                                    "p",
+                                                    {
+                                                      staticClass:
+                                                        "image is-64x64 is-circle"
+                                                    },
+                                                    [
+                                                      s(
+                                                        "router-link",
+                                                        {
+                                                          attrs: {
+                                                            to:
+                                                              "/dashboard/" +
+                                                              e.user._id
+                                                          }
+                                                        },
+                                                        [
+                                                          s("img", {
+                                                            staticClass:
+                                                              "imgProfile",
+                                                            attrs: {
+                                                              src: e.picProfile
+                                                            }
+                                                          })
+                                                        ]
+                                                      )
+                                                    ],
+                                                    1
+                                                  )
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              s(
+                                                "div",
+                                                {
+                                                  staticClass: "media-content"
+                                                },
+                                                [
+                                                  s(
+                                                    "div",
+                                                    { staticClass: "content" },
+                                                    [
+                                                      s(
+                                                        "p",
+                                                        {
+                                                          staticClass:
+                                                            "tweet-meta"
+                                                        },
+                                                        [
+                                                          s(
+                                                            "router-link",
+                                                            {
+                                                              attrs: {
+                                                                to:
+                                                                  "/dashboard/" +
+                                                                  e.user._id
+                                                              }
+                                                            },
+                                                            [
+                                                              s("strong", [
+                                                                t._v(
+                                                                  t._s(
+                                                                    e.username
+                                                                  )
+                                                                )
+                                                              ])
+                                                            ]
+                                                          ),
+                                                          t._v(" "),
+                                                          s(
+                                                            "small",
+                                                            {
+                                                              staticClass:
+                                                                "media-right has-text-grey-light"
+                                                            },
+                                                            [
+                                                              t._v(
+                                                                t._s(
+                                                                  t
+                                                                    .moment(
+                                                                      e.created_at
+                                                                    )
+                                                                    .format(
+                                                                      "DD-MM-YYYY HH:mm"
+                                                                    )
+                                                                )
+                                                              )
+                                                            ]
+                                                          )
+                                                        ],
+                                                        1
+                                                      ),
+                                                      t._v(" "),
+                                                      s("p", {
+                                                        staticClass:
+                                                          "tweet-body has-text-grey babble-body",
+                                                        domProps: {
+                                                          innerHTML: t._s(
+                                                            e.babble
+                                                          )
+                                                        }
+                                                      })
+                                                    ]
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    : t._e();
+                                })
+                              ],
+                              2
+                            ),
+                            t._v(" "),
+                            s("div", { staticClass: "card-content bg-light" }, [
+                              s("div", { staticClass: "media" }, [
+                                s("div", { staticClass: "media-left" }, [
+                                  t.connectedUser
+                                    ? s(
+                                        "figure",
+                                        {
+                                          staticClass:
+                                            "image imageModal is-64x64 is-circle"
+                                        },
+                                        [
+                                          s("img", {
+                                            staticClass: "imgProfile",
+                                            attrs: {
+                                              src: t.connectedUser.picProfile,
+                                              alt: "Image"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    : t._e()
+                                ]),
+                                t._v(" "),
+                                s("div", { staticClass: "media-content" }, [
+                                  s("div", [
+                                    s("div", { staticClass: "field" }, [
+                                      s("div", { staticClass: "control" }, [
+                                        s("textarea", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: t.babbleText,
+                                              expression: "babbleText"
+                                            }
+                                          ],
+                                          staticClass: "textarea",
+                                          attrs: {
+                                            id: "babble-text",
+                                            name: "babble",
+                                            maxlength: "1618",
+                                            rows: "3",
+                                            placeholder: "Whats happening?"
+                                          },
+                                          domProps: { value: t.babbleText },
+                                          on: {
+                                            input: function(e) {
+                                              e.target.composing ||
+                                                (t.babbleText = e.target.value);
+                                            }
+                                          }
+                                        })
+                                      ])
+                                    ]),
+                                    t._v(" "),
+                                    s(
+                                      "div",
+                                      { staticClass: "level levelchartIcon" },
+                                      [
+                                        s("div", {
+                                          staticClass:
+                                            "level-left leftchartIcon"
+                                        }),
+                                        t._v(" "),
+                                        s(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "level-right rightchartIcon"
+                                          },
+                                          [
+                                            s(
+                                              "div",
+                                              {
+                                                staticClass:
+                                                  "level-item has-text-grey"
+                                              },
+                                              [t._v(t._s(t.charactersLeft))]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "div",
+                                              { staticClass: "level-item" },
+                                              [
+                                                s(
+                                                  "button",
+                                                  {
+                                                    staticClass:
+                                                      "button is-outlined is-primary",
+                                                    attrs: {
+                                                      id: "babble-submit"
+                                                    },
+                                                    on: {
+                                                      click: function(e) {
+                                                        t.postBabble(
+                                                          t.modalBabble
+                                                        );
+                                                      }
+                                                    }
+                                                  },
+                                                  [t._v("Babble")]
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  : t._e()
+              ])
+            : t._e();
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("span", { staticClass: "icon is-medium" }, [
+              s("img", {
+                staticClass: "reply",
+                attrs: { src: "/static/images/comments.png" }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(433);
+      }
+      var i = s(434),
+        n = s(435),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-71c165ff", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(13),
+        n = s.n(i);
+      e.a = {
+        data: function() {
+          return {
+            babble: "",
+            prefix: "",
+            isCardModalActive: !1,
+            isShareChartActive: !1,
+            imBullModal: !1,
+            imBearModal: !1,
+            babbleImage: null,
+            babbleUrl: "",
+            noSticker: !1,
+            width: 0,
+            height: 0,
+            quality: 0
+          };
+        },
+        props: {
+          connectedUser: Object,
+          stock: {
+            type: Object,
+            default: function() {
+              return { shortName: "" };
+            }
+          },
+          watchItem: Object
+        },
+        methods: {
+          shareChart: function() {
+            (this.width =
+              window.visualViewport.width >= 640
+                ? 480
+                : 0.6 * window.visualViewport.width),
+              (this.height =
+                window.visualViewport.width >= 640
+                  ? 240
+                  : 0.6 * window.visualViewport.width * 0.5),
+              (this.quality =
+                window.visualViewport.width >= 640 ? 0.7 : 448 / this.width),
+              (this.isShareChartActive = !0);
+          },
+          generateImage: function() {
+            var t = this.babbleImage.generateDataUrl("image/jpeg", 0.8);
+            if (!t) return void alert("no image");
+            this.babbleUrl = t;
+          },
+          onDraw: function(t) {
+            this.noSticker ||
+              t.drawImage(document.querySelector(".sticker"), 150, 100, 50, 20);
+          },
+          postChartBabble: function() {
+            this.generateImage(),
+              this.postBabble(),
+              (this.isShareChartActive = !1);
+          },
+          postBabble: function() {
+            var t = this;
+            (this.watchItem && "none" !== this.watchItem.position) ||
+              (this.isCardModalActive = !0),
+              (this.babble = n.a.replace(this.babble)),
+              Object(a.s)(
+                this.babble,
+                this.stock._id,
+                this.babbleUrl
+              ).then(function() {
+                (t.babble = ""), (t.babbleUrl = ""), t.$emit("changeBabbles");
+              });
+          },
+          imBull: function() {
+            var t = this,
+              e = this.watchItem ? this.watchItem._id : void 0;
+            Object(a.c)(this.stock.shortName, e).then(function(e) {
+              t.$emit("changeWatchlist", e),
+                (t.isCardModalActive = !1),
+                (t.imBullModal = !0);
+            });
+          },
+          imBear: function() {
+            var t = this,
+              e = this.watchItem ? this.watchItem._id : void 0;
+            Object(a.b)(this.stock.shortName, e).then(function(e) {
+              t.$emit("changeWatchlist", e),
+                (t.isCardModalActive = !1),
+                (t.imBearModal = !0);
+            });
+          },
+          putHashtag: function(t) {
+            return (
+              "#" === t.data &&
+                " " === t.target.value[t.target.value.lastIndexOf("#") - 1] &&
+                console.log("Autocomplete launched"),
+              1 !== this.babble.length
+                ? t.target.value.split("-")[0] ===
+                  "#" + this.stock.shortName + "-"
+                  ? this.babble
+                  : "#" + this.stock.shortName + "- " + this.babble
+                : (this.babble = "#" + this.stock.shortName + "-" + this.babble)
+            );
+          }
+        },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babble.length;
+          }
+        },
+        created: function() {
+          n.a.setConfig({ img_dir: "/static/images/basic" });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { staticClass: "card" },
+            [
+              s("div", { staticClass: "card-content bg-light" }, [
+                s("div", { staticClass: "media" }, [
+                  s("div", { staticClass: "media-left" }, [
+                    t.connectedUser
+                      ? s(
+                          "figure",
+                          { staticClass: "image is-64x64 is-circle" },
+                          [
+                            s("img", {
+                              staticClass: "imgProfile",
+                              attrs: {
+                                src: t.connectedUser.picProfile,
+                                alt: "Image"
+                              }
+                            })
+                          ]
+                        )
+                      : t._e()
+                  ]),
+                  t._v(" "),
+                  s("div", { staticClass: "media-content" }, [
+                    s("div", [
+                      s("div", { staticClass: "field1" }, [
+                        s("div", { staticClass: "control" }, [
+                          t.connectedUser
+                            ? s("textarea", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: t.babble,
+                                    expression: "babble"
+                                  }
+                                ],
+                                staticClass: "textarea",
+                                attrs: {
+                                  placeholder:
+                                    "EN" === t.connectedUser.lang
+                                      ? "Write here your info about #" +
+                                        t.stock.shortName
+                                      : "Ecrivez une info sur #" +
+                                        t.stock.shortName,
+                                  id: "babble-text",
+                                  name: "babble",
+                                  maxlength: "1618",
+                                  rows: "3"
+                                },
+                                domProps: { value: t.babble },
+                                on: {
+                                  input: [
+                                    function(e) {
+                                      e.target.composing ||
+                                        (t.babble = e.target.value);
+                                    },
+                                    function(e) {
+                                      t.putHashtag(e);
+                                    }
+                                  ]
+                                }
+                              })
+                            : t._e()
+                        ])
+                      ]),
+                      t._v(" "),
+                      s("div", { staticClass: "level" }, [
+                        s("div", { staticClass: "level-left" }, [
+                          s("a", { staticClass: "has-text-grey-light" }, [
+                            t.connectedUser
+                              ? s(
+                                  "span",
+                                  {
+                                    staticClass: "chartIcon",
+                                    on: {
+                                      click: function(e) {
+                                        t.shareChart();
+                                      }
+                                    }
+                                  },
+                                  [
+                                    s("i", { staticClass: "fa fa-line-chart" }),
+                                    t._v(
+                                      "  " +
+                                        t._s(
+                                          "EN" === t.connectedUser.lang
+                                            ? "Share an image"
+                                            : "Partager une image"
+                                        ) +
+                                        "\n                                "
+                                    )
+                                  ]
+                                )
+                              : t._e()
+                          ])
+                        ]),
+                        t._v(" "),
+                        s("div", { staticClass: "level-right" }, [
+                          s(
+                            "div",
+                            { staticClass: "level-item has-text-grey" },
+                            [t._v(t._s(t.charactersLeft))]
+                          ),
+                          t._v(" "),
+                          s("div", { staticClass: "level-item" }, [
+                            s(
+                              "button",
+                              {
+                                staticClass: "button is-outlined is-primary",
+                                attrs: { id: "babble-submit" },
+                                on: {
+                                  click: function(e) {
+                                    t.postBabble();
+                                  }
+                                }
+                              },
+                              [t._v("Babble")]
+                            )
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isCardModalActive },
+                  on: {
+                    "update:active": function(e) {
+                      t.isCardModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s(
+                    "div",
+                    { staticClass: "level media", attrs: { id: "bandB" } },
+                    [
+                      s("h1", { staticClass: "modalTitle" }, [
+                        t._v(
+                          "\n                Take position on " +
+                            t._s(t.stock.longName) +
+                            " !\n            "
+                        )
+                      ]),
+                      t._v(" "),
+                      s("div", { attrs: { id: "bullsAndBearsPic" } }, [
+                        s("img", {
+                          attrs: {
+                            src: "/static/images/roundBullBearArrow.png",
+                            alt: "bull and bear"
+                          }
+                        })
+                      ]),
+                      t._v(" "),
+                      s("div", { attrs: { id: "bullsAndBears2" } }, [
+                        s(
+                          "button",
+                          {
+                            staticClass:
+                              "button is-small is-outlined is-primary",
+                            attrs: { id: "Bbull" },
+                            on: {
+                              click: function(e) {
+                                t.imBull();
+                              }
+                            }
+                          },
+                          [t._v("Be Bull")]
+                        ),
+                        t._v(" "),
+                        s(
+                          "button",
+                          {
+                            staticClass:
+                              "button is-small is-outlined is-primary",
+                            attrs: { id: "NotNow" },
+                            on: {
+                              click: function(e) {
+                                t.isCardModalActive = !1;
+                              }
+                            }
+                          },
+                          [t._v("Not Now")]
+                        ),
+                        t._v(" "),
+                        s(
+                          "button",
+                          {
+                            staticClass:
+                              "button is-small is-outlined is-primary",
+                            attrs: { id: "Bbear" },
+                            on: {
+                              click: function(e) {
+                                t.imBear();
+                              }
+                            }
+                          },
+                          [t._v("Be Bear")]
+                        )
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isShareChartActive },
+                  on: {
+                    "update:active": function(e) {
+                      t.isShareChartActive = e;
+                    }
+                  }
+                },
+                [
+                  s("div", { staticClass: "mediaModal" }, [
+                    s("div", [
+                      s(
+                        "label",
+                        [
+                          t.connectedUser
+                            ? s("span", { staticClass: "chartIcon" }, [
+                                s("i", { staticClass: "fa fa-line-chart" }),
+                                t._v(
+                                  "  " +
+                                    t._s(
+                                      "EN" === t.connectedUser.lang
+                                        ? "Share an image"
+                                        : "Partager une image"
+                                    )
+                                )
+                              ])
+                            : t._e(),
+                          t._v(" "),
+                          s("croppa", {
+                            staticClass: "column",
+                            attrs: {
+                              width: t.width,
+                              height: t.height,
+                              quality: t.quality,
+                              "placeholder-font-size": 18,
+                              "prevent-white-space": !1,
+                              "reverse-scroll-to-zoom": !0,
+                              "show-loading": !0,
+                              "loading-size": 50,
+                              accept: "image/*"
+                            },
+                            on: { draw: t.onDraw },
+                            model: {
+                              value: t.babbleImage,
+                              callback: function(e) {
+                                t.babbleImage = e;
+                              },
+                              expression: "babbleImage"
+                            }
+                          })
+                        ],
+                        1
+                      ),
+                      s("br"),
+                      t._v(" "),
+                      s("div", { staticClass: "card-content bg-light" }, [
+                        s("div", { staticClass: "media" }, [
+                          s("div", { staticClass: "media-left" }, [
+                            t.connectedUser
+                              ? s(
+                                  "figure",
+                                  { staticClass: "image is-64x64 is-circle" },
+                                  [
+                                    s("img", {
+                                      staticClass: "imgProfile",
+                                      attrs: {
+                                        src: t.connectedUser.picProfile,
+                                        alt: "Image"
+                                      }
+                                    })
+                                  ]
+                                )
+                              : t._e()
+                          ]),
+                          t._v(" "),
+                          s("div", { staticClass: "media-content" }, [
+                            s("div", [
+                              s("div", { staticClass: "field1" }, [
+                                s("div", { staticClass: "control" }, [
+                                  t.connectedUser
+                                    ? s("textarea", {
+                                        directives: [
+                                          {
+                                            name: "model",
+                                            rawName: "v-model",
+                                            value: t.babble,
+                                            expression: "babble"
+                                          }
+                                        ],
+                                        staticClass: "textarea",
+                                        attrs: {
+                                          placeholder:
+                                            "EN" === t.connectedUser.lang
+                                              ? "Write here your info about #" +
+                                                t.stock.shortName
+                                              : "Ecrivez une info sur #" +
+                                                t.stock.shortName,
+                                          id: "babble-text",
+                                          name: "babble",
+                                          maxlength: "1618",
+                                          rows: "3"
+                                        },
+                                        domProps: { value: t.babble },
+                                        on: {
+                                          input: [
+                                            function(e) {
+                                              e.target.composing ||
+                                                (t.babble = e.target.value);
+                                            },
+                                            function(e) {
+                                              t.putHashtag(e);
+                                            }
+                                          ]
+                                        }
+                                      })
+                                    : t._e()
+                                ])
+                              ]),
+                              t._v(" "),
+                              s("div", { staticClass: "level" }, [
+                                s("div", { staticClass: "level-left" }),
+                                t._v(" "),
+                                s("div", { staticClass: "level-right" }, [
+                                  s(
+                                    "div",
+                                    { staticClass: "level-item has-text-grey" },
+                                    [t._v(t._s(t.charactersLeft))]
+                                  ),
+                                  t._v(" "),
+                                  s("div", { staticClass: "level-item" }, [
+                                    s(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "button is-outlined is-primary btn",
+                                        attrs: { id: "babble-submit" },
+                                        on: {
+                                          click: function(e) {
+                                            t.postChartBabble();
+                                          }
+                                        }
+                                      },
+                                      [t._v("Babble")]
+                                    )
+                                  ])
+                                ])
+                              ])
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ])
+                ]
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.imBullModal, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.imBullModal = e;
+                    }
+                  }
+                },
+                [
+                  s("div", { staticClass: "bullbearPos" }, [
+                    s("div", { staticClass: "bullsAndBearsPic2" }, [
+                      s("img", {
+                        attrs: {
+                          src: "/static/images/roundBullArrow.png",
+                          alt: "bull and bear"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("div", [
+                      t._v(
+                        "\n                    Vous venez de prendre une position "
+                      ),
+                      s("strong", { staticClass: "has-text-green" }, [
+                        t._v(
+                          "Bull @ " +
+                            t._s(t.stock.price) +
+                            " " +
+                            t._s(t.stock.currency)
+                        )
+                      ]),
+                      t._v(" sur "),
+                      s("strong", { staticClass: "has-text-green" }, [
+                        t._v(t._s(t.stock.longName))
+                      ]),
+                      t._v("."),
+                      s("br"),
+                      t._v(
+                        "\n                    Cette position a une durée de "
+                      ),
+                      s("strong", { staticClass: "has-text-blue" }, [
+                        t._v("30 jours")
+                      ]),
+                      t._v("."),
+                      s("br"),
+                      t._v(
+                        "\n                    Vous pouvez la clôturer à tout moment."
+                      ),
+                      s("br"),
+                      t._v(
+                        "\n                    Retouvez vos positions en cours en cliquant "
+                      ),
+                      s(
+                        "strong",
+                        { staticClass: "has-text-blue" },
+                        [
+                          s("router-link", { attrs: { to: "/mydashboard" } }, [
+                            t._v("ici")
+                          ])
+                        ],
+                        1
+                      ),
+                      t._v(".\n                ")
+                    ])
+                  ])
+                ]
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.imBearModal, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.imBearModal = e;
+                    }
+                  }
+                },
+                [
+                  s("div", { staticClass: "bullbearPos" }, [
+                    s("div", { staticClass: "bullsAndBearsPic2" }, [
+                      s("img", {
+                        attrs: {
+                          src: "/static/images/roundBearArrow.png",
+                          alt: "bull and bear"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("div", [
+                      t._v(
+                        "\n                    Vous venez de prendre une position "
+                      ),
+                      s("strong", { staticClass: "has-text-red" }, [
+                        t._v(
+                          "Bear @ " +
+                            t._s(t.stock.price) +
+                            " " +
+                            t._s(t.stock.currency)
+                        )
+                      ]),
+                      t._v(" sur "),
+                      s("strong", { staticClass: "has-text-red" }, [
+                        t._v(t._s(t.stock.longName))
+                      ]),
+                      t._v("."),
+                      s("br"),
+                      t._v(
+                        "\n                    Cette position a une durée de "
+                      ),
+                      s("strong", { staticClass: "has-text-blue" }, [
+                        t._v("30 jours")
+                      ]),
+                      t._v("."),
+                      s("br"),
+                      t._v(
+                        "\n                    Vous pouvez la clôturer à tout moment."
+                      ),
+                      s("br"),
+                      t._v(
+                        "\n                    Retouvez vos positions en cours en cliquant "
+                      ),
+                      s(
+                        "strong",
+                        { staticClass: "has-text-blue" },
+                        [
+                          s("router-link", { attrs: { to: "/mydashboard" } }, [
+                            t._v("ici")
+                          ])
+                        ],
+                        1
+                      ),
+                      t._v(".\n                ")
+                    ])
+                  ])
+                ]
+              )
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e) {},
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("section", { staticClass: "hero is-fullheight main" }, [
+            s(
+              "svg",
+              {
+                attrs: {
+                  id: "robot",
+                  version: "1.1",
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "xmlns:xlink": "http://www.w3.org/1999/xlink",
+                  x: "0",
+                  y: "0",
+                  width: "320px",
+                  height: "300px",
+                  viewBox: "0 0 160 300",
+                  "enable-background": "new 0 0 320 300",
+                  "xml:space": "preserve"
+                }
+              },
+              [
+                s("rect", {
+                  attrs: {
+                    x: "59.722",
+                    y: "72.779",
+                    fill: "#333",
+                    width: "40.557",
+                    height: "27.564"
+                  }
+                }),
+                t._v(" "),
+                s("g", { staticClass: "up", attrs: { id: "head" } }, [
+                  s("g", { attrs: { id: "leftAntenna" } }, [
+                    s(
+                      "path",
+                      {
+                        attrs: {
+                          fill: "none",
+                          stroke: "#ccc",
+                          "stroke-width": "1.5",
+                          "stroke-miterlimit": "10",
+                          d:
+                            "M77.519,25.869\r\n\t\tC75.85,13.604,65.745,3.39,53.972,3.39"
+                        }
+                      },
+                      [
+                        s("animate", {
+                          attrs: {
+                            attributeName: "d",
+                            calcMode: "spline",
+                            keySplines:
+                              "0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1",
+                            begin: "0s",
+                            dur: "0.75s",
+                            repeatCount: "indefinite",
+                            values:
+                              "\r\n                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39\r\n                          ;\r\n                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,12\r\n                          ;\r\n                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,0\r\n                          ;\r\n                          M77.519,25.869C75.85,13.604,65.745,3.39,53.972,3.39\r\n                          "
+                          }
+                        })
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "ellipse",
+                      {
+                        attrs: {
+                          fill: "#ccc",
+                          cx: "55.021",
+                          cy: "3.39",
+                          rx: "3.344",
+                          ry: "3.391"
+                        }
+                      },
+                      [
+                        s("animate", {
+                          attrs: {
+                            dur: "0.75s",
+                            attributeName: "cy",
+                            calcMode: "spline",
+                            keySplines:
+                              "0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1",
+                            begin: "0s",
+                            values:
+                              "\r\n                           3.39;\r\n                           12;\r\n                           0;\r\n                           3.39\r\n                           ",
+                            repeatCount: "indefinite"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  t._v(" "),
+                  s("g", { attrs: { id: "rightAntenna" } }, [
+                    s(
+                      "path",
+                      {
+                        attrs: {
+                          fill: "none",
+                          stroke: "#ccc",
+                          "stroke-width": "1.5",
+                          "stroke-miterlimit": "10",
+                          d:
+                            "M82.48,25.869\r\n\t\tC84.15,13.604,94.255,3.39,106.028,3.39"
+                        }
+                      },
+                      [
+                        s("animate", {
+                          attrs: {
+                            attributeName: "d",
+                            calcMode: "spline",
+                            keySplines:
+                              "0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1",
+                            begin: "0s",
+                            dur: "0.6s",
+                            repeatCount: "indefinite",
+                            values:
+                              "\r\n                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39\r\n                          ;\r\n                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,10.39\r\n                          ;\r\n                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,-5.39\r\n                          ;\r\n                          M82.48,25.869C84.15,13.604,94.255,3.39,106.028,3.39\r\n                          "
+                          }
+                        })
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "ellipse",
+                      {
+                        attrs: {
+                          fill: "#ccc",
+                          cx: "104.979",
+                          cy: "3.39",
+                          rx: "3.344",
+                          ry: "3.391"
+                        }
+                      },
+                      [
+                        s("animate", {
+                          attrs: {
+                            dur: "0.6s",
+                            attributeName: "cy",
+                            calcMode: "spline",
+                            keySplines:
+                              "0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1",
+                            begin: "0s",
+                            values:
+                              "\r\n                           3.39;\r\n                           10.39;\r\n                           -5.39;\r\n                           3.39\r\n                           ",
+                            repeatCount: "indefinite"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      fill: "#333",
+                      d:
+                        "M96.079,32.57v-8.546c-10.72-3.765-21.437-3.98-32.156,0v8.546H96.079z"
+                    }
+                  }),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      fill: "#f94f3b",
+                      d:
+                        "M112.809,28.372H80H47.19c-5.814,18.663-5.499,37.322,0,55.983H80h32.811\r\n\t\tC118.309,65.694,118.625,47.035,112.809,28.372z"
+                    }
+                  }),
+                  t._v(" "),
+                  s("g", [
+                    s("g", { attrs: { id: "eyeLeft" } }, [
+                      s(
+                        "path",
+                        {
+                          attrs: {
+                            fill: "#FFFFFF",
+                            d:
+                              "M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853\r\n\t\t\t\ts4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z"
+                          }
+                        },
+                        [
+                          s("animate", {
+                            attrs: {
+                              attributeName: "d",
+                              calcMode: "spline",
+                              keySplines: "0.42 0 0.58 1; 0.42 0 0.58 1",
+                              begin: "5s",
+                              dur: "0.8s",
+                              repeatCount: "indefinite",
+                              values:
+                                "\r\n                          M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z\r\n                          ;\r\n                          M72.116,47.955c0,5.443-0.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-4.856,9.032-4.856h1.971C68.071,45.099,72.116,42.512,72.116,47.955z\r\n                          ;\r\n                          M72.116,47.955c0,5.443-4.045,9.853-9.033,9.853h-1.971c-4.988,0-9.032-4.41-9.032-9.853s4.044-9.856,9.032-9.856h1.971C68.071,38.099,72.116,42.512,72.116,47.955z\r\n                          "
+                            }
+                          })
+                        ]
+                      ),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          d:
+                            "M66.614,47.955c0,2.176-1.618,3.942-3.613,3.942h-1.807c-1.994,0-3.612-1.766-3.612-3.942\r\n\t\t\t\tc0-2.178,1.618-3.943,3.612-3.943H63C64.996,44.012,66.614,45.777,66.614,47.955z"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("g", [
+                      s(
+                        "path",
+                        {
+                          attrs: {
+                            fill: "#FFFFFF",
+                            d:
+                              "M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853\r\n\t\t\t\ts4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z"
+                          }
+                        },
+                        [
+                          s("animate", {
+                            attrs: {
+                              attributeName: "d",
+                              calcMode: "spline",
+                              keySplines: "0.42 0 0.58 1; 0.42 0 0.58 1",
+                              begin: "5s",
+                              dur: "0.8s",
+                              repeatCount: "indefinite",
+                              values:
+                                "\r\n                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z\r\n                          ;\r\n                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-4.856,9.031-4.856h1.973C103.875,45.099,107.92,42.512,107.92,47.955z\r\n                          ;\r\n                          M107.92,47.955c0,5.443-4.045,9.853-9.031,9.853h-1.973c-4.986,0-9.031-4.41-9.031-9.853s4.045-9.856,9.031-9.856h1.973C103.875,38.099,107.92,42.512,107.92,47.955z\r\n                          "
+                            }
+                          })
+                        ]
+                      ),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          d:
+                            "M102.417,47.955c0,2.176-1.616,3.942-3.612,3.942h-1.807c-1.994,0-3.611-1.766-3.611-3.942\r\n\t\t\t\tc0-2.178,1.617-3.943,3.611-3.943h1.807C100.801,44.012,102.417,45.777,102.417,47.955z"
+                        }
+                      })
+                    ])
+                  ]),
+                  t._v(" "),
+                  s(
+                    "path",
+                    {
+                      attrs: {
+                        fill: "#FFFFFF",
+                        d:
+                          "M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0\r\n\t\tc-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0\r\n\t\tC102.547,67.282,103.383,68.4,103.383,69.778z"
+                      }
+                    },
+                    [
+                      s("animate", {
+                        attrs: {
+                          attributeName: "d",
+                          calcMode: "spline",
+                          keySplines:
+                            "0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1",
+                          begin: "0s",
+                          dur: "1s",
+                          repeatCount: "indefinite",
+                          values:
+                            "\r\n                          M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0\r\n\t\tc-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0\r\n\t\tC102.547,67.282,103.383,68.4,103.383,69.778z\r\n                          ;\r\n                          M103.383,69.778c0,1.381-0.862,2.268-1.871,2.499c-11.669,2.677-29.396,3.207-43.025,0\r\n\t\tc-1.005-0.236-1.871-1.118-1.871-2.499c0-1.378,0.868-2.249,1.871-2.496c11.349-2.795,31.753-2.53,43.025,0\r\n\t\tC102.521,67.508,103.383,68.4,103.383,69.778z\r\n                          ;\r\n                          M103.383,69.778c0,1.381-0.86,2.724-1.871,2.499c-11.271-2.506-29.956-2.201-43.025,0\r\n\t\tc-1.019,0.171-1.871-1.118-1.871-2.499c0-1.378,0.89-2.819,1.871-2.496c15.191,4.995,30.429,3.433,43.025,0\r\n\t\tC102.511,67.01,103.383,68.4,103.383,69.778z\r\n                          ;\r\n                          M103.383,69.778c0,1.381-0.836,2.499-1.871,2.499c-10.756,0-32.269,0-43.025,0\r\n\t\tc-1.033,0-1.871-1.118-1.871-2.499c0-1.378,0.838-2.496,1.871-2.496c10.756,0,32.269,0,43.025,0\r\n\t\tC102.547,67.282,103.383,68.4,103.383,69.778z\r\n                          "
+                        }
+                      })
+                    ]
+                  )
+                ]),
+                t._v(" "),
+                s("g", { attrs: { id: "upperTorso" } }, [
+                  s("g", { attrs: { id: "leftArm" } }, [
+                    s("g", { staticClass: "forearm" }, [
+                      s("path", {
+                        attrs: {
+                          fill: "#333",
+                          d:
+                            "M9.068,131.177c-4.78,12.558-5.183,25.372-2.497,40.71c0,0,0.68,4.312,6.107,3.39\r\n\t\tc4.571-0.776,4.348-5.001,4.348-5.001c-2.351-13.388-2.234-24.244,1.89-35.134c0,0,1.75-4.725-2.833-6.6\r\n\t\tC11.02,126.471,9.068,131.177,9.068,131.177z"
+                        }
+                      }),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          fill: "#f94f3b",
+                          d:
+                            "M9.604,166.5c-6.984,1.975-11.067,9.316-9.117,16.398c1.008,3.662,3.439,6.522,6.51,8.172\r\n\t\tc-0.167-0.363-0.315-0.742-0.426-1.141c-1.235-4.484,1.703-9.234,6.562-10.609c4.861-1.377,9.804,1.145,11.037,5.631\r\n\t\tc0.111,0.396,0.18,0.798,0.221,1.197c1.785-3.021,2.399-6.748,1.393-10.407C23.833,168.661,16.589,164.523,9.604,166.5z"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("path", {
+                      attrs: {
+                        fill: "#333",
+                        d:
+                          "M18.917,135.142c1.731-4.573,4.169-9.151,7.428-13.925c4.23-6.199,7.573-9.281,13.553-13.761\r\n\t\tc0,0,3.335-2.905,0.961-6.63c-2.797-4.389-7.415-1.908-7.415-1.908c-4.981,3.145-10.421,8.413-15.576,15.872\r\n\t\tc-3.827,5.537-6.726,10.938-8.8,16.387c0,0-1.877,4.187,2.599,6.24C16.75,139.75,18.917,135.142,18.917,135.142z"
+                      }
+                    }),
+                    t._v(" "),
+                    s("g", [
+                      s("ellipse", {
+                        attrs: {
+                          stroke: "#f94f3b",
+                          cx: "13.581",
+                          cy: "132.93",
+                          rx: "8.505",
+                          ry: "8.623"
+                        }
+                      }),
+                      t._v(" "),
+                      s("g", [
+                        s("path", {
+                          attrs: {
+                            fill: "#f94f3b",
+                            d:
+                              "M9.299,135.199c1.237,2.396,4.154,3.322,6.52,2.07c2.364-1.252,3.278-4.211,2.042-6.605\r\n\t\t\t\tc-1.236-2.398-4.152-3.324-6.52-2.072C8.978,129.844,8.065,132.803,9.299,135.199z"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("g", { attrs: { id: "rightArm" } }, [
+                    s("g", { staticClass: "forearm" }, [
+                      s("path", {
+                        attrs: {
+                          fill: "#333",
+                          d:
+                            "M143.916,128.542c-4.583,1.875-2.833,6.6-2.833,6.6c4.124,10.89,4.241,21.746,1.89,35.134\r\n\t\tc0,0-0.223,4.225,4.348,5.001c5.428,0.922,6.107-3.39,6.107-3.39c2.688-15.338,2.283-28.152-2.496-40.71\r\n\t\tC150.932,131.177,148.98,126.471,143.916,128.542z"
+                        }
+                      }),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          fill: "#f94f3b",
+                          d:
+                            "M134.216,175.741c-1.006,3.659-0.392,7.386,1.394,10.407c0.041-0.399,0.109-0.801,0.221-1.197\r\n\t\tc1.232-4.486,6.176-7.008,11.037-5.631c4.859,1.375,7.797,6.125,6.562,10.609c-0.111,0.398-0.26,0.777-0.427,1.141\r\n\t\tc3.071-1.649,5.502-4.51,6.511-8.172c1.949-7.082-2.134-14.424-9.117-16.398C143.411,164.523,136.167,168.661,134.216,175.741z"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("path", {
+                      attrs: {
+                        fill: "#333",
+                        d:
+                          "M148.333,137.417c4.476-2.054,2.599-6.24,2.599-6.24c-2.074-5.449-4.973-10.85-8.8-16.387\r\n\t\tc-5.155-7.459-10.595-12.727-15.576-15.872c0,0-4.618-2.48-7.415,1.908c-2.374,3.725,0.961,6.63,0.961,6.63\r\n\t\tc5.98,4.479,9.323,7.562,13.553,13.761c3.26,4.773,5.697,9.352,7.429,13.925C141.083,135.142,143.25,139.75,148.333,137.417z"
+                      }
+                    }),
+                    t._v(" "),
+                    s("g", [
+                      s("ellipse", {
+                        attrs: {
+                          stroke: "#f94f3b",
+                          cx: "146.419",
+                          cy: "132.93",
+                          rx: "8.505",
+                          ry: "8.623"
+                        }
+                      }),
+                      t._v(" "),
+                      s("g", [
+                        s("path", {
+                          attrs: {
+                            fill: "#f94f3b",
+                            d:
+                              "M148.659,128.592c-2.368-1.252-5.284-0.326-6.521,2.072c-1.236,2.395-0.322,5.354,2.043,6.605\r\n\t\t\t\ts5.282,0.326,6.52-2.07C151.936,132.803,151.021,129.844,148.659,128.592z"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      d:
+                        "M42.356,94.049l-8.341-1.248c-5.238,10.201-7.014,20.918-4.697,32.248l8.34,1.248L42.356,94.049z"
+                    }
+                  }),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      d:
+                        "M122.342,126.297l8.34-1.248c2.317-11.33,0.541-22.047-4.697-32.248l-8.34,1.248L122.342,126.297z"
+                    }
+                  }),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      fill: "#f94f3b",
+                      d:
+                        "M125.283,131.334c0.048-13.081-1.633-26.163-5.186-39.244H80H39.903\r\n\t\tc-3.552,13.081-5.232,26.162-5.184,39.242L125.283,131.334z"
+                    }
+                  })
+                ]),
+                t._v(" "),
+                s("g", { attrs: { id: "lowerTrunk" } }, [
+                  s("g", { attrs: { id: "leftFoot" } }, [
+                    s("path", {
+                      attrs: {
+                        fill: "#333",
+                        d:
+                          "M61.27,164.817c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132\r\n\t\t\tc0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,164.817L61.27,164.817L61.27,164.817z"
+                      }
+                    }),
+                    t._v(" "),
+                    s("g", { staticClass: "lowerLeg" }, [
+                      s("path", {
+                        attrs: {
+                          fill: "#333",
+                          d:
+                            "M61.27,200.63c0-3.526-2.858-6.386-6.385-6.386c-3.527,0-6.386,2.859-6.386,6.386v0.001l0,0l0,36.132\r\n\t\t\tc0,3.526,2.859,6.386,6.386,6.386c3.526,0,6.385-2.859,6.385-6.386L61.27,200.63L61.27,200.63L61.27,200.63z"
+                        }
+                      }),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          fill: "#f94f3b",
+                          d:
+                            "M54.885,234.096c-9.526,0-17.244,7.119-17.244,15.903H72.13C72.13,241.215,64.41,234.096,54.885,234.096z"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("g", [
+                      s("ellipse", {
+                        attrs: {
+                          stroke: "#f94f3b",
+                          cx: "54.885",
+                          cy: "200.79",
+                          rx: "9.294",
+                          ry: "9.423"
+                        }
+                      }),
+                      t._v(" "),
+                      s("g", [
+                        s("path", {
+                          attrs: {
+                            fill: "#f94f3b",
+                            d:
+                              "M60.607,203.823c-1.653,3.202-5.553,4.44-8.715,2.768c-3.163-1.677-4.383-5.628-2.73-8.832\r\n\t\t\t\t\tc1.651-3.204,5.556-4.442,8.715-2.771C61.036,196.664,62.258,200.62,60.607,203.823z"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("g", { attrs: { id: "rightFoot" } }, [
+                    s("path", {
+                      attrs: {
+                        fill: "#333",
+                        d:
+                          "M98.73,164.817c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132\r\n\t\t\tc0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V164.817L98.73,164.817L98.73,164.817z"
+                      }
+                    }),
+                    t._v(" "),
+                    s("g", { staticClass: "lowerLeg" }, [
+                      s("path", {
+                        attrs: {
+                          fill: "#333",
+                          d:
+                            "M98.73,200.63c0-3.526,2.858-6.386,6.385-6.386c3.527,0,6.386,2.859,6.386,6.386v0.001l0,0l0.001,36.132\r\n\t\t\tc0,3.526-2.859,6.386-6.387,6.386c-3.525,0-6.385-2.859-6.385-6.386V200.63L98.73,200.63L98.73,200.63z"
+                        }
+                      }),
+                      t._v(" "),
+                      s("path", {
+                        attrs: {
+                          fill: "#f94f3b",
+                          d:
+                            "M87.87,249.999h34.489c0-8.784-7.719-15.903-17.244-15.903S87.87,241.215,87.87,249.999z"
+                        }
+                      })
+                    ]),
+                    t._v(" "),
+                    s("g", [
+                      s("ellipse", {
+                        attrs: {
+                          stroke: "#f94f3b",
+                          cx: "105.115",
+                          cy: "200.79",
+                          rx: "9.294",
+                          ry: "9.423"
+                        }
+                      }),
+                      t._v(" "),
+                      s("g", [
+                        s("path", {
+                          attrs: {
+                            fill: "#f94f3b",
+                            d:
+                              "M102.123,194.988c3.159-1.672,7.064-0.434,8.715,2.771c1.653,3.204,0.434,7.155-2.73,8.832\r\n\t\t\t\t\tc-3.162,1.673-7.062,0.435-8.715-2.768C97.742,200.62,98.964,196.664,102.123,194.988z"
+                          }
+                        })
+                      ])
+                    ])
+                  ]),
+                  t._v(" "),
+                  s("path", {
+                    attrs: {
+                      fill: "#f94f3b",
+                      d:
+                        "M34.719,131.334c0.048,13.082,1.824,26.164,5.184,39.246H80h40.098c3.361-13.08,5.138-26.162,5.186-39.244L34.719,131.334z"
+                    }
+                  })
+                ])
+              ]
+            ),
+            t._v(" "),
+            t._m(0)
+          ]);
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { staticClass: "col" }, [
+              s("figure", {}, [
+                s("img", {
+                  attrs: { src: "/static/images/error404.svg", alt: "Image" }
+                })
+              ]),
+              t._v(" "),
+              s("p", [t._v("this page doesn't exist...")])
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return "no stock" === t.stock
+            ? s("not-found")
+            : s("section", { staticClass: "section main" }, [
+                t.connectedUser
+                  ? s(
+                      "div",
+                      [
+                        t.stock
+                          ? s("stock-header", {
+                              attrs: {
+                                stock: t.stock,
+                                watchItem: t.watchItem,
+                                connectedUser: t.connectedUser,
+                                trendBullBear: t.trendBullBear
+                              },
+                              on: {
+                                trendBullBearOne: function(e) {
+                                  t.getTrend1(e);
+                                },
+                                trendBullBearSeven: function(e) {
+                                  t.getTrend7(e);
+                                },
+                                changeWatchlist: function(e) {
+                                  t.updateWatchList(e);
+                                }
+                              }
+                            })
+                          : t._e(),
+                        t._v(" "),
+                        s("div", { staticClass: "primordial" }, [
+                          s(
+                            "div",
+                            { staticClass: "sct1" },
+                            [
+                              s("side-recent-activity", {
+                                staticClass: "is-3 is-sticky sci",
+                                attrs: {
+                                  connectedUser: t.connectedUser,
+                                  recentPositions: t.recentPositions
+                                }
+                              }),
+                              t._v(" "),
+                              s(
+                                "div",
+                                { staticClass: "babblesField column is-6" },
+                                [
+                                  s("publish-babble", {
+                                    attrs: {
+                                      watchItem: t.watchItem,
+                                      connectedUser: t.connectedUser,
+                                      stock: t.stock ? t.stock : {}
+                                    },
+                                    on: {
+                                      changeWatchlist: function(e) {
+                                        t.updateWatchList(e);
+                                      },
+                                      changeBabbles: function(e) {
+                                        t.updateTimelineBabble(e);
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("timeline-babble", {
+                                    attrs: {
+                                      connectedUser: t.connectedUser,
+                                      stock: t.stock ? t.stock : {},
+                                      babbles: t.babbles
+                                    },
+                                    on: {
+                                      sort: t.changeSort,
+                                      changeBabbles: function(e) {
+                                        t.updateTimelineBabble(e);
+                                      }
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s("side-current-insight", {
+                                staticClass: "sci",
+                                attrs: {
+                                  connectedUser: t.connectedUser,
+                                  watchInsight: t.watchInsight
+                                },
+                                on: {
+                                  changeWatchlist: function(e) {
+                                    t.updateWatchList(e);
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  : t._e()
+              ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(441);
+      }
+      var i = s(442),
+        n = s(451),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-e9f435f8", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(3),
+        i = s(21),
+        n = s(443),
+        o = s(151),
+        r = s(152),
+        c = s(447),
+        l = s(153);
+      e.a = {
+        data: function() {
+          return {
+            filterBy: "all",
+            stock: null,
+            babbles: null,
+            recentPositions: null,
+            trendBullBear: [50, 50]
+          };
+        },
+        components: {
+          StockHeaderUnconnect: n.a,
+          PublishBabbleUnconnect: r.a,
+          TimelineBabbleUnconnect: c.a,
+          SideRecentActivityUnconnect: o.a,
+          SideCurrentInsightUnconnect: l.a,
+          NotFound: i.a
+        },
+        props: { langSelected: "" },
+        methods: {
+          updateTimelineBabble: function() {
+            this.fetchData();
+          },
+          fetchData: function() {
+            var t = this,
+              e = this.$route.params.stockName;
+            Object(a.j)(e).then(function(e) {
+              t.stock = e;
+            }),
+              Object(a.k)(e, "all").then(function(e) {
+                t.babbles = e;
+              }),
+              Object(a.i)().then(function(e) {
+                t.recentPositions = e;
+              }),
+              Object(a.l)(e, 30).then(function(e) {
+                t.trendBullBear = e;
+              });
+          },
+          getTrend7: function() {
+            var t = this;
+            this.fetchData(),
+              Object(a.l)(this.stock.shortName, 7).then(function(e) {
+                t.trendBullBear = e;
+              });
+          },
+          getTrend1: function() {
+            var t = this;
+            this.fetchData(),
+              Object(a.l)(this.stock.shortName, 1).then(function(e) {
+                t.trendBullBear = e;
+              });
+          }
+        },
+        created: function() {
+          var t = this;
+          this.fetchData(),
+            setTimeout(function() {
+              Object(a.j)(t.$route.params.stockName).then(function(e) {
+                t.stock = e;
+              });
+            }, 5e3);
+        },
+        watch: {
+          $route: function() {
+            this.fetchData();
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(444);
+      }
+      var i = s(445),
+        n = s(446),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-2e788f64", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(154),
+        i = s(273),
+        n = s(274),
+        o = s(9),
+        r = s(10),
+        c = s(3);
+      e.a = {
+        name: "StockHeader",
+        props: { stock: Object, trendBullBear: Array, langSelected: "" },
+        data: function() {
+          return {
+            activeItem: "thirty",
+            isChartStockActive: !1,
+            isStockDescriptionModalActive: !1,
+            description: "Description",
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: ""
+          };
+        },
+        components: {
+          SignupModal: o.a,
+          LoginModal: r.a,
+          ChartStockIex: a.a,
+          ChartStockEuroNext: i.a,
+          ChartStockCrypto: n.a
+        },
+        methods: {
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          },
+          ChartStock: function() {
+            this.isChartStockActive = !0;
+          },
+          descriptionStock: function() {
+            this.isStockDescriptionModalActive = !0;
+          },
+          trend30: function() {
+            this.$emit("trendBullBearThirty"), (this.activeItem = "thirty");
+          },
+          trend7: function() {
+            this.$emit("trendBullBearSeven"), (this.activeItem = "seven");
+          },
+          trend1: function() {
+            this.$emit("trendBullBearOne"), (this.activeItem = "one");
+          },
+          wikiDescription: function(t) {
+            var e = this,
+              s = this.$route.params.stockName;
+            return Object(c.g)(s, t).then(function(t) {
+              console.log("Description", t), (e.description = t);
+            });
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s("section", [
+            s(
+              "div",
+              { staticClass: "column is-6", attrs: { id: "ActionCard" } },
+              [
+                s(
+                  "div",
+                  {
+                    staticClass: "card profile-card",
+                    attrs: { id: "cardAction" }
+                  },
+                  [
+                    s("div", { staticClass: "card-content" }, [
+                      s(
+                        "div",
+                        { staticClass: "media", attrs: { id: "stockInfo" } },
+                        [
+                          s("div", { staticClass: "media-left" }, [
+                            s(
+                              "figure",
+                              { staticClass: "image is-64x64 is-circle" },
+                              [
+                                s("img", {
+                                  staticClass: "imgProfile",
+                                  attrs: {
+                                    src: t.stock.stockImg,
+                                    alt: "stockImg"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          t._v(" "),
+                          s("div", { staticClass: "media-content" }, [
+                            s("div", { staticClass: "stock-banner" }, [
+                              s("div", { staticClass: "sock-info" }, [
+                                s(
+                                  "p",
+                                  { staticClass: "longNameTitle title is-5" },
+                                  [t._v(t._s(t.stock.longName))]
+                                ),
+                                t._v(" "),
+                                s("p", { staticClass: "subtitleIsin is-6" }, [
+                                  s("a", {}, [t._v(t._s(t.stock.isin))]),
+                                  t._v(" "),
+                                  s("a", {}, [t._v(t._s(t.stock.shortName))])
+                                ]),
+                                t._v(" "),
+                                (t.stock.index[0],
+                                s(
+                                  "a",
+                                  {
+                                    staticClass:
+                                      "stock-see-desc is-6 has-text-grey-light",
+                                    on: {
+                                      click: function(e) {
+                                        t.descriptionStock(),
+                                          t.wikiDescription(t.stock.longName);
+                                      }
+                                    }
+                                  },
+                                  [
+                                    t._v(
+                                      t._s(
+                                        "EN" === t.langSelected
+                                          ? "More info..."
+                                          : "Plus d'info..."
+                                      )
+                                    )
+                                  ]
+                                ))
+                              ]),
+                              t._v(" "),
+                              s("div", { staticClass: "add-to-watchlist" }, [
+                                s(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "button is-small is-outlined is-primary",
+                                    attrs: { id: "adWL" },
+                                    on: { click: t.SignupModal }
+                                  },
+                                  [
+                                    t._v(
+                                      t._s(
+                                        "EN" === t.langSelected
+                                          ? "Add to watchlist"
+                                          : "Je veux suivre"
+                                      )
+                                    )
+                                  ]
+                                )
+                              ]),
+                              t._v(" "),
+                              s(
+                                "div",
+                                { staticClass: "stock-price title is-5" },
+                                [
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass: "stock-priceVar title is-5"
+                                    },
+                                    [
+                                      s("strong", { staticClass: "stVar" }, [
+                                        t._v(
+                                          t._s(t.stock.price) +
+                                            " " +
+                                            t._s(t.stock.currency)
+                                        )
+                                      ]),
+                                      t._v(" "),
+                                      s(
+                                        "small",
+                                        {
+                                          staticClass: "stVar",
+                                          class: {
+                                            "has-text-green":
+                                              t.stock.variation > 0,
+                                            "has-text-red":
+                                              t.stock.variation < 0
+                                          }
+                                        },
+                                        [
+                                          t._v(
+                                            "    " +
+                                              t._s(
+                                                t.stock.variation.toFixed(2)
+                                              ) +
+                                              " %"
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  "Cryptocurrency" === t.stock.isin
+                                    ? s(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "stock-priceVar title is-5"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "stVar" },
+                                            [
+                                              t._v(
+                                                t._s(t.stock.price2) +
+                                                  " " +
+                                                  t._s(t.stock.currency2)
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            {
+                                              staticClass: "stVar",
+                                              class: {
+                                                "has-text-green":
+                                                  t.stock.variation2 > 0,
+                                                "has-text-red":
+                                                  t.stock.variation2 < 0
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                "    " +
+                                                  t._s(
+                                                    t.stock.variation2.toFixed(
+                                                      2
+                                                    )
+                                                  ) +
+                                                  " %"
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    : t._e(),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass: "stock-priceVar title is-5"
+                                    },
+                                    [
+                                      s(
+                                        "small",
+                                        {
+                                          staticClass:
+                                            "is-6 has-text-grey-light"
+                                        },
+                                        [
+                                          t._v(
+                                            "Volume: " + t._s(t.stock.volume)
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  (t.stock.index[0],
+                                  s("span", { staticClass: "chartIcon" }, [
+                                    s(
+                                      "i",
+                                      {
+                                        staticClass: "fa fa-line-chart",
+                                        on: { click: t.ChartStock }
+                                      },
+                                      [t._v("  see chart")]
+                                    )
+                                  ]))
+                                ]
+                              )
+                            ]),
+                            t._v(" "),
+                            s(
+                              "nav",
+                              {
+                                staticClass: "level media",
+                                attrs: { id: "bandB" }
+                              },
+                              [
+                                t.trendBullBear[0] >= t.trendBullBear[1]
+                                  ? s(
+                                      "div",
+                                      { staticClass: "trenDingDigitMobile" },
+                                      [
+                                        s(
+                                          "small",
+                                          {
+                                            staticClass:
+                                              "trendingDigitMobileSmall"
+                                          },
+                                          [
+                                            t._v(" Insiders are "),
+                                            s(
+                                              "strong",
+                                              {
+                                                staticClass:
+                                                  "has-text-green strongGRED"
+                                              },
+                                              [t._v("Bullish: ")]
+                                            ),
+                                            s("strong", [
+                                              s(
+                                                "span",
+                                                {
+                                                  attrs: { id: "bandbdigit1" }
+                                                },
+                                                [
+                                                  t._v(
+                                                    " " +
+                                                      t._s(t.trendBullBear[0]) +
+                                                      " %"
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  : s(
+                                      "div",
+                                      { staticClass: "trenDingDigitMobile" },
+                                      [
+                                        s(
+                                          "small",
+                                          {
+                                            staticClass:
+                                              "trendingDigitMobileSmall"
+                                          },
+                                          [
+                                            t._v(" Insiders are  "),
+                                            s(
+                                              "strong",
+                                              {
+                                                staticClass:
+                                                  "has-text-red strongGRED"
+                                              },
+                                              [t._v("Bearish: ")]
+                                            ),
+                                            s("strong", [
+                                              s(
+                                                "span",
+                                                {
+                                                  attrs: { id: "bandbdigit2" }
+                                                },
+                                                [
+                                                  t._v(
+                                                    " " +
+                                                      t._s(t.trendBullBear[1]) +
+                                                      " % "
+                                                  )
+                                                ]
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      ]
+                                    ),
+                                t._v(" "),
+                                s("div", { attrs: { id: "bullsAndBears" } }, [
+                                  s("div", { staticClass: "mobileBandB1" }, [
+                                    s("div", { attrs: { id: "BBull" } }, [
+                                      s(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-small is-outlined is-primary",
+                                          attrs: { id: "Bbull" },
+                                          on: { click: t.SignupModal }
+                                        },
+                                        [t._v("Be Bull")]
+                                      )
+                                    ])
+                                  ]),
+                                  t._v(" "),
+                                  t._m(0),
+                                  t._v(" "),
+                                  t.trendBullBear[0] >= t.trendBullBear[1]
+                                    ? s(
+                                        "div",
+                                        { staticClass: "trenDingDigit" },
+                                        [
+                                          t._m(1),
+                                          s("strong", [
+                                            s(
+                                              "span",
+                                              { attrs: { id: "bandbdigit1" } },
+                                              [
+                                                t._v(
+                                                  " " +
+                                                    t._s(t.trendBullBear[0]) +
+                                                    " %"
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    : s(
+                                        "div",
+                                        { staticClass: "trenDingDigit" },
+                                        [
+                                          t._m(2),
+                                          s("strong", [
+                                            s(
+                                              "span",
+                                              { attrs: { id: "bandbdigit2" } },
+                                              [
+                                                t._v(
+                                                  " " +
+                                                    t._s(t.trendBullBear[1]) +
+                                                    " % "
+                                                )
+                                              ]
+                                            )
+                                          ])
+                                        ]
+                                      ),
+                                  t._v(" "),
+                                  t._m(3),
+                                  t._v(" "),
+                                  s("div", { staticClass: "mobileBandB" }, [
+                                    s("div", { attrs: { id: "BBear" } }, [
+                                      s(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-small is-outlined is-primary",
+                                          attrs: { id: "Bbear" },
+                                          on: { click: t.SignupModal }
+                                        },
+                                        [t._v("Be Bear")]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ]
+                            ),
+                            t._v(" "),
+                            s("div", { attrs: { id: "Last" } }, [
+                              s(
+                                "div",
+                                { staticClass: "level-item has-text-centered" },
+                                [
+                                  s(
+                                    "a",
+                                    {
+                                      staticClass: "is-6 trend-b-b",
+                                      class: {
+                                        "has-text-blue": "one" === t.activeItem,
+                                        " has-text-grey-light":
+                                          "one" != t.activeItem
+                                      },
+                                      on: {
+                                        click: function(e) {
+                                          t.trend1();
+                                        }
+                                      }
+                                    },
+                                    [
+                                      s("small", [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.langSelected
+                                              ? "Last 24 hours"
+                                              : "24 heures"
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  t._v(
+                                    "\r\n                                    "
+                                  ),
+                                  s(
+                                    "small",
+                                    {
+                                      staticClass:
+                                        "is-6 has-text-grey-light trend-b-b"
+                                    },
+                                    [t._v("|")]
+                                  ),
+                                  t._v(
+                                    "    \r\n\r\n                                    "
+                                  ),
+                                  s(
+                                    "a",
+                                    {
+                                      staticClass: "is-6 trend-b-b",
+                                      class: {
+                                        "has-text-blue":
+                                          "seven" === t.activeItem,
+                                        " has-text-grey-light":
+                                          "seven" != t.activeItem
+                                      },
+                                      on: {
+                                        click: function(e) {
+                                          t.trend7();
+                                        }
+                                      }
+                                    },
+                                    [
+                                      s("small", [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.langSelected
+                                              ? "Last week"
+                                              : "7 jours"
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  t._v(
+                                    "\r\n                                     "
+                                  ),
+                                  s(
+                                    "small",
+                                    {
+                                      staticClass:
+                                        "is-6 has-text-grey-light trend-b-b"
+                                    },
+                                    [t._v("|")]
+                                  ),
+                                  t._v(
+                                    "    \r\n\r\n                                    "
+                                  ),
+                                  s(
+                                    "a",
+                                    {
+                                      staticClass: "is-6 trend-b-b",
+                                      class: {
+                                        "has-text-blue":
+                                          "thirty" === t.activeItem,
+                                        " has-text-grey-light":
+                                          "thirty" != t.activeItem
+                                      },
+                                      on: {
+                                        click: function(e) {
+                                          t.trend30();
+                                        }
+                                      }
+                                    },
+                                    [
+                                      s("small", [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.langSelected
+                                              ? "Last month"
+                                              : "30 jours"
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    t._v(" "),
+                    s(
+                      "b-modal",
+                      {
+                        attrs: { active: t.isChartStockActive, width: 640 },
+                        on: {
+                          "update:active": function(e) {
+                            t.isChartStockActive = e;
+                          }
+                        }
+                      },
+                      [
+                        "NASDAQ" === t.stock.index[0]
+                          ? s("chart-stock-iex", { attrs: { stock: t.stock } })
+                          : t._e(),
+                        t._v(" "),
+                        "EURONEXT PARIS" === t.stock.index[0]
+                          ? s("chart-stock-euro-next", {
+                              attrs: { stock: t.stock }
+                            })
+                          : t._e(),
+                        t._v(" "),
+                        "CRYPTO" === t.stock.index[0]
+                          ? s("chart-stock-crypto", {
+                              attrs: { stock: t.stock }
+                            })
+                          : t._e()
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    s(
+                      "b-modal",
+                      {
+                        attrs: { active: t.isStockDescriptionModalActive },
+                        on: {
+                          "update:active": function(e) {
+                            t.isStockDescriptionModalActive = e;
+                          }
+                        }
+                      },
+                      [
+                        s("div", { staticClass: "mediaModal" }, [
+                          s(
+                            "nav",
+                            {
+                              staticClass: "level media",
+                              attrs: { id: "bandB" }
+                            },
+                            [
+                              s("h1", { staticClass: "modalTitle" }, [
+                                t._v(
+                                  "\r\n                           Plus d'info sur " +
+                                    t._s(t.stock.longName) +
+                                    " !\r\n                        "
+                                )
+                              ])
+                            ]
+                          ),
+                          t._v(" "),
+                          s("div", { attrs: { id: "bullsAndBears2" } }, [
+                            s("div", {
+                              staticClass: "div is-outlined",
+                              attrs: { id: "stock-desc" },
+                              domProps: { innerHTML: t._s(this.description) }
+                            })
+                          ])
+                        ])
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "b-modal",
+                      {
+                        attrs: { active: t.isSignupModalActive, width: 640 },
+                        on: {
+                          "update:active": function(e) {
+                            t.isSignupModalActive = e;
+                          }
+                        }
+                      },
+                      [
+                        s("signup-modal", {
+                          on: {
+                            "!loginModal": function(e) {
+                              t.LoginModal(e);
+                            }
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    t._v(" "),
+                    s(
+                      "b-modal",
+                      {
+                        attrs: { active: t.isLoginModalActive, width: 640 },
+                        on: {
+                          "update:active": function(e) {
+                            t.isLoginModalActive = e;
+                          }
+                        }
+                      },
+                      [
+                        s("login-modal", {
+                          attrs: { autenticate: t.autenticate },
+                          on: {
+                            closeLoginModal: function(e) {
+                              t.closeLoginModal();
+                            }
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            )
+          ]);
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { attrs: { id: "bullsAndBearsPic" } }, [
+              s("img", {
+                attrs: {
+                  src: "/static/images/roundBullArrow.png",
+                  alt: "bull and bear"
+                }
+              })
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("small", [
+              t._v(" Insiders are "),
+              s("strong", { staticClass: "has-text-green" }, [
+                t._v("Bullish: ")
+              ])
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("small", [
+              t._v(" Insiders are "),
+              s("strong", { staticClass: "has-text-red" }, [t._v("Bearish: ")])
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("div", { attrs: { id: "bullsAndBearsPic" } }, [
+              s("img", {
+                attrs: {
+                  src: "/static/images/roundBearArrow.png",
+                  alt: "bull and bear"
+                }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(448);
+      }
+      var i = s(449),
+        n = s(450),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-5648235c", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10),
+        n = s(0),
+        o = s.n(n),
+        r = s(13);
+      s.n(r);
+      e.a = {
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: "",
+            activeItem: "all"
+          };
+        },
+        props: { babbles: Array, stock: Object, langSelected: "" },
+        components: { SignupModal: a.a, LoginModal: i.a },
+        computed: {
+          charactersLeft: function() {
+            return 1618 - this.babbleText.length;
+          }
+        },
+        methods: {
+          moment: function(t) {
+            return o()(t);
+          },
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("div", [
+                s("nav", { staticClass: "navbar is-dark" }, [
+                  s("div", { staticClass: "babblesMenu" }, [
+                    s(
+                      "a",
+                      {
+                        staticClass: "babMenu navbar-item is-tab ",
+                        class: { "is-active": "all" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          " " + t._s("EN" === t.langSelected ? "All" : "Tous")
+                        )
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "a",
+                      {
+                        staticClass: "babMenu navbar-item is-tab",
+                        class: { "is-active": "insidermates" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          t._s(
+                            "EN" === t.langSelected
+                              ? "Insider Mates"
+                              : "Amis insiders"
+                          )
+                        )
+                      ]
+                    ),
+                    t._v(" "),
+                    s(
+                      "a",
+                      {
+                        staticClass: "babMenu navbar-item is-tab ",
+                        class: { "is-active": "me" === t.activeItem },
+                        on: { click: t.SignupModal }
+                      },
+                      [
+                        t._v(
+                          t._s(
+                            "EN" === t.langSelected
+                              ? "My Babbles"
+                              : "Mes babbles"
+                          )
+                        )
+                      ]
+                    )
+                  ])
+                ]),
+                t._v(" "),
+                s("div", { staticClass: "card" }, [
+                  s(
+                    "div",
+                    {
+                      staticClass: "babbles-box",
+                      attrs: { id: "babble-container" }
+                    },
+                    t._l(t.babbles, function(e, a) {
+                      return t.babbles
+                        ? s(
+                            "div",
+                            {
+                              key: a,
+                              staticClass: "tweets card-content p-x-1"
+                            },
+                            [
+                              e.babbleImg
+                                ? s(
+                                    "div",
+                                    { staticClass: "card-image imageChart" },
+                                    [
+                                      s(
+                                        "figure",
+                                        { staticClass: "image is-2by1" },
+                                        [
+                                          s("img", {
+                                            attrs: {
+                                              src: e.babbleImg,
+                                              alt: "Placeholder image"
+                                            }
+                                          })
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                : t._e(),
+                              t._v(" "),
+                              s("article", { staticClass: "media tweet" }, [
+                                s("figure", { staticClass: "media-left" }, [
+                                  s(
+                                    "p",
+                                    { staticClass: "image is-64x64 is-circle" },
+                                    [
+                                      s(
+                                        "router-link",
+                                        { attrs: { to: "'/leaderboard'" } },
+                                        [
+                                          s("img", {
+                                            staticClass: "imgProfile",
+                                            attrs: { src: e.user.picProfile }
+                                          })
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]),
+                                t._v(" "),
+                                s("div", { staticClass: "media-content" }, [
+                                  s("div", { staticClass: "content" }, [
+                                    s(
+                                      "p",
+                                      { staticClass: "tweet-meta" },
+                                      [
+                                        s(
+                                          "router-link",
+                                          { attrs: { to: "'/leaderboard'" } },
+                                          [
+                                            s("strong", [
+                                              t._v(t._s(e.user.username))
+                                            ])
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "small",
+                                          {
+                                            staticClass:
+                                              "media-right has-text-grey-light"
+                                          },
+                                          [
+                                            t._v(
+                                              t._s(
+                                                t
+                                                  .moment(e.created_at)
+                                                  .format("DD-MM-YYYY HH:mm")
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s("p", {
+                                      staticClass:
+                                        "tweet-body has-text-grey babble-body",
+                                      domProps: {
+                                        innerHTML: t._s(
+                                          t.addLinksToHttp(e.babble)
+                                        )
+                                      }
+                                    })
+                                  ]),
+                                  t._v(" "),
+                                  s("nav", { staticClass: "media-right" }, [
+                                    s("div", { staticClass: "level-right" }, [
+                                      s(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "level-item has-text-grey-light",
+                                          on: { click: t.SignupModal }
+                                        },
+                                        [
+                                          t._m(0, !0),
+                                          t._v(" "),
+                                          s(
+                                            "small",
+                                            { staticClass: "favicon" },
+                                            [t._v(" " + t._s(e.reply.length))]
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      s(
+                                        "a",
+                                        {
+                                          staticClass:
+                                            "level-item has-text-grey-light"
+                                        },
+                                        [
+                                          s(
+                                            "span",
+                                            { staticClass: "icon is-medium" },
+                                            [
+                                              s(
+                                                "i",
+                                                {
+                                                  staticClass: "like-btn",
+                                                  on: { click: t.SignupModal }
+                                                },
+                                                [t._v("🚀")]
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s("small", [
+                                            t._v(t._s(e.like.length))
+                                          ])
+                                        ]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              ])
+                            ]
+                          )
+                        : s(
+                            "div",
+                            { staticClass: "babble-container no-babble" },
+                            [s("p", [t._v("The timeline is empty")])]
+                          );
+                    })
+                  )
+                ])
+              ]),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isSignupModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isSignupModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("signup-modal", {
+                    on: {
+                      "!loginModal": function(e) {
+                        t.LoginModal(e);
+                      }
+                    }
+                  })
+                ],
+                1
+              ),
+              t._v(" "),
+              s(
+                "b-modal",
+                {
+                  attrs: { active: t.isLoginModalActive, width: 640 },
+                  on: {
+                    "update:active": function(e) {
+                      t.isLoginModalActive = e;
+                    }
+                  }
+                },
+                [
+                  s("login-modal", {
+                    attrs: { autenticate: t.autenticate },
+                    on: {
+                      closeLoginModal: function(e) {
+                        t.closeLoginModal();
+                      }
+                    }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          );
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("span", { staticClass: "icon is-medium" }, [
+              s("img", {
+                staticClass: "reply",
+                attrs: { src: "/static/images/comments.png" }
+              })
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return "no stock" === t.stock
+            ? s("not-found")
+            : s("section", { staticClass: "section main" }, [
+                s(
+                  "div",
+                  [
+                    t.stock
+                      ? s("stock-header-unconnect", {
+                          attrs: {
+                            langSelected: t.langSelected,
+                            stock: t.stock,
+                            trendBullBear: t.trendBullBear
+                          },
+                          on: {
+                            signup: function(e) {
+                              t.fetchData();
+                            },
+                            trendBullBearThirty: function(e) {
+                              t.fetchData();
+                            },
+                            trendBullBearOne: function(e) {
+                              t.getTrend1(e);
+                            },
+                            trendBullBearSeven: function(e) {
+                              t.getTrend7(e);
+                            }
+                          }
+                        })
+                      : t._e(),
+                    t._v(" "),
+                    s("div", { staticClass: "primordial" }, [
+                      s(
+                        "div",
+                        { staticClass: "sct1" },
+                        [
+                          s("side-recent-activity-unconnect", {
+                            staticClass: "is-3 is-sticky sci",
+                            attrs: {
+                              langSelected: t.langSelected,
+                              recentPositions: t.recentPositions
+                            }
+                          }),
+                          t._v(" "),
+                          s(
+                            "div",
+                            { staticClass: "babblesField column is-6" },
+                            [
+                              s("publish-babble-unconnect", {
+                                attrs: {
+                                  langSelected: t.langSelected,
+                                  stock: t.stock ? t.stock : {}
+                                },
+                                on: {
+                                  signup: function(e) {
+                                    t.fetchData();
+                                  }
+                                }
+                              }),
+                              t._v(" "),
+                              s("timeline-babble-unconnect", {
+                                attrs: {
+                                  langSelected: t.langSelected,
+                                  stock: t.stock ? t.stock : {},
+                                  babbles: t.babbles
+                                },
+                                on: {
+                                  signup: function(e) {
+                                    t.fetchData();
+                                  }
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          s("side-current-insight-unconnect", {
+                            staticClass: "sci",
+                            attrs: { langSelected: t.langSelected },
+                            on: {
+                              signup: function(e) {
+                                t.fetchData();
+                              }
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ]);
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            { attrs: { id: "app" } },
+            [
+              t.connectedUser
+                ? s("Stock-Page-Connect", {
+                    attrs: { connectedUser: t.connectedUser }
+                  })
+                : s("Stock-Page-Unconnect", {
+                    attrs: { langSelected: t.langSelected }
+                  })
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(454);
+      }
+      var i = s(455),
+        n = s(457),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-147b41ce", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      function a(t, e) {
+        return n[t] + ("desc" === e ? "dsc" : "asc");
+      }
+      var i = s(456),
+        n = {
+          longName: "name",
+          currentPrice: "price",
+          variation: "var",
+          volume: "vol",
+          "trending.percentage": "trend",
+          hotInsights: "hi",
+          "bestInsiders[0].perf": "bi"
+        };
+      e.a = {
+        data: function() {
+          return {
+            stocks: [],
+            indexSelected: "SELECTED",
+            total: 0,
+            loading: !1,
+            defaultSortField: "trending.percentage",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "desc"
+          };
+        },
+        props: { langSelected: "", connectedUser: Object },
+        methods: {
+          selected: function() {
+            var t = this;
+            (this.indexSelected = "SELECTED"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          nasdaq: function() {
+            var t = this;
+            (this.indexSelected = "NASDAQ"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          cryptocurrencies: function() {
+            var t = this;
+            (this.indexSelected = "CRYPTO"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          euronext: function() {
+            var t = this;
+            (this.indexSelected = "EURONEXT PARIS"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          cac: function() {
+            var t = this;
+            (this.indexSelected = "CAC40"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          sbf: function() {
+            var t = this;
+            (this.indexSelected = "SBF120"),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(this.defaultSortField, this.defaultSortOrder)
+              }).then(function(e) {
+                t.stocks = e;
+              });
+          },
+          onPageChange: function(t) {
+            (this.page = t), this.onSort();
+          },
+          onSort: function(t, e) {
+            var s = this;
+            (this.loading = !0),
+              Object(i.a)({
+                index: this.indexSelected,
+                sort: a(t, e)
+              }).then(function(t) {
+                (s.stocks = t), (s.loading = !1);
+              });
+          },
+          type: function(t) {
+            var e = parseFloat(t);
+            return e < 6
+              ? "is-danger"
+              : e >= 6 && e < 8 ? "is-warning" : e >= 8 ? "is-success" : void 0;
+          }
+        },
+        filters: {
+          truncate: function(t, e) {
+            return t.length > e ? t.substr(0, e) + "..." : t;
+          }
+        },
+        mounted: function() {
+          var t = this;
+          Object(i.a)({
+            index: this.indexSelected,
+            sort: a(this.defaultSortField, this.defaultSortOrder)
+          }).then(function(e) {
+            t.stocks = e;
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a() {
+        var t =
+          arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
+        return o
+          .get("/trending", { params: t })
+          .then(function(t) {
+            return t.data;
+          })
+          .catch(function(t) {
+            throw t;
+          });
+      }
+      e.a = a;
+      var i = s(14),
+        n = s.n(i),
+        o = n.a.create({ baseURL: "/api" });
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "section",
+            { staticClass: "main" },
+            [
+              t.connectedUser
+                ? s("nav", { staticClass: "navbar is-dark" }, [
+                    "EN" === t.connectedUser.lang
+                      ? s("div", { staticClass: "babblesMenu" }, [
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SELECTED" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.selected();
+                                }
+                              }
+                            },
+                            [t._v("Selected")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CRYPTO" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cryptocurrencies();
+                                }
+                              }
+                            },
+                            [t._v("Crypto Currencies")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "NASDAQ" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.nasdaq();
+                                }
+                              }
+                            },
+                            [t._v("Nasdaq")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active":
+                                  "EURONEXT PARIS" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.euronext();
+                                }
+                              }
+                            },
+                            [t._v("EuroNext Paris")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CAC40" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cac();
+                                }
+                              }
+                            },
+                            [t._v("CAC 40")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SBF120" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.sbf();
+                                }
+                              }
+                            },
+                            [t._v("SBF 120")]
+                          )
+                        ])
+                      : s("div", { staticClass: "babblesMenu" }, [
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SELECTED" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.selected();
+                                }
+                              }
+                            },
+                            [t._v("Sélection")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CRYPTO" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cryptocurrencies();
+                                }
+                              }
+                            },
+                            [t._v("Crypto Currencies")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "NASDAQ" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.nasdaq();
+                                }
+                              }
+                            },
+                            [t._v("Nasdaq")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active":
+                                  "EURONEXT PARIS" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.euronext();
+                                }
+                              }
+                            },
+                            [t._v("EuroNext Paris")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CAC40" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cac();
+                                }
+                              }
+                            },
+                            [t._v("CAC 40")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SBF120" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.sbf();
+                                }
+                              }
+                            },
+                            [t._v("SBF 120")]
+                          )
+                        ])
+                  ])
+                : s("nav", { staticClass: "navbar is-dark" }, [
+                    "EN" === t.langSelected
+                      ? s("div", { staticClass: "babblesMenu" }, [
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SELECTED" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.selected();
+                                }
+                              }
+                            },
+                            [t._v("Selected")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CRYPTO" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cryptocurrencies();
+                                }
+                              }
+                            },
+                            [t._v("Crypto Currencies")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "NASDAQ" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.nasdaq();
+                                }
+                              }
+                            },
+                            [t._v("Nasdaq")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active":
+                                  "EURONEXT PARIS" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.euronext();
+                                }
+                              }
+                            },
+                            [t._v("EuroNext Paris")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CAC40" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cac();
+                                }
+                              }
+                            },
+                            [t._v("CAC 40")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SBF120" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.sbf();
+                                }
+                              }
+                            },
+                            [t._v("SBF 120")]
+                          )
+                        ])
+                      : s("div", { staticClass: "babblesMenu" }, [
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SELECTED" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.selected();
+                                }
+                              }
+                            },
+                            [t._v("Sélection")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CRYPTO" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cryptocurrencies();
+                                }
+                              }
+                            },
+                            [t._v("Crypto Currencies")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "NASDAQ" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.nasdaq();
+                                }
+                              }
+                            },
+                            [t._v("Nasdaq")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active":
+                                  "EURONEXT PARIS" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.euronext();
+                                }
+                              }
+                            },
+                            [t._v("EuroNext Paris")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "CAC40" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.cac();
+                                }
+                              }
+                            },
+                            [t._v("CAC 40")]
+                          ),
+                          t._v(" "),
+                          s(
+                            "a",
+                            {
+                              staticClass: "navbar-item is-tab babMenu",
+                              class: {
+                                "is-active": "SBF120" === t.indexSelected
+                              },
+                              on: {
+                                click: function(e) {
+                                  t.sbf();
+                                }
+                              }
+                            },
+                            [t._v("SBF 120")]
+                          )
+                        ])
+                  ]),
+              t._v(" "),
+              s(
+                "b-table",
+                {
+                  attrs: {
+                    data: t.stocks,
+                    loading: t.loading,
+                    paginated: t.isPaginated,
+                    "per-page": t.perPage,
+                    "pagination-simple": t.isPaginationSimple,
+                    total: t.total,
+                    striped: !0,
+                    "default-sort-direction": t.defaultSortOrder,
+                    "default-sort": t.defaultSortField,
+                    "backend-sorting": ""
+                  },
+                  on: { "page-change": t.onPageChange, sort: t.onSort },
+                  scopedSlots: t._u([
+                    {
+                      key: "default",
+                      fn: function(e) {
+                        return [
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass:
+                                        "stockName has-text-centered is-6",
+                                      attrs: {
+                                        to: "/stocks/" + e.row.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "currentPrice",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Current price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.currentPrice) +
+                                      "    " +
+                                      t._s(e.row.currency) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": e.row.variation > 0,
+                                    "has-text-red": e.row.variation < 0
+                                  },
+                                  attrs: {
+                                    field: "variation",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Variation"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.variation) +
+                                      " %\n                "
+                                  )
+                                ]
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "volume",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Volume"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.volume.toLocaleString()) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      "bull" === e.row.trending.trend,
+                                    "has-text-red":
+                                      "bear" === e.row.trending.trend
+                                  },
+                                  attrs: {
+                                    field: "trending.percentage",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Sentiment"
+                                  }
+                                },
+                                [
+                                  s(
+                                    "strong",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          "bull" === e.row.trending.trend,
+                                        "has-text-red":
+                                          "bear" === e.row.trending.trend
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        t._s(e.row.trending.percentage) + "%"
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s("small", [
+                                    t._v("(" + t._s(e.row.trending.trend) + ")")
+                                  ])
+                                ]
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "hotInsights",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Social trending"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.hotInsights) +
+                                      "\n                "
+                                  )
+                                ]
+                              )
+                            : t._e(),
+                          t._v(" "),
+                          e.row.currentPrice > 0
+                            ? s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "bestInsiders[0].perf",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Best insider on it"
+                                  }
+                                },
+                                [
+                                  e.row.bestInsiders[0]
+                                    ? s(
+                                        "router-link",
+                                        {
+                                          attrs: {
+                                            to:
+                                              "/dashboard/" +
+                                              e.row.bestInsiders[0].id
+                                          }
+                                        },
+                                        [
+                                          s("strong", [
+                                            t._v(
+                                              "@" +
+                                                t._s(
+                                                  e.row.bestInsiders[0].username
+                                                )
+                                            )
+                                          ])
+                                        ]
+                                      )
+                                    : t._e(),
+                                  e.row.bestInsiders[0]
+                                    ? s("small", [
+                                        t._v(
+                                          " (" +
+                                            t._s(
+                                              e.row.bestInsiders[0].perf.toFixed(
+                                                0
+                                              )
+                                            ) +
+                                            " P$)"
+                                        )
+                                      ])
+                                    : t._e()
+                                ],
+                                1
+                              )
+                            : t._e()
+                        ];
+                      }
+                    }
+                  ])
+                },
+                [
+                  s("template", { attrs: { slot: "empty" }, slot: "empty" }, [
+                    s("section", { staticClass: "section" }, [
+                      s(
+                        "div",
+                        {
+                          staticClass: "content has-text-grey has-text-centered"
+                        },
+                        [
+                          s(
+                            "p",
+                            [
+                              s("b-icon", {
+                                attrs: {
+                                  icon: "sentiment_very_satisfied",
+                                  size: "is-large"
+                                }
+                              })
+                            ],
+                            1
+                          ),
+                          t._v(" "),
+                          s("p", [t._v("...loading")])
+                        ]
+                      )
+                    ])
+                  ])
+                ],
+                2
+              )
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(459);
+      }
+      var i = s(460),
+        n = s(481),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-1506f0ce", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6),
+        i = s(461),
+        n = s(465),
+        o = s(469),
+        r = s(473),
+        c = s(477);
+      e.a = {
+        data: function() {
+          return {
+            currentInsights: [],
+            profileInfo: null,
+            activeItem: "curinsights"
+          };
+        },
+        components: {
+          InsiderProfileBlock: i.a,
+          BoardInsidersCurrentInsights: n.a,
+          BoardInsidersWatchList: o.a,
+          BoardInsidersPastInsights: r.a,
+          BoardInsidersFollowed: c.a
+        },
+        props: { connectedUser: Object },
+        methods: {
+          myWatchList: function() {
+            this.activeItem = "watchlist";
+          },
+          myInsidersFollowed: function() {
+            this.activeItem = "insfollowed";
+          },
+          myPastInsights: function() {
+            this.activeItem = "pastinsights";
+          },
+          updateInsiderProfile: function() {
+            var t = this;
+            Object(a.f)(this.$route.params.id).then(function(e) {
+              t.profileInfo = e;
+            }),
+              (this.activeItem = "curinsights");
+            var e = this.$route.params.id;
+            Object(a.c)(e).then(function(e) {
+              t.currentInsights = e;
+            });
+          }
+        },
+        created: function() {
+          var t = this,
+            e = this.$route.params.id;
+          Object(a.f)(e).then(function(e) {
+            t.profileInfo = e;
+          }),
+            Object(a.c)(e).then(function(e) {
+              t.currentInsights = e;
+            });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(462);
+      }
+      var i = s(463),
+        n = s(464),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-9b0895d2", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return { followed: "", leaderboard: {} };
+        },
+        props: { profileInfo: Object, connectedUser: Object },
+        created: function() {
+          var t = this,
+            e = this.$route.params.id;
+          Object(a.m)(e).then(function(e) {
+            t.followed = e;
+          }),
+            Object(a.h)(e).then(function(e) {
+              t.leaderboard = e;
+            });
+        },
+        methods: {
+          editMyProfile: function() {
+            this.$router.push("/mydashboard");
+          },
+          follow: function() {
+            var t = this;
+            Object(a.a)(this.profileInfo.userId).then(function(e) {
+              (t.followed = !0), t.$emit("changeFollow");
+            });
+          },
+          unfollow: function() {
+            var t = this;
+            Object(a.n)(this.profileInfo.userId).then(function(e) {
+              (t.followed = !1), t.$emit("changeFollow");
+            });
+          }
+        },
+        watch: {
+          $route: function() {
+            var t = this;
+            this.$emit("profileInfo");
+            var e = this.$route.params.id;
+            Object(a.h)(e).then(function(e) {
+              t.leaderboard = e;
+            });
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.profileInfo
+            ? s(
+                "div",
+                { staticClass: "column is-3", attrs: { id: "ActionCard" } },
+                [
+                  s("div", { staticClass: "card profile-card" }, [
+                    s("div", { staticClass: "card-content" }, [
+                      s(
+                        "div",
+                        { staticClass: "media", attrs: { id: "stockInfo" } },
+                        [
+                          s("div", { staticClass: "media-left" }, [
+                            s(
+                              "figure",
+                              { staticClass: "image is-64x64 is-circle" },
+                              [
+                                s("img", {
+                                  staticClass: "imgProfile",
+                                  attrs: {
+                                    src: t.profileInfo.picProfile,
+                                    alt: "my picture"
+                                  }
+                                })
+                              ]
+                            )
+                          ]),
+                          t._v(" "),
+                          s("div", { staticClass: "media-content" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass: "stock-banner",
+                                attrs: { id: "profile-banner" }
+                              },
+                              [
+                                s("div", { staticClass: "sock-info" }, [
+                                  s("p", { staticClass: "title is-5" }, [
+                                    t._v(
+                                      "\n             @" +
+                                        t._s(t.profileInfo.username) +
+                                        "\n           "
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "p",
+                                    { staticClass: "subtitle is-6 location" },
+                                    [
+                                      s("small", [
+                                        t._v(
+                                          t._s(
+                                            t.profileInfo.location
+                                              ? t.profileInfo.location
+                                              : "Secret..."
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ]),
+                                t._v(" "),
+                                s("div", { attrs: { id: "perf" } }, [
+                                  s("div", [
+                                    t._m(0),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      {
+                                        staticClass: "title is-5 follOwStrong"
+                                      },
+                                      [
+                                        s(
+                                          "strong",
+                                          {
+                                            staticClass: "follOwStrong",
+                                            class: {
+                                              "has-text-green":
+                                                t.profileInfo.performancePoints.toFixed(
+                                                  0
+                                                ) > 0,
+                                              "has-text-red":
+                                                t.profileInfo.performancePoints.toFixed(
+                                                  0
+                                                ) < 0
+                                            }
+                                          },
+                                          [
+                                            t._v(
+                                              " " +
+                                                t._s(
+                                                  t.profileInfo.performancePoints.toFixed(
+                                                    0
+                                                  )
+                                                ) +
+                                                "   P$"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass: "wonTrade",
+                                      attrs: { id: "follOw" }
+                                    },
+                                    [
+                                      s(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "is-6 has-text-grey-light follOw"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "follOwStrong" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  "EN" === t.connectedUser.lang
+                                                    ? "Won Trades"
+                                                    : "Trades gagnants"
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      s(
+                                        "p",
+                                        {
+                                          staticClass: "title is-5 follOwStrong"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "follOwStrong" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  t.profileInfo.nbOfInsightsWon
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]),
+                                t._v(" "),
+                                t.$route.params.id !== t.$root.user._id
+                                  ? s(
+                                      "div",
+                                      { staticClass: "add-to-watchlist" },
+                                      [
+                                        t.followed
+                                          ? s(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button is-small is-outlined is-primary",
+                                                attrs: {
+                                                  id: "adWLT",
+                                                  type: "button",
+                                                  name: "button"
+                                                },
+                                                on: { click: t.unfollow }
+                                              },
+                                              [
+                                                t._v(
+                                                  t._s(
+                                                    "EN" ===
+                                                    t.connectedUser.lang
+                                                      ? "Unfollow"
+                                                      : "Ne plus suivre"
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          : s(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button is-small is-outlined is-primary",
+                                                attrs: {
+                                                  id: "adWLT",
+                                                  type: "button",
+                                                  name: "button"
+                                                },
+                                                on: { click: t.follow }
+                                              },
+                                              [
+                                                t._v(
+                                                  t._s(
+                                                    "EN" ===
+                                                    t.connectedUser.lang
+                                                      ? "Follow"
+                                                      : "Suivre"
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                      ]
+                                    )
+                                  : s(
+                                      "div",
+                                      { staticClass: "add-to-watchlist" },
+                                      [
+                                        s(
+                                          "button",
+                                          {
+                                            staticClass:
+                                              "button is-small is-outlined is-primary",
+                                            attrs: {
+                                              id: "adWLT",
+                                              type: "button",
+                                              name: "button"
+                                            },
+                                            on: { click: t.editMyProfile }
+                                          },
+                                          [
+                                            t._v(
+                                              t._s(
+                                                "EN" === t.connectedUser.lang
+                                                  ? "My DashBoard"
+                                                  : "Mon profil"
+                                              )
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                              ]
+                            ),
+                            t._v(" "),
+                            s("div", { attrs: { id: "refAndSkills" } }, [
+                              s(
+                                "div",
+                                {
+                                  staticClass:
+                                    "preferedTrades level-item has-text-centered column is-3"
+                                },
+                                [
+                                  s("p", { staticClass: "title is-6" }, [
+                                    t._v(
+                                      t._s(
+                                        "EN" === t.connectedUser.lang
+                                          ? "Prefered trades"
+                                          : "Positions préférées"
+                                      )
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "p",
+                                    { staticClass: "is-4" },
+                                    [
+                                      t.profileInfo.preferedStocks[0]
+                                        ? s(
+                                            "router-link",
+                                            {
+                                              staticClass: "stockName is-6",
+                                              attrs: {
+                                                to:
+                                                  "/stocks/" +
+                                                  t.profileInfo
+                                                    .preferedStocks[0]
+                                                    .shortName,
+                                                "data-replace": "Symbol"
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                "\n                 1. " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[0]
+                                                      ? t.profileInfo
+                                                          .preferedStocks[0]
+                                                          .longName
+                                                      : "-"
+                                                  ) +
+                                                  " - " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[0]
+                                                      ? t.profileInfo.preferedStocks[0].performancePoints.toFixed(
+                                                          0
+                                                        )
+                                                      : "-"
+                                                  ) +
+                                                  " P$\n               "
+                                              )
+                                            ]
+                                          )
+                                        : t._e()
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "p",
+                                    { staticClass: "is-4" },
+                                    [
+                                      t.profileInfo.preferedStocks[1]
+                                        ? s(
+                                            "router-link",
+                                            {
+                                              staticClass: "stockName is-6",
+                                              attrs: {
+                                                to:
+                                                  "/stocks/" +
+                                                  t.profileInfo
+                                                    .preferedStocks[1]
+                                                    .shortName,
+                                                "data-replace": "Symbol"
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                "\n                 2. " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[1]
+                                                      ? t.profileInfo
+                                                          .preferedStocks[1]
+                                                          .longName
+                                                      : "-"
+                                                  ) +
+                                                  " - " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[1]
+                                                      ? t.profileInfo.preferedStocks[1].performancePoints.toFixed(
+                                                          0
+                                                        )
+                                                      : "-"
+                                                  ) +
+                                                  " P$\n               "
+                                              )
+                                            ]
+                                          )
+                                        : t._e()
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "p",
+                                    { staticClass: "is-4" },
+                                    [
+                                      t.profileInfo.preferedStocks[2]
+                                        ? s(
+                                            "router-link",
+                                            {
+                                              staticClass: "stockName is-6",
+                                              attrs: {
+                                                to:
+                                                  "/stocks/" +
+                                                  t.profileInfo
+                                                    .preferedStocks[2]
+                                                    .shortName,
+                                                "data-replace": "Symbol"
+                                              }
+                                            },
+                                            [
+                                              t._v(
+                                                "\n                 3. " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[2]
+                                                      ? t.profileInfo
+                                                          .preferedStocks[2]
+                                                          .longName
+                                                      : "-"
+                                                  ) +
+                                                  " - " +
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .preferedStocks[2]
+                                                      ? t.profileInfo.preferedStocks[2].performancePoints.toFixed(
+                                                          0
+                                                        )
+                                                      : "-"
+                                                  ) +
+                                                  " P$\n               "
+                                              )
+                                            ]
+                                          )
+                                        : t._e()
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              t.leaderboard
+                                ? s(
+                                    "nav",
+                                    {
+                                      staticClass: "level media",
+                                      attrs: { id: "LB" }
+                                    },
+                                    [
+                                      t.leaderboard.rankingByPoints[
+                                        t.leaderboard.index - 1
+                                      ]
+                                        ? s(
+                                            "figure",
+                                            {
+                                              staticClass:
+                                                "image is-96x96 is-circle"
+                                            },
+                                            [
+                                              s(
+                                                "router-link",
+                                                {
+                                                  attrs: {
+                                                    to:
+                                                      -1 === t.leaderboard.index
+                                                        ? "/dashboard/" +
+                                                          t.profileInfo.userId
+                                                        : "/dashboard/" +
+                                                          t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard
+                                                              .index - 1
+                                                          ].userId
+                                                  }
+                                                },
+                                                [
+                                                  s("img", {
+                                                    staticClass: "imgProfile",
+                                                    attrs: {
+                                                      src:
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? t.profileInfo
+                                                              .picProfile
+                                                          : t.leaderboard
+                                                              .rankingByPoints[
+                                                              t.leaderboard
+                                                                .index - 1
+                                                            ].picProfile,
+                                                      alt: "my picture"
+                                                    }
+                                                  })
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              s(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "rank subtitle is-6"
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                                       " +
+                                                      t._s(
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? 0
+                                                          : t.leaderboard.rankingByPoints[
+                                                              t.leaderboard
+                                                                .index - 1
+                                                            ].performancePoints.toFixed(
+                                                              0
+                                                            )
+                                                      ) +
+                                                      " "
+                                                  ),
+                                                  s("small", [t._v("P$")])
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : t._e(),
+                                      t._v(" "),
+                                      t.leaderboard.rankingByPoints[0]
+                                        ? s(
+                                            "figure",
+                                            {
+                                              staticClass:
+                                                "image is-96x96 is-circle centralPic"
+                                            },
+                                            [
+                                              s(
+                                                "router-link",
+                                                {
+                                                  attrs: {
+                                                    to:
+                                                      -1 === t.leaderboard.index
+                                                        ? "/dashboard/" +
+                                                          t.leaderboard
+                                                            .rankingByPoints[0]
+                                                            .userId
+                                                        : "/dashboard/" +
+                                                          t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard.index
+                                                          ].userId
+                                                  }
+                                                },
+                                                [
+                                                  s("img", {
+                                                    staticClass: "imgProfile",
+                                                    attrs: {
+                                                      src:
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? t.leaderboard
+                                                              .rankingByPoints[0]
+                                                              .picProfile
+                                                          : t.leaderboard
+                                                              .rankingByPoints[
+                                                              t.leaderboard
+                                                                .index
+                                                            ].picProfile,
+                                                      alt: "my picture"
+                                                    }
+                                                  })
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              s(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "rank subtitle is-6"
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                                       " +
+                                                      t._s(
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? t.leaderboard.rankingByPoints[0].performancePoints.toFixed(
+                                                              0
+                                                            )
+                                                          : t.leaderboard.rankingByPoints[
+                                                              t.leaderboard
+                                                                .index
+                                                            ].performancePoints.toFixed(
+                                                              0
+                                                            )
+                                                      ) +
+                                                      " "
+                                                  ),
+                                                  s("small", [t._v("P$")])
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : t._e(),
+                                      t._v(" "),
+                                      t.leaderboard.rankingByPoints[
+                                        t.leaderboard.index + 1
+                                      ]
+                                        ? s(
+                                            "figure",
+                                            {
+                                              staticClass:
+                                                "image is-96x96 is-circle"
+                                            },
+                                            [
+                                              s(
+                                                "router-link",
+                                                {
+                                                  attrs: {
+                                                    to:
+                                                      -1 === t.leaderboard.index
+                                                        ? "/dashboard/" +
+                                                          t.leaderboard
+                                                            .rankingByPoints[1]
+                                                            .userId
+                                                        : "/dashboard/" +
+                                                          t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard
+                                                              .index + 1
+                                                          ].userId
+                                                  }
+                                                },
+                                                [
+                                                  s("img", {
+                                                    staticClass: "imgProfile",
+                                                    attrs: {
+                                                      src:
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? t.leaderboard
+                                                              .rankingByPoints[1]
+                                                              .picProfile
+                                                          : t.leaderboard
+                                                              .rankingByPoints[
+                                                              t.leaderboard
+                                                                .index + 1
+                                                            ].picProfile,
+                                                      alt: "my picture"
+                                                    }
+                                                  })
+                                                ]
+                                              ),
+                                              t._v(" "),
+                                              s(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "rank subtitle is-6"
+                                                },
+                                                [
+                                                  t._v(
+                                                    "\n                                       " +
+                                                      t._s(
+                                                        -1 ===
+                                                        t.leaderboard.index
+                                                          ? t.leaderboard.rankingByPoints[1].performancePoints.toFixed(
+                                                              0
+                                                            )
+                                                          : t.leaderboard.rankingByPoints[
+                                                              t.leaderboard
+                                                                .index + 1
+                                                            ].performancePoints.toFixed(
+                                                              0
+                                                            )
+                                                      ) +
+                                                      " "
+                                                  ),
+                                                  s("small", [t._v("P$")])
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          )
+                                        : t._e()
+                                    ]
+                                  )
+                                : t._e(),
+                              t._v(" "),
+                              s(
+                                "div",
+                                {
+                                  staticClass:
+                                    "preferedTrades level-item has-text-centered column is-3"
+                                },
+                                [
+                                  t._m(1),
+                                  t._v(" "),
+                                  t.profileInfo.skills.length > 0
+                                    ? s(
+                                        "div",
+                                        {
+                                          staticClass:
+                                            "preferedTrades level-item has-text-centered column is-3"
+                                        },
+                                        [
+                                          s("b-tag", { staticClass: "is-4" }, [
+                                            t._v(t._s(t.profileInfo.skills[0]))
+                                          ]),
+                                          t._v(" "),
+                                          t.profileInfo.skills[1]
+                                            ? s(
+                                                "b-tag",
+                                                { staticClass: "is-4" },
+                                                [
+                                                  t._v(
+                                                    t._s(
+                                                      t.profileInfo.skills[1]
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            : t._e(),
+                                          t._v(" "),
+                                          t.profileInfo.skills[2]
+                                            ? s(
+                                                "b-tag",
+                                                { staticClass: "is-4" },
+                                                [
+                                                  t._v(
+                                                    t._s(
+                                                      t.profileInfo.skills[2]
+                                                    )
+                                                  )
+                                                ]
+                                              )
+                                            : t._e()
+                                        ],
+                                        1
+                                      )
+                                    : s("div", [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.connectedUser.lang
+                                              ? "No special skills for this Insiders!"
+                                              : "Pas d'expertise renseignée pour cet Insider !"
+                                          )
+                                        )
+                                      ])
+                                ]
+                              )
+                            ])
+                          ])
+                        ]
+                      )
+                    ]),
+                    t._v(" "),
+                    s("nav", { staticClass: "level media follOwNav" }, [
+                      s("p", { staticClass: "subtitle is-6 follOw" }, [
+                        s("small", [t._v("Followers")]),
+                        s(
+                          "strong",
+                          { staticClass: "follOwStrong title is-5" },
+                          [t._v(" " + t._s(t.profileInfo.followers))]
+                        )
+                      ]),
+                      t._v(" "),
+                      s("p", { staticClass: "subtitle is-6 follOw" }, [
+                        s("small", [t._v("Following")]),
+                        s(
+                          "strong",
+                          { staticClass: "follOwStrong title is-5" },
+                          [t._v(" " + t._s(t.profileInfo.following))]
+                        )
+                      ]),
+                      t._v(" "),
+                      s("p", { staticClass: "subtitle is-6 follOw" }, [
+                        s("small", [t._v("Babbles")]),
+                        s(
+                          "strong",
+                          { staticClass: "follOwStrong title is-5" },
+                          [t._v(" " + t._s(t.profileInfo.nbBabbles))]
+                        )
+                      ]),
+                      t._v(" "),
+                      s("p", { staticClass: "subtitle is-6 follOw" }, [
+                        s("small", [t._v("Likes")]),
+                        s(
+                          "strong",
+                          { staticClass: "follOwStrong title is-5" },
+                          [t._v(" " + t._s(t.profileInfo.nbOfLikes))]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            : t._e();
+        },
+        i = [
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("p", { staticClass: "is-6 has-text-grey-light" }, [
+              s("strong", { staticClass: "follOwStrong" }, [
+                t._v("Performance")
+              ])
+            ]);
+          },
+          function() {
+            var t = this,
+              e = t.$createElement,
+              s = t._self._c || e;
+            return s("p", { staticClass: "title is-6" }, [
+              s("strong", [t._v("Skills")])
+            ]);
+          }
+        ],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(466);
+      }
+      var i = s(467),
+        n = s(468),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-4c87c564", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(0),
+        i = s.n(a);
+      e.a = {
+        data: function() {
+          return {
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "created",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        props: { currentInsights: Array, connectedUser: Object },
+        methods: {
+          moment: function(t) {
+            return i()(t);
+          },
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders followed")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.currentInsights.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.currentInsights,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "created",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initiated"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.created_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" + e.row.stockId.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(e.row.stockId.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": "bull" === e.row.position,
+                                    "has-text-red": "bear" === e.row.position
+                                  },
+                                  attrs: {
+                                    field: "position",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insight"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.position) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "initialPrice",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initial price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.initialPrice) +
+                                      "   " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "price",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Current price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.stockId.price) +
+                                      "   " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              -(
+                                                e.row.stockId.price -
+                                                e.row.initialPrice
+                                              ) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          Math.floor(
+                                            1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) > 0,
+                                        "has-text-red":
+                                          Math.floor(
+                                            1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) < 0
+                                      },
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Potential P$"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            Math.floor(
+                                              1e3 *
+                                                (e.row.stockId.price -
+                                                  e.row.initialPrice) /
+                                                e.row.initialPrice
+                                            )
+                                          ) +
+                                          " P$\r\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          Math.floor(
+                                            -1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) > 0,
+                                        "has-text-red":
+                                          Math.floor(
+                                            -1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) < 0
+                                      },
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Potential P$"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            Math.floor(
+                                              -1e3 *
+                                                (e.row.stockId.price -
+                                                  e.row.initialPrice) /
+                                                e.row.initialPrice
+                                            )
+                                          ) +
+                                          " P$\r\n                "
+                                      )
+                                    ]
+                                  )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("There is no Current Position for this Insider")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(470);
+      }
+      var i = s(471),
+        n = s(472),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-6b938c7d", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return {
+            watchList: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "longName",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        created: function() {
+          var t = this,
+            e = this.$route.params.id;
+          Object(a.g)(e).then(function(e) {
+            t.watchList = e;
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders followed")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.watchList.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.watchList,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to: "/stocks/" + e.row.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [t._v(" " + t._s(e.row.longName))]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "currentPrice",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Current price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    " " +
+                                      t._s(e.row.currentPrice) +
+                                      "  " +
+                                      t._s(e.row.currency) +
+                                      " "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": e.row.variation > 0,
+                                    "has-text-red": e.row.variation < 0
+                                  },
+                                  attrs: {
+                                    field: "variation",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Variation"
+                                  }
+                                },
+                                [t._v(" " + t._s(e.row.variation) + " %")]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "volume",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Volume"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    " " +
+                                      t._s(e.row.volume.toLocaleString()) +
+                                      " "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      "bull" === e.row.trending.trend,
+                                    "has-text-red":
+                                      "bear" === e.row.trending.trend
+                                  },
+                                  attrs: {
+                                    field: "trending.percentage",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insiders trending"
+                                  }
+                                },
+                                [
+                                  s(
+                                    "strong",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          "bull" === e.row.trending.trend,
+                                        "has-text-red":
+                                          "bear" === e.row.trending.trend
+                                      }
+                                    },
+                                    [t._v(t._s(e.row.trending.trend))]
+                                  ),
+                                  t._v(" "),
+                                  s("small", [
+                                    t._v(
+                                      "(" +
+                                        t._s(e.row.trending.percentage) +
+                                        "%)"
+                                    )
+                                  ])
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "hotInsights",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Hot insights"
+                                  }
+                                },
+                                [t._v(" " + t._s(e.row.hotInsights) + " ")]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "bestInsiders[0].perf",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insiders on it"
+                                  }
+                                },
+                                [
+                                  e.row.bestInsiders[0]
+                                    ? s("strong", [
+                                        t._v(
+                                          "@" +
+                                            t._s(e.row.bestInsiders[0].username)
+                                        )
+                                      ])
+                                    : t._e(),
+                                  e.row.bestInsiders[0]
+                                    ? s("small", [
+                                        t._v(
+                                          " (" +
+                                            t._s(e.row.bestInsiders[0].perf) +
+                                            " points)"
+                                        )
+                                      ])
+                                    : t._e()
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("There is no WatchList for this Insider")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(474);
+      }
+      var i = s(475),
+        n = s(476),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-49239666", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(0),
+        i = s.n(a),
+        n = s(6);
+      e.a = {
+        data: function() {
+          return {
+            pastInsights: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "closed",
+            defaultSortOrder: "asc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        props: { connectedUser: Object },
+        created: function() {
+          var t = this,
+            e = this.$route.params.id;
+          Object(n.e)(e).then(function(e) {
+            t.pastInsights = e;
+          });
+        },
+        methods: {
+          moment: function(t) {
+            return i()(t);
+          },
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders followed")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.pastInsights.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.pastInsights,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "created",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initiated"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.created_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" + e.row.stockId.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(e.row.stockId.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": "bull" === e.row.position,
+                                    "has-text-red": "bear" === e.row.position
+                                  },
+                                  attrs: {
+                                    field: "position",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insight"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.position) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "initialPrice",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initial price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.initialPrice) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "soldPrice",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Sold price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.soldPrice) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              (e.row.soldPrice -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              -(
+                                                e.row.soldPrice -
+                                                e.row.initialPrice
+                                              ) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      e.row.performancePoints > 0,
+                                    "has-text-red": e.row.performancePoints < 0
+                                  },
+                                  attrs: {
+                                    field: "performancePoints",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Performance Points"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.performancePoints.toFixed(0)) +
+                                      " P$\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "closed",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Closed"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.updated_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("There is no Past Position for this Insider")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(478);
+      }
+      var i = s(479),
+        n = s(480),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-041f6150", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return {
+            insidersFollowed: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "longName",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        created: function() {
+          var t = this,
+            e = this.$route.params.id;
+          Object(a.d)(e).then(function(e) {
+            t.insidersFollowed = e;
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders followed")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.insidersFollowed.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.insidersFollowed,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Insider",
+                                    field: "_id",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "div",
+                                    { staticClass: "insider" },
+                                    [
+                                      s(
+                                        "figure",
+                                        {
+                                          staticClass:
+                                            "image is-32x32 is-circle"
+                                        },
+                                        [
+                                          s(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: "/dashboard/" + e.row.userId
+                                              }
+                                            },
+                                            [
+                                              s("img", {
+                                                staticClass: "imgProfile",
+                                                attrs: { src: e.row.picProfile }
+                                              })
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      s(
+                                        "router-link",
+                                        {
+                                          staticClass: "stockName is-6",
+                                          attrs: {
+                                            to: "/dashboards/" + e.row.userId,
+                                            "data-replace": "Symbol"
+                                          }
+                                        },
+                                        [t._v(t._s(e.row.username))]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "followers",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Followers"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.followers) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "nbBabbles",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Babbles posted"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.nbBabbles) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "nbOfLikes",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Likes"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.nbOfLikes) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "preferedStocks",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Prefered stocks"
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" +
+                                          e.row.preferedStocks.map(function(t) {
+                                            return t.shortName;
+                                          })[0],
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "   " +
+                                          t._s(
+                                            e.row.preferedStocks.map(function(
+                                              t
+                                            ) {
+                                              return t.longName;
+                                            })[0]
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      e.row.performancePoints > 0,
+                                    "has-text-red": e.row.performancePoints < 0
+                                  },
+                                  attrs: {
+                                    field: "performancePoints",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Performance Points"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.performancePoints.toFixed(0)) +
+                                      " P$\n                "
+                                  )
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("This Insider doesn't follow anybody yet !")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "section",
+            { staticClass: "section main" },
+            [
+              s("insider-profile-block", {
+                attrs: {
+                  profileInfo: t.profileInfo,
+                  connectedUser: t.connectedUser
+                },
+                on: {
+                  profileInfo: function(e) {
+                    t.updateInsiderProfile();
+                  },
+                  changeFollow: function(e) {
+                    t.updateInsiderProfile();
+                  }
+                }
+              }),
+              t._v(" "),
+              "curinsights" === t.activeItem
+                ? s("board-insiders-current-insights", {
+                    attrs: {
+                      currentInsights: t.currentInsights,
+                      connectedUser: t.connectedUser
+                    },
+                    on: {
+                      Watch: function(e) {
+                        t.myWatchList(e);
+                      },
+                      InsFollo: function(e) {
+                        t.myInsidersFollowed(e);
+                      },
+                      PastIns: function(e) {
+                        t.myPastInsights(e);
+                      },
+                      curIns: function(e) {
+                        t.updateInsiderProfile(e);
+                      }
+                    }
+                  })
+                : "watchlist" === t.activeItem
+                  ? s("board-insiders-watch-list", {
+                      attrs: { connectedUser: t.connectedUser },
+                      on: {
+                        Watch: function(e) {
+                          t.myWatchList(e);
+                        },
+                        InsFollo: function(e) {
+                          t.myInsidersFollowed(e);
+                        },
+                        PastIns: function(e) {
+                          t.myPastInsights(e);
+                        },
+                        curIns: function(e) {
+                          t.updateInsiderProfile(e);
+                        }
+                      }
+                    })
+                  : "pastinsights" === t.activeItem
+                    ? s("board-insiders-past-insights", {
+                        attrs: { connectedUser: t.connectedUser },
+                        on: {
+                          Watch: function(e) {
+                            t.myWatchList(e);
+                          },
+                          InsFollo: function(e) {
+                            t.myInsidersFollowed(e);
+                          },
+                          PastIns: function(e) {
+                            t.myPastInsights(e);
+                          },
+                          curIns: function(e) {
+                            t.updateInsiderProfile(e);
+                          }
+                        }
+                      })
+                    : s("board-insiders-followed", {
+                        attrs: { connectedUser: t.connectedUser },
+                        on: {
+                          Watch: function(e) {
+                            t.myWatchList(e);
+                          },
+                          InsFollo: function(e) {
+                            t.myInsidersFollowed(e);
+                          },
+                          PastIns: function(e) {
+                            t.myPastInsights(e);
+                          },
+                          curIns: function(e) {
+                            t.updateInsiderProfile(e);
+                          }
+                        }
+                      })
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(483);
+      }
+      var i = s(484),
+        n = s(509),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-f91c641a", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(485),
+        i = s(489),
+        n = s(493),
+        o = s(497),
+        r = s(501),
+        c = s(505),
+        l = s(6);
+      e.a = {
+        data: function() {
+          return {
+            isEditing: !1,
+            profileInfo: null,
+            activeItem: "curinsights"
+          };
+        },
+        props: { connectedUser: Object },
+        components: {
+          MyProfileBlock: r.a,
+          UpdateMyInfo: c.a,
+          MyPastInsights: a.a,
+          MyWatchList: n.a,
+          MyCurrentInsights: i.a,
+          MyInsidersFollowed: o.a
+        },
+        methods: {
+          changeToEdit: function() {
+            var t = this;
+            (this.isEditing = !this.isEditing),
+              Object(l.l)().then(function(e) {
+                t.profileInfo = e;
+              });
+          },
+          currentInsights: function() {
+            this.activeItem = "curinsights";
+          },
+          myWatchList: function() {
+            this.activeItem = "watchlist";
+          },
+          myInsidersFollowed: function() {
+            this.activeItem = "insfollowed";
+          },
+          myPastInsights: function() {
+            this.activeItem = "pastinsights";
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(l.l)().then(function(e) {
+            t.profileInfo = e;
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(486);
+      }
+      var i = s(487),
+        n = s(488),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-4436cf10", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(0),
+        i = s.n(a),
+        n = s(6);
+      e.a = {
+        data: function() {
+          return {
+            pastInsights: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "closed",
+            defaultSortOrder: "asc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        props: { connectedUser: Object },
+        created: function() {
+          var t = this;
+          Object(n.j)().then(function(e) {
+            t.pastInsights = e;
+          });
+        },
+        methods: {
+          moment: function(t) {
+            return i()(t);
+          },
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("My watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders I follow")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Ma liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.pastInsights.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.pastInsights,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "created",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initiated"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.created_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" + e.row.stockId.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(e.row.stockId.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": "bull" === e.row.position,
+                                    "has-text-red": "bear" === e.row.position
+                                  },
+                                  attrs: {
+                                    field: "position",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insight"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.position) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "initialPrice",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initial price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.initialPrice) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "soldPrice",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Sold price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.soldPrice) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              (e.row.soldPrice -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(
+                                            (100 *
+                                              -(
+                                                e.row.soldPrice -
+                                                e.row.initialPrice
+                                              ) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\r\n                "
+                                      )
+                                    ]
+                                  ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      e.row.performancePoints > 0,
+                                    "has-text-red": e.row.performancePoints < 0
+                                  },
+                                  attrs: {
+                                    field: "performancePoints",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Performance Points"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.performancePoints.toFixed(0)) +
+                                      " P$\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "closed",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Closed"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.updated_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("You have no Past Position ! ")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(490);
+      }
+      var i = s(491),
+        n = s(492),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-48bf844e", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(0),
+        i = s.n(a),
+        n = s(6);
+      e.a = {
+        data: function() {
+          return {
+            currentInsights: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "created",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        created: function() {
+          var t = this;
+          Object(n.b)().then(function(e) {
+            t.currentInsights = e;
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          moment: function(t) {
+            return i()(t);
+          },
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("My watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders I follow")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Ma liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.currentInsights.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.currentInsights,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "created",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initiated"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(
+                                        t
+                                          .moment(e.row.created_at)
+                                          .format("DD-MM-YYYY")
+                                      ) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" + e.row.stockId.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.stockId.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": "bull" === e.row.position,
+                                    "has-text-red": "bear" === e.row.position
+                                  },
+                                  attrs: {
+                                    field: "position",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insight"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.position) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "initialPrice",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Initial price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.initialPrice) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "price",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Current price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.stockId.price) +
+                                      "  " +
+                                      t._s(e.row.stockId.currency) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            (100 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice <
+                                          0,
+                                        "has-text-red":
+                                          e.row.stockId.price -
+                                            e.row.initialPrice >
+                                          0
+                                      },
+                                      attrs: {
+                                        field: "variation",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Variation"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            (100 *
+                                              -(
+                                                e.row.stockId.price -
+                                                e.row.initialPrice
+                                              ) /
+                                              e.row.initialPrice
+                                            ).toFixed(2)
+                                          ) +
+                                          " %\n                "
+                                      )
+                                    ]
+                                  ),
+                              t._v(" "),
+                              "bull" === e.row.position
+                                ? s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          Math.floor(
+                                            1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) > 0,
+                                        "has-text-red":
+                                          Math.floor(
+                                            1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) < 0
+                                      },
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Potential P$"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            Math.floor(
+                                              1e3 *
+                                                (e.row.stockId.price -
+                                                  e.row.initialPrice) /
+                                                e.row.initialPrice
+                                            )
+                                          ) +
+                                          " P$\n                "
+                                      )
+                                    ]
+                                  )
+                                : s(
+                                    "b-table-column",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          Math.floor(
+                                            -1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) > 0,
+                                        "has-text-red":
+                                          Math.floor(
+                                            -1e3 *
+                                              (e.row.stockId.price -
+                                                e.row.initialPrice) /
+                                              e.row.initialPrice
+                                          ) < 0
+                                      },
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Potential P$"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            Math.floor(
+                                              -1e3 *
+                                                (e.row.stockId.price -
+                                                  e.row.initialPrice) /
+                                                e.row.initialPrice
+                                            )
+                                          ) +
+                                          " P$\n                "
+                                      )
+                                    ]
+                                  )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("You have no Position, Let's take some !!! ")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(494);
+      }
+      var i = s(495),
+        n = s(496),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-1a8e7e9c", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return {
+            watchList: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "longName",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        created: function() {
+          var t = this;
+          Object(a.k)().then(function(e) {
+            t.watchList = e;
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("My watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders I follow")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Ma liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.watchList.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.watchList,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Stock",
+                                    field: "longName",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to: "/stocks/" + e.row.shortName,
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\r\n                    " +
+                                          t._s(e.row.longName)
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "currentPrice",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Current price"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.currentPrice) +
+                                      "  " +
+                                      t._s(e.row.currency) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green": e.row.variation > 0,
+                                    "has-text-red": e.row.variation < 0
+                                  },
+                                  attrs: {
+                                    field: "variation",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Variation"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.variation) +
+                                      " %\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "volume",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Volume"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.volume.toLocaleString()) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      "bull" === e.row.trending.trend,
+                                    "has-text-red":
+                                      "bear" === e.row.trending.trend
+                                  },
+                                  attrs: {
+                                    field: "trending.percentage",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insiders trending"
+                                  }
+                                },
+                                [
+                                  s(
+                                    "strong",
+                                    {
+                                      class: {
+                                        "has-text-green":
+                                          "bull" === e.row.trending.trend,
+                                        "has-text-red":
+                                          "bear" === e.row.trending.trend
+                                      }
+                                    },
+                                    [t._v(t._s(e.row.trending.trend))]
+                                  ),
+                                  t._v(" "),
+                                  s("small", [
+                                    t._v(
+                                      "(" +
+                                        t._s(e.row.trending.percentage) +
+                                        "%)"
+                                    )
+                                  ])
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "hotInsights",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Hot insights"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\r\n                    " +
+                                      t._s(e.row.hotInsights) +
+                                      "\r\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "bestInsiders[0].perf",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Insiders on it"
+                                  }
+                                },
+                                [
+                                  e.row.bestInsiders[0]
+                                    ? s("strong", [
+                                        t._v(
+                                          "@" +
+                                            t._s(e.row.bestInsiders[0].username)
+                                        )
+                                      ])
+                                    : t._e(),
+                                  e.row.bestInsiders[0]
+                                    ? s("small", [
+                                        t._v(
+                                          " (" +
+                                            t._s(e.row.bestInsiders[0].perf) +
+                                            " points)"
+                                        )
+                                      ])
+                                    : t._e()
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("You have no Stock in your watchList for now ")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(498);
+      }
+      var i = s(499),
+        n = s(500),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-444aff58", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return {
+            insidersFollowed: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "longName",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 40,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        created: function() {
+          var t = this;
+          Object(a.i)(this.$root.user._id).then(function(e) {
+            t.insidersFollowed = e;
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          curInsights: function() {
+            this.$emit("curIns");
+          },
+          WatchList: function() {
+            this.$emit("Watch");
+          },
+          InsidersFollowed: function() {
+            this.$emit("InsFollo");
+          },
+          PastInsights: function() {
+            this.$emit("PastIns");
+          },
+          onPageChange: function(t) {
+            this.page = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "div",
+            [
+              s("nav", { staticClass: "navbar is-dark" }, [
+                t.connectedUser
+                  ? s("div", [
+                      "EN" === t.connectedUser.lang
+                        ? s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My current insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("My watch list")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("My past insights")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders I follow")]
+                            )
+                          ])
+                        : s("div", { staticClass: "babblesMenu" }, [
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab ",
+                                on: {
+                                  click: function(e) {
+                                    t.curInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions ouvertes")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.WatchList();
+                                  }
+                                }
+                              },
+                              [t._v("Ma liste de suivi")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass: "babMenu navbar-item is-tab",
+                                on: {
+                                  click: function(e) {
+                                    t.PastInsights();
+                                  }
+                                }
+                              },
+                              [t._v("Mes positions passées")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "a",
+                              {
+                                staticClass:
+                                  "babMenu navbar-item is-tab is-active",
+                                on: {
+                                  click: function(e) {
+                                    t.InsidersFollowed();
+                                  }
+                                }
+                              },
+                              [t._v("Insiders suivis")]
+                            )
+                          ])
+                    ])
+                  : t._e()
+              ]),
+              t._v(" "),
+              t.insidersFollowed.length > 0
+                ? s(
+                    "b-table",
+                    {
+                      attrs: {
+                        data: t.insidersFollowed,
+                        loading: t.loading,
+                        paginated: t.isPaginated,
+                        "per-page": t.perPage,
+                        "pagination-simple": t.isPaginationSimple,
+                        total: t.total,
+                        striped: !0,
+                        "default-sort-direction": t.defaultSortOrder,
+                        "default-sort": t.defaultSortField
+                      },
+                      on: { "page-change": t.onPageChange },
+                      scopedSlots: t._u([
+                        {
+                          key: "default",
+                          fn: function(e) {
+                            return [
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    label: "Insider",
+                                    field: "_id",
+                                    sortable: "",
+                                    centered: ""
+                                  }
+                                },
+                                [
+                                  s(
+                                    "div",
+                                    { staticClass: "insider" },
+                                    [
+                                      s(
+                                        "figure",
+                                        {
+                                          staticClass:
+                                            "image is-32x32 is-circle"
+                                        },
+                                        [
+                                          s(
+                                            "router-link",
+                                            {
+                                              attrs: {
+                                                to: "/dashboard/" + e.row.userId
+                                              }
+                                            },
+                                            [
+                                              s("img", {
+                                                staticClass: "imgProfile",
+                                                attrs: { src: e.row.picProfile }
+                                              })
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      ),
+                                      t._v(" "),
+                                      s(
+                                        "router-link",
+                                        {
+                                          staticClass: "stockName is-6",
+                                          attrs: {
+                                            to: "/dashboard/" + e.row.userId,
+                                            "data-replace": "Symbol"
+                                          }
+                                        },
+                                        [t._v(t._s(e.row.username))]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "followers",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Followers"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.followers) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "nbBabbles",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Babbles posted"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.nbBabbles) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "nbOfLikes",
+                                    sortable: "",
+                                    numeric: "",
+                                    centered: "",
+                                    label: "Likes"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.nbOfLikes) +
+                                      "\n                "
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  attrs: {
+                                    field: "preferedStocks",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Prefered stocks"
+                                  }
+                                },
+                                [
+                                  s(
+                                    "router-link",
+                                    {
+                                      staticClass: "stockName is-6",
+                                      attrs: {
+                                        to:
+                                          "/stocks/" +
+                                          e.row.preferedStocks.map(function(t) {
+                                            return t.shortName;
+                                          })[0],
+                                        "data-replace": "Symbol"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "   " +
+                                          t._s(
+                                            e.row.preferedStocks.map(function(
+                                              t
+                                            ) {
+                                              return t.longName;
+                                            })[0]
+                                          )
+                                      )
+                                    ]
+                                  )
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s(
+                                "b-table-column",
+                                {
+                                  class: {
+                                    "has-text-green":
+                                      e.row.performancePoints > 0,
+                                    "has-text-red": e.row.performancePoints < 0
+                                  },
+                                  attrs: {
+                                    field: "performancePoints",
+                                    numeric: "",
+                                    sortable: "",
+                                    centered: "",
+                                    label: "Performance Points"
+                                  }
+                                },
+                                [
+                                  t._v(
+                                    "\n                    " +
+                                      t._s(e.row.performancePoints.toFixed(0)) +
+                                      " P$\n                "
+                                  )
+                                ]
+                              )
+                            ];
+                          }
+                        }
+                      ])
+                    },
+                    [
+                      s(
+                        "template",
+                        { attrs: { slot: "empty" }, slot: "empty" },
+                        [
+                          s("section", { staticClass: "section" }, [
+                            s(
+                              "div",
+                              {
+                                staticClass:
+                                  "content has-text-grey has-text-centered"
+                              },
+                              [
+                                s(
+                                  "p",
+                                  [
+                                    s("b-icon", {
+                                      attrs: {
+                                        icon: "sentiment_very_satisfied",
+                                        size: "is-large"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                t._v(" "),
+                                s("p", [t._v("...loading")])
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ],
+                    2
+                  )
+                : s("div", [
+                    s("p", { attrs: { id: "no" } }, [
+                      t._v("You follow no Insider, find the good ones ")
+                    ])
+                  ])
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(502);
+      }
+      var i = s(503),
+        n = s(504),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-790db34f", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(6);
+      e.a = {
+        data: function() {
+          return { leaderboard: {} };
+        },
+        props: { profileInfo: Object, connectedUser: Object },
+        methods: {
+          editMyProfile: function() {
+            this.$emit("editprofile");
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(a.h)(this.$root.user._id).then(function(e) {
+            t.leaderboard = e;
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.profileInfo && t.connectedUser
+            ? s(
+                "div",
+                { staticClass: "column is-3", attrs: { id: "ActionCard" } },
+                [
+                  s(
+                    "div",
+                    {
+                      staticClass: "card profile-card",
+                      attrs: { id: "cardAction" }
+                    },
+                    [
+                      s("div", { staticClass: "card-content" }, [
+                        s(
+                          "div",
+                          { staticClass: "media", attrs: { id: "stockInfo" } },
+                          [
+                            s("div", { staticClass: "media-left" }, [
+                              s(
+                                "figure",
+                                { staticClass: "image is-64x64 is-circle" },
+                                [
+                                  s("img", {
+                                    staticClass: "imgProfile",
+                                    attrs: {
+                                      src: t.profileInfo.picProfile,
+                                      alt: "my picture"
+                                    }
+                                  })
+                                ]
+                              )
+                            ]),
+                            t._v(" "),
+                            s("div", { staticClass: "media-content" }, [
+                              s(
+                                "div",
+                                {
+                                  staticClass: "stock-banner",
+                                  attrs: { id: "profile-banner" }
+                                },
+                                [
+                                  s("div", { staticClass: "sock-info" }, [
+                                    s("p", { staticClass: "title is-5" }, [
+                                      t._v(
+                                        "\n                @" +
+                                          t._s(t.profileInfo.username) +
+                                          "\n              "
+                                      )
+                                    ]),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      { staticClass: "subtitle is-6 location" },
+                                      [
+                                        s("small", [
+                                          t._v(
+                                            t._s(
+                                              t.profileInfo.location
+                                                ? t.profileInfo.location
+                                                : "Secret..."
+                                            )
+                                          )
+                                        ])
+                                      ]
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s("div", { attrs: { id: "perf" } }, [
+                                    s("div", [
+                                      s(
+                                        "p",
+                                        {
+                                          staticClass:
+                                            "is-6 has-text-grey-light"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "follOwStrong" },
+                                            [
+                                              t._v(
+                                                t._s(
+                                                  (t.connectedUser.lang,
+                                                  "Performance")
+                                                )
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      ),
+                                      t._v(" "),
+                                      s(
+                                        "p",
+                                        {
+                                          staticClass: "title is-5 follOwStrong"
+                                        },
+                                        [
+                                          s(
+                                            "strong",
+                                            { staticClass: "follOwStrong" },
+                                            [
+                                              t._v(
+                                                " " +
+                                                  t._s(
+                                                    t.profileInfo.performancePoints.toFixed(
+                                                      0
+                                                    )
+                                                  ) +
+                                                  "    P$"
+                                              )
+                                            ]
+                                          )
+                                        ]
+                                      )
+                                    ]),
+                                    t._v(" "),
+                                    s(
+                                      "div",
+                                      {
+                                        staticClass: "wonTrade",
+                                        attrs: { id: "follOw" }
+                                      },
+                                      [
+                                        s(
+                                          "p",
+                                          {
+                                            staticClass:
+                                              "is-6 has-text-grey-light follOw"
+                                          },
+                                          [
+                                            s(
+                                              "strong",
+                                              { staticClass: "follOwStrong" },
+                                              [
+                                                t._v(
+                                                  t._s(
+                                                    "EN" ===
+                                                    t.connectedUser.lang
+                                                      ? "Won Trades"
+                                                      : "Trades gagnants"
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s(
+                                          "p",
+                                          {
+                                            staticClass:
+                                              "title is-5 follOwStrong"
+                                          },
+                                          [
+                                            s(
+                                              "strong",
+                                              {
+                                                staticClass: "follOwStrong",
+                                                class: {
+                                                  "has-text-green":
+                                                    t.profileInfo.performancePoints.toFixed(
+                                                      0
+                                                    ) > 0,
+                                                  "has-text-red":
+                                                    t.profileInfo.performancePoints.toFixed(
+                                                      0
+                                                    ) < 0
+                                                }
+                                              },
+                                              [
+                                                t._v(
+                                                  t._s(
+                                                    t.profileInfo
+                                                      .nbOfInsightsWon
+                                                  )
+                                                )
+                                              ]
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "div",
+                                    { staticClass: "add-to-watchlist" },
+                                    [
+                                      s(
+                                        "button",
+                                        {
+                                          staticClass:
+                                            "button is-small is-outlined is-primary",
+                                          attrs: {
+                                            id: "adWLT",
+                                            type: "button",
+                                            name: "button"
+                                          },
+                                          on: { click: t.editMyProfile }
+                                        },
+                                        [
+                                          t._v(
+                                            t._s(
+                                              "EN" === t.connectedUser.lang
+                                                ? "Update my profile"
+                                                : "Mettre à jour mon profil"
+                                            )
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  )
+                                ]
+                              ),
+                              t._v(" "),
+                              s("div", { attrs: { id: "refAndSkills" } }, [
+                                s(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "preferedTrades level-item has-text-centered column is-3"
+                                  },
+                                  [
+                                    s("p", { staticClass: "title is-6" }, [
+                                      t._v(
+                                        t._s(
+                                          "EN" === t.connectedUser.lang
+                                            ? "Prefered trades"
+                                            : "Positions préférées"
+                                        )
+                                      )
+                                    ]),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      { staticClass: "is-4" },
+                                      [
+                                        t.profileInfo.preferedStocks[0]
+                                          ? s(
+                                              "router-link",
+                                              {
+                                                staticClass: "stockName is-6",
+                                                attrs: {
+                                                  to:
+                                                    "/stocks/" +
+                                                    t.profileInfo
+                                                      .preferedStocks[0]
+                                                      .shortName,
+                                                  "data-replace": "Symbol"
+                                                }
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                1. " +
+                                                    t._s(
+                                                      t.profileInfo
+                                                        .preferedStocks[0]
+                                                        ? t.profileInfo
+                                                            .preferedStocks[0]
+                                                            .longName
+                                                        : "-"
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          : t._e(),
+                                        t._v(
+                                          " - " +
+                                            t._s(
+                                              t.profileInfo.preferedStocks[0]
+                                                ? t.profileInfo.preferedStocks[0].performancePoints.toFixed(
+                                                    0
+                                                  )
+                                                : "-"
+                                            ) +
+                                            " P$"
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      { staticClass: "is-4" },
+                                      [
+                                        t.profileInfo.preferedStocks[1]
+                                          ? s(
+                                              "router-link",
+                                              {
+                                                staticClass: "stockName is-6",
+                                                attrs: {
+                                                  to:
+                                                    "/stocks/" +
+                                                    t.profileInfo
+                                                      .preferedStocks[1]
+                                                      .shortName,
+                                                  "data-replace": "Symbol"
+                                                }
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                2. " +
+                                                    t._s(
+                                                      t.profileInfo
+                                                        .preferedStocks[1]
+                                                        ? t.profileInfo
+                                                            .preferedStocks[1]
+                                                            .longName
+                                                        : "-"
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          : t._e(),
+                                        t._v(
+                                          " - " +
+                                            t._s(
+                                              t.profileInfo.preferedStocks[1]
+                                                ? t.profileInfo.preferedStocks[1].performancePoints.toFixed(
+                                                    0
+                                                  )
+                                                : "-"
+                                            ) +
+                                            " P$"
+                                        )
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s(
+                                      "p",
+                                      { staticClass: "is-4" },
+                                      [
+                                        t.profileInfo.preferedStocks[2]
+                                          ? s(
+                                              "router-link",
+                                              {
+                                                staticClass: "stockName is-6",
+                                                attrs: {
+                                                  to:
+                                                    "/stocks/" +
+                                                    t.profileInfo
+                                                      .preferedStocks[2]
+                                                      .shortName,
+                                                  "data-replace": "Symbol"
+                                                }
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                3. " +
+                                                    t._s(
+                                                      t.profileInfo
+                                                        .preferedStocks[2]
+                                                        ? t.profileInfo
+                                                            .preferedStocks[2]
+                                                            .longName
+                                                        : "-"
+                                                    )
+                                                )
+                                              ]
+                                            )
+                                          : t._e(),
+                                        t._v(
+                                          " - " +
+                                            t._s(
+                                              t.profileInfo.preferedStocks[2]
+                                                ? t.profileInfo.preferedStocks[2].performancePoints.toFixed(
+                                                    0
+                                                  )
+                                                : "-"
+                                            ) +
+                                            " P$"
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ]
+                                ),
+                                t._v(" "),
+                                s(
+                                  "nav",
+                                  {
+                                    staticClass: "level media",
+                                    attrs: { id: "LB" }
+                                  },
+                                  [
+                                    t.leaderboard.rankingByPoints[
+                                      t.leaderboard.index - 1
+                                    ]
+                                      ? s(
+                                          "figure",
+                                          {
+                                            staticClass:
+                                              "image is-96x96 is-circle"
+                                          },
+                                          [
+                                            s(
+                                              "router-link",
+                                              {
+                                                attrs: {
+                                                  to:
+                                                    -1 === t.leaderboard.index
+                                                      ? "/dashboard/" +
+                                                        t.profileInfo.userId
+                                                      : "/dashboard/" +
+                                                        t.leaderboard
+                                                          .rankingByPoints[
+                                                          t.leaderboard.index -
+                                                            1
+                                                        ].userId
+                                                }
+                                              },
+                                              [
+                                                s("img", {
+                                                  staticClass: "imgProfile",
+                                                  attrs: {
+                                                    src:
+                                                      -1 === t.leaderboard.index
+                                                        ? t.profileInfo
+                                                            .picProfile
+                                                        : t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard
+                                                              .index - 1
+                                                          ].picProfile,
+                                                    alt: "my picture"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "rank subtitle is-6"
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                                      " +
+                                                    t._s(
+                                                      -1 === t.leaderboard.index
+                                                        ? 0
+                                                        : t.leaderboard.rankingByPoints[
+                                                            t.leaderboard
+                                                              .index - 1
+                                                          ].performancePoints.toFixed(
+                                                            0
+                                                          )
+                                                    ) +
+                                                    " P$\n                                      "
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      : t._e(),
+                                    t._v(" "),
+                                    t.leaderboard.rankingByPoints[0]
+                                      ? s(
+                                          "figure",
+                                          {
+                                            staticClass:
+                                              "image is-96x96 is-circle centralPic"
+                                          },
+                                          [
+                                            s(
+                                              "router-link",
+                                              {
+                                                attrs: {
+                                                  to:
+                                                    -1 === t.leaderboard.index
+                                                      ? "/dashboard/" +
+                                                        t.leaderboard
+                                                          .rankingByPoints[0]
+                                                          .userId
+                                                      : "/dashboard/" +
+                                                        t.leaderboard
+                                                          .rankingByPoints[
+                                                          t.leaderboard.index
+                                                        ].userId
+                                                }
+                                              },
+                                              [
+                                                s("img", {
+                                                  staticClass: "imgProfile",
+                                                  attrs: {
+                                                    src:
+                                                      -1 === t.leaderboard.index
+                                                        ? t.leaderboard
+                                                            .rankingByPoints[0]
+                                                            .picProfile
+                                                        : t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard.index
+                                                          ].picProfile,
+                                                    alt: "my picture"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "rank subtitle is-6"
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                                      " +
+                                                    t._s(
+                                                      -1 === t.leaderboard.index
+                                                        ? t.leaderboard.rankingByPoints[0].performancePoints.toFixed(
+                                                            0
+                                                          )
+                                                        : t.leaderboard.rankingByPoints[
+                                                            t.leaderboard.index
+                                                          ].performancePoints.toFixed(
+                                                            0
+                                                          )
+                                                    ) +
+                                                    " P$\n                                      "
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      : t._e(),
+                                    t._v(" "),
+                                    t.leaderboard.rankingByPoints[
+                                      t.leaderboard.index + 1
+                                    ]
+                                      ? s(
+                                          "figure",
+                                          {
+                                            staticClass:
+                                              "image is-96x96 is-circle"
+                                          },
+                                          [
+                                            s(
+                                              "router-link",
+                                              {
+                                                attrs: {
+                                                  to:
+                                                    -1 === t.leaderboard.index
+                                                      ? "/dashboard/" +
+                                                        t.leaderboard
+                                                          .rankingByPoints[1]
+                                                          .userId
+                                                      : "/dashboard/" +
+                                                        t.leaderboard
+                                                          .rankingByPoints[
+                                                          t.leaderboard.index +
+                                                            1
+                                                        ].userId
+                                                }
+                                              },
+                                              [
+                                                s("img", {
+                                                  staticClass: "imgProfile",
+                                                  attrs: {
+                                                    src:
+                                                      -1 === t.leaderboard.index
+                                                        ? t.leaderboard
+                                                            .rankingByPoints[1]
+                                                            .picProfile
+                                                        : t.leaderboard
+                                                            .rankingByPoints[
+                                                            t.leaderboard
+                                                              .index + 1
+                                                          ].picProfile,
+                                                    alt: "my picture"
+                                                  }
+                                                })
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            s(
+                                              "span",
+                                              {
+                                                staticClass:
+                                                  "rank subtitle is-6"
+                                              },
+                                              [
+                                                t._v(
+                                                  "\n                                      " +
+                                                    t._s(
+                                                      -1 === t.leaderboard.index
+                                                        ? t.leaderboard.rankingByPoints[1].performancePoints.toFixed(
+                                                            0
+                                                          )
+                                                        : t.leaderboard.rankingByPoints[
+                                                            t.leaderboard
+                                                              .index + 1
+                                                          ].performancePoints.toFixed(
+                                                            0
+                                                          )
+                                                    ) +
+                                                    " P$\n                                  "
+                                                )
+                                              ]
+                                            )
+                                          ],
+                                          1
+                                        )
+                                      : t._e()
+                                  ]
+                                ),
+                                t._v(" "),
+                                s(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "preferedTrades level-item has-text-centered column is-3"
+                                  },
+                                  [
+                                    s("p", { staticClass: "title is-6" }, [
+                                      s("strong", [
+                                        t._v(
+                                          t._s(
+                                            "EN" === t.connectedUser.lang
+                                              ? "Skills"
+                                              : "Expertise"
+                                          )
+                                        )
+                                      ])
+                                    ]),
+                                    t._v(" "),
+                                    t.profileInfo.skills[0]
+                                      ? s(
+                                          "div",
+                                          {
+                                            staticClass:
+                                              "preferedTrades level-item has-text-centered column is-3"
+                                          },
+                                          [
+                                            s(
+                                              "b-tag",
+                                              { staticClass: "is-4" },
+                                              [
+                                                t._v(
+                                                  t._s(t.profileInfo.skills[0])
+                                                )
+                                              ]
+                                            ),
+                                            t._v(" "),
+                                            t.profileInfo.skills[1]
+                                              ? s(
+                                                  "b-tag",
+                                                  { staticClass: "is-4" },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        t.profileInfo.skills[1]
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              : t._e(),
+                                            t._v(" "),
+                                            t.profileInfo.skills[2]
+                                              ? s(
+                                                  "b-tag",
+                                                  { staticClass: "is-4" },
+                                                  [
+                                                    t._v(
+                                                      t._s(
+                                                        t.profileInfo.skills[2]
+                                                      )
+                                                    )
+                                                  ]
+                                                )
+                                              : t._e()
+                                          ],
+                                          1
+                                        )
+                                      : s("div", [
+                                          t._v(
+                                            t._s(
+                                              "EN" === t.connectedUser.lang
+                                                ? "Update your profile to display your skills!"
+                                                : "Mettez à jour votre profil et affichez vos domaines d'expertise !"
+                                            )
+                                          )
+                                        ])
+                                  ]
+                                )
+                              ])
+                            ])
+                          ]
+                        )
+                      ]),
+                      t._v(" "),
+                      s("nav", { staticClass: "level media follOwNav" }, [
+                        s("p", { staticClass: "subtitle is-6 follOw" }, [
+                          s("small", [t._v("Followers")]),
+                          s(
+                            "strong",
+                            { staticClass: "follOwStrong title is-5" },
+                            [t._v(" " + t._s(t.profileInfo.followers))]
+                          )
+                        ]),
+                        t._v(" "),
+                        s("p", { staticClass: "subtitle is-6 follOw" }, [
+                          s("small", [t._v("Following")]),
+                          s(
+                            "strong",
+                            { staticClass: "follOwStrong title is-5" },
+                            [t._v(" " + t._s(t.profileInfo.following))]
+                          )
+                        ]),
+                        t._v(" "),
+                        s("p", { staticClass: "subtitle is-6 follOw" }, [
+                          s("small", [t._v("Babbles")]),
+                          s(
+                            "strong",
+                            { staticClass: "follOwStrong title is-5" },
+                            [t._v(" " + t._s(t.profileInfo.nbBabbles))]
+                          )
+                        ]),
+                        t._v(" "),
+                        s("p", { staticClass: "subtitle is-6 follOw" }, [
+                          s("small", [t._v("Likes")]),
+                          s(
+                            "strong",
+                            { staticClass: "follOwStrong title is-5" },
+                            [t._v(" " + t._s(t.profileInfo.nbOfLikes))]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              )
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(506);
+      }
+      var i = s(507),
+        n = s(508),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-1d776602", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(275),
+        i = s.n(a),
+        n = s(6);
+      e.a = {
+        components: { vSelect: i.a },
+        data: function() {
+          return {
+            options: [
+              "Technical analysis",
+              "Equity trading",
+              "Long term investing",
+              "Crypto currency",
+              "Small caps",
+              "Bio tech",
+              "Funds",
+              "Global macro",
+              "Fixed income",
+              "ETF trading",
+              "Intra day trading",
+              "Tech"
+            ],
+            profileInfo: null,
+            bio: "",
+            skills: "",
+            image: null,
+            url: "",
+            files: [],
+            okMessage: !1,
+            location: ""
+          };
+        },
+        props: { connectedUser: Object },
+        methods: {
+          userProfileUpdate: function() {
+            var t = this;
+            this.$root.user._id;
+            "" === this.url && (this.url = profileInfo.url),
+              Object(n.o)(this.location, this.bio, this.skills, this.url)
+                .then(function(e) {
+                  t.$emit("saveprofile");
+                })
+                .catch(function(t) {
+                  console.log(t);
+                });
+          },
+          saveMyProfile: function() {
+            !0 === this.image.imageSet && this.generateImage(),
+              this.userProfileUpdate();
+          },
+          generateImage: function() {
+            var t = this.image.generateDataUrl();
+            if (!t) return void alert("no image");
+            this.url = t;
+          }
+        },
+        created: function() {
+          var t = this;
+          Object(n.l)().then(function(e) {
+            (t.profileInfo = e),
+              (t.location = e.location),
+              (t.skills = e.skills),
+              (t.url = e.picProfile);
+          });
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.profileInfo
+            ? s("div", [
+                s("div", { staticClass: "card profile-card" }, [
+                  s(
+                    "div",
+                    {
+                      staticClass: "card-content column is-6 is-center",
+                      attrs: { id: "ActionCard" }
+                    },
+                    [
+                      s("div", { staticClass: "media" }, [
+                        s("div", { staticClass: "media-left" }, [
+                          t.connectedUser
+                            ? s(
+                                "figure",
+                                { staticClass: "image is-64x64 is-circle" },
+                                [
+                                  s("img", {
+                                    staticClass: "imgProfile",
+                                    attrs: {
+                                      src: t.profileInfo.picProfile,
+                                      alt: "Image"
+                                    }
+                                  })
+                                ]
+                              )
+                            : t._e()
+                        ]),
+                        t._v(" "),
+                        s("div", { staticClass: "media-content" }, [
+                          s("p", { staticClass: "title is-5" }, [
+                            t._v(
+                              "\n            @" +
+                                t._s(t.profileInfo.username) +
+                                "\n          "
+                            )
+                          ]),
+                          t._v(" "),
+                          s(
+                            "div",
+                            [
+                              t.okMessage
+                                ? s("p", [
+                                    t._v(
+                                      "Your profile has been updated successfully!"
+                                    )
+                                  ])
+                                : t._e(),
+                              t._v(" "),
+                              s("h2", [
+                                t._v(
+                                  "Could you talk about yourself, your followers would like to know you a little better."
+                                )
+                              ]),
+                              t._v(" "),
+                              s("br"),
+                              t._v(" "),
+                              s("span", [t._v("Your magic skills:")]),
+                              s("br"),
+                              t._v(" "),
+                              s("v-select", {
+                                attrs: {
+                                  multiple: "",
+                                  closeOnSelect: !1,
+                                  options: t.options
+                                },
+                                model: {
+                                  value: t.skills,
+                                  callback: function(e) {
+                                    t.skills = e;
+                                  },
+                                  expression: "skills"
+                                }
+                              }),
+                              t._v(" "),
+                              s("br"),
+                              s("hr"),
+                              t._v(" "),
+                              s("span", [t._v("Location:")]),
+                              s("br"),
+                              t._v(" "),
+                              s("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: t.location,
+                                    expression: "location"
+                                  }
+                                ],
+                                staticClass: "location",
+                                attrs: { type: "text" },
+                                domProps: { value: t.location },
+                                on: {
+                                  input: function(e) {
+                                    e.target.composing ||
+                                      (t.location = e.target.value);
+                                  }
+                                }
+                              }),
+                              t._v(" "),
+                              s("br"),
+                              s("hr"),
+                              t._v(" "),
+                              s(
+                                "label",
+                                [
+                                  s("span", [t._v("Update your photo:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("croppa", {
+                                    attrs: {
+                                      "initial-image": "",
+                                      width: 150,
+                                      height: 150,
+                                      quality: 1,
+                                      "placeholder-font-size": 18,
+                                      "prevent-white-space": !0
+                                    },
+                                    model: {
+                                      value: t.image,
+                                      callback: function(e) {
+                                        t.image = e;
+                                      },
+                                      expression: "image"
+                                    }
+                                  })
+                                ],
+                                1
+                              ),
+                              t._v(" "),
+                              s("br"),
+                              s("hr"),
+                              t._v(" "),
+                              s("div", { staticClass: "centerButton" }, [
+                                s(
+                                  "button",
+                                  {
+                                    staticClass:
+                                      "button is-small is-outlined is-primary",
+                                    attrs: { id: "adWL" },
+                                    on: { click: t.saveMyProfile }
+                                  },
+                                  [t._v("Save modifications")]
+                                )
+                              ])
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ])
+              ])
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return s(
+            "section",
+            { staticClass: "main" },
+            [
+              t.isEditing
+                ? t._e()
+                : s("my-profile-block", {
+                    attrs: {
+                      connectedUser: t.connectedUser,
+                      profileInfo: t.profileInfo
+                    },
+                    on: {
+                      editprofile: function(e) {
+                        t.changeToEdit();
+                      }
+                    }
+                  }),
+              t._v(" "),
+              t.isEditing
+                ? s("update-my-info", {
+                    attrs: {
+                      connectedUser: t.connectedUser,
+                      profileInfo: t.profileInfo
+                    },
+                    on: {
+                      saveprofile: function(e) {
+                        t.changeToEdit();
+                      }
+                    }
+                  })
+                : t._e(),
+              t._v(" "),
+              "curinsights" !== t.activeItem || t.isEditing
+                ? "watchlist" !== t.activeItem || t.isEditing
+                  ? "insfollowed" !== t.activeItem || t.isEditing
+                    ? "pastinsights" !== t.activeItem || t.isEditing
+                      ? t._e()
+                      : s("my-past-insights", {
+                          attrs: { connectedUser: t.connectedUser },
+                          on: {
+                            Watch: function(e) {
+                              t.myWatchList(e);
+                            },
+                            InsFollo: function(e) {
+                              t.myInsidersFollowed(e);
+                            },
+                            PastIns: function(e) {
+                              t.myPastInsights(e);
+                            },
+                            curIns: function(e) {
+                              t.currentInsights(e);
+                            }
+                          }
+                        })
+                    : s("my-insiders-followed", {
+                        attrs: { connectedUser: t.connectedUser },
+                        on: {
+                          Watch: function(e) {
+                            t.myWatchList(e);
+                          },
+                          InsFollo: function(e) {
+                            t.myInsidersFollowed(e);
+                          },
+                          PastIns: function(e) {
+                            t.myPastInsights(e);
+                          },
+                          curIns: function(e) {
+                            t.currentInsights(e);
+                          }
+                        }
+                      })
+                  : s("my-watch-list", {
+                      attrs: { connectedUser: t.connectedUser },
+                      on: {
+                        Watch: function(e) {
+                          t.myWatchList(e);
+                        },
+                        InsFollo: function(e) {
+                          t.myInsidersFollowed(e);
+                        },
+                        PastIns: function(e) {
+                          t.myPastInsights(e);
+                        },
+                        curIns: function(e) {
+                          t.currentInsights(e);
+                        }
+                      }
+                    })
+                : s("my-current-insights", {
+                    attrs: { connectedUser: t.connectedUser },
+                    on: {
+                      Watch: function(e) {
+                        t.myWatchList(e);
+                      },
+                      InsFollo: function(e) {
+                        t.myInsidersFollowed(e);
+                      },
+                      PastIns: function(e) {
+                        t.myPastInsights(e);
+                      },
+                      curIns: function(e) {
+                        t.currentInsights(e);
+                      }
+                    }
+                  })
+            ],
+            1
+          );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(511);
+      }
+      var i = s(512),
+        n = s(513),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-068bf4a8", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(9),
+        i = s(10),
+        n = s(3);
+      e.a = {
+        components: { SignupModal: a.a, LoginModal: i.a },
+        data: function() {
+          return {
+            isSignupModalActive: !1,
+            isLoginModalActive: !1,
+            autenticate: "",
+            leaderBoard: [],
+            indexSelected: "all",
+            total: 0,
+            loading: !1,
+            defaultSortField: "performancePoints",
+            defaultSortOrder: "desc",
+            page: 1,
+            perPage: 20,
+            isPaginated: !0,
+            isPaginationSimple: !1,
+            defaultSortDirection: "asc"
+          };
+        },
+        props: { langSelected: "", connectedUser: Object },
+        created: function() {
+          var t = this;
+          Object(n.h)().then(function(e) {
+            t.leaderBoard = e;
+          });
+        },
+        methods: {
+          onPageChange: function(t) {
+            this.page = t;
+          },
+          SignupModal: function() {
+            (this.isLoginModalActive = !1),
+              (this.isSignupModalActive = !0),
+              this.$emit("signup");
+          },
+          LoginModal: function(t) {
+            (this.isSignupModalActive = !1),
+              (this.autenticate = t),
+              (this.isLoginModalActive = !0);
+          },
+          closeLoginModal: function() {
+            this.isLoginModalActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return t.connectedUser
+            ? s(
+                "section",
+                { staticClass: "main" },
+                [
+                  s("h1", { staticClass: "title" }, [
+                    t._v(
+                      "\n      " +
+                        t._s(
+                          "EN" === t.connectedUser.lang
+                            ? "Best insiders: Follow their advice and earn money"
+                            : "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !"
+                        ) +
+                        "\n    "
+                    )
+                  ]),
+                  t._v(" "),
+                  t.leaderBoard
+                    ? s(
+                        "b-table",
+                        {
+                          attrs: {
+                            data: t.leaderBoard,
+                            loading: t.loading,
+                            paginated: t.isPaginated,
+                            "per-page": t.perPage,
+                            "pagination-simple": t.isPaginationSimple,
+                            total: t.total,
+                            striped: !0,
+                            "default-sort-direction": t.defaultSortOrder,
+                            "default-sort": t.defaultSortField
+                          },
+                          on: { "page-change": t.onPageChange },
+                          scopedSlots: t._u([
+                            {
+                              key: "default",
+                              fn: function(e) {
+                                return [
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        label: "Insider",
+                                        centered: "",
+                                        field: "userId"
+                                      }
+                                    },
+                                    [
+                                      s(
+                                        "div",
+                                        { staticClass: "insider" },
+                                        [
+                                          s(
+                                            "figure",
+                                            {
+                                              staticClass:
+                                                "image is-32x32 is-circle"
+                                            },
+                                            [
+                                              s(
+                                                "router-link",
+                                                {
+                                                  attrs: {
+                                                    to:
+                                                      "/dashboard/" +
+                                                      e.row.userId
+                                                  }
+                                                },
+                                                [
+                                                  s("img", {
+                                                    staticClass: "imgProfile",
+                                                    attrs: {
+                                                      src: e.row.picProfile
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ],
+                                            1
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "router-link",
+                                            {
+                                              staticClass: "stockName is-6",
+                                              attrs: {
+                                                to:
+                                                  "/dashboard/" + e.row.userId,
+                                                "data-replace": "Symbol"
+                                              }
+                                            },
+                                            [t._v(t._s(e.row.username))]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "followers",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Followers"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.followers) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "nbBabbles",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Babbles posted"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.nbBabbles) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "nbOfLikes",
+                                        sortable: "",
+                                        numeric: "",
+                                        centered: "",
+                                        label: "Likes"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.nbOfLikes) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "preferedStocks",
+                                        centered: "",
+                                        label: "Prefered stocks"
+                                      }
+                                    },
+                                    [
+                                      s(
+                                        "router-link",
+                                        {
+                                          staticClass: "stockName is-6",
+                                          attrs: {
+                                            to:
+                                              "/stocks/" +
+                                              e.row.preferedStocks.map(function(
+                                                t
+                                              ) {
+                                                return t.shortName;
+                                              })[0],
+                                            "data-replace": "Symbol"
+                                          }
+                                        },
+                                        [
+                                          t._v(
+                                            "   " +
+                                              t._s(
+                                                e.row.preferedStocks.map(
+                                                  function(t) {
+                                                    return t.longName;
+                                                  }
+                                                )[0]
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Performance Points"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            e.row.performancePoints.toFixed(0)
+                                          ) +
+                                          " P$\n                "
+                                      )
+                                    ]
+                                  )
+                                ];
+                              }
+                            }
+                          ])
+                        },
+                        [
+                          s(
+                            "template",
+                            { attrs: { slot: "empty" }, slot: "empty" },
+                            [
+                              s("section", { staticClass: "section" }, [
+                                s(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "content has-text-grey has-text-centered"
+                                  },
+                                  [
+                                    s(
+                                      "p",
+                                      [
+                                        s("b-icon", {
+                                          attrs: {
+                                            icon: "sentiment_very_satisfied",
+                                            size: "is-large"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s("p", [t._v("...loading")])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ],
+                        2
+                      )
+                    : t._e()
+                ],
+                1
+              )
+            : s(
+                "section",
+                { staticClass: "main" },
+                [
+                  s("h1", { staticClass: "title" }, [
+                    t._v(
+                      "\n      " +
+                        t._s(
+                          "EN" === t.langSelected
+                            ? "Best insiders: Follow their advice and earn money"
+                            : "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !"
+                        ) +
+                        "\n    "
+                    )
+                  ]),
+                  t._v(" "),
+                  t.leaderBoard
+                    ? s(
+                        "b-table",
+                        {
+                          attrs: {
+                            data: t.leaderBoard,
+                            loading: t.loading,
+                            paginated: t.isPaginated,
+                            "per-page": t.perPage,
+                            "pagination-simple": t.isPaginationSimple,
+                            total: t.total,
+                            striped: !0,
+                            "default-sort-direction": t.defaultSortOrder,
+                            "default-sort": t.defaultSortField
+                          },
+                          on: { "page-change": t.onPageChange },
+                          scopedSlots: t._u([
+                            {
+                              key: "default",
+                              fn: function(e) {
+                                return [
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        label: "Insider",
+                                        centered: "",
+                                        field: "userId"
+                                      }
+                                    },
+                                    [
+                                      s(
+                                        "div",
+                                        {
+                                          staticClass: "insider",
+                                          on: { click: t.SignupModal }
+                                        },
+                                        [
+                                          s("figure", {
+                                            staticClass:
+                                              "image is-32x32 is-circle"
+                                          }),
+                                          t._v(
+                                            "\n                    " +
+                                              t._s(e.row.username) +
+                                              "\n                  "
+                                          )
+                                        ]
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "followers",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Followers"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.followers) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "nbBabbles",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Babbles posted"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.nbBabbles) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "nbOfLikes",
+                                        sortable: "",
+                                        numeric: "",
+                                        centered: "",
+                                        label: "Likes"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(e.row.nbOfLikes) +
+                                          "\n                "
+                                      )
+                                    ]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "preferedStocks",
+                                        centered: "",
+                                        label: "Prefered stocks"
+                                      }
+                                    },
+                                    [
+                                      s(
+                                        "router-link",
+                                        {
+                                          staticClass: "stockName is-6",
+                                          attrs: {
+                                            to:
+                                              "/stocks/" +
+                                              e.row.preferedStocks.map(function(
+                                                t
+                                              ) {
+                                                return t.shortName;
+                                              })[0],
+                                            "data-replace": "Symbol"
+                                          }
+                                        },
+                                        [
+                                          t._v(
+                                            "   " +
+                                              t._s(
+                                                e.row.preferedStocks.map(
+                                                  function(t) {
+                                                    return t.longName;
+                                                  }
+                                                )[0]
+                                              )
+                                          )
+                                        ]
+                                      )
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "b-table-column",
+                                    {
+                                      attrs: {
+                                        field: "performancePoints",
+                                        numeric: "",
+                                        sortable: "",
+                                        centered: "",
+                                        label: "Performance Points"
+                                      }
+                                    },
+                                    [
+                                      t._v(
+                                        "\n                    " +
+                                          t._s(
+                                            e.row.performancePoints.toFixed(0)
+                                          ) +
+                                          " P$\n                "
+                                      )
+                                    ]
+                                  )
+                                ];
+                              }
+                            }
+                          ])
+                        },
+                        [
+                          s(
+                            "template",
+                            { attrs: { slot: "empty" }, slot: "empty" },
+                            [
+                              s("section", { staticClass: "section" }, [
+                                s(
+                                  "div",
+                                  {
+                                    staticClass:
+                                      "content has-text-grey has-text-centered"
+                                  },
+                                  [
+                                    s(
+                                      "p",
+                                      [
+                                        s("b-icon", {
+                                          attrs: {
+                                            icon: "sentiment_very_satisfied",
+                                            size: "is-large"
+                                          }
+                                        })
+                                      ],
+                                      1
+                                    ),
+                                    t._v(" "),
+                                    s("p", [t._v("...loading")])
+                                  ]
+                                )
+                              ])
+                            ]
+                          )
+                        ],
+                        2
+                      )
+                    : t._e(),
+                  t._v(" "),
+                  s(
+                    "b-modal",
+                    {
+                      attrs: { active: t.isSignupModalActive, width: 640 },
+                      on: {
+                        "update:active": function(e) {
+                          t.isSignupModalActive = e;
+                        }
+                      }
+                    },
+                    [
+                      s("signup-modal", {
+                        on: {
+                          "!loginModal": function(e) {
+                            t.LoginModal(e);
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  t._v(" "),
+                  s(
+                    "b-modal",
+                    {
+                      attrs: { active: t.isLoginModalActive, width: 640 },
+                      on: {
+                        "update:active": function(e) {
+                          t.isLoginModalActive = e;
+                        }
+                      }
+                    },
+                    [
+                      s("login-modal", {
+                        attrs: { autenticate: t.autenticate },
+                        on: {
+                          closeLoginModal: function(e) {
+                            t.closeLoginModal();
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              );
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(515);
+      }
+      var i = s(516),
+        n = s(517),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-04c9608c", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(276),
+        i = s(0),
+        n = s.n(i),
+        o = s(275),
+        r = s.n(o);
+      e.a = {
+        components: { vSelect: r.a },
+        data: function() {
+          return {
+            stocks: {},
+            isStockEditingActive: !1,
+            isStockDeletingActive: !1,
+            isStockCreatingActive: !1,
+            stockModal: {},
+            deleteModale: "",
+            options: [
+              "NASDAQ",
+              "INDEX",
+              "SELECTED",
+              "CRYPTO",
+              "CAC40",
+              "SBF120",
+              "EURONEXT PARIS",
+              "AUTRES"
+            ],
+            image: null
+          };
+        },
+        created: function() {
+          var t = this;
+          Object(a.a)().then(function(e) {
+            "unauthorized" === e ? t.$router.push("/stream") : (t.stocks = e);
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          addNewStock: function() {
+            this.isStockCreatingActive = !0;
+          },
+          saveCreate: function() {
+            var t = this;
+            !0 === this.image.imageSet && this.generateImage(),
+              Object(a.c)(this.stockModal)
+                .then(function(e) {
+                  Object(a.a)().then(function(e) {
+                    "unauthorized" === e
+                      ? t.$router.push("/stream")
+                      : ((t.stocks = e), (t.isStockCreatingActive = !1));
+                  });
+                })
+                .catch(function(t) {
+                  console.log(t);
+                });
+          },
+          editStock: function(t) {
+            (this.stockModal = t),
+              (this.isStockEditingActive = !0),
+              (this.url = this.stockModal.stockImg);
+          },
+          confirmDeleteStock: function(t) {
+            (this.deleteModale = t), (this.isStockDeletingActive = !0);
+          },
+          deleteStock: function(t) {
+            var e = this;
+            Object(a.d)(t._id)
+              .then(function(t) {
+                Object(a.a)().then(function(t) {
+                  "unauthorized" === t
+                    ? e.$router.push("/stream")
+                    : ((e.stocks = t),
+                      (e.isStockDeletingActive = !1),
+                      alert("success"));
+                });
+              })
+              .catch(function(t) {
+                console.log(t);
+              });
+          },
+          noDelete: function() {
+            this.isStockDeletingActive = !1;
+          },
+          moment: function(t) {
+            return n()(t);
+          },
+          saveUpdate: function() {
+            var t = this;
+            this.stockModal._id;
+            !0 === this.image.imageSet && this.generateImage(),
+              Object(a.e)(
+                this.stockModal._id,
+                this.stockModal.longName,
+                this.stockModal.shortName,
+                this.stockModal.index,
+                this.stockModal.isin,
+                this.stockModal.currency,
+                this.stockModal.currency2,
+                this.stockModal.symbolPrice,
+                this.stockModal.price,
+                this.stockModal.price2,
+                this.stockModal.volume,
+                this.stockModal.description,
+                this.stockModal.descriptionEng,
+                this.stockModal.stockImg,
+                this.stockModal.scrapKey
+              )
+                .then(function(e) {
+                  (t.isStockEditingActive = !1),
+                    Object(a.a)().then(function(e) {
+                      "unauthorized" === e
+                        ? t.$router.push("/stream")
+                        : (t.stocks = e);
+                    });
+                })
+                .catch(function(t) {
+                  console.log(t);
+                });
+          },
+          generateImage: function() {
+            var t = this.image.generateDataUrl();
+            if (!t) return void alert("no image");
+            this.stockModal.stockImg = t;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return "admin" === t.connectedUser.role
+            ? s(
+                "section",
+                { staticClass: "main" },
+                [
+                  s("h1", { staticClass: "title" }, [
+                    t._v(
+                      "\n      Stock administration : " +
+                        t._s(t.stocks.length) +
+                        " stocks registered.\n    "
+                    )
+                  ]),
+                  t._v(" "),
+                  s("br"),
+                  t._v(" "),
+                  s(
+                    "button",
+                    {
+                      attrs: { type: "button", name: "button" },
+                      on: {
+                        click: function(e) {
+                          t.addNewStock();
+                        }
+                      }
+                    },
+                    [t._v("Add a stock")]
+                  ),
+                  t._v(" "),
+                  s(
+                    "button",
+                    {
+                      attrs: { type: "button", name: "button" },
+                      on: {
+                        click: function(e) {
+                          t.exportToExcel();
+                        }
+                      }
+                    },
+                    [t._v("Export")]
+                  ),
+                  t._v(" "),
+                  s("br"),
+                  t._v(" "),
+                  s("hr"),
+                  t._v(" "),
+                  s("br"),
+                  t._v(" "),
+                  t._l(t.stocks, function(e, a) {
+                    return s("div", { key: a, staticClass: "columns" }, [
+                      s("div", { staticClass: "media-left" }, [
+                        s(
+                          "figure",
+                          { staticClass: "image is-64x64 is-circle" },
+                          [
+                            s("img", {
+                              staticClass: "imgProfile",
+                              attrs: { src: e.stockImg, alt: "Image" }
+                            })
+                          ]
+                        )
+                      ]),
+                      t._v(" "),
+                      s(
+                        "div",
+                        { staticClass: "picss column is-12 is-marginless" },
+                        [
+                          s("div", { staticClass: "media-left" }, [
+                            s("strong", [t._v(t._s(e.longName))]),
+                            t._v(
+                              "\n                " +
+                                t._s(e.shortName) +
+                                "\n                "
+                            ),
+                            s("span", { staticClass: "has-text-green" }, [
+                              t._v(t._s(e.index))
+                            ]),
+                            t._v(" "),
+                            s(
+                              "button",
+                              {
+                                attrs: { type: "button", name: "button" },
+                                on: {
+                                  click: function(s) {
+                                    t.editStock(e);
+                                  }
+                                }
+                              },
+                              [t._v("Edit")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "button",
+                              {
+                                attrs: { type: "button", name: "button" },
+                                on: {
+                                  click: function(s) {
+                                    t.confirmDeleteStock(e);
+                                  }
+                                }
+                              },
+                              [t._v("Delete")]
+                            )
+                          ]),
+                          t._v(" "),
+                          s("hr")
+                        ]
+                      )
+                    ]);
+                  }),
+                  t._v(" "),
+                  t.stockModal
+                    ? s(
+                        "div",
+                        [
+                          s(
+                            "b-modal",
+                            {
+                              attrs: { active: t.isStockEditingActive },
+                              on: {
+                                "update:active": function(e) {
+                                  t.isStockEditingActive = e;
+                                }
+                              }
+                            },
+                            [
+                              s("div", { staticClass: "mediaModal" }, [
+                                s("h1", { staticClass: "modalTitle" }, [
+                                  t._v(
+                                    "\n                      Editing " +
+                                      t._s(t.stockModal.longName) +
+                                      " !\n                  "
+                                  )
+                                ]),
+                                t._v(" "),
+                                s("div", { staticClass: "card profile-card" }, [
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card-content column is-6 is-center",
+                                      attrs: { id: "ActionCard" }
+                                    },
+                                    [
+                                      s(
+                                        "div",
+                                        [
+                                          s(
+                                            "div",
+                                            { staticClass: "media-left" },
+                                            [
+                                              s(
+                                                "figure",
+                                                {
+                                                  staticClass:
+                                                    "image is-64x64 is-circle"
+                                                },
+                                                [
+                                                  s("img", {
+                                                    staticClass: "imgProfile",
+                                                    attrs: {
+                                                      src:
+                                                        t.stockModal.stockImg,
+                                                      alt: "Image"
+                                                    }
+                                                  })
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s(
+                                            "div",
+                                            { staticClass: "media-content" },
+                                            [
+                                              s(
+                                                "p",
+                                                { staticClass: "title is-5" },
+                                                [
+                                                  t._v(
+                                                    "\n                              " +
+                                                      t._s(
+                                                        t.stockModal.shortName
+                                                      ) +
+                                                      "\n                            "
+                                                  )
+                                                ]
+                                              )
+                                            ]
+                                          ),
+                                          t._v(" "),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("div", [
+                                            s("p", [
+                                              t._v(
+                                                "\n                              Id : " +
+                                                  t._s(t.stockModal._id) +
+                                                  "\n                            "
+                                              )
+                                            ])
+                                          ]),
+                                          t._v(" "),
+                                          s("div", [
+                                            s("p", [
+                                              t._v(
+                                                "\n                              Created at :" +
+                                                  t._s(
+                                                    t
+                                                      .moment(
+                                                        t.stockModal.created_at
+                                                      )
+                                                      .format(
+                                                        "DD-MM-YYYY HH:mm"
+                                                      )
+                                                  ) +
+                                                  "\n                            "
+                                              )
+                                            ])
+                                          ]),
+                                          t._v(" "),
+                                          s("p", [
+                                            t._v(
+                                              "\n                              Updated at :" +
+                                                t._s(
+                                                  t
+                                                    .moment(
+                                                      t.stockModal.updated_at
+                                                    )
+                                                    .format("DD-MM-YYYY HH:mm")
+                                                ) +
+                                                "\n                            "
+                                            )
+                                          ]),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("longName:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.longName,
+                                                expression:
+                                                  "stockModal.longName"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.longName
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "longName",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("shortName:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.shortName,
+                                                expression:
+                                                  "stockModal.shortName"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.shortName
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "shortName",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("Index:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("v-select", {
+                                            attrs: {
+                                              multiple: "",
+                                              closeOnSelect: !1,
+                                              options: t.options
+                                            },
+                                            model: {
+                                              value: t.stockModal.index,
+                                              callback: function(e) {
+                                                t.$set(
+                                                  t.stockModal,
+                                                  "index",
+                                                  e
+                                                );
+                                              },
+                                              expression: "stockModal.index"
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("isin:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.isin,
+                                                expression: "stockModal.isin"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.isin
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "isin",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("currency:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.currency,
+                                                expression:
+                                                  "stockModal.currency"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.currency
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "currency",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("currency2:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.currency2,
+                                                expression:
+                                                  "stockModal.currency2"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.currency2
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "currency2",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("symbolPrice:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.symbolPrice,
+                                                expression:
+                                                  "stockModal.symbolPrice"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.symbolPrice
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "symbolPrice",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("price:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.price,
+                                                expression: "stockModal.price"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.price
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "price",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("price2:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.price2,
+                                                expression: "stockModal.price2"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.price2
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "price2",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("volume:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("input", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.volume,
+                                                expression: "stockModal.volume"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.volume
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "volume",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("description:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value: t.stockModal.description,
+                                                expression:
+                                                  "stockModal.description"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.description
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "description",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s("span", [t._v("descriptionEng:")]),
+                                          s("br"),
+                                          t._v(" "),
+                                          s("textarea", {
+                                            directives: [
+                                              {
+                                                name: "model",
+                                                rawName: "v-model",
+                                                value:
+                                                  t.stockModal.descriptionEng,
+                                                expression:
+                                                  "stockModal.descriptionEng"
+                                              }
+                                            ],
+                                            staticClass: "location",
+                                            attrs: { type: "text" },
+                                            domProps: {
+                                              value: t.stockModal.descriptionEng
+                                            },
+                                            on: {
+                                              input: function(e) {
+                                                e.target.composing ||
+                                                  t.$set(
+                                                    t.stockModal,
+                                                    "descriptionEng",
+                                                    e.target.value
+                                                  );
+                                              }
+                                            }
+                                          }),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s(
+                                            "label",
+                                            [
+                                              s("span", [
+                                                t._v("Update stock photo:")
+                                              ]),
+                                              s("br"),
+                                              t._v(" "),
+                                              s("croppa", {
+                                                attrs: {
+                                                  "prevent-white-space": !1,
+                                                  "reverse-scroll-to-zoom": !0,
+                                                  "show-loading": !0,
+                                                  "loading-size": 50,
+                                                  accept: "image/*",
+                                                  "initial-image": "",
+                                                  width: 250,
+                                                  height: 250,
+                                                  quality: 1,
+                                                  "placeholder-font-size": 18
+                                                },
+                                                model: {
+                                                  value: t.image,
+                                                  callback: function(e) {
+                                                    t.image = e;
+                                                  },
+                                                  expression: "image"
+                                                }
+                                              })
+                                            ],
+                                            1
+                                          ),
+                                          t._v(" "),
+                                          s("br"),
+                                          s("hr"),
+                                          t._v(" "),
+                                          s(
+                                            "div",
+                                            { staticClass: "centerButton" },
+                                            [
+                                              s(
+                                                "button",
+                                                {
+                                                  staticClass:
+                                                    "button is-small is-outlined is-primary",
+                                                  attrs: { id: "adWL" },
+                                                  on: { click: t.saveUpdate }
+                                                },
+                                                [t._v("Save modifications")]
+                                              )
+                                            ]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : t._e(),
+                  t._v(" "),
+                  t.deleteModale
+                    ? s(
+                        "div",
+                        [
+                          s(
+                            "b-modal",
+                            {
+                              attrs: { active: t.isStockDeletingActive },
+                              on: {
+                                "update:active": function(e) {
+                                  t.isStockDeletingActive = e;
+                                }
+                              }
+                            },
+                            [
+                              s("div", { staticClass: "mediaModal" }, [
+                                s("div", { staticClass: "card profile-card" }, [
+                                  s("p", [
+                                    t._v(
+                                      "T'es sûr de vouloir effacer cette action  ????"
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "button",
+                                    {
+                                      attrs: { type: "button", name: "button" },
+                                      on: {
+                                        click: function(e) {
+                                          t.deleteStock(t.deleteModale);
+                                        }
+                                      }
+                                    },
+                                    [t._v("YES - ERASE IT!")]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "button",
+                                    {
+                                      attrs: { type: "button", name: "button" },
+                                      on: {
+                                        click: function(e) {
+                                          t.noDelete();
+                                        }
+                                      }
+                                    },
+                                    [t._v("NO ... My mistake")]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : t._e(),
+                  t._v(" "),
+                  s(
+                    "b-modal",
+                    {
+                      attrs: { active: t.isStockCreatingActive },
+                      on: {
+                        "update:active": function(e) {
+                          t.isStockCreatingActive = e;
+                        }
+                      }
+                    },
+                    [
+                      s("div", { staticClass: "mediaModal" }, [
+                        s("h1", { staticClass: "modalTitle" }, [
+                          t._v(
+                            "\n                    Create a new stock !\n                "
+                          )
+                        ]),
+                        t._v(" "),
+                        s("div", { staticClass: "card profile-card" }, [
+                          s(
+                            "div",
+                            {
+                              staticClass: "card-content column is-6 is-center",
+                              attrs: { id: "ActionCard" }
+                            },
+                            [
+                              s(
+                                "div",
+                                [
+                                  s("span", [t._v("longName:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.longName,
+                                        expression: "stockModal.longName"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: { value: t.stockModal.longName },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "longName",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("shortName:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.shortName,
+                                        expression: "stockModal.shortName"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: { value: t.stockModal.shortName },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "shortName",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("Index:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("v-select", {
+                                    attrs: {
+                                      multiple: "",
+                                      closeOnSelect: !1,
+                                      options: t.options
+                                    },
+                                    model: {
+                                      value: t.stockModal.index,
+                                      callback: function(e) {
+                                        t.$set(t.stockModal, "index", e);
+                                      },
+                                      expression: "stockModal.index"
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("isin:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.isin,
+                                        expression: "stockModal.isin"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: { value: t.stockModal.isin },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "isin",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("currency:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.currency,
+                                        expression: "stockModal.currency"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: { value: t.stockModal.currency },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "currency",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("currency2:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.currency2,
+                                        expression: "stockModal.currency2"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: { value: t.stockModal.currency2 },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "currency2",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("symbolPrice:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.symbolPrice,
+                                        expression: "stockModal.symbolPrice"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: t.stockModal.symbolPrice
+                                    },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "symbolPrice",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("description:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("textarea", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.description,
+                                        expression: "stockModal.description"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: t.stockModal.description
+                                    },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "description",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("span", [t._v("descriptionEng:")]),
+                                  s("br"),
+                                  t._v(" "),
+                                  s("textarea", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: t.stockModal.descriptionEng,
+                                        expression: "stockModal.descriptionEng"
+                                      }
+                                    ],
+                                    staticClass: "location",
+                                    attrs: { type: "text" },
+                                    domProps: {
+                                      value: t.stockModal.descriptionEng
+                                    },
+                                    on: {
+                                      input: function(e) {
+                                        e.target.composing ||
+                                          t.$set(
+                                            t.stockModal,
+                                            "descriptionEng",
+                                            e.target.value
+                                          );
+                                      }
+                                    }
+                                  }),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s(
+                                    "label",
+                                    [
+                                      s("span", [t._v("Update stock photo:")]),
+                                      s("br"),
+                                      t._v(" "),
+                                      s("croppa", {
+                                        attrs: {
+                                          "prevent-white-space": !1,
+                                          "reverse-scroll-to-zoom": !0,
+                                          "show-loading": !0,
+                                          "loading-size": 50,
+                                          accept: "image/*",
+                                          "initial-image": "",
+                                          width: 250,
+                                          height: 250,
+                                          quality: 1,
+                                          "placeholder-font-size": 18
+                                        },
+                                        model: {
+                                          value: t.image,
+                                          callback: function(e) {
+                                            t.image = e;
+                                          },
+                                          expression: "image"
+                                        }
+                                      })
+                                    ],
+                                    1
+                                  ),
+                                  t._v(" "),
+                                  s("br"),
+                                  s("hr"),
+                                  t._v(" "),
+                                  s("div", { staticClass: "centerButton" }, [
+                                    s(
+                                      "button",
+                                      {
+                                        staticClass:
+                                          "button is-small is-outlined is-primary",
+                                        attrs: { id: "adWL" },
+                                        on: {
+                                          click: function(e) {
+                                            t.saveCreate();
+                                          }
+                                        }
+                                      },
+                                      [t._v("Save")]
+                                    )
+                                  ])
+                                ],
+                                1
+                              )
+                            ]
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ],
+                2
+              )
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    function(t, e, s) {
+      "use strict";
+      function a(t) {
+        s(519);
+      }
+      var i = s(520),
+        n = s(521),
+        o = s(2),
+        r = a,
+        c = o(i.a, n.a, !1, r, "data-v-068adb45", null);
+      e.a = c.exports;
+    },
+    function(t, e) {},
+    function(t, e, s) {
+      "use strict";
+      var a = s(276),
+        i = s(0),
+        n = s.n(i);
+      e.a = {
+        data: function() {
+          return {
+            userList: "",
+            isUserEditingActive: !1,
+            isUserDeletingActive: !1,
+            userModal: {},
+            image: null,
+            deleteModale: ""
+          };
+        },
+        created: function() {
+          var t = this;
+          Object(a.b)().then(function(e) {
+            "unauthorized" === e ? t.$router.push("/stream") : (t.userList = e);
+          });
+        },
+        props: { connectedUser: Object },
+        methods: {
+          moment: function(t) {
+            return n()(t);
+          },
+          editUser: function(t) {
+            (this.userModal = t),
+              (this.isUserEditingActive = !0),
+              (this.url = this.userModal.userImg);
+          },
+          saveUpdate: function() {
+            var t = this;
+            this.userModal._id;
+            !0 === this.image.imageSet && this.generateImage(),
+              Object(a.g)(
+                this.userModal._id,
+                this.userModal.username,
+                this.userModal.location,
+                this.userModal.lang,
+                this.userModal.role,
+                this.userModal.picProfile
+              )
+                .then(function(e) {
+                  (t.isUserEditingActive = !1),
+                    Object(a.b)().then(function(e) {
+                      "unauthorized" === e
+                        ? t.$router.push("/stream")
+                        : (t.userList = e);
+                    });
+                })
+                .catch(function(t) {
+                  console.log(t);
+                });
+          },
+          generateImage: function() {
+            var t = this.image.generateDataUrl();
+            if (!t) return void alert("no image");
+            this.userModal.picProfile = t;
+          },
+          confirmDeleteUser: function(t) {
+            (this.deleteModale = t), (this.isUserDeletingActive = !0);
+          },
+          deleteUser: function(t) {
+            var e = this;
+            Object(a.f)(t._id)
+              .then(function(t) {
+                Object(a.b)().then(function(t) {
+                  "unauthorized" === t
+                    ? e.$router.push("/stream")
+                    : ((e.userList = t),
+                      (e.isUserDeletingActive = !1),
+                      alert("success"));
+                });
+              })
+              .catch(function(t) {
+                console.log(t);
+              });
+          },
+          noDelete: function() {
+            this.isUserDeletingActive = !1;
+          }
+        }
+      };
+    },
+    function(t, e, s) {
+      "use strict";
+      var a = function() {
+          var t = this,
+            e = t.$createElement,
+            s = t._self._c || e;
+          return "admin" === t.connectedUser.role
+            ? s(
+                "section",
+                { staticClass: "main" },
+                [
+                  s("h1", { staticClass: "title" }, [
+                    t._v(
+                      "\n      Page admin : Suivi des utilisateurs enregistrés\n    "
+                    )
+                  ]),
+                  t._v(" "),
+                  s("p", [
+                    t._v(
+                      "Il y a actuellement " +
+                        t._s(t.userList.length) +
+                        " utilisateurs enregistrés"
+                    )
+                  ]),
+                  t._v(" "),
+                  s("br"),
+                  t._v(" "),
+                  s(
+                    "button",
+                    {
+                      attrs: { type: "button", name: "button" },
+                      on: {
+                        click: function(e) {
+                          t.exportToExcel();
+                        }
+                      }
+                    },
+                    [t._v("Export")]
+                  ),
+                  t._v(" "),
+                  s("br"),
+                  t._v(" "),
+                  s("hr"),
+                  t._v(" "),
+                  t._l(t.userList, function(e, a) {
+                    return s("div", { key: a, staticClass: "columns" }, [
+                      s("div", { staticClass: "media-left" }, [
+                        s(
+                          "figure",
+                          { staticClass: "image is-64x64 is-circle" },
+                          [
+                            s("img", {
+                              staticClass: "imgProfile",
+                              attrs: { src: e.picProfile, alt: "Image" }
+                            })
+                          ]
+                        )
+                      ]),
+                      t._v(" "),
+                      s(
+                        "div",
+                        { staticClass: "picss column is-12 is-marginless" },
+                        [
+                          s("div", { staticClass: "media-left" }, [
+                            s("strong", [t._v(t._s(e.username))]),
+                            t._v(
+                              " ||\n              " +
+                                t._s(e.email) +
+                                " ||\n              " +
+                                t._s(e.location) +
+                                " ||\n              " +
+                                t._s(e.lang) +
+                                " ||\n              following: " +
+                                t._s(e.following.length) +
+                                " ||\n              position taken: " +
+                                t._s(e.watchList.length) +
+                                " ||\n              "
+                            ),
+                            s("span", { staticClass: "has-text-green" }, [
+                              t._v(
+                                "Created at :" +
+                                  t._s(
+                                    t
+                                      .moment(e.created_at)
+                                      .format("DD-MM-YYYY HH:mm")
+                                  )
+                              )
+                            ]),
+                            t._v(" ||\n              "),
+                            s("span", { staticClass: "has-text-red" }, [
+                              t._v(
+                                "Updated at :" +
+                                  t._s(
+                                    t
+                                      .moment(e.updated_at)
+                                      .format("DD-MM-YYYY HH:mm")
+                                  )
+                              )
+                            ]),
+                            t._v(" "),
+                            s(
+                              "button",
+                              {
+                                attrs: { type: "button", name: "button" },
+                                on: {
+                                  click: function(s) {
+                                    t.editUser(e);
+                                  }
+                                }
+                              },
+                              [t._v("Edit")]
+                            ),
+                            t._v(" "),
+                            s(
+                              "button",
+                              {
+                                attrs: { type: "button", name: "button" },
+                                on: {
+                                  click: function(s) {
+                                    t.confirmDeleteUser(e);
+                                  }
+                                }
+                              },
+                              [t._v("Delete")]
+                            )
+                          ]),
+                          t._v(" "),
+                          s("hr")
+                        ]
+                      )
+                    ]);
+                  }),
+                  t._v(" "),
+                  t.userModal
+                    ? s(
+                        "div",
+                        [
+                          s(
+                            "b-modal",
+                            {
+                              attrs: { active: t.isUserEditingActive },
+                              on: {
+                                "update:active": function(e) {
+                                  t.isUserEditingActive = e;
+                                }
+                              }
+                            },
+                            [
+                              s("div", { staticClass: "mediaModal" }, [
+                                s("h1", { staticClass: "modalTitle" }, [
+                                  t._v(
+                                    "\n                    Editing " +
+                                      t._s(t.userModal.username) +
+                                      " !\n                "
+                                  )
+                                ]),
+                                t._v(" "),
+                                s("div", { staticClass: "card profile-card" }, [
+                                  s(
+                                    "div",
+                                    {
+                                      staticClass:
+                                        "card-content column is-6 is-center",
+                                      attrs: { id: "ActionCard" }
+                                    },
+                                    [
+                                      s("div", [
+                                        s(
+                                          "div",
+                                          { staticClass: "media-left" },
+                                          [
+                                            s(
+                                              "figure",
+                                              {
+                                                staticClass:
+                                                  "image is-64x64 is-circle"
+                                              },
+                                              [
+                                                s("img", {
+                                                  staticClass: "imgProfile",
+                                                  attrs: {
+                                                    src: t.userModal.picProfile,
+                                                    alt: "Image"
+                                                  }
+                                                })
+                                              ]
+                                            )
+                                          ]
+                                        ),
+                                        t._v(" "),
+                                        s("div", [
+                                          s("p", [
+                                            t._v(
+                                              "\n                            Created at :" +
+                                                t._s(
+                                                  t
+                                                    .moment(
+                                                      t.userModal.created_at
+                                                    )
+                                                    .format("DD-MM-YYYY HH:mm")
+                                                ) +
+                                                "\n                          "
+                                            )
+                                          ])
+                                        ]),
+                                        t._v(" "),
+                                        s("p", [
+                                          t._v(
+                                            "\n                            Updated at :" +
+                                              t._s(
+                                                t
+                                                  .moment(
+                                                    t.userModal.updated_at
+                                                  )
+                                                  .format("DD-MM-YYYY HH:mm")
+                                              ) +
+                                              "\n                          "
+                                          )
+                                        ]),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s("span", [t._v("Nom:")]),
+                                        s("br"),
+                                        t._v(" "),
+                                        s("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: t.userModal.username,
+                                              expression: "userModal.username"
+                                            }
+                                          ],
+                                          staticClass: "location",
+                                          attrs: { type: "text" },
+                                          domProps: {
+                                            value: t.userModal.username
+                                          },
+                                          on: {
+                                            input: function(e) {
+                                              e.target.composing ||
+                                                t.$set(
+                                                  t.userModal,
+                                                  "username",
+                                                  e.target.value
+                                                );
+                                            }
+                                          }
+                                        }),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s("span", [t._v("location:")]),
+                                        s("br"),
+                                        t._v(" "),
+                                        s("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: t.userModal.location,
+                                              expression: "userModal.location"
+                                            }
+                                          ],
+                                          staticClass: "location",
+                                          attrs: { type: "text" },
+                                          domProps: {
+                                            value: t.userModal.location
+                                          },
+                                          on: {
+                                            input: function(e) {
+                                              e.target.composing ||
+                                                t.$set(
+                                                  t.userModal,
+                                                  "location",
+                                                  e.target.value
+                                                );
+                                            }
+                                          }
+                                        }),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s("span", [t._v("lang:")]),
+                                        s("br"),
+                                        t._v(" "),
+                                        s("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: t.userModal.lang,
+                                              expression: "userModal.lang"
+                                            }
+                                          ],
+                                          staticClass: "location",
+                                          attrs: { type: "text" },
+                                          domProps: { value: t.userModal.lang },
+                                          on: {
+                                            input: function(e) {
+                                              e.target.composing ||
+                                                t.$set(
+                                                  t.userModal,
+                                                  "lang",
+                                                  e.target.value
+                                                );
+                                            }
+                                          }
+                                        }),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s("span", [t._v("Role:")]),
+                                        s("br"),
+                                        t._v(" "),
+                                        s("input", {
+                                          directives: [
+                                            {
+                                              name: "model",
+                                              rawName: "v-model",
+                                              value: t.userModal.role,
+                                              expression: "userModal.role"
+                                            }
+                                          ],
+                                          staticClass: "location",
+                                          attrs: { type: "text" },
+                                          domProps: { value: t.userModal.role },
+                                          on: {
+                                            input: function(e) {
+                                              e.target.composing ||
+                                                t.$set(
+                                                  t.userModal,
+                                                  "role",
+                                                  e.target.value
+                                                );
+                                            }
+                                          }
+                                        }),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s(
+                                          "label",
+                                          [
+                                            s("span", [
+                                              t._v("Update user photo:")
+                                            ]),
+                                            s("br"),
+                                            t._v(" "),
+                                            s("croppa", {
+                                              attrs: {
+                                                "prevent-white-space": !1,
+                                                "reverse-scroll-to-zoom": !0,
+                                                "show-loading": !0,
+                                                "loading-size": 50,
+                                                accept: "image/*",
+                                                "initial-image": "",
+                                                width: 150,
+                                                height: 150,
+                                                quality: 1,
+                                                "placeholder-font-size": 18
+                                              },
+                                              model: {
+                                                value: t.image,
+                                                callback: function(e) {
+                                                  t.image = e;
+                                                },
+                                                expression: "image"
+                                              }
+                                            })
+                                          ],
+                                          1
+                                        ),
+                                        t._v(" "),
+                                        s("br"),
+                                        s("hr"),
+                                        t._v(" "),
+                                        s(
+                                          "div",
+                                          { staticClass: "centerButton" },
+                                          [
+                                            s(
+                                              "button",
+                                              {
+                                                staticClass:
+                                                  "button is-small is-outlined is-primary",
+                                                attrs: { id: "adWL" },
+                                                on: { click: t.saveUpdate }
+                                              },
+                                              [t._v("Save modifications")]
+                                            )
+                                          ]
+                                        )
+                                      ])
+                                    ]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : t._e(),
+                  t._v(" "),
+                  t.deleteModale
+                    ? s(
+                        "div",
+                        [
+                          s(
+                            "b-modal",
+                            {
+                              attrs: { active: t.isUserDeletingActive },
+                              on: {
+                                "update:active": function(e) {
+                                  t.isUserDeletingActive = e;
+                                }
+                              }
+                            },
+                            [
+                              s("div", { staticClass: "mediaModal" }, [
+                                s("div", { staticClass: "card profile-card" }, [
+                                  s("p", [
+                                    t._v(
+                                      "T'es sûr de vouloir effacer ce user  ????"
+                                    )
+                                  ]),
+                                  t._v(" "),
+                                  s(
+                                    "button",
+                                    {
+                                      attrs: { type: "button", name: "button" },
+                                      on: {
+                                        click: function(e) {
+                                          t.deleteUser(t.deleteModale);
+                                        }
+                                      }
+                                    },
+                                    [t._v("YES - ERASE IT!")]
+                                  ),
+                                  t._v(" "),
+                                  s(
+                                    "button",
+                                    {
+                                      attrs: { type: "button", name: "button" },
+                                      on: {
+                                        click: function(e) {
+                                          t.noDelete();
+                                        }
+                                      }
+                                    },
+                                    [t._v("NO ... My mistake")]
+                                  )
+                                ])
+                              ])
+                            ]
+                          )
+                        ],
+                        1
+                      )
+                    : t._e()
+                ],
+                2
+              )
+            : t._e();
+        },
+        i = [],
+        n = { render: a, staticRenderFns: i };
+      e.a = n;
+    },
+    ,
+    function(t, e) {},
+    ,
+    ,
+    ,
+    ,
+    function(t, e) {}
+  ],
+  [277]
+);
+//# sourceMappingURL=app.d3d65e40769158df6ae0.js.map
