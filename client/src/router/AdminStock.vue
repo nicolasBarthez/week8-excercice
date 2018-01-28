@@ -8,6 +8,7 @@
       <button type="button" @click="addNewStock()"name="button">Add a stock</button>
       <button type="button" @click="exportToExcel()"name="button">Export</button>
       <br>
+      <button class="btn-red" type="button" @click="closeOldWatchitems()"name="button">Close old positions</button>
       <hr>
       <br>
       <button @click="goto('bottom')">Go to bottom</button>
@@ -17,8 +18,7 @@
           <th>STOCK NAME</th>
           <th>SHORT NAME</th>
           <th>INDEX</th>
-          <th>EDIT</th>
-          <th>DEL</th>
+
         </tr>
       <tr v-for="(stock, index) in stocks" :key="index" >
 
@@ -236,7 +236,8 @@ import {
   getAllStocks,
   stockUpdate,
   stockDelete,
-  stockCreate
+  stockCreate,
+  scoreUpdate
 } from "@/api/apiAdmin";
 import moment from "moment";
 import vSelect from "vue-select";
@@ -273,7 +274,7 @@ export default {
   created() {
     getAllStocks().then(stocks => {
       if (stocks === "unauthorized") {
-        this.$router.push("/stream");
+        this.$router.push("/404");
       } else {
         this.stocks = stocks;
       }
@@ -293,13 +294,18 @@ export default {
     addNewStock() {
       this.isStockCreatingActive = true;
     },
+    closeOldWatchitems() {
+      scoreUpdate().then(data => {
+        alert("Mise à jour des Watchitems réussie!");
+      });
+    },
     saveCreate() {
       this.image.imageSet === true ? this.generateImage() : "";
       stockCreate(this.stockModal)
         .then(data => {
           getAllStocks().then(stocks => {
             if (stocks === "unauthorized") {
-              this.$router.push("/stream");
+              this.$router.push("/404");
             } else {
               this.stocks = stocks;
               this.isStockCreatingActive = false;
@@ -324,7 +330,7 @@ export default {
         .then(data => {
           getAllStocks().then(stocks => {
             if (stocks === "unauthorized") {
-              this.$router.push("/stream");
+              this.$router.push("/404");
             } else {
               this.stocks = stocks;
               this.isStockDeletingActive = false;
@@ -366,7 +372,7 @@ export default {
           this.isStockEditingActive = false;
           getAllStocks().then(stocks => {
             if (stocks === "unauthorized") {
-              this.$router.push("/stream");
+              this.$router.push("/404");
             } else {
               this.stocks = stocks;
             }
@@ -392,6 +398,18 @@ export default {
 tr {
   margin: 25px;
   padding: 10px 30px;
+}
+
+.btn-red {
+    margin: 30px;
+    PADDING-LEFT: 30PX;
+    PADDING-RIGHT: 30PX;
+    color: #fff!important;
+    background-color: #ff6026!important;
+    box-shadow: 0 0 0 0.125em #ff6026!important;;
+    border-color: #ff6026!important;;
+    font-weight: bolder;
+    FONT-SIZE: 1.2REM;
 }
 
 th {

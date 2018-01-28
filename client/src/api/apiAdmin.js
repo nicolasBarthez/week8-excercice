@@ -128,6 +128,18 @@ export function userUpdate(_id, username, location, lang, role, picProfile) {
     });
 }
 
+export function scoreUpdate() {
+  let url = "admin/stocks/watchitem/autoclose";
+  return insiders
+    .patch(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return err;
+    });
+}
+
 export function userDelete(userId) {
   let url = `admin/users/delete/` + userId;
   return insiders

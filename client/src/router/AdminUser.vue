@@ -3,30 +3,45 @@
     <h1 class= "title">
       Page admin : Suivi des utilisateurs enregistrés
     </h1>
-    <p>Il y a actuellement {{userList.length}} utilisateurs enregistrés</p>
+    <p class="page" ref="top">Il y a actuellement {{userList.length}} utilisateurs enregistrés</p>
     <br>
     <button type="button" @click="exportToExcel()"name="button">Export</button>
-    <br> <hr>
-    <div v-for="(user, index) in userList" :key="index" class="columns">
-      <div class="media-left">
-                <figure class="image is-64x64 is-circle"><img class ="imgProfile" :src="user.picProfile" alt="Image"></figure>
-            </div>
-        <div class="picss column is-12 is-marginless">
-            <div class="media-left">
-              <strong>{{user.username}}</strong> ||
-              {{user.email}} ||
-              {{user.location}} ||
-              {{user.lang}} ||
-              following: {{user.following.length}} ||
-              position taken: {{user.watchList.length}} ||
-              <span class="has-text-green">Created at :{{moment(user.created_at).format('DD-MM-YYYY HH:mm')}}</span> ||
-              <span class="has-text-red">Updated at :{{moment(user.updated_at).format('DD-MM-YYYY HH:mm')}}</span>
-              <button type="button" @click="editUser(user)" name="button">Edit</button>
-              <button type="button" @click="confirmDeleteUser(user)"name="button">Delete</button>
-            </div>
+    <br>
+    <hr>
+    <br>
+    <button @click="goto('bottom')">Go to bottom</button>
+    <table >
+      <tr>
+        <th>IMAGE</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>LOCATION</th>
+        <th>LANGUAGE</th>
+        <th>FOLLOWING</th>
+        <th>POSITION TAKEN</th>
+        <th>CREATED AT</th>
+        <th>UPDATED AT</th>
+      </tr>
+    <tr v-for="(user, index) in userList" :key="index" >
+
+            <td><figure class="image is-64x64 is-circle"><img class ="imgProfile" :src="user.picProfile" alt="Image"></figure></td>
+            <td><strong>{{user.username}}</strong></td>
+            <td>{{user.email}}</td>
+            <td>{{user.location}}</td>
+            <td>{{user.lang}}</td>
+            <td>{{user.following.length}}</td>
+            <td>{{user.watchList.length}}</td>
+            <td><span class="has-text-green">{{moment(user.created_at).format('DD-MM-YYYY HH:mm')}}</span></td>
+            <td><span class="has-text-red">Updated at :{{moment(user.updated_at).format('DD-MM-YYYY HH:mm')}}</span></td>
+            <td><button type="button" @click="editUser(user)" name="button">Edit</button></td>
+            <td><button type="button" @click="confirmDeleteUser(user)"name="button">Delete</button></td>
+
             <hr>
-        </div>
-    </div>
+
+    </tr>
+  </table>
+  <button class="page" ref="bottom" @click="goto('top')">Go to top</button>
+
     <div v-if= "userModal">
 
     <b-modal :active.sync="isUserEditingActive">
@@ -127,7 +142,7 @@ export default {
   created() {
     getUsersList().then(userList => {
       if (userList === "unauthorized") {
-        this.$router.push("/stream");
+        this.$router.push("/404");
       } else {
         this.userList = userList;
       }
@@ -137,6 +152,13 @@ export default {
     connectedUser: Object
   },
   methods: {
+    goto(refName) {
+      var element = this.$refs[refName];
+      console.log(element);
+      var top = element.offsetTop;
+
+      window.scrollTo(0, top);
+    },
     moment: function(time) {
       return moment(time);
     },
@@ -160,7 +182,7 @@ export default {
           this.isUserEditingActive = false;
           getUsersList().then(userList => {
             if (userList === "unauthorized") {
-              this.$router.push("/stream");
+              this.$router.push("/404");
             } else {
               this.userList = userList;
             }
@@ -187,7 +209,7 @@ export default {
         .then(data => {
           getUsersList().then(userList => {
             if (userList === "unauthorized") {
-              this.$router.push("/stream");
+              this.$router.push("/404");
             } else {
               this.userList = userList;
               this.isUserDeletingActive = false;
@@ -207,6 +229,16 @@ export default {
 </script>
 
 <style scoped>
+tr {
+  margin: 25px;
+  padding: 10px 30px;
+}
+
+th {
+  margin: 25px 10px 25px 60px;
+  padding: 10px;
+  background-color: #BDBDBD;
+}
 .title{
   font-size: 100%;
   font-weight: bold;

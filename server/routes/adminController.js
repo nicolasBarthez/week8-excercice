@@ -8,6 +8,12 @@ const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
 
+// *********************************************************
+// *********************************************************
+// USERS administration
+// *********************************************************
+// *********************************************************
+
 // **********************************************************
 // Send users list
 // **********************************************************
@@ -29,6 +35,10 @@ adminController.get(
     }
   }
 );
+
+// **********************************************************
+// Edit user
+// **********************************************************
 
 adminController.patch(
   "/users/edit",
@@ -55,6 +65,10 @@ adminController.patch(
   }
 );
 
+// **********************************************************
+// Delete user
+// **********************************************************
+
 adminController.delete(
   "/users/delete/:id",
   passport.authenticate("jwt", config.jwtSession),
@@ -68,6 +82,13 @@ adminController.delete(
     });
   }
 );
+
+// *********************************************************
+// *********************************************************
+// STOCKS administration
+// *********************************************************
+// *********************************************************
+
 // **********************************************************
 // Send stocks list
 // **********************************************************
@@ -88,6 +109,10 @@ adminController.get(
   }
 );
 
+// ******************************
+// Get a stock
+// ******************************
+
 adminController.get(
   "/stocks/:id",
   passport.authenticate("jwt", config.jwtSession),
@@ -104,6 +129,10 @@ adminController.get(
     }
   }
 );
+
+// ******************************
+// Edit stock
+// ******************************
 
 adminController.patch(
   "/stocks/edit",
@@ -139,6 +168,10 @@ adminController.patch(
   }
 );
 
+// ******************************
+// Delete stock
+// ******************************
+
 adminController.delete(
   "/stocks/delete/:id",
   passport.authenticate("jwt", config.jwtSession),
@@ -152,6 +185,10 @@ adminController.delete(
     });
   }
 );
+
+// ******************************
+// Create stock
+// ******************************
 
 adminController.post(
   "/stocks/create",
@@ -180,6 +217,84 @@ adminController.post(
         res.json(newStock);
       }
     });
+  }
+);
+
+// ******************************
+// Update score
+// ******************************
+
+adminController.patch(
+  "/stocks/watchitem/autoclose",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    // Set today & thirtyDaysAgo dates
+    const today = moment().startOf("day");
+    const thirtyDaysAgo = moment(today).subtract(30, "days");
+
+    // Close the watchItems created more than 30 days ago
+    WatchItem.find({
+      status: "active",
+      created_at: {
+        $lte: thirtyDaysAgo.toDate()
+      }
+    })
+      // .populate("stockId")
+      .exec((err, watchitems) => {
+        console.log("watchitems =>", watchitems);
+        watchitems.forEach(item => {
+          // Update score and close position
+          WatchItem.findById(item._id)
+            // .populate("stockId")
+            .exec((err, watchItem) => {
+              let updateScore = 0;
+              let newStatus = watchItem.status;
+              if (watchItem.position === "bull") {
+                newStatus =
+                  watchItem.stockId.price < watchItem.initialPrice
+                    ? "lost"
+                    : "won";
+
+                // Update score of the user
+                updateScore = Math.floor(
+                  (watchItem.stockId.price - watchItem.initialPrice) /
+                    watchItem.initialPrice *
+                    1000
+                );
+              } else if (watchItem.position === "bear") {
+                newStatus =
+                  watchItem.stockId.price > watchItem.initialPrice
+                    ? "lost"
+                    : "won";
+
+                // Update score of the user
+                updateScore = Math.floor(
+                  (watchItem.stockId.price - watchItem.initialPrice) /
+                    watchItem.initialPrice *
+                    -1000
+                );
+              }
+
+              // close position
+              WatchItem.findByIdAndUpdate(watchItem._id, {
+                status: newStatus,
+                soldPrice: watchItem.stockId.price,
+                $inc: { performancePoints: updateScore }
+              })
+                .then(resp => {
+                  // Update watchList
+                  User.findByIdAndUpdate(item.userId._id, {
+                    $pull: { watchList: watchItemId }
+                  }).then(resp => {
+                    res.json("Update with:" + newStatus);
+                  });
+                })
+                .catch(err => {
+                  console.log(err);
+                });
+            });
+        });
+      });
   }
 );
 
