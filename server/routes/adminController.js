@@ -245,7 +245,7 @@ adminController.patch(
         watchitems.forEach(item => {
           // Update score and close position
           WatchItem.findById(item._id)
-            // .populate("stockId")
+            .populate("stockId")
             .exec((err, watchItem) => {
               let updateScore = 0;
               let newStatus = watchItem.status;
@@ -284,7 +284,7 @@ adminController.patch(
                 .then(resp => {
                   // Update watchList
                   User.findByIdAndUpdate(item.userId._id, {
-                    $pull: { watchList: watchItemId }
+                    $pull: { watchList: watchItem._id }
                   }).then(resp => {
                     res.json("Update with:" + newStatus);
                   });
