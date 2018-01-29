@@ -241,59 +241,63 @@ adminController.patch(
     })
       // .populate("stockId")
       .exec((err, watchitems) => {
-        console.log("watchitems =>", watchitems);
-        watchitems.forEach(item => {
-          // Update score and close position
-          WatchItem.findById(item._id)
-            .populate("stockId")
-            .exec((err, watchItem) => {
-              let updateScore = 0;
-              let newStatus = watchItem.status;
-              if (watchItem.position === "bull") {
-                newStatus =
-                  watchItem.stockId.price < watchItem.initialPrice
-                    ? "lost"
-                    : "won";
+        if (watchitems.length === 0) {
+          res.json("No updates");
+        } else {
+          console.log("watchitems =>", watchitems);
+          watchitems.forEach(item => {
+            // Update score and close position
+            WatchItem.findById(item._id)
+              .populate("stockId")
+              .exec((err, watchItem) => {
+                let updateScore = 0;
+                let newStatus = watchItem.status;
+                if (watchItem.position === "bull") {
+                  newStatus =
+                    watchItem.stockId.price < watchItem.initialPrice
+                      ? "lost"
+                      : "won";
 
-                // Update score of the user
-                updateScore = Math.floor(
-                  (watchItem.stockId.price - watchItem.initialPrice) /
-                    watchItem.initialPrice *
-                    1000
-                );
-              } else if (watchItem.position === "bear") {
-                newStatus =
-                  watchItem.stockId.price > watchItem.initialPrice
-                    ? "lost"
-                    : "won";
+                  // Update score of the user
+                  updateScore = Math.floor(
+                    (watchItem.stockId.price - watchItem.initialPrice) /
+                      watchItem.initialPrice *
+                      1000
+                  );
+                } else if (watchItem.position === "bear") {
+                  newStatus =
+                    watchItem.stockId.price > watchItem.initialPrice
+                      ? "lost"
+                      : "won";
 
-                // Update score of the user
-                updateScore = Math.floor(
-                  (watchItem.stockId.price - watchItem.initialPrice) /
-                    watchItem.initialPrice *
-                    -1000
-                );
-              }
+                  // Update score of the user
+                  updateScore = Math.floor(
+                    (watchItem.stockId.price - watchItem.initialPrice) /
+                      watchItem.initialPrice *
+                      -1000
+                  );
+                }
 
-              // close position
-              WatchItem.findByIdAndUpdate(watchItem._id, {
-                status: newStatus,
-                soldPrice: watchItem.stockId.price,
-                $inc: { performancePoints: updateScore }
-              })
-                .then(resp => {
-                  // Update watchList
-                  User.findByIdAndUpdate(item.userId._id, {
-                    $pull: { watchList: watchItem._id }
-                  }).then(resp => {
-                    res.json("Update with:" + newStatus);
-                  });
+                // close position
+                WatchItem.findByIdAndUpdate(watchItem._id, {
+                  status: newStatus,
+                  soldPrice: watchItem.stockId.price,
+                  $inc: { performancePoints: updateScore }
                 })
-                .catch(err => {
-                  console.log(err);
-                });
-            });
-        });
+                  .then(resp => {
+                    // Update watchList
+                    User.findByIdAndUpdate(item.userId._id, {
+                      $pull: { watchList: watchItem._id }
+                    }).then(resp => {
+                      res.json("Update with:" + newStatus);
+                    });
+                  })
+                  .catch(err => {
+                    console.log(err);
+                  });
+              });
+          });
+        }
       });
   }
 );
