@@ -1,5 +1,5 @@
 <template >
-  <div v-if = "profileInfo" class="column is-3" id="ActionCard">
+  <div v-if="profileInfo && connectedUser " class="column is-3" id="ActionCard">
     <div class="card profile-card">
       <div class="card-content">
         <div class="media" id="stockInfo">
@@ -54,7 +54,7 @@
                 </router-link></p>
               </div>
                <nav v-if="leaderboard" id="LB" class="level media">
-                <figure v-if="leaderboard.rankingByPoints[leaderboard.index-1]"class="image is-96x96 is-circle" >
+                <figure v-if="leaderboard.rankingByPoints[leaderboard.index-1] || !leaderboard.rankingByPoints[leaderboard.index]" class="image is-96x96 is-circle" >
                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId">
                     <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
                    <span class="rank subtitle is-6">

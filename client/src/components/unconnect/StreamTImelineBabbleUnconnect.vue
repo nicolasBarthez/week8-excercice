@@ -26,13 +26,13 @@
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
-                          <router-link to="'/leaderboard'" class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
+                          <router-link to='/leaderboard' class=""><img class="imgProfile" :src="babble.user.picProfile"></router-link>
                         </p>
                     </figure>
                     <div class="media-content">
                         <div class="content">
                             <p class="tweet-meta">
-                                <router-link to="'/leaderboard'" class="">
+                                <router-link to='/leaderboard' class="">
                                    <strong>{{babble.user.username}}</strong></router-link>
                                    <small class="media-right has-text-grey-light">{{moment(babble.created_at).format('DD-MM-YYYY HH:mm')}}</small>
                             </p>

@@ -1,12 +1,13 @@
 <template>
-    <section class="main">
-  <my-profile-block v-if="!isEditing" :connectedUser="connectedUser" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
-  <update-my-info v-if="isEditing" :connectedUser="connectedUser" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
 
-  <my-current-insights v-if="activeItem==='curinsights' && !isEditing " :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-current-insights>
-  <my-watch-list v-else-if="activeItem==='watchlist'&& !isEditing" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-watch-list>
-  <my-insiders-followed v-else-if="activeItem==='insfollowed'&& !isEditing" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-insiders-followed>
-  <my-past-insights v-else-if="activeItem==='pastinsights'&& !isEditing" @Watch=" myWatchList($event)" :connectedUser="connectedUser" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-past-insights>
+  <section class="main">
+    <my-profile-block v-if="!isEditing" :connectedUser="connectedUser" @editprofile="changeToEdit()" :profileInfo="profileInfo"></my-profile-block>
+    <update-my-info v-if="isEditing" :connectedUser="connectedUser" @saveprofile="changeToEdit()" :profileInfo="profileInfo"></update-my-info>
+
+    <my-current-insights v-if="activeItem==='curinsights' && !isEditing " :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-current-insights>
+    <my-watch-list v-else-if="activeItem==='watchlist'&& !isEditing" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-watch-list>
+    <my-insiders-followed v-else-if="activeItem==='insfollowed'&& !isEditing" :connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)"></my-insiders-followed>
+    <my-past-insights v-else-if="activeItem==='pastinsights'&& !isEditing" @Watch=" myWatchList($event)" :connectedUser="connectedUser" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="currentInsights($event)" ></my-past-insights>
 
 </section>
 

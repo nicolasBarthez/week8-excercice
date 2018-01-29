@@ -7,16 +7,16 @@
         <div v-for="(recentPosition, index) in recentPositions" :key="index" class="columns">
             <div class="picss column is-12 is-marginless">
                 <div class="media-left">
-                    <figure class="image is-48x48 is-circle">
-                        <router-link :to="'/dashboard/'+recentPosition._doc.userId._id" class=""><img class="imgProfile" :src="recentPosition._doc.userId.picProfile">
-                        </router-link>
+                    <figure @click="SignupModal" class="image is-48x48 is-circle">
+                        <img class="imgProfile" :src="recentPosition._doc.userId.picProfile">
+
                     </figure>
                 </div>
 
                 <p>
-                    <router-link :to="'/dashboard/'+recentPosition._doc.userId._id" >
-                        <strong>&commat;{{recentPosition._doc.userId.username}}</strong>
-                    </router-link><br>
+
+                        <strong @click="SignupModal">&commat;{{recentPosition._doc.userId.username}}</strong>
+                    <br>
                     <span v-if="langSelected==='EN'" class = "seeDash">({{recentPosition.nbOfInsightsWon}} <span v-if = "recentPosition.nbOfInsightsWon>1"> won trades)</span><span v-else> won trade)</span></span>
                     <span v-else class = "seeDash">({{recentPosition.nbOfInsightsWon}}<span v-if = "recentPosition.nbOfInsightsWon>1"> trades gagnants)</span><span v-else> trade gagnant)</span>  </span><br>
                     <span>{{langSelected==='EN'?"is":"est"}} <strong :class="{'has-text-green' : recentPosition._doc.position==='bull', 'has-text-red' :recentPosition._doc.position==='bear'}">{{recentPosition._doc.position}}</strong> {{langSelected==='EN'?"on":"sur"}}  <router-link :to="'/stocks/'+recentPosition._doc.stockId.shortName" >#{{recentPosition._doc.stockId.longName}}</router-link>
@@ -26,22 +26,64 @@
             </div>
         </div>
     </div>
+    <!-- SIGN UP MODAL -->
+    <b-modal :active.sync="isSignupModalActive" :width="640">
+      <signup-modal @loginModal.capture="LoginModal($event)"></signup-modal>
+    </b-modal>
+
+    <!-- LOG IN MODAL -->
+    <b-modal :active.sync="isLoginModalActive" :width="640">
+      <login-modal :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
+    </b-modal>
  </div>
 </template>
 
 <script>
+import SignupModal from "@/components/SignupModal";
+import LoginModal from "@/components/LoginModal";
+
 export default {
+  components: {
+    SignupModal,
+    LoginModal
+  },
+
   data() {
-    return {};
+    return {
+      isSignupModalActive: false,
+      isLoginModalActive: false,
+      autenticate: ""
+    };
   },
   props: {
     recentPositions: null,
-    langSelected:""
+    langSelected: ""
+  },
+  methods: {
+    SignupModal() {
+      this.isLoginModalActive = false;
+      this.isSignupModalActive = true;
+      this.$emit("signup");
+    },
+    LoginModal(autenticate) {
+      this.isSignupModalActive = false;
+      this.autenticate = autenticate;
+      this.isLoginModalActive = true;
+    },
+    closeLoginModal() {
+      this.isLoginModalActive = false;
+    }
   }
 };
 </script>
 
 <style scoped>
+.image {
+  cursor: pointer
+}
+strong  {
+  cursor: pointer
+}
 .is-9{
     margin-left: 5%
 }

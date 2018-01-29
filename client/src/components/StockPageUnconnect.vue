@@ -3,17 +3,17 @@
 <nav-bar-unconnect v-if="!this.$root.user" :langSelected="langSelected" @changeLang="changeLang($event)"></nav-bar-unconnect>
 <not-found v-if="stock==='no stock'"></not-found>
   <section v-else class="section main">
-       
+
 <stock-header-unconnect v-if="stock"  :langSelected="langSelected" :stock="stock" :trendBullBear="trendBullBear" @signup="fetchData()" @trendBullBearThirty="fetchData()" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)"></stock-header-unconnect>
      <div class="primordial">
       <div class="sct1">
-        <side-recent-activity-unconnect class="is-3 is-sticky sci" :langSelected="langSelected" :recentPositions ="recentPositions"></side-recent-activity-unconnect>
+        <side-recent-activity-unconnect class="is-3 sci" :langSelected="langSelected" :recentPositions ="recentPositions"></side-recent-activity-unconnect>
         <div class="babblesField column is-6">
           <publish-babble-unconnect @signup="fetchData()"  :langSelected="langSelected" :stock="stock? stock:{}"></publish-babble-unconnect>
           <timeline-babble-unconnect @signup="fetchData()"  :langSelected="langSelected" :stock="stock? stock:{}" :babbles="babbles"></timeline-babble-unconnect>
         </div>
         <side-current-insight-unconnect @signup="fetchData()" :langSelected="langSelected" class="sci"></side-current-insight-unconnect>
-      
+
       </div>
     </div>
     </section>
@@ -33,7 +33,6 @@ import PublishBabbleUnconnect from "@/components/unconnect/PublishBabbleUnconnec
 import TimelineBabbleUnconnect from "@/components/unconnect/TimelineBabbleUnconnect";
 import SideCurrentInsightUnconnect from "@/components/unconnect/SideCurrentInsightUnconnect";
 import NavBarUnconnect from "@/components/NavBarUnconnect";
-
 
 export default {
   data() {
@@ -55,12 +54,12 @@ export default {
     NotFound
   },
   props: {
-    langSelected:""
+    langSelected: ""
   },
 
   methods: {
     changeLang(lang) {
-       this.$emit("changeLang",lang);
+      this.$emit("changeLang", lang);
     },
     updateTimelineBabble() {
       this.fetchData();
@@ -117,9 +116,7 @@ export default {
 </script>
 
 <style scoped>
-.is-sticky{
-   position:sticky
- }
+
  div{
    font-size:1.2rem !important
 }
