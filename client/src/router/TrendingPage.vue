@@ -120,9 +120,9 @@ function makeSortParam(field, order) {
 }
 
 export default {
-   components: {
-    NavBarUnconnect,
-   },
+  components: {
+    NavBarUnconnect
+  },
   data() {
     return {
       stocks: [],
@@ -135,16 +135,16 @@ export default {
       perPage: 40,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "desc",
+      defaultSortDirection: "desc"
     };
   },
   props: {
-    langSelected:"",
+    langSelected: "",
     connectedUser: Object
   },
   methods: {
     changeLang(lang) {
-       this.$emit("changeLang",lang);
+      this.$emit("changeLang", lang);
     },
     selected() {
       this.indexSelected = "SELECTED";
@@ -249,6 +249,7 @@ export default {
     }).then(stocks => {
       this.stocks = stocks;
     });
+    document.title = `Tous les cours CAC 40, CRYPTO, NASDAQ, EURONEXT, SBF120`;
   }
 };
 </script>

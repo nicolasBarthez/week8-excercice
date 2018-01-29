@@ -184,6 +184,8 @@ export default {
     getLeaderBoard().then(leaderBoard => {
       this.leaderBoard = leaderBoard;
     });
+    document.title =
+      "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !";
   },
 
   methods: {
