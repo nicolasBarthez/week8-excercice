@@ -5,7 +5,7 @@
             <div class="card-content">
                 <div class="media" id="stockInfo">
                    <div class="media-left">
-                       <figure class="image is-64x64 is-circle">
+                       <figure class="image is-64x64 is-circle bigPicture">
                          <img class ="imgProfile" :src="stock.stockImg" alt="stockImg">
                        </figure>
                    </div>
@@ -17,7 +17,7 @@
                                 <a class="">{{stock.isin}}</a>
                                 <a class="">{{stock.shortName}}</a>
                               </p>
-                              <a v-if="stock.index[0]==='EURONEXT PARIS'|| 'CRYPTO'"@click="descriptionStock(), wikiDescription(stock.longName)" class="stock-see-desc is-6 has-text-grey-light">{{connectedUser.lang==="EN"?"More info...":"Plus d'info..."}}</a>
+                              <a v-if="stock.index[0]==='EURONEXT PARIS'|| 'CRYPTO'"@click="descriptionStock()" class="stock-see-desc is-6 has-text-grey-light">{{connectedUser.lang==="EN"?"More info...":"Plus d'info..."}}</a>
                             </div>
                             <div class="add-to-watchlist" >
                                <button v-if="!watchItem" id="adWL" @click="addWatchList()" class="button is-small is-outlined is-primary">{{connectedUser.lang==='EN'?'Add to watchlist':'Je veux suivre'}}</button>
@@ -47,7 +47,7 @@
                                <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
                                     <span v-if="stock.index[0]==='NASDAQ'||'EURONEXT PARIS'||'CRYPTO'" class="chartIcon">
-                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp see chart</i>
+                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp </i>{{langSelected === "EN"?"Chart":"Historique"}}
                                     </span>
                              </div>
                         </div>
@@ -112,7 +112,7 @@
                         </h1>
                     </nav>
                     <div id="bullsAndBears2">
-                        <div id="stock-desc" class="div is-outlined" v-html="this.description"></div>
+                        <div id="stock-desc" class="div is-outlined" >{{connectedUser.lang==="EN"?stock.descriptionEng:stock.description}}</div>
                 </div>
                 </div>
             </b-modal>
@@ -278,19 +278,15 @@ export default {
     trend1() {
       this.$emit("trendBullBearOne");
       this.activeItem = "one";
-    },
-    wikiDescription(stockLongName) {
-      const stockName = this.$route.params.stockName;
-      return getDescription(stockName, stockLongName).then(description => {
-        console.log("Description", description);
-        this.description = description;
-      });
     }
   }
 };
 </script>
 
 <style scoped>
+.bigPicture{
+  width: 120px !important;
+}
 .has-text-green{
     font-weight: bold
 }
@@ -359,9 +355,9 @@ export default {
      cursor: pointer;
  }
  .fa-line-chart{
-     font-size:0.85REM;
-     font-weight:bold;
-     cursor:pointer
+   font-size:1.5REM;
+   cursor:pointer;
+
  }
  .sock-info{
     width:25%
@@ -445,7 +441,7 @@ a {
     width: 100%;
 }
 .stVar {
-    font-size: 1.3REM!important;
+    font-size: 1.7REM!important;
 }
 #stockInfo {
     display: flex;

@@ -87,7 +87,7 @@
           <div class="mediaModal">
           <div v-if="connectedUser">
                <label> <span class="chartIcon titleVideo">
-                  <i class="fa fa-youtube"></i>&nbsp {{connectedUser.lang==="EN"?'Share your video (youtube only)':'Partager votre vidéo (exclusivement youtube)'}}</span>
+                  <i class="fa fa-youtube"></i>&nbsp {{connectedUser.lang==="EN"?'Share your video (youtube)':'Partager votre vidéo (youtube)'}}</span>
                   <div class="containerYoutube1">
                       <div class="control containerYoutube2">
                           <input autofocus class="youtubeField"v-model="babbleVideo" id="babble-video"  name="babble-video" :placeholder="connectedUser.lang==='EN'?'https://www.youtube.com/watch?v=rlZRtQkfK04':'https://www.youtube.com/watch?v=rlZRtQkfK04'"/>
