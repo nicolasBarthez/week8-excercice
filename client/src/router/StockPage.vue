@@ -32,8 +32,8 @@ export default {
   created() {
     getStock(this.$route.params.stockName).then(stock => {
       this.stock = stock;
-      document.title = `Insiders - Retrouver les cours et les dernières infos sur ${this
-        .stock.longName} du ${this.stock.index}`;
+      document.title = `Retrouver les cours et les dernières infos sur ${this
+        .stock.longName} du ${this.stock.index} - Insiders finance`;
     });
   }
 };

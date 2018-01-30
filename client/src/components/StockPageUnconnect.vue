@@ -24,7 +24,7 @@
 <script>
 import { getRecentPosition } from "@/api/api";
 import { getStock } from "@/api/api";
-import { getStockBabbles } from "@/api/api";
+import { getStockBabblesUnconnected } from "@/api/api";
 import { getTrend } from "@/api/api";
 import NotFound from "@/router/NotFound";
 import StockHeaderUnconnect from "@/components/unconnect/StockHeaderUnconnect";
@@ -71,7 +71,7 @@ export default {
         this.stock = stock;
       });
 
-      getStockBabbles(stockName, "all").then(babbles => {
+      getStockBabblesUnconnected(stockName, "all").then(babbles => {
         this.babbles = babbles;
       });
 
@@ -104,8 +104,6 @@ export default {
     setTimeout(() => {
       getStock(this.$route.params.stockName).then(stock => {
         this.stock = stock;
-        // document.title = `Insiders - Retrouver les cours et les dernières infos sur ${this
-        //   .stock.longName} du ${this.stock.index}`;
       });
     }, 5000);
   },

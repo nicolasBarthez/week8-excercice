@@ -16,11 +16,18 @@
                         </div>
                         <div class="level">
                             <div class="level-left">
-                                <a class="has-text-grey-light">
-                                    <span v-if="connectedUser"  @click="shareChart()" class="chartIcon">
-                                         <i class="fa fa-line-chart"></i>&nbsp {{connectedUser.lang==="EN"?'Share an image':'Partager une image'}}
-                                    </span>
-                                </a>
+                              <a class="options-img-video">
+                                  <span @click="shareChart()" class="chartIcon">
+                                       <i class="fa fa-picture-o"></i>&nbsp
+                                       <p class="text-img-options">{{connectedUser.lang==="EN"?'Share image':'Partager image'}}</p>
+                                  </span>
+                              </a>
+                              <a class="has-text-grey-light">
+                                  <span @click="shareVideo()" class="chartIcon">
+                                       <i class="fa fa-youtube "></i>&nbsp
+                                       <p class="text-img-options"> {{connectedUser.lang==="EN"?'Share video':'Partager vidéo'}}</p>
+                                  </span>
+                              </a>
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">{{charactersLeft}}</div>
@@ -45,6 +52,44 @@
                     <button id="Bbear" @click="imBear()"  class="button is-small is-outlined is-primary">Be Bear</button>
                 </div>
             </div>
+        </b-modal>
+        <b-modal :active.sync="isShareVideoActive">
+          <div class="mediaModal">
+          <div v-if="connectedUser">
+               <label> <span class="chartIcon titleVideo">
+                  <i class="fa fa-youtube"></i>&nbsp {{connectedUser.lang==="EN"?'Share your video (youtube only)':'Partager votre vidéo (exclusivement youtube)'}}</span>
+                  <div class="containerYoutube1">
+                      <div class="control containerYoutube2">
+                          <input autofocus class="youtubeField"v-model="babbleVideo" id="babble-video"  name="babble-video" :placeholder="connectedUser.lang==='EN'?'https://www.youtube.com/watch?v=rlZRtQkfK04':'https://www.youtube.com/watch?v=rlZRtQkfK04'"/>
+                      </div>
+                  </div>
+              </label><br>
+             <div class="card-content bg-light">
+          <div class="media">
+              <div class="media-left">
+                  <figure v-if="connectedUser" class="image is-64x64 is-circle"><img class ="imgProfile" :src="connectedUser.picProfile" alt="Image"></figure>
+              </div>
+              <div class="media-content">
+                  <div>
+                      <div class="field1">
+                          <div class="control">
+                              <textarea @input="putHashtag($event)" v-model="babble" id="babble-text"  name="babble" maxlength="1618" rows="3" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" class="textarea">
+                                  </textarea></div>
+                      </div>
+                      <div class="level">
+                          <div class="level-left">
+                          </div>
+                          <div class="level-right">
+                              <div class="level-item has-text-grey">{{charactersLeft}}</div>
+                              <div class="level-item"><button id="babble-submit"  @click="postVideoBabble()" class="button is-outlined is-primary btn">Babble</button></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+          </div>
+          </div>
         </b-modal>
 
         <b-modal :active.sync="isShareChartActive">
@@ -146,7 +191,9 @@ export default {
       noSticker: false,
       width: 0,
       height: 0,
-      quality: 0
+      quality: 0,
+      isShareVideoActive: false,
+      babbleVideo: ""
     };
   },
   props: {
@@ -191,15 +238,27 @@ export default {
         this.postBabble(),
         (this.isShareChartActive = false);
     },
-
+    shareVideo() {
+      this.isShareVideoActive = true;
+    },
+    postVideoBabble() {
+      this.postBabble();
+      this.isShareVideoActive = false;
+    },
     postBabble() {
       if (!this.watchItem || this.watchItem.position === "none") {
         this.isCardModalActive = true;
       }
       this.babble = emojify.replace(this.babble);
-      sendBabble(this.babble, this.stock._id, this.babbleUrl).then(() => {
+      sendBabble(
+        this.babble,
+        this.stock._id,
+        this.babbleUrl,
+        this.babbleVideo
+      ).then(() => {
         this.babble = "";
         this.babbleUrl = "";
+        this.babbleVideo = "";
         this.$emit("changeBabbles");
       });
     },
@@ -248,6 +307,41 @@ export default {
 </script>
 
 <style scoped>
+.fa-picture-o {
+  color: #F68818 !important;
+    font-size: 30px;
+
+}
+.options-img-video{
+  padding-right: 20px
+}
+
+.titleVideo{
+  font-size: 1.2REM !important;
+  font-weight: bold
+}
+
+.fa-youtube {
+  color: #FF0000 !important;
+  font-size: 30px;
+}
+.containerYoutube1 {
+  width: 100%;
+  margin-top: 20px
+}
+
+.containerYoutube2 {
+  width: 100%;
+}
+
+.youtubeField {
+  width: 100%;
+  height: 70%;
+  padding: 5px;
+  font-size: 1.2REM;
+  font-style: italic;
+}
+
 .bullsAndBearsPic2{
     width:40%;
     padding: 1REM
@@ -431,6 +525,12 @@ a{
 }
 
 @media screen and (max-width: 768px) {
+  .text-img-options {
+    display: none;
+  }
+  .level-left{
+    display: flex;
+  }
     .croppa-container{
         max-width:-webkit-fill-available!important
     }

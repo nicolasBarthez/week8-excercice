@@ -21,7 +21,9 @@
       <img :src="babble.babbleImg" alt="Placeholder image">
     </figure>
   </div>
-
+  <div v-if="babble.babbleVideo" class="card-image imageChart">
+    <youtube player-width="100%" :video-id="convertIntoYoutubeId(babble.babbleVideo)"></youtube>
+  </div>
 
                 <article v-if="connectedUser" class="media tweet">
                     <figure class="media-left">
@@ -71,6 +73,10 @@
                     <img :src="modalBabble.babbleImg" alt="Placeholder image">
                     </figure>
                 </div>
+                    <div v-if="modalBabble.babbleVideo" class="card-image imageChart">
+                      <youtube player-width="100%" :video-id="convertIntoYoutubeId(modalBabble.babbleVideo)"></youtube>
+                    </div>
+
                 <article class="media tweet">
                     <figure class="media-left">
                         <p class="image is-64x64 is-circle">
@@ -167,6 +173,7 @@ import { sendBabbleReply } from "@/api/api";
 import { postLike } from "@/api/api";
 import moment from "moment";
 import emojify from "emojify.js";
+import { getIdFromURL, getTimeFromURL } from "vue-youtube-embed";
 
 export default {
   data() {
@@ -175,7 +182,8 @@ export default {
       babbleText: "",
       modalBabble: "",
       userReply: "",
-      activeItem: "all"
+      activeItem: "all",
+      videoId: "videoId"
     };
   },
   props: {
@@ -193,12 +201,19 @@ export default {
     moment: function(time) {
       return moment(time);
     },
+    convertIntoYoutubeId(url) {
+      return this.$youtube.getIdFromURL(url);
+    },
     showModal(babble) {
+      this.pause;
       this.modalBabble = babble;
       this.isCardModalActive = true;
     },
-
+    stop() {
+      this.player.stopVideo();
+    },
     iLike(babble) {
+      this.stop;
       postLike(babble._id)
         .then(() => {
           this.$emit("changeBabbles");
@@ -209,10 +224,12 @@ export default {
         });
     },
     sortBabbles(activeItem) {
+      this.stop;
       this.$emit("sort", activeItem);
       this.activeItem = activeItem;
     },
     postBabble(modalBabble) {
+      this.stop;
       this.babbleText = emojify.replace(this.babbleText);
       sendBabbleReply(this.babbleText, modalBabble._id).then(() => {
         this.babbleText = "";

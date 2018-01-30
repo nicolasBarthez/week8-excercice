@@ -27,7 +27,7 @@ export default {
   },
   created() {
     document.title =
-      "Insiders - Dernières infos sur les actions, crypto,... qui rapportent de l'argent";
+      "Dernières infos sur les actions, crypto,... qui rapportent de l'argent - Insiders finance";
   }
 };
 </script>

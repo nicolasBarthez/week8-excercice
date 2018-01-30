@@ -185,7 +185,7 @@ export default {
       this.leaderBoard = leaderBoard;
     });
     document.title =
-      "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader !";
+      "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader ! - Insiders finance";
   },
 
   methods: {

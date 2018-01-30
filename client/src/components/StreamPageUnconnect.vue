@@ -18,7 +18,7 @@
 
 <script>
 import { getRecentPosition } from "@/api/api";
-import { getAllBabbles } from "@/api/api";
+import { getAllBabblesUnconnected } from "@/api/api";
 import SideRecentActivityUnconnect from "@/components/unconnect/SideRecentActivityUnconnect";
 import PublishBabbleUnconnect from "@/components/unconnect/PublishBabbleUnconnect";
 import StreamTimelineBabbleUnconnect from "@/components/unconnect/StreamTimelineBabbleUnconnect";
@@ -49,7 +49,7 @@ export default {
       this.$emit("changeLang", lang);
     },
     fetchData() {
-      getAllBabbles(this.filterBy).then(babbles => {
+      getAllBabblesUnconnected(this.filterBy).then(babbles => {
         this.babbles = babbles;
       });
       getRecentPosition().then(recentPositions => {

@@ -249,7 +249,7 @@ export default {
     }).then(stocks => {
       this.stocks = stocks;
     });
-    document.title = `Tous les cours CAC 40, CRYPTO, NASDAQ, EURONEXT, SBF120`;
+    document.title = `Tous les cours CAC 40, CRYPTO, NASDAQ, EURONEXT, SBF120 - Insiders finance`;
   }
 };
 </script>

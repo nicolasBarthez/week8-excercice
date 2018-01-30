@@ -21,7 +21,9 @@
       <img :src="babble.babbleImg" alt="Placeholder image">
     </figure>
   </div>
-
+  <div v-if="babble.babbleVideo" class="card-image imageChart">
+    <youtube player-width="100%" :video-id="convertIntoYoutubeId(babble.babbleVideo)"></youtube>
+  </div>
 
                 <article class="media tweet">
                     <figure class="media-left">
@@ -80,6 +82,7 @@ import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
 import moment from "moment";
 import emojify from "emojify.js";
+import { getIdFromURL, getTimeFromURL } from "vue-youtube-embed";
 
 export default {
   data() {
@@ -87,7 +90,8 @@ export default {
       isSignupModalActive: false,
       isLoginModalActive: false,
       autenticate: "",
-      activeItem: "all"
+      activeItem: "all",
+      videoId: "videoId"
     };
   },
   props: {
@@ -110,7 +114,14 @@ export default {
     moment: function(time) {
       return moment(time);
     },
+    convertIntoYoutubeId(url) {
+      return this.$youtube.getIdFromURL(url);
+    },
+    stop() {
+      this.player.stopVideo();
+    },
     SignupModal() {
+      stop();
       this.isLoginModalActive = false;
       this.isSignupModalActive = true;
       this.$emit("signup");

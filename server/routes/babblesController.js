@@ -17,7 +17,7 @@ const moment = require("moment");
 
 babblesController.get(
   "/",
-  // passport.authenticate("jwt", config.jwtSession),
+  passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
     // sort by people who wrote the babble
@@ -34,7 +34,7 @@ babblesController.get(
           if (err) return res.json(null);
           res.json(timeline);
         });
-    } else if (sort === "me" && user) {
+    } else if (sort === "me") {
       Babble.find({ user: user._id })
         .sort({ updated_at: -1 })
         .populate("user")
@@ -43,7 +43,7 @@ babblesController.get(
           if (err) return res.json(null);
           res.json(timeline);
         });
-    } else if (sort === "insidermates" && user) {
+    } else if (sort === "insidermates") {
       User.findById(user._id).then(us => {
         Babble.find({ user: { $in: us.following } })
           .sort({ updated_at: -1 })
@@ -56,7 +56,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "watchlist" && user) {
+    } else if (sort === "watchlist") {
       User.findById(user._id)
         .populate("watchList")
         .exec((err, us) => {
@@ -82,7 +82,7 @@ babblesController.get(
 
 babblesController.get(
   "/:name",
-  // passport.authenticate("jwt", config.jwtSession),
+  passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const stock = req.params.name.toUpperCase();
     const user = req.user;
@@ -106,7 +106,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "me" && user) {
+    } else if (sort === "me") {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return res.json("stock doesn't exist");
@@ -120,7 +120,7 @@ babblesController.get(
             res.json(timeline);
           });
       });
-    } else if (sort === "insidermates" && user) {
+    } else if (sort === "insidermates") {
       Stock.findOne({ shortName: stock }, (err, stock) => {
         if (err) return next(err);
         if (!stock) return res.json("stock doesn't exist");
@@ -151,12 +151,14 @@ babblesController.post(
     const stock = req.query.stock ? req.query.stock : "";
     const babble = req.body.babble;
     const babbleImg = req.body.babbleImg ? req.body.babbleImg : "";
+    const babbleVideo = req.body.babbleVideo ? req.body.babbleVideo : "";
     const user = req.user;
 
     const newBabble = new Babble({
       user: user._id,
       babble: babble,
       babbleImg: babbleImg,
+      babbleVideo: babbleVideo,
       stockLink: stock
     });
 
@@ -231,4 +233,53 @@ babblesController.post(
       });
   }
 );
+
+// ***************************************************
+// Send babbles for unconnected people  ==============
+// ***************************************************
+
+babblesController.get("/unconnected/stream/", function(req, res, next) {
+  // sort by people who wrote the babble
+  const sort = req.query.sort;
+  const page = req.query.page;
+  const group = page * 50;
+
+  Babble.find()
+    .sort({ updated_at: -1 })
+    .populate("user")
+    .limit(group)
+    .exec((err, timeline) => {
+      if (err) return res.json(null);
+      res.json(timeline);
+    });
+});
+
+// **********************************************************************
+// Send babbles for unconnected people (filtered on stock) ==============
+// **********************************************************************
+
+babblesController.get("/unconnected/stock/:name", function(req, res, next) {
+  const stock = req.params.name.toUpperCase();
+
+  // sort by people who wrote the babble
+  const sort = req.query.sort;
+  const page = req.query.page;
+  const group = page * 50;
+
+  Stock.findOne({ shortName: stock }, (err, stock) => {
+    if (err) return next(err);
+    if (!stock) {
+      return res.json("stock doesn't exist");
+    }
+    Babble.find({ stockLink: stock._id })
+      .sort({ updated_at: -1 })
+      .populate("user")
+      .limit(group)
+      .exec((err, timeline) => {
+        if (err) return res.json(null);
+        res.json(timeline);
+      });
+  });
+});
+
 module.exports = babblesController;
