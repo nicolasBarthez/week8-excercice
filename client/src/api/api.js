@@ -131,6 +131,17 @@ export function getStockBabbles(stockName, sortBy) {
       return null;
     });
 }
+export function getStockBabblesUnconnected(stockName, sortBy) {
+  let url = `/babbles/unconnected/stock/${stockName}?page=1&sort=${sortBy}`;
+  return insiders
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
 
 export function getWatchInsight(userId) {
   let url = `/watchitems/positions/user/${userId}`;
@@ -144,12 +155,13 @@ export function getWatchInsight(userId) {
     });
 }
 
-export function sendBabble(babble, stockId, babbleUrl) {
+export function sendBabble(babble, stockId, babbleUrl, babbleVideo) {
   let url = `/babbles?stock=${stockId}`;
   return insiders
     .post(url, {
       babble: babble,
-      babbleImg: babbleUrl
+      babbleImg: babbleUrl,
+      babbleVideo: babbleVideo
     })
     .then(response => {
       return response.data;
@@ -234,6 +246,19 @@ export function getAllBabbles(sortBy) {
       return null;
     });
 }
+
+export function getAllBabblesUnconnected(sortBy) {
+  let url = `/babbles/unconnected/stream/?page=1&sort=${sortBy}`;
+  return insiders
+    .get(url)
+    .then(response => {
+      return response.data;
+    })
+    .catch(err => {
+      return null;
+    });
+}
+
 export function getLeaderBoard() {
   let url = `/leaderboard/`;
   return insiders

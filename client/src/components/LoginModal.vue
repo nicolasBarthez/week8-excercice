@@ -55,11 +55,12 @@ export default {
       this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
-          this.$router.push("/stream");
+          this.$router.push("/trending");
           document.documentElement.className = document.documentElement.className.replace(
             "is-clipped",
             ""
           );
+          this.$router.push("/stream");
         })
         .catch(err => {
           this.error =

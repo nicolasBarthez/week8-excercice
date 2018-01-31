@@ -18,6 +18,7 @@ const babbleSchema = new Schema(
     like: {
       type: [String]
     },
+    babbleVideo: String,
     babbleImg: String,
     reply: Array
   },

@@ -24,7 +24,7 @@ const parser = multer({ storage });
 
 leaderboardController.get(
   "/",
-  passport.authenticate("jwt", config.jwtSession),
+  // passport.authenticate("jwt", config.jwtSession),
   (req, res, next) => {
     User.find().exec((err, insiders) => {
       if (err) res.json(null);
@@ -99,7 +99,6 @@ leaderboardController.get(
                   $in: ["won", "lost"]
                 }
               }).exec((err, wiClosed) => {
-                console.log("wiClosed", wiClosed);
                 // Calculate performance points
                 if (wiClosed.length > 0) {
                   userInfo.performancePoints = wiClosed
@@ -107,7 +106,6 @@ leaderboardController.get(
                     .reduce((prev, next) => prev + next);
 
                   userInfo.nbOfInsightsWon = wiClosed.filter(item => {
-                    console.log("item.status", item.status);
                     return item.status == "won";
                   }, 0).length;
                 } else {

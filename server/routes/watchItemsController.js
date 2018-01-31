@@ -42,7 +42,7 @@ watchItemsController.get(
 
 watchItemsController.get(
   "/positions",
-  passport.authenticate("jwt", config.jwtSession),
+  // passport.authenticate("jwt", config.jwtSession),
   function(req, res, next) {
     const user = req.user;
 
@@ -79,11 +79,10 @@ watchItemsController.get(
                   return item.status == "won";
                 }, 0).length;
                 lastPositionsList.push(wi);
-                console.log("Insights WON =>", wi.nbOfInsightsWon);
               } else {
                 wi.perfPoints = 0;
                 wi.nbOfInsightsWon = 0;
-                console.log("WI", wi);
+
                 lastPositionsList.push(wi);
               }
               if (lastPositionsList.length === watchitem.length) {

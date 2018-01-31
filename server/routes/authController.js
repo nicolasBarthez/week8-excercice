@@ -3,6 +3,7 @@ const jwt = require("jwt-simple");
 const router = express.Router();
 const User = require("../models/user");
 const config = require("../config");
+const nodemailer = require("nodemailer");
 
 router.post("/signup", (req, res, next) => {
   // extract the info we need from the body
@@ -25,7 +26,74 @@ router.post("/signup", (req, res, next) => {
       return next(err);
     }
 
-    res.json({ success: true });
+    // Send an email to the new users
+
+    // Generate test SMTP service account from ethereal.email
+    // Only needed if you don't have a real mail account for testing
+    nodemailer.createTestAccount((err, account) => {
+      // create reusable transporter object using the default SMTP transport
+      let transporter = nodemailer.createTransport({
+        host: "auth.smtp.1and1.fr",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user: "contact@insiders.finance",
+          pass: "P@ris2017"
+        }
+      });
+      var mailOptions = {};
+      // setup email data with unicode symbols
+      if (lang === "EN") {
+        mailOptions = {
+          from: '"Insiders" <contact@insiders.finance>', // sender address
+          to: email, // list of receivers
+          subject: "Welcome to insiders' community! 🚀🚀🚀", // Subject line
+          // text: "text ici"// plain text body
+          html:
+            "<p>Hello  " +
+            username +
+            ", </p>" +
+            "<p>We noticed you've signed up to Insiders. We just want to say thanks and to let you know we're here to answer any questions.</p>" +
+            "<p>Hopefully you've already have a chance to get an idea on how Insiders works. If not please feel free to send us direct email <a href='mailto:fred@insiders.finance,nicolas@insiders.finance?Subject=Hello%20again' target='_top'>fred@insiders.finance</a> or <a href='mailto:nicolas@insiders.finance,fred@insiders.finance?Subject=Hello%20again' target='_top'>nicolas@insiders.finance</a>.</p>" +
+            "<p>We genuinely value user feedback. So please don't hesitate to get in contact with us, even if it's just to say Hi!</p>" +
+            "<p>The community is waiting for your insights! Publish some Babbles to share your info and... take position on your prefered stocks with our friends Bull and Bear. </p>" +
+            "<br><p>- Nico and Fred</p>" +
+            "<br><a href='https://www.insiders.finance'>www.insiders.finance</a>"
+        };
+      } else {
+        mailOptions = {
+          from: '"Insiders" <contact@insiders.finance>', // sender address
+          to: email, // list of receivers
+          subject: "Bienvenue dans la communauté Insiders ! 🚀🚀🚀", // Subject line
+          // text: "text ici"// plain text body
+          html:
+            "<p>Bonjour  " +
+            username +
+            ", </p>" +
+            "<p>Nous avons remarqué que vous vous êtes inscrit sur notre site insiders.finance. Nous tenions simplement à vous remercier et à vous informer que nous sommes ici pour répondre à vos questions.</p>" +
+            "<p>J'espère que vous avez déjà eu l'occasion de vous faire une idée du fonctionnement d'insiders. Si ce n'est pas le cas, n'hésitez pas à nous envoyer un email directement à <a href='mailto:fred@insiders.finance,nicolas@insiders.finance?Subject=Hello%20again' target='_top'>fred@insiders.finance</a> ou <a href='mailto:nicolas@insiders.finance,fred@insiders.finance?Subject=Hello%20again' target='_top'>nicolas@insiders.finance</a>.</p>" +
+            "<p>Nous apprécions vraiment les commentaires des utilisateurs. N'hésitez donc pas à nous contacter, même si c'est juste pour dire bonjour !</p>" +
+            "<p>La communauté attend vos sentiments de marché! Publiez quelques Babbles pour partager vos infos et ... prenez position sur vos actions préférées avec nos amis Bull et Bear.</p>" +
+            "<br><p>- Nico et Fred</p>" +
+            "<br><a href='https://www.insiders.finance'>www.insiders.finance</a>"
+        };
+      }
+
+      // send mail with defined transport object
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          return console.log(error);
+        }
+        console.log("Message sent: %s", info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+        // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+        // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+      });
+
+      res.json({ success: true });
+    });
   });
 });
 

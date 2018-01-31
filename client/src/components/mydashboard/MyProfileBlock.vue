@@ -47,8 +47,8 @@
               </div>
 
               <nav id="LB" class="level media">
-                <figure v-if="leaderboard.rankingByPoints[leaderboard.index-1]"class="image is-96x96 is-circle" >
-                  <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId"><img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
+                <figure v-if="leaderboard.rankingByPoints[leaderboard.index-1] || !leaderboard.rankingByPoints[leaderboard.index]" class="image is-96x96 is-circle" >
+                  <router-link :to="leaderboard.index===-1 ? '/dashboard/'+connectedUser._id:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId"><img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
                   <span class="rank subtitle is-6">
                                         {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints.toFixed(0) }} P$
                                         </span>

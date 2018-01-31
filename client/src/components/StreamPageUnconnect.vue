@@ -4,13 +4,13 @@
     <div class="primordial">
       <div class="sct1">
 
-        <side-recent-activity-unconnect class="is-3 is-sticky sci" :langSelected="langSelected" :recentPositions ="recentPositions"></side-recent-activity-unconnect>
+        <side-recent-activity-unconnect class="is-3 sci" :langSelected="langSelected" :recentPositions ="recentPositions"></side-recent-activity-unconnect>
         <div class="babblesField column is-6">
           <publish-babble-unconnect @signup="fetchData()"  :langSelected="langSelected"></publish-babble-unconnect>
           <stream-timeline-babble-unconnect @signup="fetchData()"  :langSelected="langSelected" :babbles="babbles"></stream-timeline-babble-unconnect>
         </div>
         <side-current-insight-unconnect @signup="fetchData()" :langSelected="langSelected" class="sci"></side-current-insight-unconnect>
-     
+
       </div>
     </div>
   </section>
@@ -18,7 +18,7 @@
 
 <script>
 import { getRecentPosition } from "@/api/api";
-import { getAllBabbles } from "@/api/api";
+import { getAllBabblesUnconnected } from "@/api/api";
 import SideRecentActivityUnconnect from "@/components/unconnect/SideRecentActivityUnconnect";
 import PublishBabbleUnconnect from "@/components/unconnect/PublishBabbleUnconnect";
 import StreamTimelineBabbleUnconnect from "@/components/unconnect/StreamTimelineBabbleUnconnect";
@@ -34,7 +34,7 @@ export default {
     };
   },
   props: {
-    langSelected:""
+    langSelected: ""
   },
   components: {
     PublishBabbleUnconnect,
@@ -46,10 +46,10 @@ export default {
 
   methods: {
     changeLang(lang) {
-       this.$emit("changeLang",lang);
+      this.$emit("changeLang", lang);
     },
     fetchData() {
-      getAllBabbles(this.filterBy).then(babbles => {
+      getAllBabblesUnconnected(this.filterBy).then(babbles => {
         this.babbles = babbles;
       });
       getRecentPosition().then(recentPositions => {
@@ -130,4 +130,3 @@ div{
   }
 }
 </style>
-

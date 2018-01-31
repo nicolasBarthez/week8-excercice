@@ -15,11 +15,18 @@
                         </div>
                         <div class="level">
                             <div class="level-left">
-                                <a class="has-text-grey-light">
-                                    <span   @click="SignupModal" class="chartIcon">
-                                         <i class="fa fa-line-chart"></i>&nbsp {{langSelected==="EN"?'Share an image':'Partager une image'}}
-                                    </span>
-                                </a>
+                              <a class="options-img-video">
+                                  <span @click="SignupModal()" class="chartIcon">
+                                       <i class="fa fa-picture-o"></i>&nbsp
+                                       <p class="text-img-options">{{langSelected==="EN"?'Share image':'Partager image'}}</p>
+                                  </span>
+                              </a>
+                              <a class="has-text-grey-light">
+                                  <span @click="SignupModal()" class="chartIcon">
+                                       <i class="fa fa-youtube "></i>&nbsp
+                                       <p class="text-img-options"> {{langSelected==="EN"?'Share video':'Partager vidéo'}}</p>
+                                  </span>
+                              </a>
                             </div>
                             <div class="level-right">
                                 <div class="level-item has-text-grey">1618</div>
@@ -49,27 +56,26 @@ import LoginModal from "@/components/LoginModal";
 export default {
   components: {
     SignupModal,
-    LoginModal,
+    LoginModal
   },
   data() {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
-      autenticate: "",
+      autenticate: ""
     };
   },
   props: {
-    langSelected:"",
+    langSelected: "",
     stock: {
       type: Object,
       default: function() {
         return { shortName: "" };
       }
-    },
-    
+    }
   },
   methods: {
-       SignupModal() {
+    SignupModal() {
       this.isLoginModalActive = false;
       this.isSignupModalActive = true;
       this.$emit("signup");
@@ -87,6 +93,40 @@ export default {
 </script>
 
 <style scoped>
+.fa-picture-o {
+  color: #F68818 !important;
+    font-size: 30px;
+
+}
+.options-img-video{
+  padding-right: 20px
+}
+
+.titleVideo{
+  font-size: 1.2REM !important;
+  font-weight: bold
+}
+
+.fa-youtube {
+  color: #FF0000 !important;
+  font-size: 30px;
+}
+.containerYoutube1 {
+  width: 100%;
+  margin-top: 20px
+}
+
+.containerYoutube2 {
+  width: 100%;
+}
+
+.youtubeField {
+  width: 100%;
+  height: 70%;
+  padding: 5px;
+  font-size: 1.2REM;
+  font-style: italic;
+}
 .bullsAndBearsPic2{
     width:40%;
     padding: 1REM
@@ -270,6 +310,12 @@ a{
 }
 
 @media screen and (max-width: 768px) {
+  .text-img-options {
+    display: none;
+  }
+  .level-left{
+    display: flex;
+  }
     .croppa-container{
         max-width:-webkit-fill-available!important
     }

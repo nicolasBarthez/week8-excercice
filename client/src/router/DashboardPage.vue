@@ -1,5 +1,6 @@
 <template >
-<section class="section main">
+<not-found v-if="profileInfo==='no user'"></not-found>
+<section v-else class="section main">
 <insider-profile-block @profileInfo="updateInsiderProfile()" @changeFollow="updateInsiderProfile()" :profileInfo="profileInfo" :connectedUser="connectedUser"></insider-profile-block>
 
   <board-insiders-current-insights v-if="activeItem==='curinsights'":currentInsights="currentInsights":connectedUser="connectedUser" @Watch=" myWatchList($event)" @InsFollo=" myInsidersFollowed($event)" @PastIns=" myPastInsights($event)" @curIns="updateInsiderProfile($event)" ></board-insiders-current-insights>
@@ -11,6 +12,7 @@
 </template>
 
 <script>
+import NotFound from "@/router/NotFound";
 import { getInsiderCurrentInsights } from "@/api/apiDashboard";
 import InsiderProfileBlock from "../components/dashboard/InsiderProfileBlock";
 import BoardInsidersCurrentInsights from "../components/dashboard/BoardInsidersCurrentInsights";
@@ -32,7 +34,8 @@ export default {
     BoardInsidersCurrentInsights,
     BoardInsidersWatchList,
     BoardInsidersPastInsights,
-    BoardInsidersFollowed
+    BoardInsidersFollowed,
+    NotFound
   },
   props: {
     connectedUser: Object

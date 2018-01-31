@@ -93,6 +93,7 @@
                 <b-table-column label="Insider" centered field='userId'>
                   <div  @click="SignupModal" class="insider">
                     <figure class="image is-32x32 is-circle">
+                      <img class="imgProfile" :src="props.row.picProfile">
                     </figure>
                     {{props.row.username}}
                   </div>
@@ -155,7 +156,7 @@ export default {
   components: {
     SignupModal,
     LoginModal,
-    NavBarUnconnect,
+    NavBarUnconnect
   },
   data() {
     return {
@@ -172,22 +173,24 @@ export default {
       perPage: 20,
       isPaginated: true,
       isPaginationSimple: false,
-      defaultSortDirection: "asc",
+      defaultSortDirection: "asc"
     };
   },
   props: {
-    langSelected:"",
+    langSelected: "",
     connectedUser: Object
   },
   created() {
     getLeaderBoard().then(leaderBoard => {
       this.leaderBoard = leaderBoard;
     });
+    document.title =
+      "Les meilleurs Insiders : Suivez leurs conseils et devenez un meilleur trader ! - Insiders finance";
   },
 
   methods: {
     changeLang(lang) {
-       this.$emit("changeLang",lang);
+      this.$emit("changeLang", lang);
     },
     onPageChange(page) {
       this.page = page;

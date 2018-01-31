@@ -147,7 +147,7 @@ export default {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
-      autenticate: "",
+      autenticate: ""
     };
   },
   props: {
@@ -170,19 +170,22 @@ export default {
       this.autenticate = autenticate;
       this.isLoginModalActive = true;
     },
-    
+
     changeLang(lang) {
-       this.$emit("changeLang",lang);
+      this.$emit("changeLang", lang);
     },
     closeLoginModal() {
       this.isLoginModalActive = false;
     }
   },
-  created(){
-    document.documentElement.className = document.documentElement.className.replace(
-            "has-shadow",
-            "navcach"
-          );
+  created() {
+    document.title =
+      "Insiders - La communauté des investisseurs informés (actions, crypto,...)";
+    document
+      .querySelector('meta[name="description"]')
+      .setAttribute(
+        "Partager vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous."
+      );
   }
 };
 </script>
