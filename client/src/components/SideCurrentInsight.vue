@@ -1,6 +1,6 @@
 <template>
   <div  v-if="connectedUser && watchInsight" class="column is-3 sideRecent mainSCI">
-    <div v-if="watchInsight.length>0" class="is-sticky">
+    <div v-if="watchInsight.length>0">
         <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
                <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
@@ -32,7 +32,7 @@
             </div>
         </div>
     </div>
-    <div v-else class="is-sticky">
+    <div v-else>
         <nav v-if="connectedUser" class="navbar is-dark">
                <p v-if="connectedUser.lang==='EN'" id="currentInsight" class="babMenu navbar-item whiteci">Open Positions</p>
                <p v-else id="currentInsight" class="babMenu navbar-item whiteci">Positions ouvertes</p>
@@ -135,9 +135,6 @@ a{
 }
 .card-content {
     padding: 1rem;
-}
-.mainSCI{
-    position:sticky
 }
 
 .Symbol {

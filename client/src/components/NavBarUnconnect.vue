@@ -51,8 +51,8 @@
                     <p v-else class="button buttonLogin" type="button" @click="SignupModal">Rejoindre</p>
                  </div>
                  <div v-if="langSelected" class="image is-48x48">
-                        <img v-if="langSelected==='FR'" class ="flag" @click="changeLang('EN')" src="/static/images/landing/usflag.jpg">
-                        <img v-else class ="flag" @click="changeLang('FR')" src="/static/images/landing/frenchflag.jpg">
+                        <img v-if="langSelected==='FR'" class ="flag is-48x48" @click="changeLang('EN')" src="/static/images/landing/usflag.jpg">
+                        <img v-else class ="flag is-48x48" @click="changeLang('FR')" src="/static/images/landing/frenchflag.jpg">
                  </div>
                 </div>
         </div>

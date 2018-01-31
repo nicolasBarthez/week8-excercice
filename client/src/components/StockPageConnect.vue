@@ -5,7 +5,7 @@
     <stock-header v-if="stock" :stock="stock" :watchItem ="watchItem" :connectedUser="connectedUser" :trendBullBear="trendBullBear" @trendBullBearOne="getTrend1($event)" @trendBullBearSeven="getTrend7($event)" @changeWatchlist="updateWatchList($event)"></stock-header>
     <div class="primordial">
       <div class="sct1">
-        <side-recent-activity  :connectedUser="connectedUser" class="is-3 is-sticky sci" :recentPositions ="recentPositions"></side-recent-activity>
+        <side-recent-activity  :connectedUser="connectedUser" class="is-3 sci" :recentPositions ="recentPositions"></side-recent-activity>
         <div class="babblesField column is-6">
           <publish-babble :watchItem ="watchItem" :connectedUser="connectedUser" :stock="stock? stock:{}"  @changeWatchlist="updateWatchList($event)" @changeBabbles="updateTimelineBabble($event)"></publish-babble>
           <timeline-babble :connectedUser="connectedUser" :stock="stock? stock:{}" :babbles="babbles" @sort="changeSort" @changeBabbles="updateTimelineBabble($event)"></timeline-babble>
@@ -138,9 +138,7 @@ export default {
 </script>
 
 <style scoped>
-.is-sticky{
-   position:sticky
- }
+
  div{
    font-size:1.2rem !important
 }
