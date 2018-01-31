@@ -46,8 +46,8 @@
                                  <div class="stock-priceVar title is-5">
                                <small class="is-6 has-text-grey-light">Volume: {{stock.volume}}</small>
                                 </div>
-                                    <span v-if="stock.index[0]==='NASDAQ'||'EURONEXT PARIS'||'CRYPTO'" class="chartIcon">
-                                         <i @click="ChartStock" class="fa fa-line-chart">&nbsp </i>{{langSelected === "EN"?"Chart":"Historique"}}
+                                    <span @click="ChartStock" v-if="stock.index[0]==='NASDAQ'||'EURONEXT PARIS'||'CRYPTO'" class="chartIcon">
+                                         <i  class="fa fa-line-chart">&nbsp </i>{{langSelected === "EN"?"Chart":"Historique"}}
                                     </span>
                              </div>
                         </div>
@@ -350,6 +350,7 @@ export default {
     justify-content:flex-end;
     margin-top: 1%!important;
     display: flex;
+    cursor: pointer;
  }
  .stock-see-desc{
      cursor: pointer;

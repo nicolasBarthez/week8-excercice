@@ -121,7 +121,7 @@
                     <div>
                         <div class="field1">
                             <div class="control">
-                                <textarea v-if="connectedUser" v-model="babble" @input="putHashtag($event)" :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="1618" rows="3"  class="textarea">
+                                <textarea v-if="connectedUser" v-model="babble"  :placeholder="connectedUser.lang==='EN'?'Write here your info about #'+stock.shortName:'Ecrivez une info sur #'+stock.shortName" id="babble-text" name="babble" maxlength="1618" rows="3"  class="textarea">
                                 </textarea>
                             </div>
 
@@ -250,6 +250,7 @@ export default {
         this.isCardModalActive = true;
       }
       this.babble = emojify.replace(this.babble);
+      this.babble = "#" + this.stock.shortName + " " + this.babble;
       sendBabble(
         this.babble,
         this.stock._id,
@@ -277,21 +278,21 @@ export default {
         this.isCardModalActive = false;
         this.imBearModal = true;
       });
-    },
-
-    putHashtag(e) {
-      if (
-        e.data === "#" &&
-        e.target.value[e.target.value.lastIndexOf("#") - 1] === " "
-      ) {
-        console.log("Autocomplete launched");
-      }
-      return this.babble.length !== 1
-        ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
-          ? this.babble
-          : "#" + this.stock.shortName + "- " + this.babble
-        : (this.babble = `#${this.stock.shortName}-` + this.babble);
     }
+
+    // putHashtag(e) {
+    //   if (
+    //     e.data === "#" &&
+    //     e.target.value[e.target.value.lastIndexOf("#") - 1] === " "
+    //   ) {
+    //     console.log("Autocomplete launched");
+    //   }
+    //   return this.babble.length !== 1
+    //     ? e.target.value.split("-")[0] === `#${this.stock.shortName}-`
+    //       ? this.babble
+    //       : "#" + this.stock.shortName + "- " + this.babble
+    //     : (this.babble = `#${this.stock.shortName}-` + this.babble);
+    // }
   },
   computed: {
     charactersLeft() {
