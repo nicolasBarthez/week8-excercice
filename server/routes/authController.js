@@ -149,6 +149,7 @@ router.post("/login", (req, res, next) => {
 
 router.post("/forgot_password", function(req, res, next) {
   const email = req.body.email;
+  console.log("email", email);
 
   User.findOne({ email: email }, (err, user) => {
     if (err) return next(err);
@@ -229,13 +230,11 @@ router.get("/new_password", function(req, res, next) {
   });
 });
 
-router.post("/new_password", function(req, res, next) {
-  const userId = req.body.userId;
+router.post("/new_password/:id", function(req, res, next) {
+  const userId = req.params.id;
   const password = req.body.password;
 
-  console.log("userId", userId);
   User.findById(userId, function(err, user) {
-    console.log("user", user);
     user.setPassword(password, function(err) {
       if (err) {
         return next(err);

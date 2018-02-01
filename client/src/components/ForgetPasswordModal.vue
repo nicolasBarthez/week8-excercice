@@ -29,7 +29,7 @@
                                         </b-input>
                                     </b-field>
                                     <p class="control login">
-                                        <button @click="send()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Envoyez le lien de réinitialisation</button>
+                                        <button @click="send()" v-if="langSelected==='FR'" class="button is-success is-outlined is-large is-fullwidth">Envoyez le lien de réinitialisation</button>
                                         <button @click="send()" v-else class="button is-success is-outlined is-large is-fullwidth">Send reset link</button>
                                     </p>
                    </div>
@@ -44,9 +44,9 @@ import { sendForgetPassword } from "@/api/auth";
 export default {
   data() {
     return {
-      email:"",
+      email: "",
       error: null,
-      username:""
+      username: ""
     };
   },
   props: {
@@ -55,11 +55,12 @@ export default {
   methods: {
     send() {
       this.error = null;
-     sendForgetPassword(this.email)
-        .then(username => {this.username = username;          
+      sendForgetPassword(this.email)
+        .then(username => {
+          this.username = username;
         })
         .catch(err => {
-          this.error = err
+          this.error = err;
         });
     }
   }

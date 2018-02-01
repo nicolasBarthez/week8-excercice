@@ -61,7 +61,12 @@ export function signup(userInfo) {
 }
 
 export function sendForgetPassword(email) {
-  return auth.post("/forgot_password", email).then(response => {
+  return auth.post("/forgot_password", { email }).then(response => {
+    return response.data;
+  });
+}
+export function resetMyPassword(userId, password) {
+  return auth.post("/new_password/" + userId, { password }).then(response => {
     return response.data;
   });
 }
