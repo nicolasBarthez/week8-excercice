@@ -59,3 +59,9 @@ export function signup(userInfo) {
     return response.data;
   });
 }
+
+export function sendForgetPassword(email) {
+  return auth.post("/forgot_password", email).then(response => {
+    return response.data;
+  });
+}

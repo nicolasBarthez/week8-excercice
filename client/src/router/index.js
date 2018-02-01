@@ -10,57 +10,62 @@ import LeaderBoard from "./LeaderBoard";
 import NotFound from "./NotFound";
 import AdminStock from "./AdminStock";
 import AdminUser from "./AdminUser";
+import ResetPassword from "./ResetPassword";
+
 
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
-  routes: [
-    {
-      path: "/",
-      component: LandingPage
-    },
-    {
-      path: "/stocks/:stockName",
-      component: StockPage
-    },
-    {
-      path: "/trending",
-      component: TrendingPage
-    },
-    {
-      path: "/mydashboard",
-      component: MyDashBoard
-    },
-    {
-      path: "/dashboard/:id",
-      component: DashboardPage
-    },
-    {
-      path: "/stream",
-      component: StreamPage
-    },
-    {
-      path: "/leaderboard",
-      component: LeaderBoard
-    },
-    {
-      path: "/admin/users",
-      component: AdminUser
-    },
-    {
-      path: "/admin/stocks",
-      component: AdminStock
-    },
-    {
-      path: "*",
-      component: NotFound
-    }
-  ],
+    mode: "history",
+    routes: [{
+            path: "/",
+            component: LandingPage
+        },
+        {
+            path: "/stocks/:stockName",
+            component: StockPage
+        },
+        {
+            path: "/trending",
+            component: TrendingPage
+        },
+        {
+            path: "/mydashboard",
+            component: MyDashBoard
+        },
+        {
+            path: "/dashboard/:id",
+            component: DashboardPage
+        },
+        {
+            path: "/stream",
+            component: StreamPage
+        },
+        {
+            path: "/leaderboard",
+            component: LeaderBoard
+        },
+        {
+            path: "/admin/users",
+            component: AdminUser
+        },
+        {
+            path: "/admin/stocks",
+            component: AdminStock
+        },
+        {
+            path: "/resetpassword/:id",
+            component: ResetPassword
+        },
+        {
+            path: "*",
+            component: NotFound
+        }
+    ],
 
-  scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
-  }
+    scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 };
+    }
 });
 
 export default router;
