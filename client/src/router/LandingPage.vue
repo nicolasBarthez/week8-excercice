@@ -129,7 +129,10 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 
         <!-- LOG IN MODAL -->
         <b-modal :active.sync="isLoginModalActive" :width="640">
-          <login-modal :langSelected="langSelected" :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
+          <login-modal :langSelected="langSelected" :autenticate="autenticate" @forgetModal="forgetModal()" @closeLoginModal="closeLoginModal()"></login-modal>
+        </b-modal>
+         <b-modal :active.sync="isForgetModalActive" :width="640">
+          <forget-password-modal :langSelected="langSelected"></forget-password-modal>
         </b-modal>
       </div>
     </div>
@@ -140,6 +143,7 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
+import ForgetPasswordModal from "@/components/ForgetPasswordModal";
 import StreamPage from "@/router/StreamPage";
 
 export default {
@@ -147,6 +151,7 @@ export default {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
+      isForgetModalActive: false,
       autenticate: ""
     };
   },
@@ -157,6 +162,7 @@ export default {
   components: {
     SignupModal,
     LoginModal,
+    ForgetPasswordModal,
     StreamPage
   },
 
@@ -176,6 +182,9 @@ export default {
     },
     closeLoginModal() {
       this.isLoginModalActive = false;
+    },
+    forgetModal(){
+      this.isForgetModalActive=true;
     }
   },
   created() {
