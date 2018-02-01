@@ -22,12 +22,12 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Performance":"Performance"}}</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong"> {{profileInfo.performancePoints.toFixed(0) }}  &nbsp P$</strong></p>
+                    <strong class="follOwStrong":class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}"> {{profileInfo.performancePoints.toFixed(0) }} P$</strong></p>
                 </div>
                 <div class="wonTrade"id="follOw">
                   <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Won Trades":"Trades gagnants"}}</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong" :class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}">{{profileInfo.nbOfInsightsWon}}</strong>
+                    <strong class="follOwStrong" >{{profileInfo.nbOfInsightsWon}}</strong>
                   </p>
                 </div>
               </div>
@@ -129,8 +129,8 @@ div {
     font-size: 1REM!important;
 }
 .rank{
-    font-size:0.8rem !important;
-    margin-left: 20%!important;
+  display: flex;
+  justify-content: space-around;
 }
 .is-96x96{
     width: 96px!important;
@@ -259,6 +259,9 @@ a {
   flex-direction: column;
 }
 @media (max-width: 768px) {
+  .rank{
+    font-size: 0.8REM!important;
+  }
    .sock-info {
   width: 25%;
 }
