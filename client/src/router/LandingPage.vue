@@ -13,9 +13,9 @@
   </div>
     <div class="accroche">
         <h1 class="accrocheH1" v-if="langSelected==='EN'">Join the best community of investors you can trust.</h1>
-        <h1 class="accrocheH1" v-else>Rejoignez la communauté des investisseurs de confiance.</h1>
+        <h1 class="accrocheH1" v-else>Rejoigner la communauté des investisseurs de confiance.</h1>
         <p class="accrocheP" v-if="langSelected==='EN'">Share your insights about the pulse of the market, learn from others and have fun.</p>
-        <p class="accrocheP" v-else>Partager vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous.</p>
+        <p class="accrocheP" v-else>Partagez vos sentiments de marchés, apprenez des investisseurs confirmés et amusez-vous.</p>
     </div>
     <div class="loggiin">
         <p v-if="langSelected==='EN'" class="button is-large buttonLogin" type="button" @click="LoginModal">Login</p>
@@ -52,7 +52,7 @@
       <h1 class="accrocheH1" v-if="langSelected==='EN'">Real time insights.</h1>
       <h1 class="accrocheH1" v-else>Des infos en temps réel</h1>
       <p class="accrocheP" v-if="langSelected==='EN'">Quickly catch up on what is happening with the stocks you own and which companies everyone is talking about today.</p>
-      <p class="accrocheP" v-else>Retrouver rapidement ce qui se passe avec les actions que vous possédez et dont tout le monde parle aujourd'hui.</p>
+      <p class="accrocheP" v-else>Retrouvez rapidement ce qui se passe avec les actions que vous possédez et dont tout le monde parle aujourd'hui.</p>
     </div>
     <div class="sentimentLandImage2" >
       <img src="/static/images/landing/give-insight.gif">
@@ -69,7 +69,7 @@
     <h1 class="accrocheH1" v-else>Obtenez les meilleurs conseils financiers. Gratuitement.</h1>
     <p class="accrocheP" v-if="langSelected==='EN'">We believe that the financial system should help the rest of us, not just the wealthy.
 The future of investing is social. Connect with other active investors before making your next trade. Find and follow the pros.</p>
-    <p class="accrocheP" v-else>Nous croyons que le système financier se doivent de profiter à tous, pas seulement aux riches.
+    <p class="accrocheP" v-else>Nous croyons que le système financier se doit de profiter à tous, pas seulement aux riches.
 L'avenir de l'investissement est social. Connectez-vous avec d'autres investisseurs actifs avant de faire votre prochain trade. Trouvez et suivez les meilleurs.</p>
   </div>
  </div>
@@ -87,19 +87,19 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
                 <img class="img" src="/static/images/landing/emily.jpg">
               <h4 class="separator nametesti subtitle"> @emily</h4>
               <p class="testiP" v-if="langSelected==='EN'">”I doubled my stocks income since I joined Insiders. Thx so much!”</p>
-              <p class="testiP" v-else>” J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !"</p>
+              <p class="testiP" v-else>”J’ai doublé mes revenus en bourse depuis que j'ai rejoint Insiders. Merci beaucoup !”</p>
           </div>
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/emmanuel.png">
               <h4 class="separator nametesti subtitle"> @emmanuel</h4>
-              <p class="testiP" v-if="langSelected==='EN'">” We need young Frenchmen who want to become billionaires.” (Taking about Insiders)</p>
-              <p class="testiP" v-else>” Il faut des jeunes Français qui aient envie de devenir milliardaires.” (en parlant des Insiders)</p>
+              <p class="testiP" v-if="langSelected==='EN'">”We need young Frenchmen who want to become billionaires.”</p>
+              <p class="testiP" v-else>”Il faut des jeunes Français qui aient envie de devenir milliardaires.” </p>
           </div>
           <div class="column is-one-third testi">
                 <img class="img" src="/static/images/landing/daniel.png">
               <h4 class="separator nametesti subtitle"> @daniel</h4>
-              <p class="testiP" v-if="langSelected==='EN'">"Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight."</p>
-              <p class="testiP" v-else>" Quiconque joue à la Bourse sans être un Insider, est comme un homme qui achète des vaches au clair de lune."</p>
+              <p class="testiP" v-if="langSelected==='EN'">”Anybody who plays the stock market not as an Insider is like a man buying cows in the moonlight.”</p>
+              <p class="testiP" v-else>”Quiconque joue à la Bourse sans être un Insider, est comme un homme qui achète des vaches au clair de lune.”</p>
 
           </div>
         </div>
