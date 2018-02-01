@@ -133,6 +133,7 @@ div {
   justify-content: space-around;
 }
 .is-96x96{
+    cursor: pointer;
     width: 96px!important;
     height: 96px!important;
     }
