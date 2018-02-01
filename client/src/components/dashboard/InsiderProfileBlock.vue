@@ -41,7 +41,7 @@
           </div>
             </div>
              <div id="refAndSkills">
-              <div class="preferedTrades level-item has-text-centered column is-3">
+              <div class="preferedTrades preferedStock level-item has-text-centered column is-3">
                 <p class="title is-6">{{connectedUser.lang ==="EN"? "Prefered trades":"Positions préférées"}}</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints.toFixed(0) : "-" }} P$
@@ -168,6 +168,9 @@ body {
 }
 div {
     font-size: 1REM!important;
+}
+.preferedStock{
+  cursor: pointer;
 }
 .rank{
   display: flex;
