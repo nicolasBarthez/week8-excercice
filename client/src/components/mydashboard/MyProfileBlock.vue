@@ -22,12 +22,12 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Performance":"Performance"}}</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong"> {{profileInfo.performancePoints.toFixed(0) }}  &nbsp P$</strong></p>
+                    <strong class="follOwStrong":class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}"> {{profileInfo.performancePoints.toFixed(0) }} P$</strong></p>
                 </div>
                 <div class="wonTrade"id="follOw">
                   <p class="is-6 has-text-grey-light follOw"><strong class="follOwStrong">{{connectedUser.lang ==="EN"? "Won Trades":"Trades gagnants"}}</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong" :class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}">{{profileInfo.nbOfInsightsWon}}</strong>
+                    <strong class="follOwStrong" >{{profileInfo.nbOfInsightsWon}}</strong>
                   </p>
                 </div>
               </div>
@@ -36,7 +36,7 @@
               </div>
             </div>
             <div id="refAndSkills">
-              <div class="preferedTrades level-item has-text-centered column is-3">
+              <div class="preferedTrades preferedStock level-item has-text-centered column is-3">
                 <p class="title is-6">{{connectedUser.lang ==="EN"? "Prefered trades":"Positions préférées"}}</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }}</router-link> - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints.toFixed(0) : "-" }} P$</p>
@@ -129,10 +129,14 @@ div {
     font-size: 1REM!important;
 }
 .rank{
-    font-size:0.8rem !important;
-    margin-left: 20%!important;
+  display: flex;
+  justify-content: space-around;
+}
+.preferedStock{
+  cursor: pointer;
 }
 .is-96x96{
+    cursor: pointer;
     width: 96px!important;
     height: 96px!important;
     }
@@ -259,6 +263,9 @@ a {
   flex-direction: column;
 }
 @media (max-width: 768px) {
+  .rank{
+    font-size: 0.8REM!important;
+  }
    .sock-info {
   width: 25%;
 }

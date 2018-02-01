@@ -34,7 +34,7 @@
             :default-sort="defaultSortField"
             >
 
-            <template slot-scope="props">
+            <template slot-scope="props" v-if="props.row.performancePoints !==0">
               <b-table-column field='created' numeric sortable centered label="Initiated">
                     {{ moment(props.row.created_at).format('DD-MM-YYYY') }}
                 </b-table-column>
@@ -53,14 +53,11 @@
                     {{ props.row.soldPrice }} &nbsp{{ props.row.stockId.currency}}
                 </b-table-column>
 
-                <b-table-column v-if=" props.row.position==='bull'" field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) > 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)<0}" label="Variation">
+                <b-table-column field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.initialPrice-props.row.soldPrice) < 0, 'has-text-red' : (props.row.initialPrice-props.row.soldPrice)>0}" label="Variation">
                     {{(100*(props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
                 </b-table-column>
-                <b-table-column v-else field='variation' numeric sortable centered :class="{'has-text-green' : (props.row.stockId.price-props.row.initialPrice) < 0, 'has-text-red' : (props.row.stockId.price-props.row.initialPrice)>0}" label="Variation">
-                    {{(100*-(props.row.soldPrice-props.row.initialPrice)/props.row.initialPrice).toFixed(2)}} %
-                </b-table-column>
 
-              </b-table-column><b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Performance Points">
+             <b-table-column field='performancePoints' :class="{'has-text-green': props.row.performancePoints>0, 'has-text-red' : props.row.performancePoints<0 }" numeric sortable centered label="Performance Points">
                     {{ props.row.performancePoints.toFixed(0) }} P$
                 </b-table-column>
                 <b-table-column field='closed' numeric sortable centered label="Closed">

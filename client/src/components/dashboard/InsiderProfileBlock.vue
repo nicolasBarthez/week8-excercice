@@ -22,7 +22,7 @@
                 <div>
                   <p class="is-6 has-text-grey-light"><strong class="follOwStrong">Performance</strong></p>
                   <p class="title is-5 follOwStrong">
-                    <strong class="follOwStrong" :class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}"> {{profileInfo.performancePoints.toFixed(0) }} &nbsp P$</strong>
+                    <strong class="follOwStrong" :class="{'has-text-green' :profileInfo.performancePoints.toFixed(0)>0, 'has-text-red' : profileInfo.performancePoints.toFixed(0)<0}"> {{profileInfo.performancePoints.toFixed(0) }} P$</strong>
                   </p>
                 </div>
               <div class="wonTrade"id="follOw">
@@ -41,7 +41,7 @@
           </div>
             </div>
              <div id="refAndSkills">
-              <div class="preferedTrades level-item has-text-centered column is-3">
+              <div class="preferedTrades preferedStock level-item has-text-centered column is-3">
                 <p class="title is-6">{{connectedUser.lang ==="EN"? "Prefered trades":"Positions préférées"}}</p>
                 <p class="is-4"><router-link v-if="profileInfo.preferedStocks[0]" :to="'/stocks/'+profileInfo.preferedStocks[0].shortName"class="stockName is-6" data-replace="Symbol">
                   1. {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].longName : "-" }} - {{profileInfo.preferedStocks[0]? profileInfo.preferedStocks[0].performancePoints.toFixed(0) : "-" }} P$
@@ -58,21 +58,21 @@
                   <router-link :to="leaderboard.index===-1 ? '/dashboard/'+profileInfo.userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index-1].userId">
                     <img class="imgProfile" :src="leaderboard.index===-1 ? profileInfo.picProfile:leaderboard.rankingByPoints[leaderboard.index-1].picProfile" alt="my picture"></router-link>
                    <span class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints.toFixed(0) }} <small>P$</small>
+                                        {{leaderboard.index===-1 ? 0 :leaderboard.rankingByPoints[leaderboard.index-1].performancePoints.toFixed(0) }} P$
                                         </span>
                 </figure>
                 <figure v-if="leaderboard.rankingByPoints[0]"class="image is-96x96 is-circle centralPic">
                    <router-link :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[0].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index].userId">
                   <img class="imgProfile":src="leaderboard.index===-1 ? leaderboard.rankingByPoints[0].picProfile:leaderboard.rankingByPoints[leaderboard.index].picProfile" alt="my picture"></router-link>
                   <span class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints.toFixed(0)  :leaderboard.rankingByPoints[leaderboard.index].performancePoints.toFixed(0) }} <small>P$</small>
+                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[0].performancePoints.toFixed(0)  :leaderboard.rankingByPoints[leaderboard.index].performancePoints.toFixed(0) }} P$
                                         </span>
                 </figure>
                 <figure v-if="leaderboard.rankingByPoints[leaderboard.index+1]" class="image is-96x96 is-circle">
                   <router-link  :to="leaderboard.index===-1 ? '/dashboard/'+leaderboard.rankingByPoints[1].userId:'/dashboard/'+leaderboard.rankingByPoints[leaderboard.index+1].userId">
                   <img class="imgProfile"  :src="leaderboard.index===-1 ? leaderboard.rankingByPoints[1].picProfile:leaderboard.rankingByPoints[leaderboard.index+1].picProfile" alt="my picture"></router-link>
                   <span  class="rank subtitle is-6">
-                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints.toFixed(0)  :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints.toFixed(0) }} <small>P$</small>
+                                        {{leaderboard.index===-1 ? leaderboard.rankingByPoints[1].performancePoints.toFixed(0)  :leaderboard.rankingByPoints[leaderboard.index+1].performancePoints.toFixed(0) }} P$
                                     </span>
                 </figure>
               </nav>
@@ -169,10 +169,15 @@ body {
 div {
     font-size: 1REM!important;
 }
+.preferedStock{
+  cursor: pointer;
+}
 .rank{
-  margin-left:35%!important
+  display: flex;
+  justify-content: space-around;
 }
 .is-96x96{
+  cursor: pointer;
     width: 96px!important;
     height: 96px!important;
     }
@@ -283,8 +288,7 @@ a {
 }
 @media (max-width: 768px) {
   .rank{
-    font-size:0.8rem !important;
-    margin-left: 20%!important;
+    font-size: 0.8REM!important;
   }
   .sock-info {
   width: 25%;
