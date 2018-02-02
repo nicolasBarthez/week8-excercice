@@ -111,12 +111,13 @@ export default {
               ? "Username or email is already registered. Please connect to access to your account."
               : "Cette adresse e-mail ou ce nom est deja enregistré(e). Veuillez vous connecter pour acceder à votre compte.";
         });
-      }
+      } else{
         this.error = 
          this.langSelected === "EN"
               ? "You have to complete correctly all fields before submit"
               : "Vous devez compléter tous les champs correctement avant de vous inscrire";
-      });
+      } 
+     });
     }
     ,
     loggin(){

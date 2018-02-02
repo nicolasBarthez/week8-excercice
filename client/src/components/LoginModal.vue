@@ -7,7 +7,14 @@
                 </div>
                 <div class="hero-body">
                             <div class="column is-8 is-offset-2">
-                                <b-notification  v-if="error" type="is-danger" has-icon>
+                                
+                                <b-notification  v-if="username && langSelected==='FR'" type="is-success" has-icon>
+                                    Votre mot de passe a bien été mis à jour
+                                </b-notification>
+                                <b-notification  v-else-if="username && langSelected==='EN'" type="is-success" has-icon>
+                                    Your password has been updated
+                                </b-notification>
+                                <b-notification  v-else-if="error" type="is-danger" has-icon>
                                     {{error}}
                                 </b-notification>
                                     <b-field label="Email">
@@ -27,7 +34,7 @@
                                         <button @click="login()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Login</button>
                                         <button @click="login()" v-else class="button is-success is-outlined is-large is-fullwidth">Connexion</button>
                                     </p>
-                                    <div v-if="!reset">
+                                    <div v-if="!username">
                                     <p @click="forgot" class="forget" v-if="langSelected==='EN'">Forgot Password</p>
                                     <p @click="forgot" class="forget" v-else> Mot de passe oublié</p>
                                     </div>
@@ -55,16 +62,15 @@ export default {
       default: null
     },
     langSelected: String,
-    reset:null,
     username:null
   },
   methods: {
     login() {
-      this.$validator.validateAll().then((result) => {
-       if (result) {
-           this.error = null;
+        if(this.email && this.password){
+            this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
+            
           this.$router.push("/trending");
           document.documentElement.className = document.documentElement.className.replace(
             "is-clipped",
@@ -78,13 +84,14 @@ export default {
               ? "Password or email is incorrect"
               : "Mot de passe ou email incorrect";
         });
+        }else{
+        this.error =
+          this.langSelected === "EN"
+            ? "You have to complete correctly all fields before login"
+            : "Vous devez compléter correctement tous les champs pour vous connecter";
         }
-        this.error = 
-         this.langSelected === "EN"
-              ? "You have to complete all fields before login"
-              : "Vous devez compléter tous les champs avant de vous connecter";
-      });
-    },
+      }, 
+
     forgot(){
         this.$emit("forgetModal");
           this.$parent.close();

@@ -27,7 +27,7 @@
                              <b-input v-model="password" v-validate="'required'" data-vv-name="password"  name="password" type="password" password-reveal placeholder="●●●●●●●"></b-input>
                              </b-field>
                             <span v-show="errors.has('password')" class="help is-danger"><i v-show="errors.has('password')" class="fa fa-warning"></i> {{ errors.first('password') }}</span>
-                        
+
                              <b-field v-if="langSelected==='EN'" label="Confirm Password">
                              <b-input  v-model="passwordConfirmation" v-validate="'required|confirmed:password'" data-vv-name="passwordConfirmation" name="passwordConfirmation" type="password" password-reveal  placeholder="●●●●●●●" data-vv-as="password"></b-input>
                              </b-field>
@@ -36,18 +36,18 @@
                              </b-field>
                              <span v-show="errors.has('passwordConfirmation')" class="help is-danger"><i v-show="errors.has('passwordConfirmation')" class="fa fa-warning"></i> {{ errors.first('passwordConfirmation') }}</span>
 
-                                    
+
                                     <p class="control login">
                                         <button @click="send()" v-if="langSelected==='FR'" class="button is-success is-outlined is-large is-fullwidth">Réinitialiser mon mot de passe</button>
                                         <button @click="send()" v-else class="button is-success is-outlined is-large is-fullwidth">Reset my password</button>
                                     </p>
                                     </div>
-                </div>                    
+                </div>
             </div>
         </div>
 
         <b-modal :active.sync="isLoginModalActive" :width="640">
-          <login-modal :reset="reset" :langSelected="langSelected" :username="username" :autenticate="autenticate"  @closeLoginModal="closeLoginModal()"></login-modal>
+          <login-modal :langSelected="langSelected" :username="username" :autenticate="autenticate"  @closeLoginModal="closeLoginModal()"></login-modal>
         </b-modal>
     </section>
 </template>
@@ -61,19 +61,18 @@ export default {
   data() {
     return {
       isLoginModalActive: false,
-      reset:"",
-      password: "",
-      passwordConfirmation:"",
-      error: "",
-      userId: "",
-      username:"",
-      email:"",
-      autenticate:""
+      password: null,
+      passwordConfirmation: null,
+      error: null,
+      userId: null,
+      email: null,
+      username: null,
+      autenticate:null
     };
   },
    components: {
     LoginModal,
-   }
+   },
   props: {
     langSelected: String
   },
@@ -82,24 +81,25 @@ export default {
       this.$validator.validateAll().then((result) => {
       if (result) {
       resetMyPassword(this.userId, this.password)
-        .then(r => {
-          this.error = "";
-          this.username = username;
-          this.email = email;
-          this.reset= "ok";
-          let mail = this.email;
+        .then(response => {
+            console.log("response", response)
+          this.error = null;
+          this.username = response.username;
+          this.email =response.email;
+          let mail = response.email;
           let pass = this.password;
-          this.authenticate = { mail, pass };
+          this.autenticate = { mail, pass };
           this.isLoginModalActive= true
         })
         .catch(err => {
           this.error = err;
         });
+        }else{
+        this.error =
+          this.langSelected === "EN"
+            ? "You have to complete correctly all fields before submit"
+            : "Vous devez compléter correctement tous les champs pour réinitialiser votre mot de passe";
         }
-        this.error = 
-         this.langSelected === "EN"
-              ? "You have to complete correctly all fields before submit"
-              : "Vous devez compléter correctement tous les champs pour réinitialiser votre mot de passe";
       });
     }
   },

@@ -40,10 +40,6 @@ followerController.post(
     const user = req.user;
     const insiderId = req.params.id;
 
-    console.log("req.boby", req.body);
-    console.log("insiderId", req.body.insider);
-    console.log("USER ID", user.id + user.username);
-
     // GAMIFICATION => Add 20 points per people that follow you
     User.findByIdAndUpdate(insiderId, {
       $inc: { score: 20, nbFollower: 1 }
@@ -52,7 +48,6 @@ followerController.post(
     User.findByIdAndUpdate(user._id, {
       $addToSet: { following: insiderId }
     }).then(resp => {
-      console.log("RESP", resp);
       return res.json(user);
     });
   }

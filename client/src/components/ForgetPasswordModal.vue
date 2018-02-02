@@ -74,12 +74,13 @@ export default {
         .catch(err => {
           this.error = err;
         });
-        }
+        } else{
         this.username = null;
         this.error = 
          this.langSelected === "EN"
               ? "You have to complete the email field"
               : "Vous devez renseigner votre email";
+        }
       });
     }
   }

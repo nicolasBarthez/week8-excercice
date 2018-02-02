@@ -72,7 +72,7 @@ dashboardsController.get(
       if (err) res.json(null);
       let userInfo = {
         username: us.username,
-        following: us.following,
+
         picProfile: us.picProfile,
         location: us.location,
         skills: us.skills,
@@ -428,7 +428,6 @@ dashboardsController.get(
   (req, res, next) => {
     const user = req.user;
     const userId = req.params.id;
-    console.log("userId", userId);
 
     User.findById(userId).exec((err, us) => {
       if (!us || us == null) {
@@ -437,7 +436,6 @@ dashboardsController.get(
         let userInfo = {
           userId: us._id,
           username: us.username,
-          following: us.following,
           picProfile: us.picProfile,
           location: us.location,
           skills: us.skills,

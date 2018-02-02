@@ -76,10 +76,54 @@ adminController.delete(
     const user = req.user;
     const userId = req.params.id;
 
-    User.findByIdAndRemove(userId).exec((err, resp) => {
-      if (err) res.json(err);
-      return res.json(resp);
-    });
+    // Remove all babbles of the users
+    Babble.find({
+      user: userId
+    })
+      .remove()
+      .exec((err, resp) => {
+        if (err) res.json(err);
+        console.log("babbles removed");
+        // Remove all watchItems
+        WatchItem.find({
+          userId: userId
+        })
+          .remove()
+          .exec((err, resp) => {
+            if (err) res.json(err);
+            console.log("watchItems removed");
+
+            // Remove from following list of other followers
+            User.find({
+              following: userId
+            }).exec((err, followers) => {
+              if (followers.length > 0) {
+                followers.forEach(follower => {
+                  User.findByIdAndUpdate(follower._id, {
+                    $pull: { following: userId }
+                  }).then(resp => {
+                    console.log("Followers removed");
+                    console.log("userId", userId);
+
+                    // Remove the user
+                    User.findByIdAndRemove(userId).exec((err, resp) => {
+                      if (err) console.log(err);
+                      console.log("User removed");
+                      return res.json(resp);
+                    });
+                  });
+                });
+              } else {
+                // Remove the user
+                User.findByIdAndRemove(userId).exec((err, resp) => {
+                  if (err) console.log(err);
+                  console.log("User removed");
+                  return res.json(resp);
+                });
+              }
+            });
+          });
+      });
   }
 );
 

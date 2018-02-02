@@ -328,6 +328,7 @@ export default {
     deleteStock(stock) {
       stockDelete(stock._id)
         .then(data => {
+          console.log("data", data);
           getAllStocks().then(stocks => {
             if (stocks === "unauthorized") {
               this.$router.push("/404");
