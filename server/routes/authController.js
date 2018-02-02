@@ -150,9 +150,8 @@ router.post("/login", (req, res, next) => {
 router.post("/forgot_password", function(req, res, next) {
   const email = req.body.email;
   console.log("email", email);
-  User.findOne({ email: email }, (err, user) => {
-    console.log("user", user);
 
+  User.findOne({ email: email }, (err, user) => {
     if (err) return next(err);
     if (!user) {
       res.json("no user");
@@ -213,9 +212,41 @@ router.post("/forgot_password", function(req, res, next) {
           // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
         });
       });
-      console.log("userid", user._id);
+      res.json(user.username);
+    }
+  });
+});
+
+router.get("/new_password", function(req, res, next) {
+  const userId = req.body.userId;
+
+  User.findByIdAndUpdate(userId, (err, user) => {
+    if (err) return next(err);
+    if (!user) {
+      res.json("no user");
+    } else {
       res.json(user._id);
     }
+  });
+});
+
+router.post("/new_password/:id", function(req, res, next) {
+  const userId = req.params.id;
+  const password = req.body.password;
+
+  User.findById(userId, function(err, user) {
+    user.setPassword(password, function(err) {
+      if (err) {
+        return next(err);
+      }
+      user.save(function(err) {
+        if (err) {
+          return next(err);
+        } else {
+          res.json({ success: true });
+        }
+      });
+    });
   });
 });
 

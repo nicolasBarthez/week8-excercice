@@ -44,9 +44,9 @@ import { sendForgetPassword } from "@/api/auth";
 export default {
   data() {
     return {
-      email:"",
+      email: "",
       error: null,
-      username:""
+      username: ""
     };
   },
   props: {
@@ -55,11 +55,12 @@ export default {
   methods: {
     send() {
       this.error = null;
-     sendForgetPassword(this.email)
-        .then(username => {this.username = username;          
+      sendForgetPassword(this.email)
+        .then(username => {
+          this.username = username;
         })
         .catch(err => {
-          this.error = err
+          this.error = err;
         });
     }
   }
