@@ -59,6 +59,7 @@ export default {
       passwordConfirmation: "",
       error: "",
       userId: "",
+      email: "",
       username: ""
     };
   },
@@ -71,10 +72,11 @@ export default {
         console.log("result", result);
         if (result) {
           resetMyPassword(this.userId, this.password)
-            .then(username => {
-              console.log("username", username);
+            .then(response => {
+              console.log("response", response);
               this.error = "";
-              this.username = username;
+              this.username = response.username;
+              this.email = response.email;
             })
             .catch(err => {
               this.error = err;

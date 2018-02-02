@@ -297,7 +297,7 @@ router.post("/new_password/:id", function(req, res, next) {
                 "Preview URL: %s",
                 nodemailer.getTestMessageUrl(info)
               );
-              res.json({ success: true });
+              res.json({ username: user.username, email: user.email });
 
               // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
               // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
