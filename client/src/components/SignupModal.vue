@@ -84,9 +84,10 @@ export default {
   },
   methods: {
     signup() {
-      this.error = null;
+      
       this.$validator.validateAll().then((result) => {
       if (result) {
+          this.error = null;
       signup({
         email: this.email,
         username: this.username,
@@ -113,8 +114,8 @@ export default {
       }
         this.error = 
          this.langSelected === "EN"
-              ? "You have to complete all fields before submit"
-              : "Vous devez compléter tous les champs avant de vous inscrire";
+              ? "You have to complete correctly all fields before submit"
+              : "Vous devez compléter tous les champs correctement avant de vous inscrire";
       });
     }
     ,

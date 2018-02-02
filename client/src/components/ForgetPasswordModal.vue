@@ -64,10 +64,9 @@ export default {
   },
   methods: {
     send() {
-     
-      
       this.$validator.validateAll().then((result) => {
        if (result) {
+           this.error = null;
       sendForgetPassword(this.email)
         .then(username => {
           this.username = username;
@@ -77,7 +76,6 @@ export default {
         });
         }
         this.username = null;
-        this.error = null;
         this.error = 
          this.langSelected === "EN"
               ? "You have to complete the email field"
@@ -111,11 +109,11 @@ img{
 }
 .hero.is-fullheight {
     min-height: 70vh!important;
-    align-item: baseline !important
+    align-items: baseline !important
 }
 .hero-body{
     padding: 1rem 1.5rem!important;
-    align-item: baseline !important
+    align-items: baseline !important
 }
   .hero.is-dark.is-bold {
     background-image: linear-gradient( 141deg, #f9f9f9 0, #f9f9f9 71%, #f9f9f9 100%) !important;

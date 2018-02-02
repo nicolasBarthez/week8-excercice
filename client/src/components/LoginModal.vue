@@ -56,9 +56,9 @@ export default {
   },
   methods: {
     login() {
-      this.error = null;
       this.$validator.validateAll().then((result) => {
        if (result) {
+           this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
           this.$router.push("/trending");
