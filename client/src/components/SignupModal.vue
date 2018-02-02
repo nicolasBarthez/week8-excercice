@@ -84,10 +84,9 @@ export default {
   },
   methods: {
     signup() {
-      
+      this.error = null;
       this.$validator.validateAll().then((result) => {
       if (result) {
-          this.error = null;
       signup({
         email: this.email,
         username: this.username,

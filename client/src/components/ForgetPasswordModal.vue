@@ -64,9 +64,9 @@ export default {
   },
   methods: {
     send() {
+        this.error = null;
       this.$validator.validateAll().then((result) => {
        if (result) {
-           this.error = null;
       sendForgetPassword(this.email)
         .then(username => {
           this.username = username;

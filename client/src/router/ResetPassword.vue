@@ -78,12 +78,11 @@ export default {
   },
   methods: {
     send() {
+        this.error = null;
       this.$validator.validateAll().then((result) => {
       if (result) {
       resetMyPassword(this.userId, this.password)
         .then(response => {
-            console.log("response", response)
-          this.error = null;
           this.username = response.username;
           this.email =response.email;
           let mail = response.email;

@@ -66,11 +66,10 @@ export default {
   },
   methods: {
     login() {
+        this.error = null;
         if(this.email && this.password){
-            this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
-            
           this.$router.push("/trending");
           document.documentElement.className = document.documentElement.className.replace(
             "is-clipped",
