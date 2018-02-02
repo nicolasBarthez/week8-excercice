@@ -45,37 +45,52 @@
                 </div>                    
             </div>
         </div>
+
+        <b-modal :active.sync="isLoginModalActive" :width="640">
+          <login-modal :reset="reset" :langSelected="langSelected" :username="username" :autenticate="autenticate"  @closeLoginModal="closeLoginModal()"></login-modal>
+        </b-modal>
     </section>
 </template>
 
 
 <script>
 import { resetMyPassword } from "@/api/auth";
+import LoginModal from "@/components/LoginModal";
 
 export default {
   data() {
     return {
+      isLoginModalActive: false,
+      reset:"",
       password: "",
       passwordConfirmation:"",
       error: "",
       userId: "",
-      username:""
+      username:"",
+      email:"",
+      autenticate:""
     };
   },
+   components: {
+    LoginModal,
+   }
   props: {
     langSelected: String
   },
   methods: {
     send() {
       this.$validator.validateAll().then((result) => {
-          console.log("result", result)
       if (result) {
-          
       resetMyPassword(this.userId, this.password)
-      
-        .then(username => {
-            this.error = "";
+        .then(r => {
+          this.error = "";
           this.username = username;
+          this.email = email;
+          this.reset= "ok";
+          let mail = this.email;
+          let pass = this.password;
+          this.authenticate = { mail, pass };
+          this.isLoginModalActive= true
         })
         .catch(err => {
           this.error = err;
