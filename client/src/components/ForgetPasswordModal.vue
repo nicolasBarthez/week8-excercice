@@ -24,12 +24,12 @@
                                 <b-notification  v-else-if="username && langSelected==='FR'" type="is-danger" has-icon>
                                  Verifiez votre boite mail, un lien de réinitialisation vient de vous etre envoyé !
                                 </b-notification>
-                                    <b-field label="Your Email">
+                                    <b-field :label="langSelected==='EN'? 'Your email':'Votre email'">
                                         <b-input v-model="email" placeholder="wbuffet@insiders.finance" type="email" icon-pack="fa" icon="envelope">
                                         </b-input>
                                     </b-field>
                                     <p class="control login">
-                                        <button @click="send()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Envoyez le lien de réinitialisation</button>
+                                        <button @click="send()" v-if="langSelected==='FR'" class="button is-success is-outlined is-large is-fullwidth">Envoyez le lien de réinitialisation</button>
                                         <button @click="send()" v-else class="button is-success is-outlined is-large is-fullwidth">Send reset link</button>
                                     </p>
                    </div>
