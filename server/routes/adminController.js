@@ -97,20 +97,30 @@ adminController.delete(
             User.find({
               following: userId
             }).exec((err, followers) => {
-              followers.forEach(follower => {
-                User.findByIdAndUpdate(follower._id, {
-                  $pull: { following: userId }
-                }).then(resp => {
-                  console.log("Followers removed");
+              if (followers.length > 0) {
+                followers.forEach(follower => {
+                  User.findByIdAndUpdate(follower._id, {
+                    $pull: { following: userId }
+                  }).then(resp => {
+                    console.log("Followers removed");
+                    console.log("userId", userId);
 
-                  // Remove the user
-                  User.findByIdAndRemove(userId).exec((err, resp) => {
-                    if (err) res.json(err);
-                    console.log("User removed");
-                    return res.json(resp);
+                    // Remove the user
+                    User.findByIdAndRemove(userId).exec((err, resp) => {
+                      if (err) console.log(err);
+                      console.log("User removed");
+                      return res.json(resp);
+                    });
                   });
                 });
-              });
+              } else {
+                // Remove the user
+                User.findByIdAndRemove(userId).exec((err, resp) => {
+                  if (err) console.log(err);
+                  console.log("User removed");
+                  return res.json(resp);
+                });
+              }
             });
           });
       });
