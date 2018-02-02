@@ -27,7 +27,7 @@
                              <b-input v-model="password" v-validate="'required'" data-vv-name="password"  name="password" type="password" password-reveal placeholder="●●●●●●●"></b-input>
                              </b-field>
                             <span v-show="errors.has('password')" class="help is-danger"><i v-show="errors.has('password')" class="fa fa-warning"></i> {{ errors.first('password') }}</span>
-                        
+
                              <b-field v-if="langSelected==='EN'" label="Confirm Password">
                              <b-input  v-model="passwordConfirmation" v-validate="'required|confirmed:password'" data-vv-name="passwordConfirmation" name="passwordConfirmation" type="password" password-reveal  placeholder="●●●●●●●" data-vv-as="password"></b-input>
                              </b-field>
@@ -36,13 +36,13 @@
                              </b-field>
                              <span v-show="errors.has('passwordConfirmation')" class="help is-danger"><i v-show="errors.has('passwordConfirmation')" class="fa fa-warning"></i> {{ errors.first('passwordConfirmation') }}</span>
 
-                                    
+
                                     <p class="control login">
                                         <button @click="send()" v-if="langSelected==='FR'" class="button is-success is-outlined is-large is-fullwidth">Réinitialiser mon mot de passe</button>
                                         <button @click="send()" v-else class="button is-success is-outlined is-large is-fullwidth">Reset my password</button>
                                     </p>
                                     </div>
-                </div>                    
+                </div>
             </div>
         </div>
     </section>
@@ -56,10 +56,10 @@ export default {
   data() {
     return {
       password: "",
-      passwordConfirmation:"",
+      passwordConfirmation: "",
       error: "",
       userId: "",
-      username:""
+      username: ""
     };
   },
   props: {
@@ -67,24 +67,23 @@ export default {
   },
   methods: {
     send() {
-      this.$validator.validateAll().then((result) => {
-          console.log("result", result)
-      if (result) {
-          
-      resetMyPassword(this.userId, this.password)
-      
-        .then(username => {
-            this.error = "";
-          this.username = username;
-        })
-        .catch(err => {
-          this.error = err;
-        });
+      this.$validator.validateAll().then(result => {
+        console.log("result", result);
+        if (result) {
+          resetMyPassword(this.userId, this.password)
+            .then(username => {
+              console.log("username", username);
+              this.error = "";
+              this.username = username;
+            })
+            .catch(err => {
+              this.error = err;
+            });
         }
-        this.error = 
-         this.langSelected === "EN"
-              ? "You have to complete correctly all fields before submit"
-              : "Vous devez compléter correctement tous les champs pour réinitialiser votre mot de passe";
+        this.error =
+          this.langSelected === "EN"
+            ? "You have to complete correctly all fields before submit"
+            : "Vous devez compléter correctement tous les champs pour réinitialiser votre mot de passe";
       });
     }
   },
