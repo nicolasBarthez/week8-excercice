@@ -4,52 +4,53 @@
 
                 <div class="columns is-vcentered">
                     <div class="column is-8 is-offset-2">
+                    <form @submit.prevent="signup">
                         <h1 v-if="langSelected==='EN'" class="title">Become an insider</h1>
                         <h1 v-else class="title">Devenir un insider</h1>
                         <b-notification v-if="error" type="is-danger" has-icon>
                             {{error}}
                         </b-notification>
-                         <div class="box">
-                            <b-field v-if="langSelected==='EN'"  label="Username" maxlength="10">
-                             <b-input v-model="username" ></b-input>
+                         
+                          
+                            <b-field v-if="langSelected==='EN'" label="Username" maxlength="10">
+                             <b-input v-model="username" v-validate="{required: true}" name="username" type="username" placeholder="Warren" ></b-input>
                             </b-field>
                             <b-field v-else label="Nom d'utilisateur" maxlength="10">
-                             <b-input v-model="username" ></b-input>
+                             <b-input v-model="username" v-validate="{required: true}" name="username" type="username" placeholder="Warren"></b-input>
                             </b-field>
+                           <span v-show="errors.has('username')" class="help is-danger"><i v-show="errors.has('username')" class="fa fa-warning"></i> {{ errors.first('username') }}</span>
+                        
                             <b-field label="Email">
-                             <b-input v-model="email" type="email"></b-input>
+                             <b-input v-model="email" v-validate="{required: true}" name="email" type="email" icon-pack="fa" placeholder="wbuffet@insiders.finance" icon="envelope" ></b-input>
                             </b-field>
+                             <span v-show="errors.has('email')" class="help is-danger"><i v-show="errors.has('email')" class="fa fa-warning"></i> {{ errors.first('email') }}</span>
                             <hr>
 
                              <b-field v-if="langSelected==='EN'" label="Password">
-                             <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
+                             <b-input v-model="password" v-validate="'required'" data-vv-name="password" name="password" type="password" password-reveal placeholder="●●●●●●●"> </b-input>
                              </b-field>
                              <b-field v-else label="Mot de passe">
-                             <b-input v-model="password"  v-validate="'required'" name="password" type="password" placeholder="Password"></b-input>
+                             <b-input v-model="password" v-validate="'required'" data-vv-name="password"  name="password" type="password" password-reveal placeholder="●●●●●●●"></b-input>
                              </b-field>
+                            <span v-show="errors.has('password')" class="help is-danger"><i v-show="errors.has('password')" class="fa fa-warning"></i> {{ errors.first('password') }}</span>
+                        
                              <b-field v-if="langSelected==='EN'" label="Confirm Password">
-                             <b-input  v-validate="'confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
+                             <b-input  v-model="passwordConfirmation" v-validate="'required|confirmed:password'" data-vv-name="passwordConfirmation" name="passwordConfirmation" type="password" password-reveal  placeholder="●●●●●●●" data-vv-as="password"></b-input>
                              </b-field>
                              <b-field v-else label="Confirmez votre mot de passe">
-                             <b-input  v-validate="'confirmed:password'" name="password_confirmation" type="password" placeholder="Password" data-vv-as="password"></b-input>
+                             <b-input  v-model="passwordConfirmation" v-validate="'required|confirmed:password'" data-vv-name="passwordConfirmation" name="passwordConfirmation" type="password" password-reveal  placeholder="●●●●●●●" data-vv-as="password"></b-input>
                              </b-field>
-
-                        <div class="error-message" v-show="errors.any()">
-                            <div v-if="errors.has('password')">
-                             {{ errors.first('password') }}
-                            </div>
-                            <div v-if="errors.has('password_confirmation')">
-                             {{ errors.first('password_confirmation') }}
-                            </div>
-                        </div>
+                             <span v-show="errors.has('passwordConfirmation')" class="help is-danger"><i v-show="errors.has('passwordConfirmation')" class="fa fa-warning"></i> {{ errors.first('passwordConfirmation') }}</span>
 
                             <hr>
                             <p class="control">
-                             <button v-if="langSelected==='EN'" class="button is-primary"@click="signup()">Register</button>
-                             <button v-else class="button is-primary" @click="signup()">Inscription</button>
+                             <button v-if="langSelected==='EN'" class="button is-primary">Register</button>
+                             <button v-else class="button is-primary" >Inscription</button>
                              <button v-if="langSelected==='EN'" class="button is-default"@click="$parent.close()">Cancel</button>
                              <button v-else class="button is-default" @click="$parent.close()">Annuler</button>
-                            </p>
+                            
+                             </p>
+                            
                             <hr>
                             <p class="control">
                                 <p class="has-text-blue" v-if="langSelected==='EN'" >Already an Insider ?</p>
@@ -57,9 +58,10 @@
                              <button v-if="langSelected==='EN'" class="button is-default" @click="loggin()">Login</button>
                              <button v-else class="button is-default" @click="loggin()">Se connecter</button>
                             </p>
-                          </div>
-                    </div>
+                        
+                   </form>
                 </div>
+            </div>
         </div>
     </section>
 </template>
@@ -72,6 +74,7 @@ export default {
     return {
       username: "",
       password: "",
+      passwordConfirmation:"",
       email: "",
       error: null
     };
@@ -81,7 +84,10 @@ export default {
   },
   methods: {
     signup() {
-      this.error = null;
+      
+      this.$validator.validateAll().then((result) => {
+      if (result) {
+          this.error = null;
       signup({
         email: this.email,
         username: this.username,
@@ -99,9 +105,20 @@ export default {
         document.getElementsById("html").removeAttribute("is-clipped")
         })
         .catch(err => {
-          this.error = "Cette adresse e-mail est deja enregistrée. Veuillez vous connecter pour acceder à votre compte.";
+            {{langSelected==="EN"?'Share an image':'Partager une image'}}
+          this.error = 
+          this.langSelected === "EN"
+              ? "Username or email is already registered. Please connect to access to your account."
+              : "Cette adresse e-mail ou ce nom est deja enregistré(e). Veuillez vous connecter pour acceder à votre compte.";
         });
-    },
+      }
+        this.error = 
+         this.langSelected === "EN"
+              ? "You have to complete correctly all fields before submit"
+              : "Vous devez compléter tous les champs correctement avant de vous inscrire";
+      });
+    }
+    ,
     loggin(){
         this.$emit("loginModal");
           this.$parent.close();

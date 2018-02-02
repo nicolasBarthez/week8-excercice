@@ -11,15 +11,15 @@
                                     {{error}}
                                 </b-notification>
                                     <b-field label="Email">
-                                        <b-input v-model="email" placeholder="wbuffet@insiders.finance" type="email" icon-pack="fa" icon="envelope">
+                                        <b-input v-model="email" v-validate="{required: true}" placeholder="wbuffet@insiders.finance" type="email" icon-pack="fa" icon="envelope">
                                         </b-input>
                                     </b-field>
                                     <b-field v-if="langSelected==='EN'" label="Password">
-                                        <b-input type="password" v-model="password" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
+                                        <b-input type="password" v-model="password" v-validate="{required: true}" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
                                         </b-input>
                                     </b-field>
                                     <b-field v-else label="Mot de passe">
-                                        <b-input type="password" v-model="password" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
+                                        <b-input type="password" v-model="password" v-validate="{required: true}" password-reveal value="iwantmytreasure" placeholder="●●●●●●●">
                                         </b-input>
                                     </b-field>
 
@@ -27,8 +27,8 @@
                                         <button @click="login()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Login</button>
                                         <button @click="login()" v-else class="button is-success is-outlined is-large is-fullwidth">Connexion</button>
                                     </p>
-                                    <p @click="forgot" v-if="langSelected==='EN'">Forgot Password</p>
-                                    <p @click="forgot" v-else> Mot de passe oublié</p>
+                                    <p @click="forgot" class="forget" v-if="langSelected==='EN'">Forgot Password</p>
+                                    <p @click="forgot" class="forget" v-else> Mot de passe oublié</p>
                    </div>
                 </div>
             </section>
@@ -56,7 +56,9 @@ export default {
   },
   methods: {
     login() {
-      this.error = null;
+      this.$validator.validateAll().then((result) => {
+       if (result) {
+           this.error = null;
       login(this.email, this.password, this.$root)
         .then(data => {
           this.$router.push("/trending");
@@ -72,6 +74,12 @@ export default {
               ? "Password or email is incorrect"
               : "Mot de passe ou email incorrect";
         });
+        }
+        this.error = 
+         this.langSelected === "EN"
+              ? "You have to complete all fields before login"
+              : "Vous devez compléter tous les champs avant de vous connecter";
+      });
     },
     forgot(){
         this.$emit("forgetModal");
@@ -82,6 +90,9 @@ export default {
 </script>
 
 <style scoped>
+.forget{
+    cursor:pointer
+}
 #modalAuth{
     border-radius:5px;
     BACKGROUND-COLOR: #F9F9F9;
@@ -161,8 +172,8 @@ a{
         height:2.75em!important
     }
     .section {
-    padding:5px!important;
-    padding-top: 1.5rem!important;
+        padding:5px!important;
+        padding-top: 1.5rem!important;
     }
 }
 </style>
