@@ -34,7 +34,7 @@
                                         <button @click="login()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Login</button>
                                         <button @click="login()" v-else class="button is-success is-outlined is-large is-fullwidth">Connexion</button>
                                     </p>
-                                    <div v-if="!username">
+                                    <div v-if="!autenticate">
                                     <p @click="forgot" class="forget" v-if="langSelected==='EN'">Forgot Password</p>
                                     <p @click="forgot" class="forget" v-else> Mot de passe oublié</p>
                                     </div>

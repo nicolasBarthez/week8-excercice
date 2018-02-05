@@ -1,5 +1,5 @@
 <template>
-    <section id="modalAuth" class="hero is-fullheight is-dark is-bold">
+    <section v-if="langSelected" id="modalAuth" class="hero is-fullheight is-dark is-bold">
         <div class="hero-body">
 
                 <div class="columns is-vcentered">
@@ -80,7 +80,7 @@ export default {
     };
   },
   props: {
-    langSelected: String
+    langSelected: ""
   },
   methods: {
     signup() {
@@ -104,7 +104,6 @@ export default {
         document.getElementsById("html").removeAttribute("is-clipped")
         })
         .catch(err => {
-            {{langSelected==="EN"?'Share an image':'Partager une image'}}
           this.error = 
           this.langSelected === "EN"
               ? "Username or email is already registered. Please connect to access to your account."

@@ -8,7 +8,9 @@
   </div>
   <div>
     <div class="logo">
+       <router-link to="/stream">
       <img src="/static/images/landing/logo-landing.svg">
+       </router-link>
     </div>
   </div>
     <div class="accroche">
