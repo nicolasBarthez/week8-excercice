@@ -25,7 +25,8 @@ router.post("/signup", (req, res, next) => {
 
   User.register(user, password, err => {
     if (err) {
-      return next(err);
+      console.log("err", err.name);
+      return res.json(err.name);
     }
 
     // Send an email to the new users
