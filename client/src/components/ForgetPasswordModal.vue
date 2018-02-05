@@ -90,6 +90,7 @@ export default {
 <style scoped>
 img{
     margin-top: 1REM;
+    margin-left: 30%
 }
 .section{
     padding-top: 0rem!important;
@@ -171,6 +172,9 @@ p {
 
 
 @media (max-width: 768px) {
+    img{
+    margin-left: 0%
+    }
     .column.is-8{
         width:90% !important
     }

@@ -58,7 +58,6 @@
                              <button v-if="langSelected==='EN'" class="button is-default" @click="loggin()">Login</button>
                              <button v-else class="button is-default" @click="loggin()">Se connecter</button>
                             </p>
-                        
                    </form>
                 </div>
             </div>
@@ -94,20 +93,26 @@ export default {
         lang: this.langSelected
       })
         .then(r => {
+            if(r==="MongoError"){
+                this.error = 
+                this.langSelected === "EN"
+                ?"Username is already registered. Please choose another Username."
+                : "Ce nom d'utilisateur est pris. Veuillez en choisir un autre."
+            } else if (r==="UserExistsError"){
+                this.error = 
+                 this.langSelected === "EN"
+                ?"There is already an account with this email. Please connect to access to your account."
+                :"Cette adresse e-mail est deja enregistrée. Veuillez vous connecter pour acceder à votre compte."
+            } else{
           let mail = this.email;
           let pass = this.password;
           let authenticate = { mail, pass };
           this.$emit("loginModal", authenticate);
           this.$parent.close();
-        })
-        .then(() => {
-        document.getElementsById("html").removeAttribute("is-clipped")
+            }
         })
         .catch(err => {
-          this.error = 
-          this.langSelected === "EN"
-              ? "Username or email is already registered. Please connect to access to your account."
-              : "Cette adresse e-mail ou ce nom est deja enregistré(e). Veuillez vous connecter pour acceder à votre compte.";
+          this.error = err
         });
       } else{
         this.error = 
@@ -116,8 +121,7 @@ export default {
               : "Vous devez compléter tous les champs correctement avant de vous inscrire";
       } 
      });
-    }
-    ,
+    },
     loggin(){
         this.$emit("loginModal");
           this.$parent.close();

@@ -26,32 +26,38 @@
             </div>
         </div>
     </div>
-    <!-- SIGN UP MODAL -->
-    <b-modal :active.sync="isSignupModalActive" :width="640">
-      <signup-modal @loginModal.capture="LoginModal($event)"></signup-modal>
-    </b-modal>
+     <!-- SIGN UP MODAL -->
+        <b-modal :active.sync="isSignupModalActive" :width="640">
+          <signup-modal :langSelected="langSelected" @loginModal="LoginModal" @loginModal.capture="LoginModal($event)"></signup-modal>
+        </b-modal>
 
-    <!-- LOG IN MODAL -->
-    <b-modal :active.sync="isLoginModalActive" :width="640">
-      <login-modal :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
-    </b-modal>
+        <!-- LOG IN MODAL -->
+        <b-modal :active.sync="isLoginModalActive" :width="640">
+          <login-modal :langSelected="langSelected" :autenticate="autenticate" @forgetModal="forgetModal()" @closeLoginModal="closeLoginModal()"></login-modal>
+        </b-modal>
+         <b-modal :active.sync="isForgetModalActive" :width="640">
+          <forget-password-modal :langSelected="langSelected"></forget-password-modal>
+        </b-modal>
  </div>
 </template>
 
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
+import ForgetPasswordModal from "@/components/ForgetPasswordModal";
 
 export default {
   components: {
     SignupModal,
-    LoginModal
+    LoginModal,
+    ForgetPasswordModal,
   },
 
   data() {
     return {
       isSignupModalActive: false,
       isLoginModalActive: false,
+      isForgetModalActive: false,
       autenticate: ""
     };
   },
@@ -72,6 +78,9 @@ export default {
     },
     closeLoginModal() {
       this.isLoginModalActive = false;
+    },
+    forgetModal(){
+      this.isForgetModalActive=true;
     }
   }
 };

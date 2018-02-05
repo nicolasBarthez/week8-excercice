@@ -121,12 +121,9 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
 </footer>
   </section>
 
-
-
-
         <!-- SIGN UP MODAL -->
         <b-modal :active.sync="isSignupModalActive" :width="640">
-          <signup-modal :langSelected="langSelected" @loginModal.capture="LoginModal($event)"></signup-modal>
+          <signup-modal :langSelected="langSelected" @loginModal="LoginModal" @loginModal.capture="LoginModal($event)"></signup-modal>
         </b-modal>
 
         <!-- LOG IN MODAL -->
@@ -136,8 +133,6 @@ L'avenir de l'investissement est social. Connectez-vous avec d'autres investisse
          <b-modal :active.sync="isForgetModalActive" :width="640">
           <forget-password-modal :langSelected="langSelected"></forget-password-modal>
         </b-modal>
-      </div>
-    </div>
 
     </section>
 </template>

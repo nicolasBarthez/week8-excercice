@@ -34,7 +34,7 @@
                                         <button @click="login()" v-if="langSelected==='EN'" class="button is-success is-outlined is-large is-fullwidth">Login</button>
                                         <button @click="login()" v-else class="button is-success is-outlined is-large is-fullwidth">Connexion</button>
                                     </p>
-                                    <div v-if="!autenticate">
+                                    <div v-if="!username">
                                     <p @click="forgot" class="forget" v-if="langSelected==='EN'">Forgot Password</p>
                                     <p @click="forgot" class="forget" v-else> Mot de passe oublié</p>
                                     </div>
@@ -101,7 +101,8 @@ export default {
 
 <style scoped>
 .forget{
-    cursor:pointer
+    cursor:pointer;
+    color: #192b41;
 }
 #modalAuth{
     border-radius:5px;

@@ -2,7 +2,7 @@
   <nav class="nav has-shadow" id="top">
         <div id="top2">
             <div class="nav">
-                <router-link to="/stream" class="nav-item">
+                <router-link to="/" class="nav-item">
                     <img id="logo2" src="/static/images/logoReduct.png" alt="Description">
                     <img id="logo" src="/static/images/logo.png" alt="Description">
                 </router-link>
@@ -57,14 +57,17 @@
                 </div>
         </div>
         </div>
-          <!-- SIGN UP MODAL -->
+      <!-- SIGN UP MODAL -->
         <b-modal :active.sync="isSignupModalActive" :width="640">
-          <signup-modal :langSelected="langSelected" @loginModal.capture="LoginModal($event)"></signup-modal>
+          <signup-modal :langSelected="langSelected" @loginModal="LoginModal" @loginModal.capture="LoginModal($event)"></signup-modal>
         </b-modal>
 
         <!-- LOG IN MODAL -->
         <b-modal :active.sync="isLoginModalActive" :width="640">
-          <login-modal :langSelected="langSelected" :autenticate="autenticate" @closeLoginModal="closeLoginModal()"></login-modal>
+          <login-modal :langSelected="langSelected" :autenticate="autenticate" @forgetModal="forgetModal()" @closeLoginModal="closeLoginModal()"></login-modal>
+        </b-modal>
+         <b-modal :active.sync="isForgetModalActive" :width="640">
+          <forget-password-modal :langSelected="langSelected"></forget-password-modal>
         </b-modal>
     </nav>
     
@@ -73,12 +76,14 @@
 <script>
 import SignupModal from "@/components/SignupModal";
 import LoginModal from "@/components/LoginModal";
+import ForgetPasswordModal from "@/components/ForgetPasswordModal";
 import { getAllStocks } from "@/api/api";
 import { logout } from "@/api/auth";
 export default {
  components: {
     SignupModal,
     LoginModal,
+    ForgetPasswordModal,    
   },
   data() {
     return {
@@ -94,6 +99,7 @@ export default {
       closedState: true,
       isSignupModalActive: false,
       isLoginModalActive: false,
+      isForgetModalActive: false,
       autenticate: "",
     };
   },
@@ -110,6 +116,9 @@ export default {
       this.isSignupModalActive = false;
       this.autenticate = autenticate;
       this.isLoginModalActive = true;
+    },
+    forgetModal(){
+      this.isForgetModalActive=true;
     },
     closeLoginModal() {
       this.isLoginModalActive = false;
