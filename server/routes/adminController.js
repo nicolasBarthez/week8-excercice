@@ -223,10 +223,31 @@ adminController.delete(
     const user = req.user;
     const stockId = req.params.id;
 
-    Stock.findByIdAndRemove(stockId).exec((err, resp) => {
-      if (err) res.json(err);
-      return res.json(resp);
-    });
+    // Delete all babbles linked to the stock
+    Babble.find({
+      stockLink: stockId
+    })
+      .remove()
+      .exec((err, resp) => {
+        if (err) res.json(err);
+        console.log("babbles removed", resp);
+
+        // Remove all watchItems
+        WatchItem.find({
+          stockId: stockId
+        })
+          .remove()
+          .exec((err, resp) => {
+            if (err) res.json(err);
+            console.log("watchItems removed");
+
+            // Delete stocks
+            Stock.findByIdAndRemove(stockId).exec((err, resp) => {
+              if (err) res.json(err);
+              return res.json(resp);
+            });
+          });
+      });
   }
 );
 
