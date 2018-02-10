@@ -265,6 +265,7 @@ export default {
         "CAC40",
         "SBF120",
         "EURONEXT PARIS",
+        "RAW MATERIALS",
         "AUTRES"
       ],
       //end INDEX LIST

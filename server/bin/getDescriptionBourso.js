@@ -7,17 +7,17 @@ const axios = require("axios");
 const mongoose = require("mongoose");
 let url = "http://www.boursorama.com/bourse/profil/profil.phtml?symbole=1r";
 
-mongoose.connect(
-  "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
-);
+// mongoose.connect(
+//   "mongodb://heroku_7mw65z8c:94jfeq25dddc8ktr3u7psc5dru@ds137435.mlab.com:37435/heroku_7mw65z8c"
+// );
 
-// mongoose
-//   .connect(process.env.MONGODB_URI, {
-//     useMongoClient: true
-//   })
-//   .then(() => {
-//     console.info("The magic happens on port " + port);
-//   });
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useMongoClient: true
+  })
+  .then(() => {
+    console.info("The magic happens on port " + port);
+  });
 
 Stock.find({ index: "EURONEXT PARIS" }).exec((err, stocksSymbolePrice) => {
   if (err) console.log(err);

@@ -11,6 +11,9 @@ const stockSchema = new Schema(
     shortName: String,
     description: String,
     descriptionEng: String,
+    sector: {
+      type: [String]
+    },
     stockImg: String,
     symbolPrice: String,
     index: [String],
@@ -31,15 +34,24 @@ const stockSchema = new Schema(
       default: 1
     },
     volume: {
+      type: String,
+      default: 1
+    },
+    high: {
+      type: Number,
+      default: 1
+    },
+    low: {
       type: Number,
       default: 1
     },
     currency: {
       type: String,
-      default: "EUR"
+      default: ""
     },
     currency2: String,
-    scrapKey: String
+    scrapKey: String,
+    priceSource: String
   },
   {
     timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

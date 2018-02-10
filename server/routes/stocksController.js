@@ -7,12 +7,16 @@ const WatchItem = require("../models/watchitem");
 const passport = require("passport");
 const config = require("../config");
 const moment = require("moment");
-const scrapPrice = require("../config/scrapPrice");
-const updateBourso = require("../bin/getStocksPriceBourso");
-const getCryptoUpdate = require("../bin/getStocksPriceCurr");
-const scrapPriceCurrency = require("../config/scrapPriceCurrency");
-const updateIex = require("../bin/getStocksPriceIex");
-const wikipedia = require("wikipedia-js");
+// const scrapPrice = require("../config/scrapPrice");
+// const updateBourso = require("../bin/getStocksPriceBourso");
+// const getCryptoUpdate = require("../bin/getStocksPriceCurr");
+// const scrapPriceCurrency = require("../config/scrapPriceCurrency");
+// const updateIex = require("../bin/getStocksPriceIex");
+// const wikipedia = require("wikipedia-js");
+const coinmarket = require("../scraping/price/coinmarket");
+const { scrapEuronext } = require("../scraping/price/tradingsat");
+const { scrapCoinmarketCap } = require("../scraping/price/coinmarket");
+const { abcbourse } = require("../scraping/price/abcbourse");
 
 // **********************************************************
 // Send info about a stock  =================================
@@ -28,32 +32,25 @@ stocksController.get("/:stockName", function(req, res, next) {
     if (!stock || stock == null) {
       stock = "no stock";
     } else if (
-      stock.index.indexOf("EURONEXT PARIS") > -1 &&
+      stock.priceSource === "tradingsatEuronext" > -1 &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
     ) {
+      scrapEuronext();
       // scrapPrice(stock.scrapKey);
-      updateBourso();
+      // updateBourso();
     } else if (
-      stock.index.indexOf("CRYPTO") > -1 &&
+      stock.priceSource === "coinmarket" &&
       new Date() - stock.updated_at.getTime() > ONE_MIN
     ) {
-      scrapPriceCurrency(stock.symbolPrice);
-      getCryptoUpdate("CRYPTO");
+      scrapCoinmarketCap();
+      // scrapPriceCurrency(stock.symbolPrice);
+      // getCryptoUpdate("CRYPTO");
     } else if (
-      stock.index.indexOf("NASDAQ") > -1 &&
-      new Date() - stock.updated_at.getTime() > ONE_MIN
+      stock.priceSource === "abcbourse" &&
+      new Date() - stock.updated_at.getTime() > FIVE_MIN
     ) {
-      updateIex("NASDAQ");
-    } else if (
-      stock.index.indexOf("INDEX") > -1 &&
-      new Date() - stock.updated_at.getTime() > ONE_MIN
-    ) {
-      scrapPrice(stock.scrapKey);
-    } else if (
-      stock.index.indexOf("AUTRES") > -1 &&
-      new Date() - stock.updated_at.getTime() > ONE_MIN
-    ) {
-      scrapPrice(stock.scrapKey);
+      abcbourse(stock.shortName);
+      // updateIex("NASDAQ");
     }
     res.json(stock);
   });

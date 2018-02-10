@@ -230,7 +230,7 @@ adminController.delete(
       .remove()
       .exec((err, resp) => {
         if (err) res.json(err);
-        console.log("babbles removed", resp);
+        console.log("babbles removed");
 
         // Remove all watchItems
         WatchItem.find({
